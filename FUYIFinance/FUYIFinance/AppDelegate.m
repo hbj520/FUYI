@@ -4,7 +4,7 @@
 //
 //  Created by youyou on 16/6/6.
 //  Copyright © 2016年 youyou. All rights reserved.
-//
+//  富宜财经
 
 #import "AppDelegate.h"
 
