@@ -1,0 +1,29 @@
+{
+    "tabBarMenus":
+    [
+     {
+     "image":"homepagetab",
+     "select_image":"homepagetab_selected",
+     "title":"首页",
+     "storybordId":"homePageSB"
+     },
+     {
+     "image":"customerServicetab",
+     "select_image":"customerServicetab_selected",
+     "title":"客服",
+     "storybordId":"customerServiceSB"
+     },
+     {
+     "image":"shopCartab",
+     "select_image":"shopCartab_selected",
+     "title":"购物车",
+     "storybordId":"shopCarSB"
+     },
+     {
+     "image":"minetab",
+     "select_image":"minetab_selected",
+     "title":"我的",
+     "storybordId":"mineSB"
+     }
+     ],
+}

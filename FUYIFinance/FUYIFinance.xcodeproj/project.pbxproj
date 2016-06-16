@@ -16,6 +16,12 @@
 		AB708F991D0543BE007D0B4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB708F971D0543BE007D0B4D /* LaunchScreen.storyboard */; };
 		AB708FA41D0543BE007D0B4D /* FUYIFinanceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB708FA31D0543BE007D0B4D /* FUYIFinanceTests.m */; };
 		AB708FAF1D0543BE007D0B4D /* FUYIFinanceUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB708FAE1D0543BE007D0B4D /* FUYIFinanceUITests.m */; };
+		ABF5DE4A1D0FA58E007CE1AB /* HomeTabbars.json in Resources */ = {isa = PBXBuildFile; fileRef = ABF5DE491D0FA58E007CE1AB /* HomeTabbars.json */; };
+		ABF5DE4C1D0FA7B9007CE1AB /* HomePage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABF5DE4B1D0FA7B9007CE1AB /* HomePage.storyboard */; };
+		ABF5DE4E1D0FA7EB007CE1AB /* CustomerService.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABF5DE4D1D0FA7EB007CE1AB /* CustomerService.storyboard */; };
+		ABF5DE501D0FA7FC007CE1AB /* ShopCar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABF5DE4F1D0FA7FC007CE1AB /* ShopCar.storyboard */; };
+		ABF5DE521D0FA803007CE1AB /* Mine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABF5DE511D0FA803007CE1AB /* Mine.storyboard */; };
+		ABF5DE571D0FD930007CE1AB /* HomeTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF5DE561D0FD930007CE1AB /* HomeTabbarViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +45,8 @@
 		0925851C3756862A4A844B01 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB708F861D0543BE007D0B4D /* FUYIFinance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FUYIFinance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB708F8A1D0543BE007D0B4D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		AB708F8C1D0543BE007D0B4D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		AB708F8D1D0543BE007D0B4D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		AB708F8C1D0543BE007D0B4D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = FUYIFinance/AppDelegate.h; sourceTree = SOURCE_ROOT; };
+		AB708F8D1D0543BE007D0B4D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = FUYIFinance/AppDelegate.m; sourceTree = SOURCE_ROOT; };
 		AB708F8F1D0543BE007D0B4D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		AB708F901D0543BE007D0B4D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		AB708F931D0543BE007D0B4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -53,6 +59,13 @@
 		AB708FAA1D0543BE007D0B4D /* FUYIFinanceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FUYIFinanceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB708FAE1D0543BE007D0B4D /* FUYIFinanceUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FUYIFinanceUITests.m; sourceTree = "<group>"; };
 		AB708FB01D0543BE007D0B4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ABF5DE491D0FA58E007CE1AB /* HomeTabbars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HomeTabbars.json; sourceTree = "<group>"; };
+		ABF5DE4B1D0FA7B9007CE1AB /* HomePage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomePage.storyboard; sourceTree = "<group>"; };
+		ABF5DE4D1D0FA7EB007CE1AB /* CustomerService.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CustomerService.storyboard; sourceTree = "<group>"; };
+		ABF5DE4F1D0FA7FC007CE1AB /* ShopCar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ShopCar.storyboard; sourceTree = "<group>"; };
+		ABF5DE511D0FA803007CE1AB /* Mine.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Mine.storyboard; sourceTree = "<group>"; };
+		ABF5DE551D0FD930007CE1AB /* HomeTabbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTabbarViewController.h; sourceTree = "<group>"; };
+		ABF5DE561D0FD930007CE1AB /* HomeTabbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTabbarViewController.m; sourceTree = "<group>"; };
 		E2D217BF4D0AE0F6C9591577 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FB5E00328843A9E289111723 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,13 +138,17 @@
 		AB708F881D0543BE007D0B4D /* FUYIFinance */ = {
 			isa = PBXGroup;
 			children = (
-				AB708F8C1D0543BE007D0B4D /* AppDelegate.h */,
-				AB708F8D1D0543BE007D0B4D /* AppDelegate.m */,
+				ABF5DE331D0FA4B1007CE1AB /* AppDelegate */,
+				ABF5DE341D0FA4B1007CE1AB /* Controllers */,
+				ABF5DE391D0FA4B1007CE1AB /* Models */,
+				ABF5DE3E1D0FA4B1007CE1AB /* Plist */,
+				ABF5DE3F1D0FA4B1007CE1AB /* Resource */,
+				ABF5DE401D0FA4B1007CE1AB /* Util */,
+				ABF5DE411D0FA4B1007CE1AB /* Vendor */,
+				ABF5DE421D0FA4B1007CE1AB /* Views */,
 				AB708F8F1D0543BE007D0B4D /* ViewController.h */,
 				AB708F901D0543BE007D0B4D /* ViewController.m */,
-				AB708F921D0543BE007D0B4D /* Main.storyboard */,
 				AB708F951D0543BE007D0B4D /* Assets.xcassets */,
-				AB708F971D0543BE007D0B4D /* LaunchScreen.storyboard */,
 				AB708F9A1D0543BE007D0B4D /* Info.plist */,
 				AB708F891D0543BE007D0B4D /* Supporting Files */,
 			);
@@ -162,6 +179,193 @@
 				AB708FB01D0543BE007D0B4D /* Info.plist */,
 			);
 			path = FUYIFinanceUITests;
+			sourceTree = "<group>";
+		};
+		ABF5DE331D0FA4B1007CE1AB /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				AB708F8C1D0543BE007D0B4D /* AppDelegate.h */,
+				AB708F8D1D0543BE007D0B4D /* AppDelegate.m */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		ABF5DE341D0FA4B1007CE1AB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				ABF5DE541D0FAFBE007CE1AB /* HomeTabbarController */,
+				ABF5DE351D0FA4B1007CE1AB /* CustomerService */,
+				ABF5DE361D0FA4B1007CE1AB /* HomePage */,
+				ABF5DE371D0FA4B1007CE1AB /* Mine */,
+				ABF5DE381D0FA4B1007CE1AB /* ShopCar */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		ABF5DE351D0FA4B1007CE1AB /* CustomerService */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CustomerService;
+			sourceTree = "<group>";
+		};
+		ABF5DE361D0FA4B1007CE1AB /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HomePage;
+			sourceTree = "<group>";
+		};
+		ABF5DE371D0FA4B1007CE1AB /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		ABF5DE381D0FA4B1007CE1AB /* ShopCar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ShopCar;
+			sourceTree = "<group>";
+		};
+		ABF5DE391D0FA4B1007CE1AB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				ABF5DE3A1D0FA4B1007CE1AB /* CustomerService */,
+				ABF5DE3B1D0FA4B1007CE1AB /* HomePage */,
+				ABF5DE3C1D0FA4B1007CE1AB /* Mine */,
+				ABF5DE3D1D0FA4B1007CE1AB /* ShopCar */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		ABF5DE3A1D0FA4B1007CE1AB /* CustomerService */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CustomerService;
+			sourceTree = "<group>";
+		};
+		ABF5DE3B1D0FA4B1007CE1AB /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HomePage;
+			sourceTree = "<group>";
+		};
+		ABF5DE3C1D0FA4B1007CE1AB /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		ABF5DE3D1D0FA4B1007CE1AB /* ShopCar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ShopCar;
+			sourceTree = "<group>";
+		};
+		ABF5DE3E1D0FA4B1007CE1AB /* Plist */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Plist;
+			sourceTree = "<group>";
+		};
+		ABF5DE3F1D0FA4B1007CE1AB /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				ABF5DE471D0FA51D007CE1AB /* Json */,
+				ABF5DE481D0FA51D007CE1AB /* StoryBord */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		ABF5DE401D0FA4B1007CE1AB /* Util */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		ABF5DE411D0FA4B1007CE1AB /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		ABF5DE421D0FA4B1007CE1AB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ABF5DE431D0FA4B1007CE1AB /* CustomerService */,
+				ABF5DE441D0FA4B1007CE1AB /* HomePage */,
+				ABF5DE451D0FA4B1007CE1AB /* Mine */,
+				ABF5DE461D0FA4B1007CE1AB /* ShopCar */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ABF5DE431D0FA4B1007CE1AB /* CustomerService */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CustomerService;
+			sourceTree = "<group>";
+		};
+		ABF5DE441D0FA4B1007CE1AB /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HomePage;
+			sourceTree = "<group>";
+		};
+		ABF5DE451D0FA4B1007CE1AB /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		ABF5DE461D0FA4B1007CE1AB /* ShopCar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ShopCar;
+			sourceTree = "<group>";
+		};
+		ABF5DE471D0FA51D007CE1AB /* Json */ = {
+			isa = PBXGroup;
+			children = (
+				ABF5DE491D0FA58E007CE1AB /* HomeTabbars.json */,
+			);
+			path = Json;
+			sourceTree = "<group>";
+		};
+		ABF5DE481D0FA51D007CE1AB /* StoryBord */ = {
+			isa = PBXGroup;
+			children = (
+				AB708F921D0543BE007D0B4D /* Main.storyboard */,
+				ABF5DE4B1D0FA7B9007CE1AB /* HomePage.storyboard */,
+				ABF5DE4D1D0FA7EB007CE1AB /* CustomerService.storyboard */,
+				ABF5DE4F1D0FA7FC007CE1AB /* ShopCar.storyboard */,
+				ABF5DE511D0FA803007CE1AB /* Mine.storyboard */,
+				AB708F971D0543BE007D0B4D /* LaunchScreen.storyboard */,
+			);
+			path = StoryBord;
+			sourceTree = "<group>";
+		};
+		ABF5DE541D0FAFBE007CE1AB /* HomeTabbarController */ = {
+			isa = PBXGroup;
+			children = (
+				ABF5DE551D0FD930007CE1AB /* HomeTabbarViewController.h */,
+				ABF5DE561D0FD930007CE1AB /* HomeTabbarViewController.m */,
+			);
+			path = HomeTabbarController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,9 +474,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABF5DE4E1D0FA7EB007CE1AB /* CustomerService.storyboard in Resources */,
+				ABF5DE4C1D0FA7B9007CE1AB /* HomePage.storyboard in Resources */,
+				ABF5DE4A1D0FA58E007CE1AB /* HomeTabbars.json in Resources */,
 				AB708F991D0543BE007D0B4D /* LaunchScreen.storyboard in Resources */,
 				AB708F961D0543BE007D0B4D /* Assets.xcassets in Resources */,
+				ABF5DE501D0FA7FC007CE1AB /* ShopCar.storyboard in Resources */,
 				AB708F941D0543BE007D0B4D /* Main.storyboard in Resources */,
+				ABF5DE521D0FA803007CE1AB /* Mine.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +555,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB708F911D0543BE007D0B4D /* ViewController.m in Sources */,
+				ABF5DE571D0FD930007CE1AB /* HomeTabbarViewController.m in Sources */,
 				AB708F8E1D0543BE007D0B4D /* AppDelegate.m in Sources */,
 				AB708F8B1D0543BE007D0B4D /* main.m in Sources */,
 			);
@@ -389,6 +599,7 @@
 				AB708F931D0543BE007D0B4D /* Base */,
 			);
 			name = Main.storyboard;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		AB708F971D0543BE007D0B4D /* LaunchScreen.storyboard */ = {
@@ -397,6 +608,7 @@
 				AB708F981D0543BE007D0B4D /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
