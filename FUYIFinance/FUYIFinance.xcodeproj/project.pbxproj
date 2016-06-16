@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3595CEE84E209C9E9A9A34C0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0925851C3756862A4A844B01 /* libPods.a */; };
+		AB36CDB71D12773400D0E4C7 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36CDB61D12773400D0E4C7 /* BaseViewController.m */; };
 		AB708F8B1D0543BE007D0B4D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AB708F8A1D0543BE007D0B4D /* main.m */; };
 		AB708F8E1D0543BE007D0B4D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AB708F8D1D0543BE007D0B4D /* AppDelegate.m */; };
 		AB708F911D0543BE007D0B4D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB708F901D0543BE007D0B4D /* ViewController.m */; };
@@ -43,6 +44,8 @@
 
 /* Begin PBXFileReference section */
 		0925851C3756862A4A844B01 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB36CDB51D12773400D0E4C7 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		AB36CDB61D12773400D0E4C7 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		AB708F861D0543BE007D0B4D /* FUYIFinance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FUYIFinance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB708F8A1D0543BE007D0B4D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AB708F8C1D0543BE007D0B4D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = FUYIFinance/AppDelegate.h; sourceTree = SOURCE_ROOT; };
@@ -111,6 +114,15 @@
 				0925851C3756862A4A844B01 /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AB36CDB41D1274E900D0E4C7 /* BaseViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AB36CDB51D12773400D0E4C7 /* BaseViewController.h */,
+				AB36CDB61D12773400D0E4C7 /* BaseViewController.m */,
+			);
+			path = BaseViewControllers;
 			sourceTree = "<group>";
 		};
 		AB708F7D1D0543BE007D0B4D = {
@@ -193,6 +205,7 @@
 		ABF5DE341D0FA4B1007CE1AB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				AB36CDB41D1274E900D0E4C7 /* BaseViewControllers */,
 				ABF5DE541D0FAFBE007CE1AB /* HomeTabbarController */,
 				ABF5DE351D0FA4B1007CE1AB /* CustomerService */,
 				ABF5DE361D0FA4B1007CE1AB /* HomePage */,
@@ -555,6 +568,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB708F911D0543BE007D0B4D /* ViewController.m in Sources */,
+				AB36CDB71D12773400D0E4C7 /* BaseViewController.m in Sources */,
 				ABF5DE571D0FD930007CE1AB /* HomeTabbarViewController.m in Sources */,
 				AB708F8E1D0543BE007D0B4D /* AppDelegate.m in Sources */,
 				AB708F8B1D0543BE007D0B4D /* main.m in Sources */,

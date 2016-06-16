@@ -7,6 +7,7 @@
 //
 
 #import "HomeTabbarViewController.h"
+#import "HexColor.h"
 
 @interface HomeTabbarViewController ()
 {
@@ -47,6 +48,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    menusVCs = [NSMutableArray array];
+    self.tabBar.tintColor = [UIColor colorWith8BitRed:232 green:59 blue:62]
+    ;
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"HomeTabbars" ofType:@"json"];
+    NSData *data = [[NSData alloc] initWithContentsOfFile:path];
+    NSError *error;
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    NSArray *array = dict[@"tabBarMenus"];
+    for (NSDictionary *dic in array) {
+        UITabBarItem *tabbarItem = [[UITabBarItem alloc] init];
+        [tabbarItem setImage:[UIImage imageNamed:dic[@"image"]]];
+        [tabbarItem setSelectedImage:[UIImage imageNamed:dic[@"select_image"]]];
+        [tabbarItem setTitle:dic[@"title"]];
+        SEL selector = NSSelectorFromString(dic[@"storybordId"]);
+        IMP imp = [self methodForSelector:selector];
+        UIStoryboard * (*func)(id,SEL) = (void *)imp;
+        UIStoryboard *sb = func(self,selector);
+        UIViewController *vc = [sb instantiateInitialViewController];
+        vc.tabBarItem = tabbarItem;
+        [menusVCs addObject:vc];
+    }
+    self.viewControllers = menusVCs;
+    
 }
 
 - (void)didReceiveMemoryWarning {

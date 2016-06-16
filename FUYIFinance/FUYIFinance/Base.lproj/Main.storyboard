@@ -23,10 +23,10 @@
             </objects>
             <point key="canvasLocation" x="-763" y="218"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Home Tabbar View Controller-->
         <scene sceneID="juf-wd-jwy">
             <objects>
-                <tabBarController storyboardIdentifier="HomeTabBarVC" id="4y5-nC-xiF" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="HomeTabBarVC" id="4y5-nC-xiF" customClass="HomeTabbarViewController" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="hn8-xt-TNN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

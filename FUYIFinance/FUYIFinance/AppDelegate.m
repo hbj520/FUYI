@@ -17,6 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [self changeToMain];
     return YES;
 }
 
@@ -40,6 +41,11 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+#pragma mark - PrivateMethod
+- (void)changeToMain{
+    self.mStorybord = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    self.window.rootViewController = [self.mStorybord instantiateViewControllerWithIdentifier:@"HomeTabBarVC"];
 }
 
 @end
