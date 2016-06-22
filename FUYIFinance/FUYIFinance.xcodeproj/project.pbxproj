@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		3595CEE84E209C9E9A9A34C0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0925851C3756862A4A844B01 /* libPods.a */; };
 		AB36CDB71D12773400D0E4C7 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36CDB61D12773400D0E4C7 /* BaseViewController.m */; };
+		AB36CDBA1D1283AD00D0E4C7 /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36CDB91D1283AD00D0E4C7 /* HomePageViewController.m */; };
+		AB36CDC01D128CF900D0E4C7 /* HomePageNavgationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36CDBF1D128CF900D0E4C7 /* HomePageNavgationItem.m */; };
+		AB36CDC21D128D1900D0E4C7 /* HomePageNavgationItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB36CDC11D128D1900D0E4C7 /* HomePageNavgationItem.xib */; };
 		AB708F8B1D0543BE007D0B4D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AB708F8A1D0543BE007D0B4D /* main.m */; };
 		AB708F8E1D0543BE007D0B4D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AB708F8D1D0543BE007D0B4D /* AppDelegate.m */; };
 		AB708F911D0543BE007D0B4D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB708F901D0543BE007D0B4D /* ViewController.m */; };
@@ -46,6 +49,13 @@
 		0925851C3756862A4A844B01 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB36CDB51D12773400D0E4C7 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		AB36CDB61D12773400D0E4C7 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		AB36CDB81D1283AD00D0E4C7 /* HomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageViewController.h; sourceTree = "<group>"; };
+		AB36CDB91D1283AD00D0E4C7 /* HomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageViewController.m; sourceTree = "<group>"; };
+		AB36CDBE1D128CF900D0E4C7 /* HomePageNavgationItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageNavgationItem.h; sourceTree = "<group>"; };
+		AB36CDBF1D128CF900D0E4C7 /* HomePageNavgationItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageNavgationItem.m; sourceTree = "<group>"; };
+		AB36CDC11D128D1900D0E4C7 /* HomePageNavgationItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomePageNavgationItem.xib; sourceTree = "<group>"; };
+		AB36CDC31D129C5D00D0E4C7 /* Marco.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Marco.h; sourceTree = "<group>"; };
+		AB36CDC41D129CA600D0E4C7 /* FUYI-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FUYI-Prefix.pch"; sourceTree = "<group>"; };
 		AB708F861D0543BE007D0B4D /* FUYIFinance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FUYIFinance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB708F8A1D0543BE007D0B4D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AB708F8C1D0543BE007D0B4D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = FUYIFinance/AppDelegate.h; sourceTree = SOURCE_ROOT; };
@@ -170,6 +180,7 @@
 		AB708F891D0543BE007D0B4D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AB36CDC41D129CA600D0E4C7 /* FUYI-Prefix.pch */,
 				AB708F8A1D0543BE007D0B4D /* main.m */,
 			);
 			name = "Supporting Files";
@@ -225,6 +236,8 @@
 		ABF5DE361D0FA4B1007CE1AB /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				AB36CDB81D1283AD00D0E4C7 /* HomePageViewController.h */,
+				AB36CDB91D1283AD00D0E4C7 /* HomePageViewController.m */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -301,6 +314,7 @@
 		ABF5DE401D0FA4B1007CE1AB /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				AB36CDC31D129C5D00D0E4C7 /* Marco.h */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -333,6 +347,9 @@
 		ABF5DE441D0FA4B1007CE1AB /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				AB36CDBE1D128CF900D0E4C7 /* HomePageNavgationItem.h */,
+				AB36CDBF1D128CF900D0E4C7 /* HomePageNavgationItem.m */,
+				AB36CDC11D128D1900D0E4C7 /* HomePageNavgationItem.xib */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -491,6 +508,7 @@
 				ABF5DE4C1D0FA7B9007CE1AB /* HomePage.storyboard in Resources */,
 				ABF5DE4A1D0FA58E007CE1AB /* HomeTabbars.json in Resources */,
 				AB708F991D0543BE007D0B4D /* LaunchScreen.storyboard in Resources */,
+				AB36CDC21D128D1900D0E4C7 /* HomePageNavgationItem.xib in Resources */,
 				AB708F961D0543BE007D0B4D /* Assets.xcassets in Resources */,
 				ABF5DE501D0FA7FC007CE1AB /* ShopCar.storyboard in Resources */,
 				AB708F941D0543BE007D0B4D /* Main.storyboard in Resources */,
@@ -569,6 +587,8 @@
 			files = (
 				AB708F911D0543BE007D0B4D /* ViewController.m in Sources */,
 				AB36CDB71D12773400D0E4C7 /* BaseViewController.m in Sources */,
+				AB36CDC01D128CF900D0E4C7 /* HomePageNavgationItem.m in Sources */,
+				AB36CDBA1D1283AD00D0E4C7 /* HomePageViewController.m in Sources */,
 				ABF5DE571D0FD930007CE1AB /* HomeTabbarViewController.m in Sources */,
 				AB708F8E1D0543BE007D0B4D /* AppDelegate.m in Sources */,
 				AB708F8B1D0543BE007D0B4D /* main.m in Sources */,
@@ -717,6 +737,7 @@
 			baseConfigurationReference = FB5E00328843A9E289111723 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/FUYIFinance/FUYI-Prefix.pch";
 				INFOPLIST_FILE = FUYIFinance/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -730,6 +751,7 @@
 			baseConfigurationReference = E2D217BF4D0AE0F6C9591577 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/FUYIFinance/FUYI-Prefix.pch";
 				INFOPLIST_FILE = FUYIFinance/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
