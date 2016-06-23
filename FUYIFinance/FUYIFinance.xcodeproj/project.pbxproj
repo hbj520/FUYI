@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09C633776A4A8F751566863B /* libPods-FUYIFinance.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91082FC8046B117F37C12298 /* libPods-FUYIFinance.a */; };
 		3595CEE84E209C9E9A9A34C0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0925851C3756862A4A844B01 /* libPods.a */; };
 		AB36CDB71D12773400D0E4C7 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36CDB61D12773400D0E4C7 /* BaseViewController.m */; };
 		AB36CDBA1D1283AD00D0E4C7 /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36CDB91D1283AD00D0E4C7 /* HomePageViewController.m */; };
@@ -56,6 +57,8 @@
 
 /* Begin PBXFileReference section */
 		0925851C3756862A4A844B01 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0CE31DB59572E865FDE98F3A /* Pods-FUYIFinance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FUYIFinance.release.xcconfig"; path = "Pods/Target Support Files/Pods-FUYIFinance/Pods-FUYIFinance.release.xcconfig"; sourceTree = "<group>"; };
+		91082FC8046B117F37C12298 /* libPods-FUYIFinance.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FUYIFinance.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB36CDB51D12773400D0E4C7 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		AB36CDB61D12773400D0E4C7 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		AB36CDB81D1283AD00D0E4C7 /* HomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageViewController.h; sourceTree = "<group>"; };
@@ -108,6 +111,7 @@
 		ABF5DE551D0FD930007CE1AB /* HomeTabbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTabbarViewController.h; sourceTree = "<group>"; };
 		ABF5DE561D0FD930007CE1AB /* HomeTabbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTabbarViewController.m; sourceTree = "<group>"; };
 		E2D217BF4D0AE0F6C9591577 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		FA5515060D58FFB367588DFA /* Pods-FUYIFinance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FUYIFinance.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FUYIFinance/Pods-FUYIFinance.debug.xcconfig"; sourceTree = "<group>"; };
 		FB5E00328843A9E289111723 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +121,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3595CEE84E209C9E9A9A34C0 /* libPods.a in Frameworks */,
+				09C633776A4A8F751566863B /* libPods-FUYIFinance.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +147,8 @@
 			children = (
 				FB5E00328843A9E289111723 /* Pods.debug.xcconfig */,
 				E2D217BF4D0AE0F6C9591577 /* Pods.release.xcconfig */,
+				FA5515060D58FFB367588DFA /* Pods-FUYIFinance.debug.xcconfig */,
+				0CE31DB59572E865FDE98F3A /* Pods-FUYIFinance.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -150,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				0925851C3756862A4A844B01 /* libPods.a */,
+				91082FC8046B117F37C12298 /* libPods-FUYIFinance.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -469,12 +477,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AB708FB31D0543BE007D0B4D /* Build configuration list for PBXNativeTarget "FUYIFinance" */;
 			buildPhases = (
-				F8E1F81CE42301BF48D5B299 /* Check Pods Manifest.lock */,
+				F8E1F81CE42301BF48D5B299 /* 📦 Check Pods Manifest.lock */,
 				AB708F821D0543BE007D0B4D /* Sources */,
 				AB708F831D0543BE007D0B4D /* Frameworks */,
 				AB708F841D0543BE007D0B4D /* Resources */,
-				2D5F3A3F8E85A6B9AA6C1BBD /* Embed Pods Frameworks */,
-				84EF5DA7F428315A8499869B /* Copy Pods Resources */,
+				2D5F3A3F8E85A6B9AA6C1BBD /* 📦 Embed Pods Frameworks */,
+				84EF5DA7F428315A8499869B /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -597,44 +605,44 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2D5F3A3F8E85A6B9AA6C1BBD /* Embed Pods Frameworks */ = {
+		2D5F3A3F8E85A6B9AA6C1BBD /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FUYIFinance/Pods-FUYIFinance-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		84EF5DA7F428315A8499869B /* Copy Pods Resources */ = {
+		84EF5DA7F428315A8499869B /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FUYIFinance/Pods-FUYIFinance-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F8E1F81CE42301BF48D5B299 /* Check Pods Manifest.lock */ = {
+		F8E1F81CE42301BF48D5B299 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -807,7 +815,7 @@
 		};
 		AB708FB41D0543BE007D0B4D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FB5E00328843A9E289111723 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = FA5515060D58FFB367588DFA /* Pods-FUYIFinance.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/FUYIFinance/FUYI-Prefix.pch";
@@ -821,7 +829,7 @@
 		};
 		AB708FB51D0543BE007D0B4D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E2D217BF4D0AE0F6C9591577 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 0CE31DB59572E865FDE98F3A /* Pods-FUYIFinance.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/FUYIFinance/FUYI-Prefix.pch";
