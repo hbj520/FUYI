@@ -42,6 +42,10 @@
         
         
     };
+    //点击搜索
+    navItem.searchResultBlock = ^(NSString *resutText){
+        
+    };
     [self.view addSubview:navItem];
 }
 /*
@@ -53,5 +57,8 @@
     // Pass the selected object to the new view controller.
 }
 */
-
+#pragma mark - UIVew
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [Tools hideKeyBoard];
+}
 @end

@@ -12,6 +12,15 @@
 		AB36CDBA1D1283AD00D0E4C7 /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36CDB91D1283AD00D0E4C7 /* HomePageViewController.m */; };
 		AB36CDC01D128CF900D0E4C7 /* HomePageNavgationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36CDBF1D128CF900D0E4C7 /* HomePageNavgationItem.m */; };
 		AB36CDC21D128D1900D0E4C7 /* HomePageNavgationItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB36CDC11D128D1900D0E4C7 /* HomePageNavgationItem.xib */; };
+		AB36CDFE1D1A996900D0E4C7 /* Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36CDFD1D1A996900D0E4C7 /* Tools.m */; };
+		AB36CE101D1A99EC00D0E4C7 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36CE011D1A99EC00D0E4C7 /* NSData+Base64.m */; };
+		AB36CE111D1A99EC00D0E4C7 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36CE031D1A99EC00D0E4C7 /* NSString+URLEncoding.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		AB36CE121D1A99EC00D0E4C7 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36CE051D1A99EC00D0E4C7 /* GTMBase64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		AB36CE131D1A99EC00D0E4C7 /* NSData+AES.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36CE081D1A99EC00D0E4C7 /* NSData+AES.m */; };
+		AB36CE141D1A99EC00D0E4C7 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36CE0A1D1A99EC00D0E4C7 /* NSString+MD5.m */; };
+		AB36CE151D1A99EC00D0E4C7 /* SecurityUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36CE0C1D1A99EC00D0E4C7 /* SecurityUtil.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		AB36CE161D1A99EC00D0E4C7 /* StringEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36CE0E1D1A99EC00D0E4C7 /* StringEncryption.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		AB36CE191D1A9A1700D0E4C7 /* GuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36CE181D1A9A1700D0E4C7 /* GuideViewController.m */; };
 		AB708F8B1D0543BE007D0B4D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AB708F8A1D0543BE007D0B4D /* main.m */; };
 		AB708F8E1D0543BE007D0B4D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AB708F8D1D0543BE007D0B4D /* AppDelegate.m */; };
 		AB708F911D0543BE007D0B4D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB708F901D0543BE007D0B4D /* ViewController.m */; };
@@ -56,6 +65,25 @@
 		AB36CDC11D128D1900D0E4C7 /* HomePageNavgationItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomePageNavgationItem.xib; sourceTree = "<group>"; };
 		AB36CDC31D129C5D00D0E4C7 /* Marco.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Marco.h; sourceTree = "<group>"; };
 		AB36CDC41D129CA600D0E4C7 /* FUYI-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FUYI-Prefix.pch"; sourceTree = "<group>"; };
+		AB36CDFC1D1A996900D0E4C7 /* Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tools.h; path = ../Tools.h; sourceTree = "<group>"; };
+		AB36CDFD1D1A996900D0E4C7 /* Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tools.m; path = ../Tools.m; sourceTree = "<group>"; };
+		AB36CE001D1A99EC00D0E4C7 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		AB36CE011D1A99EC00D0E4C7 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		AB36CE021D1A99EC00D0E4C7 /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
+		AB36CE031D1A99EC00D0E4C7 /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoding.m"; sourceTree = "<group>"; };
+		AB36CE041D1A99EC00D0E4C7 /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
+		AB36CE051D1A99EC00D0E4C7 /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
+		AB36CE061D1A99EC00D0E4C7 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		AB36CE071D1A99EC00D0E4C7 /* NSData+AES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+AES.h"; sourceTree = "<group>"; };
+		AB36CE081D1A99EC00D0E4C7 /* NSData+AES.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+AES.m"; sourceTree = "<group>"; };
+		AB36CE091D1A99EC00D0E4C7 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
+		AB36CE0A1D1A99EC00D0E4C7 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
+		AB36CE0B1D1A99EC00D0E4C7 /* SecurityUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityUtil.h; sourceTree = "<group>"; };
+		AB36CE0C1D1A99EC00D0E4C7 /* SecurityUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityUtil.m; sourceTree = "<group>"; };
+		AB36CE0D1D1A99EC00D0E4C7 /* StringEncryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringEncryption.h; sourceTree = "<group>"; };
+		AB36CE0E1D1A99EC00D0E4C7 /* StringEncryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringEncryption.m; sourceTree = "<group>"; };
+		AB36CE171D1A9A1700D0E4C7 /* GuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuideViewController.h; sourceTree = "<group>"; };
+		AB36CE181D1A9A1700D0E4C7 /* GuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuideViewController.m; sourceTree = "<group>"; };
 		AB708F861D0543BE007D0B4D /* FUYIFinance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FUYIFinance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB708F8A1D0543BE007D0B4D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AB708F8C1D0543BE007D0B4D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = FUYIFinance/AppDelegate.h; sourceTree = SOURCE_ROOT; };
@@ -133,6 +161,38 @@
 				AB36CDB61D12773400D0E4C7 /* BaseViewController.m */,
 			);
 			path = BaseViewControllers;
+			sourceTree = "<group>";
+		};
+		AB36CDFF1D1A99DB00D0E4C7 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				AB36CDFC1D1A996900D0E4C7 /* Tools.h */,
+				AB36CDFD1D1A996900D0E4C7 /* Tools.m */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		AB36CE0F1D1A99EC00D0E4C7 /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				AB36CE001D1A99EC00D0E4C7 /* NSData+Base64.h */,
+				AB36CE011D1A99EC00D0E4C7 /* NSData+Base64.m */,
+				AB36CE021D1A99EC00D0E4C7 /* NSString+URLEncoding.h */,
+				AB36CE031D1A99EC00D0E4C7 /* NSString+URLEncoding.m */,
+				AB36CE041D1A99EC00D0E4C7 /* GTMBase64.h */,
+				AB36CE051D1A99EC00D0E4C7 /* GTMBase64.m */,
+				AB36CE061D1A99EC00D0E4C7 /* GTMDefines.h */,
+				AB36CE071D1A99EC00D0E4C7 /* NSData+AES.h */,
+				AB36CE081D1A99EC00D0E4C7 /* NSData+AES.m */,
+				AB36CE091D1A99EC00D0E4C7 /* NSString+MD5.h */,
+				AB36CE0A1D1A99EC00D0E4C7 /* NSString+MD5.m */,
+				AB36CE0B1D1A99EC00D0E4C7 /* SecurityUtil.h */,
+				AB36CE0C1D1A99EC00D0E4C7 /* SecurityUtil.m */,
+				AB36CE0D1D1A99EC00D0E4C7 /* StringEncryption.h */,
+				AB36CE0E1D1A99EC00D0E4C7 /* StringEncryption.m */,
+			);
+			name = Security;
+			path = ../../../../../vplusSevice_normal/ERVICE/ERVICE/Util/Security;
 			sourceTree = "<group>";
 		};
 		AB708F7D1D0543BE007D0B4D = {
@@ -314,6 +374,8 @@
 		ABF5DE401D0FA4B1007CE1AB /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				AB36CDFF1D1A99DB00D0E4C7 /* Helper */,
+				AB36CE0F1D1A99EC00D0E4C7 /* Security */,
 				AB36CDC31D129C5D00D0E4C7 /* Marco.h */,
 			);
 			path = Util;
@@ -394,6 +456,8 @@
 			children = (
 				ABF5DE551D0FD930007CE1AB /* HomeTabbarViewController.h */,
 				ABF5DE561D0FD930007CE1AB /* HomeTabbarViewController.m */,
+				AB36CE171D1A9A1700D0E4C7 /* GuideViewController.h */,
+				AB36CE181D1A9A1700D0E4C7 /* GuideViewController.m */,
 			);
 			path = HomeTabbarController;
 			sourceTree = "<group>";
@@ -585,13 +649,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB36CE111D1A99EC00D0E4C7 /* NSString+URLEncoding.m in Sources */,
 				AB708F911D0543BE007D0B4D /* ViewController.m in Sources */,
+				AB36CE131D1A99EC00D0E4C7 /* NSData+AES.m in Sources */,
+				AB36CE151D1A99EC00D0E4C7 /* SecurityUtil.m in Sources */,
+				AB36CE121D1A99EC00D0E4C7 /* GTMBase64.m in Sources */,
 				AB36CDB71D12773400D0E4C7 /* BaseViewController.m in Sources */,
 				AB36CDC01D128CF900D0E4C7 /* HomePageNavgationItem.m in Sources */,
+				AB36CDFE1D1A996900D0E4C7 /* Tools.m in Sources */,
+				AB36CE141D1A99EC00D0E4C7 /* NSString+MD5.m in Sources */,
 				AB36CDBA1D1283AD00D0E4C7 /* HomePageViewController.m in Sources */,
 				ABF5DE571D0FD930007CE1AB /* HomeTabbarViewController.m in Sources */,
 				AB708F8E1D0543BE007D0B4D /* AppDelegate.m in Sources */,
+				AB36CE161D1A99EC00D0E4C7 /* StringEncryption.m in Sources */,
+				AB36CE191D1A9A1700D0E4C7 /* GuideViewController.m in Sources */,
 				AB708F8B1D0543BE007D0B4D /* main.m in Sources */,
+				AB36CE101D1A99EC00D0E4C7 /* NSData+Base64.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

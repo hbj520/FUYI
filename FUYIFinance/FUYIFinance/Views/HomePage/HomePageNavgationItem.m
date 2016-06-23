@@ -7,7 +7,7 @@
 //
 
 #import "HomePageNavgationItem.h"
-@interface HomePageNavgationItem()
+@interface HomePageNavgationItem()<UISearchBarDelegate>
 
 @end
 
@@ -23,7 +23,8 @@
 - (void)awakeFromNib{
     [self.messateBtn addTarget:self action:@selector(messageAct:) forControlEvents:UIControlEventTouchUpInside];
     [self.searchBar setPlaceholder:@"请输入关键词"];
-    
+    [self.searchBar setSearchResultsButtonSelected:YES];
+    self.searchBar.delegate = self;
 }
 - (void)messageAct:(id)sender{
     if (self.messageBlock) {
@@ -31,4 +32,12 @@
     }
     
 }
+#pragma mark - SearchBarDelegate
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    if (self.searchResultBlock) {
+        self.searchResultBlock(searchBar.text);
+    }
+    
+}
+
 @end
