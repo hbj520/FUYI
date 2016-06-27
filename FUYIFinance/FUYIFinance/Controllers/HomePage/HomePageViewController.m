@@ -7,11 +7,29 @@
 //
 
 #import "HomePageViewController.h"
+#import "SDCycleScrollView.h"
 
 //views
 #import "HomePageNavgationItem.h"
+#import "HomepageHeaderTableViewCell.h"
+#import "HomePageHotNewTableViewCell.h"
+#import "InvestCollectionViewTableViewCell.h"
 
-@interface HomePageViewController ()
+#define DEF_SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
+
+static NSString *headerCellReuseId = @"headerCellReuseId";
+static NSString *hotCellReuseId = @"hotCellReuseId";
+static NSString *investReuseId = @"investReuseId";
+
+@interface HomePageViewController ()<UITableViewDelegate,
+                                     UITableViewDataSource,
+                                     SDCycleScrollViewDelegate>
+{
+    SDCycleScrollView *_headerView;
+    NSMutableArray *bannerData;//滚动视图数据
+    NSMutableArray *inverstData;//投资项目数据
+}
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -29,10 +47,25 @@
 }
 #pragma mark - PrivateMethod
 - (void)createUI{
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    [self.tableView registerClass:[InvestCollectionViewTableViewCell class] forCellReuseIdentifier:investReuseId];
     //添加自定义导航栏
     [self addCustomerNavgationItem];
+    //添加滚动视图pageview
+    [self addPageControl];
+    inverstData = @[@"finance_planer",@"foreign_exchange",@"gold_invest",@"metal_invest",@"oil_invest"];
 
+}
+- (void)addPageControl{
+   // bannerData = @[@"bannerpic",@"bannerpic",@"bannerpic"];
+    UIImage *image1 = [UIImage imageNamed:@"bannerpic"];
+    UIImage *image2 = [UIImage imageNamed:@"bannerpic"];
+    UIImage *image3 = [UIImage imageNamed:@"bannerpic"];
+    NSMutableArray *imageData = [NSMutableArray arrayWithObjects:image1,image2,image3, nil];
     
+    _headerView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0,ScreenWidth,234) imagesGroup:imageData];
+    _headerView.delegate = self;
 }
 - (void)addCustomerNavgationItem{
     HomePageNavgationItem *navItem = [[[NSBundle mainBundle] loadNibNamed:@"HomePageNavgationItem" owner:self options:nil] lastObject];
@@ -40,13 +73,83 @@
     //点击消息按钮
     navItem.messageBlock = ^(){
         
-        
     };
     //点击搜索
     navItem.searchResultBlock = ^(NSString *resutText){
         
     };
     [self.view addSubview:navItem];
+}
+#pragma mark - UITableViewDelegate
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 2;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 1;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell ;
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
+            HomepageHeaderTableViewCell *headerCell = [tableView dequeueReusableCellWithIdentifier:headerCellReuseId];
+            if (headerCell == nil) {
+                headerCell = [[[NSBundle mainBundle] loadNibNamed:@"HomepageHeaderTableViewCell" owner:self options:nil] lastObject];
+            }
+            return headerCell;
+
+        }else{
+            HomePageHotNewTableViewCell *newTableViewCell = [tableView dequeueReusableCellWithIdentifier:hotCellReuseId];
+            if (newTableViewCell == nil) {
+                newTableViewCell = [[[NSBundle mainBundle] loadNibNamed:@"HomePageHotNewTableViewCell" owner:self options:nil] lastObject];
+            }
+            return newTableViewCell;
+        }
+
+    }else if (indexPath.section == 1){
+        InvestCollectionViewTableViewCell *investTableViewCell = [tableView dequeueReusableCellWithIdentifier:investReuseId];
+        if (investTableViewCell == nil) {
+            investTableViewCell = [[InvestCollectionViewTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                                                           reuseIdentifier:investReuseId];
+        }
+        return investTableViewCell;
+    }
+    
+    return cell;
+}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    if (section == 0) {
+        return _headerView;
+    }else{
+        UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, DEF_SCREEN_WIDTH, 10)];
+        bgView.backgroundColor = [UIColor colorWithWhite:0.95 alpha:1];
+        return bgView;
+    }
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if (section == 0) {
+        return 234;
+    }else{
+        return 10;
+    }
+    return 10;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
+            return 90;
+        }else if (indexPath.row == 1){
+            return 68;
+        }
+    }else if (indexPath.section == 1){
+        return 205;
+    }
+    return 1;
+}
+#pragma mark -SDCycleScrollViewDelegate
+//点击头部滚动视图
+-(void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
+
+    
 }
 /*
 #pragma mark - Navigation
