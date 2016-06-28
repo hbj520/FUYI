@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		09C633776A4A8F751566863B /* libPods-FUYIFinance.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91082FC8046B117F37C12298 /* libPods-FUYIFinance.a */; };
 		3595CEE84E209C9E9A9A34C0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0925851C3756862A4A844B01 /* libPods.a */; };
+		AB02D4AC1D2228F800AED400 /* ShopCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB02D4AB1D2228F700AED400 /* ShopCarViewController.m */; };
 		AB36CDB71D12773400D0E4C7 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36CDB61D12773400D0E4C7 /* BaseViewController.m */; };
 		AB36CDBA1D1283AD00D0E4C7 /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36CDB91D1283AD00D0E4C7 /* HomePageViewController.m */; };
 		AB36CDC01D128CF900D0E4C7 /* HomePageNavgationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36CDBF1D128CF900D0E4C7 /* HomePageNavgationItem.m */; };
@@ -76,6 +77,8 @@
 		0925851C3756862A4A844B01 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CE31DB59572E865FDE98F3A /* Pods-FUYIFinance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FUYIFinance.release.xcconfig"; path = "Pods/Target Support Files/Pods-FUYIFinance/Pods-FUYIFinance.release.xcconfig"; sourceTree = "<group>"; };
 		91082FC8046B117F37C12298 /* libPods-FUYIFinance.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FUYIFinance.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB02D4AA1D2228F700AED400 /* ShopCarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopCarViewController.h; sourceTree = "<group>"; };
+		AB02D4AB1D2228F700AED400 /* ShopCarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopCarViewController.m; sourceTree = "<group>"; };
 		AB36CDB51D12773400D0E4C7 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		AB36CDB61D12773400D0E4C7 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		AB36CDB81D1283AD00D0E4C7 /* HomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageViewController.h; sourceTree = "<group>"; };
@@ -399,6 +402,8 @@
 		ABF5DE381D0FA4B1007CE1AB /* ShopCar */ = {
 			isa = PBXGroup;
 			children = (
+				AB02D4AA1D2228F700AED400 /* ShopCarViewController.h */,
+				AB02D4AB1D2228F700AED400 /* ShopCarViewController.m */,
 			);
 			path = ShopCar;
 			sourceTree = "<group>";
@@ -785,6 +790,7 @@
 				AB36CDC01D128CF900D0E4C7 /* HomePageNavgationItem.m in Sources */,
 				AB36CDFE1D1A996900D0E4C7 /* Tools.m in Sources */,
 				AB36CE2F1D1B710400D0E4C7 /* TADotView.m in Sources */,
+				AB02D4AC1D2228F800AED400 /* ShopCarViewController.m in Sources */,
 				AB36CE141D1A99EC00D0E4C7 /* NSString+MD5.m in Sources */,
 				AB36CE311D1B710400D0E4C7 /* SDCollectionViewCell.m in Sources */,
 				AB36CE4B1D1CE72400D0E4C7 /* ThreeTableViewCell.m in Sources */,
