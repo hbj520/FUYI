@@ -15,72 +15,34 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="89"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="02k-jR-na8">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zK1-PY-wQz">
                         <rect key="frame" x="0.0" y="0.0" width="80" height="89"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="89" id="1eM-fi-YNG"/>
-                        </constraints>
-                        <state key="normal" title="myExclusive" image="team"/>
-                        <connections>
-                            <action selector="myExclusive:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="V4f-kL-gAB"/>
-                        </connections>
-                    </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9z4-kW-Ms9" userLabel="businessConsult">
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DmK-Oe-Ois">
                         <rect key="frame" x="80" y="0.0" width="80" height="89"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="89" id="aVC-Bd-9Iz"/>
-                        </constraints>
-                        <state key="normal" title="Button" image="videoShop"/>
-                        <connections>
-                            <action selector="businessConsult:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="zy9-kN-Hmq"/>
-                        </connections>
-                    </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hUm-1S-CUy">
-                        <rect key="frame" x="160" y="0.0" width="80" height="89"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="89" id="t0F-t1-V3M"/>
-                        </constraints>
-                        <state key="normal" title="specailistConversation" image="blogarea"/>
-                        <connections>
-                            <action selector="specailistConversation:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="xkO-Iy-tbR"/>
-                        </connections>
-                    </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ua-Qu-qUb" userLabel="famousExample">
-                        <rect key="frame" x="240" y="0.0" width="80" height="89"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="89" id="e1N-SE-jUE"/>
-                        </constraints>
-                        <state key="normal" title="Button" image="financeschool"/>
-                        <connections>
-                            <action selector="famousExample:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="MMq-N8-IDm"/>
-                        </connections>
-                    </button>
+                        <color key="backgroundColor" red="1" green="0.31372549020000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nak-Pw-FQ7">
+                        <rect key="frame" x="235" y="-5" width="85" height="94"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u4K-gc-11r">
+                        <rect key="frame" x="160" y="0.0" width="85" height="89"/>
+                        <color key="backgroundColor" red="0.51148736476898193" green="0.99949437379837036" blue="0.00051673175767064095" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="5ua-Qu-qUb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="90a-nK-1Hc"/>
-                    <constraint firstAttribute="bottom" secondItem="9z4-kW-Ms9" secondAttribute="bottom" id="CbW-Kf-VbV"/>
-                    <constraint firstItem="02k-jR-na8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="FDr-gW-vSv"/>
-                    <constraint firstItem="5ua-Qu-qUb" firstAttribute="width" secondItem="hUm-1S-CUy" secondAttribute="width" id="LKF-TP-wa2"/>
-                    <constraint firstItem="02k-jR-na8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="P5C-SW-21y"/>
-                    <constraint firstAttribute="bottom" secondItem="5ua-Qu-qUb" secondAttribute="bottom" id="PQe-pj-rN6"/>
-                    <constraint firstItem="hUm-1S-CUy" firstAttribute="width" secondItem="9z4-kW-Ms9" secondAttribute="width" id="Suc-SU-mJR"/>
-                    <constraint firstItem="5ua-Qu-qUb" firstAttribute="leading" secondItem="hUm-1S-CUy" secondAttribute="trailing" id="TGI-Cd-NYJ"/>
-                    <constraint firstItem="hUm-1S-CUy" firstAttribute="leading" secondItem="9z4-kW-Ms9" secondAttribute="trailing" id="VYo-2R-Z0Z"/>
-                    <constraint firstItem="hUm-1S-CUy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Xcp-HF-RYM"/>
-                    <constraint firstItem="9z4-kW-Ms9" firstAttribute="leading" secondItem="02k-jR-na8" secondAttribute="trailing" id="dv2-lC-PvX"/>
-                    <constraint firstAttribute="bottom" secondItem="hUm-1S-CUy" secondAttribute="bottom" id="jb1-Ik-cWS"/>
-                    <constraint firstItem="9z4-kW-Ms9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="lCC-xr-uYJ"/>
-                    <constraint firstItem="9z4-kW-Ms9" firstAttribute="width" secondItem="02k-jR-na8" secondAttribute="width" id="oh8-Qt-iRa"/>
-                    <constraint firstAttribute="bottom" secondItem="02k-jR-na8" secondAttribute="bottom" id="sBQ-71-E8N"/>
-                    <constraint firstItem="02k-jR-na8" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.25" id="sJq-Kc-YEF"/>
+                    <constraint firstItem="DmK-Oe-Ois" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Gpo-Ix-Qml"/>
+                    <constraint firstItem="DmK-Oe-Ois" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="1:4" id="HZb-kw-3ya"/>
+                    <constraint firstAttribute="bottom" secondItem="zK1-PY-wQz" secondAttribute="bottom" id="SWT-Ac-bu8"/>
+                    <constraint firstAttribute="bottom" secondItem="DmK-Oe-Ois" secondAttribute="bottom" id="eOm-Xb-VTM"/>
+                    <constraint firstItem="zK1-PY-wQz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="kC6-iL-Zi8"/>
+                    <constraint firstItem="zK1-PY-wQz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="qJP-Zz-gwA"/>
+                    <constraint firstItem="zK1-PY-wQz" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="1:4" id="uH2-dv-PDj"/>
+                    <constraint firstItem="DmK-Oe-Ois" firstAttribute="leading" secondItem="zK1-PY-wQz" secondAttribute="trailing" id="wBD-CX-RHe"/>
                 </constraints>
             </tableViewCellContentView>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="blogarea" width="114" height="152"/>
-        <image name="financeschool" width="113" height="152"/>
-        <image name="team" width="125" height="152"/>
-        <image name="videoShop" width="115" height="152"/>
-    </resources>
 </document>
