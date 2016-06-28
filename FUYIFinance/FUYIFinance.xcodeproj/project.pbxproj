@@ -15,13 +15,6 @@
 		AB36CDC01D128CF900D0E4C7 /* HomePageNavgationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36CDBF1D128CF900D0E4C7 /* HomePageNavgationItem.m */; };
 		AB36CDC21D128D1900D0E4C7 /* HomePageNavgationItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB36CDC11D128D1900D0E4C7 /* HomePageNavgationItem.xib */; };
 		AB36CDFE1D1A996900D0E4C7 /* Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36CDFD1D1A996900D0E4C7 /* Tools.m */; };
-		AB36CE101D1A99EC00D0E4C7 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36CE011D1A99EC00D0E4C7 /* NSData+Base64.m */; };
-		AB36CE111D1A99EC00D0E4C7 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36CE031D1A99EC00D0E4C7 /* NSString+URLEncoding.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		AB36CE121D1A99EC00D0E4C7 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36CE051D1A99EC00D0E4C7 /* GTMBase64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		AB36CE131D1A99EC00D0E4C7 /* NSData+AES.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36CE081D1A99EC00D0E4C7 /* NSData+AES.m */; };
-		AB36CE141D1A99EC00D0E4C7 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36CE0A1D1A99EC00D0E4C7 /* NSString+MD5.m */; };
-		AB36CE151D1A99EC00D0E4C7 /* SecurityUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36CE0C1D1A99EC00D0E4C7 /* SecurityUtil.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		AB36CE161D1A99EC00D0E4C7 /* StringEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36CE0E1D1A99EC00D0E4C7 /* StringEncryption.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AB36CE191D1A9A1700D0E4C7 /* GuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36CE181D1A9A1700D0E4C7 /* GuideViewController.m */; };
 		AB36CE2C1D1B710400D0E4C7 /* NSData+SDDataCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36CE1C1D1B710400D0E4C7 /* NSData+SDDataCache.m */; };
 		AB36CE2D1D1B710400D0E4C7 /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36CE1F1D1B710400D0E4C7 /* TAAbstractDotView.m */; };
@@ -54,6 +47,14 @@
 		ABF5DE501D0FA7FC007CE1AB /* ShopCar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABF5DE4F1D0FA7FC007CE1AB /* ShopCar.storyboard */; };
 		ABF5DE521D0FA803007CE1AB /* Mine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABF5DE511D0FA803007CE1AB /* Mine.storyboard */; };
 		ABF5DE571D0FD930007CE1AB /* HomeTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF5DE561D0FD930007CE1AB /* HomeTabbarViewController.m */; };
+		D1C49AF61D22468A003C17DA /* StringEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C49AE71D22468A003C17DA /* StringEncryption.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D1C49AF71D22468A003C17DA /* SecurityUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C49AE91D22468A003C17DA /* SecurityUtil.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D1C49AF81D22468A003C17DA /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C49AEA1D22468A003C17DA /* NSString+URLEncoding.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D1C49AF91D22468A003C17DA /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C49AED1D22468A003C17DA /* NSString+MD5.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D1C49AFA1D22468A003C17DA /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C49AEF1D22468A003C17DA /* NSData+Base64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D1C49AFB1D22468A003C17DA /* NSData+AES.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C49AF11D22468A003C17DA /* NSData+AES.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D1C49AFC1D22468A003C17DA /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C49AF41D22468A003C17DA /* GTMBase64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D1C49AFE1D2246A4003C17DA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1C49AFD1D2246A4003C17DA /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,7 +75,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0925851C3756862A4A844B01 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CE31DB59572E865FDE98F3A /* Pods-FUYIFinance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FUYIFinance.release.xcconfig"; path = "Pods/Target Support Files/Pods-FUYIFinance/Pods-FUYIFinance.release.xcconfig"; sourceTree = "<group>"; };
 		91082FC8046B117F37C12298 /* libPods-FUYIFinance.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FUYIFinance.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB02D4AA1D2228F700AED400 /* ShopCarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopCarViewController.h; sourceTree = "<group>"; };
@@ -90,21 +90,6 @@
 		AB36CDC41D129CA600D0E4C7 /* FUYI-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FUYI-Prefix.pch"; sourceTree = "<group>"; };
 		AB36CDFC1D1A996900D0E4C7 /* Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tools.h; path = ../Tools.h; sourceTree = "<group>"; };
 		AB36CDFD1D1A996900D0E4C7 /* Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tools.m; path = ../Tools.m; sourceTree = "<group>"; };
-		AB36CE001D1A99EC00D0E4C7 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
-		AB36CE011D1A99EC00D0E4C7 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
-		AB36CE021D1A99EC00D0E4C7 /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
-		AB36CE031D1A99EC00D0E4C7 /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoding.m"; sourceTree = "<group>"; };
-		AB36CE041D1A99EC00D0E4C7 /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
-		AB36CE051D1A99EC00D0E4C7 /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
-		AB36CE061D1A99EC00D0E4C7 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
-		AB36CE071D1A99EC00D0E4C7 /* NSData+AES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+AES.h"; sourceTree = "<group>"; };
-		AB36CE081D1A99EC00D0E4C7 /* NSData+AES.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+AES.m"; sourceTree = "<group>"; };
-		AB36CE091D1A99EC00D0E4C7 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
-		AB36CE0A1D1A99EC00D0E4C7 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
-		AB36CE0B1D1A99EC00D0E4C7 /* SecurityUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityUtil.h; sourceTree = "<group>"; };
-		AB36CE0C1D1A99EC00D0E4C7 /* SecurityUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityUtil.m; sourceTree = "<group>"; };
-		AB36CE0D1D1A99EC00D0E4C7 /* StringEncryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringEncryption.h; sourceTree = "<group>"; };
-		AB36CE0E1D1A99EC00D0E4C7 /* StringEncryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringEncryption.m; sourceTree = "<group>"; };
 		AB36CE171D1A9A1700D0E4C7 /* GuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuideViewController.h; sourceTree = "<group>"; };
 		AB36CE181D1A9A1700D0E4C7 /* GuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuideViewController.m; sourceTree = "<group>"; };
 		AB36CE1B1D1B710400D0E4C7 /* NSData+SDDataCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SDDataCache.h"; sourceTree = "<group>"; };
@@ -161,6 +146,22 @@
 		ABF5DE511D0FA803007CE1AB /* Mine.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Mine.storyboard; sourceTree = "<group>"; };
 		ABF5DE551D0FD930007CE1AB /* HomeTabbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTabbarViewController.h; sourceTree = "<group>"; };
 		ABF5DE561D0FD930007CE1AB /* HomeTabbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTabbarViewController.m; sourceTree = "<group>"; };
+		D1C49AE71D22468A003C17DA /* StringEncryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringEncryption.m; sourceTree = "<group>"; };
+		D1C49AE81D22468A003C17DA /* StringEncryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringEncryption.h; sourceTree = "<group>"; };
+		D1C49AE91D22468A003C17DA /* SecurityUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityUtil.m; sourceTree = "<group>"; };
+		D1C49AEA1D22468A003C17DA /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoding.m"; sourceTree = "<group>"; };
+		D1C49AEB1D22468A003C17DA /* SecurityUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityUtil.h; sourceTree = "<group>"; };
+		D1C49AEC1D22468A003C17DA /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
+		D1C49AED1D22468A003C17DA /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
+		D1C49AEE1D22468A003C17DA /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
+		D1C49AEF1D22468A003C17DA /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		D1C49AF01D22468A003C17DA /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		D1C49AF11D22468A003C17DA /* NSData+AES.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+AES.m"; sourceTree = "<group>"; };
+		D1C49AF21D22468A003C17DA /* NSData+AES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+AES.h"; sourceTree = "<group>"; };
+		D1C49AF31D22468A003C17DA /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		D1C49AF41D22468A003C17DA /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
+		D1C49AF51D22468A003C17DA /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
+		D1C49AFD1D2246A4003C17DA /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPods.a; sourceTree = "<group>"; };
 		E2D217BF4D0AE0F6C9591577 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FA5515060D58FFB367588DFA /* Pods-FUYIFinance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FUYIFinance.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FUYIFinance/Pods-FUYIFinance.debug.xcconfig"; sourceTree = "<group>"; };
 		FB5E00328843A9E289111723 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -171,8 +172,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3595CEE84E209C9E9A9A34C0 /* libPods.a in Frameworks */,
 				09C633776A4A8F751566863B /* libPods-FUYIFinance.a in Frameworks */,
+				D1C49AFE1D2246A4003C17DA /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,7 +208,7 @@
 		0785EFAD9D8BC2ECCBC0C903 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0925851C3756862A4A844B01 /* libPods.a */,
+				D1C49AFD1D2246A4003C17DA /* libPods.a */,
 				91082FC8046B117F37C12298 /* libPods-FUYIFinance.a */,
 			);
 			name = Frameworks;
@@ -229,29 +230,6 @@
 				AB36CDFD1D1A996900D0E4C7 /* Tools.m */,
 			);
 			path = Helper;
-			sourceTree = "<group>";
-		};
-		AB36CE0F1D1A99EC00D0E4C7 /* Security */ = {
-			isa = PBXGroup;
-			children = (
-				AB36CE001D1A99EC00D0E4C7 /* NSData+Base64.h */,
-				AB36CE011D1A99EC00D0E4C7 /* NSData+Base64.m */,
-				AB36CE021D1A99EC00D0E4C7 /* NSString+URLEncoding.h */,
-				AB36CE031D1A99EC00D0E4C7 /* NSString+URLEncoding.m */,
-				AB36CE041D1A99EC00D0E4C7 /* GTMBase64.h */,
-				AB36CE051D1A99EC00D0E4C7 /* GTMBase64.m */,
-				AB36CE061D1A99EC00D0E4C7 /* GTMDefines.h */,
-				AB36CE071D1A99EC00D0E4C7 /* NSData+AES.h */,
-				AB36CE081D1A99EC00D0E4C7 /* NSData+AES.m */,
-				AB36CE091D1A99EC00D0E4C7 /* NSString+MD5.h */,
-				AB36CE0A1D1A99EC00D0E4C7 /* NSString+MD5.m */,
-				AB36CE0B1D1A99EC00D0E4C7 /* SecurityUtil.h */,
-				AB36CE0C1D1A99EC00D0E4C7 /* SecurityUtil.m */,
-				AB36CE0D1D1A99EC00D0E4C7 /* StringEncryption.h */,
-				AB36CE0E1D1A99EC00D0E4C7 /* StringEncryption.m */,
-			);
-			name = Security;
-			path = ../../../../../vplusSevice_normal/ERVICE/ERVICE/Util/Security;
 			sourceTree = "<group>";
 		};
 		AB36CE1A1D1B710400D0E4C7 /* SDCycleScrollView */ = {
@@ -466,8 +444,8 @@
 		ABF5DE401D0FA4B1007CE1AB /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				D1C49AE61D22465E003C17DA /* Security */,
 				AB36CDFF1D1A99DB00D0E4C7 /* Helper */,
-				AB36CE0F1D1A99EC00D0E4C7 /* Security */,
 				AB36CDC31D129C5D00D0E4C7 /* Marco.h */,
 			);
 			path = Util;
@@ -570,6 +548,28 @@
 			path = HomeTabbarController;
 			sourceTree = "<group>";
 		};
+		D1C49AE61D22465E003C17DA /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				D1C49AE71D22468A003C17DA /* StringEncryption.m */,
+				D1C49AE81D22468A003C17DA /* StringEncryption.h */,
+				D1C49AE91D22468A003C17DA /* SecurityUtil.m */,
+				D1C49AEA1D22468A003C17DA /* NSString+URLEncoding.m */,
+				D1C49AEB1D22468A003C17DA /* SecurityUtil.h */,
+				D1C49AEC1D22468A003C17DA /* NSString+URLEncoding.h */,
+				D1C49AED1D22468A003C17DA /* NSString+MD5.m */,
+				D1C49AEE1D22468A003C17DA /* NSString+MD5.h */,
+				D1C49AEF1D22468A003C17DA /* NSData+Base64.m */,
+				D1C49AF01D22468A003C17DA /* NSData+Base64.h */,
+				D1C49AF11D22468A003C17DA /* NSData+AES.m */,
+				D1C49AF21D22468A003C17DA /* NSData+AES.h */,
+				D1C49AF31D22468A003C17DA /* GTMDefines.h */,
+				D1C49AF41D22468A003C17DA /* GTMBase64.m */,
+				D1C49AF51D22468A003C17DA /* GTMBase64.h */,
+			);
+			name = Security;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -583,7 +583,6 @@
 				AB708F841D0543BE007D0B4D /* Resources */,
 				2D5F3A3F8E85A6B9AA6C1BBD /* 📦 Embed Pods Frameworks */,
 				84EF5DA7F428315A8499869B /* 📦 Copy Pods Resources */,
-				0D49BE78ED3EF929076CD55A /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -709,21 +708,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0D49BE78ED3EF929076CD55A /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FUYIFinance/Pods-FUYIFinance-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		2D5F3A3F8E85A6B9AA6C1BBD /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -776,16 +760,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB36CE111D1A99EC00D0E4C7 /* NSString+URLEncoding.m in Sources */,
 				AB36CE2E1D1B710400D0E4C7 /* TAAnimatedDotView.m in Sources */,
 				AB708F911D0543BE007D0B4D /* ViewController.m in Sources */,
-				AB36CE131D1A99EC00D0E4C7 /* NSData+AES.m in Sources */,
 				AB36CE371D1B818300D0E4C7 /* HomepageHeaderTableViewCell.m in Sources */,
 				AB36CE431D1BE8FD00D0E4C7 /* InversetScrollView.m in Sources */,
-				AB36CE151D1A99EC00D0E4C7 /* SecurityUtil.m in Sources */,
-				AB36CE121D1A99EC00D0E4C7 /* GTMBase64.m in Sources */,
 				AB36CDB71D12773400D0E4C7 /* BaseViewController.m in Sources */,
+				D1C49AFB1D22468A003C17DA /* NSData+AES.m in Sources */,
 				AB36CE491D1CE72400D0E4C7 /* ThreeCollectionViewCell.m in Sources */,
+				D1C49AFC1D22468A003C17DA /* GTMBase64.m in Sources */,
 				AB36CE331D1B710400D0E4C7 /* UIView+SDExtension.m in Sources */,
 				AB36CDC01D128CF900D0E4C7 /* HomePageNavgationItem.m in Sources */,
 				AB36CDFE1D1A996900D0E4C7 /* Tools.m in Sources */,
@@ -795,18 +777,20 @@
 				AB36CE311D1B710400D0E4C7 /* SDCollectionViewCell.m in Sources */,
 				AB36CE4B1D1CE72400D0E4C7 /* ThreeTableViewCell.m in Sources */,
 				AB36CE3C1D1B88A600D0E4C7 /* HomePageHotNewTableViewCell.m in Sources */,
+				D1C49AF71D22468A003C17DA /* SecurityUtil.m in Sources */,
 				AB36CDBA1D1283AD00D0E4C7 /* HomePageViewController.m in Sources */,
 				AB36CE401D1BC9C100D0E4C7 /* InvestCollectionViewTableViewCell.m in Sources */,
+				D1C49AFA1D22468A003C17DA /* NSData+Base64.m in Sources */,
+				D1C49AF61D22468A003C17DA /* StringEncryption.m in Sources */,
 				ABF5DE571D0FD930007CE1AB /* HomeTabbarViewController.m in Sources */,
 				AB708F8E1D0543BE007D0B4D /* AppDelegate.m in Sources */,
 				AB36CE301D1B710400D0E4C7 /* TAPageControl.m in Sources */,
-				AB36CE161D1A99EC00D0E4C7 /* StringEncryption.m in Sources */,
+				D1C49AF91D22468A003C17DA /* NSString+MD5.m in Sources */,
 				AB36CE2D1D1B710400D0E4C7 /* TAAbstractDotView.m in Sources */,
 				AB36CE321D1B710400D0E4C7 /* SDCycleScrollView.m in Sources */,
 				AB36CE2C1D1B710400D0E4C7 /* NSData+SDDataCache.m in Sources */,
 				AB36CE191D1A9A1700D0E4C7 /* GuideViewController.m in Sources */,
 				AB708F8B1D0543BE007D0B4D /* main.m in Sources */,
-				AB36CE101D1A99EC00D0E4C7 /* NSData+Base64.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -956,6 +940,10 @@
 				INFOPLIST_FILE = FUYIFinance/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.youyou.FUYIFinance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -970,6 +958,10 @@
 				INFOPLIST_FILE = FUYIFinance/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.youyou.FUYIFinance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
