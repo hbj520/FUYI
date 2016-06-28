@@ -46,6 +46,7 @@
 		ABF5DE501D0FA7FC007CE1AB /* ShopCar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABF5DE4F1D0FA7FC007CE1AB /* ShopCar.storyboard */; };
 		ABF5DE521D0FA803007CE1AB /* Mine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABF5DE511D0FA803007CE1AB /* Mine.storyboard */; };
 		ABF5DE571D0FD930007CE1AB /* HomeTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF5DE561D0FD930007CE1AB /* HomeTabbarViewController.m */; };
+		CC72D0241D225B6200945BCF /* MineTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D0231D225B6200945BCF /* MineTableViewController.m */; };
 		D1C49AF61D22468A003C17DA /* StringEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C49AE71D22468A003C17DA /* StringEncryption.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D1C49AF71D22468A003C17DA /* SecurityUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C49AE91D22468A003C17DA /* SecurityUtil.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D1C49AF91D22468A003C17DA /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C49AED1D22468A003C17DA /* NSString+MD5.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -144,6 +145,8 @@
 		ABF5DE511D0FA803007CE1AB /* Mine.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Mine.storyboard; sourceTree = "<group>"; };
 		ABF5DE551D0FD930007CE1AB /* HomeTabbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTabbarViewController.h; sourceTree = "<group>"; };
 		ABF5DE561D0FD930007CE1AB /* HomeTabbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTabbarViewController.m; sourceTree = "<group>"; };
+		CC72D0221D225B6200945BCF /* MineTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineTableViewController.h; sourceTree = "<group>"; };
+		CC72D0231D225B6200945BCF /* MineTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineTableViewController.m; sourceTree = "<group>"; };
 		D1C49AE71D22468A003C17DA /* StringEncryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringEncryption.m; sourceTree = "<group>"; };
 		D1C49AE81D22468A003C17DA /* StringEncryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringEncryption.h; sourceTree = "<group>"; };
 		D1C49AE91D22468A003C17DA /* SecurityUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityUtil.m; sourceTree = "<group>"; };
@@ -364,6 +367,8 @@
 		ABF5DE371D0FA4B1007CE1AB /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				CC72D0221D225B6200945BCF /* MineTableViewController.h */,
+				CC72D0231D225B6200945BCF /* MineTableViewController.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -785,6 +790,7 @@
 				D1C49AF91D22468A003C17DA /* NSString+MD5.m in Sources */,
 				AB36CE2D1D1B710400D0E4C7 /* TAAbstractDotView.m in Sources */,
 				AB36CE321D1B710400D0E4C7 /* SDCycleScrollView.m in Sources */,
+				CC72D0241D225B6200945BCF /* MineTableViewController.m in Sources */,
 				AB36CE2C1D1B710400D0E4C7 /* NSData+SDDataCache.m in Sources */,
 				AB36CE191D1A9A1700D0E4C7 /* GuideViewController.m in Sources */,
 				AB708F8B1D0543BE007D0B4D /* main.m in Sources */,
