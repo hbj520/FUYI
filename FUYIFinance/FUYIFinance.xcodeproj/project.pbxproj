@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		09C633776A4A8F751566863B /* libPods-FUYIFinance.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91082FC8046B117F37C12298 /* libPods-FUYIFinance.a */; };
-		3595CEE84E209C9E9A9A34C0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0925851C3756862A4A844B01 /* libPods.a */; };
 		AB02D4AC1D2228F800AED400 /* ShopCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB02D4AB1D2228F700AED400 /* ShopCarViewController.m */; };
 		AB36CDB71D12773400D0E4C7 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36CDB61D12773400D0E4C7 /* BaseViewController.m */; };
 		AB36CDBA1D1283AD00D0E4C7 /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36CDB91D1283AD00D0E4C7 /* HomePageViewController.m */; };
@@ -49,7 +48,6 @@
 		ABF5DE571D0FD930007CE1AB /* HomeTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF5DE561D0FD930007CE1AB /* HomeTabbarViewController.m */; };
 		D1C49AF61D22468A003C17DA /* StringEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C49AE71D22468A003C17DA /* StringEncryption.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D1C49AF71D22468A003C17DA /* SecurityUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C49AE91D22468A003C17DA /* SecurityUtil.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		D1C49AF81D22468A003C17DA /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C49AEA1D22468A003C17DA /* NSString+URLEncoding.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D1C49AF91D22468A003C17DA /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C49AED1D22468A003C17DA /* NSString+MD5.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D1C49AFA1D22468A003C17DA /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C49AEF1D22468A003C17DA /* NSData+Base64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D1C49AFB1D22468A003C17DA /* NSData+AES.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C49AF11D22468A003C17DA /* NSData+AES.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -344,21 +342,14 @@
 		ABF5DE341D0FA4B1007CE1AB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CC72D0211D225ADB00945BCF /* CustomerService */,
 				AB36CDB41D1274E900D0E4C7 /* BaseViewControllers */,
 				ABF5DE541D0FAFBE007CE1AB /* HomeTabbarController */,
-				ABF5DE351D0FA4B1007CE1AB /* CustomerService */,
 				ABF5DE361D0FA4B1007CE1AB /* HomePage */,
 				ABF5DE371D0FA4B1007CE1AB /* Mine */,
 				ABF5DE381D0FA4B1007CE1AB /* ShopCar */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		ABF5DE351D0FA4B1007CE1AB /* CustomerService */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CustomerService;
 			sourceTree = "<group>";
 		};
 		ABF5DE361D0FA4B1007CE1AB /* HomePage */ = {
@@ -546,6 +537,13 @@
 				AB36CE181D1A9A1700D0E4C7 /* GuideViewController.m */,
 			);
 			path = HomeTabbarController;
+			sourceTree = "<group>";
+		};
+		CC72D0211D225ADB00945BCF /* CustomerService */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CustomerService;
 			sourceTree = "<group>";
 		};
 		D1C49AE61D22465E003C17DA /* Security */ = {
@@ -773,7 +771,6 @@
 				AB36CDFE1D1A996900D0E4C7 /* Tools.m in Sources */,
 				AB36CE2F1D1B710400D0E4C7 /* TADotView.m in Sources */,
 				AB02D4AC1D2228F800AED400 /* ShopCarViewController.m in Sources */,
-				AB36CE141D1A99EC00D0E4C7 /* NSString+MD5.m in Sources */,
 				AB36CE311D1B710400D0E4C7 /* SDCollectionViewCell.m in Sources */,
 				AB36CE4B1D1CE72400D0E4C7 /* ThreeTableViewCell.m in Sources */,
 				AB36CE3C1D1B88A600D0E4C7 /* HomePageHotNewTableViewCell.m in Sources */,
