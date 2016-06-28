@@ -9,8 +9,7 @@
         <!--Navigation Controller-->
         <scene sceneID="nM2-Fs-mub">
             <objects>
-                <navigationController navigationBarHidden="YES" id="QaL-7E-fUx" sceneMemberID="viewController">
-                    <nil key="simulatedTopBarMetrics"/>
+                <navigationController id="QaL-7E-fUx" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0ee-2z-PC3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -601,14 +600,47 @@
                         <outlet property="preparPay" destination="KKT-oW-XNw" id="AZb-5e-8Xt"/>
                         <outlet property="prepareForgood" destination="GT3-Cj-ft8" id="Ble-X1-xk4"/>
                         <outlet property="prepareForjudge" destination="yzK-Qa-xBO" id="m93-0r-u8r"/>
+                        <segue destination="f1T-Ak-TJF" kind="push" identifier="myorderSegue" id="xFS-qr-VxC"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r1Q-BL-DkO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="398" y="354"/>
+            <point key="canvasLocation" x="438" y="371"/>
+        </scene>
+        <!--我的订单-->
+        <scene sceneID="UCr-rr-wHb">
+            <objects>
+                <viewController id="f1T-Ak-TJF" customClass="MyOrderViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NVu-NW-tW6"/>
+                        <viewControllerLayoutGuide type="bottom" id="XkH-eB-zTe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3qJ-2p-xm5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="我的订单" id="QmT-Wo-Foe">
+                        <barButtonItem key="leftBarButtonItem" image="back1" id="Sq3-cN-cg7">
+                            <color key="tintColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="back:" destination="f1T-Ak-TJF" id="2ap-KK-LNb"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="message1" id="5rz-sU-E6e">
+                            <color key="tintColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3PF-Ah-sal" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="798" y="371"/>
         </scene>
     </scenes>
     <resources>
+        <image name="back1" width="26" height="40"/>
+        <image name="message1" width="25" height="24"/>
         <image name="person_headicon" width="127" height="130"/>
         <image name="personal_account" width="41" height="41"/>
         <image name="personal_address" width="43" height="42"/>
