@@ -47,6 +47,17 @@
 		ABF5DE521D0FA803007CE1AB /* Mine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABF5DE511D0FA803007CE1AB /* Mine.storyboard */; };
 		ABF5DE571D0FD930007CE1AB /* HomeTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF5DE561D0FD930007CE1AB /* HomeTabbarViewController.m */; };
 		CC72D0241D225B6200945BCF /* MineTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D0231D225B6200945BCF /* MineTableViewController.m */; };
+		CC72D0271D22620000945BCF /* MyOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D0261D22620000945BCF /* MyOrderViewController.m */; };
+		CC72D02C1D2263CF00945BCF /* PersonalWaitPayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D02A1D2263CF00945BCF /* PersonalWaitPayTableViewCell.m */; };
+		CC72D02D1D2263CF00945BCF /* PersonalWaitPayTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC72D02B1D2263CF00945BCF /* PersonalWaitPayTableViewCell.xib */; };
+		CC72D0331D226A5C00945BCF /* YSLContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D0301D226A5C00945BCF /* YSLContainerViewController.m */; };
+		CC72D0341D226A5C00945BCF /* YSLScrollMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D0321D226A5C00945BCF /* YSLScrollMenuView.m */; };
+		CC72D0371D226AD000945BCF /* MyOrderAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D0361D226AD000945BCF /* MyOrderAllViewController.m */; };
+		CC72D03A1D226AE300945BCF /* MyOrderWaitPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D0391D226AE300945BCF /* MyOrderWaitPayViewController.m */; };
+		CC72D03D1D226AF700945BCF /* MyOrderWaitGoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D03C1D226AF700945BCF /* MyOrderWaitGoodViewController.m */; };
+		CC72D0401D226B1100945BCF /* MyOrderWaitJudgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D03F1D226B1100945BCF /* MyOrderWaitJudgeViewController.m */; };
+		CC72D0441D227DF500945BCF /* PersonalWaitJudgeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D0421D227DF500945BCF /* PersonalWaitJudgeTableViewCell.m */; };
+		CC72D0451D227DF500945BCF /* PersonalWaitJudgeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC72D0431D227DF500945BCF /* PersonalWaitJudgeTableViewCell.xib */; };
 		D1C49AF61D22468A003C17DA /* StringEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C49AE71D22468A003C17DA /* StringEncryption.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D1C49AF71D22468A003C17DA /* SecurityUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C49AE91D22468A003C17DA /* SecurityUtil.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D1C49AF91D22468A003C17DA /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C49AED1D22468A003C17DA /* NSString+MD5.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -147,6 +158,26 @@
 		ABF5DE561D0FD930007CE1AB /* HomeTabbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTabbarViewController.m; sourceTree = "<group>"; };
 		CC72D0221D225B6200945BCF /* MineTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineTableViewController.h; sourceTree = "<group>"; };
 		CC72D0231D225B6200945BCF /* MineTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineTableViewController.m; sourceTree = "<group>"; };
+		CC72D0251D22620000945BCF /* MyOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderViewController.h; sourceTree = "<group>"; };
+		CC72D0261D22620000945BCF /* MyOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderViewController.m; sourceTree = "<group>"; };
+		CC72D0291D2263CF00945BCF /* PersonalWaitPayTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalWaitPayTableViewCell.h; sourceTree = "<group>"; };
+		CC72D02A1D2263CF00945BCF /* PersonalWaitPayTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalWaitPayTableViewCell.m; sourceTree = "<group>"; };
+		CC72D02B1D2263CF00945BCF /* PersonalWaitPayTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalWaitPayTableViewCell.xib; sourceTree = "<group>"; };
+		CC72D02F1D226A5C00945BCF /* YSLContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSLContainerViewController.h; sourceTree = "<group>"; };
+		CC72D0301D226A5C00945BCF /* YSLContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSLContainerViewController.m; sourceTree = "<group>"; };
+		CC72D0311D226A5C00945BCF /* YSLScrollMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSLScrollMenuView.h; sourceTree = "<group>"; };
+		CC72D0321D226A5C00945BCF /* YSLScrollMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSLScrollMenuView.m; sourceTree = "<group>"; };
+		CC72D0351D226AD000945BCF /* MyOrderAllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderAllViewController.h; sourceTree = "<group>"; };
+		CC72D0361D226AD000945BCF /* MyOrderAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderAllViewController.m; sourceTree = "<group>"; };
+		CC72D0381D226AE300945BCF /* MyOrderWaitPayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderWaitPayViewController.h; sourceTree = "<group>"; };
+		CC72D0391D226AE300945BCF /* MyOrderWaitPayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderWaitPayViewController.m; sourceTree = "<group>"; };
+		CC72D03B1D226AF700945BCF /* MyOrderWaitGoodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderWaitGoodViewController.h; sourceTree = "<group>"; };
+		CC72D03C1D226AF700945BCF /* MyOrderWaitGoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderWaitGoodViewController.m; sourceTree = "<group>"; };
+		CC72D03E1D226B1100945BCF /* MyOrderWaitJudgeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderWaitJudgeViewController.h; sourceTree = "<group>"; };
+		CC72D03F1D226B1100945BCF /* MyOrderWaitJudgeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderWaitJudgeViewController.m; sourceTree = "<group>"; };
+		CC72D0411D227DF500945BCF /* PersonalWaitJudgeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalWaitJudgeTableViewCell.h; sourceTree = "<group>"; };
+		CC72D0421D227DF500945BCF /* PersonalWaitJudgeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalWaitJudgeTableViewCell.m; sourceTree = "<group>"; };
+		CC72D0431D227DF500945BCF /* PersonalWaitJudgeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalWaitJudgeTableViewCell.xib; sourceTree = "<group>"; };
 		D1C49AE71D22468A003C17DA /* StringEncryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringEncryption.m; sourceTree = "<group>"; };
 		D1C49AE81D22468A003C17DA /* StringEncryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringEncryption.h; sourceTree = "<group>"; };
 		D1C49AE91D22468A003C17DA /* SecurityUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityUtil.m; sourceTree = "<group>"; };
@@ -369,6 +400,16 @@
 			children = (
 				CC72D0221D225B6200945BCF /* MineTableViewController.h */,
 				CC72D0231D225B6200945BCF /* MineTableViewController.m */,
+				CC72D0251D22620000945BCF /* MyOrderViewController.h */,
+				CC72D0261D22620000945BCF /* MyOrderViewController.m */,
+				CC72D0351D226AD000945BCF /* MyOrderAllViewController.h */,
+				CC72D0361D226AD000945BCF /* MyOrderAllViewController.m */,
+				CC72D0381D226AE300945BCF /* MyOrderWaitPayViewController.h */,
+				CC72D0391D226AE300945BCF /* MyOrderWaitPayViewController.m */,
+				CC72D03B1D226AF700945BCF /* MyOrderWaitGoodViewController.h */,
+				CC72D03C1D226AF700945BCF /* MyOrderWaitGoodViewController.m */,
+				CC72D03E1D226B1100945BCF /* MyOrderWaitJudgeViewController.h */,
+				CC72D03F1D226B1100945BCF /* MyOrderWaitJudgeViewController.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -450,6 +491,7 @@
 		ABF5DE411D0FA4B1007CE1AB /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				CC72D02E1D226A5C00945BCF /* YSLContainerViewController */,
 				AB36CE1A1D1B710400D0E4C7 /* SDCycleScrollView */,
 			);
 			path = Vendor;
@@ -458,9 +500,9 @@
 		ABF5DE421D0FA4B1007CE1AB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CC72D0281D22636100945BCF /* Mine */,
 				ABF5DE431D0FA4B1007CE1AB /* CustomerService */,
 				ABF5DE441D0FA4B1007CE1AB /* HomePage */,
-				ABF5DE451D0FA4B1007CE1AB /* Mine */,
 				ABF5DE461D0FA4B1007CE1AB /* ShopCar */,
 			);
 			path = Views;
@@ -496,13 +538,6 @@
 				AB36CE421D1BE8FD00D0E4C7 /* InversetScrollView.m */,
 			);
 			path = HomePage;
-			sourceTree = "<group>";
-		};
-		ABF5DE451D0FA4B1007CE1AB /* Mine */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Mine;
 			sourceTree = "<group>";
 		};
 		ABF5DE461D0FA4B1007CE1AB /* ShopCar */ = {
@@ -549,6 +584,30 @@
 			children = (
 			);
 			path = CustomerService;
+			sourceTree = "<group>";
+		};
+		CC72D0281D22636100945BCF /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				CC72D0291D2263CF00945BCF /* PersonalWaitPayTableViewCell.h */,
+				CC72D02A1D2263CF00945BCF /* PersonalWaitPayTableViewCell.m */,
+				CC72D02B1D2263CF00945BCF /* PersonalWaitPayTableViewCell.xib */,
+				CC72D0411D227DF500945BCF /* PersonalWaitJudgeTableViewCell.h */,
+				CC72D0421D227DF500945BCF /* PersonalWaitJudgeTableViewCell.m */,
+				CC72D0431D227DF500945BCF /* PersonalWaitJudgeTableViewCell.xib */,
+			);
+			name = Mine;
+			sourceTree = "<group>";
+		};
+		CC72D02E1D226A5C00945BCF /* YSLContainerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CC72D02F1D226A5C00945BCF /* YSLContainerViewController.h */,
+				CC72D0301D226A5C00945BCF /* YSLContainerViewController.m */,
+				CC72D0311D226A5C00945BCF /* YSLScrollMenuView.h */,
+				CC72D0321D226A5C00945BCF /* YSLScrollMenuView.m */,
+			);
+			path = YSLContainerViewController;
 			sourceTree = "<group>";
 		};
 		D1C49AE61D22465E003C17DA /* Security */ = {
@@ -680,6 +739,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB36CE381D1B818300D0E4C7 /* HomepageHeaderTableViewCell.xib in Resources */,
+				CC72D02D1D2263CF00945BCF /* PersonalWaitPayTableViewCell.xib in Resources */,
+				CC72D0451D227DF500945BCF /* PersonalWaitJudgeTableViewCell.xib in Resources */,
 				ABF5DE4E1D0FA7EB007CE1AB /* CustomerService.storyboard in Resources */,
 				ABF5DE4C1D0FA7B9007CE1AB /* HomePage.storyboard in Resources */,
 				AB36CE4A1D1CE72400D0E4C7 /* ThreeCollectionViewCell.xib in Resources */,
@@ -766,6 +827,8 @@
 				AB36CE2E1D1B710400D0E4C7 /* TAAnimatedDotView.m in Sources */,
 				AB708F911D0543BE007D0B4D /* ViewController.m in Sources */,
 				AB36CE371D1B818300D0E4C7 /* HomepageHeaderTableViewCell.m in Sources */,
+				CC72D03A1D226AE300945BCF /* MyOrderWaitPayViewController.m in Sources */,
+				CC72D0441D227DF500945BCF /* PersonalWaitJudgeTableViewCell.m in Sources */,
 				AB36CE431D1BE8FD00D0E4C7 /* InversetScrollView.m in Sources */,
 				AB36CDB71D12773400D0E4C7 /* BaseViewController.m in Sources */,
 				D1C49AFB1D22468A003C17DA /* NSData+AES.m in Sources */,
@@ -773,6 +836,9 @@
 				D1C49AFC1D22468A003C17DA /* GTMBase64.m in Sources */,
 				AB36CE331D1B710400D0E4C7 /* UIView+SDExtension.m in Sources */,
 				AB36CDC01D128CF900D0E4C7 /* HomePageNavgationItem.m in Sources */,
+				CC72D02C1D2263CF00945BCF /* PersonalWaitPayTableViewCell.m in Sources */,
+				CC72D0371D226AD000945BCF /* MyOrderAllViewController.m in Sources */,
+				CC72D03D1D226AF700945BCF /* MyOrderWaitGoodViewController.m in Sources */,
 				AB36CDFE1D1A996900D0E4C7 /* Tools.m in Sources */,
 				AB36CE2F1D1B710400D0E4C7 /* TADotView.m in Sources */,
 				AB02D4AC1D2228F800AED400 /* ShopCarViewController.m in Sources */,
@@ -782,6 +848,7 @@
 				D1C49AF71D22468A003C17DA /* SecurityUtil.m in Sources */,
 				AB36CDBA1D1283AD00D0E4C7 /* HomePageViewController.m in Sources */,
 				AB36CE401D1BC9C100D0E4C7 /* InvestCollectionViewTableViewCell.m in Sources */,
+				CC72D0271D22620000945BCF /* MyOrderViewController.m in Sources */,
 				D1C49AFA1D22468A003C17DA /* NSData+Base64.m in Sources */,
 				D1C49AF61D22468A003C17DA /* StringEncryption.m in Sources */,
 				ABF5DE571D0FD930007CE1AB /* HomeTabbarViewController.m in Sources */,
@@ -790,10 +857,13 @@
 				D1C49AF91D22468A003C17DA /* NSString+MD5.m in Sources */,
 				AB36CE2D1D1B710400D0E4C7 /* TAAbstractDotView.m in Sources */,
 				AB36CE321D1B710400D0E4C7 /* SDCycleScrollView.m in Sources */,
+				CC72D0401D226B1100945BCF /* MyOrderWaitJudgeViewController.m in Sources */,
+				CC72D0341D226A5C00945BCF /* YSLScrollMenuView.m in Sources */,
 				CC72D0241D225B6200945BCF /* MineTableViewController.m in Sources */,
 				AB36CE2C1D1B710400D0E4C7 /* NSData+SDDataCache.m in Sources */,
 				AB36CE191D1A9A1700D0E4C7 /* GuideViewController.m in Sources */,
 				AB708F8B1D0543BE007D0B4D /* main.m in Sources */,
+				CC72D0331D226A5C00945BCF /* YSLContainerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
