@@ -7,12 +7,12 @@
 //
 
 //view
-
-
+#import "ShopCarNavigationItem.h"
+#import "ShopCarBottomView.h"
 
 #import "ShopCarViewController.h"
 
-@interface ShopCarViewController ()
+@interface ShopCarViewController ()//<UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
@@ -27,13 +27,29 @@
 
 -(void)creatUI
 {
+//    self.tableView.delegate = self;
+//    self.tableView.dataSource = self;
     [self addCustomerNavigationItem];
+    [self addBottomView];
 }
 
+-(void)addBottomView
+{
+    ShopCarBottomView *bottomView = [[[NSBundle mainBundle]loadNibNamed:@"ShopCarBottomView" owner:self options:nil]lastObject];
+    bottomView.frame = CGRectMake(0, ScreenHeight-88,ScreenWidth, 44);
+    [self.view addSubview:bottomView];
+}
 
 -(void)addCustomerNavigationItem
 {
-   
+    ShopCarNavigationItem *navItem = [[[NSBundle mainBundle]loadNibNamed:@"ShopCarNavigationItem" owner:self options:nil]lastObject];
+    navItem.backgroundColor = RGBACOLOR(244,244,244,1);
+    navItem.frame = CGRectMake(0, 0,ScreenWidth, 64);
+    //消息按钮
+    navItem.messageBlock = ^(){
+        
+    };
+    [self.view addSubview:navItem];
 }
 
 - (void)didReceiveMemoryWarning {

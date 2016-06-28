@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		09C633776A4A8F751566863B /* libPods-FUYIFinance.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91082FC8046B117F37C12298 /* libPods-FUYIFinance.a */; };
-		3595CEE84E209C9E9A9A34C0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0925851C3756862A4A844B01 /* libPods.a */; };
 		AB02D4AC1D2228F800AED400 /* ShopCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB02D4AB1D2228F700AED400 /* ShopCarViewController.m */; };
 		AB36CDB71D12773400D0E4C7 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36CDB61D12773400D0E4C7 /* BaseViewController.m */; };
 		AB36CDBA1D1283AD00D0E4C7 /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36CDB91D1283AD00D0E4C7 /* HomePageViewController.m */; };
@@ -49,12 +48,17 @@
 		ABF5DE571D0FD930007CE1AB /* HomeTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF5DE561D0FD930007CE1AB /* HomeTabbarViewController.m */; };
 		D1C49AF61D22468A003C17DA /* StringEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C49AE71D22468A003C17DA /* StringEncryption.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D1C49AF71D22468A003C17DA /* SecurityUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C49AE91D22468A003C17DA /* SecurityUtil.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		D1C49AF81D22468A003C17DA /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C49AEA1D22468A003C17DA /* NSString+URLEncoding.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D1C49AF91D22468A003C17DA /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C49AED1D22468A003C17DA /* NSString+MD5.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D1C49AFA1D22468A003C17DA /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C49AEF1D22468A003C17DA /* NSData+Base64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D1C49AFB1D22468A003C17DA /* NSData+AES.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C49AF11D22468A003C17DA /* NSData+AES.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D1C49AFC1D22468A003C17DA /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C49AF41D22468A003C17DA /* GTMBase64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D1C49AFE1D2246A4003C17DA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1C49AFD1D2246A4003C17DA /* libPods.a */; };
+		D1C49B051D224DB6003C17DA /* ShopCarNavigationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C49B041D224DB6003C17DA /* ShopCarNavigationItem.m */; };
+		D1C49B071D224DE8003C17DA /* ShopCarNavigationItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1C49B061D224DE8003C17DA /* ShopCarNavigationItem.xib */; };
+		D1DE3AE41D225A99003473AF /* ShopCarBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DE3AE31D225A99003473AF /* ShopCarBottomView.m */; };
+		D1DE3AE61D225AAD003473AF /* ShopCarBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1DE3AE51D225AAD003473AF /* ShopCarBottomView.xib */; };
+		D1DE3AEA1D22791B003473AF /* shopCarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DE3AE81D22791B003473AF /* shopCarCell.m */; };
+		D1DE3AEB1D22791B003473AF /* shopCarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1DE3AE91D22791B003473AF /* shopCarCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,6 +166,15 @@
 		D1C49AF41D22468A003C17DA /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
 		D1C49AF51D22468A003C17DA /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
 		D1C49AFD1D2246A4003C17DA /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPods.a; sourceTree = "<group>"; };
+		D1C49B031D224DB6003C17DA /* ShopCarNavigationItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopCarNavigationItem.h; sourceTree = "<group>"; };
+		D1C49B041D224DB6003C17DA /* ShopCarNavigationItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopCarNavigationItem.m; sourceTree = "<group>"; };
+		D1C49B061D224DE8003C17DA /* ShopCarNavigationItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopCarNavigationItem.xib; sourceTree = "<group>"; };
+		D1DE3AE21D225A99003473AF /* ShopCarBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopCarBottomView.h; sourceTree = "<group>"; };
+		D1DE3AE31D225A99003473AF /* ShopCarBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopCarBottomView.m; sourceTree = "<group>"; };
+		D1DE3AE51D225AAD003473AF /* ShopCarBottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopCarBottomView.xib; sourceTree = "<group>"; };
+		D1DE3AE71D22791B003473AF /* shopCarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shopCarCell.h; sourceTree = "<group>"; };
+		D1DE3AE81D22791B003473AF /* shopCarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shopCarCell.m; sourceTree = "<group>"; };
+		D1DE3AE91D22791B003473AF /* shopCarCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = shopCarCell.xib; sourceTree = "<group>"; };
 		E2D217BF4D0AE0F6C9591577 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FA5515060D58FFB367588DFA /* Pods-FUYIFinance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FUYIFinance.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FUYIFinance/Pods-FUYIFinance.debug.xcconfig"; sourceTree = "<group>"; };
 		FB5E00328843A9E289111723 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -465,7 +478,7 @@
 				ABF5DE431D0FA4B1007CE1AB /* CustomerService */,
 				ABF5DE441D0FA4B1007CE1AB /* HomePage */,
 				ABF5DE451D0FA4B1007CE1AB /* Mine */,
-				ABF5DE461D0FA4B1007CE1AB /* ShopCar */,
+				D1C49B021D224D7F003C17DA /* ShopCar */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -507,13 +520,6 @@
 			children = (
 			);
 			path = Mine;
-			sourceTree = "<group>";
-		};
-		ABF5DE461D0FA4B1007CE1AB /* ShopCar */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ShopCar;
 			sourceTree = "<group>";
 		};
 		ABF5DE471D0FA51D007CE1AB /* Json */ = {
@@ -568,6 +574,22 @@
 				D1C49AF51D22468A003C17DA /* GTMBase64.h */,
 			);
 			name = Security;
+			sourceTree = "<group>";
+		};
+		D1C49B021D224D7F003C17DA /* ShopCar */ = {
+			isa = PBXGroup;
+			children = (
+				D1C49B031D224DB6003C17DA /* ShopCarNavigationItem.h */,
+				D1C49B041D224DB6003C17DA /* ShopCarNavigationItem.m */,
+				D1C49B061D224DE8003C17DA /* ShopCarNavigationItem.xib */,
+				D1DE3AE21D225A99003473AF /* ShopCarBottomView.h */,
+				D1DE3AE31D225A99003473AF /* ShopCarBottomView.m */,
+				D1DE3AE51D225AAD003473AF /* ShopCarBottomView.xib */,
+				D1DE3AE71D22791B003473AF /* shopCarCell.h */,
+				D1DE3AE81D22791B003473AF /* shopCarCell.m */,
+				D1DE3AE91D22791B003473AF /* shopCarCell.xib */,
+			);
+			name = ShopCar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -680,11 +702,14 @@
 				ABF5DE4E1D0FA7EB007CE1AB /* CustomerService.storyboard in Resources */,
 				ABF5DE4C1D0FA7B9007CE1AB /* HomePage.storyboard in Resources */,
 				AB36CE4A1D1CE72400D0E4C7 /* ThreeCollectionViewCell.xib in Resources */,
+				D1DE3AE61D225AAD003473AF /* ShopCarBottomView.xib in Resources */,
 				ABF5DE4A1D0FA58E007CE1AB /* HomeTabbars.json in Resources */,
 				AB708F991D0543BE007D0B4D /* LaunchScreen.storyboard in Resources */,
 				AB36CDC21D128D1900D0E4C7 /* HomePageNavgationItem.xib in Resources */,
 				AB708F961D0543BE007D0B4D /* Assets.xcassets in Resources */,
 				AB36CE3D1D1B88A600D0E4C7 /* HomePageHotNewTableViewCell.xib in Resources */,
+				D1DE3AEB1D22791B003473AF /* shopCarCell.xib in Resources */,
+				D1C49B071D224DE8003C17DA /* ShopCarNavigationItem.xib in Resources */,
 				ABF5DE501D0FA7FC007CE1AB /* ShopCar.storyboard in Resources */,
 				AB708F941D0543BE007D0B4D /* Main.storyboard in Resources */,
 				ABF5DE521D0FA803007CE1AB /* Mine.storyboard in Resources */,
@@ -766,6 +791,7 @@
 				AB36CE371D1B818300D0E4C7 /* HomepageHeaderTableViewCell.m in Sources */,
 				AB36CE431D1BE8FD00D0E4C7 /* InversetScrollView.m in Sources */,
 				AB36CDB71D12773400D0E4C7 /* BaseViewController.m in Sources */,
+				D1C49B051D224DB6003C17DA /* ShopCarNavigationItem.m in Sources */,
 				D1C49AFB1D22468A003C17DA /* NSData+AES.m in Sources */,
 				AB36CE491D1CE72400D0E4C7 /* ThreeCollectionViewCell.m in Sources */,
 				D1C49AFC1D22468A003C17DA /* GTMBase64.m in Sources */,
@@ -774,9 +800,10 @@
 				AB36CDFE1D1A996900D0E4C7 /* Tools.m in Sources */,
 				AB36CE2F1D1B710400D0E4C7 /* TADotView.m in Sources */,
 				AB02D4AC1D2228F800AED400 /* ShopCarViewController.m in Sources */,
-				AB36CE141D1A99EC00D0E4C7 /* NSString+MD5.m in Sources */,
+				D1DE3AE41D225A99003473AF /* ShopCarBottomView.m in Sources */,
 				AB36CE311D1B710400D0E4C7 /* SDCollectionViewCell.m in Sources */,
 				AB36CE4B1D1CE72400D0E4C7 /* ThreeTableViewCell.m in Sources */,
+				D1DE3AEA1D22791B003473AF /* shopCarCell.m in Sources */,
 				AB36CE3C1D1B88A600D0E4C7 /* HomePageHotNewTableViewCell.m in Sources */,
 				D1C49AF71D22468A003C17DA /* SecurityUtil.m in Sources */,
 				AB36CDBA1D1283AD00D0E4C7 /* HomePageViewController.m in Sources */,
