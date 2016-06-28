@@ -714,7 +714,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FUYIFinance/Pods-FUYIFinance-frameworks.sh\"\n";
+			shellScript = "
+";
 			showEnvVarsInLog = 0;
 		};
 		84EF5DA7F428315A8499869B /* 📦 Copy Pods Resources */ = {
