@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface ShopCarBottomView : UIView
+@property (weak, nonatomic) IBOutlet UIButton *chooseAllBtn;
+@property (weak, nonatomic) IBOutlet UILabel *allGoodPrices;
+@property (weak, nonatomic) IBOutlet UIButton *goPay;
 
 @end
