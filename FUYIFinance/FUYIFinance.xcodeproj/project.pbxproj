@@ -58,6 +58,17 @@
 		CC72D0401D226B1100945BCF /* MyOrderWaitJudgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D03F1D226B1100945BCF /* MyOrderWaitJudgeViewController.m */; };
 		CC72D0441D227DF500945BCF /* PersonalWaitJudgeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D0421D227DF500945BCF /* PersonalWaitJudgeTableViewCell.m */; };
 		CC72D0451D227DF500945BCF /* PersonalWaitJudgeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC72D0431D227DF500945BCF /* PersonalWaitJudgeTableViewCell.xib */; };
+		CC72D0491D235C4300945BCF /* MyCollectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D0471D235C4300945BCF /* MyCollectionTableViewCell.m */; };
+		CC72D04A1D235C4300945BCF /* MyCollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC72D0481D235C4300945BCF /* MyCollectionTableViewCell.xib */; };
+		CC72D04D1D23612B00945BCF /* MyOrderMyCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D04C1D23612B00945BCF /* MyOrderMyCollectionViewController.m */; };
+		CC72D0501D23617F00945BCF /* MyCollectionCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D04F1D23617F00945BCF /* MyCollectionCourseViewController.m */; };
+		CC72D0531D23619D00945BCF /* MyCollectionShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D0521D23619D00945BCF /* MyCollectionShopViewController.m */; };
+		CC72D0571D2369DD00945BCF /* MyCollectionShopTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D0551D2369DD00945BCF /* MyCollectionShopTableViewCell.m */; };
+		CC72D0581D2369DD00945BCF /* MyCollectionShopTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC72D0561D2369DD00945BCF /* MyCollectionShopTableViewCell.xib */; };
+		CC72D05C1D2376BD00945BCF /* MyJudgeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D05A1D2376BD00945BCF /* MyJudgeTableViewCell.m */; };
+		CC72D05D1D2376BD00945BCF /* MyJudgeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC72D05B1D2376BD00945BCF /* MyJudgeTableViewCell.xib */; };
+		CC72D0601D237C0E00945BCF /* MyJudgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D05F1D237C0E00945BCF /* MyJudgeViewController.m */; };
+		CC72D0641D23980600945BCF /* BBBadgeBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D0631D23980600945BCF /* BBBadgeBarButtonItem.m */; };
 		D1C49AF61D22468A003C17DA /* StringEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C49AE71D22468A003C17DA /* StringEncryption.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D1C49AF71D22468A003C17DA /* SecurityUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C49AE91D22468A003C17DA /* SecurityUtil.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D1C49AF91D22468A003C17DA /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C49AED1D22468A003C17DA /* NSString+MD5.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -184,6 +195,25 @@
 		CC72D0411D227DF500945BCF /* PersonalWaitJudgeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalWaitJudgeTableViewCell.h; sourceTree = "<group>"; };
 		CC72D0421D227DF500945BCF /* PersonalWaitJudgeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalWaitJudgeTableViewCell.m; sourceTree = "<group>"; };
 		CC72D0431D227DF500945BCF /* PersonalWaitJudgeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalWaitJudgeTableViewCell.xib; sourceTree = "<group>"; };
+		CC72D0461D235C4300945BCF /* MyCollectionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionTableViewCell.h; sourceTree = "<group>"; };
+		CC72D0471D235C4300945BCF /* MyCollectionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionTableViewCell.m; sourceTree = "<group>"; };
+		CC72D0481D235C4300945BCF /* MyCollectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCollectionTableViewCell.xib; sourceTree = "<group>"; };
+		CC72D04B1D23612B00945BCF /* MyOrderMyCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderMyCollectionViewController.h; sourceTree = "<group>"; };
+		CC72D04C1D23612B00945BCF /* MyOrderMyCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderMyCollectionViewController.m; sourceTree = "<group>"; };
+		CC72D04E1D23617F00945BCF /* MyCollectionCourseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionCourseViewController.h; sourceTree = "<group>"; };
+		CC72D04F1D23617F00945BCF /* MyCollectionCourseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionCourseViewController.m; sourceTree = "<group>"; };
+		CC72D0511D23619D00945BCF /* MyCollectionShopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionShopViewController.h; sourceTree = "<group>"; };
+		CC72D0521D23619D00945BCF /* MyCollectionShopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionShopViewController.m; sourceTree = "<group>"; };
+		CC72D0541D2369DD00945BCF /* MyCollectionShopTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionShopTableViewCell.h; sourceTree = "<group>"; };
+		CC72D0551D2369DD00945BCF /* MyCollectionShopTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionShopTableViewCell.m; sourceTree = "<group>"; };
+		CC72D0561D2369DD00945BCF /* MyCollectionShopTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCollectionShopTableViewCell.xib; sourceTree = "<group>"; };
+		CC72D0591D2376BD00945BCF /* MyJudgeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyJudgeTableViewCell.h; sourceTree = "<group>"; };
+		CC72D05A1D2376BD00945BCF /* MyJudgeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyJudgeTableViewCell.m; sourceTree = "<group>"; };
+		CC72D05B1D2376BD00945BCF /* MyJudgeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyJudgeTableViewCell.xib; sourceTree = "<group>"; };
+		CC72D05E1D237C0E00945BCF /* MyJudgeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyJudgeViewController.h; sourceTree = "<group>"; };
+		CC72D05F1D237C0E00945BCF /* MyJudgeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyJudgeViewController.m; sourceTree = "<group>"; };
+		CC72D0621D23980600945BCF /* BBBadgeBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBadgeBarButtonItem.h; sourceTree = "<group>"; };
+		CC72D0631D23980600945BCF /* BBBadgeBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBadgeBarButtonItem.m; sourceTree = "<group>"; };
 		D1C49AE71D22468A003C17DA /* StringEncryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringEncryption.m; sourceTree = "<group>"; };
 		D1C49AE81D22468A003C17DA /* StringEncryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringEncryption.h; sourceTree = "<group>"; };
 		D1C49AE91D22468A003C17DA /* SecurityUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityUtil.m; sourceTree = "<group>"; };
@@ -425,6 +455,14 @@
 				CC72D03C1D226AF700945BCF /* MyOrderWaitGoodViewController.m */,
 				CC72D03E1D226B1100945BCF /* MyOrderWaitJudgeViewController.h */,
 				CC72D03F1D226B1100945BCF /* MyOrderWaitJudgeViewController.m */,
+				CC72D04B1D23612B00945BCF /* MyOrderMyCollectionViewController.h */,
+				CC72D04C1D23612B00945BCF /* MyOrderMyCollectionViewController.m */,
+				CC72D04E1D23617F00945BCF /* MyCollectionCourseViewController.h */,
+				CC72D04F1D23617F00945BCF /* MyCollectionCourseViewController.m */,
+				CC72D0511D23619D00945BCF /* MyCollectionShopViewController.h */,
+				CC72D0521D23619D00945BCF /* MyCollectionShopViewController.m */,
+				CC72D05E1D237C0E00945BCF /* MyJudgeViewController.h */,
+				CC72D05F1D237C0E00945BCF /* MyJudgeViewController.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -506,6 +544,7 @@
 		ABF5DE411D0FA4B1007CE1AB /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				CC72D0611D2397F300945BCF /* BBBadgeBarButtonItem */,
 				CC72D02E1D226A5C00945BCF /* YSLContainerViewController */,
 				AB36CE1A1D1B710400D0E4C7 /* SDCycleScrollView */,
 			);
@@ -611,6 +650,15 @@
 				CC72D0411D227DF500945BCF /* PersonalWaitJudgeTableViewCell.h */,
 				CC72D0421D227DF500945BCF /* PersonalWaitJudgeTableViewCell.m */,
 				CC72D0431D227DF500945BCF /* PersonalWaitJudgeTableViewCell.xib */,
+				CC72D0461D235C4300945BCF /* MyCollectionTableViewCell.h */,
+				CC72D0471D235C4300945BCF /* MyCollectionTableViewCell.m */,
+				CC72D0481D235C4300945BCF /* MyCollectionTableViewCell.xib */,
+				CC72D0541D2369DD00945BCF /* MyCollectionShopTableViewCell.h */,
+				CC72D0551D2369DD00945BCF /* MyCollectionShopTableViewCell.m */,
+				CC72D0561D2369DD00945BCF /* MyCollectionShopTableViewCell.xib */,
+				CC72D0591D2376BD00945BCF /* MyJudgeTableViewCell.h */,
+				CC72D05A1D2376BD00945BCF /* MyJudgeTableViewCell.m */,
+				CC72D05B1D2376BD00945BCF /* MyJudgeTableViewCell.xib */,
 			);
 			name = Mine;
 			sourceTree = "<group>";
@@ -624,6 +672,15 @@
 				CC72D0321D226A5C00945BCF /* YSLScrollMenuView.m */,
 			);
 			path = YSLContainerViewController;
+			sourceTree = "<group>";
+		};
+		CC72D0611D2397F300945BCF /* BBBadgeBarButtonItem */ = {
+			isa = PBXGroup;
+			children = (
+				CC72D0621D23980600945BCF /* BBBadgeBarButtonItem.h */,
+				CC72D0631D23980600945BCF /* BBBadgeBarButtonItem.m */,
+			);
+			name = BBBadgeBarButtonItem;
 			sourceTree = "<group>";
 		};
 		D1C49AE61D22465E003C17DA /* Security */ = {
@@ -771,8 +828,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB36CE381D1B818300D0E4C7 /* HomepageHeaderTableViewCell.xib in Resources */,
+				CC72D05D1D2376BD00945BCF /* MyJudgeTableViewCell.xib in Resources */,
 				CC72D02D1D2263CF00945BCF /* PersonalWaitPayTableViewCell.xib in Resources */,
 				CC72D0451D227DF500945BCF /* PersonalWaitJudgeTableViewCell.xib in Resources */,
+				CC72D04A1D235C4300945BCF /* MyCollectionTableViewCell.xib in Resources */,
 				ABF5DE4E1D0FA7EB007CE1AB /* CustomerService.storyboard in Resources */,
 				ABF5DE4C1D0FA7B9007CE1AB /* HomePage.storyboard in Resources */,
 				AB36CE4A1D1CE72400D0E4C7 /* ThreeCollectionViewCell.xib in Resources */,
@@ -785,6 +844,7 @@
 				D1DE3AEB1D22791B003473AF /* shopCarCell.xib in Resources */,
 				D1C49B071D224DE8003C17DA /* ShopCarNavigationItem.xib in Resources */,
 				ABF5DE501D0FA7FC007CE1AB /* ShopCar.storyboard in Resources */,
+				CC72D0581D2369DD00945BCF /* MyCollectionShopTableViewCell.xib in Resources */,
 				AB708F941D0543BE007D0B4D /* Main.storyboard in Resources */,
 				ABF5DE521D0FA803007CE1AB /* Mine.storyboard in Resources */,
 			);
@@ -866,11 +926,14 @@
 				CC72D03A1D226AE300945BCF /* MyOrderWaitPayViewController.m in Sources */,
 				CC72D0441D227DF500945BCF /* PersonalWaitJudgeTableViewCell.m in Sources */,
 				AB36CE431D1BE8FD00D0E4C7 /* InversetScrollView.m in Sources */,
+				CC72D04D1D23612B00945BCF /* MyOrderMyCollectionViewController.m in Sources */,
 				AB36CDB71D12773400D0E4C7 /* BaseViewController.m in Sources */,
 				D1C49B051D224DB6003C17DA /* ShopCarNavigationItem.m in Sources */,
+				CC72D0501D23617F00945BCF /* MyCollectionCourseViewController.m in Sources */,
 				D1C49AFB1D22468A003C17DA /* NSData+AES.m in Sources */,
 				AB36CE491D1CE72400D0E4C7 /* ThreeCollectionViewCell.m in Sources */,
 				D1C49AFC1D22468A003C17DA /* GTMBase64.m in Sources */,
+				CC72D0491D235C4300945BCF /* MyCollectionTableViewCell.m in Sources */,
 				AB36CE331D1B710400D0E4C7 /* UIView+SDExtension.m in Sources */,
 				AB36CDC01D128CF900D0E4C7 /* HomePageNavgationItem.m in Sources */,
 				CC72D02C1D2263CF00945BCF /* PersonalWaitPayTableViewCell.m in Sources */,
@@ -883,6 +946,7 @@
 				AB36CE311D1B710400D0E4C7 /* SDCollectionViewCell.m in Sources */,
 				AB36CE4B1D1CE72400D0E4C7 /* ThreeTableViewCell.m in Sources */,
 				D1DE3AEA1D22791B003473AF /* shopCarCell.m in Sources */,
+				CC72D05C1D2376BD00945BCF /* MyJudgeTableViewCell.m in Sources */,
 				AB36CE3C1D1B88A600D0E4C7 /* HomePageHotNewTableViewCell.m in Sources */,
 				D1C49AF71D22468A003C17DA /* SecurityUtil.m in Sources */,
 				AB36CDBA1D1283AD00D0E4C7 /* HomePageViewController.m in Sources */,
@@ -890,6 +954,7 @@
 				CC72D0271D22620000945BCF /* MyOrderViewController.m in Sources */,
 				D1C49AFA1D22468A003C17DA /* NSData+Base64.m in Sources */,
 				D1C49AF61D22468A003C17DA /* StringEncryption.m in Sources */,
+				CC72D0601D237C0E00945BCF /* MyJudgeViewController.m in Sources */,
 				ABF5DE571D0FD930007CE1AB /* HomeTabbarViewController.m in Sources */,
 				AB708F8E1D0543BE007D0B4D /* AppDelegate.m in Sources */,
 				AB36CE301D1B710400D0E4C7 /* TAPageControl.m in Sources */,
@@ -898,8 +963,11 @@
 				AB36CE321D1B710400D0E4C7 /* SDCycleScrollView.m in Sources */,
 				CC72D0401D226B1100945BCF /* MyOrderWaitJudgeViewController.m in Sources */,
 				CC72D0341D226A5C00945BCF /* YSLScrollMenuView.m in Sources */,
+				CC72D0571D2369DD00945BCF /* MyCollectionShopTableViewCell.m in Sources */,
+				CC72D0531D23619D00945BCF /* MyCollectionShopViewController.m in Sources */,
 				CC72D0241D225B6200945BCF /* MineTableViewController.m in Sources */,
 				AB36CE2C1D1B710400D0E4C7 /* NSData+SDDataCache.m in Sources */,
+				CC72D0641D23980600945BCF /* BBBadgeBarButtonItem.m in Sources */,
 				AB36CE191D1A9A1700D0E4C7 /* GuideViewController.m in Sources */,
 				AB708F8B1D0543BE007D0B4D /* main.m in Sources */,
 				CC72D0331D226A5C00945BCF /* YSLContainerViewController.m in Sources */,

@@ -1,67 +1,60 @@
 //
-//  MyOrderViewController.m
+//  MyOrderMyCollectionViewController.m
 //  FUYIFinance
 //
-//  Created by 张哲 on 16/6/28.
+//  Created by 张哲 on 16/6/29.
 //  Copyright © 2016年 youyou. All rights reserved.
 //
 
-#import "MyOrderViewController.h"
+#import "MyOrderMyCollectionViewController.h"
 #import "BBBadgeBarButtonItem.h"
 #import "YSLContainerViewController.h"
-#import "MyOrderAllViewController.h"
-#import "MyOrderWaitPayViewController.h"
-#import "MyOrderWaitGoodViewController.h"
-#import "MyOrderWaitJudgeViewController.h"
+#import "MyCollectionCourseViewController.h"
+#import "MyCollectionShopViewController.h"
 
-@interface MyOrderViewController ()<YSLContainerViewControllerDelegate>
+@interface MyOrderMyCollectionViewController ()<YSLContainerViewControllerDelegate>
 {
     BBBadgeBarButtonItem * _chatBtn;
 }
 @end
 
-@implementation MyOrderViewController
+@implementation MyOrderMyCollectionViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-//    self.navigationController.navigationBar.hidden = NO;
-//    self.navigationController.navigationBar.translucent = NO;
     [self addChatBtn];
-    MyOrderAllViewController * myOrderAllVC = [[MyOrderAllViewController alloc] init];
-    myOrderAllVC.title = @"全部";
+    MyCollectionCourseViewController * MyCollectionCourseVC = [[MyCollectionCourseViewController alloc] init];
+    MyCollectionCourseVC.title = @"收藏的课程";
     
-    MyOrderWaitPayViewController * myOrderWaitPayVC = [[MyOrderWaitPayViewController alloc] init];
-    myOrderWaitPayVC.title = @"待付款";
-    
-    MyOrderWaitGoodViewController * myOrderWaitGoodVC = [[MyOrderWaitGoodViewController alloc] init];
-    myOrderWaitGoodVC.title = @"待收货";
-    
-    MyOrderWaitJudgeViewController * myOrderWaitJudgeVC = [[MyOrderWaitJudgeViewController alloc] init];
-    myOrderWaitJudgeVC.title = @"待评价";
+    MyCollectionShopViewController * MyCollectionShopVC = [[MyCollectionShopViewController alloc] init];
+    MyCollectionShopVC.title = @"  收藏的店铺";
     
     float statusHeight = [[UIApplication sharedApplication] statusBarFrame].size.height;
     float navigationHeight = self.navigationController.navigationBar.frame.size.height;
     
-    YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[myOrderAllVC,myOrderWaitPayVC,myOrderWaitGoodVC,myOrderWaitJudgeVC]
+    YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[MyCollectionCourseVC,MyCollectionShopVC]
                                                                                         topBarHeight:statusHeight + navigationHeight
                                                                                 parentViewController:self];
     containerVC.delegate = self;
-
+    
     containerVC.menuItemFont = [UIFont systemFontOfSize:16];
     
     [self.view addSubview:containerVC.view];
+
     
 }
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = NO;
-}
+
 - (void)containerViewItemIndex:(NSInteger)index currentController:(UIViewController *)controller
 {
     //    NSLog(@"current Index : %ld",(long)index);
     //    NSLog(@"current controller : %@",controller);
     [controller viewWillAppear:YES];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
 }
 
 - (void)addChatBtn{
@@ -88,7 +81,9 @@
 - (IBAction)back:(id)sender {
     self.navigationController.navigationBar.hidden = YES;
     [self.navigationController popViewControllerAnimated:YES];
+    
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

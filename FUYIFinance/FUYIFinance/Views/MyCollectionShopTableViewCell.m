@@ -1,19 +1,18 @@
 //
-//  PersonalWaitJudgeTableViewCell.m
+//  MyCollectionShopTableViewCell.m
 //  FUYIFinance
 //
-//  Created by 张哲 on 16/6/28.
+//  Created by 张哲 on 16/6/29.
 //  Copyright © 2016年 youyou. All rights reserved.
 //
 
-#import "PersonalWaitJudgeTableViewCell.h"
+#import "MyCollectionShopTableViewCell.h"
 
-@implementation PersonalWaitJudgeTableViewCell
+@implementation MyCollectionShopTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    self.judgeBtn.layer.cornerRadius = 3;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
