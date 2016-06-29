@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface PersonalWaitJudgeTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIButton *judgeBtn;
 
 @end

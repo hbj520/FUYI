@@ -1,35 +1,31 @@
 //
-//  MyOrderWaitPayViewController.m
+//  MyCollectionCourseViewController.m
 //  FUYIFinance
 //
-//  Created by 张哲 on 16/6/28.
+//  Created by 张哲 on 16/6/29.
 //  Copyright © 2016年 youyou. All rights reserved.
 //
 
-#import "MyOrderWaitPayViewController.h"
-#import "PersonalWaitPayTableViewCell.h"
+#import "MyCollectionCourseViewController.h"
+#import "MyCollectionTableViewCell.h"
 
-@interface MyOrderWaitPayViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface MyCollectionCourseViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     UITableView * _tableView;
 }
 @end
 
-@implementation MyOrderWaitPayViewController
+@implementation MyCollectionCourseViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.delegate = self;
     _tableView.dataSource = self;
-    
-    [_tableView registerNib:[UINib
-                            nibWithNibName:@"PersonalWaitPayTableViewCell" bundle:nil] forCellReuseIdentifier:@"MyOrderId"];
-    
+    [_tableView registerNib:[UINib nibWithNibName:@"MyCollectionTableViewCell" bundle:nil] forCellReuseIdentifier:@"MyCollectionId"];
     [self.view addSubview:_tableView];
-    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -37,14 +33,9 @@
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 2;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 226;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -52,10 +43,14 @@
     return 10;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 118;
+}
+
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    PersonalWaitPayTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MyOrderId" forIndexPath:indexPath];
-    
+    MyCollectionTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MyCollectionId" forIndexPath:indexPath];
     return cell;
 }
 
