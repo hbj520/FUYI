@@ -25,7 +25,7 @@
         }else{
             NSInteger list = (i - 1)/2;//列
             NSInteger line = (i - 1)%2;//行
-            imageView.frame = CGRectMake((list + 1)*117 + 140, line*102, 117, 102);
+            imageView.frame = CGRectMake((list)*117 + 140, line*102, 117, 102);
         }
         imageView.image = [UIImage imageNamed:data[i]];
         [self addSubview:imageView];

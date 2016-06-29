@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 typedef void (^MessageBlock) ();
 typedef void (^SearchBlock) (NSString *);
-@interface HomePageNavgationItem : UIView
+@interface HomePageNavgationItem : UINavigationBar
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UIButton *messateBtn;
 @property (nonatomic,copy) MessageBlock messageBlock;

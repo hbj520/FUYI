@@ -64,7 +64,7 @@ static NSString *investReuseId = @"investReuseId";
     UIImage *image3 = [UIImage imageNamed:@"bannerpic"];
     NSMutableArray *imageData = [NSMutableArray arrayWithObjects:image1,image2,image3, nil];
     
-    _headerView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0,ScreenWidth,234) imagesGroup:imageData];
+    _headerView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0,ScreenWidth,170) imagesGroup:imageData];
     _headerView.delegate = self;
 }
 - (void)addCustomerNavgationItem{
@@ -85,6 +85,9 @@ static NSString *investReuseId = @"investReuseId";
     return 2;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if (section == 0) {
+        return 2;
+    }
     return 1;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -111,6 +114,7 @@ static NSString *investReuseId = @"investReuseId";
             investTableViewCell = [[InvestCollectionViewTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                                                            reuseIdentifier:investReuseId];
         }
+        [investTableViewCell createUIWithData:inverstData];
         return investTableViewCell;
     }
     
@@ -127,7 +131,7 @@ static NSString *investReuseId = @"investReuseId";
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if (section == 0) {
-        return 234;
+        return 170;
     }else{
         return 10;
     }
