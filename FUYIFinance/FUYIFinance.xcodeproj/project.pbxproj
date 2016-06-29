@@ -59,6 +59,12 @@
 		CC72D0441D227DF500945BCF /* PersonalWaitJudgeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D0421D227DF500945BCF /* PersonalWaitJudgeTableViewCell.m */; };
 		CC72D0451D227DF500945BCF /* PersonalWaitJudgeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC72D0431D227DF500945BCF /* PersonalWaitJudgeTableViewCell.xib */; };
 		D15BA3841D235E5700904DEF /* shopCar.json in Resources */ = {isa = PBXBuildFile; fileRef = D15BA3831D235E5700904DEF /* shopCar.json */; };
+		D15BA3881D237CE200904DEF /* ShopCarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D15BA3861D237CE200904DEF /* ShopCarTableViewCell.m */; };
+		D15BA3891D237CE200904DEF /* ShopCarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D15BA3871D237CE200904DEF /* ShopCarTableViewCell.xib */; };
+		D15BA38C1D237E2400904DEF /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D15BA38B1D237E2400904DEF /* HeaderView.m */; };
+		D15BA38E1D237E3300904DEF /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D15BA38D1D237E3300904DEF /* HeaderView.xib */; };
+		D15BA3911D238DCB00904DEF /* Good.m in Sources */ = {isa = PBXBuildFile; fileRef = D15BA3901D238DCB00904DEF /* Good.m */; };
+		D15BA3941D23906600904DEF /* CustomBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = D15BA3931D23906600904DEF /* CustomBtn.m */; };
 		D1C49AF61D22468A003C17DA /* StringEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C49AE71D22468A003C17DA /* StringEncryption.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D1C49AF71D22468A003C17DA /* SecurityUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C49AE91D22468A003C17DA /* SecurityUtil.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D1C49AF91D22468A003C17DA /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C49AED1D22468A003C17DA /* NSString+MD5.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -184,6 +190,16 @@
 		CC72D0421D227DF500945BCF /* PersonalWaitJudgeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalWaitJudgeTableViewCell.m; sourceTree = "<group>"; };
 		CC72D0431D227DF500945BCF /* PersonalWaitJudgeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalWaitJudgeTableViewCell.xib; sourceTree = "<group>"; };
 		D15BA3831D235E5700904DEF /* shopCar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = shopCar.json; sourceTree = "<group>"; };
+		D15BA3851D237CE200904DEF /* ShopCarTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopCarTableViewCell.h; sourceTree = "<group>"; };
+		D15BA3861D237CE200904DEF /* ShopCarTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopCarTableViewCell.m; sourceTree = "<group>"; };
+		D15BA3871D237CE200904DEF /* ShopCarTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopCarTableViewCell.xib; sourceTree = "<group>"; };
+		D15BA38A1D237E2400904DEF /* HeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderView.h; sourceTree = "<group>"; };
+		D15BA38B1D237E2400904DEF /* HeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderView.m; sourceTree = "<group>"; };
+		D15BA38D1D237E3300904DEF /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
+		D15BA38F1D238DCB00904DEF /* Good.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Good.h; path = FUYIFinance/Views/Good.h; sourceTree = SOURCE_ROOT; };
+		D15BA3901D238DCB00904DEF /* Good.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Good.m; path = FUYIFinance/Views/Good.m; sourceTree = SOURCE_ROOT; };
+		D15BA3921D23906600904DEF /* CustomBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomBtn.h; sourceTree = "<group>"; };
+		D15BA3931D23906600904DEF /* CustomBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomBtn.m; sourceTree = "<group>"; };
 		D1C49AE71D22468A003C17DA /* StringEncryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringEncryption.m; sourceTree = "<group>"; };
 		D1C49AE81D22468A003C17DA /* StringEncryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringEncryption.h; sourceTree = "<group>"; };
 		D1C49AE91D22468A003C17DA /* SecurityUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityUtil.m; sourceTree = "<group>"; };
@@ -470,6 +486,8 @@
 		ABF5DE3D1D0FA4B1007CE1AB /* ShopCar */ = {
 			isa = PBXGroup;
 			children = (
+				D15BA38F1D238DCB00904DEF /* Good.h */,
+				D15BA3901D238DCB00904DEF /* Good.m */,
 			);
 			path = ShopCar;
 			sourceTree = "<group>";
@@ -655,6 +673,14 @@
 				D1DE3AE21D225A99003473AF /* ShopCarBottomView.h */,
 				D1DE3AE31D225A99003473AF /* ShopCarBottomView.m */,
 				D1DE3AE51D225AAD003473AF /* ShopCarBottomView.xib */,
+				D15BA3851D237CE200904DEF /* ShopCarTableViewCell.h */,
+				D15BA3861D237CE200904DEF /* ShopCarTableViewCell.m */,
+				D15BA3871D237CE200904DEF /* ShopCarTableViewCell.xib */,
+				D15BA38A1D237E2400904DEF /* HeaderView.h */,
+				D15BA38B1D237E2400904DEF /* HeaderView.m */,
+				D15BA38D1D237E3300904DEF /* HeaderView.xib */,
+				D15BA3921D23906600904DEF /* CustomBtn.h */,
+				D15BA3931D23906600904DEF /* CustomBtn.m */,
 			);
 			name = ShopCar;
 			sourceTree = "<group>";
@@ -776,7 +802,9 @@
 				D15BA3841D235E5700904DEF /* shopCar.json in Resources */,
 				AB708F991D0543BE007D0B4D /* LaunchScreen.storyboard in Resources */,
 				AB36CDC21D128D1900D0E4C7 /* HomePageNavgationItem.xib in Resources */,
+				D15BA38E1D237E3300904DEF /* HeaderView.xib in Resources */,
 				AB708F961D0543BE007D0B4D /* Assets.xcassets in Resources */,
+				D15BA3891D237CE200904DEF /* ShopCarTableViewCell.xib in Resources */,
 				AB36CE3D1D1B88A600D0E4C7 /* HomePageHotNewTableViewCell.xib in Resources */,
 				D1C49B071D224DE8003C17DA /* ShopCarNavigationItem.xib in Resources */,
 				ABF5DE501D0FA7FC007CE1AB /* ShopCar.storyboard in Resources */,
@@ -872,6 +900,7 @@
 				CC72D0371D226AD000945BCF /* MyOrderAllViewController.m in Sources */,
 				CC72D03D1D226AF700945BCF /* MyOrderWaitGoodViewController.m in Sources */,
 				AB36CDFE1D1A996900D0E4C7 /* Tools.m in Sources */,
+				D15BA3941D23906600904DEF /* CustomBtn.m in Sources */,
 				AB36CE2F1D1B710400D0E4C7 /* TADotView.m in Sources */,
 				AB02D4AC1D2228F800AED400 /* ShopCarViewController.m in Sources */,
 				D1DE3AE41D225A99003473AF /* ShopCarBottomView.m in Sources */,
@@ -882,6 +911,7 @@
 				AB36CDBA1D1283AD00D0E4C7 /* HomePageViewController.m in Sources */,
 				AB36CE401D1BC9C100D0E4C7 /* InvestCollectionViewTableViewCell.m in Sources */,
 				CC72D0271D22620000945BCF /* MyOrderViewController.m in Sources */,
+				D15BA38C1D237E2400904DEF /* HeaderView.m in Sources */,
 				D1C49AFA1D22468A003C17DA /* NSData+Base64.m in Sources */,
 				D1C49AF61D22468A003C17DA /* StringEncryption.m in Sources */,
 				ABF5DE571D0FD930007CE1AB /* HomeTabbarViewController.m in Sources */,
@@ -894,7 +924,9 @@
 				CC72D0341D226A5C00945BCF /* YSLScrollMenuView.m in Sources */,
 				CC72D0241D225B6200945BCF /* MineTableViewController.m in Sources */,
 				AB36CE2C1D1B710400D0E4C7 /* NSData+SDDataCache.m in Sources */,
+				D15BA3911D238DCB00904DEF /* Good.m in Sources */,
 				AB36CE191D1A9A1700D0E4C7 /* GuideViewController.m in Sources */,
+				D15BA3881D237CE200904DEF /* ShopCarTableViewCell.m in Sources */,
 				AB708F8B1D0543BE007D0B4D /* main.m in Sources */,
 				CC72D0331D226A5C00945BCF /* YSLContainerViewController.m in Sources */,
 			);
