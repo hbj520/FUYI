@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomePageNavgationItem"/>
@@ -12,10 +14,9 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fuyinavItem_Left" translatesAutoresizingMaskIntoConstraints="NO" id="Lbm-Nb-LRU">
-                    <rect key="frame" x="4" y="26" width="84" height="30"/>
+                    <rect key="frame" x="4" y="26" width="85" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="84" id="Dgh-BO-4Oh"/>
-                        <constraint firstAttribute="height" constant="30" id="JtF-6f-nJD"/>
+                        <constraint firstAttribute="width" secondItem="Lbm-Nb-LRU" secondAttribute="height" multiplier="14:5" id="Eaq-AY-GPa"/>
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0SX-l2-1xS">
@@ -27,10 +28,9 @@
                     <state key="normal" image="messageBtn"/>
                 </button>
                 <searchBar contentMode="redraw" placeholder="请输入关键词" translucent="NO" backgroundImage="navSerch_backImg" translatesAutoresizingMaskIntoConstraints="NO" id="Ad5-z3-qCY">
-                    <rect key="frame" x="93" y="26" width="214" height="30"/>
+                    <rect key="frame" x="93" y="26" width="214" height="28"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="214" id="C21-1A-Bd3"/>
-                        <constraint firstAttribute="height" constant="30" id="iwr-Xd-2ry"/>
+                        <constraint firstAttribute="height" constant="28" id="tVg-dv-Gcc"/>
                     </constraints>
                     <color key="barTintColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                     <textInputTraits key="textInputTraits"/>
@@ -38,12 +38,14 @@
             </subviews>
             <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="Ad5-z3-qCY" secondAttribute="bottom" constant="8" id="5gW-vA-pzm"/>
+                <constraint firstItem="Lbm-Nb-LRU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="4" id="0b3-Es-C6V"/>
                 <constraint firstAttribute="trailing" secondItem="0SX-l2-1xS" secondAttribute="trailing" constant="8" id="8Tw-Z1-WV4"/>
-                <constraint firstItem="0SX-l2-1xS" firstAttribute="leading" secondItem="Ad5-z3-qCY" secondAttribute="trailing" constant="21" id="Sqg-6f-8BE"/>
-                <constraint firstAttribute="bottom" secondItem="Lbm-Nb-LRU" secondAttribute="bottom" constant="8" id="Yhf-ed-HUn"/>
-                <constraint firstItem="Lbm-Nb-LRU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="4" id="ca4-cC-nb2"/>
+                <constraint firstItem="Lbm-Nb-LRU" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="17:75" id="94u-ok-bqH"/>
+                <constraint firstItem="Ad5-z3-qCY" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="42.8:75" id="Ne7-Ou-JzQ"/>
+                <constraint firstItem="Ad5-z3-qCY" firstAttribute="leading" secondItem="Lbm-Nb-LRU" secondAttribute="trailing" constant="4" id="OEy-zr-425"/>
+                <constraint firstItem="Lbm-Nb-LRU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="26" id="dQM-YA-ufn"/>
                 <constraint firstAttribute="bottom" secondItem="0SX-l2-1xS" secondAttribute="bottom" constant="8" id="nQe-0H-Msr"/>
+                <constraint firstItem="Ad5-z3-qCY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="26" id="vWw-Hf-Utj"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>

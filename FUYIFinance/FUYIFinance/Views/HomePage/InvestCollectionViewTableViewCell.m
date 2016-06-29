@@ -29,6 +29,8 @@
     NSInteger count = modelArray.count/5 + 1;
     inverstScrollView.contentSize = CGSizeMake(count*ScreenWidth, 206);
     [self addSubview:inverstScrollView];
+    inverstScrollView.showsVerticalScrollIndicator = NO;
+    inverstScrollView.showsHorizontalScrollIndicator = NO;
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
