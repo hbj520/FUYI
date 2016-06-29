@@ -9,15 +9,26 @@
 //view
 #import "ShopCarNavigationItem.h"
 #import "ShopCarBottomView.h"
+#import "shopCarCell.h"
+#import "videoHeaderView.h"
 
 #import "ShopCarViewController.h"
 
-@interface ShopCarViewController ()//<UITableViewDelegate,UITableViewDataSource>
+//static NSString *videoHeader = @"videoHeaderReuseId";
+
+
+
+@interface ShopCarViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
 
 @implementation ShopCarViewController
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,10 +38,53 @@
 
 -(void)creatUI
 {
-//    self.tableView.delegate = self;
-//    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    //self.tableView.frame = CGRectMake(0, 100, ScreenWidth, ScreenHeight-108);
+    [self.tableView registerNib:[UINib nibWithNibName:@"shopCarCell" bundle:nil] forCellReuseIdentifier:@"shopCarCellReuseID"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"videoHeaderView" bundle:nil] forHeaderFooterViewReuseIdentifier:@"videoHeaderReuseId"];
+    self.tableView.rowHeight = 127;
+    //导航栏
     [self addCustomerNavigationItem];
+    //底部结算View
     [self addBottomView];
+}
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 3;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 2;
+}
+
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    shopCarCell *cell = [tableView dequeueReusableCellWithIdentifier:@"shopCarCellReuseID" forIndexPath:indexPath];
+    
+    return cell;
+
+}
+
+-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    videoHeaderView* headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"videoHeaderReuseId"];
+    return headerView;
+    
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 51;
+}
+
+-(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 10)];
+    view.backgroundColor = RGBACOLOR(235, 235, 235, 1);
+    return view;
 }
 
 -(void)addBottomView

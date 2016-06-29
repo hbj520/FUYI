@@ -80,8 +80,6 @@
 		D1C49B071D224DE8003C17DA /* ShopCarNavigationItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1C49B061D224DE8003C17DA /* ShopCarNavigationItem.xib */; };
 		D1DE3AE41D225A99003473AF /* ShopCarBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DE3AE31D225A99003473AF /* ShopCarBottomView.m */; };
 		D1DE3AE61D225AAD003473AF /* ShopCarBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1DE3AE51D225AAD003473AF /* ShopCarBottomView.xib */; };
-		D1DE3AEA1D22791B003473AF /* shopCarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DE3AE81D22791B003473AF /* shopCarCell.m */; };
-		D1DE3AEB1D22791B003473AF /* shopCarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1DE3AE91D22791B003473AF /* shopCarCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -236,9 +234,6 @@
 		D1DE3AE21D225A99003473AF /* ShopCarBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopCarBottomView.h; sourceTree = "<group>"; };
 		D1DE3AE31D225A99003473AF /* ShopCarBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopCarBottomView.m; sourceTree = "<group>"; };
 		D1DE3AE51D225AAD003473AF /* ShopCarBottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopCarBottomView.xib; sourceTree = "<group>"; };
-		D1DE3AE71D22791B003473AF /* shopCarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shopCarCell.h; sourceTree = "<group>"; };
-		D1DE3AE81D22791B003473AF /* shopCarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shopCarCell.m; sourceTree = "<group>"; };
-		D1DE3AE91D22791B003473AF /* shopCarCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = shopCarCell.xib; sourceTree = "<group>"; };
 		E2D217BF4D0AE0F6C9591577 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FA5515060D58FFB367588DFA /* Pods-FUYIFinance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FUYIFinance.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FUYIFinance/Pods-FUYIFinance.debug.xcconfig"; sourceTree = "<group>"; };
 		FB5E00328843A9E289111723 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -606,6 +601,7 @@
 			isa = PBXGroup;
 			children = (
 				ABF5DE491D0FA58E007CE1AB /* HomeTabbars.json */,
+				D15BA3831D235E5700904DEF /* shopCar.json */,
 			);
 			path = Json;
 			sourceTree = "<group>";
@@ -714,9 +710,6 @@
 				D1DE3AE21D225A99003473AF /* ShopCarBottomView.h */,
 				D1DE3AE31D225A99003473AF /* ShopCarBottomView.m */,
 				D1DE3AE51D225AAD003473AF /* ShopCarBottomView.xib */,
-				D1DE3AE71D22791B003473AF /* shopCarCell.h */,
-				D1DE3AE81D22791B003473AF /* shopCarCell.m */,
-				D1DE3AE91D22791B003473AF /* shopCarCell.xib */,
 			);
 			name = ShopCar;
 			sourceTree = "<group>";
@@ -837,11 +830,11 @@
 				AB36CE4A1D1CE72400D0E4C7 /* ThreeCollectionViewCell.xib in Resources */,
 				D1DE3AE61D225AAD003473AF /* ShopCarBottomView.xib in Resources */,
 				ABF5DE4A1D0FA58E007CE1AB /* HomeTabbars.json in Resources */,
+				D15BA3841D235E5700904DEF /* shopCar.json in Resources */,
 				AB708F991D0543BE007D0B4D /* LaunchScreen.storyboard in Resources */,
 				AB36CDC21D128D1900D0E4C7 /* HomePageNavgationItem.xib in Resources */,
 				AB708F961D0543BE007D0B4D /* Assets.xcassets in Resources */,
 				AB36CE3D1D1B88A600D0E4C7 /* HomePageHotNewTableViewCell.xib in Resources */,
-				D1DE3AEB1D22791B003473AF /* shopCarCell.xib in Resources */,
 				D1C49B071D224DE8003C17DA /* ShopCarNavigationItem.xib in Resources */,
 				ABF5DE501D0FA7FC007CE1AB /* ShopCar.storyboard in Resources */,
 				CC72D0581D2369DD00945BCF /* MyCollectionShopTableViewCell.xib in Resources */,
