@@ -147,6 +147,12 @@
                     <constraint firstItem="DmK-Oe-Ois" firstAttribute="leading" secondItem="zK1-PY-wQz" secondAttribute="trailing" id="wBD-CX-RHe"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="blogAreaTapView" destination="u4K-gc-11r" id="Jor-YO-LP6"/>
+                <outlet property="financeSchollTapView" destination="Nak-Pw-FQ7" id="Yv2-Ig-9fM"/>
+                <outlet property="teachTeamTapView" destination="zK1-PY-wQz" id="arB-gH-eOv"/>
+                <outlet property="videoShopTapView" destination="DmK-Oe-Ois" id="sXb-7M-zOH"/>
+            </connections>
         </tableViewCell>
     </objects>
     <resources>

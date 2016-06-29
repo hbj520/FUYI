@@ -9,12 +9,12 @@
 #import <UIKit/UIKit.h>
 typedef void(^ItemBlock)();
 @interface HomepageHeaderTableViewCell : UITableViewCell
-- (IBAction)myExclusive:(UIButton *)sender;
-- (IBAction)businessConsult:(UIButton *)sender;
-- (IBAction)specailistConversation:(UIButton *)sender;
-- (IBAction)famousExample:(UIButton *)sender;
-@property (nonatomic,copy) ItemBlock myExculsiveBlock;
-@property (nonatomic,copy) ItemBlock businessBlock;
-@property (nonatomic,copy) ItemBlock specialistBlock;
-@property (nonatomic,copy) ItemBlock famousBolck;
+@property (weak, nonatomic) IBOutlet UIView *teachTeamTapView;
+@property (weak, nonatomic) IBOutlet UIView *blogAreaTapView;
+@property (weak, nonatomic) IBOutlet UIView *financeSchollTapView;
+@property (weak, nonatomic) IBOutlet UIView *videoShopTapView;
+@property (nonatomic,copy) ItemBlock teachTeamBlock;
+@property (nonatomic,copy) ItemBlock blogAreaBlock;
+@property (nonatomic,copy) ItemBlock financeBlock;
+@property (nonatomic,copy) ItemBlock videoShopBolck;
 @end

@@ -28,7 +28,13 @@
     [inverstScrollView setUIWithData:modelArray];
     NSInteger count = modelArray.count/5 + 1;
     inverstScrollView.contentSize = CGSizeMake(count*ScreenWidth, 206);
+
     [self addSubview:inverstScrollView];
+    inverstScrollView.tapBlock = ^(NSInteger index){
+        if (self.tapInvestCellBlock) {
+            self.tapInvestCellBlock(index);
+        }
+    };
     inverstScrollView.showsVerticalScrollIndicator = NO;
     inverstScrollView.showsHorizontalScrollIndicator = NO;
 }

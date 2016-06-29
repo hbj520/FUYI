@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void (^TapInvestCellBlock) (NSInteger);
 @interface InvestCollectionViewTableViewCell : UITableViewCell
-//@property (nonatomic,strong) NSArray *modelArray;
 - (void)createUIWithData:(NSArray *)modelArray;
+@property (nonatomic,copy) TapInvestCellBlock tapInvestCellBlock;
 @end
