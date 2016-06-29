@@ -69,6 +69,11 @@
                 <constraint firstItem="811-b6-uZS" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" multiplier="0.8" id="w0R-6k-w6K"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="allGoodPrices" destination="8jA-uH-eeo" id="52S-g3-0s4"/>
+                <outlet property="chooseAllBtn" destination="5hk-2u-ckL" id="EjZ-aS-Xvy"/>
+                <outlet property="goPay" destination="aMa-FV-SCH" id="eC4-V1-4JP"/>
+            </connections>
             <point key="canvasLocation" x="303.5" y="276.5"/>
         </view>
     </objects>

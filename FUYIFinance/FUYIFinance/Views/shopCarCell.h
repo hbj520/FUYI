@@ -10,4 +10,15 @@
 
 @interface shopCarCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *goodImage;
+
+@property (weak, nonatomic) IBOutlet UILabel *goodPrice;
+
+@property (weak, nonatomic) IBOutlet UILabel *goodCounts;
+
+@property (weak, nonatomic) IBOutlet UILabel *goodContent;
+
+@property (weak, nonatomic) IBOutlet UIButton *chooseBtn;
+
+
 @end
