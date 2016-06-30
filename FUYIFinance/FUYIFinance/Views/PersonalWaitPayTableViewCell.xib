@@ -35,17 +35,6 @@
                             <constraint firstAttribute="height" constant="1" id="jur-He-KCm"/>
                         </constraints>
                     </view>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LuL-P4-xX8">
-                        <rect key="frame" x="222" y="174" width="90" height="30"/>
-                        <color key="backgroundColor" red="0.90196078431372551" green="0.082352941176470587" blue="0.14117647058823529" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="30" id="jQW-g0-rIx"/>
-                            <constraint firstAttribute="width" constant="90" id="oPP-qC-V6r"/>
-                        </constraints>
-                        <state key="normal" title="确定付款">
-                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        </state>
-                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="共一件商品" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U7k-Rr-Kpl">
                         <rect key="frame" x="37" y="136" width="90" height="21"/>
                         <constraints>
@@ -168,6 +157,17 @@
                             <constraint firstAttribute="height" constant="9" id="Ld2-xS-bHa"/>
                         </constraints>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LuL-P4-xX8">
+                        <rect key="frame" x="222" y="173" width="90" height="30"/>
+                        <color key="backgroundColor" red="0.90196078431372551" green="0.082352941176470587" blue="0.14117647058823529" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="jQW-g0-rIx"/>
+                            <constraint firstAttribute="width" constant="90" id="oPP-qC-V6r"/>
+                        </constraints>
+                        <state key="normal" title="确定付款">
+                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="LuL-P4-xX8" secondAttribute="trailing" constant="8" id="40b-Hm-oBJ"/>
@@ -201,7 +201,7 @@
                     <constraint firstItem="NHG-2N-0eC" firstAttribute="leading" secondItem="xWA-04-AHn" secondAttribute="trailing" constant="8" id="luE-UL-blK"/>
                     <constraint firstAttribute="trailing" secondItem="6z2-54-4ES" secondAttribute="trailing" id="m01-Rd-4Op"/>
                     <constraint firstItem="ScO-Zh-UnO" firstAttribute="top" secondItem="4I2-Zj-WBT" secondAttribute="bottom" constant="8" id="mTb-e0-lSl"/>
-                    <constraint firstItem="LuL-P4-xX8" firstAttribute="top" secondItem="4I2-Zj-WBT" secondAttribute="bottom" constant="10" id="qYh-Ae-dhb"/>
+                    <constraint firstItem="LuL-P4-xX8" firstAttribute="top" secondItem="4I2-Zj-WBT" secondAttribute="bottom" constant="9" id="qYh-Ae-dhb"/>
                     <constraint firstItem="dbC-XE-7pb" firstAttribute="leading" secondItem="TJ4-rW-exj" secondAttribute="trailing" constant="13" id="qwG-NT-DSf"/>
                     <constraint firstItem="5Qj-7Q-K6s" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="rAk-3x-6L3"/>
                     <constraint firstItem="cka-Wq-QFL" firstAttribute="top" secondItem="F2b-Qz-jVP" secondAttribute="bottom" constant="12" id="sAF-ei-Bp8"/>

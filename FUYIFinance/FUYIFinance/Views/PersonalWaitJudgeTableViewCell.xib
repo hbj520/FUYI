@@ -209,8 +209,9 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="judgeBtn" destination="hBy-EM-Yk0" id="09w-lY-ySi"/>
+                <outlet property="lineView" destination="XWS-uh-hiy" id="Fb0-qc-7Kk"/>
             </connections>
-            <point key="canvasLocation" x="458" y="449.5"/>
+            <point key="canvasLocation" x="354" y="411.5"/>
         </tableViewCell>
     </objects>
     <resources>

@@ -614,7 +614,7 @@
         <!--我的订单-->
         <scene sceneID="UCr-rr-wHb">
             <objects>
-                <viewController id="f1T-Ak-TJF" customClass="MyOrderViewController" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="f1T-Ak-TJF" customClass="MyOrderViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NVu-NW-tW6"/>
                         <viewControllerLayoutGuide type="bottom" id="XkH-eB-zTe"/>

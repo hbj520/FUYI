@@ -10,5 +10,6 @@
 
 @interface PersonalWaitJudgeTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIButton *judgeBtn;
+@property (weak, nonatomic) IBOutlet UIView *lineView;
 
 @end

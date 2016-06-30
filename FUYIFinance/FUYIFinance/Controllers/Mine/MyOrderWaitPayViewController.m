@@ -56,7 +56,22 @@
 {
     PersonalWaitPayTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MyOrderId" forIndexPath:indexPath];
     
+    cell.cancelBtn.tag = 10 + indexPath.row;
+    [cell.cancelBtn addTarget:self action:@selector(clickCancelBtn:) forControlEvents:UIControlEventTouchUpInside];
+    
+    cell.sureBtn.tag = indexPath.row;
+    [cell.sureBtn addTarget:self action:@selector(clickSureBtn:) forControlEvents:UIControlEventTouchUpInside];
     return cell;
+}
+
+- (void)clickCancelBtn:(UIButton*)sender
+{
+    NSLog(@"%ld",(long)sender.tag);
+}
+
+- (void)clickSureBtn:(UIButton*)sender
+{
+    NSLog(@"%ld",(long)sender.tag);
 }
 
 - (void)didReceiveMemoryWarning {
