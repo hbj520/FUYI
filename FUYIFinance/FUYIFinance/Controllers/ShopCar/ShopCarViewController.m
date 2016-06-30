@@ -26,6 +26,12 @@
 
 @property(nonatomic,retain)NSMutableArray * isSelected;
 @property(nonatomic,retain)NSMutableArray * headIsSelected;
+@property(nonatomic,assign)BOOL isAllSelected;
+
+@property(nonatomic,retain)NSMutableArray * goodArray;
+@property(nonatomic,retain)NSMutableArray * brandArray;
+
+
 
 @end
 
@@ -46,7 +52,7 @@
 {
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    //self.tableView.frame = CGRectMake(0, 100, ScreenWidth, ScreenHeight-108);
+    self.tableView.backgroundColor = [UIColor whiteColor];
     [self.tableView registerNib:[UINib nibWithNibName:@"ShopCarTableViewCell" bundle:nil] forCellReuseIdentifier:@"shopCarCellReuseID"];
     //[self.tableView registerNib:[UINib nibWithNibName:@"HeaderView" bundle:nil] forHeaderFooterViewReuseIdentifier:@"videoHeaderReuseId"];
     self.tableView.rowHeight = 127;
@@ -58,7 +64,7 @@
     NSMutableArray * array2 = [[NSMutableArray alloc]initWithObjects:@"1",@"1", nil];
     self.isSelected = [[NSMutableArray alloc]initWithObjects:array0,array1,array2,nil];
     self.headIsSelected = [[NSMutableArray alloc]initWithObjects:@"1",@"1",@"1", nil];
-    
+    self.isAllSelected = YES;
     //导航栏
     [self addCustomerNavigationItem];
     //底部结算View
@@ -87,7 +93,6 @@
     //默认1
     cell.selectBtn.selected = [self.isSelected[indexPath.section][indexPath.row]boolValue];
    
-    
     return cell;
 
 }
@@ -112,7 +117,7 @@
 }
 
 #pragma mark --privateMethod
-//勾选、删除 按钮功能
+//勾选、删除按钮功能
 - (void)cellSelectBtn:(CustomBtn*)button
 {
     button.selected = !button.selected;
@@ -160,8 +165,6 @@
             cell.selectBtn.selected = button.selected;
         }
         
-        
-        
     }
     NSMutableArray * is1 = [[NSMutableArray alloc]init];
     for (int i = 0 ; i<[(NSMutableArray*)self.isSelected[button.tag] count]; i++) {
@@ -199,8 +202,49 @@
 {
     ShopCarBottomView *bottomView = [[[NSBundle mainBundle]loadNibNamed:@"ShopCarBottomView" owner:self options:nil]lastObject];
     bottomView.frame = CGRectMake(0, ScreenHeight-88,ScreenWidth, 44);
+    
+    [bottomView.chooseAllBtn setBackgroundImage:[UIImage imageNamed:@"shopCar2.jpg"] forState:UIControlStateNormal];
+    [bottomView.chooseAllBtn setBackgroundImage:[UIImage imageNamed:@"shopCar21.jpg"] forState:UIControlStateSelected];
+    [bottomView.chooseAllBtn addTarget:self action:@selector(chooseAllBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    
+   
+    bottomView.chooseAllBtn.selected = _isAllSelected;
+    
+    [bottomView.goPay addTarget:self action:@selector(goPayClick:) forControlEvents:UIControlEventTouchUpInside];
+    
+    
     [self.view addSubview:bottomView];
 }
+
+- (void)chooseAllBtnClick:(UIButton*)button
+{
+   
+    button.selected = !button.selected;
+    self.isAllSelected = button.selected;
+    if (!button.selected) {
+        
+//        for (NSArray* array in self.isSelected) {
+//         
+//        }
+        
+        
+        
+        
+        
+//        [self.isSelected removeAllObjects];
+//    
+//        [self.headIsSelected removeAllObjects];
+   
+        
+    }
+    
+}
+
+- (void)goPayClick:(UIButton*)button
+{
+    
+}
+
 
 -(void)addCustomerNavigationItem
 {
@@ -213,6 +257,56 @@
     };
     [self.view addSubview:navItem];
 }
+
+/*
+-(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return @"删除";
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"确定要删除该商品?删除后无法恢复!" preferredStyle:1];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+//            LZCartModel *model = [self.dataArray objectAtIndex:indexPath.row];
+//            
+//            [self.dataArray removeObjectAtIndex:indexPath.row];
+//            //    删除
+//            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//            
+//            //判断删除的商品是否已选择
+//            if ([self.selectedArray containsObject:model]) {
+//                //从已选中删除,重新计算价格
+//                [self.selectedArray removeObject:model];
+//                [self countPrice];
+//            }
+//            
+//            if (self.selectedArray.count == self.dataArray.count) {
+//                _allSellectedButton.selected = YES;
+//            } else {
+//                _allSellectedButton.selected = NO;
+//            }
+//            
+//            if (self.dataArray.count == 0) {
+//                [self changeView];
+//            }
+//            
+            //如果删除的时候数据紊乱,可延迟0.5s刷新一下
+            [self performSelector:@selector(reloadTable) withObject:nil afterDelay:0.5];
+            
+        }];
+        
+        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+        
+        [alert addAction:okAction];
+        [alert addAction:cancel];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+    
+}
+*/
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -58,12 +58,13 @@
 		CC72D0401D226B1100945BCF /* MyOrderWaitJudgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D03F1D226B1100945BCF /* MyOrderWaitJudgeViewController.m */; };
 		CC72D0441D227DF500945BCF /* PersonalWaitJudgeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D0421D227DF500945BCF /* PersonalWaitJudgeTableViewCell.m */; };
 		CC72D0451D227DF500945BCF /* PersonalWaitJudgeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC72D0431D227DF500945BCF /* PersonalWaitJudgeTableViewCell.xib */; };
+		D114DC571D24EEC50001CE21 /* Brand.m in Sources */ = {isa = PBXBuildFile; fileRef = D114DC541D24EEC50001CE21 /* Brand.m */; };
+		D114DC581D24EEC50001CE21 /* Good.m in Sources */ = {isa = PBXBuildFile; fileRef = D114DC561D24EEC50001CE21 /* Good.m */; };
 		D15BA3841D235E5700904DEF /* shopCar.json in Resources */ = {isa = PBXBuildFile; fileRef = D15BA3831D235E5700904DEF /* shopCar.json */; };
 		D15BA3881D237CE200904DEF /* ShopCarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D15BA3861D237CE200904DEF /* ShopCarTableViewCell.m */; };
 		D15BA3891D237CE200904DEF /* ShopCarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D15BA3871D237CE200904DEF /* ShopCarTableViewCell.xib */; };
 		D15BA38C1D237E2400904DEF /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D15BA38B1D237E2400904DEF /* HeaderView.m */; };
 		D15BA38E1D237E3300904DEF /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D15BA38D1D237E3300904DEF /* HeaderView.xib */; };
-		D15BA3911D238DCB00904DEF /* Good.m in Sources */ = {isa = PBXBuildFile; fileRef = D15BA3901D238DCB00904DEF /* Good.m */; };
 		D15BA3941D23906600904DEF /* CustomBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = D15BA3931D23906600904DEF /* CustomBtn.m */; };
 		D1C49AF61D22468A003C17DA /* StringEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C49AE71D22468A003C17DA /* StringEncryption.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D1C49AF71D22468A003C17DA /* SecurityUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C49AE91D22468A003C17DA /* SecurityUtil.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -76,6 +77,7 @@
 		D1C49B071D224DE8003C17DA /* ShopCarNavigationItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1C49B061D224DE8003C17DA /* ShopCarNavigationItem.xib */; };
 		D1DE3AE41D225A99003473AF /* ShopCarBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DE3AE31D225A99003473AF /* ShopCarBottomView.m */; };
 		D1DE3AE61D225AAD003473AF /* ShopCarBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1DE3AE51D225AAD003473AF /* ShopCarBottomView.xib */; };
+		D1E37F3F1D24A91E00920E17 /* BBBadgeBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D1E37F3E1D24A91E00920E17 /* BBBadgeBarButtonItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -189,6 +191,10 @@
 		CC72D0411D227DF500945BCF /* PersonalWaitJudgeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalWaitJudgeTableViewCell.h; sourceTree = "<group>"; };
 		CC72D0421D227DF500945BCF /* PersonalWaitJudgeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalWaitJudgeTableViewCell.m; sourceTree = "<group>"; };
 		CC72D0431D227DF500945BCF /* PersonalWaitJudgeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalWaitJudgeTableViewCell.xib; sourceTree = "<group>"; };
+		D114DC531D24EEC50001CE21 /* Brand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Brand.h; sourceTree = "<group>"; };
+		D114DC541D24EEC50001CE21 /* Brand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Brand.m; sourceTree = "<group>"; };
+		D114DC551D24EEC50001CE21 /* Good.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Good.h; sourceTree = "<group>"; };
+		D114DC561D24EEC50001CE21 /* Good.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Good.m; sourceTree = "<group>"; };
 		D15BA3831D235E5700904DEF /* shopCar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = shopCar.json; sourceTree = "<group>"; };
 		D15BA3851D237CE200904DEF /* ShopCarTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopCarTableViewCell.h; sourceTree = "<group>"; };
 		D15BA3861D237CE200904DEF /* ShopCarTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopCarTableViewCell.m; sourceTree = "<group>"; };
@@ -196,8 +202,6 @@
 		D15BA38A1D237E2400904DEF /* HeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderView.h; sourceTree = "<group>"; };
 		D15BA38B1D237E2400904DEF /* HeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderView.m; sourceTree = "<group>"; };
 		D15BA38D1D237E3300904DEF /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
-		D15BA38F1D238DCB00904DEF /* Good.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Good.h; path = FUYIFinance/Views/Good.h; sourceTree = SOURCE_ROOT; };
-		D15BA3901D238DCB00904DEF /* Good.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Good.m; path = FUYIFinance/Views/Good.m; sourceTree = SOURCE_ROOT; };
 		D15BA3921D23906600904DEF /* CustomBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomBtn.h; sourceTree = "<group>"; };
 		D15BA3931D23906600904DEF /* CustomBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomBtn.m; sourceTree = "<group>"; };
 		D1C49AE71D22468A003C17DA /* StringEncryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringEncryption.m; sourceTree = "<group>"; };
@@ -222,6 +226,8 @@
 		D1DE3AE21D225A99003473AF /* ShopCarBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopCarBottomView.h; sourceTree = "<group>"; };
 		D1DE3AE31D225A99003473AF /* ShopCarBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopCarBottomView.m; sourceTree = "<group>"; };
 		D1DE3AE51D225AAD003473AF /* ShopCarBottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopCarBottomView.xib; sourceTree = "<group>"; };
+		D1E37F3D1D24A91E00920E17 /* BBBadgeBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBadgeBarButtonItem.h; sourceTree = "<group>"; };
+		D1E37F3E1D24A91E00920E17 /* BBBadgeBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBadgeBarButtonItem.m; sourceTree = "<group>"; };
 		E2D217BF4D0AE0F6C9591577 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FA5515060D58FFB367588DFA /* Pods-FUYIFinance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FUYIFinance.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FUYIFinance/Pods-FUYIFinance.debug.xcconfig"; sourceTree = "<group>"; };
 		FB5E00328843A9E289111723 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -350,11 +356,11 @@
 			children = (
 				ABF5DE331D0FA4B1007CE1AB /* AppDelegate */,
 				ABF5DE341D0FA4B1007CE1AB /* Controllers */,
-				ABF5DE391D0FA4B1007CE1AB /* Models */,
 				ABF5DE3E1D0FA4B1007CE1AB /* Plist */,
 				ABF5DE3F1D0FA4B1007CE1AB /* Resource */,
 				ABF5DE401D0FA4B1007CE1AB /* Util */,
 				ABF5DE411D0FA4B1007CE1AB /* Vendor */,
+				D114DC4D1D24EE4A0001CE21 /* Models */,
 				ABF5DE421D0FA4B1007CE1AB /* Views */,
 				AB708F8F1D0543BE007D0B4D /* ViewController.h */,
 				AB708F901D0543BE007D0B4D /* ViewController.m */,
@@ -404,7 +410,7 @@
 		ABF5DE341D0FA4B1007CE1AB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CC72D0211D225ADB00945BCF /* CustomerService */,
+				D114DC521D24EEAC0001CE21 /* CustomerService */,
 				AB36CDB41D1274E900D0E4C7 /* BaseViewControllers */,
 				ABF5DE541D0FAFBE007CE1AB /* HomeTabbarController */,
 				ABF5DE361D0FA4B1007CE1AB /* HomePage */,
@@ -438,14 +444,6 @@
 				CC72D03C1D226AF700945BCF /* MyOrderWaitGoodViewController.m */,
 				CC72D03E1D226B1100945BCF /* MyOrderWaitJudgeViewController.h */,
 				CC72D03F1D226B1100945BCF /* MyOrderWaitJudgeViewController.m */,
-				CC72D04B1D23612B00945BCF /* MyOrderMyCollectionViewController.h */,
-				CC72D04C1D23612B00945BCF /* MyOrderMyCollectionViewController.m */,
-				CC72D04E1D23617F00945BCF /* MyCollectionCourseViewController.h */,
-				CC72D04F1D23617F00945BCF /* MyCollectionCourseViewController.m */,
-				CC72D0511D23619D00945BCF /* MyCollectionShopViewController.h */,
-				CC72D0521D23619D00945BCF /* MyCollectionShopViewController.m */,
-				CC72D05E1D237C0E00945BCF /* MyJudgeViewController.h */,
-				CC72D05F1D237C0E00945BCF /* MyJudgeViewController.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -455,47 +453,6 @@
 			children = (
 				AB02D4AA1D2228F700AED400 /* ShopCarViewController.h */,
 				AB02D4AB1D2228F700AED400 /* ShopCarViewController.m */,
-			);
-			path = ShopCar;
-			sourceTree = "<group>";
-		};
-		ABF5DE391D0FA4B1007CE1AB /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				ABF5DE3A1D0FA4B1007CE1AB /* CustomerService */,
-				ABF5DE3B1D0FA4B1007CE1AB /* HomePage */,
-				ABF5DE3C1D0FA4B1007CE1AB /* Mine */,
-				ABF5DE3D1D0FA4B1007CE1AB /* ShopCar */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		ABF5DE3A1D0FA4B1007CE1AB /* CustomerService */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CustomerService;
-			sourceTree = "<group>";
-		};
-		ABF5DE3B1D0FA4B1007CE1AB /* HomePage */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = HomePage;
-			sourceTree = "<group>";
-		};
-		ABF5DE3C1D0FA4B1007CE1AB /* Mine */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Mine;
-			sourceTree = "<group>";
-		};
-		ABF5DE3D1D0FA4B1007CE1AB /* ShopCar */ = {
-			isa = PBXGroup;
-			children = (
-				D15BA38F1D238DCB00904DEF /* Good.h */,
-				D15BA3901D238DCB00904DEF /* Good.m */,
 			);
 			path = ShopCar;
 			sourceTree = "<group>";
@@ -620,13 +577,6 @@
 			path = HomeTabbarController;
 			sourceTree = "<group>";
 		};
-		CC72D0211D225ADB00945BCF /* CustomerService */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CustomerService;
-			sourceTree = "<group>";
-		};
 		CC72D0281D22636100945BCF /* Mine */ = {
 			isa = PBXGroup;
 			children = (
@@ -636,15 +586,6 @@
 				CC72D0411D227DF500945BCF /* PersonalWaitJudgeTableViewCell.h */,
 				CC72D0421D227DF500945BCF /* PersonalWaitJudgeTableViewCell.m */,
 				CC72D0431D227DF500945BCF /* PersonalWaitJudgeTableViewCell.xib */,
-				CC72D0461D235C4300945BCF /* MyCollectionTableViewCell.h */,
-				CC72D0471D235C4300945BCF /* MyCollectionTableViewCell.m */,
-				CC72D0481D235C4300945BCF /* MyCollectionTableViewCell.xib */,
-				CC72D0541D2369DD00945BCF /* MyCollectionShopTableViewCell.h */,
-				CC72D0551D2369DD00945BCF /* MyCollectionShopTableViewCell.m */,
-				CC72D0561D2369DD00945BCF /* MyCollectionShopTableViewCell.xib */,
-				CC72D0591D2376BD00945BCF /* MyJudgeTableViewCell.h */,
-				CC72D05A1D2376BD00945BCF /* MyJudgeTableViewCell.m */,
-				CC72D05B1D2376BD00945BCF /* MyJudgeTableViewCell.xib */,
 			);
 			name = Mine;
 			sourceTree = "<group>";
@@ -663,10 +604,60 @@
 		CC72D0611D2397F300945BCF /* BBBadgeBarButtonItem */ = {
 			isa = PBXGroup;
 			children = (
-				CC72D0621D23980600945BCF /* BBBadgeBarButtonItem.h */,
-				CC72D0631D23980600945BCF /* BBBadgeBarButtonItem.m */,
+				D1E37F3D1D24A91E00920E17 /* BBBadgeBarButtonItem.h */,
+				D1E37F3E1D24A91E00920E17 /* BBBadgeBarButtonItem.m */,
 			);
 			name = BBBadgeBarButtonItem;
+			sourceTree = "<group>";
+		};
+		D114DC4D1D24EE4A0001CE21 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D114DC4E1D24EE4A0001CE21 /* CustomerService */,
+				D114DC4F1D24EE4A0001CE21 /* HomePage */,
+				D114DC501D24EE4A0001CE21 /* Mine */,
+				D114DC511D24EE4A0001CE21 /* ShopCar */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D114DC4E1D24EE4A0001CE21 /* CustomerService */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CustomerService;
+			sourceTree = "<group>";
+		};
+		D114DC4F1D24EE4A0001CE21 /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HomePage;
+			sourceTree = "<group>";
+		};
+		D114DC501D24EE4A0001CE21 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		D114DC511D24EE4A0001CE21 /* ShopCar */ = {
+			isa = PBXGroup;
+			children = (
+				D114DC531D24EEC50001CE21 /* Brand.h */,
+				D114DC541D24EEC50001CE21 /* Brand.m */,
+				D114DC551D24EEC50001CE21 /* Good.h */,
+				D114DC561D24EEC50001CE21 /* Good.m */,
+			);
+			path = ShopCar;
+			sourceTree = "<group>";
+		};
+		D114DC521D24EEAC0001CE21 /* CustomerService */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CustomerService;
 			sourceTree = "<group>";
 		};
 		D1C49AE61D22465E003C17DA /* Security */ = {
@@ -819,10 +810,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB36CE381D1B818300D0E4C7 /* HomepageHeaderTableViewCell.xib in Resources */,
-				CC72D05D1D2376BD00945BCF /* MyJudgeTableViewCell.xib in Resources */,
 				CC72D02D1D2263CF00945BCF /* PersonalWaitPayTableViewCell.xib in Resources */,
 				CC72D0451D227DF500945BCF /* PersonalWaitJudgeTableViewCell.xib in Resources */,
-				CC72D04A1D235C4300945BCF /* MyCollectionTableViewCell.xib in Resources */,
 				ABF5DE4E1D0FA7EB007CE1AB /* CustomerService.storyboard in Resources */,
 				ABF5DE4C1D0FA7B9007CE1AB /* HomePage.storyboard in Resources */,
 				AB36CE4A1D1CE72400D0E4C7 /* ThreeCollectionViewCell.xib in Resources */,
@@ -837,7 +826,6 @@
 				AB36CE3D1D1B88A600D0E4C7 /* HomePageHotNewTableViewCell.xib in Resources */,
 				D1C49B071D224DE8003C17DA /* ShopCarNavigationItem.xib in Resources */,
 				ABF5DE501D0FA7FC007CE1AB /* ShopCar.storyboard in Resources */,
-				CC72D0581D2369DD00945BCF /* MyCollectionShopTableViewCell.xib in Resources */,
 				AB708F941D0543BE007D0B4D /* Main.storyboard in Resources */,
 				ABF5DE521D0FA803007CE1AB /* Mine.storyboard in Resources */,
 			);
@@ -919,14 +907,12 @@
 				CC72D03A1D226AE300945BCF /* MyOrderWaitPayViewController.m in Sources */,
 				CC72D0441D227DF500945BCF /* PersonalWaitJudgeTableViewCell.m in Sources */,
 				AB36CE431D1BE8FD00D0E4C7 /* InversetScrollView.m in Sources */,
-				CC72D04D1D23612B00945BCF /* MyOrderMyCollectionViewController.m in Sources */,
 				AB36CDB71D12773400D0E4C7 /* BaseViewController.m in Sources */,
 				D1C49B051D224DB6003C17DA /* ShopCarNavigationItem.m in Sources */,
-				CC72D0501D23617F00945BCF /* MyCollectionCourseViewController.m in Sources */,
 				D1C49AFB1D22468A003C17DA /* NSData+AES.m in Sources */,
 				AB36CE491D1CE72400D0E4C7 /* ThreeCollectionViewCell.m in Sources */,
+				D114DC581D24EEC50001CE21 /* Good.m in Sources */,
 				D1C49AFC1D22468A003C17DA /* GTMBase64.m in Sources */,
-				CC72D0491D235C4300945BCF /* MyCollectionTableViewCell.m in Sources */,
 				AB36CE331D1B710400D0E4C7 /* UIView+SDExtension.m in Sources */,
 				AB36CDC01D128CF900D0E4C7 /* HomePageNavgationItem.m in Sources */,
 				CC72D02C1D2263CF00945BCF /* PersonalWaitPayTableViewCell.m in Sources */,
@@ -939,8 +925,6 @@
 				D1DE3AE41D225A99003473AF /* ShopCarBottomView.m in Sources */,
 				AB36CE311D1B710400D0E4C7 /* SDCollectionViewCell.m in Sources */,
 				AB36CE4B1D1CE72400D0E4C7 /* ThreeTableViewCell.m in Sources */,
-				D1DE3AEA1D22791B003473AF /* shopCarCell.m in Sources */,
-				CC72D05C1D2376BD00945BCF /* MyJudgeTableViewCell.m in Sources */,
 				AB36CE3C1D1B88A600D0E4C7 /* HomePageHotNewTableViewCell.m in Sources */,
 				D1C49AF71D22468A003C17DA /* SecurityUtil.m in Sources */,
 				AB36CDBA1D1283AD00D0E4C7 /* HomePageViewController.m in Sources */,
@@ -949,7 +933,7 @@
 				D15BA38C1D237E2400904DEF /* HeaderView.m in Sources */,
 				D1C49AFA1D22468A003C17DA /* NSData+Base64.m in Sources */,
 				D1C49AF61D22468A003C17DA /* StringEncryption.m in Sources */,
-				CC72D0601D237C0E00945BCF /* MyJudgeViewController.m in Sources */,
+				D1E37F3F1D24A91E00920E17 /* BBBadgeBarButtonItem.m in Sources */,
 				ABF5DE571D0FD930007CE1AB /* HomeTabbarViewController.m in Sources */,
 				AB708F8E1D0543BE007D0B4D /* AppDelegate.m in Sources */,
 				AB36CE301D1B710400D0E4C7 /* TAPageControl.m in Sources */,
@@ -958,11 +942,9 @@
 				AB36CE321D1B710400D0E4C7 /* SDCycleScrollView.m in Sources */,
 				CC72D0401D226B1100945BCF /* MyOrderWaitJudgeViewController.m in Sources */,
 				CC72D0341D226A5C00945BCF /* YSLScrollMenuView.m in Sources */,
-				CC72D0571D2369DD00945BCF /* MyCollectionShopTableViewCell.m in Sources */,
-				CC72D0531D23619D00945BCF /* MyCollectionShopViewController.m in Sources */,
 				CC72D0241D225B6200945BCF /* MineTableViewController.m in Sources */,
+				D114DC571D24EEC50001CE21 /* Brand.m in Sources */,
 				AB36CE2C1D1B710400D0E4C7 /* NSData+SDDataCache.m in Sources */,
-				D15BA3911D238DCB00904DEF /* Good.m in Sources */,
 				AB36CE191D1A9A1700D0E4C7 /* GuideViewController.m in Sources */,
 				D15BA3881D237CE200904DEF /* ShopCarTableViewCell.m in Sources */,
 				AB708F8B1D0543BE007D0B4D /* main.m in Sources */,
