@@ -12,6 +12,7 @@
 @interface MyOrderWaitPayViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     UITableView * _tableView;
+    NSMutableArray * _dataSource; //待付款的数据
 }
 @end
 
@@ -21,6 +22,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.delegate = self;
     _tableView.dataSource = self;
     
@@ -43,7 +45,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 217;
+    return 226;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -55,7 +57,24 @@
 {
     PersonalWaitPayTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MyOrderId" forIndexPath:indexPath];
     
+    cell.cancelBtn.tag = 10 + indexPath.row;
+    [cell.cancelBtn addTarget:self action:@selector(clickCancelBtn:) forControlEvents:UIControlEventTouchUpInside];
+    
+    cell.sureBtn.tag = indexPath.row;
+    [cell.sureBtn addTarget:self action:@selector(clickSureBtn:) forControlEvents:UIControlEventTouchUpInside];
     return cell;
+}
+
+//点击取消订单
+- (void)clickCancelBtn:(UIButton*)sender
+{
+    NSLog(@"%ld",(long)sender.tag);
+}
+
+//点击确定付款
+- (void)clickSureBtn:(UIButton*)sender
+{
+    NSLog(@"%ld",(long)sender.tag);
 }
 
 - (void)didReceiveMemoryWarning {

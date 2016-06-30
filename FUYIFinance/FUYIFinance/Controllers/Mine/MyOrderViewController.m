@@ -7,6 +7,7 @@
 //
 
 #import "MyOrderViewController.h"
+#import "BBBadgeBarButtonItem.h"
 #import "YSLContainerViewController.h"
 #import "MyOrderAllViewController.h"
 #import "MyOrderWaitPayViewController.h"
@@ -14,7 +15,9 @@
 #import "MyOrderWaitJudgeViewController.h"
 
 @interface MyOrderViewController ()<YSLContainerViewControllerDelegate>
-
+{
+    BBBadgeBarButtonItem * _chatBtn;
+}
 @end
 
 @implementation MyOrderViewController
@@ -24,6 +27,7 @@
     // Do any additional setup after loading the view.
 //    self.navigationController.navigationBar.hidden = NO;
 //    self.navigationController.navigationBar.translucent = NO;
+    [self addChatBtn];
     MyOrderAllViewController * myOrderAllVC = [[MyOrderAllViewController alloc] init];
     myOrderAllVC.title = @"全部";
     
@@ -59,6 +63,27 @@
     //    NSLog(@"current controller : %@",controller);
     [controller viewWillAppear:YES];
 }
+
+- (void)addChatBtn{
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = CGRectMake(0, 0, 31, 27);
+    [btn setImage:[UIImage imageNamed:@"messageBtn"] forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(chatAct:) forControlEvents:UIControlEventTouchUpInside];
+    _chatBtn = [[BBBadgeBarButtonItem alloc] initWithCustomUIButton:btn];
+    _chatBtn.badgeFont = [UIFont systemFontOfSize:10.0f];
+    _chatBtn.badgeOriginX = 15.5;
+    _chatBtn.badgeOriginY = -2.5;
+    _chatBtn.badgePadding = 2;
+    _chatBtn.badgeValue = @"0";
+    
+    NSMutableArray *arryBtn = [NSMutableArray arrayWithObjects:_chatBtn, nil];
+    self.navigationItem.rightBarButtonItems = arryBtn;
+}
+
+- (void)chatAct:(id)sender{
+    
+}
+
 
 - (IBAction)back:(id)sender {
     self.navigationController.navigationBar.hidden = YES;

@@ -9,16 +9,16 @@
 #import "MineTableViewController.h"
 
 @interface MineTableViewController ()
-@property (weak, nonatomic) IBOutlet UIView *preparPay;
-@property (weak, nonatomic) IBOutlet UIView *collectionShop;
+@property (weak, nonatomic) IBOutlet UIView *preparPay;   //待付款
+@property (weak, nonatomic) IBOutlet UIView *collectionShop;   //收藏的店铺
 
-@property (weak, nonatomic) IBOutlet UIView *ShopKeeper;
-@property (weak, nonatomic) IBOutlet UIView *MyJudgeMent;
-@property (weak, nonatomic) IBOutlet UIView *FavoriteCollection;
+@property (weak, nonatomic) IBOutlet UIView *ShopKeeper;   //我是商家
+@property (weak, nonatomic) IBOutlet UIView *MyJudgeMent;  //我的评价
+@property (weak, nonatomic) IBOutlet UIView *FavoriteCollection;   //收藏的宝贝
 
-@property (weak, nonatomic) IBOutlet UIView *prepareForgood;
-@property (weak, nonatomic) IBOutlet UIView *prepareForjudge;
-@property (weak, nonatomic) IBOutlet UIView *myOrder;
+@property (weak, nonatomic) IBOutlet UIView *prepareForgood;   //待收货
+@property (weak, nonatomic) IBOutlet UIView *prepareForjudge;   //待评价
+@property (weak, nonatomic) IBOutlet UIView *myOrder;    //我的订单
 
 @end
 
@@ -70,40 +70,50 @@
     
     
 }
+
+
+//待付款
 - (void)prepareAct:(UIGestureRecognizer *)ges{
    
 }
 
+//收藏的店铺
 - (void)collectionShopAct
 {
     
 }
 
+//我是商家
 - (void)shopKeeperAct
 {
     
 }
 
+//我的评价
 - (void)judgeAct
 {
-    
+    [self performSegueWithIdentifier:@"myjudgeSegue" sender:nil];
 }
 
+//收藏的宝贝
 - (void)favoriteCollectionAct
 {
-    
+    [self performSegueWithIdentifier:@"mycollectionSegue" sender:nil];
 }
 
+//待收货
 - (void)PrePareforgoodAct
 {
     
 }
 
+//待评价
 - (void)prepareForjudgeAct
 {
     
 }
 
+//我的订单
 - (void)MyorderAct
 {
     [self performSegueWithIdentifier:@"myorderSegue" sender:nil];

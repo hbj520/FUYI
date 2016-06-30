@@ -17,6 +17,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                           [UIColor colorWithRed:90/255.0 green:90/255.0 blue:90/255.0 alpha:100], NSForegroundColorAttributeName, [UIFont systemFontOfSize:17], NSFontAttributeName, nil]];
+    self.DataSource = @[@{@"thumbimage":@"",@"title":@"",@"teachername":@"",@"price":@"",@"totoalprice":@""},@{@"thumbimage":@"",@"title":@"",@"teachername":@"",@"price":@"",@"totoalprice":@""}];
+    
+    
     [self changeToMain];
     return YES;
 }
