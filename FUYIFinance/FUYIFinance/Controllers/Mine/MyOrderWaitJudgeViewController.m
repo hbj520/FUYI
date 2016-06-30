@@ -55,13 +55,19 @@
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     PersonalWaitJudgeTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"WaitJudgeId" forIndexPath:indexPath];
+    cell.judgeBtn.tag = indexPath.row;
+    [cell.judgeBtn addTarget:self action:@selector(clickjudgeBtn:) forControlEvents:UIControlEventTouchUpInside];
+    
     if(indexPath.row==1){
         cell.lineView.hidden = YES;
     }
     return cell;
 }
 
-
+- (void)clickjudgeBtn:(UIButton*)sender
+{
+    NSLog(@"%ld",(long)sender.tag);
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

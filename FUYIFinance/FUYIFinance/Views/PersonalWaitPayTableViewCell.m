@@ -13,12 +13,22 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+   // [self addBlock];
     self.cancelBtn.layer.borderColor = [UIColor colorWithRed:170/255.0 green:170/255.0 blue:170/255.0 alpha:170/255.0].CGColor;
     self.cancelBtn.layer.borderWidth =  1;
     self.cancelBtn.layer.cornerRadius = 3;
     
     self.sureBtn.layer.cornerRadius = 3;
     
+}
+
+- (void)addBlock{
+    [self.cancelBtn addTarget:self action:@selector(SelectAct:) forControlEvents:UIControlEventTouchUpInside];
+}
+- (void)SelectAct:(id)sender{
+    if (self.selectBtnBlock) {
+        self.selectBtnBlock(self.indexPath);
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

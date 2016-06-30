@@ -146,7 +146,7 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBy-EM-Yk0">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBy-EM-Yk0" customClass="CustomBtn">
                         <rect key="frame" x="216" y="173" width="90" height="30"/>
                         <color key="backgroundColor" red="0.92156862745098034" green="0.086274509803921567" blue="0.14509803921568629" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -208,8 +208,13 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="judgeBtn" destination="hBy-EM-Yk0" id="09w-lY-ySi"/>
+                <outlet property="judgeBtn" destination="hBy-EM-Yk0" id="oUg-NV-AMA"/>
                 <outlet property="lineView" destination="XWS-uh-hiy" id="Fb0-qc-7Kk"/>
+                <outlet property="price" destination="8Fi-Js-YJb" id="u9y-wz-UT0"/>
+                <outlet property="teacherName" destination="QX2-Xe-0Hh" id="ktU-M3-qx3"/>
+                <outlet property="thumbImage" destination="PGb-hT-PCL" id="58B-i7-oUB"/>
+                <outlet property="title" destination="M1E-gh-O1Z" id="Zn1-L7-uk5"/>
+                <outlet property="totalPrice" destination="f1U-s6-n77" id="K09-PT-wgW"/>
             </connections>
             <point key="canvasLocation" x="354" y="411.5"/>
         </tableViewCell>

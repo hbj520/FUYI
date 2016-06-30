@@ -139,17 +139,6 @@
                         <color key="textColor" red="0.93725490196078431" green="0.43137254901960786" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ScO-Zh-UnO">
-                        <rect key="frame" x="115" y="172" width="90" height="33"/>
-                        <color key="backgroundColor" red="0.99215686274509807" green="0.99215686274509807" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="90" id="Efo-gD-Kva"/>
-                            <constraint firstAttribute="height" constant="33" id="ciq-e5-3FU"/>
-                        </constraints>
-                        <state key="normal" title="取消订单">
-                            <color key="titleColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                        </state>
-                    </button>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6z2-54-4ES">
                         <rect key="frame" x="0.0" y="214" width="320" height="9"/>
                         <color key="backgroundColor" red="0.95686274509803926" green="0.95294117647058818" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
@@ -157,7 +146,7 @@
                             <constraint firstAttribute="height" constant="9" id="Ld2-xS-bHa"/>
                         </constraints>
                     </view>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LuL-P4-xX8">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LuL-P4-xX8" customClass="CustomBtn">
                         <rect key="frame" x="222" y="173" width="90" height="30"/>
                         <color key="backgroundColor" red="0.90196078431372551" green="0.082352941176470587" blue="0.14117647058823529" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -166,6 +155,17 @@
                         </constraints>
                         <state key="normal" title="确定付款">
                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ScO-Zh-UnO" customClass="CustomBtn">
+                        <rect key="frame" x="115" y="172" width="90" height="33"/>
+                        <color key="backgroundColor" red="0.99215686274509807" green="0.99215686274509807" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="90" id="Efo-gD-Kva"/>
+                            <constraint firstAttribute="height" constant="33" id="ciq-e5-3FU"/>
+                        </constraints>
+                        <state key="normal" title="取消订单">
+                            <color key="titleColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
                 </subviews>
@@ -211,8 +211,11 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="cancelBtn" destination="ScO-Zh-UnO" id="n5t-8x-J7f"/>
-                <outlet property="sureBtn" destination="LuL-P4-xX8" id="jrH-16-jlC"/>
+                <outlet property="cancelBtn" destination="ScO-Zh-UnO" id="9yr-iN-a39"/>
+                <outlet property="price" destination="onb-hw-LbY" id="lie-f3-Rge"/>
+                <outlet property="sureBtn" destination="LuL-P4-xX8" id="n6d-b1-DoJ"/>
+                <outlet property="thumbImage" destination="TJ4-rW-exj" id="min-j0-bzt"/>
+                <outlet property="totalPrice" destination="cka-Wq-QFL" id="zYZ-Mu-byl"/>
             </connections>
             <point key="canvasLocation" x="261" y="319"/>
         </tableViewCell>

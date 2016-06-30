@@ -12,6 +12,7 @@
 @interface MyOrderWaitPayViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     UITableView * _tableView;
+    NSMutableArray * _dataSource; //待付款的数据
 }
 @end
 
@@ -64,11 +65,13 @@
     return cell;
 }
 
+//点击取消订单
 - (void)clickCancelBtn:(UIButton*)sender
 {
     NSLog(@"%ld",(long)sender.tag);
 }
 
+//点击确定付款
 - (void)clickSureBtn:(UIButton*)sender
 {
     NSLog(@"%ld",(long)sender.tag);
