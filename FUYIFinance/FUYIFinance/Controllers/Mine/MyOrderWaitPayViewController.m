@@ -57,11 +57,14 @@
 {
     PersonalWaitPayTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MyOrderId" forIndexPath:indexPath];
     
+    //取消按钮
     cell.cancelBtn.tag = 10 + indexPath.row;
     [cell.cancelBtn addTarget:self action:@selector(clickCancelBtn:) forControlEvents:UIControlEventTouchUpInside];
     
+    //确定按钮
     cell.sureBtn.tag = indexPath.row;
     [cell.sureBtn addTarget:self action:@selector(clickSureBtn:) forControlEvents:UIControlEventTouchUpInside];
+    
     return cell;
 }
 

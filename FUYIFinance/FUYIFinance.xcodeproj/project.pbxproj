@@ -56,6 +56,10 @@
 		CC42E2801D24F1690008A8D7 /* MyCollectionShopTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC42E27B1D24F1690008A8D7 /* MyCollectionShopTableViewCell.xib */; };
 		CC42E2811D24F1690008A8D7 /* MyCollectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC42E27D1D24F1690008A8D7 /* MyCollectionTableViewCell.m */; };
 		CC42E2821D24F1690008A8D7 /* MyCollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC42E27E1D24F1690008A8D7 /* MyCollectionTableViewCell.xib */; };
+		CC42E2861D24F6A10008A8D7 /* LoveManageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC42E2841D24F6A10008A8D7 /* LoveManageTableViewCell.m */; };
+		CC42E2871D24F6A10008A8D7 /* LoveManageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC42E2851D24F6A10008A8D7 /* LoveManageTableViewCell.xib */; };
+		CC57E0F51D25157500B00AA8 /* TreasureManageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC57E0F41D25157500B00AA8 /* TreasureManageViewController.m */; };
+		CC57E0FB1D2520BB00B00AA8 /* ManageTreasureTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC57E0FA1D2520BB00B00AA8 /* ManageTreasureTableViewController.m */; };
 		CC72D0241D225B6200945BCF /* MineTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D0231D225B6200945BCF /* MineTableViewController.m */; };
 		CC72D0271D22620000945BCF /* MyOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D0261D22620000945BCF /* MyOrderViewController.m */; };
 		CC72D02C1D2263CF00945BCF /* PersonalWaitPayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D02A1D2263CF00945BCF /* PersonalWaitPayTableViewCell.m */; };
@@ -196,6 +200,13 @@
 		CC42E27C1D24F1690008A8D7 /* MyCollectionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionTableViewCell.h; sourceTree = "<group>"; };
 		CC42E27D1D24F1690008A8D7 /* MyCollectionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionTableViewCell.m; sourceTree = "<group>"; };
 		CC42E27E1D24F1690008A8D7 /* MyCollectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCollectionTableViewCell.xib; sourceTree = "<group>"; };
+		CC42E2831D24F6A10008A8D7 /* LoveManageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoveManageTableViewCell.h; sourceTree = "<group>"; };
+		CC42E2841D24F6A10008A8D7 /* LoveManageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoveManageTableViewCell.m; sourceTree = "<group>"; };
+		CC42E2851D24F6A10008A8D7 /* LoveManageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoveManageTableViewCell.xib; sourceTree = "<group>"; };
+		CC57E0F31D25157500B00AA8 /* TreasureManageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreasureManageViewController.h; sourceTree = "<group>"; };
+		CC57E0F41D25157500B00AA8 /* TreasureManageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreasureManageViewController.m; sourceTree = "<group>"; };
+		CC57E0F91D2520BB00B00AA8 /* ManageTreasureTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageTreasureTableViewController.h; sourceTree = "<group>"; };
+		CC57E0FA1D2520BB00B00AA8 /* ManageTreasureTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageTreasureTableViewController.m; sourceTree = "<group>"; };
 		CC72D0221D225B6200945BCF /* MineTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineTableViewController.h; sourceTree = "<group>"; };
 		CC72D0231D225B6200945BCF /* MineTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineTableViewController.m; sourceTree = "<group>"; };
 		CC72D0251D22620000945BCF /* MyOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderViewController.h; sourceTree = "<group>"; };
@@ -479,6 +490,10 @@
 				CC72D03C1D226AF700945BCF /* MyOrderWaitGoodViewController.m */,
 				CC72D03E1D226B1100945BCF /* MyOrderWaitJudgeViewController.h */,
 				CC72D03F1D226B1100945BCF /* MyOrderWaitJudgeViewController.m */,
+				CC57E0F31D25157500B00AA8 /* TreasureManageViewController.h */,
+				CC57E0F41D25157500B00AA8 /* TreasureManageViewController.m */,
+				CC57E0F91D2520BB00B00AA8 /* ManageTreasureTableViewController.h */,
+				CC57E0FA1D2520BB00B00AA8 /* ManageTreasureTableViewController.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -630,6 +645,9 @@
 				CC72D0411D227DF500945BCF /* PersonalWaitJudgeTableViewCell.h */,
 				CC72D0421D227DF500945BCF /* PersonalWaitJudgeTableViewCell.m */,
 				CC72D0431D227DF500945BCF /* PersonalWaitJudgeTableViewCell.xib */,
+				CC42E2831D24F6A10008A8D7 /* LoveManageTableViewCell.h */,
+				CC42E2841D24F6A10008A8D7 /* LoveManageTableViewCell.m */,
+				CC42E2851D24F6A10008A8D7 /* LoveManageTableViewCell.xib */,
 			);
 			name = Mine;
 			sourceTree = "<group>";
@@ -872,6 +890,7 @@
 				D15BA3891D237CE200904DEF /* ShopCarTableViewCell.xib in Resources */,
 				AB36CE3D1D1B88A600D0E4C7 /* HomePageHotNewTableViewCell.xib in Resources */,
 				D1C49B071D224DE8003C17DA /* ShopCarNavigationItem.xib in Resources */,
+				CC42E2871D24F6A10008A8D7 /* LoveManageTableViewCell.xib in Resources */,
 				ABF5DE501D0FA7FC007CE1AB /* ShopCar.storyboard in Resources */,
 				AB708F941D0543BE007D0B4D /* Main.storyboard in Resources */,
 				ABF5DE521D0FA803007CE1AB /* Mine.storyboard in Resources */,
@@ -966,6 +985,7 @@
 				CC72D02C1D2263CF00945BCF /* PersonalWaitPayTableViewCell.m in Sources */,
 				CC72D0371D226AD000945BCF /* MyOrderAllViewController.m in Sources */,
 				CC72D03D1D226AF700945BCF /* MyOrderWaitGoodViewController.m in Sources */,
+				CC57E0F51D25157500B00AA8 /* TreasureManageViewController.m in Sources */,
 				CC42E26A1D24F0800008A8D7 /* MyJudgeViewController.m in Sources */,
 				AB36CDFE1D1A996900D0E4C7 /* Tools.m in Sources */,
 				D15BA3941D23906600904DEF /* CustomBtn.m in Sources */,
@@ -993,7 +1013,9 @@
 				AB36CE2D1D1B710400D0E4C7 /* TAAbstractDotView.m in Sources */,
 				CC42E2811D24F1690008A8D7 /* MyCollectionTableViewCell.m in Sources */,
 				AB36CE321D1B710400D0E4C7 /* SDCycleScrollView.m in Sources */,
+				CC42E2861D24F6A10008A8D7 /* LoveManageTableViewCell.m in Sources */,
 				CC72D0401D226B1100945BCF /* MyOrderWaitJudgeViewController.m in Sources */,
+				CC57E0FB1D2520BB00B00AA8 /* ManageTreasureTableViewController.m in Sources */,
 				CC72D0341D226A5C00945BCF /* YSLScrollMenuView.m in Sources */,
 				CC72D0241D225B6200945BCF /* MineTableViewController.m in Sources */,
 				D114DC571D24EEC50001CE21 /* Brand.m in Sources */,
