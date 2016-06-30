@@ -10,6 +10,6 @@
 
 @interface Brand : NSObject
 
-@property (nonatomic,copy) NSString *contenetStr;
+@property (nonatomic,copy) NSString *nameStr;
 
 @end

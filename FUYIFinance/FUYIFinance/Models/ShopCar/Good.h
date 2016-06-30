@@ -10,13 +10,12 @@
 
 @interface Good : NSObject
 
+
+@property (nonatomic,copy) NSString *brandID;
 @property (nonatomic,assign) BOOL select;
 @property (nonatomic,assign) NSInteger number;
 @property (nonatomic,copy) NSString *price;
-
-
 @property (nonatomic,copy) NSString *contenetStr;
-
 @property (nonatomic,retain)UIImage *image;
 
 

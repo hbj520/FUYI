@@ -16,6 +16,9 @@
 
 #import "ShopCarViewController.h"
 
+#import "Good.h"
+#import "Brand.h"
+
 //static NSString *videoHeader = @"videoHeaderReuseId";
 
 
@@ -28,6 +31,7 @@
 @property(nonatomic,retain)NSMutableArray * headIsSelected;
 @property(nonatomic,assign)BOOL isAllSelected;
 
+//商品、商标
 @property(nonatomic,retain)NSMutableArray * goodArray;
 @property(nonatomic,retain)NSMutableArray * brandArray;
 
@@ -46,6 +50,47 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self creatUI];
+    
+    //加载数据源
+    [self loadData];
+    
+}
+-(void)loadData
+{
+    //创建数据
+    [self creatData];
+}
+
+-(void)creatData
+{
+//    NSMutableArray* array0 = [[NSMutableArray alloc]init];
+//    NSMutableArray* array1 = [[NSMutableArray alloc]init];
+//    NSMutableArray* array2 = [[NSMutableArray alloc]init];
+//    for (int i = 0; i < 2; i++) {
+//        Good *goodModel = [[Good alloc]init];
+//        goodModel.select = YES;
+//        [array0 addObject:goodModel];
+//    }
+//    for (int i = 0; i < 2; i++) {
+//        Good *goodModel = [[Good alloc]init];
+//        goodModel.select = YES;
+//        [array1 addObject:goodModel];
+//    }
+//
+//    for (int i = 0; i < 2; i++) {
+//        Good *goodModel = [[Good alloc]init];
+//        goodModel.select = YES;
+//        [array2 addObject:goodModel];
+//    }
+//
+    //测试数据源
+    NSMutableArray * array0 = [[NSMutableArray alloc]initWithObjects:@"1",@"1", nil];
+    NSMutableArray * array1 = [[NSMutableArray alloc]initWithObjects:@"1",@"1", nil];
+    NSMutableArray * array2 = [[NSMutableArray alloc]initWithObjects:@"1",@"1", nil];
+    self.isSelected = [[NSMutableArray alloc]initWithObjects:array0,array1,array2,nil];
+    self.headIsSelected = [[NSMutableArray alloc]initWithObjects:@"1",@"1",@"1", nil];
+    self.isAllSelected = YES;
+    
 }
 
 -(void)creatUI
@@ -58,13 +103,8 @@
     self.tableView.rowHeight = 127;
     
     
-    //测试数据源
-    NSMutableArray * array0 = [[NSMutableArray alloc]initWithObjects:@"1",@"1", nil];
-    NSMutableArray * array1 = [[NSMutableArray alloc]initWithObjects:@"1",@"1", nil];
-    NSMutableArray * array2 = [[NSMutableArray alloc]initWithObjects:@"1",@"1", nil];
-    self.isSelected = [[NSMutableArray alloc]initWithObjects:array0,array1,array2,nil];
-    self.headIsSelected = [[NSMutableArray alloc]initWithObjects:@"1",@"1",@"1", nil];
-    self.isAllSelected = YES;
+ 
+    
     //导航栏
     [self addCustomerNavigationItem];
     //底部结算View
@@ -224,11 +264,14 @@
     if (!button.selected) {
         
 //        for (NSArray* array in self.isSelected) {
-//         
+//            for (Good* good in array) {
+//                good.select = NO;
+//            }
 //        }
-        
-        
-        
+//        
+//           self.headIsSelected = [[NSMutableArray alloc]initWithObjects:@"0",@"0",@"0", nil];
+//        
+//        
         
         
 //        [self.isSelected removeAllObjects];
@@ -258,11 +301,11 @@
     [self.view addSubview:navItem];
 }
 
-/*
+
 -(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
     return @"删除";
 }
-
+/*
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
