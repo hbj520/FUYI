@@ -43,7 +43,6 @@
                         <constraint firstAttribute="height" constant="25" id="2Uq-p1-F7r"/>
                         <constraint firstAttribute="width" constant="25" id="QUU-hm-6K3"/>
                     </constraints>
-                    <state key="normal" title="Button" image="shopCar2"/>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥ 0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8jA-uH-eeo">
                     <rect key="frame" x="219" y="23" width="47" height="20"/>
@@ -77,7 +76,4 @@
             <point key="canvasLocation" x="303.5" y="276.5"/>
         </view>
     </objects>
-    <resources>
-        <image name="shopCar2" width="38" height="39"/>
-    </resources>
 </document>

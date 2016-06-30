@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CustomBtn.h"
-@interface HeaderView : UIView
+@interface HeaderView : UITableViewHeaderFooterView
 @property (weak, nonatomic) IBOutlet CustomBtn *selectBtn;
 @property (weak, nonatomic) IBOutlet CustomBtn *deleteBtn;
 @property (weak, nonatomic) IBOutlet UILabel *videoClassLab;
