@@ -9,6 +9,9 @@
 #import "ProductJudgeViewController.h"
 
 @interface ProductJudgeViewController ()
+{
+    BOOL IsCommit;
+}
 @property (weak, nonatomic) IBOutlet UIButton *surebtn;
 
 @end
@@ -20,6 +23,15 @@
     // Do any additional setup after loading the view.
     self.surebtn.layer.cornerRadius = 3;
     self.surebtn.clipsToBounds = YES;
+}
+
+- (IBAction)Commit:(UIButton*)sender {
+    IsCommit = !IsCommit;
+    if(IsCommit){
+        [sender setImage:[UIImage imageNamed:@"btnhighlighted"] forState:UIControlStateNormal];
+    }else{
+        [sender setImage:[UIImage imageNamed:@"btndark"] forState:UIControlStateNormal];
+    }
 }
 
 - (IBAction)back:(id)sender {

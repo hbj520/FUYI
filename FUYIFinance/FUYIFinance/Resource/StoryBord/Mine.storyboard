@@ -1041,18 +1041,11 @@
                                     <constraint firstAttribute="trailing" secondItem="U6k-UC-RrN" secondAttribute="trailing" id="tW5-6D-igA"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btnhighlighted" translatesAutoresizingMaskIntoConstraints="NO" id="ron-EM-Cxh">
-                                <rect key="frame" x="2" y="342" width="25" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="0UZ-fi-IUE"/>
-                                    <constraint firstAttribute="width" constant="25" id="IDi-ga-jgI"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="匿名评价" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u8a-7X-Gcx">
                                 <rect key="frame" x="35" y="346" width="70" height="18"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="18" id="7gD-ve-wnR"/>
-                                    <constraint firstAttribute="width" constant="70" id="YWN-yq-DSN"/>
+                                    <constraint firstAttribute="width" constant="70" id="bxm-Kc-rjL"/>
+                                    <constraint firstAttribute="height" constant="18" id="e8U-Jb-lHP"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1069,25 +1062,36 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Pv-hq-g9P">
+                                <rect key="frame" x="8" y="341" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="dVk-Mq-i2c"/>
+                                    <constraint firstAttribute="height" constant="25" id="q7P-7W-r32"/>
+                                </constraints>
+                                <state key="normal" image="btndark"/>
+                                <connections>
+                                    <action selector="Commit:" destination="7Nh-eB-uTW" eventType="touchUpInside" id="a3h-La-0Ss"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Jta-jC-BNB" secondAttribute="trailing" id="7Qa-VZ-8GX"/>
-                            <constraint firstItem="ron-EM-Cxh" firstAttribute="leading" secondItem="S0j-zk-8OR" secondAttribute="leading" constant="2" id="8Zo-90-TgP"/>
-                            <constraint firstItem="u8a-7X-Gcx" firstAttribute="leading" secondItem="ron-EM-Cxh" secondAttribute="trailing" constant="8" id="Ay4-M4-93n"/>
-                            <constraint firstItem="u8a-7X-Gcx" firstAttribute="top" secondItem="Jta-jC-BNB" secondAttribute="bottom" constant="12" id="FS4-Hp-a4O"/>
-                            <constraint firstItem="ron-EM-Cxh" firstAttribute="top" secondItem="Jta-jC-BNB" secondAttribute="bottom" constant="8" id="Obf-6m-HyU"/>
+                            <constraint firstItem="9Pv-hq-g9P" firstAttribute="leading" secondItem="S0j-zk-8OR" secondAttribute="leading" constant="8" id="FYV-vu-6gH"/>
+                            <constraint firstItem="9Pv-hq-g9P" firstAttribute="top" secondItem="Jta-jC-BNB" secondAttribute="bottom" constant="7" id="KZM-5x-QxB"/>
                             <constraint firstAttribute="trailing" secondItem="Gpg-LB-fhc" secondAttribute="trailing" id="PkG-Z0-hJG"/>
                             <constraint firstAttribute="trailing" secondItem="kvb-av-lZ5" secondAttribute="trailing" id="QM6-uo-UVn"/>
                             <constraint firstItem="ywO-CZ-FKR" firstAttribute="leading" secondItem="S0j-zk-8OR" secondAttribute="leading" constant="7" id="UjW-xR-wJS"/>
                             <constraint firstItem="Gpg-LB-fhc" firstAttribute="leading" secondItem="S0j-zk-8OR" secondAttribute="leading" id="WGY-Ae-KWm"/>
                             <constraint firstItem="kvb-av-lZ5" firstAttribute="top" secondItem="Gpg-LB-fhc" secondAttribute="bottom" constant="1" id="b3W-GA-b8C"/>
+                            <constraint firstItem="u8a-7X-Gcx" firstAttribute="top" secondItem="Jta-jC-BNB" secondAttribute="bottom" constant="12" id="fAt-Zk-DLr"/>
                             <constraint firstAttribute="trailing" secondItem="ywO-CZ-FKR" secondAttribute="trailing" constant="7" id="hVj-97-3dj"/>
                             <constraint firstItem="kvb-av-lZ5" firstAttribute="leading" secondItem="S0j-zk-8OR" secondAttribute="leading" id="l5j-QZ-bNA"/>
+                            <constraint firstItem="ywO-CZ-FKR" firstAttribute="top" secondItem="9Pv-hq-g9P" secondAttribute="bottom" constant="25" id="mFi-DG-3hb"/>
                             <constraint firstItem="Gpg-LB-fhc" firstAttribute="top" secondItem="Ud9-ri-fdc" secondAttribute="bottom" id="nJy-Me-Mga"/>
                             <constraint firstItem="Jta-jC-BNB" firstAttribute="top" secondItem="kvb-av-lZ5" secondAttribute="bottom" constant="1" id="oS9-vk-BSI"/>
                             <constraint firstItem="Jta-jC-BNB" firstAttribute="leading" secondItem="S0j-zk-8OR" secondAttribute="leading" id="qn6-ez-eyN"/>
-                            <constraint firstItem="ywO-CZ-FKR" firstAttribute="top" secondItem="ron-EM-Cxh" secondAttribute="bottom" constant="24" id="zMY-We-HRP"/>
+                            <constraint firstItem="u8a-7X-Gcx" firstAttribute="leading" secondItem="9Pv-hq-g9P" secondAttribute="trailing" constant="2" id="tua-V9-7fh"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="商品评价" id="2oc-B7-h6T">
@@ -1492,7 +1496,7 @@
     <resources>
         <image name="back" width="12" height="17"/>
         <image name="bigimage" width="750" height="503"/>
-        <image name="btnhighlighted" width="45" height="45"/>
+        <image name="btndark" width="45" height="45"/>
         <image name="myorderthumbimage" width="134" height="126"/>
         <image name="person_headicon" width="127" height="130"/>
         <image name="personal_account" width="41" height="41"/>
