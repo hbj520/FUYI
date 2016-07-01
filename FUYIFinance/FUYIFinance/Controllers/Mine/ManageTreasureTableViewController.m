@@ -8,11 +8,15 @@
 
 #import "ManageTreasureTableViewController.h"
 #import "BBBadgeBarButtonItem.h"
-@interface ManageTreasureTableViewController ()
+@interface ManageTreasureTableViewController ()<UITextViewDelegate>
+
 {
     BBBadgeBarButtonItem * _chatBtn;
     BBBadgeBarButtonItem * _chatBtn1;
 }
+@property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (weak, nonatomic) IBOutlet UILabel *descLabel;
+
 @end
 
 @implementation ManageTreasureTableViewController
@@ -20,6 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self addChatBtn];
+    self.textView.delegate = self;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -31,6 +36,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 - (void)addChatBtn{
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -70,6 +76,17 @@
     
 }
 
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+    self.descLabel.hidden = YES;
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    self.descLabel.hidden = NO;
+}
+
+
 
 #pragma mark - Table view data source
 
@@ -101,6 +118,13 @@
         return 8;
     }else{
         return 12;
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.section==0||indexPath.section==2){
+        [self.textView endEditing:YES];
     }
 }
 
