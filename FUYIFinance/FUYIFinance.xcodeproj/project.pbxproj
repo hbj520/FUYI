@@ -46,6 +46,9 @@
 		ABF5DE501D0FA7FC007CE1AB /* ShopCar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABF5DE4F1D0FA7FC007CE1AB /* ShopCar.storyboard */; };
 		ABF5DE521D0FA803007CE1AB /* Mine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABF5DE511D0FA803007CE1AB /* Mine.storyboard */; };
 		ABF5DE571D0FD930007CE1AB /* HomeTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF5DE561D0FD930007CE1AB /* HomeTabbarViewController.m */; };
+		CC26F0DA1D261CAB003964A1 /* ProductJudgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC26F0D91D261CAB003964A1 /* ProductJudgeViewController.m */; };
+		CC26F0E11D264C61003964A1 /* PublishTreasureTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC26F0E01D264C61003964A1 /* PublishTreasureTableViewController.m */; };
+		CC26F0E41D2658B8003964A1 /* StarView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC26F0E31D2658B8003964A1 /* StarView.m */; };
 		CC42E26A1D24F0800008A8D7 /* MyJudgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC42E2691D24F0800008A8D7 /* MyJudgeViewController.m */; };
 		CC42E26E1D24F0A90008A8D7 /* MyJudgeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC42E26C1D24F0A90008A8D7 /* MyJudgeTableViewCell.m */; };
 		CC42E26F1D24F0A90008A8D7 /* MyJudgeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC42E26D1D24F0A90008A8D7 /* MyJudgeTableViewCell.xib */; };
@@ -183,6 +186,12 @@
 		ABF5DE511D0FA803007CE1AB /* Mine.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Mine.storyboard; sourceTree = "<group>"; };
 		ABF5DE551D0FD930007CE1AB /* HomeTabbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTabbarViewController.h; sourceTree = "<group>"; };
 		ABF5DE561D0FD930007CE1AB /* HomeTabbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTabbarViewController.m; sourceTree = "<group>"; };
+		CC26F0D81D261CAB003964A1 /* ProductJudgeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductJudgeViewController.h; sourceTree = "<group>"; };
+		CC26F0D91D261CAB003964A1 /* ProductJudgeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductJudgeViewController.m; sourceTree = "<group>"; };
+		CC26F0DF1D264C61003964A1 /* PublishTreasureTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishTreasureTableViewController.h; sourceTree = "<group>"; };
+		CC26F0E01D264C61003964A1 /* PublishTreasureTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishTreasureTableViewController.m; sourceTree = "<group>"; };
+		CC26F0E21D2658B8003964A1 /* StarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarView.h; sourceTree = "<group>"; };
+		CC26F0E31D2658B8003964A1 /* StarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarView.m; sourceTree = "<group>"; };
 		CC42E2681D24F0800008A8D7 /* MyJudgeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyJudgeViewController.h; sourceTree = "<group>"; };
 		CC42E2691D24F0800008A8D7 /* MyJudgeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyJudgeViewController.m; sourceTree = "<group>"; };
 		CC42E26B1D24F0A90008A8D7 /* MyJudgeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyJudgeTableViewCell.h; sourceTree = "<group>"; };
@@ -494,6 +503,10 @@
 				CC57E0F41D25157500B00AA8 /* TreasureManageViewController.m */,
 				CC57E0F91D2520BB00B00AA8 /* ManageTreasureTableViewController.h */,
 				CC57E0FA1D2520BB00B00AA8 /* ManageTreasureTableViewController.m */,
+				CC26F0D81D261CAB003964A1 /* ProductJudgeViewController.h */,
+				CC26F0D91D261CAB003964A1 /* ProductJudgeViewController.m */,
+				CC26F0DF1D264C61003964A1 /* PublishTreasureTableViewController.h */,
+				CC26F0E01D264C61003964A1 /* PublishTreasureTableViewController.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -536,6 +549,7 @@
 		ABF5DE411D0FA4B1007CE1AB /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				CC26F0DB1D263C2F003964A1 /* Others */,
 				CC72D0611D2397F300945BCF /* BBBadgeBarButtonItem */,
 				CC72D02E1D226A5C00945BCF /* YSLContainerViewController */,
 				AB36CE1A1D1B710400D0E4C7 /* SDCycleScrollView */,
@@ -625,6 +639,15 @@
 				AB36CE181D1A9A1700D0E4C7 /* GuideViewController.m */,
 			);
 			path = HomeTabbarController;
+			sourceTree = "<group>";
+		};
+		CC26F0DB1D263C2F003964A1 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				CC26F0E21D2658B8003964A1 /* StarView.h */,
+				CC26F0E31D2658B8003964A1 /* StarView.m */,
+			);
+			name = Others;
 			sourceTree = "<group>";
 		};
 		CC72D0281D22636100945BCF /* Mine */ = {
@@ -980,6 +1003,7 @@
 				D114DC581D24EEC50001CE21 /* Good.m in Sources */,
 				D1C49AFC1D22468A003C17DA /* GTMBase64.m in Sources */,
 				AB36CE331D1B710400D0E4C7 /* UIView+SDExtension.m in Sources */,
+				CC26F0DA1D261CAB003964A1 /* ProductJudgeViewController.m in Sources */,
 				CC42E2761D24F13D0008A8D7 /* MyCollectionCourseViewController.m in Sources */,
 				AB36CDC01D128CF900D0E4C7 /* HomePageNavgationItem.m in Sources */,
 				CC72D02C1D2263CF00945BCF /* PersonalWaitPayTableViewCell.m in Sources */,
@@ -991,6 +1015,8 @@
 				D15BA3941D23906600904DEF /* CustomBtn.m in Sources */,
 				AB36CE2F1D1B710400D0E4C7 /* TADotView.m in Sources */,
 				AB02D4AC1D2228F800AED400 /* ShopCarViewController.m in Sources */,
+				CC26F0E41D2658B8003964A1 /* StarView.m in Sources */,
+				CC26F0E11D264C61003964A1 /* PublishTreasureTableViewController.m in Sources */,
 				D1DE3AE41D225A99003473AF /* ShopCarBottomView.m in Sources */,
 				AB36CE311D1B710400D0E4C7 /* SDCollectionViewCell.m in Sources */,
 				AB36CE4B1D1CE72400D0E4C7 /* ThreeTableViewCell.m in Sources */,

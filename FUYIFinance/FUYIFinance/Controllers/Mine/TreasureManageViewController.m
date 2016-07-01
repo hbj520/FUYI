@@ -13,6 +13,7 @@
 @interface TreasureManageViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     UITableView * _tableView;
+    NSIndexPath * indexpath;
     BBBadgeBarButtonItem * _chatBtn;
     BBBadgeBarButtonItem * _chatBtn1;
 }
@@ -106,6 +107,8 @@
 //点击删除宝贝按钮
 - (void)clickdeleteBtn:(UIButton*)sender
 {
+    
+ 
     
 }
 
