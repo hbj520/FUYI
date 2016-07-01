@@ -7,7 +7,7 @@
 //
 
 #import "MineTableViewController.h"
-
+#import "MyOrderWaitJudgeViewController.h"
 @interface MineTableViewController ()
 @property (weak, nonatomic) IBOutlet UIView *preparPay;   //待付款
 @property (weak, nonatomic) IBOutlet UIView *collectionShop;   //收藏的店铺
@@ -74,7 +74,7 @@
 
 //待付款
 - (void)prepareAct:(UIGestureRecognizer *)ges{
-   
+    [self performSegueWithIdentifier:@"waitpaySegue" sender:nil];
 }
 
 //收藏的店铺
@@ -86,7 +86,7 @@
 //我是商家
 - (void)shopKeeperAct
 {
-    
+    [self performSegueWithIdentifier:@"treasureSegue" sender:nil];
 }
 
 //我的评价
@@ -110,6 +110,7 @@
 //待评价
 - (void)prepareForjudgeAct
 {
+    
     
 }
 

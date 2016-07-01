@@ -606,7 +606,7 @@
                         <segue destination="f1T-Ak-TJF" kind="push" identifier="myorderSegue" id="xFS-qr-VxC"/>
                         <segue destination="VUz-X2-Jl1" kind="push" identifier="mycollectionSegue" id="Zjk-xh-iOn"/>
                         <segue destination="jt4-7P-wzc" kind="push" identifier="myjudgeSegue" id="mMG-gg-YgZ"/>
-                        <segue destination="jjC-KD-eIB" kind="push" id="xUI-3l-Dt1"/>
+                        <segue destination="jjC-KD-eIB" kind="push" identifier="treasureSegue" id="xUI-3l-Dt1"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r1Q-BL-DkO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -643,7 +643,7 @@
         <!--宝贝管理-->
         <scene sceneID="oaR-0B-0sa">
             <objects>
-                <viewController id="jjC-KD-eIB" customClass="TreasureManageViewController" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="jjC-KD-eIB" customClass="TreasureManageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KBp-2T-UZT"/>
                         <viewControllerLayoutGuide type="bottom" id="on3-KG-oY5"/>
@@ -674,7 +674,7 @@
         <scene sceneID="XxT-nN-DKp">
             <objects>
                 <tableViewController id="7Ms-oe-upf" customClass="ManageTreasureTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="bo7-aI-z8g">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="1" id="bo7-aI-z8g">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -791,7 +791,7 @@
                             <tableViewSection id="tqQ-16-Mvr">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="136" id="elg-ae-6ao">
-                                        <rect key="frame" x="0.0" y="488" width="320" height="136"/>
+                                        <rect key="frame" x="0.0" y="471" width="320" height="136"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="elg-ae-6ao" id="8aa-Zf-72F">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="135"/>
@@ -848,7 +848,7 @@
                             <tableViewSection id="GWq-2e-6dN">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="45" id="3Nw-xI-Qyl">
-                                        <rect key="frame" x="0.0" y="660" width="320" height="45"/>
+                                        <rect key="frame" x="0.0" y="626" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Nw-xI-Qyl" id="Bx3-qD-3HN">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -884,7 +884,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="45" id="Zsp-wy-SE7">
-                                        <rect key="frame" x="0.0" y="705" width="320" height="45"/>
+                                        <rect key="frame" x="0.0" y="671" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zsp-wy-SE7" id="34g-87-X3I">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -924,7 +924,7 @@
                             <tableViewSection id="iHO-zC-g5a">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="45" id="Vjw-TJ-3Dp">
-                                        <rect key="frame" x="0.0" y="786" width="320" height="45"/>
+                                        <rect key="frame" x="0.0" y="735" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vjw-TJ-3Dp" id="SEG-Rb-G4n">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -957,12 +957,15 @@
                     <navigationItem key="navigationItem" title="编辑宝贝" id="9eb-Y3-eN7">
                         <barButtonItem key="leftBarButtonItem" image="back" id="Z2g-xU-XZW">
                             <color key="tintColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="back:" destination="7Ms-oe-upf" id="Pe7-F9-nAR"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lO5-vk-T4I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="86" y="-219"/>
+            <point key="canvasLocation" x="-48" y="1172"/>
         </scene>
         <!--我的收藏-->
         <scene sceneID="hIN-97-uNa">
