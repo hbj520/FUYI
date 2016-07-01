@@ -39,7 +39,7 @@
     [btn addTarget:self action:@selector(chatAct:) forControlEvents:UIControlEventTouchUpInside];
     
     UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn1.frame = CGRectMake(0, 0, 31, 27);
+    btn1.frame = CGRectMake(0, 0, 22, 22);
     [btn1 setImage:[UIImage imageNamed:@"barimage"] forState:UIControlStateNormal];
     [btn1 addTarget:self action:@selector(clickBtn1) forControlEvents:UIControlEventTouchUpInside];
     
@@ -89,6 +89,25 @@
     }else{
     return 1;
     }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if(section==0){
+        return 1;
+    }else if (section==1){
+        return 8;
+    }else if (section==2){
+        return 8;
+    }else{
+        return 12;
+    }
+}
+
+- (IBAction)back:(id)sender {
+    
+    [self.navigationController popViewControllerAnimated:YES];
+
 }
 
 /*
