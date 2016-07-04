@@ -7,13 +7,51 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="ShopTopTableViewCell">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cellID2" id="KGk-i7-Jjw" customClass="ShopTopTableViewCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="39"/>
+                <rect key="frame" x="0.0" y="0.0" width="287" height="39"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shoptop" translatesAutoresizingMaskIntoConstraints="NO" id="w8P-Kt-vJw">
+                        <rect key="frame" x="20" y="8" width="80" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="5mE-7c-BLE"/>
+                            <constraint firstAttribute="height" constant="22" id="CfU-N5-I65"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PTM-j7-85c">
+                        <rect key="frame" x="105" y="10" width="1" height="20"/>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="1" id="RMQ-OT-FqZ"/>
+                            <constraint firstAttribute="height" constant="20" id="b0j-9Z-dvz"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="原油投资分析6月1日上午10点正式发布！" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7g-cu-QKs">
+                        <rect key="frame" x="113" y="10" width="169" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="sDG-wD-1iA"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="w8P-Kt-vJw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Ses-tl-u8D"/>
+                    <constraint firstAttribute="trailing" secondItem="d7g-cu-QKs" secondAttribute="trailing" constant="5" id="avm-Pt-pvM"/>
+                    <constraint firstItem="d7g-cu-QKs" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="bJp-mb-DQH"/>
+                    <constraint firstItem="PTM-j7-85c" firstAttribute="leading" secondItem="w8P-Kt-vJw" secondAttribute="trailing" constant="5" id="iSX-Ig-CBv"/>
+                    <constraint firstItem="PTM-j7-85c" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="kih-5g-bPU"/>
+                    <constraint firstItem="d7g-cu-QKs" firstAttribute="leading" secondItem="PTM-j7-85c" secondAttribute="trailing" constant="7" id="wqm-i2-bQ3"/>
+                    <constraint firstItem="w8P-Kt-vJw" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="yj4-Ou-siR"/>
+                </constraints>
             </tableViewCellContentView>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="shoptop" width="153" height="38"/>
+    </resources>
 </document>
