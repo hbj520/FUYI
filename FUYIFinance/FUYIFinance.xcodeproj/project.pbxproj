@@ -100,6 +100,8 @@
 		D1DE3AE61D225AAD003473AF /* ShopCarBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1DE3AE51D225AAD003473AF /* ShopCarBottomView.xib */; };
 		D1E37F3F1D24A91E00920E17 /* BBBadgeBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D1E37F3E1D24A91E00920E17 /* BBBadgeBarButtonItem.m */; };
 		D1F12FF61D29F74B00EE1690 /* VideoStoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F12FF51D29F74B00EE1690 /* VideoStoreViewController.m */; };
+		D1F12FFA1D2A04CE00EE1690 /* VideoStoreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F12FF81D2A04CE00EE1690 /* VideoStoreTableViewCell.m */; };
+		D1F12FFB1D2A04CE00EE1690 /* VideoStoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F12FF91D2A04CE00EE1690 /* VideoStoreTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -288,6 +290,9 @@
 		D1E37F3E1D24A91E00920E17 /* BBBadgeBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBadgeBarButtonItem.m; sourceTree = "<group>"; };
 		D1F12FF41D29F74B00EE1690 /* VideoStoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoStoreViewController.h; sourceTree = "<group>"; };
 		D1F12FF51D29F74B00EE1690 /* VideoStoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoStoreViewController.m; sourceTree = "<group>"; };
+		D1F12FF71D2A04CE00EE1690 /* VideoStoreTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoStoreTableViewCell.h; sourceTree = "<group>"; };
+		D1F12FF81D2A04CE00EE1690 /* VideoStoreTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoStoreTableViewCell.m; sourceTree = "<group>"; };
+		D1F12FF91D2A04CE00EE1690 /* VideoStoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoStoreTableViewCell.xib; sourceTree = "<group>"; };
 		E2D217BF4D0AE0F6C9591577 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FA5515060D58FFB367588DFA /* Pods-FUYIFinance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FUYIFinance.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FUYIFinance/Pods-FUYIFinance.debug.xcconfig"; sourceTree = "<group>"; };
 		FB5E00328843A9E289111723 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -614,6 +619,9 @@
 				AB36CE3F1D1BC9C100D0E4C7 /* InvestCollectionViewTableViewCell.m */,
 				AB36CE411D1BE8FD00D0E4C7 /* InversetScrollView.h */,
 				AB36CE421D1BE8FD00D0E4C7 /* InversetScrollView.m */,
+				D1F12FF71D2A04CE00EE1690 /* VideoStoreTableViewCell.h */,
+				D1F12FF81D2A04CE00EE1690 /* VideoStoreTableViewCell.m */,
+				D1F12FF91D2A04CE00EE1690 /* VideoStoreTableViewCell.xib */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -938,6 +946,7 @@
 				D1C49B071D224DE8003C17DA /* ShopCarNavigationItem.xib in Resources */,
 				CC42E2871D24F6A10008A8D7 /* LoveManageTableViewCell.xib in Resources */,
 				ABF5DE501D0FA7FC007CE1AB /* ShopCar.storyboard in Resources */,
+				D1F12FFB1D2A04CE00EE1690 /* VideoStoreTableViewCell.xib in Resources */,
 				AB708F941D0543BE007D0B4D /* Main.storyboard in Resources */,
 				ABF5DE521D0FA803007CE1AB /* Mine.storyboard in Resources */,
 			);
@@ -1032,6 +1041,7 @@
 				CC42E2761D24F13D0008A8D7 /* MyCollectionCourseViewController.m in Sources */,
 				AB36CDC01D128CF900D0E4C7 /* HomePageNavgationItem.m in Sources */,
 				CC72D02C1D2263CF00945BCF /* PersonalWaitPayTableViewCell.m in Sources */,
+				D1F12FFA1D2A04CE00EE1690 /* VideoStoreTableViewCell.m in Sources */,
 				CC72D0371D226AD000945BCF /* MyOrderAllViewController.m in Sources */,
 				CC72D03D1D226AF700945BCF /* MyOrderWaitGoodViewController.m in Sources */,
 				CC57E0F51D25157500B00AA8 /* TreasureManageViewController.m in Sources */,
