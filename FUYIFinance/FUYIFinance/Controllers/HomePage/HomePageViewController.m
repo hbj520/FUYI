@@ -15,6 +15,8 @@
 #import "HomePageHotNewTableViewCell.h"
 #import "InvestCollectionViewTableViewCell.h"
 
+#import "VideoStoreViewController.h"
+
 #define DEF_SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
 
 static NSString *headerCellReuseId = @"headerCellReuseId";
@@ -28,6 +30,7 @@ static NSString *investReuseId = @"investReuseId";
     SDCycleScrollView *_headerView;
     NSMutableArray *bannerData;//滚动视图数据
     NSMutableArray *inverstData;//投资项目数据
+    
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -40,7 +43,10 @@ static NSString *investReuseId = @"investReuseId";
     // Do any additional setup after loading the view.
     [self createUI];
 }
-
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = YES;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -103,6 +109,9 @@ static NSString *investReuseId = @"investReuseId";
             };
             headerCell.videoShopBolck = ^{//视频商城
                 
+                NSLog(@"______");
+           
+                [self performSegueWithIdentifier:@"VideoStoreSegue" sender:nil];
             };
             headerCell.blogAreaBlock = ^{//博客专区
                 
