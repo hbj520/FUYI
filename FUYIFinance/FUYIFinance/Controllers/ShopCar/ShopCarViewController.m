@@ -31,7 +31,8 @@
 @property(nonatomic,retain)NSMutableArray * headIsSelected;
 @property(nonatomic,assign)BOOL isAllSelected;
 
-//商品、商标
+
+//保存商品、商标
 @property(nonatomic,retain)NSMutableArray * goodArray;
 @property(nonatomic,retain)NSMutableArray * brandArray;
 
@@ -50,7 +51,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self creatUI];
-    
+     self.isAllSelected = YES;
     //加载数据源
     [self loadData];
     
@@ -63,33 +64,15 @@
 
 -(void)creatData
 {
-//    NSMutableArray* array0 = [[NSMutableArray alloc]init];
-//    NSMutableArray* array1 = [[NSMutableArray alloc]init];
-//    NSMutableArray* array2 = [[NSMutableArray alloc]init];
-//    for (int i = 0; i < 2; i++) {
-//        Good *goodModel = [[Good alloc]init];
-//        goodModel.select = YES;
-//        [array0 addObject:goodModel];
-//    }
-//    for (int i = 0; i < 2; i++) {
-//        Good *goodModel = [[Good alloc]init];
-//        goodModel.select = YES;
-//        [array1 addObject:goodModel];
-//    }
-//
-//    for (int i = 0; i < 2; i++) {
-//        Good *goodModel = [[Good alloc]init];
-//        goodModel.select = YES;
-//        [array2 addObject:goodModel];
-//    }
-//
+
+   
     //测试数据源
     NSMutableArray * array0 = [[NSMutableArray alloc]initWithObjects:@"1",@"1", nil];
     NSMutableArray * array1 = [[NSMutableArray alloc]initWithObjects:@"1",@"1", nil];
     NSMutableArray * array2 = [[NSMutableArray alloc]initWithObjects:@"1",@"1", nil];
     self.isSelected = [[NSMutableArray alloc]initWithObjects:array0,array1,array2,nil];
     self.headIsSelected = [[NSMutableArray alloc]initWithObjects:@"1",@"1",@"1", nil];
-    self.isAllSelected = YES;
+    
     
 }
 
@@ -99,11 +82,7 @@
     self.tableView.dataSource = self;
     self.tableView.backgroundColor = [UIColor whiteColor];
     [self.tableView registerNib:[UINib nibWithNibName:@"ShopCarTableViewCell" bundle:nil] forCellReuseIdentifier:@"shopCarCellReuseID"];
-    //[self.tableView registerNib:[UINib nibWithNibName:@"HeaderView" bundle:nil] forHeaderFooterViewReuseIdentifier:@"videoHeaderReuseId"];
     self.tableView.rowHeight = 127;
-    
-    
- 
     
     //导航栏
     [self addCustomerNavigationItem];
@@ -113,13 +92,15 @@
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 3;
+    return self.isSelected.count;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return [self.isSelected[section] count];
 }
+
+
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -144,20 +125,19 @@
     [headerView.selectBtn setBackgroundImage:[UIImage imageNamed:@"shopCar2.jpg"] forState:UIControlStateNormal];
     [headerView.selectBtn setBackgroundImage:[UIImage imageNamed:@"shopCar21.jpg"] forState:UIControlStateSelected];
     
-    
     headerView.selectBtn.tag = section;
     [headerView.selectBtn addTarget:self action:@selector(headButton:) forControlEvents:UIControlEventTouchUpInside];
     //默认1
     headerView.selectBtn.selected = [self.headIsSelected[section] boolValue];
-    /*
+    
     headerView.deleteBtn.tag = section;
     [headerView.deleteBtn addTarget:self action:@selector(deleteButton:) forControlEvents:UIControlEventTouchUpInside];
-   */
+   
     return headerView;
 }
 
 #pragma mark --privateMethod
-//勾选、删除按钮功能
+//cell单选按钮
 - (void)cellSelectBtn:(CustomBtn*)button
 {
     button.selected = !button.selected;
@@ -184,12 +164,28 @@
         HeaderView* head = (HeaderView*)[self.tableView headerViewForSection:button.index.section];
         head.selectBtn.selected = YES;
         
-        
+    }
+    NSInteger c = 0;
+    NSInteger d = 0;
+    for (NSString *seleceStr in self.headIsSelected) {
+        if ([seleceStr isEqualToString:@"0"]) {
+            c++;
+        }else{
+            d++;
+        }
     }
     
-    
+    if (d == self.headIsSelected.count) {
+        ShopCarBottomView* view1 = (ShopCarBottomView*)[self.view viewWithTag:100];
+        view1.chooseAllBtn.selected = YES;
+        
+    }if (c > 0){
+        ShopCarBottomView* view1 = (ShopCarBottomView*)[self.view viewWithTag:100];
+        view1.chooseAllBtn.selected = NO;
+    }
 }
 
+//区头局部全选按钮
 - (void)headButton:(CustomBtn*)button
 {
     button.selected = !button.selected;
@@ -204,7 +200,6 @@
         }else {
             cell.selectBtn.selected = button.selected;
         }
-        
     }
     NSMutableArray * is1 = [[NSMutableArray alloc]init];
     for (int i = 0 ; i<[(NSMutableArray*)self.isSelected[button.tag] count]; i++) {
@@ -214,16 +209,37 @@
         {
             [is1 addObject:@"0"];
         }
-        
     }
     
     [self.isSelected removeObjectAtIndex:button.tag];
     [self.isSelected insertObject:is1 atIndex:button.tag];
+
+    NSInteger c = 0;
+    NSInteger d = 0;
+    for (NSString *seleceStr in self.headIsSelected) {
+        if ([seleceStr isEqualToString:@"0"]) {
+            c++;
+        }else{
+            d++;
+        }
+    }
+    
+    if (d == self.headIsSelected.count) {
+        ShopCarBottomView* view1 = (ShopCarBottomView*)[self.view viewWithTag:100];
+        view1.chooseAllBtn.selected = YES;
+        
+    }if (c > 0){
+        ShopCarBottomView* view1 = (ShopCarBottomView*)[self.view viewWithTag:100];
+        view1.chooseAllBtn.selected = NO;
+    }
 }
 
+//删除
 - (void)deleteButton:(CustomBtn*)button
 {
-    
+    [self.headIsSelected removeObjectAtIndex:button.tag];
+    [self.isSelected removeObjectAtIndex:button.tag];
+    [self.tableView reloadData];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -238,17 +254,20 @@
     return view;
 }
 
+//底部结算条
 -(void)addBottomView
 {
     ShopCarBottomView *bottomView = [[[NSBundle mainBundle]loadNibNamed:@"ShopCarBottomView" owner:self options:nil]lastObject];
+    bottomView.tag =100;
     bottomView.frame = CGRectMake(0, ScreenHeight-88,ScreenWidth, 44);
     
     [bottomView.chooseAllBtn setBackgroundImage:[UIImage imageNamed:@"shopCar2.jpg"] forState:UIControlStateNormal];
     [bottomView.chooseAllBtn setBackgroundImage:[UIImage imageNamed:@"shopCar21.jpg"] forState:UIControlStateSelected];
     [bottomView.chooseAllBtn addTarget:self action:@selector(chooseAllBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     
-   
-    bottomView.chooseAllBtn.selected = _isAllSelected;
+    self.isAllSelected = YES;
+    bottomView.chooseAllBtn.selected = self.isAllSelected;
+    
     
     [bottomView.goPay addTarget:self action:@selector(goPayClick:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -256,39 +275,48 @@
     [self.view addSubview:bottomView];
 }
 
+//全选按钮
 - (void)chooseAllBtnClick:(UIButton*)button
 {
-   
-    button.selected = !button.selected;
-    self.isAllSelected = button.selected;
-    if (!button.selected) {
-        
-//        for (NSArray* array in self.isSelected) {
-//            for (Good* good in array) {
-//                good.select = NO;
-//            }
-//        }
-//        
-//           self.headIsSelected = [[NSMutableArray alloc]initWithObjects:@"0",@"0",@"0", nil];
-//        
-//        
-        
-        
-//        [self.isSelected removeAllObjects];
-//    
-//        [self.headIsSelected removeAllObjects];
-   
-        
+   button.selected = !button.selected;
+    NSInteger headSelectedNum = self.headIsSelected.count;
+    if (button.selected) {
+        for (NSMutableArray *array in self.isSelected) {
+            NSInteger cellSelectedNum = array.count;
+            [array removeAllObjects];
+            for (int i = 0; i<cellSelectedNum; i++) {
+                [array addObject:@"1"];
+            }
+        }
+        [self.headIsSelected removeAllObjects];
+        for (int i = 0; i<headSelectedNum; i++) {
+            [self.headIsSelected addObject:@"1"];
+        }
+    }else{
+        for (NSMutableArray *array in self.isSelected) {
+            NSInteger cellSelectedNum = array.count;
+            [array removeAllObjects];
+            for (int i = 0; i<cellSelectedNum; i++) {
+                [array addObject:@"0"];
+            }
+        }
+        [self.headIsSelected removeAllObjects];
+        for (int i = 0; i<headSelectedNum; i++) {
+            [self.headIsSelected addObject:@"0"];
     }
     
 }
+    [self.tableView reloadData];
+    
+}
 
+//去结算
 - (void)goPayClick:(UIButton*)button
 {
     
 }
 
-
+//导航栏
 -(void)addCustomerNavigationItem
 {
     ShopCarNavigationItem *navItem = [[[NSBundle mainBundle]loadNibNamed:@"ShopCarNavigationItem" owner:self options:nil]lastObject];
@@ -305,39 +333,18 @@
 -(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
     return @"删除";
 }
-/*
+
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"确定要删除该商品?删除后无法恢复!" preferredStyle:1];
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
-//            LZCartModel *model = [self.dataArray objectAtIndex:indexPath.row];
-//            
-//            [self.dataArray removeObjectAtIndex:indexPath.row];
-//            //    删除
-//            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-//            
-//            //判断删除的商品是否已选择
-//            if ([self.selectedArray containsObject:model]) {
-//                //从已选中删除,重新计算价格
-//                [self.selectedArray removeObject:model];
-//                [self countPrice];
-//            }
-//            
-//            if (self.selectedArray.count == self.dataArray.count) {
-//                _allSellectedButton.selected = YES;
-//            } else {
-//                _allSellectedButton.selected = NO;
-//            }
-//            
-//            if (self.dataArray.count == 0) {
-//                [self changeView];
-//            }
-//            
-            //如果删除的时候数据紊乱,可延迟0.5s刷新一下
-            [self performSelector:@selector(reloadTable) withObject:nil afterDelay:0.5];
+           [self.isSelected[indexPath.section] removeObjectAtIndex:indexPath.row];
+           //    删除
+            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            
+            
             
         }];
         
@@ -346,10 +353,11 @@
         [alert addAction:okAction];
         [alert addAction:cancel];
         [self presentViewController:alert animated:YES completion:nil];
+        [self.tableView reloadData];
     }
     
 }
-*/
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

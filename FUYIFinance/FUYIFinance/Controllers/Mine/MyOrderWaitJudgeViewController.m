@@ -8,6 +8,7 @@
 
 #import "MyOrderWaitJudgeViewController.h"
 #import "PersonalWaitJudgeTableViewCell.h"
+#import "ProductJudgeViewController.h"
 
 @interface MyOrderWaitJudgeViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
@@ -65,6 +66,9 @@
 - (void)clickjudgeBtn:(UIButton*)sender
 {
     NSLog(@"%ld",(long)sender.tag);
+    UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
+    ProductJudgeViewController * VC = (ProductJudgeViewController*)[storyboard instantiateViewControllerWithIdentifier:@"productJudge"];
+    [self.navigationController pushViewController:VC animated:YES];
 }
 
 
