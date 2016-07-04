@@ -108,8 +108,6 @@ static NSString *investReuseId = @"investReuseId";
                 
             };
             headerCell.videoShopBolck = ^{//视频商城
-                
-                NSLog(@"______");
            
                 [self performSegueWithIdentifier:@"VideoStoreSegue" sender:nil];
             };

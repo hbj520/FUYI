@@ -6,9 +6,15 @@
 //  Copyright © 2016年 youyou. All rights reserved.
 //
 
-#import "VideoStoreViewController.h"
+//view
+#import "VideoStoreTableViewCell.h"
 
-@interface VideoStoreViewController ()
+
+#import "VideoStoreViewController.h"
+#import "VideoDetailViewController.h"
+
+
+@interface VideoStoreViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -21,7 +27,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    
+    [self creatUI];
     
     
 }
@@ -33,7 +39,44 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = NO;
+    self.tabBarController.tabBar.hidden = NO;
 }
+//返回首页
+- (IBAction)back:(id)sender {
+     [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(void)creatUI{
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    [self.tableView registerNib:[UINib nibWithNibName:@"VideoStoreTableViewCell" bundle:nil] forCellReuseIdentifier:@"VideoStoreCellReuseID"];
+    self.tableView.rowHeight = 115;
+    
+}
+
+#pragma mark - UITableViewDelegate
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 7;
+}
+
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    VideoStoreTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VideoStoreCellReuseID" forIndexPath:indexPath];
+    return cell;
+    
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"====");
+    [self performSegueWithIdentifier:@"videoDetailSegue" sender:nil];
+   
+}
+
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

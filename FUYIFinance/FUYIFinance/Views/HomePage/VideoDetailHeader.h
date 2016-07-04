@@ -1,5 +1,5 @@
 //
-//  VideoStoreViewController.h
+//  VideoDetailHeader.h
 //  FUYIFinance
 //
 //  Created by youyoumacmini3 on 16/7/4.
@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BaseViewController.h"
 
-@interface VideoStoreViewController : BaseViewController
+@interface VideoDetailHeader : UITableViewHeaderFooterView
 
 @end
