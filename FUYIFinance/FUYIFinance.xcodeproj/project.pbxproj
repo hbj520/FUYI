@@ -46,6 +46,22 @@
 		ABF5DE501D0FA7FC007CE1AB /* ShopCar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABF5DE4F1D0FA7FC007CE1AB /* ShopCar.storyboard */; };
 		ABF5DE521D0FA803007CE1AB /* Mine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABF5DE511D0FA803007CE1AB /* Mine.storyboard */; };
 		ABF5DE571D0FD930007CE1AB /* HomeTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF5DE561D0FD930007CE1AB /* HomeTabbarViewController.m */; };
+		CC26F0DA1D261CAB003964A1 /* ProductJudgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC26F0D91D261CAB003964A1 /* ProductJudgeViewController.m */; };
+		CC26F0E11D264C61003964A1 /* PublishTreasureTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC26F0E01D264C61003964A1 /* PublishTreasureTableViewController.m */; };
+		CC42E26A1D24F0800008A8D7 /* MyJudgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC42E2691D24F0800008A8D7 /* MyJudgeViewController.m */; };
+		CC42E26E1D24F0A90008A8D7 /* MyJudgeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC42E26C1D24F0A90008A8D7 /* MyJudgeTableViewCell.m */; };
+		CC42E26F1D24F0A90008A8D7 /* MyJudgeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC42E26D1D24F0A90008A8D7 /* MyJudgeTableViewCell.xib */; };
+		CC42E2761D24F13D0008A8D7 /* MyCollectionCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC42E2711D24F13D0008A8D7 /* MyCollectionCourseViewController.m */; };
+		CC42E2771D24F13D0008A8D7 /* MyCollectionShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC42E2731D24F13D0008A8D7 /* MyCollectionShopViewController.m */; };
+		CC42E2781D24F13D0008A8D7 /* MyOrderMyCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC42E2751D24F13D0008A8D7 /* MyOrderMyCollectionViewController.m */; };
+		CC42E27F1D24F1690008A8D7 /* MyCollectionShopTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC42E27A1D24F1690008A8D7 /* MyCollectionShopTableViewCell.m */; };
+		CC42E2801D24F1690008A8D7 /* MyCollectionShopTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC42E27B1D24F1690008A8D7 /* MyCollectionShopTableViewCell.xib */; };
+		CC42E2811D24F1690008A8D7 /* MyCollectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC42E27D1D24F1690008A8D7 /* MyCollectionTableViewCell.m */; };
+		CC42E2821D24F1690008A8D7 /* MyCollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC42E27E1D24F1690008A8D7 /* MyCollectionTableViewCell.xib */; };
+		CC42E2861D24F6A10008A8D7 /* LoveManageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC42E2841D24F6A10008A8D7 /* LoveManageTableViewCell.m */; };
+		CC42E2871D24F6A10008A8D7 /* LoveManageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC42E2851D24F6A10008A8D7 /* LoveManageTableViewCell.xib */; };
+		CC57E0F51D25157500B00AA8 /* TreasureManageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC57E0F41D25157500B00AA8 /* TreasureManageViewController.m */; };
+		CC57E0FB1D2520BB00B00AA8 /* ManageTreasureTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC57E0FA1D2520BB00B00AA8 /* ManageTreasureTableViewController.m */; };
 		CC72D0241D225B6200945BCF /* MineTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D0231D225B6200945BCF /* MineTableViewController.m */; };
 		CC72D0271D22620000945BCF /* MyOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D0261D22620000945BCF /* MyOrderViewController.m */; };
 		CC72D02C1D2263CF00945BCF /* PersonalWaitPayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D02A1D2263CF00945BCF /* PersonalWaitPayTableViewCell.m */; };
@@ -169,6 +185,34 @@
 		ABF5DE511D0FA803007CE1AB /* Mine.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Mine.storyboard; sourceTree = "<group>"; };
 		ABF5DE551D0FD930007CE1AB /* HomeTabbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTabbarViewController.h; sourceTree = "<group>"; };
 		ABF5DE561D0FD930007CE1AB /* HomeTabbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTabbarViewController.m; sourceTree = "<group>"; };
+		CC26F0D81D261CAB003964A1 /* ProductJudgeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductJudgeViewController.h; sourceTree = "<group>"; };
+		CC26F0D91D261CAB003964A1 /* ProductJudgeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductJudgeViewController.m; sourceTree = "<group>"; };
+		CC26F0DF1D264C61003964A1 /* PublishTreasureTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishTreasureTableViewController.h; sourceTree = "<group>"; };
+		CC26F0E01D264C61003964A1 /* PublishTreasureTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishTreasureTableViewController.m; sourceTree = "<group>"; };
+		CC42E2681D24F0800008A8D7 /* MyJudgeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyJudgeViewController.h; sourceTree = "<group>"; };
+		CC42E2691D24F0800008A8D7 /* MyJudgeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyJudgeViewController.m; sourceTree = "<group>"; };
+		CC42E26B1D24F0A90008A8D7 /* MyJudgeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyJudgeTableViewCell.h; sourceTree = "<group>"; };
+		CC42E26C1D24F0A90008A8D7 /* MyJudgeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyJudgeTableViewCell.m; sourceTree = "<group>"; };
+		CC42E26D1D24F0A90008A8D7 /* MyJudgeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyJudgeTableViewCell.xib; sourceTree = "<group>"; };
+		CC42E2701D24F13D0008A8D7 /* MyCollectionCourseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionCourseViewController.h; sourceTree = "<group>"; };
+		CC42E2711D24F13D0008A8D7 /* MyCollectionCourseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionCourseViewController.m; sourceTree = "<group>"; };
+		CC42E2721D24F13D0008A8D7 /* MyCollectionShopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionShopViewController.h; sourceTree = "<group>"; };
+		CC42E2731D24F13D0008A8D7 /* MyCollectionShopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionShopViewController.m; sourceTree = "<group>"; };
+		CC42E2741D24F13D0008A8D7 /* MyOrderMyCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderMyCollectionViewController.h; sourceTree = "<group>"; };
+		CC42E2751D24F13D0008A8D7 /* MyOrderMyCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderMyCollectionViewController.m; sourceTree = "<group>"; };
+		CC42E2791D24F1690008A8D7 /* MyCollectionShopTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionShopTableViewCell.h; sourceTree = "<group>"; };
+		CC42E27A1D24F1690008A8D7 /* MyCollectionShopTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionShopTableViewCell.m; sourceTree = "<group>"; };
+		CC42E27B1D24F1690008A8D7 /* MyCollectionShopTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCollectionShopTableViewCell.xib; sourceTree = "<group>"; };
+		CC42E27C1D24F1690008A8D7 /* MyCollectionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionTableViewCell.h; sourceTree = "<group>"; };
+		CC42E27D1D24F1690008A8D7 /* MyCollectionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionTableViewCell.m; sourceTree = "<group>"; };
+		CC42E27E1D24F1690008A8D7 /* MyCollectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCollectionTableViewCell.xib; sourceTree = "<group>"; };
+		CC42E2831D24F6A10008A8D7 /* LoveManageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoveManageTableViewCell.h; sourceTree = "<group>"; };
+		CC42E2841D24F6A10008A8D7 /* LoveManageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoveManageTableViewCell.m; sourceTree = "<group>"; };
+		CC42E2851D24F6A10008A8D7 /* LoveManageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoveManageTableViewCell.xib; sourceTree = "<group>"; };
+		CC57E0F31D25157500B00AA8 /* TreasureManageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreasureManageViewController.h; sourceTree = "<group>"; };
+		CC57E0F41D25157500B00AA8 /* TreasureManageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreasureManageViewController.m; sourceTree = "<group>"; };
+		CC57E0F91D2520BB00B00AA8 /* ManageTreasureTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageTreasureTableViewController.h; sourceTree = "<group>"; };
+		CC57E0FA1D2520BB00B00AA8 /* ManageTreasureTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageTreasureTableViewController.m; sourceTree = "<group>"; };
 		CC72D0221D225B6200945BCF /* MineTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineTableViewController.h; sourceTree = "<group>"; };
 		CC72D0231D225B6200945BCF /* MineTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineTableViewController.m; sourceTree = "<group>"; };
 		CC72D0251D22620000945BCF /* MyOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderViewController.h; sourceTree = "<group>"; };
@@ -452,6 +496,14 @@
 				CC72D03C1D226AF700945BCF /* MyOrderWaitGoodViewController.m */,
 				CC72D03E1D226B1100945BCF /* MyOrderWaitJudgeViewController.h */,
 				CC72D03F1D226B1100945BCF /* MyOrderWaitJudgeViewController.m */,
+				CC57E0F31D25157500B00AA8 /* TreasureManageViewController.h */,
+				CC57E0F41D25157500B00AA8 /* TreasureManageViewController.m */,
+				CC57E0F91D2520BB00B00AA8 /* ManageTreasureTableViewController.h */,
+				CC57E0FA1D2520BB00B00AA8 /* ManageTreasureTableViewController.m */,
+				CC26F0D81D261CAB003964A1 /* ProductJudgeViewController.h */,
+				CC26F0D91D261CAB003964A1 /* ProductJudgeViewController.m */,
+				CC26F0DF1D264C61003964A1 /* PublishTreasureTableViewController.h */,
+				CC26F0E01D264C61003964A1 /* PublishTreasureTableViewController.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -494,6 +546,7 @@
 		ABF5DE411D0FA4B1007CE1AB /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				CC26F0DB1D263C2F003964A1 /* Others */,
 				CC72D0611D2397F300945BCF /* BBBadgeBarButtonItem */,
 				CC72D02E1D226A5C00945BCF /* YSLContainerViewController */,
 				AB36CE1A1D1B710400D0E4C7 /* SDCycleScrollView */,
@@ -585,6 +638,13 @@
 			path = HomeTabbarController;
 			sourceTree = "<group>";
 		};
+		CC26F0DB1D263C2F003964A1 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Others;
+			sourceTree = "<group>";
+		};
 		CC72D0281D22636100945BCF /* Mine */ = {
 			isa = PBXGroup;
 			children = (
@@ -603,6 +663,9 @@
 				CC72D0411D227DF500945BCF /* PersonalWaitJudgeTableViewCell.h */,
 				CC72D0421D227DF500945BCF /* PersonalWaitJudgeTableViewCell.m */,
 				CC72D0431D227DF500945BCF /* PersonalWaitJudgeTableViewCell.xib */,
+				CC42E2831D24F6A10008A8D7 /* LoveManageTableViewCell.h */,
+				CC42E2841D24F6A10008A8D7 /* LoveManageTableViewCell.m */,
+				CC42E2851D24F6A10008A8D7 /* LoveManageTableViewCell.xib */,
 			);
 			name = Mine;
 			sourceTree = "<group>";
@@ -845,6 +908,7 @@
 				D15BA3891D237CE200904DEF /* ShopCarTableViewCell.xib in Resources */,
 				AB36CE3D1D1B88A600D0E4C7 /* HomePageHotNewTableViewCell.xib in Resources */,
 				D1C49B071D224DE8003C17DA /* ShopCarNavigationItem.xib in Resources */,
+				CC42E2871D24F6A10008A8D7 /* LoveManageTableViewCell.xib in Resources */,
 				ABF5DE501D0FA7FC007CE1AB /* ShopCar.storyboard in Resources */,
 				AB708F941D0543BE007D0B4D /* Main.storyboard in Resources */,
 				ABF5DE521D0FA803007CE1AB /* Mine.storyboard in Resources */,
@@ -934,16 +998,19 @@
 				D114DC581D24EEC50001CE21 /* Good.m in Sources */,
 				D1C49AFC1D22468A003C17DA /* GTMBase64.m in Sources */,
 				AB36CE331D1B710400D0E4C7 /* UIView+SDExtension.m in Sources */,
+				CC26F0DA1D261CAB003964A1 /* ProductJudgeViewController.m in Sources */,
 				CC42E2761D24F13D0008A8D7 /* MyCollectionCourseViewController.m in Sources */,
 				AB36CDC01D128CF900D0E4C7 /* HomePageNavgationItem.m in Sources */,
 				CC72D02C1D2263CF00945BCF /* PersonalWaitPayTableViewCell.m in Sources */,
 				CC72D0371D226AD000945BCF /* MyOrderAllViewController.m in Sources */,
 				CC72D03D1D226AF700945BCF /* MyOrderWaitGoodViewController.m in Sources */,
+				CC57E0F51D25157500B00AA8 /* TreasureManageViewController.m in Sources */,
 				CC42E26A1D24F0800008A8D7 /* MyJudgeViewController.m in Sources */,
 				AB36CDFE1D1A996900D0E4C7 /* Tools.m in Sources */,
 				D15BA3941D23906600904DEF /* CustomBtn.m in Sources */,
 				AB36CE2F1D1B710400D0E4C7 /* TADotView.m in Sources */,
 				AB02D4AC1D2228F800AED400 /* ShopCarViewController.m in Sources */,
+				CC26F0E11D264C61003964A1 /* PublishTreasureTableViewController.m in Sources */,
 				D1DE3AE41D225A99003473AF /* ShopCarBottomView.m in Sources */,
 				AB36CE311D1B710400D0E4C7 /* SDCollectionViewCell.m in Sources */,
 				AB36CE4B1D1CE72400D0E4C7 /* ThreeTableViewCell.m in Sources */,
@@ -966,7 +1033,9 @@
 				AB36CE2D1D1B710400D0E4C7 /* TAAbstractDotView.m in Sources */,
 				CC42E2811D24F1690008A8D7 /* MyCollectionTableViewCell.m in Sources */,
 				AB36CE321D1B710400D0E4C7 /* SDCycleScrollView.m in Sources */,
+				CC42E2861D24F6A10008A8D7 /* LoveManageTableViewCell.m in Sources */,
 				CC72D0401D226B1100945BCF /* MyOrderWaitJudgeViewController.m in Sources */,
+				CC57E0FB1D2520BB00B00AA8 /* ManageTreasureTableViewController.m in Sources */,
 				CC72D0341D226A5C00945BCF /* YSLScrollMenuView.m in Sources */,
 				CC72D0241D225B6200945BCF /* MineTableViewController.m in Sources */,
 				D114DC571D24EEC50001CE21 /* Brand.m in Sources */,

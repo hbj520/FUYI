@@ -8,10 +8,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MyCollectionId" id="KGk-i7-Jjw" customClass="MyCollectionTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="118"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="107"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="117"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="106"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="myorderthumbimage" translatesAutoresizingMaskIntoConstraints="NO" id="0U2-jx-lkI">
@@ -61,17 +61,8 @@
                         <color key="textColor" red="0.57647058823529407" green="0.57647058823529407" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="irl-kx-f0R">
-                        <rect key="frame" x="0.0" y="106" width="320" height="11"/>
-                        <color key="backgroundColor" red="0.95686274509803926" green="0.95294117647058818" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="11" id="FfI-PP-jSv"/>
-                            <constraint firstAttribute="height" constant="11" id="k9Z-fl-vzP"/>
-                        </constraints>
-                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="irl-kx-f0R" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="0iA-vj-qfB"/>
                     <constraint firstItem="95w-HL-hZQ" firstAttribute="leading" secondItem="0U2-jx-lkI" secondAttribute="trailing" constant="8" id="9Ol-GI-WFd"/>
                     <constraint firstItem="pzT-ef-4nw" firstAttribute="leading" secondItem="0U2-jx-lkI" secondAttribute="trailing" constant="8" id="9QU-hA-M5Y"/>
                     <constraint firstItem="95w-HL-hZQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="9lZ-8d-tvg"/>
@@ -81,12 +72,7 @@
                     <constraint firstItem="0U2-jx-lkI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="HA4-Q1-Hq3"/>
                     <constraint firstItem="H1C-GD-nZn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="69" id="W2g-kN-SiB"/>
                     <constraint firstItem="mg2-7e-h4o" firstAttribute="top" secondItem="95w-HL-hZQ" secondAttribute="bottom" constant="1" id="anZ-yF-2Cu"/>
-                    <constraint firstAttribute="bottom" secondItem="irl-kx-f0R" secondAttribute="bottom" id="eeT-5e-avc"/>
-                    <constraint firstAttribute="bottom" secondItem="irl-kx-f0R" secondAttribute="bottom" id="fyQ-7g-DBZ"/>
-                    <constraint firstAttribute="trailing" secondItem="irl-kx-f0R" secondAttribute="trailing" id="iDg-Pl-EVi"/>
-                    <constraint firstItem="irl-kx-f0R" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="jlD-Jp-kBJ"/>
                     <constraint firstItem="pzT-ef-4nw" firstAttribute="top" secondItem="mg2-7e-h4o" secondAttribute="bottom" constant="1" id="ri7-rt-aIl"/>
-                    <constraint firstAttribute="trailing" secondItem="irl-kx-f0R" secondAttribute="trailing" id="vae-Qi-2Y1"/>
                 </constraints>
             </tableViewCellContentView>
         </tableViewCell>

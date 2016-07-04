@@ -8,6 +8,7 @@
 
 #import "MyOrderWaitJudgeViewController.h"
 #import "PersonalWaitJudgeTableViewCell.h"
+#import "ProductJudgeViewController.h"
 
 @interface MyOrderWaitJudgeViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
@@ -30,21 +31,19 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return 1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.row == 1){
+    
         return 218;
-    }else{
-    return 227;
-    }
+
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -67,7 +66,14 @@
 - (void)clickjudgeBtn:(UIButton*)sender
 {
     NSLog(@"%ld",(long)sender.tag);
+    UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
+    ProductJudgeViewController * VC = (ProductJudgeViewController*)[storyboard instantiateViewControllerWithIdentifier:@"productJudge"];
+    [self.navigationController pushViewController:VC animated:YES];
 }
+
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
