@@ -67,6 +67,10 @@
 		CC593CB21D29F1520077B096 /* MyShopHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC593CB01D29F1520077B096 /* MyShopHeaderTableViewCell.xib */; };
 		CC593CB61D29F67A0077B096 /* ShopTopTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC593CB41D29F67A0077B096 /* ShopTopTableViewCell.m */; };
 		CC593CB71D29F67A0077B096 /* ShopTopTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC593CB51D29F67A0077B096 /* ShopTopTableViewCell.xib */; };
+		CC593CBB1D29FCC30077B096 /* FourBtnTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC593CB91D29FCC30077B096 /* FourBtnTableViewCell.m */; };
+		CC593CBC1D29FCC30077B096 /* FourBtnTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC593CBA1D29FCC30077B096 /* FourBtnTableViewCell.xib */; };
+		CC593CC01D2A02070077B096 /* MyShopDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC593CBE1D2A02070077B096 /* MyShopDetailTableViewCell.m */; };
+		CC593CC11D2A02070077B096 /* MyShopDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC593CBF1D2A02070077B096 /* MyShopDetailTableViewCell.xib */; };
 		CC72D0241D225B6200945BCF /* MineTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D0231D225B6200945BCF /* MineTableViewController.m */; };
 		CC72D0271D22620000945BCF /* MyOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D0261D22620000945BCF /* MyOrderViewController.m */; };
 		CC72D02C1D2263CF00945BCF /* PersonalWaitPayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D02A1D2263CF00945BCF /* PersonalWaitPayTableViewCell.m */; };
@@ -226,6 +230,12 @@
 		CC593CB31D29F67A0077B096 /* ShopTopTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopTopTableViewCell.h; sourceTree = "<group>"; };
 		CC593CB41D29F67A0077B096 /* ShopTopTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopTopTableViewCell.m; sourceTree = "<group>"; };
 		CC593CB51D29F67A0077B096 /* ShopTopTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopTopTableViewCell.xib; sourceTree = "<group>"; };
+		CC593CB81D29FCC30077B096 /* FourBtnTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourBtnTableViewCell.h; sourceTree = "<group>"; };
+		CC593CB91D29FCC30077B096 /* FourBtnTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourBtnTableViewCell.m; sourceTree = "<group>"; };
+		CC593CBA1D29FCC30077B096 /* FourBtnTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FourBtnTableViewCell.xib; sourceTree = "<group>"; };
+		CC593CBD1D2A02070077B096 /* MyShopDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyShopDetailTableViewCell.h; sourceTree = "<group>"; };
+		CC593CBE1D2A02070077B096 /* MyShopDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyShopDetailTableViewCell.m; sourceTree = "<group>"; };
+		CC593CBF1D2A02070077B096 /* MyShopDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyShopDetailTableViewCell.xib; sourceTree = "<group>"; };
 		CC72D0221D225B6200945BCF /* MineTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineTableViewController.h; sourceTree = "<group>"; };
 		CC72D0231D225B6200945BCF /* MineTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineTableViewController.m; sourceTree = "<group>"; };
 		CC72D0251D22620000945BCF /* MyOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderViewController.h; sourceTree = "<group>"; };
@@ -687,6 +697,12 @@
 				CC593CB31D29F67A0077B096 /* ShopTopTableViewCell.h */,
 				CC593CB41D29F67A0077B096 /* ShopTopTableViewCell.m */,
 				CC593CB51D29F67A0077B096 /* ShopTopTableViewCell.xib */,
+				CC593CB81D29FCC30077B096 /* FourBtnTableViewCell.h */,
+				CC593CB91D29FCC30077B096 /* FourBtnTableViewCell.m */,
+				CC593CBA1D29FCC30077B096 /* FourBtnTableViewCell.xib */,
+				CC593CBD1D2A02070077B096 /* MyShopDetailTableViewCell.h */,
+				CC593CBE1D2A02070077B096 /* MyShopDetailTableViewCell.m */,
+				CC593CBF1D2A02070077B096 /* MyShopDetailTableViewCell.xib */,
 			);
 			name = Mine;
 			sourceTree = "<group>";
@@ -926,6 +942,7 @@
 				AB708F991D0543BE007D0B4D /* LaunchScreen.storyboard in Resources */,
 				AB36CDC21D128D1900D0E4C7 /* HomePageNavgationItem.xib in Resources */,
 				D15BA38E1D237E3300904DEF /* HeaderView.xib in Resources */,
+				CC593CBC1D29FCC30077B096 /* FourBtnTableViewCell.xib in Resources */,
 				AB708F961D0543BE007D0B4D /* Assets.xcassets in Resources */,
 				CC42E2801D24F1690008A8D7 /* MyCollectionShopTableViewCell.xib in Resources */,
 				D15BA3891D237CE200904DEF /* ShopCarTableViewCell.xib in Resources */,
@@ -933,6 +950,7 @@
 				D1C49B071D224DE8003C17DA /* ShopCarNavigationItem.xib in Resources */,
 				CC42E2871D24F6A10008A8D7 /* LoveManageTableViewCell.xib in Resources */,
 				ABF5DE501D0FA7FC007CE1AB /* ShopCar.storyboard in Resources */,
+				CC593CC11D2A02070077B096 /* MyShopDetailTableViewCell.xib in Resources */,
 				AB708F941D0543BE007D0B4D /* Main.storyboard in Resources */,
 				ABF5DE521D0FA803007CE1AB /* Mine.storyboard in Resources */,
 			);
@@ -1048,6 +1066,7 @@
 				D15BA38C1D237E2400904DEF /* HeaderView.m in Sources */,
 				D1C49AFA1D22468A003C17DA /* NSData+Base64.m in Sources */,
 				D1C49AF61D22468A003C17DA /* StringEncryption.m in Sources */,
+				CC593CC01D2A02070077B096 /* MyShopDetailTableViewCell.m in Sources */,
 				D1E37F3F1D24A91E00920E17 /* BBBadgeBarButtonItem.m in Sources */,
 				ABF5DE571D0FD930007CE1AB /* HomeTabbarViewController.m in Sources */,
 				AB708F8E1D0543BE007D0B4D /* AppDelegate.m in Sources */,
@@ -1059,6 +1078,7 @@
 				AB36CE2D1D1B710400D0E4C7 /* TAAbstractDotView.m in Sources */,
 				CC42E2811D24F1690008A8D7 /* MyCollectionTableViewCell.m in Sources */,
 				AB36CE321D1B710400D0E4C7 /* SDCycleScrollView.m in Sources */,
+				CC593CBB1D29FCC30077B096 /* FourBtnTableViewCell.m in Sources */,
 				CC42E2861D24F6A10008A8D7 /* LoveManageTableViewCell.m in Sources */,
 				CC72D0401D226B1100945BCF /* MyOrderWaitJudgeViewController.m in Sources */,
 				CC57E0FB1D2520BB00B00AA8 /* ManageTreasureTableViewController.m in Sources */,
