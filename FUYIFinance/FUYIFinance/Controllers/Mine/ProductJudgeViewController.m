@@ -29,8 +29,10 @@
     IsCommit = !IsCommit;
     if(IsCommit){
         [sender setImage:[UIImage imageNamed:@"btnhighlighted"] forState:UIControlStateNormal];
+        self.surebtn.enabled = YES;
     }else{
         [sender setImage:[UIImage imageNamed:@"btndark"] forState:UIControlStateNormal];
+        self.surebtn.enabled = NO;
     }
 }
 
