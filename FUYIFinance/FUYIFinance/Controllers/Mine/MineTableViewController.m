@@ -35,7 +35,7 @@
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = YES;
+     self.navigationController.navigationBar.hidden = YES;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -86,7 +86,8 @@
 //我是商家
 - (void)shopKeeperAct
 {
-    [self performSegueWithIdentifier:@"treasureSegue" sender:nil];
+   // [self performSegueWithIdentifier:@"treasureSegue" sender:nil];
+    [self performSegueWithIdentifier:@"myshopSegue" sender:nil];
 }
 
 //我的评价
@@ -111,7 +112,7 @@
 - (void)prepareForjudgeAct
 {
     
-    
+    [self performSegueWithIdentifier:@"waitjudgeSegue" sender:nil];
 }
 
 //我的订单

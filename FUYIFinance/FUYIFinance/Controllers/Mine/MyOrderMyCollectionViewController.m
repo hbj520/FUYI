@@ -79,10 +79,9 @@
 
 
 - (IBAction)back:(id)sender {
-    self.navigationController.navigationBar.hidden = YES;
+    self.navigationController.navigationBarHidden = YES;
     [self.navigationController popViewControllerAnimated:YES];
-    
-}
+    }
 
 
 - (void)didReceiveMemoryWarning {

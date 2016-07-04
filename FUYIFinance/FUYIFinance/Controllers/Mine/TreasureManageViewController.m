@@ -42,6 +42,7 @@
     UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeCustom];
     btn1.frame = CGRectMake(0, 0, 22, 22);
     [btn1 setImage:[UIImage imageNamed:@"barimage"] forState:UIControlStateNormal];
+    [btn1 addTarget:self action:@selector(clickBtn1) forControlEvents:UIControlEventTouchUpInside];
     
     _chatBtn = [[BBBadgeBarButtonItem alloc] initWithCustomUIButton:btn];
     _chatBtn.badgeFont = [UIFont systemFontOfSize:10.0f];
@@ -61,9 +62,17 @@
     self.navigationItem.rightBarButtonItems = arryBtn;
 }
 
+//点击消息
 - (void)chatAct:(id)sender{
     
 }
+
+//点击环状
+- (void)clickBtn1
+{
+    
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 4;
@@ -124,7 +133,7 @@
 
 
 - (IBAction)back:(id)sender {
-    self.navigationController.navigationBar.hidden = YES;
+   
     [self.navigationController popViewControllerAnimated:YES];
 }
 
