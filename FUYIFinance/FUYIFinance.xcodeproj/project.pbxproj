@@ -103,6 +103,7 @@
 		D1DE3AE41D225A99003473AF /* ShopCarBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DE3AE31D225A99003473AF /* ShopCarBottomView.m */; };
 		D1DE3AE61D225AAD003473AF /* ShopCarBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1DE3AE51D225AAD003473AF /* ShopCarBottomView.xib */; };
 		D1E37F3F1D24A91E00920E17 /* BBBadgeBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D1E37F3E1D24A91E00920E17 /* BBBadgeBarButtonItem.m */; };
+		D1F12FF61D29F74B00EE1690 /* VideoStoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F12FF51D29F74B00EE1690 /* VideoStoreViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -295,6 +296,8 @@
 		D1DE3AE51D225AAD003473AF /* ShopCarBottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopCarBottomView.xib; sourceTree = "<group>"; };
 		D1E37F3D1D24A91E00920E17 /* BBBadgeBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBadgeBarButtonItem.h; sourceTree = "<group>"; };
 		D1E37F3E1D24A91E00920E17 /* BBBadgeBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBadgeBarButtonItem.m; sourceTree = "<group>"; };
+		D1F12FF41D29F74B00EE1690 /* VideoStoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoStoreViewController.h; sourceTree = "<group>"; };
+		D1F12FF51D29F74B00EE1690 /* VideoStoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoStoreViewController.m; sourceTree = "<group>"; };
 		E2D217BF4D0AE0F6C9591577 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FA5515060D58FFB367588DFA /* Pods-FUYIFinance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FUYIFinance.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FUYIFinance/Pods-FUYIFinance.debug.xcconfig"; sourceTree = "<group>"; };
 		FB5E00328843A9E289111723 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -492,6 +495,8 @@
 			children = (
 				AB36CDB81D1283AD00D0E4C7 /* HomePageViewController.h */,
 				AB36CDB91D1283AD00D0E4C7 /* HomePageViewController.m */,
+				D1F12FF41D29F74B00EE1690 /* VideoStoreViewController.h */,
+				D1F12FF51D29F74B00EE1690 /* VideoStoreViewController.m */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";

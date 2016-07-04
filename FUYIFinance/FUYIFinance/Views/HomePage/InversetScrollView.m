@@ -28,7 +28,16 @@
             imageView.frame = CGRectMake((list)*117 + 140, line*102, 117, 102);
         }
         imageView.image = [UIImage imageNamed:data[i]];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAct:)];
+        [imageView addGestureRecognizer:tap];
+        imageView.tag = 100 + i;
+        imageView.userInteractionEnabled = YES;
         [self addSubview:imageView];
+    }
+}
+- (void)tapAct:(UITapGestureRecognizer *)ges{
+    if (self.tapBlock) {
+        self.tapBlock(ges.view.tag);
     }
 }
 /*

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void (^TapInvestBlock) (NSInteger);
 @interface InversetScrollView : UIScrollView
 - (void)setUIWithData:(NSArray *)data;
+@property (nonatomic,copy) TapInvestBlock tapBlock;
 @end

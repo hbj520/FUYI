@@ -54,7 +54,7 @@ static NSString *investReuseId = @"investReuseId";
     [self addCustomerNavgationItem];
     //添加滚动视图pageview
     [self addPageControl];
-    inverstData = @[@"finance_planer",@"foreign_exchange",@"gold_invest",@"metal_invest",@"oil_invest"];
+    inverstData = @[@"finance_planer",@"foreign_exchange",@"gold_invest",@"metal_invest",@"oil_invest",@"foreign_exchange"];
 
 }
 - (void)addPageControl{
@@ -98,6 +98,18 @@ static NSString *investReuseId = @"investReuseId";
             if (headerCell == nil) {
                 headerCell = [[[NSBundle mainBundle] loadNibNamed:@"HomepageHeaderTableViewCell" owner:self options:nil] lastObject];
             }
+            headerCell.teachTeamBlock = ^{//讲师团队
+                
+            };
+            headerCell.videoShopBolck = ^{//视频商城
+                
+            };
+            headerCell.blogAreaBlock = ^{//博客专区
+                
+            };
+            headerCell.financeBlock = ^{//金融学院
+                
+            };
             return headerCell;
 
         }else{
@@ -115,6 +127,10 @@ static NSString *investReuseId = @"investReuseId";
                                                                            reuseIdentifier:investReuseId];
         }
         [investTableViewCell createUIWithData:inverstData];
+        investTableViewCell.tapInvestCellBlock = ^(NSInteger index){
+            
+            
+        };
         return investTableViewCell;
     }
     
