@@ -10,6 +10,9 @@
 
 @interface VideoStoreViewController ()
 
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 @end
 
 @implementation VideoStoreViewController
@@ -17,6 +20,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
+    
+    
 }
 - (void)viewWillDisappear:(BOOL)animated
 {
