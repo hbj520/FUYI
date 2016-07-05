@@ -44,8 +44,8 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
 -(void)creatUI{
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-  //  [self.tableView registerClass:[VideoStoreTableViewCell class] forCellReuseIdentifier:videoShopReuseId];
-    [self.tableView registerNib:[UINib nibWithNibName:@"VideoStoreTableViewCell" bundle:nil] forCellReuseIdentifier:@"VideoStoreCellReuseID"];
+    [self.tableView registerClass:[VideoStoreTableViewCell class] forCellReuseIdentifier:videoShopReuseId];
+//    [self.tableView registerNib:[UINib nibWithNibName:@"VideoStoreTableViewCell" bundle:nil] forCellReuseIdentifier:@"VideoStoreCellReuseID"];
     
 }
 #pragma mark - UITableViewDelegate
@@ -87,6 +87,11 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - UIVew
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];
+}
 
 - (IBAction)back:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];

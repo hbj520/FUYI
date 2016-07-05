@@ -116,6 +116,7 @@
 		D1F130141D2A4E5A00EE1690 /* VideoDetailThirdtTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F130121D2A4E5A00EE1690 /* VideoDetailThirdtTableViewCell.xib */; };
 		D1F130171D2A5B3B00EE1690 /* VideoDetailHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F130161D2A5B3B00EE1690 /* VideoDetailHeader.m */; };
 		D1F1301D1D2B503500EE1690 /* VideoShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F1301C1D2B503500EE1690 /* VideoShopViewController.m */; };
+		D1F130201D2B642A00EE1690 /* ConfirmOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F1301F1D2B642A00EE1690 /* ConfirmOrderViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -332,6 +333,8 @@
 		D1F130161D2A5B3B00EE1690 /* VideoDetailHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoDetailHeader.m; sourceTree = "<group>"; };
 		D1F1301B1D2B503500EE1690 /* VideoShopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoShopViewController.h; sourceTree = "<group>"; };
 		D1F1301C1D2B503500EE1690 /* VideoShopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoShopViewController.m; sourceTree = "<group>"; };
+		D1F1301E1D2B642A00EE1690 /* ConfirmOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmOrderViewController.h; sourceTree = "<group>"; };
+		D1F1301F1D2B642A00EE1690 /* ConfirmOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmOrderViewController.m; sourceTree = "<group>"; };
 		E2D217BF4D0AE0F6C9591577 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FA5515060D58FFB367588DFA /* Pods-FUYIFinance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FUYIFinance.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FUYIFinance/Pods-FUYIFinance.debug.xcconfig"; sourceTree = "<group>"; };
 		FB5E00328843A9E289111723 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -529,10 +532,12 @@
 			children = (
 				AB36CDB81D1283AD00D0E4C7 /* HomePageViewController.h */,
 				AB36CDB91D1283AD00D0E4C7 /* HomePageViewController.m */,
-				D1F12FFC1D2A2C4800EE1690 /* VideoDetailViewController.h */,
-				D1F12FFD1D2A2C4800EE1690 /* VideoDetailViewController.m */,
 				D1F1301B1D2B503500EE1690 /* VideoShopViewController.h */,
 				D1F1301C1D2B503500EE1690 /* VideoShopViewController.m */,
+				D1F12FFC1D2A2C4800EE1690 /* VideoDetailViewController.h */,
+				D1F12FFD1D2A2C4800EE1690 /* VideoDetailViewController.m */,
+				D1F1301E1D2B642A00EE1690 /* ConfirmOrderViewController.h */,
+				D1F1301F1D2B642A00EE1690 /* ConfirmOrderViewController.m */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -1121,6 +1126,7 @@
 				CC57E0F51D25157500B00AA8 /* TreasureManageViewController.m in Sources */,
 				CC42E26A1D24F0800008A8D7 /* MyJudgeViewController.m in Sources */,
 				CC593CAD1D29EFF30077B096 /* MyShopViewController.m in Sources */,
+				D1F130201D2B642A00EE1690 /* ConfirmOrderViewController.m in Sources */,
 				AB36CDFE1D1A996900D0E4C7 /* Tools.m in Sources */,
 				D15BA3941D23906600904DEF /* CustomBtn.m in Sources */,
 				AB36CE2F1D1B710400D0E4C7 /* TADotView.m in Sources */,

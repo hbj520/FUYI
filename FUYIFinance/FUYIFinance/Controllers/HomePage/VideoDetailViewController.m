@@ -29,6 +29,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = YES;
     self.tabBarController.tabBar.hidden = YES;
     
 }
@@ -93,6 +94,13 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (IBAction)buyNow:(id)sender {
+    
+
+   [self performSegueWithIdentifier:@"ConfirmOrderSegue" sender:nil];
+
+
+}
 
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
