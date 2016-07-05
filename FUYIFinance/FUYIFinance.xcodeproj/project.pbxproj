@@ -40,6 +40,8 @@
 		AB708F991D0543BE007D0B4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB708F971D0543BE007D0B4D /* LaunchScreen.storyboard */; };
 		AB708FA41D0543BE007D0B4D /* FUYIFinanceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB708FA31D0543BE007D0B4D /* FUYIFinanceTests.m */; };
 		AB708FAF1D0543BE007D0B4D /* FUYIFinanceUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB708FAE1D0543BE007D0B4D /* FUYIFinanceUITests.m */; };
+		ABEACD431D2B7C0900574259 /* VideoShopTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ABEACD411D2B7C0900574259 /* VideoShopTableViewCell.m */; };
+		ABEACD441D2B7C0900574259 /* VideoShopTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABEACD421D2B7C0900574259 /* VideoShopTableViewCell.xib */; };
 		ABF5DE4A1D0FA58E007CE1AB /* HomeTabbars.json in Resources */ = {isa = PBXBuildFile; fileRef = ABF5DE491D0FA58E007CE1AB /* HomeTabbars.json */; };
 		ABF5DE4E1D0FA7EB007CE1AB /* CustomerService.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABF5DE4D1D0FA7EB007CE1AB /* CustomerService.storyboard */; };
 		ABF5DE501D0FA7FC007CE1AB /* ShopCar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABF5DE4F1D0FA7FC007CE1AB /* ShopCar.storyboard */; };
@@ -201,6 +203,9 @@
 		AB708FAA1D0543BE007D0B4D /* FUYIFinanceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FUYIFinanceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB708FAE1D0543BE007D0B4D /* FUYIFinanceUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FUYIFinanceUITests.m; sourceTree = "<group>"; };
 		AB708FB01D0543BE007D0B4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ABEACD401D2B7C0900574259 /* VideoShopTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoShopTableViewCell.h; sourceTree = "<group>"; };
+		ABEACD411D2B7C0900574259 /* VideoShopTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoShopTableViewCell.m; sourceTree = "<group>"; };
+		ABEACD421D2B7C0900574259 /* VideoShopTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoShopTableViewCell.xib; sourceTree = "<group>"; };
 		ABF5DE491D0FA58E007CE1AB /* HomeTabbars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HomeTabbars.json; sourceTree = "<group>"; };
 		ABF5DE4D1D0FA7EB007CE1AB /* CustomerService.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CustomerService.storyboard; sourceTree = "<group>"; };
 		ABF5DE4F1D0FA7FC007CE1AB /* ShopCar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ShopCar.storyboard; sourceTree = "<group>"; };
@@ -672,6 +677,9 @@
 				D1F12FF71D2A04CE00EE1690 /* VideoStoreTableViewCell.h */,
 				D1F12FF81D2A04CE00EE1690 /* VideoStoreTableViewCell.m */,
 				D1F12FF91D2A04CE00EE1690 /* VideoStoreTableViewCell.xib */,
+				ABEACD401D2B7C0900574259 /* VideoShopTableViewCell.h */,
+				ABEACD411D2B7C0900574259 /* VideoShopTableViewCell.m */,
+				ABEACD421D2B7C0900574259 /* VideoShopTableViewCell.xib */,
 				D1F130061D2A4E0C00EE1690 /* VideoDetailFirstTableViewCell.h */,
 				D1F130071D2A4E0C00EE1690 /* VideoDetailFirstTableViewCell.m */,
 				D1F130081D2A4E0C00EE1690 /* VideoDetailFirstTableViewCell.xib */,
@@ -1020,6 +1028,7 @@
 				CC42E2871D24F6A10008A8D7 /* LoveManageTableViewCell.xib in Resources */,
 				ABF5DE501D0FA7FC007CE1AB /* ShopCar.storyboard in Resources */,
 				CC593CC11D2A02070077B096 /* MyShopDetailTableViewCell.xib in Resources */,
+				ABEACD441D2B7C0900574259 /* VideoShopTableViewCell.xib in Resources */,
 				AB708F941D0543BE007D0B4D /* Main.storyboard in Resources */,
 				ABF5DE521D0FA803007CE1AB /* Mine.storyboard in Resources */,
 			);
@@ -1097,6 +1106,7 @@
 				AB36CE2E1D1B710400D0E4C7 /* TAAnimatedDotView.m in Sources */,
 				CC593CCD1D2A69500077B096 /* ShopNameViewController.m in Sources */,
 				CC593CC71D2A45770077B096 /* TreasureJudgeStarView.m in Sources */,
+				ABEACD431D2B7C0900574259 /* VideoShopTableViewCell.m in Sources */,
 				AB708F911D0543BE007D0B4D /* ViewController.m in Sources */,
 				AB36CE371D1B818300D0E4C7 /* HomepageHeaderTableViewCell.m in Sources */,
 				CC72D03A1D226AE300945BCF /* MyOrderWaitPayViewController.m in Sources */,
