@@ -49,17 +49,17 @@
                     <navigationItem key="navigationItem" id="n0O-HM-bQh"/>
                     <connections>
                         <outlet property="tableView" destination="q4s-3I-iwh" id="dXY-i5-4Q6"/>
-                        <segue destination="els-pr-w1f" kind="push" identifier="VideoStoreSegue" id="FwY-0G-2fF"/>
+                        <segue destination="els-pr-w1f" kind="push" identifier="VideoStoreSegue" id="GOw-hj-Jjk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q7p-ay-veM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-371" y="416"/>
         </scene>
-        <!--Video Store View Controller-->
+        <!--Video Shop View Controller-->
         <scene sceneID="haZ-6V-zu0">
             <objects>
-                <viewController storyboardIdentifier="store" id="els-pr-w1f" customClass="VideoStoreViewController" sceneMemberID="viewController">
+                <viewController id="els-pr-w1f" customClass="VideoShopViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WjV-fJ-BQ8"/>
                         <viewControllerLayoutGuide type="bottom" id="e3g-Lv-JfO"/>
@@ -121,14 +121,14 @@
                         <barButtonItem key="leftBarButtonItem" image="back" id="8vd-y4-j8m">
                             <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <action selector="back:" destination="els-pr-w1f" id="83E-aA-HY3"/>
+                                <action selector="back:" destination="els-pr-w1f" id="y8e-hq-yKY"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="tableView" destination="mKd-2u-Kfb" id="bX0-mT-uuS"/>
-                        <segue destination="ofR-57-tJm" kind="push" identifier="videoDetailSegue" id="HSA-T9-dJr"/>
+                        <outlet property="tableView" destination="mKd-2u-Kfb" id="g8v-FQ-OtD"/>
+                        <segue destination="ofR-57-tJm" kind="push" identifier="videoDetailSegue" id="e97-6Y-yAC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wtu-7j-xMA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -148,7 +148,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Z3N-pl-EFc">
-                                <rect key="frame" x="0.0" y="30" width="320" height="490"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="500"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iBE-Ic-OgR">
@@ -299,7 +299,7 @@
                         <constraints>
                             <constraint firstItem="Z3N-pl-EFc" firstAttribute="leading" secondItem="STg-D0-VRf" secondAttribute="leading" id="1BH-OP-LMC"/>
                             <constraint firstItem="iBC-vy-bQX" firstAttribute="top" secondItem="Z3N-pl-EFc" secondAttribute="bottom" constant="48" id="BMD-bz-Wmq"/>
-                            <constraint firstItem="Z3N-pl-EFc" firstAttribute="top" secondItem="STg-D0-VRf" secondAttribute="top" constant="30" id="Dh8-iL-5t1"/>
+                            <constraint firstItem="Z3N-pl-EFc" firstAttribute="top" secondItem="STg-D0-VRf" secondAttribute="top" constant="20" id="Dh8-iL-5t1"/>
                             <constraint firstItem="iBE-Ic-OgR" firstAttribute="trailing" secondItem="Z3N-pl-EFc" secondAttribute="trailing" id="FW3-hL-exg"/>
                             <constraint firstItem="iBE-Ic-OgR" firstAttribute="bottom" secondItem="iBC-vy-bQX" secondAttribute="top" id="XbF-ql-fFC"/>
                             <constraint firstAttribute="trailing" secondItem="Z3N-pl-EFc" secondAttribute="trailing" id="l8V-Gk-OC5"/>

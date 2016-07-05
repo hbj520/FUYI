@@ -15,7 +15,7 @@
 #import "HomePageHotNewTableViewCell.h"
 #import "InvestCollectionViewTableViewCell.h"
 
-#import "VideoStoreViewController.h"
+#import "VideoShopViewController.h"
 
 #define DEF_SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
 

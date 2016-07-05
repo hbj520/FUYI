@@ -105,9 +105,7 @@
 		D1DE3AE41D225A99003473AF /* ShopCarBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DE3AE31D225A99003473AF /* ShopCarBottomView.m */; };
 		D1DE3AE61D225AAD003473AF /* ShopCarBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1DE3AE51D225AAD003473AF /* ShopCarBottomView.xib */; };
 		D1E37F3F1D24A91E00920E17 /* BBBadgeBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D1E37F3E1D24A91E00920E17 /* BBBadgeBarButtonItem.m */; };
-		D1F12FF61D29F74B00EE1690 /* VideoStoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F12FF51D29F74B00EE1690 /* VideoStoreViewController.m */; };
 		D1F12FFA1D2A04CE00EE1690 /* VideoStoreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F12FF81D2A04CE00EE1690 /* VideoStoreTableViewCell.m */; };
-		D1F12FFB1D2A04CE00EE1690 /* VideoStoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F12FF91D2A04CE00EE1690 /* VideoStoreTableViewCell.xib */; };
 		D1F12FFE1D2A2C4800EE1690 /* VideoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F12FFD1D2A2C4800EE1690 /* VideoDetailViewController.m */; };
 		D1F130051D2A3E7A00EE1690 /* HomePage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1F130041D2A3E7A00EE1690 /* HomePage.storyboard */; };
 		D1F130091D2A4E0C00EE1690 /* VideoDetailFirstTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F130071D2A4E0C00EE1690 /* VideoDetailFirstTableViewCell.m */; };
@@ -117,6 +115,7 @@
 		D1F130131D2A4E5A00EE1690 /* VideoDetailThirdtTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F130111D2A4E5A00EE1690 /* VideoDetailThirdtTableViewCell.m */; };
 		D1F130141D2A4E5A00EE1690 /* VideoDetailThirdtTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F130121D2A4E5A00EE1690 /* VideoDetailThirdtTableViewCell.xib */; };
 		D1F130171D2A5B3B00EE1690 /* VideoDetailHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F130161D2A5B3B00EE1690 /* VideoDetailHeader.m */; };
+		D1F1301D1D2B503500EE1690 /* VideoShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F1301C1D2B503500EE1690 /* VideoShopViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -314,8 +313,6 @@
 		D1DE3AE51D225AAD003473AF /* ShopCarBottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopCarBottomView.xib; sourceTree = "<group>"; };
 		D1E37F3D1D24A91E00920E17 /* BBBadgeBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBadgeBarButtonItem.h; sourceTree = "<group>"; };
 		D1E37F3E1D24A91E00920E17 /* BBBadgeBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBadgeBarButtonItem.m; sourceTree = "<group>"; };
-		D1F12FF41D29F74B00EE1690 /* VideoStoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoStoreViewController.h; sourceTree = "<group>"; };
-		D1F12FF51D29F74B00EE1690 /* VideoStoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoStoreViewController.m; sourceTree = "<group>"; };
 		D1F12FF71D2A04CE00EE1690 /* VideoStoreTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoStoreTableViewCell.h; sourceTree = "<group>"; };
 		D1F12FF81D2A04CE00EE1690 /* VideoStoreTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoStoreTableViewCell.m; sourceTree = "<group>"; };
 		D1F12FF91D2A04CE00EE1690 /* VideoStoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoStoreTableViewCell.xib; sourceTree = "<group>"; };
@@ -333,6 +330,8 @@
 		D1F130121D2A4E5A00EE1690 /* VideoDetailThirdtTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoDetailThirdtTableViewCell.xib; sourceTree = "<group>"; };
 		D1F130151D2A5B3B00EE1690 /* VideoDetailHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoDetailHeader.h; sourceTree = "<group>"; };
 		D1F130161D2A5B3B00EE1690 /* VideoDetailHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoDetailHeader.m; sourceTree = "<group>"; };
+		D1F1301B1D2B503500EE1690 /* VideoShopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoShopViewController.h; sourceTree = "<group>"; };
+		D1F1301C1D2B503500EE1690 /* VideoShopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoShopViewController.m; sourceTree = "<group>"; };
 		E2D217BF4D0AE0F6C9591577 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FA5515060D58FFB367588DFA /* Pods-FUYIFinance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FUYIFinance.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FUYIFinance/Pods-FUYIFinance.debug.xcconfig"; sourceTree = "<group>"; };
 		FB5E00328843A9E289111723 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -530,10 +529,10 @@
 			children = (
 				AB36CDB81D1283AD00D0E4C7 /* HomePageViewController.h */,
 				AB36CDB91D1283AD00D0E4C7 /* HomePageViewController.m */,
-				D1F12FF41D29F74B00EE1690 /* VideoStoreViewController.h */,
-				D1F12FF51D29F74B00EE1690 /* VideoStoreViewController.m */,
 				D1F12FFC1D2A2C4800EE1690 /* VideoDetailViewController.h */,
 				D1F12FFD1D2A2C4800EE1690 /* VideoDetailViewController.m */,
+				D1F1301B1D2B503500EE1690 /* VideoShopViewController.h */,
+				D1F1301C1D2B503500EE1690 /* VideoShopViewController.m */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -1106,6 +1105,7 @@
 				D1C49B051D224DB6003C17DA /* ShopCarNavigationItem.m in Sources */,
 				D1F1300E1D2A4E3100EE1690 /* VideoDetailSecTableViewCell.m in Sources */,
 				D1C49AFB1D22468A003C17DA /* NSData+AES.m in Sources */,
+				D1F1301D1D2B503500EE1690 /* VideoShopViewController.m in Sources */,
 				AB36CE491D1CE72400D0E4C7 /* ThreeCollectionViewCell.m in Sources */,
 				D114DC581D24EEC50001CE21 /* Good.m in Sources */,
 				D1C49AFC1D22468A003C17DA /* GTMBase64.m in Sources */,

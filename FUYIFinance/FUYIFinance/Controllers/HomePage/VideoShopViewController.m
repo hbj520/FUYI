@@ -1,35 +1,30 @@
 //
-//  VideoStoreViewController.m
+//  VideoShopViewController.m
 //  FUYIFinance
 //
-//  Created by youyoumacmini3 on 16/7/4.
+//  Created by youyoumacmini3 on 16/7/5.
 //  Copyright © 2016年 youyou. All rights reserved.
 //
+#import "VideoDetailViewController.h"
+#import "VideoShopViewController.h"
 
-//view
 #import "VideoStoreTableViewCell.h"
 
+static NSString *videoShopReuseId = @"videoShopReuseId";
 
-#import "VideoStoreViewController.h"
-#import "VideoDetailViewController.h"
-
-
-@interface VideoStoreViewController ()<UITableViewDataSource,UITableViewDelegate>
-
-
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@interface VideoShopViewController ()<UITableViewDataSource,UITableViewDelegate>
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+- (IBAction)back:(id)sender;
 
 @end
 
-@implementation VideoStoreViewController
+@implementation VideoShopViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     [self creatUI];
-    
-    
+
 }
 - (void)viewWillDisappear:(BOOL)animated
 {
@@ -41,19 +36,18 @@
     self.navigationController.navigationBar.hidden = NO;
     self.tabBarController.tabBar.hidden = NO;
 }
-//返回首页
-- (IBAction)back:(id)sender {
-     [self.navigationController popViewControllerAnimated:YES];
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
-
+#pragma   mark -PrivateMethod 
 -(void)creatUI{
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+  //  [self.tableView registerClass:[VideoStoreTableViewCell class] forCellReuseIdentifier:videoShopReuseId];
     [self.tableView registerNib:[UINib nibWithNibName:@"VideoStoreTableViewCell" bundle:nil] forCellReuseIdentifier:@"VideoStoreCellReuseID"];
-    self.tableView.rowHeight = 115;
     
 }
-
 #pragma mark - UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
@@ -64,24 +58,26 @@
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    VideoStoreTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VideoStoreCellReuseID" forIndexPath:indexPath];
+    VideoStoreTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:videoShopReuseId forIndexPath:indexPath];
+//    if (cell == nil) {
+//        cell = [[[NSBundle mainBundle] loadNibNamed:@"VideoStoreTableViewCell" owner:self options:nil] lastObject];
+//        NSLog(@"我进来了");
+//        
+//    }
+   // cell.layer.masksToBounds = YES;
+    //[cell configData];
+    
     return cell;
     
 }
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 115;
+}
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"====");
     [self performSegueWithIdentifier:@"videoDetailSegue" sender:nil];
-   
+    
 }
-
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 /*
 #pragma mark - Navigation
 
@@ -92,4 +88,8 @@
 }
 */
 
+- (IBAction)back:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+    
+}
 @end

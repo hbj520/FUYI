@@ -14,5 +14,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *videoAuthorLab;
 @property (weak, nonatomic) IBOutlet UILabel *videoPriceLab;
 @property (weak, nonatomic) IBOutlet UIButton *moreBtn;
-
+- (void)configData;
 @end

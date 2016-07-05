@@ -20,5 +20,8 @@
 
     // Configure the view for the selected state
 }
+- (void)configData{
+    self.videoPriceLab.text = @"3jfikjfkdjk";
+}
 
 @end
