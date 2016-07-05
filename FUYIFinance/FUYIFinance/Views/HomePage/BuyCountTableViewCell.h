@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface BuyCountTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIButton *minusBtn;
+@property (weak, nonatomic) IBOutlet UIButton *plusBtn;
+@property (weak, nonatomic) IBOutlet UITextField *countText;
 
 @end

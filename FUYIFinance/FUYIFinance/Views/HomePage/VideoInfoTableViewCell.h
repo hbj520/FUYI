@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface VideoInfoTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *videoImage;
+@property (weak, nonatomic) IBOutlet UILabel *videoContentLab;
+@property (weak, nonatomic) IBOutlet UILabel *videoPriceLab;
 
 @end

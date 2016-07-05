@@ -43,7 +43,7 @@
     
     UIButton* backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     backBtn.frame = CGRectMake(10, 10, 40, 40);
-    [backBtn setBackgroundImage:[UIImage imageNamed:@"视频详情_03"] forState:UIControlStateNormal];
+    [backBtn setBackgroundImage:[UIImage imageNamed:@"back_shadow"] forState:UIControlStateNormal];
     [backBtn addTarget:self action:@selector(backClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:backBtn];
     
@@ -82,7 +82,7 @@
         return head1;
     }else{
         UIImageView *head0 = [[UIImageView alloc]init];
-        head0.image = [UIImage imageNamed:@"视频详情_14"];
+        head0.image = [UIImage imageNamed:@"VD_class_demo"];
         
     
         return head0;

@@ -61,7 +61,7 @@
                             <constraint firstAttribute="height" constant="15" id="6zw-16-Qdj"/>
                             <constraint firstAttribute="width" constant="35" id="ntb-rc-KGs"/>
                         </constraints>
-                        <state key="normal" image="视频商城_22"/>
+                        <state key="normal" image="more_1"/>
                     </button>
                 </subviews>
                 <constraints>
@@ -93,6 +93,6 @@
     </objects>
     <resources>
         <image name="bigimage" width="750" height="503"/>
-        <image name="视频商城_22" width="54" height="19"/>
+        <image name="more_1" width="54" height="19"/>
     </resources>
 </document>

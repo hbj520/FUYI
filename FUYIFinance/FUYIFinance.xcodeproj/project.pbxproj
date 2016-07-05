@@ -127,6 +127,10 @@
 		D1F1302B1D2B817200EE1690 /* VideoInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F130291D2B817200EE1690 /* VideoInfoTableViewCell.xib */; };
 		D1F1302F1D2B8F5000EE1690 /* BuyCountTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F1302D1D2B8F5000EE1690 /* BuyCountTableViewCell.m */; };
 		D1F130301D2B8F5000EE1690 /* BuyCountTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F1302E1D2B8F5000EE1690 /* BuyCountTableViewCell.xib */; };
+		D1F130341D2B96AC00EE1690 /* DeliverMethodTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F130321D2B96AC00EE1690 /* DeliverMethodTableViewCell.m */; };
+		D1F130351D2B96AC00EE1690 /* DeliverMethodTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F130331D2B96AC00EE1690 /* DeliverMethodTableViewCell.xib */; };
+		D1F130391D2B9A8700EE1690 /* NoticeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F130371D2B9A8700EE1690 /* NoticeTableViewCell.m */; };
+		D1F1303A1D2B9A8700EE1690 /* NoticeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F130381D2B9A8700EE1690 /* NoticeTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -359,6 +363,12 @@
 		D1F1302C1D2B8F5000EE1690 /* BuyCountTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuyCountTableViewCell.h; sourceTree = "<group>"; };
 		D1F1302D1D2B8F5000EE1690 /* BuyCountTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuyCountTableViewCell.m; sourceTree = "<group>"; };
 		D1F1302E1D2B8F5000EE1690 /* BuyCountTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BuyCountTableViewCell.xib; sourceTree = "<group>"; };
+		D1F130311D2B96AC00EE1690 /* DeliverMethodTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeliverMethodTableViewCell.h; sourceTree = "<group>"; };
+		D1F130321D2B96AC00EE1690 /* DeliverMethodTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeliverMethodTableViewCell.m; sourceTree = "<group>"; };
+		D1F130331D2B96AC00EE1690 /* DeliverMethodTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeliverMethodTableViewCell.xib; sourceTree = "<group>"; };
+		D1F130361D2B9A8700EE1690 /* NoticeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeTableViewCell.h; sourceTree = "<group>"; };
+		D1F130371D2B9A8700EE1690 /* NoticeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeTableViewCell.m; sourceTree = "<group>"; };
+		D1F130381D2B9A8700EE1690 /* NoticeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoticeTableViewCell.xib; sourceTree = "<group>"; };
 		E2D217BF4D0AE0F6C9591577 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FA5515060D58FFB367588DFA /* Pods-FUYIFinance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FUYIFinance.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FUYIFinance/Pods-FUYIFinance.debug.xcconfig"; sourceTree = "<group>"; };
 		FB5E00328843A9E289111723 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -751,6 +761,12 @@
 				D1F1302C1D2B8F5000EE1690 /* BuyCountTableViewCell.h */,
 				D1F1302D1D2B8F5000EE1690 /* BuyCountTableViewCell.m */,
 				D1F1302E1D2B8F5000EE1690 /* BuyCountTableViewCell.xib */,
+				D1F130311D2B96AC00EE1690 /* DeliverMethodTableViewCell.h */,
+				D1F130321D2B96AC00EE1690 /* DeliverMethodTableViewCell.m */,
+				D1F130331D2B96AC00EE1690 /* DeliverMethodTableViewCell.xib */,
+				D1F130361D2B9A8700EE1690 /* NoticeTableViewCell.h */,
+				D1F130371D2B9A8700EE1690 /* NoticeTableViewCell.m */,
+				D1F130381D2B9A8700EE1690 /* NoticeTableViewCell.xib */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -1044,6 +1060,7 @@
 				CC72D02D1D2263CF00945BCF /* PersonalWaitPayTableViewCell.xib in Resources */,
 				D1F1302B1D2B817200EE1690 /* VideoInfoTableViewCell.xib in Resources */,
 				CC72D0451D227DF500945BCF /* PersonalWaitJudgeTableViewCell.xib in Resources */,
+				D1F1303A1D2B9A8700EE1690 /* NoticeTableViewCell.xib in Resources */,
 				ABF5DE4E1D0FA7EB007CE1AB /* CustomerService.storyboard in Resources */,
 				D1F130301D2B8F5000EE1690 /* BuyCountTableViewCell.xib in Resources */,
 				CC42E2821D24F1690008A8D7 /* MyCollectionTableViewCell.xib in Resources */,
@@ -1071,6 +1088,7 @@
 				ABF5DE501D0FA7FC007CE1AB /* ShopCar.storyboard in Resources */,
 				CC593CC11D2A02070077B096 /* MyShopDetailTableViewCell.xib in Resources */,
 				ABEACD441D2B7C0900574259 /* VideoShopTableViewCell.xib in Resources */,
+				D1F130351D2B96AC00EE1690 /* DeliverMethodTableViewCell.xib in Resources */,
 				AB708F941D0543BE007D0B4D /* Main.storyboard in Resources */,
 				ABF5DE521D0FA803007CE1AB /* Mine.storyboard in Resources */,
 			);
@@ -1202,6 +1220,7 @@
 				ABF5DE571D0FD930007CE1AB /* HomeTabbarViewController.m in Sources */,
 				ABEACD601D2B87DE00574259 /* NSString+MD5.m in Sources */,
 				AB708F8E1D0543BE007D0B4D /* AppDelegate.m in Sources */,
+				D1F130391D2B9A8700EE1690 /* NoticeTableViewCell.m in Sources */,
 				CC42E2781D24F13D0008A8D7 /* MyOrderMyCollectionViewController.m in Sources */,
 				AB36CE301D1B710400D0E4C7 /* TAPageControl.m in Sources */,
 				CC42E26E1D24F0A90008A8D7 /* MyJudgeTableViewCell.m in Sources */,
@@ -1216,6 +1235,7 @@
 				CC42E2861D24F6A10008A8D7 /* LoveManageTableViewCell.m in Sources */,
 				ABEACD621D2B87DE00574259 /* SecurityUtil.m in Sources */,
 				CC72D0401D226B1100945BCF /* MyOrderWaitJudgeViewController.m in Sources */,
+				D1F130341D2B96AC00EE1690 /* DeliverMethodTableViewCell.m in Sources */,
 				CC57E0FB1D2520BB00B00AA8 /* ManageTreasureTableViewController.m in Sources */,
 				CC593CCA1D2A682E0077B096 /* ShopSettingTableViewController.m in Sources */,
 				CC72D0341D226A5C00945BCF /* YSLScrollMenuView.m in Sources */,

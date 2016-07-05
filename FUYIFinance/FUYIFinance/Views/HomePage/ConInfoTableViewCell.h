@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface ConInfoTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *buyerNameLab;
+@property (weak, nonatomic) IBOutlet UILabel *buyerPhoneNumLab;
+@property (weak, nonatomic) IBOutlet UILabel *buyerLocalLab;
 
 @end

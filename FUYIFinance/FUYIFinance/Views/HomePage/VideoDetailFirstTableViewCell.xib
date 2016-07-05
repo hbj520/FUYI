@@ -39,7 +39,7 @@
                             <constraint firstAttribute="width" constant="50" id="SbN-dA-6gh"/>
                             <constraint firstAttribute="height" constant="55" id="ceH-Sp-xhe"/>
                         </constraints>
-                        <state key="normal" image="视频详情_17"/>
+                        <state key="normal" image="share_1"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥ 39.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="taf-Wc-kSX">
                         <rect key="frame" x="22" y="65" width="120" height="35"/>
@@ -86,6 +86,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="视频详情_17" width="83" height="99"/>
+        <image name="share_1" width="83" height="99"/>
     </resources>
 </document>

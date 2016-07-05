@@ -6,6 +6,13 @@
 //  Copyright © 2016年 youyou. All rights reserved.
 //
 
+//view
+#import "ConInfoTableViewCell.h"
+#import "VideoInfoTableViewCell.h"
+#import "BuyCountTableViewCell.h"
+#import "DeliverMethodTableViewCell.h"
+#import "NoticeTableViewCell.h"
+
 #import "ConfirmOrderViewController.h"
 
 @interface ConfirmOrderViewController ()<UITableViewDataSource,UITabBarDelegate>
@@ -25,6 +32,13 @@
 - (void)creatUI{
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+        [self.tableView registerNib:[UINib nibWithNibName:@"ConInfoTableViewCell" bundle:nil] forCellReuseIdentifier:@"confirmInfoCellReuseID"];
+        [self.tableView registerNib:[UINib nibWithNibName:@"VideoInfoTableViewCell" bundle:nil] forCellReuseIdentifier:@"videoInfoCellReuseID"];
+        [self.tableView registerNib:[UINib nibWithNibName:@"BuyCountTableViewCell" bundle:nil] forCellReuseIdentifier:@"buyerCountCellReuseID"];
+        [self.tableView registerNib:[UINib nibWithNibName:@"DeliverMethodTableViewCell" bundle:nil] forCellReuseIdentifier:@"deliMethodCellReuseID"];
+        [self.tableView registerNib:[UINib nibWithNibName:@"NoticeTableViewCell" bundle:nil] forCellReuseIdentifier:@"noticeCellReuseID"];
+    
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -48,11 +62,57 @@
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        ConInfoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"confirmInfoCellReuseID" forIndexPath:indexPath];
+        return cell;
+    }if (indexPath.section == 1) {
+        if (indexPath.row == 0) {
+            VideoInfoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"videoInfoCellReuseID" forIndexPath:indexPath];
+            return cell;
+        }if (indexPath.row == 1) {
+            BuyCountTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"buyerCountCellReuseID" forIndexPath:indexPath];
+            return cell;
+        }if (indexPath.row == 2) {
+            NoticeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"noticeCellReuseID" forIndexPath:indexPath];
+            return cell;
+        }else{
+            DeliverMethodTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"deliMethodCellReuseID" forIndexPath:indexPath];
+            return cell;
+        }
+    }
+    
+    return nil;
+}
+
+-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    if (section == 1) {
+        UILabel* videoLab = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, <#CGFloat height#>);
+        
+    }
+ 
+    
+    
+}
+-(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     
     
     
 }
 
+
+    
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0) {
+        return 160;
+    }else{
+        if (indexPath.row == 0) {
+            return 130;
+        }else{
+            return 55;
+        }
+    }
+
+}
 
 
 
