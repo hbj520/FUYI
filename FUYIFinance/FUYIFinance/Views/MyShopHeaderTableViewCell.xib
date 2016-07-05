@@ -35,12 +35,12 @@
                                     <constraint firstAttribute="width" constant="55" id="Cqu-EZ-Dgj"/>
                                     <constraint firstAttribute="height" constant="22" id="f89-Db-GTQ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="personal_teacher" translatesAutoresizingMaskIntoConstraints="NO" id="Jlf-tL-Q1g">
-                                <rect key="frame" x="73" y="43" width="52" height="17"/>
+                                <rect key="frame" x="70" y="43" width="52" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="2tf-HB-TfE"/>
                                     <constraint firstAttribute="width" constant="52" id="9RT-1O-XKY"/>
@@ -54,7 +54,7 @@
                             <constraint firstItem="e6X-oV-lpO" firstAttribute="top" secondItem="6Md-5x-VXf" secondAttribute="top" constant="22" id="cFu-F9-DdX"/>
                             <constraint firstItem="arh-S7-ZQd" firstAttribute="leading" secondItem="6Md-5x-VXf" secondAttribute="leading" constant="13" id="ccr-yz-wC8"/>
                             <constraint firstItem="Jlf-tL-Q1g" firstAttribute="top" secondItem="6Md-5x-VXf" secondAttribute="top" constant="43" id="l3c-tS-sdd"/>
-                            <constraint firstItem="Jlf-tL-Q1g" firstAttribute="leading" secondItem="arh-S7-ZQd" secondAttribute="trailing" constant="8" id="uKH-Lz-mKK"/>
+                            <constraint firstItem="Jlf-tL-Q1g" firstAttribute="leading" secondItem="arh-S7-ZQd" secondAttribute="trailing" constant="5" id="uKH-Lz-mKK"/>
                             <constraint firstAttribute="height" constant="80" id="wUv-oc-Xp6"/>
                         </constraints>
                     </view>
@@ -93,7 +93,7 @@
                                     <constraint firstAttribute="height" constant="16" id="TmL-IX-FKR"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>

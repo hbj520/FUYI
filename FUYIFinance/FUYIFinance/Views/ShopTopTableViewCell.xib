@@ -30,12 +30,12 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="原油投资分析6月1日上午10点正式发布！" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7g-cu-QKs">
-                        <rect key="frame" x="113" y="10" width="169" height="20"/>
+                        <rect key="frame" x="116" y="10" width="166" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="sDG-wD-1iA"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -45,7 +45,7 @@
                     <constraint firstItem="d7g-cu-QKs" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="bJp-mb-DQH"/>
                     <constraint firstItem="PTM-j7-85c" firstAttribute="leading" secondItem="w8P-Kt-vJw" secondAttribute="trailing" constant="5" id="iSX-Ig-CBv"/>
                     <constraint firstItem="PTM-j7-85c" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="kih-5g-bPU"/>
-                    <constraint firstItem="d7g-cu-QKs" firstAttribute="leading" secondItem="PTM-j7-85c" secondAttribute="trailing" constant="7" id="wqm-i2-bQ3"/>
+                    <constraint firstItem="d7g-cu-QKs" firstAttribute="leading" secondItem="PTM-j7-85c" secondAttribute="trailing" constant="10" id="wqm-i2-bQ3"/>
                     <constraint firstItem="w8P-Kt-vJw" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="yj4-Ou-siR"/>
                 </constraints>
             </tableViewCellContentView>
