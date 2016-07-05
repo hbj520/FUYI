@@ -15,7 +15,7 @@
 #import "HomePageHotNewTableViewCell.h"
 #import "InvestCollectionViewTableViewCell.h"
 
-#import "VideoStoreViewController.h"
+#import "VideoShopViewController.h"
 
 #define DEF_SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
 
@@ -108,8 +108,6 @@ static NSString *investReuseId = @"investReuseId";
                 
             };
             headerCell.videoShopBolck = ^{//视频商城
-                
-                NSLog(@"______");
            
                 [self performSegueWithIdentifier:@"VideoStoreSegue" sender:nil];
             };

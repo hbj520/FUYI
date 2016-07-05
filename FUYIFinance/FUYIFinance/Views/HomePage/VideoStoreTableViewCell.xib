@@ -1,42 +1,41 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="123" id="KGk-i7-Jjw" customClass="VideoStoreTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="115"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="videoShopReuseId" rowHeight="123" id="KGk-i7-Jjw" customClass="VideoStoreTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="389" height="115"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="114"/>
+                <rect key="frame" x="0.0" y="0.0" width="389" height="114"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g4X-2U-Nw0">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bigimage" translatesAutoresizingMaskIntoConstraints="NO" id="g4X-2U-Nw0">
                         <rect key="frame" x="0.0" y="0.0" width="120" height="112"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="120" id="nb5-QR-lbx"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tTs-Pl-Kwn">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="多少任务而威尔沃尔特儿童儿童尔特维特瑞瓦特二tertiary儿童eternal" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tTs-Pl-Kwn">
                         <rect key="frame" x="132" y="10" width="237" height="30"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="2fN-nq-bFp"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9aw-kh-sEc">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="讲师 ： 欧阳菲菲" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9aw-kh-sEc">
                         <rect key="frame" x="132" y="45" width="105" height="18"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="fbA-Dy-YWT"/>
                             <constraint firstAttribute="width" constant="105" id="rFt-pk-p6W"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.55686274509803924" green="0.5607843137254902" blue="0.56470588235294117" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f5M-XX-XFO">
@@ -46,30 +45,30 @@
                             <constraint firstAttribute="height" constant="15" id="ZY6-wz-Edm"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iby-A8-CdE">
-                        <rect key="frame" x="132" y="85" width="90" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥ 39. 00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iby-A8-CdE">
+                        <rect key="frame" x="132" y="85" width="90" height="24"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="90" id="W2O-d2-SGI"/>
-                            <constraint firstAttribute="height" constant="21" id="c4f-3l-mMQ"/>
+                            <constraint firstAttribute="height" constant="24" id="c4f-3l-mMQ"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="1" green="0.233975716" blue="0.25390912129999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wyx-6F-QQM">
-                        <rect key="frame" x="338" y="92" width="35" height="20"/>
+                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="moD-kx-Sga">
+                        <rect key="frame" x="338" y="97" width="35" height="15"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="35" id="Lqi-lb-AKs"/>
-                            <constraint firstAttribute="height" constant="20" id="Rxz-Pf-t7o"/>
+                            <constraint firstAttribute="height" constant="15" id="6zw-16-Qdj"/>
+                            <constraint firstAttribute="width" constant="35" id="ntb-rc-KGs"/>
                         </constraints>
-                    </imageView>
+                        <state key="normal" image="视频商城_22"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="g4X-2U-Nw0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="5x7-bf-jzK"/>
-                    <constraint firstAttribute="trailing" secondItem="Wyx-6F-QQM" secondAttribute="trailing" constant="2" id="BbN-Xx-Isj"/>
+                    <constraint firstAttribute="trailing" secondItem="moD-kx-Sga" secondAttribute="trailing" constant="2" id="BJT-Ag-OMT"/>
                     <constraint firstItem="9aw-kh-sEc" firstAttribute="top" secondItem="tTs-Pl-Kwn" secondAttribute="bottom" constant="5" id="GOz-lz-1Bt"/>
                     <constraint firstItem="tTs-Pl-Kwn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="QCg-fz-BVJ"/>
-                    <constraint firstAttribute="bottom" secondItem="Wyx-6F-QQM" secondAttribute="bottom" constant="2" id="Tuq-io-sbb"/>
                     <constraint firstItem="9aw-kh-sEc" firstAttribute="leading" secondItem="g4X-2U-Nw0" secondAttribute="trailing" constant="12" id="a2m-4Z-G58"/>
                     <constraint firstItem="Iby-A8-CdE" firstAttribute="top" secondItem="f5M-XX-XFO" secondAttribute="bottom" constant="3" id="b6w-xS-XJ1"/>
                     <constraint firstItem="g4X-2U-Nw0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="gBG-2U-Rd3"/>
@@ -77,11 +76,23 @@
                     <constraint firstItem="f5M-XX-XFO" firstAttribute="top" secondItem="9aw-kh-sEc" secondAttribute="bottom" constant="4" id="iZB-gh-KX2"/>
                     <constraint firstItem="f5M-XX-XFO" firstAttribute="leading" secondItem="g4X-2U-Nw0" secondAttribute="trailing" constant="12" id="jB5-7a-jMD"/>
                     <constraint firstItem="tTs-Pl-Kwn" firstAttribute="leading" secondItem="g4X-2U-Nw0" secondAttribute="trailing" constant="12" id="kWt-WD-UxH"/>
+                    <constraint firstAttribute="bottom" secondItem="moD-kx-Sga" secondAttribute="bottom" constant="2" id="lwC-Ug-KkF"/>
                     <constraint firstItem="Iby-A8-CdE" firstAttribute="leading" secondItem="g4X-2U-Nw0" secondAttribute="trailing" constant="12" id="tQF-f1-UrT"/>
                     <constraint firstAttribute="bottom" secondItem="g4X-2U-Nw0" secondAttribute="bottom" constant="2" id="zn9-Ax-nGQ"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="236.5" y="197.5"/>
+            <connections>
+                <outlet property="moreBtn" destination="moD-kx-Sga" id="hue-5O-fjy"/>
+                <outlet property="videoAuthorLab" destination="9aw-kh-sEc" id="JPS-yu-llk"/>
+                <outlet property="videoContentLab" destination="tTs-Pl-Kwn" id="JH2-qP-B7Q"/>
+                <outlet property="videoPic" destination="g4X-2U-Nw0" id="im7-sc-IYS"/>
+                <outlet property="videoPriceLab" destination="Iby-A8-CdE" id="jA8-3S-5BQ"/>
+            </connections>
+            <point key="canvasLocation" x="522.5" y="373.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="bigimage" width="750" height="503"/>
+        <image name="视频商城_22" width="54" height="19"/>
+    </resources>
 </document>

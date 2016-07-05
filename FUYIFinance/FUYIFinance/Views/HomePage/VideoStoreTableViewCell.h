@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface VideoStoreTableViewCell : UITableViewCell
-
+@property (weak, nonatomic) IBOutlet UIImageView *videoPic;
+@property (weak, nonatomic) IBOutlet UILabel *videoContentLab;
+@property (weak, nonatomic) IBOutlet UILabel *videoAuthorLab;
+@property (weak, nonatomic) IBOutlet UILabel *videoPriceLab;
+@property (weak, nonatomic) IBOutlet UIButton *moreBtn;
+- (void)configData;
 @end
