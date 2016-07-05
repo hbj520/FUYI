@@ -33,17 +33,17 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBp-mX-6Vr">
-                        <rect key="frame" x="45" y="94" width="305" height="40"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="安徽省合肥市包河区徽州大道与万泉河路交叉口临滨B座17楼" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBp-mX-6Vr">
+                        <rect key="frame" x="50" y="94" width="300" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="r1I-h9-skD"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tw8-qQ-kjp">
-                        <rect key="frame" x="10" y="104" width="25" height="30"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location" translatesAutoresizingMaskIntoConstraints="NO" id="Tw8-qQ-kjp">
+                        <rect key="frame" x="10" y="101" width="25" height="30"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="25" id="J5m-bw-Sy0"/>
                             <constraint firstAttribute="height" constant="30" id="cH1-ju-CXb"/>
@@ -65,17 +65,25 @@
                     <constraint firstItem="NIp-dZ-bgO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="25" id="AOT-V7-Wa8"/>
                     <constraint firstItem="Tw8-qQ-kjp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="ERR-wu-jkQ"/>
                     <constraint firstItem="3pR-de-gWc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="50" id="GMM-uQ-7L9"/>
-                    <constraint firstAttribute="bottom" secondItem="Tw8-qQ-kjp" secondAttribute="bottom" constant="25" id="JjS-TQ-zTg"/>
-                    <constraint firstItem="NBp-mX-6Vr" firstAttribute="leading" secondItem="3pR-de-gWc" secondAttribute="leading" id="OZO-MZ-rQx"/>
+                    <constraint firstAttribute="bottom" secondItem="Tw8-qQ-kjp" secondAttribute="bottom" constant="28" id="JjS-TQ-zTg"/>
                     <constraint firstItem="NBp-mX-6Vr" firstAttribute="leading" secondItem="Tw8-qQ-kjp" secondAttribute="trailing" constant="10" id="Qm6-hG-iKX"/>
                     <constraint firstAttribute="bottom" secondItem="NBp-mX-6Vr" secondAttribute="bottom" constant="25" id="afG-ll-LhW"/>
+                    <constraint firstItem="NBp-mX-6Vr" firstAttribute="leading" secondItem="3pR-de-gWc" secondAttribute="leading" id="d5G-lq-KFJ"/>
                     <constraint firstItem="3pR-de-gWc" firstAttribute="top" secondItem="NIp-dZ-bgO" secondAttribute="bottom" constant="15" id="h0e-ei-MmM"/>
                     <constraint firstItem="Gg1-Wv-Xvo" firstAttribute="leading" secondItem="3pR-de-gWc" secondAttribute="trailing" constant="20" id="iLt-Qd-bjD"/>
                     <constraint firstItem="Gg1-Wv-Xvo" firstAttribute="top" secondItem="3pR-de-gWc" secondAttribute="top" id="tUk-Va-UAs"/>
                     <constraint firstItem="NIp-dZ-bgO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="u3I-Xo-lrn"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="Qm6-hG-iKX"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="331.5" y="193"/>
+            <point key="canvasLocation" x="444.5" y="268"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="location" width="42" height="45"/>
+    </resources>
 </document>
