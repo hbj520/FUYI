@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIView *prepareForgood;   //待收货
 @property (weak, nonatomic) IBOutlet UIView *prepareForjudge;   //待评价
 @property (weak, nonatomic) IBOutlet UIView *myOrder;    //我的订单
+@property (weak, nonatomic) IBOutlet UILabel *badgeLabel3;
 
 @end
 
@@ -43,6 +44,10 @@
 }
 #pragma mark -PrivateMethod
 - (void)CreateUI{
+    
+    self.badgeLabel3.layer.cornerRadius = 8;
+    self.badgeLabel3.layer.masksToBounds = YES;
+    
     UITapGestureRecognizer *tap  = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(prepareAct:)];
     [self.preparPay addGestureRecognizer:tap];
     
