@@ -973,6 +973,7 @@
 				TargetAttributes = {
 					AB708F851D0543BE007D0B4D = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 3L5Q37H6H3;
 					};
 					AB708F9E1D0543BE007D0B4D = {
 						CreatedOnToolsVersion = 7.3;
@@ -1335,6 +1336,7 @@
 			baseConfigurationReference = FA5515060D58FFB367588DFA /* Pods-FUYIFinance.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/FUYIFinance/FUYI-Prefix.pch";
 				INFOPLIST_FILE = FUYIFinance/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
@@ -1353,6 +1355,7 @@
 			baseConfigurationReference = 0CE31DB59572E865FDE98F3A /* Pods-FUYIFinance.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/FUYIFinance/FUYI-Prefix.pch";
 				INFOPLIST_FILE = FUYIFinance/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
