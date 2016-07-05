@@ -19,7 +19,20 @@ typedef void (^ErrorBlock) (NSError *enginerError);
 
 #pragma mark -富谊财经接口
 #pragma mark -注册/登陆/密码修改
+/**
+ *  发送短信验证码
+ *
+ *  @param phoneNum    注册的手机号码
+ *  @param result      正常返回结果
+ *  @param errorResult 返回出错
+ */
+- (void)registerWithParameters:(NSString *)phoneNum
+                        result:(StateBlock)result
+                   errorResult:(ErrorBlock)errorResult;
+#pragma mark -首页
+
 #pragma mark -商城
+
 #pragma mark -博客
 #pragma mark -个人中心
 #pragma mark -讲师团队

@@ -55,6 +55,7 @@ static NSString *investReuseId = @"investReuseId";
 - (void)createUI{
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
     [self.tableView registerClass:[InvestCollectionViewTableViewCell class] forCellReuseIdentifier:investReuseId];
     //添加自定义导航栏
     [self addCustomerNavgationItem];
@@ -109,7 +110,7 @@ static NSString *investReuseId = @"investReuseId";
             };
             headerCell.videoShopBolck = ^{//视频商城
            
-                [self performSegueWithIdentifier:@"VideoStoreSegue" sender:nil];
+            [self performSegueWithIdentifier:@"VideoStoreSegue" sender:nil];
             };
             headerCell.blogAreaBlock = ^{//博客专区
                 
@@ -117,6 +118,7 @@ static NSString *investReuseId = @"investReuseId";
             headerCell.financeBlock = ^{//金融学院
                 
             };
+           // headerCell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
             return headerCell;
 
         }else{
@@ -140,7 +142,6 @@ static NSString *investReuseId = @"investReuseId";
         };
         return investTableViewCell;
     }
-    
     return cell;
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
