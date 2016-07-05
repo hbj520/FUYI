@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="oqS-Uv-Ope">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="oqS-Uv-Ope">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -152,6 +152,33 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="520"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vdx-in-me4">
+                                <rect key="frame" x="10" y="10" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="8mQ-qN-Zfl"/>
+                                    <constraint firstAttribute="height" constant="35" id="NvG-0C-YgT"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="back_shadow"/>
+                                <connections>
+                                    <action selector="back:" destination="ofR-57-tJm" eventType="touchUpInside" id="AEq-xa-wrr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wjr-cn-Tf5">
+                                <rect key="frame" x="237" y="10" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="CGZ-t5-quU"/>
+                                    <constraint firstAttribute="height" constant="35" id="QSn-FU-Tvs"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="VD_car_shadow"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qTn-9y-MVm">
+                                <rect key="frame" x="281" y="10" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="QP8-3B-jb4"/>
+                                    <constraint firstAttribute="width" constant="35" id="eLO-2r-O0Z"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="more_shadow"/>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iBE-Ic-OgR">
                                 <rect key="frame" x="0.0" y="520" width="320" height="48"/>
                                 <subviews>
@@ -302,12 +329,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Z3N-pl-EFc" firstAttribute="leading" secondItem="STg-D0-VRf" secondAttribute="leading" id="1BH-OP-LMC"/>
+                            <constraint firstItem="Vdx-in-me4" firstAttribute="top" secondItem="Wjr-cn-Tf5" secondAttribute="top" id="3Jt-qJ-4vg"/>
+                            <constraint firstAttribute="trailing" secondItem="Wjr-cn-Tf5" secondAttribute="trailing" constant="48" id="5oi-cz-qEM"/>
                             <constraint firstItem="iBC-vy-bQX" firstAttribute="top" secondItem="Z3N-pl-EFc" secondAttribute="bottom" constant="48" id="BMD-bz-Wmq"/>
                             <constraint firstItem="Z3N-pl-EFc" firstAttribute="top" secondItem="STg-D0-VRf" secondAttribute="top" id="Dh8-iL-5t1"/>
                             <constraint firstItem="iBE-Ic-OgR" firstAttribute="trailing" secondItem="Z3N-pl-EFc" secondAttribute="trailing" id="FW3-hL-exg"/>
                             <constraint firstItem="iBE-Ic-OgR" firstAttribute="bottom" secondItem="iBC-vy-bQX" secondAttribute="top" id="XbF-ql-fFC"/>
+                            <constraint firstItem="qTn-9y-MVm" firstAttribute="top" secondItem="xc9-AV-dwo" secondAttribute="bottom" constant="-10" id="fCQ-Tt-qAq"/>
+                            <constraint firstItem="Wjr-cn-Tf5" firstAttribute="top" secondItem="qTn-9y-MVm" secondAttribute="top" id="hRI-cn-2dT"/>
+                            <constraint firstItem="Vdx-in-me4" firstAttribute="leading" secondItem="STg-D0-VRf" secondAttribute="leading" constant="10" id="iZM-69-DYX"/>
                             <constraint firstAttribute="trailing" secondItem="Z3N-pl-EFc" secondAttribute="trailing" id="l8V-Gk-OC5"/>
                             <constraint firstItem="iBE-Ic-OgR" firstAttribute="leading" secondItem="Z3N-pl-EFc" secondAttribute="leading" id="sdh-UA-VNT"/>
+                            <constraint firstAttribute="trailing" secondItem="qTn-9y-MVm" secondAttribute="trailing" constant="4" id="vMF-64-ErV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="utU-qW-CfG"/>
@@ -383,9 +416,10 @@
                                     <constraint firstItem="hZg-Gn-AgD" firstAttribute="leading" secondItem="pjb-Ug-RgY" secondAttribute="trailing" id="wJL-qn-rPZ"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="12G-eA-yCu">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="12G-eA-yCu">
                                 <rect key="frame" x="0.0" y="64" width="320" height="453"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" red="0.76862745099999996" green="0.7725490196" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -419,8 +453,11 @@
     </scenes>
     <resources>
         <image name="VD_Mixpool" width="50" height="42"/>
+        <image name="VD_car_shadow" width="69" height="73"/>
         <image name="VD_star" width="39" height="42"/>
         <image name="VD_store" width="45" height="42"/>
         <image name="back" width="12" height="17"/>
+        <image name="back_shadow" width="71" height="71"/>
+        <image name="more_shadow" width="69" height="73"/>
     </resources>
 </document>

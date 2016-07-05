@@ -71,6 +71,8 @@
             return cell;
         }if (indexPath.row == 1) {
             BuyCountTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"buyerCountCellReuseID" forIndexPath:indexPath];
+            [cell.plusBtn addTarget:self action:@selector(changeCount:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.minusBtn addTarget:self action:@selector(changeCount:) forControlEvents:UIControlEventTouchUpInside];
             return cell;
         }if (indexPath.row == 2) {
             NoticeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"noticeCellReuseID" forIndexPath:indexPath];
@@ -84,23 +86,63 @@
     return nil;
 }
 
--(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    if (section == 1) {
-        UILabel* videoLab = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, <#CGFloat height#>);
+- (void)changeCount:(UIButton*)button{
+    if (button.tag == 10) {
+        BuyCountTableViewCell* buyCell = (BuyCountTableViewCell*)[self.tableView viewWithTag:button.tag];
+        
+
+    }else if (button.tag == 100){
         
     }
- 
     
     
+}
+
+
+-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    if (section == 1) {
+        UILabel* videoLab = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 40)];
+        videoLab.text = @"    高清讲座视频";
+        videoLab.font = [UIFont systemFontOfSize:14];
+        return videoLab;
+    }else{
+        return nil;
+    }
+
 }
 -(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    if (section == 0) {
+        UIView* view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 12)];
+        view.backgroundColor = RGBACOLOR(244, 244, 244, 1);
+        return view;
+    }else{
+        return nil;
+    }
     
+    
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    
+    if (section == 1) {
+        return 40;
+    }else{
+        return 0;
+    }
+    
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+
+    if (section == 0) {
+        return 12;
+    }else{
+        return 0;
+    }
     
     
 }
 
 
-    
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
         return 160;

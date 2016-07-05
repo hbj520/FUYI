@@ -24,7 +24,7 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gna-97-7Ef">
+                    <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gna-97-7Ef">
                         <rect key="frame" x="333" y="13" width="28" height="28"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="28" id="D85-eD-vhl"/>
@@ -32,16 +32,16 @@
                         </constraints>
                         <state key="normal" title="加" image="plus"/>
                     </button>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JJO-SP-MNk">
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JJO-SP-MNk">
                         <rect key="frame" x="293" y="13" width="40" height="28"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="FF8-mR-U4w"/>
                             <constraint firstAttribute="height" constant="28" id="GVr-oS-6vJ"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <textInputTraits key="textInputTraits"/>
+                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                     </textField>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tLc-wg-zE2">
+                    <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tLc-wg-zE2">
                         <rect key="frame" x="265" y="13" width="28" height="28"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="28" id="Y2M-uB-lQc"/>
