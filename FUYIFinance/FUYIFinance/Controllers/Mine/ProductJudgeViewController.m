@@ -14,6 +14,7 @@
     BOOL IsCommit;
 }
 @property (weak, nonatomic) IBOutlet TreasureJudgeStarView *starView;
+
 @property (weak, nonatomic) IBOutlet UIButton *surebtn;
 
 @end
@@ -24,7 +25,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
    
-    
+    [self.starView configWithStarLevel:3];
     self.surebtn.layer.cornerRadius = 3;
     self.surebtn.clipsToBounds = YES;
 }

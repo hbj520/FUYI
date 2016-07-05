@@ -10,66 +10,39 @@
 
 @implementation TreasureJudgeStarView
 
-- (id)initWithFrame:(CGRect)frame 
+-(id)initWithFrame:(CGRect)frame withStarLevel:(float)levels
 {
     self = [super initWithFrame:frame];
-    if (self) {
-        [self configWithStarLevel];
-    }
-    return self;
-
-}
-
-- (instancetype)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        [self configWithStarLevel];
+    if (self)
+    {
+        [self configWithStarLevel:levels];
     }
     return self;
 }
-
-- (void)configWithStarLevel
-{
-    UIImageView * darkImageView = [[UIImageView alloc] initWithFrame:self.bounds];
-   // darkImageView.contentMode = UIViewContentModeLeft;
-    darkImageView.image  = [UIImage imageNamed:@"stardark"];
-    
-//    float radtio = levels/5;
-//    int count = (int)radtio;
-//    if(radtio - count>0){
-//        radtio = count + 0.5;
-//    }else{
-//        radtio = count;
-//    }
-    UIImageView * starImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width,self.frame.size.height)];
-   // starImageView.contentMode = UIViewContentModeLeft;
-   
-//    UIImage * oldImage = [UIImage imageNamed:@"starlight"];
-//    CGImageRef sourceImageRef = [oldImage CGImage];
-//    CGImageRef newImageRef = CGImageCreateWithImageInRect(sourceImageRef,CGRectMake(0, 0, self.frame.size.width*radtio, self.frame.size.height));
-//    
-//    UIImage * newImage = [UIImage imageWithCGImage:newImageRef];
-//    
-//    
-//    starImageView.image = newImage;
-
-    
-    starImageView.clipsToBounds = YES;
-    
-    [self addSubview:darkImageView];
-    [self addSubview:starImageView];
-    
-    
+- (void)configWithStarLevel:(float)levels{
+    CGRect frame = self.frame;
+    CGFloat with = frame.size.width/5;
+    //创建底部空星星
+    UIImageView *emptyStar = [[UIImageView alloc] initWithFrame:self.bounds];
+    emptyStar.image = [UIImage imageNamed:@"stardark"];
+    [self addSubview:emptyStar];
+    //截取浮点取整
+    int cout = (int)levels;
+    for (int i = 0; i < cout ; i++)
+    {
+        UIImageView *wholeStar = [[UIImageView alloc] initWithFrame:CGRectMake(with*i, 0, with, frame.size.height)];
+        wholeStar.image = [UIImage imageNamed:@"star_light"];
+        [self addSubview:wholeStar];
+    }
+    if (cout - levels < 0)
+    {
+        UIImageView *halfStar = [[UIImageView alloc] initWithFrame:CGRectMake(with*cout, 0, with, frame.size.height)];
+        halfStar.image = [UIImage imageNamed:@"star_light"];
+        [self addSubview:halfStar];
+    }
     
 }
 
-- (UIImage *)imageFromImage:(UIImage *)image inRect:(CGRect)rect {
-    CGImageRef sourceImageRef = [image CGImage];
-    CGImageRef newImageRef = CGImageCreateWithImageInRect(sourceImageRef, rect);
-    UIImage *newImage = [UIImage imageWithCGImage:newImageRef];
-    return newImage;
-}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
