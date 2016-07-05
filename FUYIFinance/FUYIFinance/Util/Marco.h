@@ -29,6 +29,8 @@
 #define KUserId [[Config Instance] getUserid]
 #define KUserPassword [[Config Instance] getPassword]
 
+#define BaseUrl @"http://36.7.110.253:9999/fuyi/app/"
+
 
 #define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
 
