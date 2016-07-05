@@ -9,6 +9,7 @@
 #import "VideoShopViewController.h"
 
 #import "VideoStoreTableViewCell.h"
+#import "VideoShopTableViewCell.h"
 
 static NSString *videoShopReuseId = @"videoShopReuseId";
 
@@ -44,8 +45,8 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
 -(void)creatUI{
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-  //  [self.tableView registerClass:[VideoStoreTableViewCell class] forCellReuseIdentifier:videoShopReuseId];
-    [self.tableView registerNib:[UINib nibWithNibName:@"VideoStoreTableViewCell" bundle:nil] forCellReuseIdentifier:@"VideoStoreCellReuseID"];
+    [self.tableView registerClass:[VideoShopTableViewCell class] forCellReuseIdentifier:videoShopReuseId];
+//    [self.tableView registerNib:[UINib nibWithNibName:@"VideoStoreTableViewCell" bundle:nil] forCellReuseIdentifier:@"VideoStoreCellReuseID"];
     
 }
 #pragma mark - UITableViewDelegate
@@ -58,14 +59,12 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    VideoStoreTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:videoShopReuseId forIndexPath:indexPath];
+//    VideoShopTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:videoShopReuseId forIndexPath:indexPath];
 //    if (cell == nil) {
-//        cell = [[[NSBundle mainBundle] loadNibNamed:@"VideoStoreTableViewCell" owner:self options:nil] lastObject];
-//        NSLog(@"我进来了");
-//        
+        VideoShopTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"VideoShopTableViewCell" owner:self options:nil] lastObject];
+       // NSLog(@"我进来了");
+        
 //    }
-   // cell.layer.masksToBounds = YES;
-    //[cell configData];
     
     return cell;
     
