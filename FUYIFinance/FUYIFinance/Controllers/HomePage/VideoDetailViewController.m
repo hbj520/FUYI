@@ -41,12 +41,6 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"VideoDetailSecTableViewCell" bundle:nil] forCellReuseIdentifier:@"detailSecReuseID"];
     [self.tableView registerNib:[UINib nibWithNibName:@"VideoDetailThirdtTableViewCell" bundle:nil] forCellReuseIdentifier:@"detailThirdReuseID"];
     
-    UIButton* backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    backBtn.frame = CGRectMake(10, 10, 40, 40);
-    [backBtn setBackgroundImage:[UIImage imageNamed:@"back_shadow"] forState:UIControlStateNormal];
-    [backBtn addTarget:self action:@selector(backClick) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:backBtn];
-    
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -83,29 +77,21 @@
     }else{
         UIImageView *head0 = [[UIImageView alloc]init];
         head0.image = [UIImage imageNamed:@"VD_class_demo"];
-        
-    
         return head0;
     }
     
 }
-
--(void)backClick{
-    [self.navigationController popViewControllerAnimated:YES];
+- (IBAction)back:(id)sender {
+     [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)buyNow:(id)sender {
-    
-
    [self performSegueWithIdentifier:@"ConfirmOrderSegue" sender:nil];
-
-
 }
-
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if (section == 0) {
-        return 205;
+        return 215;
     }else{
         return 15;
     }
@@ -124,7 +110,6 @@
         return 260;
     }
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
