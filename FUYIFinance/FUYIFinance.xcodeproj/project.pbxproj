@@ -125,6 +125,8 @@
 		D1F130251D2B80DB00EE1690 /* ConInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F130231D2B80DB00EE1690 /* ConInfoTableViewCell.xib */; };
 		D1F1302A1D2B817200EE1690 /* VideoInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F130281D2B817200EE1690 /* VideoInfoTableViewCell.m */; };
 		D1F1302B1D2B817200EE1690 /* VideoInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F130291D2B817200EE1690 /* VideoInfoTableViewCell.xib */; };
+		D1F1302F1D2B8F5000EE1690 /* BuyCountTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F1302D1D2B8F5000EE1690 /* BuyCountTableViewCell.m */; };
+		D1F130301D2B8F5000EE1690 /* BuyCountTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F1302E1D2B8F5000EE1690 /* BuyCountTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -354,6 +356,9 @@
 		D1F130271D2B817200EE1690 /* VideoInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoInfoTableViewCell.h; sourceTree = "<group>"; };
 		D1F130281D2B817200EE1690 /* VideoInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoInfoTableViewCell.m; sourceTree = "<group>"; };
 		D1F130291D2B817200EE1690 /* VideoInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoInfoTableViewCell.xib; sourceTree = "<group>"; };
+		D1F1302C1D2B8F5000EE1690 /* BuyCountTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuyCountTableViewCell.h; sourceTree = "<group>"; };
+		D1F1302D1D2B8F5000EE1690 /* BuyCountTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuyCountTableViewCell.m; sourceTree = "<group>"; };
+		D1F1302E1D2B8F5000EE1690 /* BuyCountTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BuyCountTableViewCell.xib; sourceTree = "<group>"; };
 		E2D217BF4D0AE0F6C9591577 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FA5515060D58FFB367588DFA /* Pods-FUYIFinance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FUYIFinance.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FUYIFinance/Pods-FUYIFinance.debug.xcconfig"; sourceTree = "<group>"; };
 		FB5E00328843A9E289111723 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -743,6 +748,9 @@
 				D1F130271D2B817200EE1690 /* VideoInfoTableViewCell.h */,
 				D1F130281D2B817200EE1690 /* VideoInfoTableViewCell.m */,
 				D1F130291D2B817200EE1690 /* VideoInfoTableViewCell.xib */,
+				D1F1302C1D2B8F5000EE1690 /* BuyCountTableViewCell.h */,
+				D1F1302D1D2B8F5000EE1690 /* BuyCountTableViewCell.m */,
+				D1F1302E1D2B8F5000EE1690 /* BuyCountTableViewCell.xib */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -1036,6 +1044,7 @@
 				D1F1302B1D2B817200EE1690 /* VideoInfoTableViewCell.xib in Resources */,
 				CC72D0451D227DF500945BCF /* PersonalWaitJudgeTableViewCell.xib in Resources */,
 				ABF5DE4E1D0FA7EB007CE1AB /* CustomerService.storyboard in Resources */,
+				D1F130301D2B8F5000EE1690 /* BuyCountTableViewCell.xib in Resources */,
 				CC42E2821D24F1690008A8D7 /* MyCollectionTableViewCell.xib in Resources */,
 				AB36CE4A1D1CE72400D0E4C7 /* ThreeCollectionViewCell.xib in Resources */,
 				D1DE3AE61D225AAD003473AF /* ShopCarBottomView.xib in Resources */,
@@ -1172,7 +1181,6 @@
 				CC593CAD1D29EFF30077B096 /* MyShopViewController.m in Sources */,
 				D1F130201D2B642A00EE1690 /* ConfirmOrderViewController.m in Sources */,
 				D1F1302A1D2B817200EE1690 /* VideoInfoTableViewCell.m in Sources */,
-				AB36CDFE1D1A996900D0E4C7 /* Tools.m in Sources */,
 				D15BA3941D23906600904DEF /* CustomBtn.m in Sources */,
 				AB36CE2F1D1B710400D0E4C7 /* TADotView.m in Sources */,
 				AB02D4AC1D2228F800AED400 /* ShopCarViewController.m in Sources */,
@@ -1196,6 +1204,7 @@
 				CC42E2781D24F13D0008A8D7 /* MyOrderMyCollectionViewController.m in Sources */,
 				AB36CE301D1B710400D0E4C7 /* TAPageControl.m in Sources */,
 				CC42E26E1D24F0A90008A8D7 /* MyJudgeTableViewCell.m in Sources */,
+				D1F1302F1D2B8F5000EE1690 /* BuyCountTableViewCell.m in Sources */,
 				CC42E27F1D24F1690008A8D7 /* MyCollectionShopTableViewCell.m in Sources */,
 				AB36CE2D1D1B710400D0E4C7 /* TAAbstractDotView.m in Sources */,
 				CC42E2811D24F1690008A8D7 /* MyCollectionTableViewCell.m in Sources */,
