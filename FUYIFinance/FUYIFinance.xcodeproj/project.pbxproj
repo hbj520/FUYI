@@ -119,6 +119,10 @@
 		D1F130171D2A5B3B00EE1690 /* VideoDetailHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F130161D2A5B3B00EE1690 /* VideoDetailHeader.m */; };
 		D1F1301D1D2B503500EE1690 /* VideoShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F1301C1D2B503500EE1690 /* VideoShopViewController.m */; };
 		D1F130201D2B642A00EE1690 /* ConfirmOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F1301F1D2B642A00EE1690 /* ConfirmOrderViewController.m */; };
+		D1F130241D2B80DB00EE1690 /* ConInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F130221D2B80DB00EE1690 /* ConInfoTableViewCell.m */; };
+		D1F130251D2B80DB00EE1690 /* ConInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F130231D2B80DB00EE1690 /* ConInfoTableViewCell.xib */; };
+		D1F1302A1D2B817200EE1690 /* VideoInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F130281D2B817200EE1690 /* VideoInfoTableViewCell.m */; };
+		D1F1302B1D2B817200EE1690 /* VideoInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F130291D2B817200EE1690 /* VideoInfoTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -340,6 +344,12 @@
 		D1F1301C1D2B503500EE1690 /* VideoShopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoShopViewController.m; sourceTree = "<group>"; };
 		D1F1301E1D2B642A00EE1690 /* ConfirmOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmOrderViewController.h; sourceTree = "<group>"; };
 		D1F1301F1D2B642A00EE1690 /* ConfirmOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmOrderViewController.m; sourceTree = "<group>"; };
+		D1F130211D2B80DB00EE1690 /* ConInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConInfoTableViewCell.h; sourceTree = "<group>"; };
+		D1F130221D2B80DB00EE1690 /* ConInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConInfoTableViewCell.m; sourceTree = "<group>"; };
+		D1F130231D2B80DB00EE1690 /* ConInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConInfoTableViewCell.xib; sourceTree = "<group>"; };
+		D1F130271D2B817200EE1690 /* VideoInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoInfoTableViewCell.h; sourceTree = "<group>"; };
+		D1F130281D2B817200EE1690 /* VideoInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoInfoTableViewCell.m; sourceTree = "<group>"; };
+		D1F130291D2B817200EE1690 /* VideoInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoInfoTableViewCell.xib; sourceTree = "<group>"; };
 		E2D217BF4D0AE0F6C9591577 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FA5515060D58FFB367588DFA /* Pods-FUYIFinance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FUYIFinance.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FUYIFinance/Pods-FUYIFinance.debug.xcconfig"; sourceTree = "<group>"; };
 		FB5E00328843A9E289111723 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -691,6 +701,12 @@
 				D1F130121D2A4E5A00EE1690 /* VideoDetailThirdtTableViewCell.xib */,
 				D1F130151D2A5B3B00EE1690 /* VideoDetailHeader.h */,
 				D1F130161D2A5B3B00EE1690 /* VideoDetailHeader.m */,
+				D1F130211D2B80DB00EE1690 /* ConInfoTableViewCell.h */,
+				D1F130221D2B80DB00EE1690 /* ConInfoTableViewCell.m */,
+				D1F130231D2B80DB00EE1690 /* ConInfoTableViewCell.xib */,
+				D1F130271D2B817200EE1690 /* VideoInfoTableViewCell.h */,
+				D1F130281D2B817200EE1690 /* VideoInfoTableViewCell.m */,
+				D1F130291D2B817200EE1690 /* VideoInfoTableViewCell.xib */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -1003,6 +1019,7 @@
 				AB36CE381D1B818300D0E4C7 /* HomepageHeaderTableViewCell.xib in Resources */,
 				CC42E26F1D24F0A90008A8D7 /* MyJudgeTableViewCell.xib in Resources */,
 				CC72D02D1D2263CF00945BCF /* PersonalWaitPayTableViewCell.xib in Resources */,
+				D1F1302B1D2B817200EE1690 /* VideoInfoTableViewCell.xib in Resources */,
 				CC72D0451D227DF500945BCF /* PersonalWaitJudgeTableViewCell.xib in Resources */,
 				ABF5DE4E1D0FA7EB007CE1AB /* CustomerService.storyboard in Resources */,
 				CC42E2821D24F1690008A8D7 /* MyCollectionTableViewCell.xib in Resources */,
@@ -1024,6 +1041,7 @@
 				D1F130141D2A4E5A00EE1690 /* VideoDetailThirdtTableViewCell.xib in Resources */,
 				D1F1300F1D2A4E3100EE1690 /* VideoDetailSecTableViewCell.xib in Resources */,
 				AB36CE3D1D1B88A600D0E4C7 /* HomePageHotNewTableViewCell.xib in Resources */,
+				D1F130251D2B80DB00EE1690 /* ConInfoTableViewCell.xib in Resources */,
 				D1C49B071D224DE8003C17DA /* ShopCarNavigationItem.xib in Resources */,
 				CC42E2871D24F6A10008A8D7 /* LoveManageTableViewCell.xib in Resources */,
 				ABF5DE501D0FA7FC007CE1AB /* ShopCar.storyboard in Resources */,
@@ -1137,6 +1155,7 @@
 				CC42E26A1D24F0800008A8D7 /* MyJudgeViewController.m in Sources */,
 				CC593CAD1D29EFF30077B096 /* MyShopViewController.m in Sources */,
 				D1F130201D2B642A00EE1690 /* ConfirmOrderViewController.m in Sources */,
+				D1F1302A1D2B817200EE1690 /* VideoInfoTableViewCell.m in Sources */,
 				AB36CDFE1D1A996900D0E4C7 /* Tools.m in Sources */,
 				D15BA3941D23906600904DEF /* CustomBtn.m in Sources */,
 				AB36CE2F1D1B710400D0E4C7 /* TADotView.m in Sources */,
@@ -1151,6 +1170,7 @@
 				D1F130131D2A4E5A00EE1690 /* VideoDetailThirdtTableViewCell.m in Sources */,
 				AB36CE401D1BC9C100D0E4C7 /* InvestCollectionViewTableViewCell.m in Sources */,
 				CC72D0271D22620000945BCF /* MyOrderViewController.m in Sources */,
+				D1F130241D2B80DB00EE1690 /* ConInfoTableViewCell.m in Sources */,
 				D15BA38C1D237E2400904DEF /* HeaderView.m in Sources */,
 				D1C49AFA1D22468A003C17DA /* NSData+Base64.m in Sources */,
 				D1C49AF61D22468A003C17DA /* StringEncryption.m in Sources */,

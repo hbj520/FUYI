@@ -45,7 +45,7 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
 -(void)creatUI{
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    [self.tableView registerClass:[VideoStoreTableViewCell class] forCellReuseIdentifier:videoShopReuseId];
+    [self.tableView registerClass:[VideoShopTableViewCell class] forCellReuseIdentifier:videoShopReuseId];
 //    [self.tableView registerNib:[UINib nibWithNibName:@"VideoStoreTableViewCell" bundle:nil] forCellReuseIdentifier:@"VideoStoreCellReuseID"];
     
 }
