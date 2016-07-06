@@ -37,7 +37,7 @@
                                                                                         topBarHeight:statusHeight + navigationHeight
                                                                                 parentViewController:self];
     containerVC.delegate = self;
-    
+   
     containerVC.menuItemFont = [UIFont systemFontOfSize:16];
     
     [self.view addSubview:containerVC.view];
@@ -49,6 +49,7 @@
 {
     //    NSLog(@"current Index : %ld",(long)index);
     //    NSLog(@"current controller : %@",controller);
+    NSLog(@"currentindex:%ld",(long)index);
     [controller viewWillAppear:YES];
 }
 

@@ -64,7 +64,7 @@
     //确定按钮
     cell.sureBtn.tag = indexPath.row;
     [cell.sureBtn addTarget:self action:@selector(clickSureBtn:) forControlEvents:UIControlEventTouchUpInside];
-    
+   
     return cell;
 }
 

@@ -71,7 +71,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="personal_setting1" translatesAutoresizingMaskIntoConstraints="NO" id="dWX-55-24G">
-                                                            <rect key="frame" x="268" y="5" width="18" height="18"/>
+                                                            <rect key="frame" x="268" y="7" width="18" height="18"/>
                                                             <color key="backgroundColor" red="0.81960784313725488" green="0.0" blue="0.082352941176470587" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="18" id="pE5-88-pZZ"/>
@@ -79,7 +79,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="personal_message1" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="afc-ku-yyC">
-                                                            <rect key="frame" x="294" y="5" width="18" height="18"/>
+                                                            <rect key="frame" x="294" y="7" width="18" height="18"/>
                                                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="18" id="MIT-Zr-YS3"/>
@@ -87,7 +87,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="账户管理 &gt;" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJT-ZS-ibE">
-                                                            <rect key="frame" x="234" y="49" width="84" height="20"/>
+                                                            <rect key="frame" x="234" y="51" width="84" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="6Uu-nT-QJJ"/>
                                                                 <constraint firstAttribute="width" constant="84" id="Jcv-7b-1bx"/>
@@ -103,7 +103,7 @@
                                                         <constraint firstAttribute="trailing" secondItem="mJT-ZS-ibE" secondAttribute="trailing" constant="2" id="2Oh-ZB-7kn"/>
                                                         <constraint firstItem="bKD-LI-uei" firstAttribute="top" secondItem="Afo-lo-50i" secondAttribute="bottom" id="9Xq-S4-tdj"/>
                                                         <constraint firstItem="Afo-lo-50i" firstAttribute="leading" secondItem="HM8-rN-k7A" secondAttribute="trailing" constant="8" id="Eni-QV-2rY"/>
-                                                        <constraint firstItem="afc-ku-yyC" firstAttribute="top" secondItem="tiZ-nf-MBl" secondAttribute="top" constant="5" id="Fy8-26-3z1"/>
+                                                        <constraint firstItem="afc-ku-yyC" firstAttribute="top" secondItem="tiZ-nf-MBl" secondAttribute="top" constant="7" id="Fy8-26-3z1"/>
                                                         <constraint firstItem="HM8-rN-k7A" firstAttribute="top" secondItem="tiZ-nf-MBl" secondAttribute="top" constant="35" id="Nrw-d2-OR9"/>
                                                         <constraint firstAttribute="height" constant="123" id="RRm-AB-N0z"/>
                                                         <constraint firstItem="mJT-ZS-ibE" firstAttribute="top" secondItem="afc-ku-yyC" secondAttribute="bottom" constant="26" id="UKX-8Y-v9y"/>
@@ -111,7 +111,7 @@
                                                         <constraint firstAttribute="trailing" secondItem="afc-ku-yyC" secondAttribute="trailing" constant="8" id="gJq-38-3Cx"/>
                                                         <constraint firstItem="Afo-lo-50i" firstAttribute="top" secondItem="tiZ-nf-MBl" secondAttribute="top" constant="44" id="tz3-71-yLe"/>
                                                         <constraint firstItem="afc-ku-yyC" firstAttribute="leading" secondItem="dWX-55-24G" secondAttribute="trailing" constant="8" id="yT2-Bg-R6C"/>
-                                                        <constraint firstItem="dWX-55-24G" firstAttribute="top" secondItem="tiZ-nf-MBl" secondAttribute="top" constant="5" id="ypx-vU-wmm"/>
+                                                        <constraint firstItem="dWX-55-24G" firstAttribute="top" secondItem="tiZ-nf-MBl" secondAttribute="top" constant="7" id="ypx-vU-wmm"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GT3-Cj-ft8">
@@ -647,7 +647,7 @@
         <!--待付款-->
         <scene sceneID="IfD-9q-QQW">
             <objects>
-                <viewController id="FBM-zA-eMA" customClass="MyOrderWaitPayViewController" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="FBM-zA-eMA" customClass="MyOrderWaitPayViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iyW-on-p31"/>
                         <viewControllerLayoutGuide type="bottom" id="tJr-Oc-7Vv"/>
@@ -702,7 +702,7 @@
         <scene sceneID="uK1-gj-jaZ">
             <objects>
                 <tableViewController id="mWU-Ob-lQe" customClass="PublishTreasureTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="1" id="3aI-6o-WEo">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="1" id="3aI-6o-WEo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -986,7 +986,7 @@
         <scene sceneID="Uhw-0k-Cof">
             <objects>
                 <tableViewController id="fbp-zB-cbk" customClass="ShopSettingTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="1" id="6Fc-wq-eQp">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="1" id="6Fc-wq-eQp">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -1234,7 +1234,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="VCn-V7-tCt">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VCn-V7-tCt">
                                 <rect key="frame" x="0.0" y="64" width="320" height="113"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -1309,7 +1309,7 @@
         <!--商品评价-->
         <scene sceneID="ClS-nd-EG0">
             <objects>
-                <viewController storyboardIdentifier="productJudge" id="7Nh-eB-uTW" customClass="ProductJudgeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="productJudge" hidesBottomBarWhenPushed="YES" id="7Nh-eB-uTW" customClass="ProductJudgeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ud9-ri-fdc"/>
                         <viewControllerLayoutGuide type="bottom" id="qG0-Hn-GlC"/>
@@ -1346,11 +1346,11 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RtO-R9-ibV" customClass="TreasureJudgeStarView">
-                                        <rect key="frame" x="92" y="41" width="140" height="25"/>
+                                        <rect key="frame" x="92" y="41" width="136" height="18"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="140" id="Ri2-2Y-jMb"/>
-                                            <constraint firstAttribute="height" constant="25" id="lwA-B8-20M"/>
+                                            <constraint firstAttribute="width" constant="136" id="Ri2-2Y-jMb"/>
+                                            <constraint firstAttribute="height" constant="18" id="lwA-B8-20M"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -1503,7 +1503,7 @@
         <scene sceneID="XxT-nN-DKp">
             <objects>
                 <tableViewController id="7Ms-oe-upf" customClass="ManageTreasureTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="1" id="bo7-aI-z8g">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="1" id="bo7-aI-z8g">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -1863,7 +1863,7 @@
         <!--待评价-->
         <scene sceneID="ZuF-TX-Z9V">
             <objects>
-                <viewController id="m0W-t0-KYc" customClass="MyOrderWaitJudgeViewController" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="m0W-t0-KYc" customClass="MyOrderWaitJudgeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qDY-Zj-Pdf"/>
                         <viewControllerLayoutGuide type="bottom" id="Pqd-JZ-D2G"/>

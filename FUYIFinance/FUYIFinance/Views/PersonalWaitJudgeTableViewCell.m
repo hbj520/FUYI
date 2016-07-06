@@ -7,6 +7,7 @@
 //
 
 #import "PersonalWaitJudgeTableViewCell.h"
+#import "LabelHelper.h"
 
 @implementation PersonalWaitJudgeTableViewCell
 
@@ -14,6 +15,8 @@
     [super awakeFromNib];
     // Initialization code
     self.judgeBtn.layer.cornerRadius = 3;
+    self.totalPrice.attributedText = [[LabelHelper alloc] attributedStringWithString:@"¥39.00"];
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
