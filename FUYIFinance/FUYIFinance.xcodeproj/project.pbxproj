@@ -62,6 +62,7 @@
 		CC26F0E11D264C61003964A1 /* PublishTreasureTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC26F0E01D264C61003964A1 /* PublishTreasureTableViewController.m */; };
 		CC35F6671D2C9A9800EF3B4B /* LabelHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CC35F6661D2C9A9800EF3B4B /* LabelHelper.m */; };
 		CC35F66A1D2CCB3000EF3B4B /* PriceLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC35F6691D2CCB3000EF3B4B /* PriceLabel.m */; };
+		CC35F66E1D2CDCBA00EF3B4B /* MineCollectionTreasureModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC35F66D1D2CDCBA00EF3B4B /* MineCollectionTreasureModel.m */; };
 		CC42E26A1D24F0800008A8D7 /* MyJudgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC42E2691D24F0800008A8D7 /* MyJudgeViewController.m */; };
 		CC42E26E1D24F0A90008A8D7 /* MyJudgeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC42E26C1D24F0A90008A8D7 /* MyJudgeTableViewCell.m */; };
 		CC42E26F1D24F0A90008A8D7 /* MyJudgeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC42E26D1D24F0A90008A8D7 /* MyJudgeTableViewCell.xib */; };
@@ -260,6 +261,8 @@
 		CC35F6661D2C9A9800EF3B4B /* LabelHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelHelper.m; sourceTree = "<group>"; };
 		CC35F6681D2CCB3000EF3B4B /* PriceLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriceLabel.h; sourceTree = "<group>"; };
 		CC35F6691D2CCB3000EF3B4B /* PriceLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceLabel.m; sourceTree = "<group>"; };
+		CC35F66C1D2CDCBA00EF3B4B /* MineCollectionTreasureModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineCollectionTreasureModel.h; sourceTree = "<group>"; };
+		CC35F66D1D2CDCBA00EF3B4B /* MineCollectionTreasureModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineCollectionTreasureModel.m; sourceTree = "<group>"; };
 		CC42E2681D24F0800008A8D7 /* MyJudgeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyJudgeViewController.h; sourceTree = "<group>"; };
 		CC42E2691D24F0800008A8D7 /* MyJudgeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyJudgeViewController.m; sourceTree = "<group>"; };
 		CC42E26B1D24F0A90008A8D7 /* MyJudgeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyJudgeTableViewCell.h; sourceTree = "<group>"; };
@@ -852,6 +855,15 @@
 			name = Others;
 			sourceTree = "<group>";
 		};
+		CC35F66B1D2CDC6900EF3B4B /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				CC35F66C1D2CDCBA00EF3B4B /* MineCollectionTreasureModel.h */,
+				CC35F66D1D2CDCBA00EF3B4B /* MineCollectionTreasureModel.m */,
+			);
+			name = Mine;
+			sourceTree = "<group>";
+		};
 		CC72D0281D22636100945BCF /* Mine */ = {
 			isa = PBXGroup;
 			children = (
@@ -912,9 +924,9 @@
 		D114DC4D1D24EE4A0001CE21 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CC35F66B1D2CDC6900EF3B4B /* Mine */,
 				ABEACD681D2C940B00574259 /* HomePage */,
 				D114DC4E1D24EE4A0001CE21 /* CustomerService */,
-				D114DC501D24EE4A0001CE21 /* Mine */,
 				D114DC511D24EE4A0001CE21 /* ShopCar */,
 			);
 			path = Models;
@@ -925,13 +937,6 @@
 			children = (
 			);
 			path = CustomerService;
-			sourceTree = "<group>";
-		};
-		D114DC501D24EE4A0001CE21 /* Mine */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Mine;
 			sourceTree = "<group>";
 		};
 		D114DC511D24EE4A0001CE21 /* ShopCar */ = {
@@ -1265,6 +1270,7 @@
 				CC72D0401D226B1100945BCF /* MyOrderWaitJudgeViewController.m in Sources */,
 				D1F130341D2B96AC00EE1690 /* DeliverMethodTableViewCell.m in Sources */,
 				CC57E0FB1D2520BB00B00AA8 /* ManageTreasureTableViewController.m in Sources */,
+				CC35F66E1D2CDCBA00EF3B4B /* MineCollectionTreasureModel.m in Sources */,
 				CC593CCA1D2A682E0077B096 /* ShopSettingTableViewController.m in Sources */,
 				CC72D0341D226A5C00945BCF /* YSLScrollMenuView.m in Sources */,
 				ABEACD6E1D2C944400574259 /* HomePageNoticeModel.m in Sources */,

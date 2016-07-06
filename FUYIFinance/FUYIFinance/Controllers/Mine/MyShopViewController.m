@@ -16,8 +16,8 @@
 @interface MyShopViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     UITableView * _tableView;
-    BBBadgeBarButtonItem * _chatBtn;
-    BBBadgeBarButtonItem * _chatBtn1;
+    BBBadgeBarButtonItem * _chatBtn;         //自定制导航栏按钮
+    BBBadgeBarButtonItem * _chatBtn1;        //自定制导航栏按钮
 
 }
 @end
@@ -27,6 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    //添加自定制导航栏按钮
     [self addChatBtn];
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -40,6 +41,7 @@
     
 }
 
+//添加自定制导航栏按钮
 - (void)addChatBtn{
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(0, 0, 31, 27);
@@ -68,6 +70,7 @@
     self.navigationItem.rightBarButtonItems = arryBtn;
 }
 
+//自定制导航栏信息按钮的事件响应方法
 - (void)chatAct:(id)sender{
     
 }
@@ -130,20 +133,21 @@
         FourBtnTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cellID3" forIndexPath:indexPath];
         __weak MyShopViewController * weakself = self;
         
+
         cell.publishBlock = ^(){
-            [weakself publishTreasure];
+            [weakself publishTreasure];      //进入发送宝贝界面
         };
         
         cell.treasureManageBlock = ^(){
-            [weakself treasureManage];
+            [weakself treasureManage];       //进入宝贝管理界面
         };
         
         cell.orderManageBlock = ^(){
-            [weakself orderManage];
+            [weakself orderManage];          //进入订单管理界面
         };
         
         cell.shopSettingBlock = ^(){
-            [weakself shopManage];
+            [weakself shopManage];           //进入店铺设置界面
         };
         
         return cell;
@@ -189,6 +193,7 @@
     self.navigationController.navigationBarHidden = NO;
 }
 
+//退回到上级界面
 - (IBAction)back:(id)sender {
    
     self.navigationController.navigationBarHidden = YES;

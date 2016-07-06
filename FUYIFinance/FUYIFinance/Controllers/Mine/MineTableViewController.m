@@ -19,7 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIView *prepareForgood;   //待收货
 @property (weak, nonatomic) IBOutlet UIView *prepareForjudge;   //待评价
 @property (weak, nonatomic) IBOutlet UIView *myOrder;    //我的订单
-@property (weak, nonatomic) IBOutlet UILabel *badgeLabel3;
+@property (weak, nonatomic) IBOutlet UILabel *badgeLabel3;//待评价按钮上面的自定义badge标签
 
 @end
 
@@ -45,30 +45,39 @@
 #pragma mark -PrivateMethod
 - (void)CreateUI{
     
+    //待评价按钮的自定义badge标签
     self.badgeLabel3.layer.cornerRadius = 8;
     self.badgeLabel3.layer.masksToBounds = YES;
     
+    //待付款按钮添加响应事件
     UITapGestureRecognizer *tap  = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(prepareAct:)];
     [self.preparPay addGestureRecognizer:tap];
     
+    //收藏的店铺按钮添加响应事件
     UITapGestureRecognizer * tapReceive = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(collectionShopAct)];
     [self.collectionShop addGestureRecognizer:tapReceive];
     
+    //我是商家按钮添加响应事件
     UITapGestureRecognizer * tapshop = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(shopKeeperAct)];
     [self.ShopKeeper addGestureRecognizer:tapshop];
     
+    //我的评价按钮添加响应事件
     UITapGestureRecognizer * judgetap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(judgeAct)];
     [self.MyJudgeMent addGestureRecognizer:judgetap];
     
+    //收藏的宝贝按钮添加响应事件
     UITapGestureRecognizer * tapfavoritecollection = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(favoriteCollectionAct)];
     [self.FavoriteCollection addGestureRecognizer:tapfavoritecollection];
     
+    //待收货按钮添加响应事件
     UITapGestureRecognizer * tapPrepareforgood = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(PrePareforgoodAct)];
     [self.prepareForgood addGestureRecognizer:tapPrepareforgood];
     
+    //待评价按钮添加响应事件
     UITapGestureRecognizer * tapPrepareforjudge = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(prepareForjudgeAct)];
     [self.prepareForjudge addGestureRecognizer:tapPrepareforjudge];
     
+    //我的订单按钮添加响应事件
     UITapGestureRecognizer * tapMyorder = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(MyorderAct)];
     [self.myOrder addGestureRecognizer:tapMyorder];
     

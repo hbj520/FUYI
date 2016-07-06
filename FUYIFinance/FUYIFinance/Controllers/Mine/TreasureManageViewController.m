@@ -14,8 +14,8 @@
 {
     UITableView * _tableView;
     NSIndexPath * indexpath;
-    BBBadgeBarButtonItem * _chatBtn;
-    BBBadgeBarButtonItem * _chatBtn1;
+    BBBadgeBarButtonItem * _chatBtn;  //自定义的导航栏按钮
+    BBBadgeBarButtonItem * _chatBtn1; //自定义的导航栏按钮
 }
 @end
 
@@ -131,7 +131,7 @@
     self.navigationController.navigationBarHidden = NO;
 }
 
-
+//退回到上级界面
 - (IBAction)back:(id)sender {
    
     [self.navigationController popViewControllerAnimated:YES];

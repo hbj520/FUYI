@@ -1387,15 +1387,39 @@
                                         <color key="textColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="长度在1-500个字之间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qmm-vA-EMT">
+                                        <rect key="frame" x="8" y="15" width="134" height="18"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="18" id="iZj-W4-AfL"/>
+                                            <constraint firstAttribute="width" constant="134" id="zO2-VS-78C"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="写下购买体会或使用过程中带来的帮助等，可以为其他小伙伴提供参考~" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LmK-FI-ctE">
+                                        <rect key="frame" x="8" y="28" width="304" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="MhV-1C-e9j"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="jVf-vL-awK" secondAttribute="bottom" constant="49" id="23c-SR-Ys1"/>
+                                    <constraint firstItem="LmK-FI-ctE" firstAttribute="top" secondItem="Jta-jC-BNB" secondAttribute="top" constant="28" id="7Em-i7-crV"/>
+                                    <constraint firstItem="Qmm-vA-EMT" firstAttribute="top" secondItem="Jta-jC-BNB" secondAttribute="top" constant="15" id="FGM-Q8-38c"/>
+                                    <constraint firstAttribute="trailing" secondItem="LmK-FI-ctE" secondAttribute="trailing" constant="8" id="Hbp-ey-zLX"/>
+                                    <constraint firstItem="Qmm-vA-EMT" firstAttribute="leading" secondItem="Jta-jC-BNB" secondAttribute="leading" constant="8" id="SuS-is-i4f"/>
                                     <constraint firstAttribute="trailing" secondItem="jVf-vL-awK" secondAttribute="trailing" constant="8" id="W5f-uC-8r6"/>
                                     <constraint firstItem="U6k-UC-RrN" firstAttribute="leading" secondItem="Jta-jC-BNB" secondAttribute="leading" id="YPV-ad-CC3"/>
                                     <constraint firstItem="U6k-UC-RrN" firstAttribute="top" secondItem="Jta-jC-BNB" secondAttribute="top" constant="1" id="d7o-9r-nGS"/>
                                     <constraint firstAttribute="height" constant="185" id="pel-dL-quv"/>
                                     <constraint firstAttribute="trailing" secondItem="U6k-UC-RrN" secondAttribute="trailing" id="tW5-6D-igA"/>
+                                    <constraint firstItem="LmK-FI-ctE" firstAttribute="leading" secondItem="Jta-jC-BNB" secondAttribute="leading" constant="8" id="uUO-FX-k68"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="匿名评价" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u8a-7X-Gcx">
