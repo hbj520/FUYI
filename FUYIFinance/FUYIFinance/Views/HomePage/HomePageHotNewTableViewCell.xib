@@ -90,6 +90,10 @@
                     <constraint firstItem="U4c-rb-g6P" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="sTh-4u-gii"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="fantasticNotice" destination="HYS-jb-3dl" id="um7-Pi-hzz"/>
+                <outlet property="newestNotice" destination="D1h-yu-FRr" id="dnu-4O-fMC"/>
+            </connections>
         </tableViewCell>
     </objects>
     <resources>
