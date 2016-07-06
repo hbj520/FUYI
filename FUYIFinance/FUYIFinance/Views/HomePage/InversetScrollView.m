@@ -7,7 +7,8 @@
 //
 
 #import "InversetScrollView.h"
-
+#import "HomePageInvestModel.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 @implementation InversetScrollView
 
 - (instancetype)initWithFrame:(CGRect)frame{
@@ -22,12 +23,14 @@
         UIImageView *imageView = [[UIImageView alloc] init];
         if (i == 0) {
             imageView.frame = CGRectMake(0, 0, 140, 205);
+            imageView.image = [UIImage imageNamed:data[i]];
         }else{
             NSInteger list = (i - 1)/2;//列
             NSInteger line = (i - 1)%2;//行
+            HomePageInvestModel *model = [data objectAtIndex:i];
             imageView.frame = CGRectMake((list)*117 + 140, line*102, 117, 102);
+            [imageView sd_setImageWithURL:[NSURL URLWithString:model.investImage]];
         }
-        imageView.image = [UIImage imageNamed:data[i]];
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAct:)];
         [imageView addGestureRecognizer:tap];
         imageView.tag = 100 + i;

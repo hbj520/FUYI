@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface HomePageHotNewTableViewCell : UITableViewCell
-
+- (void)configWithData:(NSArray *)data;
 @end

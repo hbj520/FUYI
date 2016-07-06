@@ -25,7 +25,7 @@
     //创建底部空星星
     UIImageView *emptyStar = [[UIImageView alloc] initWithFrame:self.bounds];
     emptyStar.image = [UIImage imageNamed:@"stardark"];
-    [self addSubview:emptyStar];
+   // [self addSubview:emptyStar];
     //截取浮点取整
     int cout = (int)levels;
     for (int i = 0; i < cout ; i++)

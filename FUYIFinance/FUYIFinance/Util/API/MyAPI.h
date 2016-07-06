@@ -30,7 +30,8 @@ typedef void (^ErrorBlock) (NSError *enginerError);
                         result:(StateBlock)result
                    errorResult:(ErrorBlock)errorResult;
 #pragma mark -首页
-
+- (void)homePageWithResult:(ArrayBlock)result
+               errorResult:(ErrorBlock)errorResult;
 #pragma mark -商城
 
 #pragma mark -博客

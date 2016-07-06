@@ -9,6 +9,13 @@
 #import <AFNetworking/AFURLResponseSerialization.h>
 #import "MyAPI.h"
 
+
+//models
+#import "HomepageBannerModel.h"
+#import "HomePageNoticeModel.h"
+#import "HomePageInvestModel.h"
+
+
 @interface MyAPI ()
 @property (nonatomic, strong) AFHTTPRequestOperationManager *manager;
 
@@ -58,6 +65,36 @@
             result(YES,info);
         }else{
             result(NO,info);
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+    }];
+}
+#pragma mark -首页
+- (void)homePageWithResult:(ArrayBlock)result
+               errorResult:(ErrorBlock)errorResult{
+    [self.manager POST:@"nos_index" parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString *status = responseObject[@"status"];
+        NSString *info = responseObject[@"info"];
+        
+        if ([status isEqualToString:@"1"]) {
+            if ([responseObject[@"data"] isEqual:[NSNull null]]) {
+                return result(YES,info,nil);
+            }else{
+                NSArray *bannerArray = responseObject[@"data"][@"banner"];
+                NSArray *bannerModelArray = [[HomepageBannerModel alloc] buildWithData:bannerArray];
+                
+                NSArray *noticeArray = responseObject[@"data"][@"notice"];
+                NSArray *noticeModelArray = [[HomePageNoticeModel alloc] buildWithData:noticeArray];
+                
+                NSArray *investArray = responseObject[@"data"][@"invest"];
+                NSArray *investModelArray = [[HomePageInvestModel alloc] buildWithData:investArray
+                                             ];
+                
+                return result(YES,info,@[bannerModelArray,noticeModelArray,investModelArray]);
+            }
+        }else{
+            return result(NO,info,nil);
         }
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         errorResult(error);

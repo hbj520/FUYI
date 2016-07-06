@@ -15,6 +15,11 @@
 #import "HomePageHotNewTableViewCell.h"
 #import "InvestCollectionViewTableViewCell.h"
 
+//models
+#import "HomepageBannerModel.h"
+#import "HomePageNoticeModel.h"
+#import "HomePageInvestModel.h"
+
 #import "VideoShopViewController.h"
 
 #define DEF_SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
@@ -30,6 +35,7 @@ static NSString *investReuseId = @"investReuseId";
     SDCycleScrollView *_headerView;
     NSMutableArray *bannerData;//滚动视图数据
     NSMutableArray *inverstData;//投资项目数据
+    NSMutableArray *noticeData;//富谊头条数据
     
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -41,6 +47,9 @@ static NSString *investReuseId = @"investReuseId";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    inverstData = [NSMutableArray array];
+    [inverstData addObject:@"finance_planer"];
+    [self loadData];
     [self createUI];
 }
 - (void)viewWillAppear:(BOOL)animated{
@@ -52,6 +61,24 @@ static NSString *investReuseId = @"investReuseId";
     // Dispose of any resources that can be recreated.
 }
 #pragma mark - PrivateMethod
+- (void)loadData{
+    [[MyAPI sharedAPI] homePageWithResult:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
+        if (success) {
+            bannerData = arrays[0];
+            noticeData = arrays[1];
+            [inverstData addObjectsFromArray:arrays[2]];
+            //添加滚动视图pageview
+            [self addPageControl];
+            [self.tableView reloadData];
+        }else{
+            
+        }
+        
+    } errorResult:^(NSError *enginerError) {
+        
+        
+    }];
+}
 - (void)createUI{
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -59,19 +86,19 @@ static NSString *investReuseId = @"investReuseId";
     [self.tableView registerClass:[InvestCollectionViewTableViewCell class] forCellReuseIdentifier:investReuseId];
     //添加自定义导航栏
     [self addCustomerNavgationItem];
-    //添加滚动视图pageview
-    [self addPageControl];
-    inverstData = @[@"finance_planer",@"foreign_exchange",@"gold_invest",@"metal_invest",@"oil_invest",@"foreign_exchange"];
 
 }
 - (void)addPageControl{
-   // bannerData = @[@"bannerpic",@"bannerpic",@"bannerpic"];
-    UIImage *image1 = [UIImage imageNamed:@"bannerpic"];
-    UIImage *image2 = [UIImage imageNamed:@"bannerpic"];
-    UIImage *image3 = [UIImage imageNamed:@"bannerpic"];
-    NSMutableArray *imageData = [NSMutableArray arrayWithObjects:image1,image2,image3, nil];
+
+   NSMutableArray *imageData = [NSMutableArray array];
+    if (bannerData.count > 0) {
+        for (HomepageBannerModel *model in bannerData) {
+            [imageData addObject:model.bannerImgurl];
+        }
+    }
+
     
-    _headerView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0,ScreenWidth,170) imagesGroup:imageData];
+    _headerView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0,ScreenWidth,170) imageURLStringsGroup:imageData];
     _headerView.delegate = self;
 }
 - (void)addCustomerNavgationItem{
@@ -126,18 +153,21 @@ static NSString *investReuseId = @"investReuseId";
             if (newTableViewCell == nil) {
                 newTableViewCell = [[[NSBundle mainBundle] loadNibNamed:@"HomePageHotNewTableViewCell" owner:self options:nil] lastObject];
             }
+            [newTableViewCell configWithData:noticeData];
             return newTableViewCell;
         }
 
     }else if (indexPath.section == 1){
         InvestCollectionViewTableViewCell *investTableViewCell = [tableView dequeueReusableCellWithIdentifier:investReuseId];
         if (investTableViewCell == nil) {
-            investTableViewCell = [[InvestCollectionViewTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                                                           reuseIdentifier:investReuseId];
+            investTableViewCell = [[InvestCollectionViewTableViewCell alloc]
+                                                            initWithStyle:UITableViewCellStyleDefault
+                                                            reuseIdentifier:investReuseId];
         }
-        [investTableViewCell createUIWithData:inverstData];
+        if (inverstData.count > 1) {
+            [investTableViewCell createUIWithData:inverstData];
+        }
         investTableViewCell.tapInvestCellBlock = ^(NSInteger index){
-            
             
         };
         return investTableViewCell;
