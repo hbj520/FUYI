@@ -11,7 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="418" height="51"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="李笑笑视频课堂" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="usZ-x8-4UL">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="李笑笑视频课堂" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="usZ-x8-4UL">
                     <rect key="frame" x="48" y="12" width="143" height="28"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="28" id="mvD-Ff-fzx"/>
@@ -30,7 +30,7 @@
                         <color key="titleColor" red="0.98039215690000003" green="0.035294117649999998" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="shopCar1" translatesAutoresizingMaskIntoConstraints="NO" id="5Qi-dR-2Ok">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shopCar1" translatesAutoresizingMaskIntoConstraints="NO" id="5Qi-dR-2Ok">
                     <rect key="frame" x="201" y="13" width="16" height="26"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Pz-WZ-yDl" customClass="CustomBtn">

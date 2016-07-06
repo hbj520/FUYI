@@ -131,6 +131,8 @@
 		D1F130351D2B96AC00EE1690 /* DeliverMethodTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F130331D2B96AC00EE1690 /* DeliverMethodTableViewCell.xib */; };
 		D1F130391D2B9A8700EE1690 /* NoticeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F130371D2B9A8700EE1690 /* NoticeTableViewCell.m */; };
 		D1F1303A1D2B9A8700EE1690 /* NoticeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F130381D2B9A8700EE1690 /* NoticeTableViewCell.xib */; };
+		D1F130401D2C9C9A00EE1690 /* PayView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F1303F1D2C9C9A00EE1690 /* PayView.m */; };
+		D1F130421D2C9CAA00EE1690 /* PayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F130411D2C9CAA00EE1690 /* PayView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -369,6 +371,9 @@
 		D1F130361D2B9A8700EE1690 /* NoticeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeTableViewCell.h; sourceTree = "<group>"; };
 		D1F130371D2B9A8700EE1690 /* NoticeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeTableViewCell.m; sourceTree = "<group>"; };
 		D1F130381D2B9A8700EE1690 /* NoticeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoticeTableViewCell.xib; sourceTree = "<group>"; };
+		D1F1303E1D2C9C9A00EE1690 /* PayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayView.h; sourceTree = "<group>"; };
+		D1F1303F1D2C9C9A00EE1690 /* PayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayView.m; sourceTree = "<group>"; };
+		D1F130411D2C9CAA00EE1690 /* PayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayView.xib; sourceTree = "<group>"; };
 		E2D217BF4D0AE0F6C9591577 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FA5515060D58FFB367588DFA /* Pods-FUYIFinance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FUYIFinance.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FUYIFinance/Pods-FUYIFinance.debug.xcconfig"; sourceTree = "<group>"; };
 		FB5E00328843A9E289111723 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -767,6 +772,9 @@
 				D1F130361D2B9A8700EE1690 /* NoticeTableViewCell.h */,
 				D1F130371D2B9A8700EE1690 /* NoticeTableViewCell.m */,
 				D1F130381D2B9A8700EE1690 /* NoticeTableViewCell.xib */,
+				D1F1303E1D2C9C9A00EE1690 /* PayView.h */,
+				D1F1303F1D2C9C9A00EE1690 /* PayView.m */,
+				D1F130411D2C9CAA00EE1690 /* PayView.xib */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -1080,6 +1088,7 @@
 				CC42E2801D24F1690008A8D7 /* MyCollectionShopTableViewCell.xib in Resources */,
 				D15BA3891D237CE200904DEF /* ShopCarTableViewCell.xib in Resources */,
 				D1F130141D2A4E5A00EE1690 /* VideoDetailThirdtTableViewCell.xib in Resources */,
+				D1F130421D2C9CAA00EE1690 /* PayView.xib in Resources */,
 				D1F1300F1D2A4E3100EE1690 /* VideoDetailSecTableViewCell.xib in Resources */,
 				AB36CE3D1D1B88A600D0E4C7 /* HomePageHotNewTableViewCell.xib in Resources */,
 				D1F130251D2B80DB00EE1690 /* ConInfoTableViewCell.xib in Resources */,
@@ -1182,6 +1191,7 @@
 				ABEACD5E1D2B87DE00574259 /* NSData+AES.m in Sources */,
 				D1C49B051D224DB6003C17DA /* ShopCarNavigationItem.m in Sources */,
 				D1F1300E1D2A4E3100EE1690 /* VideoDetailSecTableViewCell.m in Sources */,
+				D1F130401D2C9C9A00EE1690 /* PayView.m in Sources */,
 				D1F1301D1D2B503500EE1690 /* VideoShopViewController.m in Sources */,
 				AB36CE491D1CE72400D0E4C7 /* ThreeCollectionViewCell.m in Sources */,
 				D114DC581D24EEC50001CE21 /* Good.m in Sources */,
@@ -1402,7 +1412,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.youyou.FUYIFinance;
+				PRODUCT_BUNDLE_IDENTIFIER = com.youyou2.FUYIFinance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -1423,7 +1433,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.youyou.FUYIFinance;
+				PRODUCT_BUNDLE_IDENTIFIER = com.youyou2.FUYIFinance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
