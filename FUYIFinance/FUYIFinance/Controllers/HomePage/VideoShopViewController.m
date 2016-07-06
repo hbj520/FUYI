@@ -11,9 +11,26 @@
 #import "VideoStoreTableViewCell.h"
 #import "VideoShopTableViewCell.h"
 
+#import "DOPDropDownMenu.h"
+
+#import "SelectModel.h"
+
 static NSString *videoShopReuseId = @"videoShopReuseId";
 
-@interface VideoShopViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface VideoShopViewController ()<UITableViewDataSource,UITableViewDelegate,DOPDropDownMenuDataSource,DOPDropDownMenuDelegate>
+{
+    NSMutableArray *financeSelectData;
+    NSMutableArray *classSelectData;
+    
+    NSMutableArray *moArr;
+}
+
+
+//@property (nonatomic, strong) NSArray *financeSelectArr;//金融品种类型
+//@property (nonatomic, strong) NSArray *classSelectArr;//课程类型
+
+@property (nonatomic, weak) DOPDropDownMenu *menu;
+
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 - (IBAction)back:(id)sender;
 
@@ -25,6 +42,8 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self creatUI];
+    [self loadData];
+    
 
 }
 - (void)viewWillDisappear:(BOOL)animated
@@ -46,9 +65,87 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerClass:[VideoShopTableViewCell class] forCellReuseIdentifier:videoShopReuseId];
-//    [self.tableView registerNib:[UINib nibWithNibName:@"VideoStoreTableViewCell" bundle:nil] forCellReuseIdentifier:@"VideoStoreCellReuseID"];
+    [self dropDownMenu];//下拉菜单
+}
+
+- (void)loadData{
+    [[MyAPI sharedAPI] videoStoreWithResult:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
+        if (success) {
+            financeSelectData = arrays[0];
+            classSelectData = arrays[1];
+    
+            NSLog(@"%@----",financeSelectData[0]);
+        }
+    } errorResult:^(NSError *enginerError) {
+        
+    }];
+    
+    for (SelectModel *model in financeSelectData) {
+        [moArr addObject:model.selectName];
+    }
     
 }
+
+- (void)dropDownMenu
+{
+    //SelectModel *model = financeSelectData[indexPath.row];
+    //NSMutableArray *moArr = [NSMutableArray array];
+  
+    
+//    self.financeSelectArr = @[@"金融品种",@"芙蓉区",@"雨花区",@"天心区",@"开福区",@"岳麓区"];
+//    self.classSelectArr = @[@"课程类型",@"离我最近",@"好评优先",@"人气优先",@"最新发布"];
+    
+    // 添加下拉菜单
+    DOPDropDownMenu *menu = [[DOPDropDownMenu alloc] initWithOrigin:CGPointMake(0, 64) andHeight:44];
+    menu.delegate = self;
+    menu.dataSource = self;
+    [self.view addSubview:menu];
+    _menu = menu;
+    
+    // 创建menu 第一次显示 不会调用点击代理，可以用这个手动调用
+    [menu selectDefalutIndexPath];
+    
+}
+
+#pragma mark - DOPDropDownMenuDelegate
+- (NSInteger)numberOfColumnsInMenu:(DOPDropDownMenu *)menu
+{
+    return 2;
+}
+
+- (NSInteger)menu:(DOPDropDownMenu *)menu numberOfRowsInColumn:(NSInteger)column
+{
+    if (column == 0) {
+        return moArr.count;
+    }else {
+        return classSelectData.count;
+    }
+}
+
+- (NSString *)menu:(DOPDropDownMenu *)menu titleForRowAtIndexPath:(DOPIndexPath *)indexPath
+{
+    if (indexPath.column == 0) {
+      //  SelectModel *model = financeSelectData[indexPath.row];
+        return moArr[indexPath.row];
+   
+    }else {
+        SelectModel *model = classSelectData[indexPath.row];
+
+        return model.selectName;
+    }
+}
+
+
+- (void)menu:(DOPDropDownMenu *)menu didSelectRowAtIndexPath:(DOPIndexPath *)indexPath
+{
+    if (indexPath.item == 0) {
+        NSLog(@"点击了 %ld - %ld 项目",indexPath.column,indexPath.row);
+    }else {
+        NSLog(@"点击了 %ld - %ld 项目",indexPath.column,indexPath.row);
+    }
+}
+
+
 #pragma mark - UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;

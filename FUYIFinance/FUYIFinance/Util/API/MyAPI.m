@@ -15,6 +15,8 @@
 #import "HomePageNoticeModel.h"
 #import "HomePageInvestModel.h"
 
+#import "SelectModel.h"
+
 
 @interface MyAPI ()
 @property (nonatomic, strong) AFHTTPRequestOperationManager *manager;
@@ -100,7 +102,36 @@
         errorResult(error);
     }];
 }
+#pragma mark -商城-产品类型
+
+- (void)videoStoreWithResult:(ArrayBlock)result
+                 errorResult:(ErrorBlock)errorResult{
+    [self.manager POST:@"nos_select_mall" parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString *status = responseObject[@"status"];
+        NSString *info = responseObject[@"info"];
+        if ([status isEqualToString:@"1"]) {
+            if ([responseObject[@"data"]isEqual:[NSNull null]]) {
+                return result(YES,info,nil);
+            }else{
+                NSArray *typeArray = responseObject[@"data"][@"type"];
+                NSArray *selectTypeArray = [[SelectModel alloc]buildWithData:typeArray];
+                NSArray *labelArray = responseObject[@"data"][@"label"];
+                NSArray *selectLabelArray = [[SelectModel alloc]buildWithData:labelArray];
+                return result(YES,info,@[selectTypeArray,selectLabelArray]);
+            }
+        }else{
+            return result(NO,info,nil);
+        }
+        
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+    }];
+    
+}
+
+
 #pragma mark -商城
+
 #pragma mark -博客
 #pragma mark -个人中心
 #pragma mark -讲师团队

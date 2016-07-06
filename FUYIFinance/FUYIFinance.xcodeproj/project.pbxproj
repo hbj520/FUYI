@@ -136,6 +136,8 @@
 		D1F1303A1D2B9A8700EE1690 /* NoticeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F130381D2B9A8700EE1690 /* NoticeTableViewCell.xib */; };
 		D1F130401D2C9C9A00EE1690 /* PayView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F1303F1D2C9C9A00EE1690 /* PayView.m */; };
 		D1F130421D2C9CAA00EE1690 /* PayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F130411D2C9CAA00EE1690 /* PayView.xib */; };
+		D1F130481D2CED3600EE1690 /* DOPDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F130471D2CED3600EE1690 /* DOPDropDownMenu.m */; };
+		D1F1304B1D2CF63300EE1690 /* SelectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F1304A1D2CF63300EE1690 /* SelectModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -383,6 +385,10 @@
 		D1F1303E1D2C9C9A00EE1690 /* PayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayView.h; sourceTree = "<group>"; };
 		D1F1303F1D2C9C9A00EE1690 /* PayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayView.m; sourceTree = "<group>"; };
 		D1F130411D2C9CAA00EE1690 /* PayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayView.xib; sourceTree = "<group>"; };
+		D1F130461D2CED3600EE1690 /* DOPDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOPDropDownMenu.h; sourceTree = "<group>"; };
+		D1F130471D2CED3600EE1690 /* DOPDropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOPDropDownMenu.m; sourceTree = "<group>"; };
+		D1F130491D2CF63300EE1690 /* SelectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectModel.h; sourceTree = "<group>"; };
+		D1F1304A1D2CF63300EE1690 /* SelectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectModel.m; sourceTree = "<group>"; };
 		E2D217BF4D0AE0F6C9591577 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FA5515060D58FFB367588DFA /* Pods-FUYIFinance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FUYIFinance.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FUYIFinance/Pods-FUYIFinance.debug.xcconfig"; sourceTree = "<group>"; };
 		FB5E00328843A9E289111723 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -593,6 +599,8 @@
 				ABEACD6D1D2C944400574259 /* HomePageNoticeModel.m */,
 				ABEACD6F1D2C945F00574259 /* HomePageInvestModel.h */,
 				ABEACD701D2C945F00574259 /* HomePageInvestModel.m */,
+				D1F130491D2CF63300EE1690 /* SelectModel.h */,
+				D1F1304A1D2CF63300EE1690 /* SelectModel.m */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -844,6 +852,8 @@
 		CC26F0DB1D263C2F003964A1 /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				D1F130461D2CED3600EE1690 /* DOPDropDownMenu.h */,
+				D1F130471D2CED3600EE1690 /* DOPDropDownMenu.m */,
 				CC593CC51D2A45770077B096 /* TreasureJudgeStarView.h */,
 				CC593CC61D2A45770077B096 /* TreasureJudgeStarView.m */,
 			);
@@ -1210,12 +1220,14 @@
 				D1F130401D2C9C9A00EE1690 /* PayView.m in Sources */,
 				D1F1301D1D2B503500EE1690 /* VideoShopViewController.m in Sources */,
 				AB36CE491D1CE72400D0E4C7 /* ThreeCollectionViewCell.m in Sources */,
+				D1F1304B1D2CF63300EE1690 /* SelectModel.m in Sources */,
 				D114DC581D24EEC50001CE21 /* Good.m in Sources */,
 				AB36CE331D1B710400D0E4C7 /* UIView+SDExtension.m in Sources */,
 				CC26F0DA1D261CAB003964A1 /* ProductJudgeViewController.m in Sources */,
 				ABEACD5C1D2B87DE00574259 /* Tools.m in Sources */,
 				CC42E2761D24F13D0008A8D7 /* MyCollectionCourseViewController.m in Sources */,
 				AB36CDC01D128CF900D0E4C7 /* HomePageNavgationItem.m in Sources */,
+				D1F130481D2CED3600EE1690 /* DOPDropDownMenu.m in Sources */,
 				CC72D02C1D2263CF00945BCF /* PersonalWaitPayTableViewCell.m in Sources */,
 				D1F12FFA1D2A04CE00EE1690 /* VideoStoreTableViewCell.m in Sources */,
 				CC72D0371D226AD000945BCF /* MyOrderAllViewController.m in Sources */,
