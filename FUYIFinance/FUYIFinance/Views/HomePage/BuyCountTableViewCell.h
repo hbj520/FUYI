@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomBtn.h"
 
 @interface BuyCountTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UIButton *minusBtn;
-@property (weak, nonatomic) IBOutlet UIButton *plusBtn;
+@property (weak, nonatomic) IBOutlet CustomBtn *minusBtn;
+@property (weak, nonatomic) IBOutlet CustomBtn *plusBtn;
 @property (weak, nonatomic) IBOutlet UITextField *countText;
 
 @end
