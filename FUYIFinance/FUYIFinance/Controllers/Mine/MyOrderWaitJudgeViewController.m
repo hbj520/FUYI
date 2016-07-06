@@ -54,7 +54,8 @@
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     PersonalWaitJudgeTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"WaitJudgeId" forIndexPath:indexPath];
-    cell.judgeBtn.tag = indexPath.row;
+    cell.judgeBtn.tag = indexPath.section;   //给评价按钮绑定tag值
+    //给评价按钮添加响应事件方法
     [cell.judgeBtn addTarget:self action:@selector(clickjudgeBtn:) forControlEvents:UIControlEventTouchUpInside];
     
     if(indexPath.row==1){
@@ -63,9 +64,11 @@
     return cell;
 }
 
+//点击评价按钮的事件响应方法
 - (void)clickjudgeBtn:(UIButton*)sender
 {
     NSLog(@"%ld",(long)sender.tag);
+    //跳转到商品评价界面
     UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
     ProductJudgeViewController * VC = (ProductJudgeViewController*)[storyboard instantiateViewControllerWithIdentifier:@"productJudge"];
     [self.navigationController pushViewController:VC animated:YES];
@@ -78,6 +81,7 @@
     self.navigationController.navigationBarHidden = NO;
 }
 
+//退回到上级界面
 - (IBAction)back:(id)sender {
     self.navigationController.navigationBarHidden = YES;
     [self.navigationController popViewControllerAnimated:YES];

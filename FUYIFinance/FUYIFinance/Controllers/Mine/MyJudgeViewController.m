@@ -13,7 +13,7 @@
 @interface MyJudgeViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     UITableView * _tableView;
-    BBBadgeBarButtonItem *_chatBtn;
+    BBBadgeBarButtonItem *_chatBtn;//导航栏自定义按钮
 }
 @end
 
@@ -58,7 +58,7 @@
 }
 
 
-
+//添加导航栏按钮
 - (void)addChatBtn{
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(0, 0, 31, 27);
@@ -75,6 +75,7 @@
     self.navigationItem.rightBarButtonItems = arryBtn;
 }
 
+//信息
 - (void)chatAct:(id)sender{
 
 }
@@ -86,6 +87,7 @@
     self.navigationController.navigationBarHidden = NO;
 }
 
+//返回上级页面
 - (IBAction)back:(id)sender {
     self.navigationController.navigationBarHidden = YES;
     [self.navigationController popViewControllerAnimated:YES];

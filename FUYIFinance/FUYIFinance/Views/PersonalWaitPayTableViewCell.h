@@ -12,6 +12,7 @@ typedef void (^SelectBtnBlock) (NSIndexPath *);
 @interface PersonalWaitPayTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *thumbImage;
+@property (weak, nonatomic) IBOutlet UILabel *treasureCount;
 
 @property (weak, nonatomic) IBOutlet UILabel *price;
 @property (weak, nonatomic) IBOutlet UILabel *totalPrice;
@@ -20,7 +21,13 @@ typedef void (^SelectBtnBlock) (NSIndexPath *);
 
 @property (weak, nonatomic) IBOutlet CustomBtn *sureBtn;
 
+@property (nonatomic,weak) UILabel * translateFeeLabel;
+@property (nonatomic,weak) UILabel * totoalLabel;
+@property (nonatomic,weak) UILabel * treasureLabel;
+
 @property (nonatomic,strong) NSIndexPath *indexPath;
 @property (nonatomic,copy) SelectBtnBlock selectBtnBlock;
+@property (weak, nonatomic) IBOutlet UILabel *countlabel;
+- (void)addPriceLabel;
 
 @end

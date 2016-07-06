@@ -18,6 +18,9 @@
 #import "SelectModel.h"
 
 
+//mine models
+#import "MineCollectionTreasureModel.h"
+
 @interface MyAPI ()
 @property (nonatomic, strong) AFHTTPRequestOperationManager *manager;
 
@@ -134,5 +137,31 @@
 
 #pragma mark -博客
 #pragma mark -个人中心
+- (void)requestCollectionTreasureDataWithParameters:(int)page result:(ArrayBlock)result errorResult:(ErrorBlock)errorResult
+{
+ NSString * token = @"";
+    NSDictionary * parameters = @{@"token":token};
+    [self.manager POST:@"" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * status = responseObject[@"status"];
+        NSString * info = responseObject[@"info"];
+        
+        if([status isEqualToString:@"1"]){
+            if([responseObject[@"data"] isEqual:[NSNull null]]){
+                result(YES,info,nil);
+            }else{
+                NSArray * collectionTreasureArray = responseObject[@"data"];
+                NSMutableArray * collectionTreasureModelArray = [[MineCollectionTreasureModel alloc] buildWithData:collectionTreasureArray];
+                
+                result(YES,info,collectionTreasureModelArray);
+            }
+        }else{
+            result(NO,info,nil);
+        }
+        
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+    }];
+}
+
 #pragma mark -讲师团队
 @end

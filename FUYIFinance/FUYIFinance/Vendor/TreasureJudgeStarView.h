@@ -10,7 +10,6 @@
 
 @interface TreasureJudgeStarView : UIView
 
--(id)initWithFrame:(CGRect)frame withStarLevel:(float)levels;
 - (void)configWithStarLevel:(float)levels;
 
 @end

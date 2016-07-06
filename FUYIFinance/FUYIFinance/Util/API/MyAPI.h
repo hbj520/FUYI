@@ -37,6 +37,15 @@ typedef void (^ErrorBlock) (NSError *enginerError);
                  errorResult:(ErrorBlock)errorResult;
 #pragma mark -博客
 #pragma mark -个人中心
+/**
+ *  用户收藏的宝贝
+ *
+ *  @param page        页数
+ *  @param result      模型数组
+ *  @param errorResult 错误信息
+ */
+- (void)requestCollectionTreasureDataWithParameters:(int)page result:(ArrayBlock)result errorResult:(ErrorBlock)errorResult;
+
 #pragma mark -讲师团队
 
 
