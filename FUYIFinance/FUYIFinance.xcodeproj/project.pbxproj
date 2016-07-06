@@ -50,6 +50,9 @@
 		ABEACD621D2B87DE00574259 /* SecurityUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = ABEACD591D2B87DE00574259 /* SecurityUtil.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		ABEACD631D2B87DE00574259 /* StringEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = ABEACD5B1D2B87DE00574259 /* StringEncryption.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		ABEACD671D2B881400574259 /* MyAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = ABEACD661D2B881400574259 /* MyAPI.m */; };
+		ABEACD6B1D2C942800574259 /* HomepageBannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ABEACD6A1D2C942800574259 /* HomepageBannerModel.m */; };
+		ABEACD6E1D2C944400574259 /* HomePageNoticeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ABEACD6D1D2C944400574259 /* HomePageNoticeModel.m */; };
+		ABEACD711D2C945F00574259 /* HomePageInvestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ABEACD701D2C945F00574259 /* HomePageInvestModel.m */; };
 		ABF5DE4A1D0FA58E007CE1AB /* HomeTabbars.json in Resources */ = {isa = PBXBuildFile; fileRef = ABF5DE491D0FA58E007CE1AB /* HomeTabbars.json */; };
 		ABF5DE4E1D0FA7EB007CE1AB /* CustomerService.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABF5DE4D1D0FA7EB007CE1AB /* CustomerService.storyboard */; };
 		ABF5DE501D0FA7FC007CE1AB /* ShopCar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABF5DE4F1D0FA7FC007CE1AB /* ShopCar.storyboard */; };
@@ -237,6 +240,12 @@
 		ABEACD5B1D2B87DE00574259 /* StringEncryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringEncryption.m; sourceTree = "<group>"; };
 		ABEACD651D2B881400574259 /* MyAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAPI.h; sourceTree = "<group>"; };
 		ABEACD661D2B881400574259 /* MyAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAPI.m; sourceTree = "<group>"; };
+		ABEACD691D2C942800574259 /* HomepageBannerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomepageBannerModel.h; sourceTree = "<group>"; };
+		ABEACD6A1D2C942800574259 /* HomepageBannerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomepageBannerModel.m; sourceTree = "<group>"; };
+		ABEACD6C1D2C944400574259 /* HomePageNoticeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageNoticeModel.h; sourceTree = "<group>"; };
+		ABEACD6D1D2C944400574259 /* HomePageNoticeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageNoticeModel.m; sourceTree = "<group>"; };
+		ABEACD6F1D2C945F00574259 /* HomePageInvestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageInvestModel.h; sourceTree = "<group>"; };
+		ABEACD701D2C945F00574259 /* HomePageInvestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageInvestModel.m; sourceTree = "<group>"; };
 		ABF5DE491D0FA58E007CE1AB /* HomeTabbars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HomeTabbars.json; sourceTree = "<group>"; };
 		ABF5DE4D1D0FA7EB007CE1AB /* CustomerService.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CustomerService.storyboard; sourceTree = "<group>"; };
 		ABF5DE4F1D0FA7FC007CE1AB /* ShopCar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ShopCar.storyboard; sourceTree = "<group>"; };
@@ -578,6 +587,19 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		ABEACD681D2C940B00574259 /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				ABEACD691D2C942800574259 /* HomepageBannerModel.h */,
+				ABEACD6A1D2C942800574259 /* HomepageBannerModel.m */,
+				ABEACD6C1D2C944400574259 /* HomePageNoticeModel.h */,
+				ABEACD6D1D2C944400574259 /* HomePageNoticeModel.m */,
+				ABEACD6F1D2C945F00574259 /* HomePageInvestModel.h */,
+				ABEACD701D2C945F00574259 /* HomePageInvestModel.m */,
+			);
+			path = HomePage;
+			sourceTree = "<group>";
+		};
 		ABF5DE331D0FA4B1007CE1AB /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -890,8 +912,8 @@
 		D114DC4D1D24EE4A0001CE21 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				ABEACD681D2C940B00574259 /* HomePage */,
 				D114DC4E1D24EE4A0001CE21 /* CustomerService */,
-				D114DC4F1D24EE4A0001CE21 /* HomePage */,
 				D114DC501D24EE4A0001CE21 /* Mine */,
 				D114DC511D24EE4A0001CE21 /* ShopCar */,
 			);
@@ -903,13 +925,6 @@
 			children = (
 			);
 			path = CustomerService;
-			sourceTree = "<group>";
-		};
-		D114DC4F1D24EE4A0001CE21 /* HomePage */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = HomePage;
 			sourceTree = "<group>";
 		};
 		D114DC501D24EE4A0001CE21 /* Mine */ = {
@@ -1181,6 +1196,7 @@
 				AB708F911D0543BE007D0B4D /* ViewController.m in Sources */,
 				AB36CE371D1B818300D0E4C7 /* HomepageHeaderTableViewCell.m in Sources */,
 				ABEACD671D2B881400574259 /* MyAPI.m in Sources */,
+				ABEACD711D2C945F00574259 /* HomePageInvestModel.m in Sources */,
 				CC72D03A1D226AE300945BCF /* MyOrderWaitPayViewController.m in Sources */,
 				CC593CB11D29F1520077B096 /* MyShopHeaderTableViewCell.m in Sources */,
 				CC42E2771D24F13D0008A8D7 /* MyCollectionShopViewController.m in Sources */,
@@ -1230,6 +1246,7 @@
 				D1E37F3F1D24A91E00920E17 /* BBBadgeBarButtonItem.m in Sources */,
 				ABF5DE571D0FD930007CE1AB /* HomeTabbarViewController.m in Sources */,
 				ABEACD601D2B87DE00574259 /* NSString+MD5.m in Sources */,
+				ABEACD6B1D2C942800574259 /* HomepageBannerModel.m in Sources */,
 				AB708F8E1D0543BE007D0B4D /* AppDelegate.m in Sources */,
 				D1F130391D2B9A8700EE1690 /* NoticeTableViewCell.m in Sources */,
 				CC42E2781D24F13D0008A8D7 /* MyOrderMyCollectionViewController.m in Sources */,
@@ -1250,6 +1267,7 @@
 				CC57E0FB1D2520BB00B00AA8 /* ManageTreasureTableViewController.m in Sources */,
 				CC593CCA1D2A682E0077B096 /* ShopSettingTableViewController.m in Sources */,
 				CC72D0341D226A5C00945BCF /* YSLScrollMenuView.m in Sources */,
+				ABEACD6E1D2C944400574259 /* HomePageNoticeModel.m in Sources */,
 				CC72D0241D225B6200945BCF /* MineTableViewController.m in Sources */,
 				D114DC571D24EEC50001CE21 /* Brand.m in Sources */,
 				AB36CE2C1D1B710400D0E4C7 /* NSData+SDDataCache.m in Sources */,
