@@ -14,7 +14,7 @@
 #import "DOPDropDownMenu.h"
 
 #import "SelectModel.h"
-
+#import "DefaultStoreDataModel.h"
 static NSString *videoShopReuseId = @"videoShopReuseId";
 
 @interface VideoShopViewController ()<UITableViewDataSource,UITableViewDelegate,DOPDropDownMenuDataSource,DOPDropDownMenuDelegate>
@@ -22,12 +22,14 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
     NSMutableArray *financeSelectData;
     NSMutableArray *classSelectData;
     
-    NSMutableArray *moArr;
+    NSMutableArray *storeArray;
+    
+   
 }
 
 
-//@property (nonatomic, strong) NSArray *financeSelectArr;//金融品种类型
-//@property (nonatomic, strong) NSArray *classSelectArr;//课程类型
+@property (nonatomic, strong)  NSMutableArray *financeArr;//金融品种类型
+@property (nonatomic, strong) NSMutableArray *classArr;//课程类型
 
 @property (nonatomic, weak) DOPDropDownMenu *menu;
 
@@ -73,6 +75,7 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
         if (success) {
             financeSelectData = arrays[0];
             classSelectData = arrays[1];
+            
     
             NSLog(@"%@----",financeSelectData[0]);
         }
@@ -80,18 +83,32 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
         
     }];
     
-    for (SelectModel *model in financeSelectData) {
-        [moArr addObject:model.selectName];
-    }
+    [[MyAPI sharedAPI] videoStoreDefaultDataWithResult:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
+        if (success) {
+            storeArray = arrays[0];
+        }
+    } erroResult:^(NSError *enginerError) {
+        
+    }];
+    
+    
+    
+
     
 }
 
 - (void)dropDownMenu
 {
-    //SelectModel *model = financeSelectData[indexPath.row];
-    //NSMutableArray *moArr = [NSMutableArray array];
-  
-    
+//数据必须在这写才能默认显示第一行
+    self.financeArr = @[@"金融品种"];
+    self.classArr = @[@"课程类型"];
+    for (SelectModel *model in financeSelectData) {
+        NSLog(@"%@*****",model.selectName);
+    [self.financeArr addObject:model.selectName];
+    }
+    for (SelectModel *model in classSelectData) {
+        [self.classArr addObject:model.selectName];
+    }
 //    self.financeSelectArr = @[@"金融品种",@"芙蓉区",@"雨花区",@"天心区",@"开福区",@"岳麓区"];
 //    self.classSelectArr = @[@"课程类型",@"离我最近",@"好评优先",@"人气优先",@"最新发布"];
     
@@ -116,9 +133,9 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
 - (NSInteger)menu:(DOPDropDownMenu *)menu numberOfRowsInColumn:(NSInteger)column
 {
     if (column == 0) {
-        return moArr.count;
+        return self.financeArr.count;
     }else {
-        return classSelectData.count;
+        return self.classArr.count;
     }
 }
 
@@ -126,12 +143,12 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
 {
     if (indexPath.column == 0) {
       //  SelectModel *model = financeSelectData[indexPath.row];
-        return moArr[indexPath.row];
+        return self.financeArr[indexPath.row];
    
     }else {
-        SelectModel *model = classSelectData[indexPath.row];
+       // SelectModel *model = classSelectData[indexPath.row];
 
-        return model.selectName;
+        return self.classArr[indexPath.row];
     }
 }
 
@@ -156,13 +173,11 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    VideoShopTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:videoShopReuseId forIndexPath:indexPath];
-//    if (cell == nil) {
-        VideoShopTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"VideoShopTableViewCell" owner:self options:nil] lastObject];
-       // NSLog(@"我进来了");
-        
-//    }
+    VideoShopTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"VideoShopTableViewCell" owner:self options:nil] lastObject];
     
+   // cell.videoPrice.text = [NSString stringWithFormat:@"¥ %.2d",200];
+    
+    [cell configWithData:storeArray];
     return cell;
     
 }

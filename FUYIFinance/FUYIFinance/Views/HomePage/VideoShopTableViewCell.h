@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface VideoShopTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *videoImage;
+@property (weak, nonatomic) IBOutlet UILabel *videoTitle;
+@property (weak, nonatomic) IBOutlet UILabel *teacherName;
+@property (weak, nonatomic) IBOutlet UILabel *videoPrice;
 
+- (void)configWithData:(NSArray *)data;
 @end

@@ -16,7 +16,7 @@
 #import "HomePageInvestModel.h"
 
 #import "SelectModel.h"
-
+#import "DefaultStoreDataModel.h"
 
 //mine models
 #import "MineCollectionTreasureModel.h"
@@ -131,7 +131,25 @@
     }];
     
 }
-
+#pragma mark -商城默认
+- (void)videoStoreDefaultDataWithResult:(ArrayBlock)result
+                             erroResult:(ErrorBlock)erroResult{
+    [self.manager POST:@"nos_mall" parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString *status = responseObject[@"status"];
+        NSString *info = responseObject[@"info"];
+        if ([status isEqualToString:@"1"]) {
+            if ([responseObject[@"data"]isEqual:[NSNull null]]) {
+                return result(YES,info,nil);
+            }else{
+                NSArray *defaultArray = responseObject[@"data"];
+                NSArray *storeArray = [[DefaultStoreDataModel alloc]buildWithData:defaultArray];
+                return result(YES,info,storeArray);
+            }
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        erroResult(error);
+    }];
+}
 
 #pragma mark -商城
 
