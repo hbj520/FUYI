@@ -10,37 +10,41 @@
 
 @implementation TreasureJudgeStarView
 
--(id)initWithFrame:(CGRect)frame withStarLevel:(float)levels
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithFrame:frame];
-    if (self)
-    {
-        [self configWithStarLevel:levels];
+    self = [super initWithCoder:aDecoder];
+    
+    if(self){
+        UIImageView * imgback = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 136, 18)];
+        imgback.contentMode = UIViewContentModeLeft;
+        imgback.clipsToBounds = YES;
+        imgback.image = [UIImage imageNamed:@"darkstar"];
+        UIImageView * imgStar = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 136, 18)];
+        imgStar.contentMode = UIViewContentModeLeft;
+        imgStar.tag = 1;
+        imgStar.clipsToBounds = YES;
+        imgStar.image = [UIImage imageNamed:@"highlightstar"];
+        [self addSubview:imgback];
+        [self addSubview:imgStar];
+        
     }
     return self;
 }
-- (void)configWithStarLevel:(float)levels{
-    CGRect frame = self.frame;
-    CGFloat with = frame.size.width/5;
-    //创建底部空星星
-    UIImageView *emptyStar = [[UIImageView alloc] initWithFrame:self.bounds];
-    emptyStar.image = [UIImage imageNamed:@"stardark"];
-   // [self addSubview:emptyStar];
-    //截取浮点取整
-    int cout = (int)levels;
-    for (int i = 0; i < cout ; i++)
-    {
-        UIImageView *wholeStar = [[UIImageView alloc] initWithFrame:CGRectMake(with*i, 0, with, frame.size.height)];
-        wholeStar.image = [UIImage imageNamed:@"star_light"];
-        [self addSubview:wholeStar];
+
+- (void)configWithStarLevel:(float)levels
+{
+    UIImageView * imgStar = (UIImageView*)[self viewWithTag:1];
+    imgStar.clipsToBounds = YES;
+    imgStar.frame = CGRectMake(0, 0, 136 * levels/5, 18);
+}
+
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        
     }
-    if (cout - levels < 0)
-    {
-        UIImageView *halfStar = [[UIImageView alloc] initWithFrame:CGRectMake(with*cout, 0, with, frame.size.height)];
-        halfStar.image = [UIImage imageNamed:@"star_light"];
-        [self addSubview:halfStar];
-    }
-    
+    return self;
 }
 
 /*

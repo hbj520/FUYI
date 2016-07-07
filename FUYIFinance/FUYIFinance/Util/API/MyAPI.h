@@ -32,10 +32,25 @@ typedef void (^ErrorBlock) (NSError *enginerError);
 #pragma mark -首页
 - (void)homePageWithResult:(ArrayBlock)result
                errorResult:(ErrorBlock)errorResult;
-#pragma mark -商城
+#pragma mark -商城-产品类型
+- (void)videoStoreWithResult:(ArrayBlock)result
+                 errorResult:(ErrorBlock)errorResult;
+#pragma mark -商城默认
+- (void)videoStoreDefaultDataWithResult:(ArrayBlock)result
+                             erroResult:(ErrorBlock)erroResult;
+
 
 #pragma mark -博客
 #pragma mark -个人中心
+/**
+ *  用户收藏的宝贝
+ *
+ *  @param page        页数
+ *  @param result      模型数组
+ *  @param errorResult 错误信息
+ */
+- (void)requestCollectionTreasureDataWithParameters:(int)page result:(ArrayBlock)result errorResult:(ErrorBlock)errorResult;
+
 #pragma mark -讲师团队
 
 

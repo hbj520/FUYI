@@ -11,11 +11,11 @@
 @interface ManageTreasureTableViewController ()<UITextViewDelegate>
 
 {
-    BBBadgeBarButtonItem * _chatBtn;
-    BBBadgeBarButtonItem * _chatBtn1;
+    BBBadgeBarButtonItem * _chatBtn;   //自定制导航栏按钮
+    BBBadgeBarButtonItem * _chatBtn1;  //自定制导航栏按钮
 }
-@property (weak, nonatomic) IBOutlet UITextView *textView;
-@property (weak, nonatomic) IBOutlet UILabel *descLabel;
+@property (weak, nonatomic) IBOutlet UITextView *textView;   //编辑宝贝的描述视图
+@property (weak, nonatomic) IBOutlet UILabel *descLabel;     //提示标签
 
 @end
 
@@ -23,7 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self addChatBtn];
+    [self addChatBtn];     //添加自定制导航栏按钮
     self.textView.delegate = self;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -37,7 +37,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-
+//添加自定制导航栏按钮
 - (void)addChatBtn{
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(0, 0, 31, 27);
@@ -67,10 +67,12 @@
     self.navigationItem.rightBarButtonItems = arryBtn;
 }
 
+//自定制导航栏信息按钮的事件响应方法
 - (void)chatAct:(id)sender{
     
 }
 
+//自定制导航栏信息按钮的事件响应方法
 - (void)clickBtn1
 {
     
@@ -128,6 +130,7 @@
     }
 }
 
+//退回到上级界面
 - (IBAction)back:(id)sender {
   
     [self.navigationController popViewControllerAnimated:YES];

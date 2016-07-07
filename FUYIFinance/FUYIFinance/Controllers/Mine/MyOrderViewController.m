@@ -16,7 +16,7 @@
 
 @interface MyOrderViewController ()<YSLContainerViewControllerDelegate>
 {
-    BBBadgeBarButtonItem * _chatBtn;
+    BBBadgeBarButtonItem * _chatBtn; //自定义导航栏按钮
 }
 @end
 
@@ -27,16 +27,20 @@
     // Do any additional setup after loading the view.
 //    self.navigationController.navigationBar.hidden = NO;
 //    self.navigationController.navigationBar.translucent = NO;
-    [self addChatBtn];
+    [self addChatBtn];   //添加自定义导航栏按钮
+    //创建全部界面
     MyOrderAllViewController * myOrderAllVC = [[MyOrderAllViewController alloc] init];
     myOrderAllVC.title = @"全部";
     
+    //创建待付款界面
     MyOrderWaitPayViewController * myOrderWaitPayVC = [[MyOrderWaitPayViewController alloc] init];
     myOrderWaitPayVC.title = @"待付款";
     
+    //创建待收货界面
     MyOrderWaitGoodViewController * myOrderWaitGoodVC = [[MyOrderWaitGoodViewController alloc] init];
     myOrderWaitGoodVC.title = @"待收货";
     
+    //创建待评价界面
     MyOrderWaitJudgeViewController * myOrderWaitJudgeVC = [[MyOrderWaitJudgeViewController alloc] init];
     myOrderWaitJudgeVC.title = @"待评价";
     
@@ -64,6 +68,7 @@
     [controller viewWillAppear:YES];
 }
 
+//添加自定义导航栏按钮
 - (void)addChatBtn{
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(0, 0, 31, 27);
@@ -80,11 +85,12 @@
     self.navigationItem.rightBarButtonItems = arryBtn;
 }
 
+//自定义导航栏按钮的事件响应方法
 - (void)chatAct:(id)sender{
     
 }
 
-
+//退回到上级界面
 - (IBAction)back:(id)sender {
     self.navigationController.navigationBarHidden = YES;
     [self.navigationController popViewControllerAnimated:YES];
