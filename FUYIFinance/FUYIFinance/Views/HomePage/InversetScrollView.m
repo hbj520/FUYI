@@ -29,7 +29,7 @@
             NSInteger line = (i - 1)%2;//行
             HomePageInvestModel *model = [data objectAtIndex:i];
             imageView.frame = CGRectMake((list)*117 + 140, line*102, 117, 102);
-            [imageView sd_setImageWithURL:[NSURL URLWithString:model.investImage]];
+            [imageView sd_setImageWithURL:[NSURL URLWithString:model.investImage] placeholderImage:[UIImage imageNamed:@"foreign_exchange"]];
         }
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAct:)];
         [imageView addGestureRecognizer:tap];

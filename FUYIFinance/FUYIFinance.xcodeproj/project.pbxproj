@@ -1514,7 +1514,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.youyou2.FUYIFinance;
+				PRODUCT_BUNDLE_IDENTIFIER = com.youyou.FUYIFinance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -1535,7 +1535,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.youyou2.FUYIFinance;
+				PRODUCT_BUNDLE_IDENTIFIER = com.youyou.FUYIFinance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
