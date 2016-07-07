@@ -84,10 +84,14 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="moreBtn" destination="I6o-ba-IEK" id="a0D-e3-mBC"/>
+                <outlet property="teacherName" destination="Myl-E9-2wa" id="ZN9-iu-FAD"/>
                 <outlet property="videoAuthorLab" destination="Myl-E9-2wa" id="pPM-n6-0iy"/>
                 <outlet property="videoContentLab" destination="BBE-8I-Aao" id="zhy-ll-fUg"/>
+                <outlet property="videoImage" destination="Z7P-Vx-ADa" id="9x5-Qh-dQN"/>
                 <outlet property="videoPic" destination="Z7P-Vx-ADa" id="i1a-Cl-MUP"/>
+                <outlet property="videoPrice" destination="Rcv-Kt-tj3" id="XVn-uT-PGR"/>
                 <outlet property="videoPriceLab" destination="Rcv-Kt-tj3" id="dNG-Sb-NUn"/>
+                <outlet property="videoTitle" destination="BBE-8I-Aao" id="hP7-W5-jXs"/>
             </connections>
             <point key="canvasLocation" x="336.5" y="253.5"/>
         </tableViewCell>
