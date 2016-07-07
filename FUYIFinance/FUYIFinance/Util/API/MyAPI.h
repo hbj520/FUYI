@@ -38,7 +38,10 @@ typedef void (^ErrorBlock) (NSError *enginerError);
 #pragma mark -商城默认
 - (void)videoStoreDefaultDataWithResult:(ArrayBlock)result
                              erroResult:(ErrorBlock)erroResult;
-
+#pragma mark -id加载商城
+- (void)videoStoreWithSelectId:(NSString*)SelectId
+                        result:(ArrayBlock)result
+                   errorResult:(ErrorBlock)errorResult;
 
 #pragma mark -博客
 #pragma mark -个人中心

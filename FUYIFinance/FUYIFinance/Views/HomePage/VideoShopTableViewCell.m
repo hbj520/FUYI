@@ -7,7 +7,8 @@
 //
 
 #import "VideoShopTableViewCell.h"
-#import "DefaultStoreDataModel.h"
+
+#import "StoreDataModel.h"
 @implementation VideoShopTableViewCell
 
 - (void)awakeFromNib {
@@ -22,18 +23,18 @@
 
     // Configure the view for the selected state
 }
-
-- (void)configWithData:(NSArray *)data{
-    if (data.count > 0) {
-        for (NSInteger i = 0; i < data.count; i++) {
-            DefaultStoreDataModel *model = [data objectAtIndex:i];
-            self.videoImage.image = [UIImage imageNamed:model.videoImage];
-            self.videoTitle.text = model.videoName;
-            self.teacherName.text = [NSString stringWithFormat:@"讲师： %@",model.teacherName];
-            self.videoPrice.text = [NSString stringWithFormat:@"¥ %d.2f",200];
-        }
-    }
-}
+//
+//- (void)configWithData:(NSArray *)data{
+//
+//        for (StoreDataModel *model in data) {
+//            NSLog(@"%@66666666666666",model.videoPrice);
+//            self.videoImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@",model.videoImage]];
+//            self.videoTitle.text = model.videoName;
+//            self.teacherName.text = [NSString stringWithFormat:@"讲师： %@",model.teacherName];
+//            self.videoPrice.text = [NSString stringWithFormat:@"¥ %@.00",model.videoPrice];
+//        }
+//   
+//}
 
 
 

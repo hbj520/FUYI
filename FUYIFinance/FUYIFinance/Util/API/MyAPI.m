@@ -16,8 +16,7 @@
 #import "HomePageInvestModel.h"
 
 #import "SelectModel.h"
-#import "DefaultStoreDataModel.h"
-
+#import "StoreDataModel.h"
 //mine models
 #import "MineCollectionTreasureModel.h"
 
@@ -142,8 +141,10 @@
                 return result(YES,info,nil);
             }else{
                 NSArray *defaultArray = responseObject[@"data"];
-                NSArray *storeArray = [[DefaultStoreDataModel alloc]buildWithData:defaultArray];
-                return result(YES,info,storeArray);
+                StoreDataModel *model = [[StoreDataModel alloc] init];
+                
+                NSArray *storeArray = [model buildWithData:defaultArray];
+                return result(YES,info,@[storeArray]);
             }
         }
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
@@ -151,7 +152,33 @@
     }];
 }
 
-#pragma mark -商城
+#pragma mark -id选择商城
+- (void)videoStoreWithSelectId:(NSString*)SelectId
+                        result:(ArrayBlock)result
+                   errorResult:(ErrorBlock)errorResult{
+    NSDictionary *parameters = @{
+                                 @"id":SelectId
+                                 };
+    [self.manager POST:@"nos_mall" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString *status = responseObject[@"status"];
+        NSString *info = responseObject[@"info"];
+        if ([status isEqualToString:@"1"]) {
+            if ([responseObject[@"data"]isEqual:[NSNull null]]) {
+                return result(YES,info,nil);
+            }else{
+                NSArray *newArray = responseObject[@"data"];
+                StoreDataModel *model = [[StoreDataModel alloc]init];
+                NSArray *storeArray = [model buildWithData:newArray];
+                return result(YES,info,@[storeArray]);
+            }
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+    }];
+    
+}
+
+
 
 #pragma mark -博客
 #pragma mark -个人中心

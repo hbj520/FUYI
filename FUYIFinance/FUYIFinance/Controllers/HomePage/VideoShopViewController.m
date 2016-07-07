@@ -14,7 +14,11 @@
 #import "DOPDropDownMenu.h"
 
 #import "SelectModel.h"
-#import "DefaultStoreDataModel.h"
+#import "StoreDataModel.h"
+
+
+#import <SDWebImage/UIImageView+WebCache.h>
+
 static NSString *videoShopReuseId = @"videoShopReuseId";
 
 @interface VideoShopViewController ()<UITableViewDataSource,UITableViewDelegate,DOPDropDownMenuDataSource,DOPDropDownMenuDelegate>
@@ -26,10 +30,6 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
     
    
 }
-
-
-@property (nonatomic, strong)  NSMutableArray *financeArr;//金融品种类型
-@property (nonatomic, strong) NSMutableArray *classArr;//课程类型
 
 @property (nonatomic, weak) DOPDropDownMenu *menu;
 
@@ -71,47 +71,30 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
 }
 
 - (void)loadData{
+    //下拉菜单
     [[MyAPI sharedAPI] videoStoreWithResult:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
         if (success) {
             financeSelectData = arrays[0];
             classSelectData = arrays[1];
-            
-    
-            NSLog(@"%@----",financeSelectData[0]);
         }
     } errorResult:^(NSError *enginerError) {
         
     }];
-    
+
+    //默认商城
     [[MyAPI sharedAPI] videoStoreDefaultDataWithResult:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
         if (success) {
             storeArray = arrays[0];
+            [self.tableView reloadData];
+
         }
     } erroResult:^(NSError *enginerError) {
         
     }];
-    
-    
-    
-
-    
 }
 
 - (void)dropDownMenu
 {
-//数据必须在这写才能默认显示第一行
-    self.financeArr = @[@"金融品种"];
-    self.classArr = @[@"课程类型"];
-    for (SelectModel *model in financeSelectData) {
-        NSLog(@"%@*****",model.selectName);
-    [self.financeArr addObject:model.selectName];
-    }
-    for (SelectModel *model in classSelectData) {
-        [self.classArr addObject:model.selectName];
-    }
-//    self.financeSelectArr = @[@"金融品种",@"芙蓉区",@"雨花区",@"天心区",@"开福区",@"岳麓区"];
-//    self.classSelectArr = @[@"课程类型",@"离我最近",@"好评优先",@"人气优先",@"最新发布"];
-    
     // 添加下拉菜单
     DOPDropDownMenu *menu = [[DOPDropDownMenu alloc] initWithOrigin:CGPointMake(0, 64) andHeight:44];
     menu.delegate = self;
@@ -121,7 +104,6 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
     
     // 创建menu 第一次显示 不会调用点击代理，可以用这个手动调用
     [menu selectDefalutIndexPath];
-    
 }
 
 #pragma mark - DOPDropDownMenuDelegate
@@ -133,35 +115,67 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
 - (NSInteger)menu:(DOPDropDownMenu *)menu numberOfRowsInColumn:(NSInteger)column
 {
     if (column == 0) {
-        return self.financeArr.count;
+        return financeSelectData.count;
     }else {
-        return self.classArr.count;
+        return classSelectData.count;
     }
 }
 
 - (NSString *)menu:(DOPDropDownMenu *)menu titleForRowAtIndexPath:(DOPIndexPath *)indexPath
 {
+        //下拉菜单数据默认第一行显示 设置第一行死数据
     if (indexPath.column == 0) {
-      //  SelectModel *model = financeSelectData[indexPath.row];
-        return self.financeArr[indexPath.row];
-   
+        if (indexPath.row == 0) {
+            return @"金融品种";
+        }else{
+        SelectModel *model = financeSelectData[indexPath.row];
+        return model.selectName;
+        }
     }else {
-       // SelectModel *model = classSelectData[indexPath.row];
-
-        return self.classArr[indexPath.row];
+        if (indexPath.row == 0) {
+            return @"课程类型";
+        }else{
+            SelectModel *model = classSelectData[indexPath.row];
+        return model.selectName;
+        }
     }
 }
-
 
 - (void)menu:(DOPDropDownMenu *)menu didSelectRowAtIndexPath:(DOPIndexPath *)indexPath
 {
-    if (indexPath.item == 0) {
+    if (indexPath.column == 0) {
         NSLog(@"点击了 %ld - %ld 项目",indexPath.column,indexPath.row);
+        if (indexPath.row == 0) {
+            return;
+        }else{
+        SelectModel *model = financeSelectData[indexPath.row-1];
+        [[MyAPI sharedAPI] videoStoreWithSelectId:model.selectId result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
+            if (success) {
+                storeArray = arrays[0];
+                [self.tableView reloadData];
+            }
+        } errorResult:^(NSError *enginerError) {
+            
+        }];
+        }
+        
     }else {
         NSLog(@"点击了 %ld - %ld 项目",indexPath.column,indexPath.row);
+        if (indexPath.row == 0) {
+            return;
+        }else{
+            SelectModel *model = classSelectData[indexPath.row-1];
+            [[MyAPI sharedAPI] videoStoreWithSelectId:model.selectId result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
+                if (success) {
+                    storeArray = arrays[0];
+                    [self.tableView reloadData];
+                }
+            } errorResult:^(NSError *enginerError) {
+                
+            }];
+        }
     }
 }
-
 
 #pragma mark - UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -169,15 +183,18 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 7;
+    return storeArray.count;
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     VideoShopTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"VideoShopTableViewCell" owner:self options:nil] lastObject];
     
-   // cell.videoPrice.text = [NSString stringWithFormat:@"¥ %.2d",200];
-    
-    [cell configWithData:storeArray];
+        StoreDataModel *model = [storeArray objectAtIndex:indexPath.row];
+    [cell.videoImage sd_setImageWithURL:[NSURL URLWithString:model.videoImage]];
+        cell.videoTitle.text = model.videoName;
+        cell.teacherName.text = [NSString stringWithFormat:@"讲师： %@",model.teacherName];
+        cell.videoPrice.text = [NSString stringWithFormat:@"¥ %@.00",model.videoPrice];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
     
 }
@@ -185,7 +202,7 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
     return 115;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"====");
+
     [self performSegueWithIdentifier:@"videoDetailSegue" sender:nil];
     
 }

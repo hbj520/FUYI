@@ -14,5 +14,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *teacherName;
 @property (weak, nonatomic) IBOutlet UILabel *videoPrice;
 
-- (void)configWithData:(NSArray *)data;
+//- (void)configWithData:(NSArray *)data;
 @end
