@@ -191,6 +191,7 @@ static NSString *investReuseId = @"investReuseId";
             investTableViewCell = [[InvestCollectionViewTableViewCell alloc]
                                                             initWithStyle:UITableViewCellStyleDefault
                                                             reuseIdentifier:investReuseId];
+
         }
         if (inverstData.count > 1) {
             [investTableViewCell createUIWithData:inverstData];
@@ -235,7 +236,6 @@ static NSString *investReuseId = @"investReuseId";
 //点击头部滚动视图
 -(void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
 
-    
 }
 /*
 #pragma mark - Navigation
