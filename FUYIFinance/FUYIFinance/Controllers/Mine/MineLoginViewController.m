@@ -73,6 +73,8 @@
 
 //注册账号
 - (IBAction)registerBtn:(id)sender {
+    
+    [self performSegueWithIdentifier:@"registerSegue" sender:nil];
 
 }
 
