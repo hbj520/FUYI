@@ -15,8 +15,8 @@
     [super awakeFromNib];
     // Initialization code
    // [self addBlock];
-    self.cancelBtn.layer.borderColor = [UIColor colorWithRed:170/255.0 green:170/255.0 blue:170/255.0 alpha:170/255.0].CGColor;
-    self.cancelBtn.layer.borderWidth =  1;
+    self.cancelBtn.layer.borderColor = [UIColor colorWithRed:242/255.0 green:242/255.0 blue:242/255.0 alpha:1].CGColor;
+    self.cancelBtn.layer.borderWidth =  0.5;
     self.cancelBtn.layer.cornerRadius = 3;
     self.sureBtn.layer.cornerRadius = 3;
     self.totalPrice.attributedText = [[LabelHelper alloc] attributedStringWithString:@"¥39.00"];

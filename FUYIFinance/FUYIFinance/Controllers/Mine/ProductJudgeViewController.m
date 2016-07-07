@@ -43,7 +43,6 @@
     CGFloat pointX = point.x;
     
     float scale = pointX/136;
-    
     UIImageView * imgStar = (UIImageView*)[self.starView viewWithTag:1];
     imgStar.clipsToBounds = YES;
     imgStar.frame = CGRectMake(0, 0, 136 * scale, 18);

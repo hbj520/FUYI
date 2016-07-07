@@ -29,6 +29,18 @@ typedef void (^ErrorBlock) (NSError *enginerError);
 - (void)registerWithParameters:(NSString *)phoneNum
                         result:(StateBlock)result
                    errorResult:(ErrorBlock)errorResult;
+
+/**
+ *  登录
+ *
+ *  @param phoneNumber 登陆的手机号码
+ *  @param password    登录的密码
+ *  @param result      返回登录结果
+ *  @param errorResult 错误信息
+ */
+- (void)LoginWithNumber:(NSString*)phoneNumber password:(NSString*)password
+                 result:(StateBlock)result errorResult:(ErrorBlock)errorResult;
+
 #pragma mark -首页
 - (void)homePageWithResult:(ArrayBlock)result
                errorResult:(ErrorBlock)errorResult;
@@ -43,7 +55,35 @@ typedef void (^ErrorBlock) (NSError *enginerError);
  *  @param result      模型数组
  *  @param errorResult 错误信息
  */
-- (void)requestCollectionTreasureDataWithParameters:(int)page result:(ArrayBlock)result errorResult:(ErrorBlock)errorResult;
+- (void)requestCollectionTreasureDataWithParameters:(NSString*)page result:(ArrayBlock)result errorResult:(ErrorBlock)errorResult;
+
+/**
+ *  用户收藏的店铺
+ *
+ *  @param page        页数
+ *  @param result      模型数组
+ *  @param errorResult 错误信息
+ */
+- (void)requestCollectionShopDataWithParameters:(NSString*)page result:(ArrayBlock)result errorResult:(ErrorBlock)errorResult;
+
+/**
+ *  用户的评价
+ *
+ *  @param page        页数
+ *  @param result      模型数组
+ *  @param errorResult 错误信息
+ */
+- (void)requestMyJudgeDataWithParameters:(NSString*)page result:(ArrayBlock)result errorResult:(ErrorBlock)errorResult;
+
+/**
+ *  用户待付款的订单
+ *
+ *  @param page        页数
+ *  @param result      模型数组
+ *  @param errorResult 错误信息
+ */
+- (void)requestWaitpayDataWithParameters:(NSString*)page result:(ArrayBlock)result errorResult:(ErrorBlock)errorResult;
+
 
 #pragma mark -讲师团队
 
