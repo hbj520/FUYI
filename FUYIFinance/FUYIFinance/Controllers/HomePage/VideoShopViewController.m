@@ -31,7 +31,7 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
     
    
 }
-
+@property (nonatomic,copy) NSString *saveId;
 @property (nonatomic, weak) DOPDropDownMenu *menu;
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -48,8 +48,10 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
     storeArray = [NSMutableArray array];
     // Do any additional setup after loading the view.
     [self creatUI];
-    [self loadData];
-    [self addRefresh];
+
+    [self loadMenuData];
+    [self loadStoreData];
+   // [self addRefresh];
 
 }
 - (void)viewWillDisappear:(BOOL)animated
@@ -67,30 +69,40 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
     // Dispose of any resources that can be recreated.
 }
 #pragma   mark -PrivateMethod 
-- (void)addRefresh{
-    //添加刷新
-    __weak VideoShopViewController *weakself = self;
-    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        if (financeSelectData.count > 0) {
-            [financeSelectData removeAllObjects];
-        }
-        if (classSelectData.count > 0) {
-            [classSelectData removeAllObjects];
-        }
-        if (storeArray.count > 0) {
-            [storeArray removeAllObjects];
-        }
-        [weakself loadData];
-    }];
-    
-    self.tableView.mj_footer = [MJRefreshFooter footerWithRefreshingBlock:^{
-        <#code#>
-    }];
-    
+//- (void)addRefresh{
+//    //添加刷新
+//    __weak VideoShopViewController *weakself = self;
+//    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+//        if (financeSelectData.count > 0) {
+//            [financeSelectData removeAllObjects];
+//        }
+//        if (classSelectData.count > 0) {
+//            [classSelectData removeAllObjects];
+//        }
+//        if (storeArray.count > 0) {
+//            [storeArray removeAllObjects];
+//        }
+//        [weakself loadMenuData];
+//        [weakself loadStoreData];
+//    }];
+//    
+//    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+//        [weakself loadStoreData];
+//        [weakself loadLeftSelData];
+//        [weakself loadRightSelData];
+//    }];
+//    
+//    
+//}
+
+- (void)addTap{
+    UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(TapAct:)];
+    [self.tableView addGestureRecognizer:tapGes];
     
 }
-
-
+- (void)TapAct:(UIGestureRecognizer *)ges{
+    [Tools hideKeyBoard];
+}
 
 
 
@@ -102,7 +114,7 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
     [self dropDownMenu];//下拉菜单
 }
 
-- (void)loadData{
+- (void)loadMenuData{
     //下拉菜单
     [[MyAPI sharedAPI] videoStoreWithResult:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
         if (success) {
@@ -112,16 +124,47 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
     } errorResult:^(NSError *enginerError) {
         
     }];
+}
 
+- (void)loadStoreData{
     //默认商城
     [[MyAPI sharedAPI] videoStoreDefaultDataWithResult:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
         if (success) {
             storeArray = arrays[0];
             [self.tableView reloadData];
-      [self.tableView.mj_header endRefreshing];
+           // [self.tableView.mj_header endRefreshing];
+           // [self.tableView.mj_footer endRefreshing];
         }
     } erroResult:^(NSError *enginerError) {
-              [self.tableView.mj_header endRefreshing];
+       // [self.tableView.mj_header endRefreshing];
+       // [self.tableView.mj_footer endRefreshing];
+    }];
+}
+//根据id刷新商城
+-(void)loadLeftSelData{
+    [[MyAPI sharedAPI] videoStoreWithSelectId:self.saveId  result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
+        if (success) {
+            storeArray = arrays[0];
+            [self.tableView reloadData];
+           // [self.tableView.mj_header endRefreshing];
+            //[self.tableView.mj_footer endRefreshing];
+        }
+    } errorResult:^(NSError *enginerError) {
+       // [self.tableView.mj_header endRefreshing];
+       // [self.tableView.mj_footer endRefreshing];
+    }];
+}
+-(void)loadRightSelData{
+    [[MyAPI sharedAPI] videoStoreWithRightSelectId:self.saveId result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
+        if (success) {
+            storeArray = arrays[0];
+            [self.tableView reloadData];
+           // [self.tableView.mj_header endRefreshing];
+           // [self.tableView.mj_footer endRefreshing];
+        }
+    } errorResult:^(NSError *enginerError) {
+       // [self.tableView.mj_header endRefreshing];
+        //[self.tableView.mj_footer endRefreshing];
     }];
 }
 
@@ -180,16 +223,9 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
         if (indexPath.row == 0) {
             return;
         }else{
-        SelectModel *model = financeSelectData[indexPath.row-1];
-        [[MyAPI sharedAPI] videoStoreWithSelectId:model.selectId result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
-            if (success) {
-                storeArray = arrays[0];
-                [self.tableView reloadData];
-                 [self.tableView.mj_header endRefreshing];
-            }
-        } errorResult:^(NSError *enginerError) {
-             [self.tableView.mj_header endRefreshing];
-        }];
+            SelectModel *model = financeSelectData[indexPath.row-1];
+            self.saveId = model.selectId;
+            [self loadLeftSelData];
         }
         
     }else {
@@ -198,15 +234,8 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
             return;
         }else{
             SelectModel *model = classSelectData[indexPath.row-1];
-            [[MyAPI sharedAPI] videoStoreWithRightSelectId:model.selectId result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
-                if (success) {
-                    storeArray = arrays[0];
-                    [self.tableView reloadData];
-                     [self.tableView.mj_header endRefreshing];
-                }
-            } errorResult:^(NSError *enginerError) {
-                 [self.tableView.mj_header endRefreshing];
-            }];
+            self.saveId = model.selectId;
+            [self loadRightSelData];
         }
     }
 }
@@ -236,7 +265,7 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
     return 115;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-
+    NSLog(@"++++++++++++++++++++++++++");
     [self performSegueWithIdentifier:@"videoDetailSegue" sender:nil];
     
 }
