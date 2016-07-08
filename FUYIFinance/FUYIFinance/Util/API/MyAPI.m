@@ -19,6 +19,8 @@
 #import "StoreDataModel.h"
 //mine models
 #import "MineCollectionTreasureModel.h"
+#import "MineCollectionShopModel.h"
+#import "MineMyJudgeModel.h"
 
 @interface MyAPI ()
 @property (nonatomic, strong) AFHTTPRequestOperationManager *manager;
@@ -74,6 +76,31 @@
         errorResult(error);
     }];
 }
+
+/**
+ *  登录
+ *
+ *  @param phoneNumber 登陆的手机号码
+ *  @param password    登录的密码
+ *  @param result      返回登录结果
+ *  @param errorResult 错误信息
+ */
+- (void)LoginWithNumber:(NSString *)phoneNumber password:(NSString *)password result:(StateBlock)result errorResult:(ErrorBlock)errorResult
+{
+    NSDictionary * parameters = @{@"phone":phoneNumber,@"userpwd":password};
+    [self.manager POST:@"nos_login" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * state = responseObject[@"state"];
+        NSString * information = responseObject[@"info"];
+        if([state isEqualToString:@"1"]){
+            result(YES,information);
+        }else{
+            result(NO,information);
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+    }];
+}
+
 #pragma mark -首页
 - (void)homePageWithResult:(ArrayBlock)result
                errorResult:(ErrorBlock)errorResult{
@@ -182,7 +209,7 @@
 
 #pragma mark -博客
 #pragma mark -个人中心
-- (void)requestCollectionTreasureDataWithParameters:(int)page result:(ArrayBlock)result errorResult:(ErrorBlock)errorResult
+- (void)requestCollectionTreasureDataWithParameters:(NSString*)page result:(ArrayBlock)result errorResult:(ErrorBlock)errorResult
 {
  NSString * token = @"";
     NSDictionary * parameters = @{@"token":token};
@@ -205,6 +232,69 @@
         
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         errorResult(error);
+    }];
+}
+
+- (void)requestCollectionShopDataWithParameters:(NSString*)page result:(ArrayBlock)result errorResult:(ErrorBlock)errorResult
+{
+    NSString * token = @"";
+    NSDictionary * parameters = @{@"token":token,@"page":page};
+    [self.manager POST:@"allstore" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * status = responseObject[@"status"];
+        NSString * info = responseObject[@"info"];
+        NSArray * data = responseObject[@"data"];
+        
+        if ([status isEqualToString:@"1"]) {
+            if ([data isEqual:[NSNull null]]) {
+                result(YES,info,nil);
+            }else{
+               NSMutableArray * MineCollectionShopModelArray = [[MineCollectionShopModel alloc] buildWithData:data];
+                
+                result(YES,info,MineCollectionShopModelArray);
+                
+            }
+        }else{
+            result(NO,info,nil);
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+    }];
+    
+}
+
+- (void)requestMyJudgeDataWithParameters:(NSString *)page result:(ArrayBlock)result errorResult:(ErrorBlock)errorResult
+{
+    NSString * token = @"";
+    NSDictionary * parameters = @{@"token":token,@"page":page};
+    [self.manager POST:@"alleva" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * status = responseObject[@"status"];
+        NSString * info = responseObject[@"info"];
+        NSArray * data = responseObject[@"data"];
+        
+        if ([status isEqualToString:@"1"]) {
+            if ([data isEqual:[NSNull null]]) {
+                result(YES,info,nil);
+            }else{
+                NSMutableArray * MyJudgeModelArray = [[MineMyJudgeModel alloc] buildWithData:data];
+                result(YES,info,MyJudgeModelArray);
+            }
+        }else{
+            result(NO,info,nil);
+        }
+        
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+    }];
+}
+
+- (void)requestWaitpayDataWithParameters:(NSString *)page result:(ArrayBlock)result errorResult:(ErrorBlock)errorResult
+{
+ NSString * token = @"";
+    NSDictionary * parameters = @{@"token":token,@"page":page};
+    [self.manager POST:@"pendpay" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+      
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        
     }];
 }
 

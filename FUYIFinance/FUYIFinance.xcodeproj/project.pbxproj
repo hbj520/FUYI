@@ -75,6 +75,12 @@
 		CC42E2821D24F1690008A8D7 /* MyCollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC42E27E1D24F1690008A8D7 /* MyCollectionTableViewCell.xib */; };
 		CC42E2861D24F6A10008A8D7 /* LoveManageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC42E2841D24F6A10008A8D7 /* LoveManageTableViewCell.m */; };
 		CC42E2871D24F6A10008A8D7 /* LoveManageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC42E2851D24F6A10008A8D7 /* LoveManageTableViewCell.xib */; };
+		CC4F37291D2DE5DA00312F11 /* MineCollectionShopModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4F37281D2DE5DA00312F11 /* MineCollectionShopModel.m */; };
+		CC4F372C1D2DEADC00312F11 /* MineMyJudgeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4F372B1D2DEADC00312F11 /* MineMyJudgeModel.m */; };
+		CC4F372F1D2DEFEC00312F11 /* MineWaitPayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4F372E1D2DEFEC00312F11 /* MineWaitPayModel.m */; };
+		CC4F37321D2DFEFF00312F11 /* MineLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4F37311D2DFEFF00312F11 /* MineLoginViewController.m */; };
+		CC4F37361D2E07C700312F11 /* UIViewController+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4F37351D2E07C700312F11 /* UIViewController+HUD.m */; };
+		CC4F37391D2E58BF00312F11 /* MineRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4F37381D2E58BF00312F11 /* MineRegisterViewController.m */; };
 		CC57E0F51D25157500B00AA8 /* TreasureManageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC57E0F41D25157500B00AA8 /* TreasureManageViewController.m */; };
 		CC57E0FB1D2520BB00B00AA8 /* ManageTreasureTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC57E0FA1D2520BB00B00AA8 /* ManageTreasureTableViewController.m */; };
 		CC593CAD1D29EFF30077B096 /* MyShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC593CAC1D29EFF30077B096 /* MyShopViewController.m */; };
@@ -290,6 +296,18 @@
 		CC42E2831D24F6A10008A8D7 /* LoveManageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoveManageTableViewCell.h; sourceTree = "<group>"; };
 		CC42E2841D24F6A10008A8D7 /* LoveManageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoveManageTableViewCell.m; sourceTree = "<group>"; };
 		CC42E2851D24F6A10008A8D7 /* LoveManageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoveManageTableViewCell.xib; sourceTree = "<group>"; };
+		CC4F37271D2DE5DA00312F11 /* MineCollectionShopModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineCollectionShopModel.h; sourceTree = "<group>"; };
+		CC4F37281D2DE5DA00312F11 /* MineCollectionShopModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineCollectionShopModel.m; sourceTree = "<group>"; };
+		CC4F372A1D2DEADC00312F11 /* MineMyJudgeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineMyJudgeModel.h; sourceTree = "<group>"; };
+		CC4F372B1D2DEADC00312F11 /* MineMyJudgeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineMyJudgeModel.m; sourceTree = "<group>"; };
+		CC4F372D1D2DEFEC00312F11 /* MineWaitPayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineWaitPayModel.h; sourceTree = "<group>"; };
+		CC4F372E1D2DEFEC00312F11 /* MineWaitPayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineWaitPayModel.m; sourceTree = "<group>"; };
+		CC4F37301D2DFEFF00312F11 /* MineLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineLoginViewController.h; sourceTree = "<group>"; };
+		CC4F37311D2DFEFF00312F11 /* MineLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineLoginViewController.m; sourceTree = "<group>"; };
+		CC4F37341D2E07C700312F11 /* UIViewController+HUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HUD.h"; sourceTree = "<group>"; };
+		CC4F37351D2E07C700312F11 /* UIViewController+HUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HUD.m"; sourceTree = "<group>"; };
+		CC4F37371D2E58BF00312F11 /* MineRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineRegisterViewController.h; sourceTree = "<group>"; };
+		CC4F37381D2E58BF00312F11 /* MineRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineRegisterViewController.m; sourceTree = "<group>"; };
 		CC57E0F31D25157500B00AA8 /* TreasureManageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreasureManageViewController.h; sourceTree = "<group>"; };
 		CC57E0F41D25157500B00AA8 /* TreasureManageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreasureManageViewController.m; sourceTree = "<group>"; };
 		CC57E0F91D2520BB00B00AA8 /* ManageTreasureTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageTreasureTableViewController.h; sourceTree = "<group>"; };
@@ -700,6 +718,10 @@
 				CC593CC91D2A682E0077B096 /* ShopSettingTableViewController.m */,
 				CC593CCB1D2A69500077B096 /* ShopNameViewController.h */,
 				CC593CCC1D2A69500077B096 /* ShopNameViewController.m */,
+				CC4F37301D2DFEFF00312F11 /* MineLoginViewController.h */,
+				CC4F37311D2DFEFF00312F11 /* MineLoginViewController.m */,
+				CC4F37371D2E58BF00312F11 /* MineRegisterViewController.h */,
+				CC4F37381D2E58BF00312F11 /* MineRegisterViewController.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -732,6 +754,7 @@
 		ABF5DE401D0FA4B1007CE1AB /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				CC4F37331D2E07B500312F11 /* category */,
 				ABEACD641D2B87FF00574259 /* API */,
 				ABEACD491D2B87DE00574259 /* Helper */,
 				ABEACD4C1D2B87DE00574259 /* Security */,
@@ -891,8 +914,23 @@
 			children = (
 				CC35F66C1D2CDCBA00EF3B4B /* MineCollectionTreasureModel.h */,
 				CC35F66D1D2CDCBA00EF3B4B /* MineCollectionTreasureModel.m */,
+				CC4F37271D2DE5DA00312F11 /* MineCollectionShopModel.h */,
+				CC4F37281D2DE5DA00312F11 /* MineCollectionShopModel.m */,
+				CC4F372A1D2DEADC00312F11 /* MineMyJudgeModel.h */,
+				CC4F372B1D2DEADC00312F11 /* MineMyJudgeModel.m */,
+				CC4F372D1D2DEFEC00312F11 /* MineWaitPayModel.h */,
+				CC4F372E1D2DEFEC00312F11 /* MineWaitPayModel.m */,
 			);
 			name = Mine;
+			sourceTree = "<group>";
+		};
+		CC4F37331D2E07B500312F11 /* category */ = {
+			isa = PBXGroup;
+			children = (
+				CC4F37341D2E07C700312F11 /* UIViewController+HUD.h */,
+				CC4F37351D2E07C700312F11 /* UIViewController+HUD.m */,
+			);
+			name = category;
 			sourceTree = "<group>";
 		};
 		CC72D0281D22636100945BCF /* Mine */ = {
@@ -1281,6 +1319,7 @@
 				ABEACD5D1D2B87DE00574259 /* GTMBase64.m in Sources */,
 				D1F130131D2A4E5A00EE1690 /* VideoDetailThirdtTableViewCell.m in Sources */,
 				AB36CE401D1BC9C100D0E4C7 /* InvestCollectionViewTableViewCell.m in Sources */,
+				CC4F37321D2DFEFF00312F11 /* MineLoginViewController.m in Sources */,
 				CC72D0271D22620000945BCF /* MyOrderViewController.m in Sources */,
 				D1F130241D2B80DB00EE1690 /* ConInfoTableViewCell.m in Sources */,
 				D15BA38C1D237E2400904DEF /* HeaderView.m in Sources */,
@@ -1298,6 +1337,7 @@
 				D1F1302F1D2B8F5000EE1690 /* BuyCountTableViewCell.m in Sources */,
 				CC42E27F1D24F1690008A8D7 /* MyCollectionShopTableViewCell.m in Sources */,
 				AB36CE2D1D1B710400D0E4C7 /* TAAbstractDotView.m in Sources */,
+				CC4F372F1D2DEFEC00312F11 /* MineWaitPayModel.m in Sources */,
 				CC42E2811D24F1690008A8D7 /* MyCollectionTableViewCell.m in Sources */,
 				ABEACD5F1D2B87DE00574259 /* NSData+Base64.m in Sources */,
 				AB36CE321D1B710400D0E4C7 /* SDCycleScrollView.m in Sources */,
@@ -1310,12 +1350,16 @@
 				CC57E0FB1D2520BB00B00AA8 /* ManageTreasureTableViewController.m in Sources */,
 				CC35F66E1D2CDCBA00EF3B4B /* MineCollectionTreasureModel.m in Sources */,
 				CC593CCA1D2A682E0077B096 /* ShopSettingTableViewController.m in Sources */,
+				CC4F372C1D2DEADC00312F11 /* MineMyJudgeModel.m in Sources */,
+				CC4F37291D2DE5DA00312F11 /* MineCollectionShopModel.m in Sources */,
 				CC72D0341D226A5C00945BCF /* YSLScrollMenuView.m in Sources */,
 				ABEACD6E1D2C944400574259 /* HomePageNoticeModel.m in Sources */,
 				CC72D0241D225B6200945BCF /* MineTableViewController.m in Sources */,
 				D114DC571D24EEC50001CE21 /* Brand.m in Sources */,
 				AB36CE2C1D1B710400D0E4C7 /* NSData+SDDataCache.m in Sources */,
 				AB36CE191D1A9A1700D0E4C7 /* GuideViewController.m in Sources */,
+				CC4F37391D2E58BF00312F11 /* MineRegisterViewController.m in Sources */,
+				CC4F37361D2E07C700312F11 /* UIViewController+HUD.m in Sources */,
 				D15BA3881D237CE200904DEF /* ShopCarTableViewCell.m in Sources */,
 				AB708F8B1D0543BE007D0B4D /* main.m in Sources */,
 				CC72D0331D226A5C00945BCF /* YSLContainerViewController.m in Sources */,

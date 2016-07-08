@@ -8,6 +8,7 @@
 
 #import "HomePageViewController.h"
 #import "SDCycleScrollView.h"
+#import <MJRefresh.h>
 
 //views
 #import "HomePageNavgationItem.h"
@@ -48,7 +49,10 @@ static NSString *investReuseId = @"investReuseId";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     inverstData = [NSMutableArray array];
-    [inverstData addObject:@"finance_planer"];
+    noticeData = [NSMutableArray array];
+    bannerData = [NSMutableArray array];
+    [self addTap];
+    [self addRefresh];
     [self loadData];
     [self createUI];
 }
@@ -61,11 +65,36 @@ static NSString *investReuseId = @"investReuseId";
     // Dispose of any resources that can be recreated.
 }
 #pragma mark - PrivateMethod
+- (void)addRefresh{
+    //添加刷新
+    __weak HomePageViewController *weakself = self;
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        if (bannerData.count > 0) {
+            [bannerData removeAllObjects];
+        }
+        if (noticeData.count > 0) {
+            [noticeData removeAllObjects];
+        }
+        if (inverstData.count > 0) {
+            [inverstData removeAllObjects];
+        }
+        [weakself loadData];
+    }];
+}
+- (void)addTap{
+    UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(TapAct:)];
+    [self.tableView addGestureRecognizer:tapGes];
+    
+}
+- (void)TapAct:(UIGestureRecognizer *)ges{
+    [Tools hideKeyBoard];
+}
 - (void)loadData{
+    [inverstData addObject:@"finance_planer"];
     [[MyAPI sharedAPI] homePageWithResult:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
         if (success) {
-            bannerData = arrays[0];
-            noticeData = arrays[1];
+            [bannerData addObjectsFromArray: arrays[0]];
+            [noticeData addObjectsFromArray: arrays[1]];
             [inverstData addObjectsFromArray:arrays[2]];
             //添加滚动视图pageview
             [self addPageControl];
@@ -73,10 +102,11 @@ static NSString *investReuseId = @"investReuseId";
         }else{
             
         }
-        
+        [self.tableView.mj_header endRefreshing];
     } errorResult:^(NSError *enginerError) {
         
-        
+        [self.tableView.mj_header endRefreshing];
+
     }];
 }
 - (void)createUI{
@@ -96,8 +126,6 @@ static NSString *investReuseId = @"investReuseId";
             [imageData addObject:model.bannerImgurl];
         }
     }
-
-    
     _headerView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0,ScreenWidth,170) imageURLStringsGroup:imageData];
     _headerView.delegate = self;
 }
@@ -163,6 +191,7 @@ static NSString *investReuseId = @"investReuseId";
             investTableViewCell = [[InvestCollectionViewTableViewCell alloc]
                                                             initWithStyle:UITableViewCellStyleDefault
                                                             reuseIdentifier:investReuseId];
+
         }
         if (inverstData.count > 1) {
             [investTableViewCell createUIWithData:inverstData];
@@ -207,7 +236,6 @@ static NSString *investReuseId = @"investReuseId";
 //点击头部滚动视图
 -(void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
 
-    
 }
 /*
 #pragma mark - Navigation

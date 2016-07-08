@@ -48,6 +48,9 @@
     //待评价按钮的自定义badge标签
     self.badgeLabel3.layer.cornerRadius = 8;
     self.badgeLabel3.layer.masksToBounds = YES;
+    if([self.badgeLabel3.text isEqualToString:@"0"]){
+        self.badgeLabel3.hidden = YES;
+    }
     
     //待付款按钮添加响应事件
     UITapGestureRecognizer *tap  = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(prepareAct:)];
