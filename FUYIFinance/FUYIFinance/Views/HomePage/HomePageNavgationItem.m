@@ -24,6 +24,8 @@
     [self.messateBtn addTarget:self action:@selector(messageAct:) forControlEvents:UIControlEventTouchUpInside];
     [self.searchBar setPlaceholder:@"请输入关键词"];
     [self.searchBar setSearchResultsButtonSelected:YES];
+//    self.searchBar.layer.borderWidth = 1;
+//    self.searchBar.layer.borderColor = [UIColor redColor].CGColor;
     self.searchBar.delegate = self;
 }
 - (void)messageAct:(id)sender{

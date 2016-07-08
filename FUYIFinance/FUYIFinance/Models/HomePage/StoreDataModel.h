@@ -1,5 +1,5 @@
 //
-//  DefaultStoreDataModel.h
+//  StoreDataModel.h
 //  FUYIFinance
 //
 //  Created by youyoumacmini3 on 16/7/7.
@@ -8,16 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DefaultStoreDataModel : NSObject
+@interface StoreDataModel : NSObject
 @property (nonatomic,copy) NSString *videoId;
-@property (nonatomic,copy) NSString *videoName;
-@property (nonatomic,copy) NSString *teacherName;
-@property (nonatomic,copy) NSString *videoImage;
-@property (nonatomic,copy) NSString *videoPrice;
-@property (nonatomic,copy) NSString *sellNum;
-@property (nonatomic,copy) NSString *videodescription;
-@property (nonatomic,copy) NSString *teacherId;
-@property (nonatomic,copy) NSString *videoType;
+@property (nonatomic,strong) NSString *videoName;
+@property (nonatomic,strong) NSString *teacherName;
+@property (nonatomic,strong) NSString *videoImage;
+@property (nonatomic,strong) NSString *videoPrice;
+@property (nonatomic,strong) NSString *sellNum;
+@property (nonatomic,strong) NSString *videodescription;
+@property (nonatomic,strong) NSString *teacherId;
+@property (nonatomic,strong) NSString *videoType;
 
 /**
  *  商城列表详情
@@ -43,5 +43,9 @@
         videodescription:(NSString *)videodescription
                teacherId:(NSString *)teacherId
                videoType:(NSString *)videoType;
+
+
+
 - (NSArray *)buildWithData:(NSArray *)data;
+
 @end

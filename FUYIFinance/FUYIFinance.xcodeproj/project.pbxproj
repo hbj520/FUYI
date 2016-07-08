@@ -147,9 +147,9 @@
 		D1F130421D2C9CAA00EE1690 /* PayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F130411D2C9CAA00EE1690 /* PayView.xib */; };
 		D1F130481D2CED3600EE1690 /* DOPDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F130471D2CED3600EE1690 /* DOPDropDownMenu.m */; };
 		D1F1304B1D2CF63300EE1690 /* SelectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F1304A1D2CF63300EE1690 /* SelectModel.m */; };
-		D1F1304E1D2DEA4000EE1690 /* DefaultStoreDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F1304D1D2DEA4000EE1690 /* DefaultStoreDataModel.m */; };
 		D1F130511D2E23C200EE1690 /* VideoShopNavigationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F130501D2E23C200EE1690 /* VideoShopNavigationItem.m */; };
 		D1F130531D2E23E000EE1690 /* VideoShopNavigationItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F130521D2E23E000EE1690 /* VideoShopNavigationItem.xib */; };
+		D1F1305C1D2E3F7000EE1690 /* StoreDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F1305B1D2E3F7000EE1690 /* StoreDataModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -419,11 +419,11 @@
 		D1F130471D2CED3600EE1690 /* DOPDropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOPDropDownMenu.m; sourceTree = "<group>"; };
 		D1F130491D2CF63300EE1690 /* SelectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectModel.h; sourceTree = "<group>"; };
 		D1F1304A1D2CF63300EE1690 /* SelectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectModel.m; sourceTree = "<group>"; };
-		D1F1304C1D2DEA4000EE1690 /* DefaultStoreDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultStoreDataModel.h; sourceTree = "<group>"; };
-		D1F1304D1D2DEA4000EE1690 /* DefaultStoreDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultStoreDataModel.m; sourceTree = "<group>"; };
 		D1F1304F1D2E23C200EE1690 /* VideoShopNavigationItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoShopNavigationItem.h; sourceTree = "<group>"; };
 		D1F130501D2E23C200EE1690 /* VideoShopNavigationItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoShopNavigationItem.m; sourceTree = "<group>"; };
 		D1F130521D2E23E000EE1690 /* VideoShopNavigationItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoShopNavigationItem.xib; sourceTree = "<group>"; };
+		D1F1305A1D2E3F7000EE1690 /* StoreDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreDataModel.h; sourceTree = "<group>"; };
+		D1F1305B1D2E3F7000EE1690 /* StoreDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreDataModel.m; sourceTree = "<group>"; };
 		E2D217BF4D0AE0F6C9591577 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FA5515060D58FFB367588DFA /* Pods-FUYIFinance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FUYIFinance.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FUYIFinance/Pods-FUYIFinance.debug.xcconfig"; sourceTree = "<group>"; };
 		FB5E00328843A9E289111723 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -638,8 +638,8 @@
 				ABEACD701D2C945F00574259 /* HomePageInvestModel.m */,
 				D1F130491D2CF63300EE1690 /* SelectModel.h */,
 				D1F1304A1D2CF63300EE1690 /* SelectModel.m */,
-				D1F1304C1D2DEA4000EE1690 /* DefaultStoreDataModel.h */,
-				D1F1304D1D2DEA4000EE1690 /* DefaultStoreDataModel.m */,
+				D1F1305A1D2E3F7000EE1690 /* StoreDataModel.h */,
+				D1F1305B1D2E3F7000EE1690 /* StoreDataModel.m */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -1292,7 +1292,6 @@
 				D1F1304B1D2CF63300EE1690 /* SelectModel.m in Sources */,
 				D114DC581D24EEC50001CE21 /* Good.m in Sources */,
 				AB36CE331D1B710400D0E4C7 /* UIView+SDExtension.m in Sources */,
-				D1F1304E1D2DEA4000EE1690 /* DefaultStoreDataModel.m in Sources */,
 				CC26F0DA1D261CAB003964A1 /* ProductJudgeViewController.m in Sources */,
 				ABEACD5C1D2B87DE00574259 /* Tools.m in Sources */,
 				CC42E2761D24F13D0008A8D7 /* MyCollectionCourseViewController.m in Sources */,
@@ -1332,6 +1331,7 @@
 				AB708F8E1D0543BE007D0B4D /* AppDelegate.m in Sources */,
 				D1F130391D2B9A8700EE1690 /* NoticeTableViewCell.m in Sources */,
 				CC42E2781D24F13D0008A8D7 /* MyOrderMyCollectionViewController.m in Sources */,
+				D1F1305C1D2E3F7000EE1690 /* StoreDataModel.m in Sources */,
 				AB36CE301D1B710400D0E4C7 /* TAPageControl.m in Sources */,
 				CC42E26E1D24F0A90008A8D7 /* MyJudgeTableViewCell.m in Sources */,
 				D1F1302F1D2B8F5000EE1690 /* BuyCountTableViewCell.m in Sources */,
@@ -1520,7 +1520,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.youyou2.FUYIFinance;
+				PRODUCT_BUNDLE_IDENTIFIER = com.youyou1.FUYIFinance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -1541,7 +1541,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.youyou2.FUYIFinance;
+				PRODUCT_BUNDLE_IDENTIFIER = com.youyou1.FUYIFinance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

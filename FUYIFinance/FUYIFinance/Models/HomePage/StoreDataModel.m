@@ -1,15 +1,14 @@
 //
-//  DefaultStoreDataModel.m
+//  StoreDataModel.m
 //  FUYIFinance
 //
 //  Created by youyoumacmini3 on 16/7/7.
 //  Copyright © 2016年 youyou. All rights reserved.
 //
 
-#import "DefaultStoreDataModel.h"
+#import "StoreDataModel.h"
 
-@implementation DefaultStoreDataModel
-
+@implementation StoreDataModel
 - (id)initWithParameters:(NSString *)videoId
                videoName:(NSString *)videoName
              teacherName:(NSString *)teacherName
@@ -19,7 +18,7 @@
         videodescription:(NSString *)videodescription
                teacherId:(NSString *)teacherId
                videoType:(NSString *)videoType{
-    DefaultStoreDataModel *model = [[DefaultStoreDataModel alloc]init];
+    StoreDataModel *model = [[StoreDataModel alloc]init];
     model.videoId = videoId;
     model.videoName = videoName;
     model.teacherName = teacherName;
@@ -40,16 +39,27 @@
         NSString *teacherName = dic[@"teachername"];
         NSString *videoImage = dic[@"thumbimg"];
         NSString *videoPrice = dic[@"price"];
-        NSString *sellNum = dic[@"num"];
+        NSNumber *Num = dic[@"num"];
+        NSString *sellNum = [NSString stringWithFormat:@"&%ld",Num.integerValue];
         NSString *videodescription = dic[@"about"];
         NSString *teacherId = dic[@"tid"];
-        NSString *videoType = dic[@"type"];
+        NSNumber *Type = dic[@"type"];
+        NSString *videoType = [NSString stringWithFormat:@"%ld",Type.integerValue];
         
-        DefaultStoreDataModel *model = [[DefaultStoreDataModel alloc]initWithParameters:videoId videoName:videoName teacherName:teacherName videoImage:videoImage videoPrice:videoPrice sellNum:sellNum videodescription:videodescription teacherId:teacherId videoType:videoType];
+        StoreDataModel *model = [[StoreDataModel alloc]initWithParameters:videoId
+                                                                              videoName:videoName
+                                                                            teacherName:teacherName
+                                                                             videoImage:videoImage
+                                                                             videoPrice:videoPrice
+                                                                                sellNum:sellNum
+                                                                       videodescription:videodescription
+                                                                              teacherId:teacherId
+                                                                              videoType:videoType];
         [modelArr addObject:model];
     }
     
     return modelArr;
 }
+
 
 @end
