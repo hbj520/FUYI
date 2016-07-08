@@ -30,6 +30,21 @@ typedef void (^ErrorBlock) (NSError *enginerError);
                         result:(StateBlock)result
                    errorResult:(ErrorBlock)errorResult;
 
+
+/**
+ *  注册
+ *
+ *  @param phoneNum    注册的手机号码
+ *  @param password    注册的密码
+ *  @param repassword  注册的确认密码
+ *  @param yzmnum      验证码
+ *  @param result      正常返回结果
+ *  @param errorResult 返回出错
+ */
+- (void)registerWithParameters:(NSString*)phoneNum Password:(NSString*)password RePassword:(NSString*)repassword YZMNum:(NSString*)yzmnum result:(StateBlock)result errorResult:(ErrorBlock)errorResult;
+
+   
+   
 /**
  *  登录
  *
@@ -40,6 +55,8 @@ typedef void (^ErrorBlock) (NSError *enginerError);
  */
 - (void)LoginWithNumber:(NSString*)phoneNumber password:(NSString*)password
                  result:(StateBlock)result errorResult:(ErrorBlock)errorResult;
+
+
 
 #pragma mark -首页
 - (void)homePageWithResult:(ArrayBlock)result

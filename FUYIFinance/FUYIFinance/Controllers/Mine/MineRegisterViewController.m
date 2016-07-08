@@ -7,6 +7,9 @@
 //
 
 #import "MineRegisterViewController.h"
+#import "UIViewController+HUD.h"
+#import "MyAPI.h"
+#import "Tools.h"
 
 @interface MineRegisterViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *PhoneNum;    //手机号码
@@ -34,6 +37,33 @@
 
 //注册
 - (IBAction)Register:(id)sender {
+    NSString * phonenumber = self.PhoneNum.text;
+    NSString * textcodenum = self.testCode.text;
+    NSString * passwordnumber = self.password.text;
+    NSString * repasswordnumber = self.repassword.text;
+    if(![self.password.text isEqualToString:self.repassword.text]){
+        [self showHint:@"请确认两次密码相同"];
+        return;
+    }
+    if(self.testCode.text.length == 0){
+        [self showHint:@"请输入验证码"];
+        return;
+    }else if (self.password.text.length<6){
+        [self showHint:@"请输入不少于6位的密码"];
+        return;
+    }
+    NSString * securitypasswordnumber = [Tools loginPasswordSecurityLock:passwordnumber];
+    NSString * securityrepasswordnumber = [Tools loginPasswordSecurityLock:repasswordnumber];
+    [[MyAPI sharedAPI] registerWithParameters:phonenumber Password:securitypasswordnumber RePassword:securityrepasswordnumber YZMNum:textcodenum result:^(BOOL sucess, NSString *msg) {
+        if(sucess){
+            [self showHint:@"注册成功，请登录"];
+            
+        }else{
+            [self showHint:@"注册失败"];
+        }
+    } errorResult:^(NSError *enginerError) {
+        
+    }];
     
 }
 
