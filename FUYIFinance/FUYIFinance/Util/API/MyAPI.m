@@ -157,7 +157,7 @@
                         result:(ArrayBlock)result
                    errorResult:(ErrorBlock)errorResult{
     NSDictionary *parameters = @{
-                                 @"id":SelectId
+                                 @"type":SelectId
                                  };
     [self.manager POST:@"nos_mall" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         NSString *status = responseObject[@"status"];
