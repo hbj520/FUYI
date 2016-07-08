@@ -51,8 +51,8 @@
                                                                                         topBarHeight:statusHeight + navigationHeight
                                                                                 parentViewController:self];
     containerVC.delegate = self;
-
-    containerVC.menuItemFont = [UIFont systemFontOfSize:16];
+    containerVC.menuItemFont = [UIFont systemFontOfSize:13];
+    containerVC.menuItemTitleColor = [UIColor darkGrayColor];
        
     [self.view addSubview:containerVC.view];
     
