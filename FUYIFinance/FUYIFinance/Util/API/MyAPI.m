@@ -205,6 +205,30 @@
     
 }
 
+- (void)videoStoreWithRightSelectId:(NSString*)RightSelectId
+                        result:(ArrayBlock)result
+                   errorResult:(ErrorBlock)errorResult{
+    NSDictionary *parameters = @{
+                                 @"label":RightSelectId
+                                 };
+    [self.manager POST:@"nos_mall" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString *status = responseObject[@"status"];
+        NSString *info = responseObject[@"info"];
+        if ([status isEqualToString:@"1"]) {
+            if ([responseObject[@"data"]isEqual:[NSNull null]]) {
+                return result(YES,info,nil);
+            }else{
+                NSArray *newArray = responseObject[@"data"];
+                StoreDataModel *model = [[StoreDataModel alloc]init];
+                NSArray *storeArray = [model buildWithData:newArray];
+                return result(YES,info,@[storeArray]);
+            }
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+    }];
+    
+}
 
 
 #pragma mark -博客

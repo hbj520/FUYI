@@ -54,7 +54,9 @@ typedef void (^ErrorBlock) (NSError *enginerError);
 - (void)videoStoreWithSelectId:(NSString*)SelectId
                         result:(ArrayBlock)result
                    errorResult:(ErrorBlock)errorResult;
-
+- (void)videoStoreWithRightSelectId:(NSString*)RightSelectId
+                        result:(ArrayBlock)result
+                   errorResult:(ErrorBlock)errorResult;
 #pragma mark -博客
 #pragma mark -个人中心
 /**

@@ -342,12 +342,11 @@
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"确定要删除该商品?删除后无法恢复!" preferredStyle:1];
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
-           [self.isSelected[indexPath.section] removeObjectAtIndex:indexPath.row];
-           //    删除
+            [self.isSelected[indexPath.section] removeObjectAtIndex:indexPath.row];
+            //    删除
             [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-            
-            
-            
+            NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:indexPath.section];
+            [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
         }];
         
         UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
