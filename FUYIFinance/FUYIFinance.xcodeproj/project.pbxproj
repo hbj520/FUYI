@@ -780,7 +780,6 @@
 				CC72D0281D22636100945BCF /* Mine */,
 				ABF5DE431D0FA4B1007CE1AB /* CustomerService */,
 				ABF5DE441D0FA4B1007CE1AB /* HomePage */,
-				ABF5DE451D0FA4B1007CE1AB /* Mine */,
 				D1C49B021D224D7F003C17DA /* ShopCar */,
 			);
 			path = Views;
@@ -854,13 +853,6 @@
 				D1F130411D2C9CAA00EE1690 /* PayView.xib */,
 			);
 			path = HomePage;
-			sourceTree = "<group>";
-		};
-		ABF5DE451D0FA4B1007CE1AB /* Mine */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Mine;
 			sourceTree = "<group>";
 		};
 		ABF5DE471D0FA51D007CE1AB /* Json */ = {
@@ -1520,7 +1512,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.youyou1.FUYIFinance;
+				PRODUCT_BUNDLE_IDENTIFIER = com.youyou.FUYIFinance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -1541,7 +1533,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.youyou1.FUYIFinance;
+				PRODUCT_BUNDLE_IDENTIFIER = com.youyou.FUYIFinance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
