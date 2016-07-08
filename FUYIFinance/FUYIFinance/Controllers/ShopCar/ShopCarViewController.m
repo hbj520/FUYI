@@ -340,7 +340,6 @@
     [self.view addSubview:navItem];
 }
 
-
 -(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
     return @"删除";
 }
@@ -352,53 +351,63 @@
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
             [self.isSelected[indexPath.section] removeObjectAtIndex:indexPath.row];
-            //    删除某行
+            //删除某行
             [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
             //刷新
             NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:indexPath.section];
             [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
             
-            //如果某区行数被删光，删除所在区
+            //判断如果某区行数被删光，删除所在区
             if ([self.isSelected[indexPath.section] count] == 0) {
                 [self.isSelected removeObjectAtIndex:indexPath.section];
+                [self.headIsSelected removeObjectAtIndex:indexPath.row];
                 NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:indexPath.section];
                 [tableView deleteSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
                 [self.tableView reloadData];
+            }else{
+                //如果没有被删光，遍历剩下的行是否全选
+                NSInteger y = 0;
+                for (NSString *strr in self.isSelected[indexPath.section]) {
+                    if ([strr isEqualToString:@"1"]) {
+                        y++;
+                    }
+                    //如果全选，给所在区选定状态改为@“1”
+                }if (y == [self.isSelected[indexPath.section] count]) {
+                    
+                self.headIsSelected[indexPath.section] = @"1";
+                }
             }
+            
+            //遍历区是否局部全选
+            NSInteger c = 0;
+            NSInteger d = 0;
+            for (NSString *seleceStr in self.headIsSelected) {
+                if ([seleceStr isEqualToString:@"0"]) {
+                    c++;
+                }else{
+                    d++;
+                }
+            }
+            //如果局部全选，设置全选状态
+            if (d == self.headIsSelected.count) {
+                ShopCarBottomView* view1 = (ShopCarBottomView*)[self.view viewWithTag:100];
+                view1.chooseAllBtn.selected = YES;
+                
+            }if (c > 0){
+                ShopCarBottomView* view1 = (ShopCarBottomView*)[self.view viewWithTag:100];
+                view1.chooseAllBtn.selected = NO;
+            }
+            
+            [self.tableView reloadData];
             
             //区被删光 把全选置为NO
             if (self.headIsSelected.count == 0||self.isSelected.count == 0) {
                 ShopCarBottomView* view1 = (ShopCarBottomView*)[self.view viewWithTag:100];
                 view1.chooseAllBtn.selected = NO;
             }
-            
-//            NSInteger R = 0;
-//            for (NSArray *restArr in self.isSelected) {
-//                for (NSString *restStr in restArr) {
-//                    if ([restStr isEqualToString:@"1"]) {
-//                        R ++;
-//                    }
-//                }
-//            }if (R == self.isSelected.count ) {
-//                
-//            }
-//            
-            for (NSArray *restArr in self.isSelected){
-                for (NSString *restStr in restArr) {
-                    
-                    
-                    
-                    
-                }
-            }
-            
-            
-            
-
         }];
         
         UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-        
         [alert addAction:okAction];
         [alert addAction:cancel];
         [self presentViewController:alert animated:YES completion:nil];
@@ -406,7 +415,6 @@
     }
     
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
