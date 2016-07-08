@@ -8,14 +8,16 @@
 
 #import "ManageTreasureTableViewController.h"
 #import "BBBadgeBarButtonItem.h"
-@interface ManageTreasureTableViewController ()<UITextViewDelegate>
+@interface ManageTreasureTableViewController ()<UITextViewDelegate,UITextFieldDelegate>
 
 {
     BBBadgeBarButtonItem * _chatBtn;   //自定制导航栏按钮
     BBBadgeBarButtonItem * _chatBtn1;  //自定制导航栏按钮
 }
-@property (weak, nonatomic) IBOutlet UITextView *textView;   //编辑宝贝的描述视图
-@property (weak, nonatomic) IBOutlet UILabel *descLabel;     //提示标签
+@property (weak, nonatomic) IBOutlet UITextView *textView;       //编辑宝贝的描述视图
+@property (weak, nonatomic) IBOutlet UILabel *descLabel;         //提示标签
+@property (weak, nonatomic) IBOutlet UITextField *PriceField;    //价格
+@property (weak, nonatomic) IBOutlet UITextField *TranslateFee;  //运费
 
 @end
 
@@ -25,6 +27,8 @@
     [super viewDidLoad];
     [self addChatBtn];     //添加自定制导航栏按钮
     self.textView.delegate = self;
+    self.PriceField.delegate = self;
+    self.TranslateFee.delegate = self;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -35,6 +39,24 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if(textField == self.PriceField){
+        NSString * price = self.PriceField.text;
+       
+        NSString * priceLabel = [NSString stringWithFormat:@"¥%@",price];
+        self.PriceField.text = priceLabel;
+    }else if (textField == self.TranslateFee){
+        NSString * TranslateFeeLabel = [NSString stringWithFormat:@"¥%@",self.TranslateFee.text];
+        self.TranslateFee.text = TranslateFeeLabel;
+    }
 }
 
 //添加自定制导航栏按钮
@@ -127,6 +149,8 @@
 {
     if(indexPath.section==0||indexPath.section==2){
         [self.textView endEditing:YES];
+        [self.PriceField endEditing:YES];
+        [self.TranslateFee endEditing:YES];
     }
 }
 
