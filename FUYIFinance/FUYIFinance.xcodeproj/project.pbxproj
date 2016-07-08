@@ -95,6 +95,7 @@
 		CC593CC71D2A45770077B096 /* TreasureJudgeStarView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC593CC61D2A45770077B096 /* TreasureJudgeStarView.m */; };
 		CC593CCA1D2A682E0077B096 /* ShopSettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC593CC91D2A682E0077B096 /* ShopSettingTableViewController.m */; };
 		CC593CCD1D2A69500077B096 /* ShopNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC593CCC1D2A69500077B096 /* ShopNameViewController.m */; };
+		CC6BD0771D2F496900659C96 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6BD0761D2F496900659C96 /* Config.m */; };
 		CC72D0241D225B6200945BCF /* MineTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D0231D225B6200945BCF /* MineTableViewController.m */; };
 		CC72D0271D22620000945BCF /* MyOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D0261D22620000945BCF /* MyOrderViewController.m */; };
 		CC72D02C1D2263CF00945BCF /* PersonalWaitPayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D02A1D2263CF00945BCF /* PersonalWaitPayTableViewCell.m */; };
@@ -332,6 +333,8 @@
 		CC593CC91D2A682E0077B096 /* ShopSettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopSettingTableViewController.m; sourceTree = "<group>"; };
 		CC593CCB1D2A69500077B096 /* ShopNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopNameViewController.h; sourceTree = "<group>"; };
 		CC593CCC1D2A69500077B096 /* ShopNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopNameViewController.m; sourceTree = "<group>"; };
+		CC6BD0751D2F496900659C96 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		CC6BD0761D2F496900659C96 /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
 		CC72D0221D225B6200945BCF /* MineTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineTableViewController.h; sourceTree = "<group>"; };
 		CC72D0231D225B6200945BCF /* MineTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineTableViewController.m; sourceTree = "<group>"; };
 		CC72D0251D22620000945BCF /* MyOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderViewController.h; sourceTree = "<group>"; };
@@ -592,6 +595,8 @@
 				ABEACD4B1D2B87DE00574259 /* Tools.m */,
 				CC35F6651D2C9A9800EF3B4B /* LabelHelper.h */,
 				CC35F6661D2C9A9800EF3B4B /* LabelHelper.m */,
+				CC6BD0751D2F496900659C96 /* Config.h */,
+				CC6BD0761D2F496900659C96 /* Config.m */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -1337,6 +1342,7 @@
 				D1F1302F1D2B8F5000EE1690 /* BuyCountTableViewCell.m in Sources */,
 				CC42E27F1D24F1690008A8D7 /* MyCollectionShopTableViewCell.m in Sources */,
 				AB36CE2D1D1B710400D0E4C7 /* TAAbstractDotView.m in Sources */,
+				CC6BD0771D2F496900659C96 /* Config.m in Sources */,
 				CC4F372F1D2DEFEC00312F11 /* MineWaitPayModel.m in Sources */,
 				CC42E2811D24F1690008A8D7 /* MyCollectionTableViewCell.m in Sources */,
 				ABEACD5F1D2B87DE00574259 /* NSData+Base64.m in Sources */,
@@ -1520,7 +1526,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.youyou1.FUYIFinance;
+				PRODUCT_BUNDLE_IDENTIFIER = com.youyou.FUYIFinance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -1541,7 +1547,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.youyou1.FUYIFinance;
+				PRODUCT_BUNDLE_IDENTIFIER = com.youyou.FUYIFinance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

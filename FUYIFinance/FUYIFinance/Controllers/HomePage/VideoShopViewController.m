@@ -83,9 +83,9 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
         [weakself loadData];
     }];
     
-    self.tableView.mj_footer = [MJRefreshFooter footerWithRefreshingBlock:^{
-        <#code#>
-    }];
+   // self.tableView.mj_footer = [MJRefreshFooter footerWithRefreshingBlock:^{
+      //  <#code#>
+   // }];
     
     
 }
