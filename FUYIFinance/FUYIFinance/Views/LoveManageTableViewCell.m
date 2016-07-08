@@ -15,6 +15,8 @@
     // Initialization code
     self.modifyBtn.layer.cornerRadius = 3;
     self.deleteBtn.layer.cornerRadius = 3;
+    self.modifyBtn.layer.borderWidth = 1;
+    self.modifyBtn.layer.borderColor = [UIColor groupTableViewBackgroundColor].CGColor;
     
 }
 

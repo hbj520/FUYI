@@ -78,6 +78,33 @@
 }
 
 /**
+ *  注册
+ *
+ *  @param phoneNum    注册的手机号码
+ *  @param password    注册的密码
+ *  @param repassword  注册的确认密码
+ *  @param yzmnum      注册的验证码
+ *  @param result      正常返回结果
+ *  @param errorResult 错误信息
+ */
+- (void)registerWithParameters:(NSString *)phoneNum Password:(NSString *)password RePassword:(NSString *)repassword YZMNum:(NSString *)yzmnum result:(StateBlock)result errorResult:(ErrorBlock)errorResult
+{
+    NSDictionary * parameters = @{@"phone":phoneNum,@"passwd":password,@"repasswd":repassword,@"yzm":yzmnum};
+    [self.manager POST:@"nos_reg" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * status = responseObject[@"status"];
+        NSString * information = responseObject[@"info"];
+        if([status isEqualToString:@"1"]){
+            result(YES,information);
+        }else{
+            result(NO,information);
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+    }];
+    
+}
+
+/**
  *  登录
  *
  *  @param phoneNumber 登陆的手机号码

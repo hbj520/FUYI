@@ -8,7 +8,7 @@
 
 #import "ProductJudgeViewController.h"
 #import "TreasureJudgeStarView.h"
-@interface ProductJudgeViewController ()
+@interface ProductJudgeViewController ()<UITextViewDelegate>
 
 {
     BOOL IsCommit;                                                     //是否匿名评价
