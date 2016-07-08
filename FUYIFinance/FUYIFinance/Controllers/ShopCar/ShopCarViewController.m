@@ -63,17 +63,12 @@
 }
 
 -(void)creatData
-{
-
-   
-    //测试数据源
+{   //测试数据源
     NSMutableArray * array0 = [[NSMutableArray alloc]initWithObjects:@"1",@"1", nil];
     NSMutableArray * array1 = [[NSMutableArray alloc]initWithObjects:@"1",@"1", nil];
     NSMutableArray * array2 = [[NSMutableArray alloc]initWithObjects:@"1",@"1", nil];
     self.isSelected = [[NSMutableArray alloc]initWithObjects:array0,array1,array2,nil];
     self.headIsSelected = [[NSMutableArray alloc]initWithObjects:@"1",@"1",@"1", nil];
-    
-    
 }
 
 -(void)creatUI
@@ -239,6 +234,23 @@
 {
     [self.headIsSelected removeObjectAtIndex:button.tag];
     [self.isSelected removeObjectAtIndex:button.tag];
+    
+    //确保全选按钮跟着删除后局部全选按钮变动
+    NSInteger SecR = 0;
+    for (NSString *restStr in self.headIsSelected) {
+            if ([restStr isEqualToString:@"1"]) {
+                SecR ++;
+            }
+    }if (SecR == self.headIsSelected.count ) {
+        ShopCarBottomView* view1 = (ShopCarBottomView*)[self.view viewWithTag:100];
+        view1.chooseAllBtn.selected = YES;
+    }
+    
+    if (self.headIsSelected.count == 0) {
+        ShopCarBottomView* view1 = (ShopCarBottomView*)[self.view viewWithTag:100];
+        view1.chooseAllBtn.selected = NO;
+    }
+    
     [self.tableView reloadData];
 }
 
@@ -269,8 +281,6 @@
     
     self.isAllSelected = YES;
     bottomView.chooseAllBtn.selected = self.isAllSelected;
-    
-    
     [bottomView.goPay addTarget:self action:@selector(goPayClick:) forControlEvents:UIControlEventTouchUpInside];
     
     
@@ -309,7 +319,6 @@
     
 }
     [self.tableView reloadData];
-    
 }
 
 //去结算
@@ -343,10 +352,49 @@
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
             [self.isSelected[indexPath.section] removeObjectAtIndex:indexPath.row];
-            //    删除
+            //    删除某行
             [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            //刷新
             NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:indexPath.section];
             [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
+            
+            //如果某区行数被删光，删除所在区
+            if ([self.isSelected[indexPath.section] count] == 0) {
+                [self.isSelected removeObjectAtIndex:indexPath.section];
+                NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:indexPath.section];
+                [tableView deleteSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
+                [self.tableView reloadData];
+            }
+            
+            //区被删光 把全选置为NO
+            if (self.headIsSelected.count == 0||self.isSelected.count == 0) {
+                ShopCarBottomView* view1 = (ShopCarBottomView*)[self.view viewWithTag:100];
+                view1.chooseAllBtn.selected = NO;
+            }
+            
+//            NSInteger R = 0;
+//            for (NSArray *restArr in self.isSelected) {
+//                for (NSString *restStr in restArr) {
+//                    if ([restStr isEqualToString:@"1"]) {
+//                        R ++;
+//                    }
+//                }
+//            }if (R == self.isSelected.count ) {
+//                
+//            }
+//            
+            for (NSArray *restArr in self.isSelected){
+                for (NSString *restStr in restArr) {
+                    
+                    
+                    
+                    
+                }
+            }
+            
+            
+            
+
         }];
         
         UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
