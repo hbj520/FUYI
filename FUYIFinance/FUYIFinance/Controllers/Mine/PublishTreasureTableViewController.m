@@ -9,7 +9,7 @@
 #import "PublishTreasureTableViewController.h"
 #import "BBBadgeBarButtonItem.h"
 
-@interface PublishTreasureTableViewController ()<UITextViewDelegate>
+@interface PublishTreasureTableViewController ()<UITextViewDelegate,UITextFieldDelegate>
 
 {
     BBBadgeBarButtonItem * _chatBtn;    //自定制的导航栏按钮
@@ -20,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *placetitle2;
 @property (weak, nonatomic) IBOutlet UITextView *textView1;
 @property (weak, nonatomic) IBOutlet UITextView *textView2;
+@property (weak, nonatomic) IBOutlet UITextField *priceField;
+@property (weak, nonatomic) IBOutlet UITextField *translateField;
 
 @end
 
@@ -30,11 +32,36 @@
       [self addChatBtn];            //添加自定制导航栏按钮
     self.textView1.delegate = self;
     self.textView2.delegate = self;
+    self.priceField.delegate = self;
+    self.translateField.delegate = self;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if(textField == self.priceField){
+        NSString * priceString = self.priceField.text;
+        NSArray * stringArray = [priceString componentsSeparatedByString:@"¥"];
+        NSString * priceStr = [stringArray lastObject];
+        NSString * priceLabel = [NSString stringWithFormat:@"¥%@",priceStr];
+        self.priceField.text = priceLabel;
+    }else if (textField == self.translateField){
+        NSString * translateString = self.translateField.text;
+        NSArray * stringArray = [translateString componentsSeparatedByString:@"¥"];
+        NSString * translateStr = [stringArray lastObject];
+        NSString * translateLabel = [NSString stringWithFormat:@"¥%@",translateStr];
+        self.translateField.text = translateLabel;
+    }
 }
 
 - (void)textViewDidBeginEditing:(UITextView *)textView
@@ -49,9 +76,17 @@
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
     if (textView == self.textView1) {
+        if(textView.text.length>0){
+            self.placetitle1.hidden = YES;
+        }else{
         self.placetitle1.hidden = NO;
+        }
     }else if(textView == self.textView2){
+        if(textView.text.length>0){
+            self.placetitle2.hidden = YES;
+        }else{
         self.placetitle2.hidden = NO;
+        }
     }
 }
 
@@ -68,7 +103,7 @@
     [btn addTarget:self action:@selector(chatAct:) forControlEvents:UIControlEventTouchUpInside];
     
     UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn1.frame = CGRectMake(0, 0, 22, 22);
+    btn1.frame = CGRectMake(0, 0, 20,20);
     [btn1 addTarget:self action:@selector(clickBtn1) forControlEvents:UIControlEventTouchUpInside];
     [btn1 setImage:[UIImage imageNamed:@"barimage"] forState:UIControlStateNormal];
     

@@ -8,14 +8,16 @@
 
 #import "ManageTreasureTableViewController.h"
 #import "BBBadgeBarButtonItem.h"
-@interface ManageTreasureTableViewController ()<UITextViewDelegate>
+@interface ManageTreasureTableViewController ()<UITextViewDelegate,UITextFieldDelegate>
 
 {
     BBBadgeBarButtonItem * _chatBtn;   //自定制导航栏按钮
     BBBadgeBarButtonItem * _chatBtn1;  //自定制导航栏按钮
 }
-@property (weak, nonatomic) IBOutlet UITextView *textView;   //编辑宝贝的描述视图
-@property (weak, nonatomic) IBOutlet UILabel *descLabel;     //提示标签
+@property (weak, nonatomic) IBOutlet UITextView *textView;       //编辑宝贝的描述视图
+@property (weak, nonatomic) IBOutlet UILabel *descLabel;         //提示标签
+@property (weak, nonatomic) IBOutlet UITextField *PriceField;    //价格
+@property (weak, nonatomic) IBOutlet UITextField *TranslateFee;  //运费
 
 @end
 
@@ -25,6 +27,11 @@
     [super viewDidLoad];
     [self addChatBtn];     //添加自定制导航栏按钮
     self.textView.delegate = self;
+    self.PriceField.delegate = self;
+    self.TranslateFee.delegate = self;
+    if(self.textView.text.length>0){
+        self.descLabel.hidden = YES;
+    }
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -37,6 +44,28 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if(textField == self.PriceField){
+        NSString * price = self.PriceField.text;
+        NSArray * stringArray = [price componentsSeparatedByString:@"¥"];
+        NSString * priceStr = [stringArray lastObject];
+        NSString * priceLabel = [NSString stringWithFormat:@"¥%@",priceStr];
+        self.PriceField.text = priceLabel;
+    }else if (textField == self.TranslateFee){
+        NSString * translate = self.TranslateFee.text;
+        NSArray * stringArray = [translate componentsSeparatedByString:@"¥"];
+        NSString * translateStr = [stringArray lastObject];
+        NSString * TranslateFeeLabel = [NSString stringWithFormat:@"¥%@",translateStr];
+        self.TranslateFee.text = TranslateFeeLabel;
+    }
+}
+
 //添加自定制导航栏按钮
 - (void)addChatBtn{
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -45,7 +74,7 @@
     [btn addTarget:self action:@selector(chatAct:) forControlEvents:UIControlEventTouchUpInside];
     
     UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn1.frame = CGRectMake(0, 0, 22, 22);
+    btn1.frame = CGRectMake(0, 0, 20, 20);
     [btn1 setImage:[UIImage imageNamed:@"barimage"] forState:UIControlStateNormal];
     [btn1 addTarget:self action:@selector(clickBtn1) forControlEvents:UIControlEventTouchUpInside];
     
@@ -85,7 +114,11 @@
 
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
+    if(textView.text.length>0){
+        self.descLabel.hidden = YES;
+    }else{
     self.descLabel.hidden = NO;
+    }
 }
 
 
@@ -127,6 +160,8 @@
 {
     if(indexPath.section==0||indexPath.section==2){
         [self.textView endEditing:YES];
+        [self.PriceField endEditing:YES];
+        [self.TranslateFee endEditing:YES];
     }
 }
 

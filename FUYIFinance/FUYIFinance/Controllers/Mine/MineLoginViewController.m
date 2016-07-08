@@ -68,6 +68,8 @@
 
 //忘记密码
 - (IBAction)forgotPassword:(id)sender {
+    
+    [self performSegueWithIdentifier:@"forgetSegue" sender:nil];
 
 }
 
