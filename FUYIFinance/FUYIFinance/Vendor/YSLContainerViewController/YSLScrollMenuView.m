@@ -10,7 +10,7 @@
 
 static const CGFloat kYSLScrollMenuViewWidth  = 90;
 static const CGFloat kYSLScrollMenuViewMargin = 10;
-static const CGFloat kYSLIndicatorHeight = 3;
+static const CGFloat kYSLIndicatorHeight = 1;
 
 @interface YSLScrollMenuView ()
 
