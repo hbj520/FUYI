@@ -40,7 +40,7 @@
     [btn addTarget:self action:@selector(chatAct:) forControlEvents:UIControlEventTouchUpInside];
     
     UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn1.frame = CGRectMake(0, 0, 22, 22);
+    btn1.frame = CGRectMake(0, 0, 20, 20);
     [btn1 setImage:[UIImage imageNamed:@"barimage"] forState:UIControlStateNormal];
     [btn1 addTarget:self action:@selector(clickBtn1) forControlEvents:UIControlEventTouchUpInside];
     

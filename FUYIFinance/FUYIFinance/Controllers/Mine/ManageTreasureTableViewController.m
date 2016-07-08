@@ -29,6 +29,9 @@
     self.textView.delegate = self;
     self.PriceField.delegate = self;
     self.TranslateFee.delegate = self;
+    if(self.textView.text.length>0){
+        self.descLabel.hidden = YES;
+    }
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -50,11 +53,15 @@
 {
     if(textField == self.PriceField){
         NSString * price = self.PriceField.text;
-       
-        NSString * priceLabel = [NSString stringWithFormat:@"¥%@",price];
+        NSArray * stringArray = [price componentsSeparatedByString:@"¥"];
+        NSString * priceStr = [stringArray lastObject];
+        NSString * priceLabel = [NSString stringWithFormat:@"¥%@",priceStr];
         self.PriceField.text = priceLabel;
     }else if (textField == self.TranslateFee){
-        NSString * TranslateFeeLabel = [NSString stringWithFormat:@"¥%@",self.TranslateFee.text];
+        NSString * translate = self.TranslateFee.text;
+        NSArray * stringArray = [translate componentsSeparatedByString:@"¥"];
+        NSString * translateStr = [stringArray lastObject];
+        NSString * TranslateFeeLabel = [NSString stringWithFormat:@"¥%@",translateStr];
         self.TranslateFee.text = TranslateFeeLabel;
     }
 }
@@ -67,7 +74,7 @@
     [btn addTarget:self action:@selector(chatAct:) forControlEvents:UIControlEventTouchUpInside];
     
     UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn1.frame = CGRectMake(0, 0, 22, 22);
+    btn1.frame = CGRectMake(0, 0, 20, 20);
     [btn1 setImage:[UIImage imageNamed:@"barimage"] forState:UIControlStateNormal];
     [btn1 addTarget:self action:@selector(clickBtn1) forControlEvents:UIControlEventTouchUpInside];
     
@@ -107,7 +114,11 @@
 
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
+    if(textView.text.length>0){
+        self.descLabel.hidden = YES;
+    }else{
     self.descLabel.hidden = NO;
+    }
 }
 
 

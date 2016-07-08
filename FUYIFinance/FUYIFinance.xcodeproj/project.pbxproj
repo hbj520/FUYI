@@ -96,6 +96,7 @@
 		CC593CCA1D2A682E0077B096 /* ShopSettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC593CC91D2A682E0077B096 /* ShopSettingTableViewController.m */; };
 		CC593CCD1D2A69500077B096 /* ShopNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC593CCC1D2A69500077B096 /* ShopNameViewController.m */; };
 		CC6BD0771D2F496900659C96 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6BD0761D2F496900659C96 /* Config.m */; };
+		CC6BD07A1D2FA72900659C96 /* ReGetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6BD0791D2FA72900659C96 /* ReGetViewController.m */; };
 		CC72D0241D225B6200945BCF /* MineTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D0231D225B6200945BCF /* MineTableViewController.m */; };
 		CC72D0271D22620000945BCF /* MyOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D0261D22620000945BCF /* MyOrderViewController.m */; };
 		CC72D02C1D2263CF00945BCF /* PersonalWaitPayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D02A1D2263CF00945BCF /* PersonalWaitPayTableViewCell.m */; };
@@ -335,6 +336,8 @@
 		CC593CCC1D2A69500077B096 /* ShopNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopNameViewController.m; sourceTree = "<group>"; };
 		CC6BD0751D2F496900659C96 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		CC6BD0761D2F496900659C96 /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
+		CC6BD0781D2FA72900659C96 /* ReGetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReGetViewController.h; sourceTree = "<group>"; };
+		CC6BD0791D2FA72900659C96 /* ReGetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReGetViewController.m; sourceTree = "<group>"; };
 		CC72D0221D225B6200945BCF /* MineTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineTableViewController.h; sourceTree = "<group>"; };
 		CC72D0231D225B6200945BCF /* MineTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineTableViewController.m; sourceTree = "<group>"; };
 		CC72D0251D22620000945BCF /* MyOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderViewController.h; sourceTree = "<group>"; };
@@ -727,6 +730,8 @@
 				CC4F37311D2DFEFF00312F11 /* MineLoginViewController.m */,
 				CC4F37371D2E58BF00312F11 /* MineRegisterViewController.h */,
 				CC4F37381D2E58BF00312F11 /* MineRegisterViewController.m */,
+				CC6BD0781D2FA72900659C96 /* ReGetViewController.h */,
+				CC6BD0791D2FA72900659C96 /* ReGetViewController.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -1279,6 +1284,7 @@
 				ABEACD631D2B87DE00574259 /* StringEncryption.m in Sources */,
 				D1F12FFE1D2A2C4800EE1690 /* VideoDetailViewController.m in Sources */,
 				AB36CDB71D12773400D0E4C7 /* BaseViewController.m in Sources */,
+				CC6BD07A1D2FA72900659C96 /* ReGetViewController.m in Sources */,
 				ABEACD5E1D2B87DE00574259 /* NSData+AES.m in Sources */,
 				D1C49B051D224DB6003C17DA /* ShopCarNavigationItem.m in Sources */,
 				D1F1300E1D2A4E3100EE1690 /* VideoDetailSecTableViewCell.m in Sources */,
