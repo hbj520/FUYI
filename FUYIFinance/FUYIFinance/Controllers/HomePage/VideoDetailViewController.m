@@ -35,6 +35,7 @@
 }
 
 -(void)creatUI{
+    self.navigationItem.hidesBackButton = YES;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"VideoDetailFirstTableViewCell" bundle:nil] forCellReuseIdentifier:@"detailFirstReuseID"];
