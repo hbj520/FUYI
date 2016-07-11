@@ -8,11 +8,14 @@
 
 #import "MyOrderWaitPayViewController.h"
 #import "PersonalWaitPayTableViewCell.h"
+#import "PayView.h"
 
 @interface MyOrderWaitPayViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     UITableView * _tableView;
     NSMutableArray * _dataSource; //待付款的数据
+    PayView* _payView;
+    UIButton* _shadowBtn;
 }
 @end
 
@@ -29,8 +32,18 @@
     [_tableView registerNib:[UINib
                             nibWithNibName:@"PersonalWaitPayTableViewCell" bundle:nil] forCellReuseIdentifier:@"MyOrderId"];
     
+
     [self.view addSubview:_tableView];
+
+    [self creatHidePayView];
+}
+
+-(void)creatHidePayView{
     
+    _payView = [[[NSBundle mainBundle]loadNibNamed:@"PayView" owner:self options:nil]lastObject];;
+    _payView.frame = CGRectMake(0, ScreenHeight, ScreenWidth, 430);
+    [_payView.downBtn addTarget:self action:@selector(down) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_payView];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -77,7 +90,29 @@
 //点击确定付款
 - (void)clickSureBtn:(UIButton*)sender
 {
+    _shadowBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
+    _shadowBtn.backgroundColor = [UIColor blackColor];
+    [_shadowBtn addTarget:self action:@selector(down) forControlEvents:UIControlEventTouchUpInside];
+    _shadowBtn.alpha = 0.5;
+    [self.view addSubview:_shadowBtn];
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:1.0];
+    _payView.frame = CGRectMake(0, ScreenHeight-430, ScreenWidth, 430);
+    _shadowBtn.frame = CGRectMake(0, -430, ScreenWidth, ScreenHeight);
+    
+    [UIView commitAnimations];
+
     NSLog(@"%ld",(long)sender.tag);
+}
+
+//确认付款落下
+-(void)down{
+    _shadowBtn.hidden = YES;
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:1.0];
+    _payView.frame = CGRectMake(0, ScreenHeight, ScreenWidth, 430);
+    [UIView commitAnimations];
 }
 
 
