@@ -7,12 +7,15 @@
 //
 
 #import "MyShopDetailTableViewCell.h"
+#import "LabelHelper.h"
 
 @implementation MyShopDetailTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    NSMutableAttributedString * attributeString = [[LabelHelper alloc] attributedStringWithString:@"39.00"];
+    self.priceLabel.attributedText = attributeString;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

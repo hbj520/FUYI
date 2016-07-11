@@ -49,23 +49,23 @@
                             <constraint firstAttribute="width" constant="25" id="g3Q-Zb-2Ip"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="李小刚的课堂 &gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oYr-s9-eEY">
-                        <rect key="frame" x="48" y="10" width="149" height="24"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="李小刚的课堂 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oYr-s9-eEY">
+                        <rect key="frame" x="48" y="10" width="75" height="24"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="149" id="Vkm-d8-4fX"/>
+                            <constraint firstAttribute="width" constant="75" id="Vkm-d8-4fX"/>
                             <constraint firstAttribute="height" constant="24" id="kW9-Ub-0lC"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="交易成功" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSZ-KF-xQr">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="交易成功" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSZ-KF-xQr">
                         <rect key="frame" x="233" y="10" width="73" height="22"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="22" id="FaZ-t2-g4u"/>
                             <constraint firstAttribute="width" constant="73" id="ssg-Mx-mZI"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -158,6 +158,13 @@
                         <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rightArrow" translatesAutoresizingMaskIntoConstraints="NO" id="fbQ-KT-MYw">
+                        <rect key="frame" x="123" y="14" width="12" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="12" id="C2o-wj-0zj"/>
+                            <constraint firstAttribute="height" constant="17" id="thg-Hg-36s"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="0bY-MN-V2C" firstAttribute="leading" secondItem="xdn-DS-WL5" secondAttribute="trailing" constant="2" id="4kg-3J-Ozq"/>
@@ -166,6 +173,7 @@
                     <constraint firstItem="jaC-Ze-peU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="7j6-g3-V8G"/>
                     <constraint firstItem="QX2-Xe-0Hh" firstAttribute="top" secondItem="WVl-M2-PMx" secondAttribute="bottom" constant="46" id="B5j-X1-1W8"/>
                     <constraint firstItem="PGb-hT-PCL" firstAttribute="top" secondItem="WVl-M2-PMx" secondAttribute="bottom" constant="8" id="L1l-lX-QiC"/>
+                    <constraint firstItem="fbQ-KT-MYw" firstAttribute="top" secondItem="VGn-AY-Fla" secondAttribute="bottom" constant="13" id="NS0-lA-g96"/>
                     <constraint firstItem="WVl-M2-PMx" firstAttribute="top" secondItem="VGn-AY-Fla" secondAttribute="bottom" constant="40" id="Ox8-KG-soz"/>
                     <constraint firstItem="oYr-s9-eEY" firstAttribute="top" secondItem="VGn-AY-Fla" secondAttribute="bottom" constant="9" id="Q9f-NY-AbB"/>
                     <constraint firstItem="hEC-hk-L5r" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="RJD-wG-4tg"/>
@@ -173,6 +181,7 @@
                     <constraint firstAttribute="trailing" secondItem="Qol-cW-qhL" secondAttribute="trailing" constant="8" id="TSC-pm-HFt"/>
                     <constraint firstAttribute="trailing" secondItem="MSZ-KF-xQr" secondAttribute="trailing" constant="14" id="UBD-JE-z3K"/>
                     <constraint firstItem="f1U-s6-n77" firstAttribute="top" secondItem="jaC-Ze-peU" secondAttribute="bottom" constant="7" id="W3C-SY-uKb"/>
+                    <constraint firstItem="fbQ-KT-MYw" firstAttribute="leading" secondItem="oYr-s9-eEY" secondAttribute="trailing" id="WMV-Aj-L2Z"/>
                     <constraint firstAttribute="trailing" secondItem="xk5-XX-6i3" secondAttribute="trailing" id="Xnu-2M-RUn"/>
                     <constraint firstItem="xk5-XX-6i3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Xuk-VG-hJc"/>
                     <constraint firstItem="QX2-Xe-0Hh" firstAttribute="leading" secondItem="PGb-hT-PCL" secondAttribute="trailing" constant="8" id="Z9L-HS-RIa"/>
@@ -212,5 +221,6 @@
     <resources>
         <image name="myorderheadicon" width="43" height="43"/>
         <image name="myorderthumbimage" width="134" height="126"/>
+        <image name="rightArrow" width="25" height="32"/>
     </resources>
 </document>

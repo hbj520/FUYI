@@ -13,7 +13,10 @@
 {
     BOOL IsCommit;                                                     //是否匿名评价
 }
+@property (weak, nonatomic) IBOutlet UILabel *label1;
+@property (weak, nonatomic) IBOutlet UILabel *label2;
 @property (weak, nonatomic) IBOutlet TreasureJudgeStarView *starView;  //星级评价视图
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 
 @property (weak, nonatomic) IBOutlet UIButton *surebtn;                //确定按钮
 
@@ -33,9 +36,20 @@
     //给星级评价视图添加手势
     UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(renewStar:)];
     [self.starView addGestureRecognizer:tapGesture];
+    self.textView.delegate = self;
 }
 
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+    self.label1.hidden = YES;
+    self.label2.hidden = YES;
+}
 
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    self.label1.hidden = NO;
+    self.label2.hidden = NO;
+}
 //手势方法的实现
 - (void)renewStar:(UIGestureRecognizer *)sender
 {
@@ -49,7 +63,10 @@
     
 }
 
-
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self.textView endEditing:YES];
+}
 //确定按钮的事件响应方法
 - (IBAction)Commit:(UIButton*)sender {
     IsCommit = !IsCommit;
