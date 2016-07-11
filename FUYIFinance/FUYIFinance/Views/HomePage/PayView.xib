@@ -198,6 +198,7 @@
                 <outlet property="downBtn" destination="FUU-V0-8Bj" id="ARQ-DP-YVp"/>
                 <outlet property="payBtn" destination="xoQ-Wg-E2y" id="5VE-nm-4Ay"/>
                 <outlet property="payWayBtn" destination="st4-WC-ubz" id="wLs-2Q-zSN"/>
+                <outlet property="titleLab" destination="7xW-Hw-Lm0" id="hjr-cN-O0X"/>
             </connections>
             <point key="canvasLocation" x="351.5" y="72"/>
         </view>
