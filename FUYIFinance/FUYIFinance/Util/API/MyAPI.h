@@ -65,12 +65,17 @@ typedef void (^ErrorBlock) (NSError *enginerError);
 - (void)videoStoreWithResult:(ArrayBlock)result
                  errorResult:(ErrorBlock)errorResult;
 #pragma mark -商城默认
-- (void)videoStoreDefaultDataWithResult:(ArrayBlock)result
-                             erroResult:(ErrorBlock)erroResult;
+- (void)videoStoreDefaultDataWithPage:(NSString*)page
+                               Result:(ArrayBlock)result
+                           erroResult:(ErrorBlock)erroResult;
 #pragma mark -id加载商城
-- (void)videoStoreWithSelectId:(NSString*)SelectId
-                        result:(ArrayBlock)result
-                   errorResult:(ErrorBlock)errorResult;
+- (void)videoStoreWithTypeSelectId:(NSString*)typeSelectId
+                     labelSelectId:(NSString*)labelSelectId
+                              page:(NSString*)page
+                           keyWord:(NSString*)keyWord
+                            result:(ArrayBlock)result
+                       errorResult:(ErrorBlock)errorResult;
+
 - (void)videoStoreWithRightSelectId:(NSString*)RightSelectId
                         result:(ArrayBlock)result
                    errorResult:(ErrorBlock)errorResult;

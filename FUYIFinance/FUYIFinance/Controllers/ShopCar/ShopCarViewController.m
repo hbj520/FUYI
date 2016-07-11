@@ -283,7 +283,6 @@
     bottomView.chooseAllBtn.selected = self.isAllSelected;
     [bottomView.goPay addTarget:self action:@selector(goPayClick:) forControlEvents:UIControlEventTouchUpInside];
     
-    
     [self.view addSubview:bottomView];
 }
 
@@ -351,18 +350,14 @@
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
             [self.isSelected[indexPath.section] removeObjectAtIndex:indexPath.row];
-            //删除某行
-            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-            //刷新
-            NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:indexPath.section];
-            [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
+         //   [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
             
             //判断如果某区行数被删光，删除所在区
             if ([self.isSelected[indexPath.section] count] == 0) {
                 [self.isSelected removeObjectAtIndex:indexPath.section];
-                [self.headIsSelected removeObjectAtIndex:indexPath.row];
-                NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:indexPath.section];
-                [tableView deleteSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
+                [self.headIsSelected removeObjectAtIndex:indexPath.section];
+//                NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:indexPath.section];
+//                [tableView deleteSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
                 [self.tableView reloadData];
             }else{
                 //如果没有被删光，遍历剩下的行是否全选
@@ -374,8 +369,9 @@
                     //如果全选，给所在区选定状态改为@“1”
                 }if (y == [self.isSelected[indexPath.section] count]) {
                     
-                self.headIsSelected[indexPath.section] = @"1";
+                    self.headIsSelected[indexPath.section] = @"1";
                 }
+                [self.tableView reloadData];
             }
             
             //遍历区是否局部全选
