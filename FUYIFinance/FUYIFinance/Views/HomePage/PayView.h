@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *downBtn;
 @property (weak, nonatomic) IBOutlet UILabel *bankLab;
 @property (weak, nonatomic) IBOutlet UIButton *payWayBtn;
+@property (weak, nonatomic) IBOutlet UILabel *titleLab;
 
 @end
