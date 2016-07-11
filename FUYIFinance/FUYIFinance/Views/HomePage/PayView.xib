@@ -97,7 +97,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="需付款" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4eh-i2-zFe">
-                    <rect key="frame" x="15" y="195" width="50" height="20"/>
+                    <rect key="frame" x="15" y="185" width="50" height="20"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="BiU-oX-NXx"/>
                         <constraint firstAttribute="height" constant="20" id="HO3-LK-PpW"/>
@@ -107,7 +107,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="39.00元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zyc-ij-2aH">
-                    <rect key="frame" x="244" y="195" width="95" height="25"/>
+                    <rect key="frame" x="244" y="185" width="95" height="25"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="25" id="JgR-su-WdY"/>
                         <constraint firstAttribute="width" constant="95" id="ovW-lK-p8Q"/>
@@ -148,7 +148,7 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="cox-4I-FV6" secondAttribute="trailing" constant="13" id="0vj-7S-EX2"/>
-                <constraint firstItem="4eh-i2-zFe" firstAttribute="top" secondItem="gUU-cH-Msr" secondAttribute="bottom" constant="30" id="2eb-Jm-FNf"/>
+                <constraint firstItem="4eh-i2-zFe" firstAttribute="top" secondItem="gUU-cH-Msr" secondAttribute="bottom" constant="20" id="2eb-Jm-FNf"/>
                 <constraint firstItem="gUU-cH-Msr" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="6s2-Ob-tqc"/>
                 <constraint firstItem="V1b-uI-1Xl" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="9ae-XQ-hag"/>
                 <constraint firstItem="4eh-i2-zFe" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="AnY-KM-cEj"/>
@@ -157,7 +157,7 @@
                 <constraint firstItem="7xW-Hw-Lm0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="EvL-KA-5VR"/>
                 <constraint firstItem="feM-dQ-CyU" firstAttribute="top" secondItem="Myn-5Y-Q1r" secondAttribute="bottom" constant="15" id="I4U-Ut-pwK"/>
                 <constraint firstItem="FUU-V0-8Bj" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="Ixa-Bn-NRR"/>
-                <constraint firstItem="Zyc-ij-2aH" firstAttribute="top" secondItem="gUU-cH-Msr" secondAttribute="bottom" constant="30" id="JzZ-MM-XwZ"/>
+                <constraint firstItem="Zyc-ij-2aH" firstAttribute="top" secondItem="gUU-cH-Msr" secondAttribute="bottom" constant="20" id="JzZ-MM-XwZ"/>
                 <constraint firstAttribute="bottom" secondItem="xoQ-Wg-E2y" secondAttribute="bottom" constant="9" id="LBJ-35-Glb"/>
                 <constraint firstItem="KjV-1T-1gJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="LvW-H4-geE"/>
                 <constraint firstItem="st4-WC-ubz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Omo-Jq-eHL"/>
