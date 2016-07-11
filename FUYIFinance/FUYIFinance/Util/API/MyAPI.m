@@ -223,7 +223,7 @@
                 NSArray *newArray = responseObject[@"data"];
                 StoreDataModel *model = [[StoreDataModel alloc]init];
                 NSArray *storeArray = [model buildWithData:newArray];
-                return result(YES,info,@[storeArray]);
+                return result(YES,info,storeArray);
             }
         }
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
@@ -248,7 +248,7 @@
                 NSArray *newArray = responseObject[@"data"];
                 StoreDataModel *model = [[StoreDataModel alloc]init];
                 NSArray *storeArray = [model buildWithData:newArray];
-                return result(YES,info,@[storeArray]);
+                return result(YES,info,storeArray);
             }
         }
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
