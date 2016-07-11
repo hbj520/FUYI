@@ -69,28 +69,28 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
     // Dispose of any resources that can be recreated.
 }
 #pragma   mark -PrivateMethod 
-- (void)addRefresh{
-    //添加刷新
-    __weak VideoShopViewController *weakself = self;
-    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        if (financeSelectData.count > 0) {
-            [financeSelectData removeAllObjects];
-        }
-        if (classSelectData.count > 0) {
-            [classSelectData removeAllObjects];
-        }
-        if (storeArray.count > 0) {
-            [storeArray removeAllObjects];
-        }
-        [weakself loadData];
-    }];
-    
+//- (void)addRefresh{
+//    //添加刷新
+//    __weak VideoShopViewController *weakself = self;
+//    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+//        if (financeSelectData.count > 0) {
+//            [financeSelectData removeAllObjects];
+//        }
+//        if (classSelectData.count > 0) {
+//            [classSelectData removeAllObjects];
+//        }
+//        if (storeArray.count > 0) {
+//            [storeArray removeAllObjects];
+//        }
+//        [weakself loadData];
+//    }];
+//    
    // self.tableView.mj_footer = [MJRefreshFooter footerWithRefreshingBlock:^{
       //  <#code#>
    // }];
     
     
-}
+
 - (void)TapAct:(UIGestureRecognizer *)ges{
     [Tools hideKeyBoard];
 }
