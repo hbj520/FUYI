@@ -103,14 +103,14 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mKd-2u-Kfb">
-                                <rect key="frame" x="0.0" y="104" width="320" height="415"/>
+                                <rect key="frame" x="0.0" y="148" width="320" height="371"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="mKd-2u-Kfb" secondAttribute="trailing" id="5uJ-rb-agS"/>
-                            <constraint firstItem="mKd-2u-Kfb" firstAttribute="top" secondItem="vRz-fr-BXK" secondAttribute="bottom" id="8kE-p7-p0L"/>
+                            <constraint firstItem="mKd-2u-Kfb" firstAttribute="top" secondItem="vRz-fr-BXK" secondAttribute="bottom" constant="44" id="8kE-p7-p0L"/>
                             <constraint firstItem="e3g-Lv-JfO" firstAttribute="top" secondItem="mKd-2u-Kfb" secondAttribute="bottom" id="NCZ-Xe-Vpc"/>
                             <constraint firstItem="mKd-2u-Kfb" firstAttribute="leading" secondItem="2oj-Kb-xso" secondAttribute="leading" id="XXG-De-iyG"/>
                             <constraint firstItem="vRz-fr-BXK" firstAttribute="leading" secondItem="2oj-Kb-xso" secondAttribute="leading" id="mpo-tl-xhB"/>
@@ -257,13 +257,6 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ySO-DQ-wtL">
                                         <rect key="frame" x="104" y="1" width="51" height="48"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="VD_star" translatesAutoresizingMaskIntoConstraints="NO" id="hEl-m8-qTf">
-                                                <rect key="frame" x="13" y="5" width="25" height="25"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="25" id="Ld0-7X-kew"/>
-                                                    <constraint firstAttribute="width" constant="25" id="UaO-9n-qkJ"/>
-                                                </constraints>
-                                            </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收藏" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mE7-z9-4mA">
                                                 <rect key="frame" x="14" y="31" width="25" height="15"/>
                                                 <constraints>
@@ -274,15 +267,23 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Edo-VN-nng">
+                                                <rect key="frame" x="13" y="5" width="25" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="25" id="5sY-y6-jQe"/>
+                                                    <constraint firstAttribute="height" constant="25" id="Y9J-gV-aEF"/>
+                                                </constraints>
+                                                <state key="normal" image="VD_star"/>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstItem="mE7-z9-4mA" firstAttribute="top" secondItem="Edo-VN-nng" secondAttribute="bottom" constant="1" id="FXi-5l-Ovl"/>
                                             <constraint firstAttribute="width" constant="51" id="Fwz-u5-e9r"/>
-                                            <constraint firstItem="hEl-m8-qTf" firstAttribute="centerX" secondItem="ySO-DQ-wtL" secondAttribute="centerX" id="VqU-oG-Tjs"/>
+                                            <constraint firstItem="Edo-VN-nng" firstAttribute="centerX" secondItem="ySO-DQ-wtL" secondAttribute="centerX" id="GDb-1l-0vT"/>
                                             <constraint firstAttribute="height" constant="48" id="gcm-5j-kFv"/>
-                                            <constraint firstItem="mE7-z9-4mA" firstAttribute="top" secondItem="hEl-m8-qTf" secondAttribute="bottom" constant="1" id="o4h-Gz-GUQ"/>
                                             <constraint firstItem="mE7-z9-4mA" firstAttribute="centerX" secondItem="ySO-DQ-wtL" secondAttribute="centerX" constant="1" id="uSC-xo-zPH"/>
-                                            <constraint firstItem="hEl-m8-qTf" firstAttribute="top" secondItem="ySO-DQ-wtL" secondAttribute="top" constant="5" id="vJr-b4-ATm"/>
+                                            <constraint firstItem="Edo-VN-nng" firstAttribute="top" secondItem="ySO-DQ-wtL" secondAttribute="top" constant="5" id="y8n-vK-M9V"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R9i-gP-jq4">
@@ -342,6 +343,11 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="addShopCarBtn" destination="R9i-gP-jq4" id="dfd-Mi-Eab"/>
+                        <outlet property="collectBtn" destination="Edo-VN-nng" id="CiC-Sv-fg3"/>
+                        <outlet property="collectView" destination="ySO-DQ-wtL" id="AK4-Tn-H6K"/>
+                        <outlet property="serviceView" destination="ibe-jY-hfJ" id="bdL-6f-XPh"/>
+                        <outlet property="shopView" destination="6at-6W-l2w" id="lyT-ms-331"/>
                         <outlet property="tableView" destination="Z3N-pl-EFc" id="aOR-mn-Z1W"/>
                         <segue destination="hbb-vY-MFL" kind="push" identifier="ConfirmOrderSegue" id="n6Q-kH-NmQ"/>
                     </connections>

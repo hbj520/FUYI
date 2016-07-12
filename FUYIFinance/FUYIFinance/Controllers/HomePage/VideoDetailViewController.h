@@ -7,7 +7,14 @@
 //
 
 #import "BaseViewController.h"
-
+@class StoreDataModel;
 @interface VideoDetailViewController : BaseViewController
+@property (nonatomic,strong) StoreDataModel *model;
+
+@property (weak, nonatomic) IBOutlet UIView *serviceView;
+@property (weak, nonatomic) IBOutlet UIView *shopView;
+@property (weak, nonatomic) IBOutlet UIView *collectView;
+@property (weak, nonatomic) IBOutlet UIButton *collectBtn;
+@property (weak, nonatomic) IBOutlet UIButton *addShopCarBtn;
 
 @end

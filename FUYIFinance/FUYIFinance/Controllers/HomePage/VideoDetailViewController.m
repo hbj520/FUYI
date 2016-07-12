@@ -13,8 +13,15 @@
 
 #import "VideoDetailViewController.h"
 
+#import "StoreDataModel.h"
+
+#import "LabelHelper.h"
+
+#import <SDWebImage/UIImageView+WebCache.h>
+
 @interface VideoDetailViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 
 @end
 
@@ -41,9 +48,54 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"VideoDetailFirstTableViewCell" bundle:nil] forCellReuseIdentifier:@"detailFirstReuseID"];
     [self.tableView registerNib:[UINib nibWithNibName:@"VideoDetailSecTableViewCell" bundle:nil] forCellReuseIdentifier:@"detailSecReuseID"];
     [self.tableView registerNib:[UINib nibWithNibName:@"VideoDetailThirdtTableViewCell" bundle:nil] forCellReuseIdentifier:@"detailThirdReuseID"];
+    [self addBottomTapGesAndButton];//添加底部点击事件
+}
+
+- (void)addBottomTapGesAndButton{
+
+    [self.collectBtn addTarget:self action:@selector(collectClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.collectBtn setBackgroundImage:[UIImage imageNamed:@"VD_star"] forState:UIControlStateNormal];
+    [self.collectBtn setBackgroundImage:[UIImage imageNamed:@"VD_red_Star.jpg"] forState:UIControlStateSelected];
+    
+    [self.addShopCarBtn addTarget:self action:@selector(addShopCarClick:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UITapGestureRecognizer *tapShopGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(shopClick:)];
+    [self.shopView addGestureRecognizer:tapShopGes];
+    
+    UITapGestureRecognizer *tapServiceGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(serviceClick:)];
+    [self.serviceView addGestureRecognizer:tapServiceGes];
+}
+
+//收藏
+- (void)collectClick:(UIButton*)button{
+    button.selected = !button.selected;
+    
+
+}
+
+//加入购物车
+- (void)addShopCarClick:(UIButton*)button{
+    [UIView animateWithDuration:1.0 animations:^{
+       // _cartAnimView.frame=CGRectMake(self.screenWidth-55, -(self.screenHeight - CGRectGetHeight(self.view.frame) - 40), 0, 0);
+    } completion:^(BOOL finished) {
+      
+    }];
     
 }
 
+//店铺
+- (void)shopClick:(UIGestureRecognizer *)ges{
+    
+}
+
+//客服
+- (void)serviceClick:(UIGestureRecognizer *)ges{
+    
+}
+
+
+
+#pragma mark - UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 2;
 }
@@ -59,6 +111,11 @@
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0 && indexPath.row == 0) {
         VideoDetailFirstTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"detailFirstReuseID" forIndexPath:indexPath];
+        cell.videoTitleLab.text = _model.videoName;
+        //cell.detailVideoPriceLab.text = [NSString stringWithFormat:@"¥%@",_model.videoPrice];
+        cell.detailVideoPriceLab.attributedText = [[LabelHelper alloc] attributedFontStringWithString:[NSString stringWithFormat:@"¥ %@",_model.videoPrice]];
+        cell.authorLab.text = [NSString stringWithFormat:@"讲师： %@",_model.teacherName];
+        cell.saleCountsLab.text = [NSString stringWithFormat:@"月销%@笔",_model.sellNum];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }if (indexPath.section == 0 && indexPath.row == 1) {
@@ -67,6 +124,8 @@
         return cell;
     }else{
         VideoDetailThirdtTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"detailThirdReuseID" forIndexPath:indexPath];
+        cell.videoContentText.text = _model.videodescription;
+
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -80,7 +139,8 @@
         return head1;
     }else{
         UIImageView *head0 = [[UIImageView alloc]init];
-        head0.image = [UIImage imageNamed:@"VD_class_demo"];
+       // head0.image = [UIImage imageNamed:@"VD_class_demo"];
+      [head0 sd_setImageWithURL:[NSURL URLWithString:_model.videoImage]placeholderImage:[UIImage imageNamed:@"VD_class_demo"]];
         return head0;
     }
     
