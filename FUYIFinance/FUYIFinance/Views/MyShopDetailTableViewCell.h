@@ -10,5 +10,9 @@
 
 @interface MyShopDetailTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *thumbimage;
+@property (weak, nonatomic) IBOutlet UILabel *titlename;
+@property (weak, nonatomic) IBOutlet UILabel *teachername;
+@property (weak, nonatomic) IBOutlet UILabel *paycount;
 
 @end

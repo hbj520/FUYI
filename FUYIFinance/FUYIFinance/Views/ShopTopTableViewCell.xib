@@ -23,19 +23,18 @@
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PTM-j7-85c">
                         <rect key="frame" x="95" y="10" width="1" height="20"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="1" id="RMQ-OT-FqZ"/>
                             <constraint firstAttribute="height" constant="20" id="b0j-9Z-dvz"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="原油投资分析6月1日上午10点正式发布！" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7g-cu-QKs">
-                        <rect key="frame" x="116" y="10" width="163" height="20"/>
+                        <rect key="frame" x="106" y="10" width="183" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="163" id="HkG-TI-FNB"/>
-                            <constraint firstAttribute="height" constant="20" id="afs-XC-ocS"/>
+                            <constraint firstAttribute="height" constant="20" id="1lG-Gd-Zhd"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -48,11 +47,12 @@
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="d7g-cu-QKs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="4Gd-xz-xft"/>
                     <constraint firstAttribute="bottom" secondItem="72E-kA-Iwx" secondAttribute="bottom" constant="12" id="CMG-Ke-JAF"/>
+                    <constraint firstItem="72E-kA-Iwx" firstAttribute="leading" secondItem="d7g-cu-QKs" secondAttribute="trailing" constant="10" id="EnU-cs-2Ha"/>
                     <constraint firstItem="w8P-Kt-vJw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Ses-tl-u8D"/>
-                    <constraint firstItem="72E-kA-Iwx" firstAttribute="leading" secondItem="d7g-cu-QKs" secondAttribute="trailing" constant="20" id="VQ0-k1-APL"/>
+                    <constraint firstItem="d7g-cu-QKs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="WjV-Av-uej"/>
                     <constraint firstItem="72E-kA-Iwx" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="a6K-B1-KYL"/>
+                    <constraint firstItem="d7g-cu-QKs" firstAttribute="leading" secondItem="PTM-j7-85c" secondAttribute="trailing" constant="10" id="aHV-Cf-VBn"/>
                     <constraint firstItem="PTM-j7-85c" firstAttribute="leading" secondItem="w8P-Kt-vJw" secondAttribute="trailing" constant="5" id="iSX-Ig-CBv"/>
                     <constraint firstAttribute="trailing" secondItem="72E-kA-Iwx" secondAttribute="trailing" constant="8" id="jZI-K4-eSl"/>
                     <constraint firstItem="PTM-j7-85c" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="kih-5g-bPU"/>

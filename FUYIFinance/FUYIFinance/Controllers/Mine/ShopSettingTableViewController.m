@@ -7,18 +7,21 @@
 //
 
 #import "ShopSettingTableViewController.h"
+#import "UIViewController+HUD.h"
 #import "ModifyHeadView.h"
 #import "ChangeHeadView.h"
 #import "KGModal.h"
-@interface ShopSettingTableViewController ()
-
+@interface ShopSettingTableViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+{
+    UIImagePickerController * _picker;
+}
 @end
 
 @implementation ShopSettingTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self initPickView];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -81,14 +84,42 @@
     [[KGModal sharedInstance] showWithContentView:modifyView andAnimated:YES];
     
     modifyView.LibraryBlock = ^(){
+        [self openPhotoAlbun];
       [[KGModal sharedInstance] hideAnimated:YES];
     };
     modifyView.TakeBlock = ^(){
+        [self openCamera];
       [[KGModal sharedInstance] hideAnimated:YES];  
     };
    // ModifyHeadView * modifyView = [[[NSBundle mainBundle] loadNibNamed:@"ModifyHeadView" owner:self options:nil] lastObject];
    // [modifyView createUI];
        
+}
+- (void)initPickView
+{
+    _picker = [[UIImagePickerController alloc] init];
+    _picker.delegate = self;
+}
+
+- (void)openCamera
+{
+    _picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    [self presentViewController:_picker animated:YES completion:nil];
+}
+
+- (void)openPhotoAlbun
+{
+    _picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self presentViewController:_picker animated:YES completion:nil];
+}
+#pragma mark-UINavigationControllerDelegate & UIImagePickerControllerDelegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
+{
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    UIImage * image = info[UIImagePickerControllerOriginalImage];
+    [self showHudInView:self.view hint:@"上传图片..."];
+    NSData * data = UIImageJPEGRepresentation(image, 0.1);
+    
 }
 
 - (IBAction)back:(id)sender {

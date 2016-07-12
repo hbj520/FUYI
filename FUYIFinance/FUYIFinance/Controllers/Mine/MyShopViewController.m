@@ -50,6 +50,7 @@
     
     UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeCustom];
     btn1.frame = CGRectMake(0, 0,20,20);
+    [btn1 addTarget:self action:@selector(btnclick1:) forControlEvents:UIControlEventTouchUpInside];
     [btn1 setImage:[UIImage imageNamed:@"barimage"] forState:UIControlStateNormal];
     
     _chatBtn = [[BBBadgeBarButtonItem alloc] initWithCustomUIButton:btn];
@@ -75,6 +76,10 @@
     
 }
 
+- (void)btnclick1:(id)sender
+{
+    
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -177,7 +182,7 @@
 //订单管理
 - (void)orderManage
 {
-    
+    [self performSegueWithIdentifier:@"treasureSegue" sender:nil];
 }
 
 //店铺设置

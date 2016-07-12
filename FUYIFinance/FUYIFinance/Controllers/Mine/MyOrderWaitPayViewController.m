@@ -10,7 +10,7 @@
 #import "PersonalWaitPayTableViewCell.h"
 #import "PayView.h"
 
-@interface MyOrderWaitPayViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface MyOrderWaitPayViewController ()<UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate>
 {
     UITableView * _tableView;
     NSMutableArray * _dataSource; //待付款的数据
@@ -85,6 +85,8 @@
 //点击取消订单
 - (void)clickCancelBtn:(UIButton*)sender
 {
+    UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"确认删除订单？" message:@"删除之后可以从电脑端订单回收站恢复" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认", nil];
+    [alertView show];
     NSLog(@"%ld",(long)sender.tag);
 }
 
@@ -104,6 +106,13 @@
     [UIView commitAnimations];
 
     NSLog(@"%ld",(long)sender.tag);
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 1){
+        
+    }
 }
 
 //确认付款落下
