@@ -20,7 +20,7 @@
                             <constraint firstAttribute="height" constant="20" id="0P1-YM-dYH"/>
                             <constraint firstAttribute="width" constant="60" id="hff-U8-EUt"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -30,7 +30,7 @@
                             <constraint firstAttribute="width" constant="65" id="7pV-kS-JaU"/>
                             <constraint firstAttribute="height" constant="20" id="kWb-GE-861"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>

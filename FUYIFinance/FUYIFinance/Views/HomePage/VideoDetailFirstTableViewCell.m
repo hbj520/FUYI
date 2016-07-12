@@ -7,12 +7,15 @@
 //
 
 #import "VideoDetailFirstTableViewCell.h"
-
+#import "LabelHelper.h"
 @implementation VideoDetailFirstTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    
+    
+  self.detailVideoPriceLab.attributedText = [[LabelHelper alloc] attributedFontStringWithString:@"¥ 39.00"];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

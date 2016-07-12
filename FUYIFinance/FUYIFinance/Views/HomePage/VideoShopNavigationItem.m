@@ -18,4 +18,12 @@
 }
 */
 
+- (void)awakeFromNib{
+    self.searchBar.delegate = self;
+     UITextField *searchField=[_searchBar valueForKey:@"_searchField"];
+    searchField.borderStyle = UITextBorderStyleNone;
+    searchField.backgroundColor = RGBACOLOR(224, 225, 226, 1);
+}
+
+
 @end

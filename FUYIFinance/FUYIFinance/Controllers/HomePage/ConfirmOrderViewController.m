@@ -53,6 +53,7 @@
      _payView = [[[NSBundle mainBundle]loadNibNamed:@"PayView" owner:self options:nil]lastObject];
     _payView.frame = CGRectMake(0, ScreenHeight, ScreenWidth, ScreenHeight*0.65);
     [_payView.downBtn addTarget:self action:@selector(down) forControlEvents:UIControlEventTouchUpInside];
+    [_payView.payWayBtn addTarget:self action:@selector(selectBank) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_payView];
 }
 
@@ -173,6 +174,17 @@
     }
     buyCell.countText.text = [NSString stringWithFormat:@"%d",a];
 }
+
+-(void)selectBank{
+    
+    
+    
+    
+    
+    
+}
+
+
 
 
 //确认付款弹出

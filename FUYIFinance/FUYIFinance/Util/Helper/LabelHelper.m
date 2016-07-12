@@ -41,6 +41,21 @@
     return nil;
 }
 
+
+- (NSMutableAttributedString *)attributedFontStringWithString:(NSString*)string
+{
+    NSArray * stringArray = [string componentsSeparatedByString:@"."];
+    NSString * numString = stringArray[0];
+    NSString * numberString = [numString stringByAppendingString:@"."];
+    NSInteger length = numberString.length;
+    NSInteger contentlength = string.length;
+    NSMutableAttributedString * attributeString = [[NSMutableAttributedString alloc] initWithString:string];
+    [attributeString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:24] range:NSMakeRange(0, length)];
+    [attributeString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:18] range:NSMakeRange(length,contentlength - length)];
+    return attributeString;
+}
+
+
 - (NSMutableAttributedString *)attributedStringWithString:(NSString*)string
 {
     NSArray * stringArray = [string componentsSeparatedByString:@"."];

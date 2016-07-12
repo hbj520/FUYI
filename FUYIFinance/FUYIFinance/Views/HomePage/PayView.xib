@@ -19,7 +19,7 @@
                     </constraints>
                     <state key="normal" title="Button" image="SP_delete"/>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="确认付款" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7xW-Hw-Lm0">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="付款详情" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7xW-Hw-Lm0">
                     <rect key="frame" x="150" y="15" width="75" height="20"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="75" id="GKz-QY-Icr"/>

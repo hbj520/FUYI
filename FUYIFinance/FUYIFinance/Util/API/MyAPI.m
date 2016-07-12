@@ -185,7 +185,7 @@
     
 }
 
-#pragma mark -商城默认
+#pragma mark -商城
 - (void)videoStoreWithTypeSelectId:(NSString*)typeSelectId
                      labelSelectId:(NSString*)labelSelectId
                               page:(NSString*)page
