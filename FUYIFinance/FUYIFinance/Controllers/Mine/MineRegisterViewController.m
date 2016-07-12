@@ -12,7 +12,7 @@
 #import "MyAPI.h"
 #import "Tools.h"
 
-@interface MineRegisterViewController ()
+@interface MineRegisterViewController ()<UITextFieldDelegate>
 {
     NSTimer *timer;
     NSInteger time;
@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *repassword;  //确认密码
 @property (weak, nonatomic) IBOutlet UIButton *registerBtn;    //注册按钮
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *toplayout;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *distancewithtop;
 
 @end
 
@@ -40,6 +41,26 @@
     if(self.view.frame.size.height == 480){
         self.toplayout.constant = 10;
     }
+    self.PhoneNum.delegate = self;
+    self.testCode.delegate = self;
+    self.password.delegate = self;
+    self.repassword.delegate = self;
+    
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    if(self.view.frame.size.height == 480){
+    self.distancewithtop.constant = -150;
+    }
+    if(self.view.frame.size.height == 568){
+        self.distancewithtop.constant = -70;
+    }
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    self.distancewithtop.constant = 0;
 }
 
 - (void)setTimeSchedu{

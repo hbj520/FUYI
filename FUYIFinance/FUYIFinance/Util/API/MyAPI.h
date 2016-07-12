@@ -106,7 +106,7 @@ typedef void (^ErrorBlock) (NSError *enginerError);
  *  @param result      模型数组
  *  @param errorResult 错误信息
  */
-- (void)requestMyJudgeDataWithParameters:(NSString*)page result:(ArrayBlock)result errorResult:(ErrorBlock)errorResult;
+- (void)requestMyJudgeDataWithParameters:(NSString*)page result:(StateBlock)result errorResult:(ErrorBlock)errorResult;
 
 /**
  *  用户待付款的订单
@@ -116,8 +116,18 @@ typedef void (^ErrorBlock) (NSError *enginerError);
  *  @param errorResult 错误信息
  */
 - (void)requestWaitpayDataWithParameters:(NSString*)page result:(ArrayBlock)result errorResult:(ErrorBlock)errorResult;
-
-
+/**
+ *  用户评价商品
+ *
+ *  @param score       评分
+ *  @param anonymous   是否匿名
+ *  @param content     评论内容
+ *  @param goodstyle   当前评论的商品类型
+ *  @param goodsid     商品的id
+ *  @param result      模型数组
+ *  @param errorResult 错误信息
+ */
+- (void)uploadUserJudgeWithParameters:(NSString*)score Anonymous:(NSString*)anonymous Content:(NSString*)content Goodstyle:(NSString*)goodstyle Goodsid:(NSString*)goodsid result:(StateBlock)result errorResult:(ErrorBlock)errorResult;
 #pragma mark -讲师团队
 
 

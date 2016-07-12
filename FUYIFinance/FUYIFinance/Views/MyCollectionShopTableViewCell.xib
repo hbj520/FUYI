@@ -60,6 +60,11 @@
                     <constraint firstItem="sXT-vw-Jne" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="p6q-S1-AOI"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="teachername" destination="Q7u-zf-bv7" id="kB8-4g-EGG"/>
+                <outlet property="thumbimage" destination="jhE-FW-g51" id="VoM-lV-kE2"/>
+                <outlet property="titlename" destination="nbg-b4-pNe" id="cl8-88-luJ"/>
+            </connections>
             <point key="canvasLocation" x="458" y="392.5"/>
         </tableViewCell>
     </objects>

@@ -9,6 +9,9 @@
 #import "MineTableViewController.h"
 #import "MyOrderWaitJudgeViewController.h"
 @interface MineTableViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *headimage;
+@property (weak, nonatomic) IBOutlet UILabel *teachername;
+
 @property (weak, nonatomic) IBOutlet UIView *preparPay;   //待付款
 @property (weak, nonatomic) IBOutlet UIView *collectionShop;   //收藏的店铺
 
