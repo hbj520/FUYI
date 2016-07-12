@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MyShopDetailTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 
 @end

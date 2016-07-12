@@ -102,7 +102,7 @@
                             <constraint firstAttribute="height" constant="21" id="Wxd-jN-0BY"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.37647058823529411" green="0.38431372549019605" blue="0.40392156862745099" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="myorderheadicon" translatesAutoresizingMaskIntoConstraints="NO" id="xWA-04-AHn">
@@ -112,11 +112,11 @@
                             <constraint firstAttribute="height" constant="25" id="QQk-2g-yFO"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="李小刚的课堂 &gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NHG-2N-0eC">
-                        <rect key="frame" x="46" y="8" width="140" height="24"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="李小刚的课堂 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NHG-2N-0eC">
+                        <rect key="frame" x="46" y="8" width="75" height="24"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="24" id="B00-GE-WB7"/>
-                            <constraint firstAttribute="width" constant="140" id="gGc-Lx-7fI"/>
+                            <constraint firstAttribute="width" constant="75" id="gGc-Lx-7fI"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.40000000000000002" green="0.396078431372549" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -163,9 +163,17 @@
                             <constraint firstAttribute="height" constant="65" id="j6q-VS-dyi"/>
                         </constraints>
                     </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rightArrow" translatesAutoresizingMaskIntoConstraints="NO" id="jsI-Qn-Lp5">
+                        <rect key="frame" x="120" y="12" width="12" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="17" id="J13-TP-n9e"/>
+                            <constraint firstAttribute="width" constant="12" id="SJX-gf-f4y"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="F2b-Qz-jVP" firstAttribute="top" secondItem="dbC-XE-7pb" secondAttribute="bottom" constant="9" id="04J-6T-SGA"/>
+                    <constraint firstItem="jsI-Qn-Lp5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="0UO-3S-bMB"/>
                     <constraint firstItem="cka-Wq-QFL" firstAttribute="leading" secondItem="HUB-9R-eOG" secondAttribute="trailing" constant="2" id="19C-dS-ivA"/>
                     <constraint firstItem="5Qj-7Q-K6s" firstAttribute="top" secondItem="NHG-2N-0eC" secondAttribute="bottom" constant="8" id="4L6-fT-BRX"/>
                     <constraint firstItem="Syc-Jy-jqm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="8bC-Nh-kOZ"/>
@@ -188,6 +196,7 @@
                     <constraint firstItem="dbC-XE-7pb" firstAttribute="leading" secondItem="TJ4-rW-exj" secondAttribute="trailing" constant="13" id="QsN-Qf-JhR"/>
                     <constraint firstItem="4I2-Zj-WBT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Zng-3U-U0l"/>
                     <constraint firstItem="xWA-04-AHn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="aIR-Qf-BdR"/>
+                    <constraint firstItem="jsI-Qn-Lp5" firstAttribute="leading" secondItem="xWA-04-AHn" secondAttribute="trailing" constant="82" id="aaY-bm-Xu5"/>
                     <constraint firstItem="TF0-2S-xw6" firstAttribute="top" secondItem="F2b-Qz-jVP" secondAttribute="bottom" constant="9" id="gzv-wP-byB"/>
                     <constraint firstItem="dbC-XE-7pb" firstAttribute="top" secondItem="SJu-BE-Nn4" secondAttribute="bottom" constant="8" id="h6j-Pk-SMp"/>
                     <constraint firstItem="SJu-BE-Nn4" firstAttribute="top" secondItem="5Qj-7Q-K6s" secondAttribute="bottom" constant="10" id="iA4-Vy-KMo"/>
@@ -217,5 +226,6 @@
     <resources>
         <image name="myorderheadicon" width="43" height="43"/>
         <image name="myorderthumbimage" width="134" height="126"/>
+        <image name="rightArrow" width="25" height="32"/>
     </resources>
 </document>

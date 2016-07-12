@@ -25,7 +25,7 @@
     // Do any additional setup after loading the view.
     [self addChatBtn];
     MyCollectionCourseViewController * MyCollectionCourseVC = [[MyCollectionCourseViewController alloc] init];
-    MyCollectionCourseVC.title = @"收藏的课程";
+    MyCollectionCourseVC.title = @"收藏的课程 ";
     
     MyCollectionShopViewController * MyCollectionShopVC = [[MyCollectionShopViewController alloc] init];
     MyCollectionShopVC.title = @"  收藏的店铺";
@@ -37,8 +37,7 @@
                                                                                         topBarHeight:statusHeight + navigationHeight
                                                                                 parentViewController:self];
     containerVC.delegate = self;
-   
-    containerVC.menuItemFont = [UIFont systemFontOfSize:16];
+    containerVC.menuItemFont = [UIFont systemFontOfSize:15];
     
     [self.view addSubview:containerVC.view];
 
@@ -49,7 +48,7 @@
 {
     //    NSLog(@"current Index : %ld",(long)index);
     //    NSLog(@"current controller : %@",controller);
-    NSLog(@"currentindex:%ld",(long)index);
+       NSLog(@"currentindex:%ld",(long)index);
     [controller viewWillAppear:YES];
 }
 

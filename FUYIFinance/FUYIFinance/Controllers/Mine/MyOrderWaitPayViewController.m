@@ -41,7 +41,8 @@
 -(void)creatHidePayView{
     
     _payView = [[[NSBundle mainBundle]loadNibNamed:@"PayView" owner:self options:nil]lastObject];;
-    _payView.frame = CGRectMake(0, ScreenHeight, ScreenWidth, 430);
+    _payView.titleLab.text = @"付款详情";
+    _payView.frame = CGRectMake(0, ScreenHeight, ScreenWidth, ScreenHeight * 0.65);
     [_payView.downBtn addTarget:self action:@selector(down) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_payView];
 }
@@ -97,8 +98,8 @@
     [self.view addSubview:_shadowBtn];
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:1.0];
-    _payView.frame = CGRectMake(0, ScreenHeight-430, ScreenWidth, 430);
-    _shadowBtn.frame = CGRectMake(0, -430, ScreenWidth, ScreenHeight);
+    _payView.frame = CGRectMake(0, ScreenHeight*0.35 - 100, ScreenWidth, ScreenHeight * 0.65);
+    _shadowBtn.frame = CGRectMake(0, -ScreenHeight * 0.65 - 100, ScreenWidth, ScreenHeight);
     
     [UIView commitAnimations];
 
@@ -111,7 +112,7 @@
     
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:1.0];
-    _payView.frame = CGRectMake(0, ScreenHeight, ScreenWidth, 430);
+    _payView.frame = CGRectMake(0, ScreenHeight, ScreenWidth, ScreenHeight * 0.65);
     [UIView commitAnimations];
 }
 
@@ -127,6 +128,7 @@
     self.navigationController.navigationBarHidden = YES;
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 
 
 - (void)didReceiveMemoryWarning {

@@ -7,7 +7,9 @@
 //
 
 #import "ShopSettingTableViewController.h"
-
+#import "ModifyHeadView.h"
+#import "ChangeHeadView.h"
+#import "KGModal.h"
 @interface ShopSettingTableViewController ()
 
 @end
@@ -58,17 +60,47 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section==0) {
-        if(indexPath.row==1){
+    if (indexPath.section == 0) {
+        if(indexPath.row == 0){
+            [self showModalView];
+        }
+        if(indexPath.row == 1){
             [self performSegueWithIdentifier:@"shopnameSegue" sender:nil];
         }
     }
+}
+
+- (void)showModalView
+{
+   // [[KGModal sharedInstance] setTapOutsideToDismiss:NO];
+    [[KGModal sharedInstance] setCloseButtonType:KGModalCloseButtonTypeNone];
+    [KGModal sharedInstance].modalBackgroundColor = [UIColor whiteColor];
+  
+    ChangeHeadView * modifyView = [[[NSBundle mainBundle] loadNibNamed:@"ChangeHeadView" owner:self options:nil] lastObject];
+    
+    [[KGModal sharedInstance] showWithContentView:modifyView andAnimated:YES];
+    
+    modifyView.LibraryBlock = ^(){
+      [[KGModal sharedInstance] hideAnimated:YES];
+    };
+    modifyView.TakeBlock = ^(){
+      [[KGModal sharedInstance] hideAnimated:YES];  
+    };
+   // ModifyHeadView * modifyView = [[[NSBundle mainBundle] loadNibNamed:@"ModifyHeadView" owner:self options:nil] lastObject];
+   // [modifyView createUI];
+       
 }
 
 - (IBAction)back:(id)sender {
     
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key
+{
+    
+}
+
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
