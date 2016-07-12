@@ -13,5 +13,5 @@
 - (UILabel *)buildAttentionLabelWithNumString:(NSString *)numString regularString:(NSString *)regularString;
 - (UILabel *)buildPriceLabelWithString:(NSString*)string;
 - (NSMutableAttributedString *)attributedStringWithString:(NSString*)string;
-
+- (NSMutableAttributedString *)attributedFontStringWithString:(NSString*)string;
 @end

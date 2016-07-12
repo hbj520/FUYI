@@ -8,6 +8,7 @@
 #import "VideoDetailViewController.h"
 #import "VideoShopViewController.h"
 
+#import "VideoShopNavigationItem.h"
 #import "VideoStoreTableViewCell.h"
 #import "VideoShopTableViewCell.h"
 
@@ -69,7 +70,7 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.navigationController.navigationBar.hidden = NO;
+    self.navigationController.navigationBar.hidden = YES;
     self.tabBarController.tabBar.hidden = NO;
 }
 - (void)didReceiveMemoryWarning {
@@ -81,15 +82,9 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
     //添加刷新
     __weak VideoShopViewController *weakself = self;
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        if (financeSelectData.count > 0) {
-            [financeSelectData removeAllObjects];
-        }
-        if (classSelectData.count > 0) {
-            [classSelectData removeAllObjects];
-        }
-        if (storeArray.count > 0) {
-            [storeArray removeAllObjects];
-        }
+//        if (storeArray.count > 0) {
+//            [storeArray removeAllObjects];
+//        }
         _page = 1;
         [weakself loadDataWithTypeSelectId:typeId labelSelectId:labelId pageNum:_page keyWord:key];
     }];
@@ -108,6 +103,14 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
     self.tableView.dataSource = self;
     [self.tableView registerClass:[VideoShopTableViewCell class] forCellReuseIdentifier:videoShopReuseId];
     [self dropDownMenu];//下拉菜单
+    [self addCustomerNavgationItem];
+}
+
+- (void)addCustomerNavgationItem{
+    VideoShopNavigationItem *navItem = [[[NSBundle mainBundle] loadNibNamed:@"VideoShopNavigationItem" owner:self options:nil] lastObject];
+    navItem.frame = CGRectMake(0, 0,ScreenWidth, 64);
+    
+    [self.view addSubview:navItem];
 }
 
 - (void)loadMenuData{
@@ -206,7 +209,7 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
             return;
         }else{
             SelectModel *model = classSelectData[indexPath.row-1];
-            self.saveId = model.selectId;
+            labelId = model.selectId;
             _page = 1;
             [self loadDataWithTypeSelectId:typeId labelSelectId:labelId pageNum:_page keyWord:key];
         }

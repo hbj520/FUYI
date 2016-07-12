@@ -19,7 +19,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="YZH-es-o3g"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>

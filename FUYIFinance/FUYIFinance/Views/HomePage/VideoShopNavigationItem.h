@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VideoShopNavigationItem : UINavigationBar
+@interface VideoShopNavigationItem : UINavigationBar<UISearchBarDelegate>
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet UIButton *searchBtn;
+@property (weak, nonatomic) IBOutlet UIButton *backBtn;
 
 @end
