@@ -41,18 +41,18 @@
                         <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="anF-1F-86r">
-                        <rect key="frame" x="108" y="68" width="10" height="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="anF-1F-86r">
+                        <rect key="frame" x="108" y="69" width="10" height="17"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="10" id="3Oo-BD-KcA"/>
                             <constraint firstAttribute="height" constant="17" id="Hh8-r0-QjH"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.88235294117647056" green="0.29803921568627451" blue="0.29411764705882354" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="39.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VWd-qc-PcB">
-                        <rect key="frame" x="121" y="66" width="38" height="22"/>
+                        <rect key="frame" x="119" y="66" width="38" height="22"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="38" id="LpR-9J-CYX"/>
                             <constraint firstAttribute="height" constant="22" id="k5C-RY-NJE"/>
@@ -76,13 +76,13 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7人付款" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FJh-iX-KpO">
-                        <rect key="frame" x="169" y="69" width="50" height="17"/>
+                        <rect key="frame" x="167" y="69" width="50" height="17"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="hWq-lu-bxO"/>
                             <constraint firstAttribute="height" constant="17" id="msR-oM-tmo"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -93,10 +93,10 @@
                     <constraint firstItem="30k-Cr-lpd" firstAttribute="leading" secondItem="ghm-I7-A48" secondAttribute="trailing" constant="12" id="ALT-DO-FZD"/>
                     <constraint firstItem="u0h-y1-C2M" firstAttribute="top" secondItem="30k-Cr-lpd" secondAttribute="bottom" constant="8" id="Frj-L2-hM2"/>
                     <constraint firstAttribute="trailing" secondItem="QmY-aK-PnS" secondAttribute="trailing" constant="8" id="JkL-3G-vjz"/>
-                    <constraint firstItem="anF-1F-86r" firstAttribute="top" secondItem="u0h-y1-C2M" secondAttribute="bottom" constant="5" id="MbE-SI-3Vx"/>
+                    <constraint firstItem="anF-1F-86r" firstAttribute="top" secondItem="u0h-y1-C2M" secondAttribute="bottom" constant="6" id="MbE-SI-3Vx"/>
                     <constraint firstItem="FJh-iX-KpO" firstAttribute="top" secondItem="u0h-y1-C2M" secondAttribute="bottom" constant="6" id="P1b-Ob-7Tv"/>
                     <constraint firstItem="ghm-I7-A48" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="RSB-HK-JJJ"/>
-                    <constraint firstItem="VWd-qc-PcB" firstAttribute="leading" secondItem="anF-1F-86r" secondAttribute="trailing" constant="3" id="a3r-ZO-aFA"/>
+                    <constraint firstItem="VWd-qc-PcB" firstAttribute="leading" secondItem="anF-1F-86r" secondAttribute="trailing" constant="1" id="a3r-ZO-aFA"/>
                     <constraint firstItem="anF-1F-86r" firstAttribute="leading" secondItem="ghm-I7-A48" secondAttribute="trailing" constant="12" id="ax2-Po-U6A"/>
                     <constraint firstAttribute="bottom" secondItem="2oc-3s-8pt" secondAttribute="bottom" constant="2" id="bGe-XM-ba3"/>
                     <constraint firstItem="2oc-3s-8pt" firstAttribute="top" secondItem="QmY-aK-PnS" secondAttribute="bottom" constant="8" id="eiB-qr-rqu"/>
@@ -107,7 +107,11 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="paycount" destination="FJh-iX-KpO" id="1OD-kq-iC8"/>
                 <outlet property="priceLabel" destination="VWd-qc-PcB" id="ZWT-UJ-wa7"/>
+                <outlet property="teachername" destination="u0h-y1-C2M" id="Xc4-uL-Gfa"/>
+                <outlet property="thumbimage" destination="ghm-I7-A48" id="wbD-U0-Ulp"/>
+                <outlet property="titlename" destination="30k-Cr-lpd" id="p97-e8-qMG"/>
             </connections>
         </tableViewCell>
     </objects>

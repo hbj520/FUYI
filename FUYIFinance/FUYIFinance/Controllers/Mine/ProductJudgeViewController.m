@@ -32,7 +32,7 @@
     //给确定按钮画圆角
     self.surebtn.layer.cornerRadius = 3;
     self.surebtn.clipsToBounds = YES;
-    
+    self.surebtn.enabled = NO;
     //给星级评价视图添加手势
     UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(renewStar:)];
     [self.starView addGestureRecognizer:tapGesture];

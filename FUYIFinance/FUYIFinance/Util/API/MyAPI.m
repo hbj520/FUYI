@@ -116,7 +116,7 @@
 {
     NSDictionary * parameters = @{@"phone":phoneNumber,@"userpwd":password};
     [self.manager POST:@"nos_login" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-        NSString * state = responseObject[@"state"];
+        NSString * state = responseObject[@"status"];
         NSString * information = responseObject[@"info"];
         if([state isEqualToString:@"1"]){
             result(YES,information);

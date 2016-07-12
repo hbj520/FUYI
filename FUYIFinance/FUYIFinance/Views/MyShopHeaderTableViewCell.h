@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface MyShopHeaderTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *headicon;
+@property (weak, nonatomic) IBOutlet UILabel *totoalcount;
+@property (weak, nonatomic) IBOutlet UILabel *vivstcount;
+@property (weak, nonatomic) IBOutlet UILabel *ordercount;
 
 @end

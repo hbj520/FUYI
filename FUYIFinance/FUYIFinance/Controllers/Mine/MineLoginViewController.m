@@ -24,6 +24,7 @@
 
 - (IBAction)registerBtn:(id)sender;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *toplayout;
 
 @end
 
@@ -32,6 +33,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    if(self.view.frame.size.height == 480){
+        self.toplayout.constant = 30;
+    }
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textfieldIsEditing:) name:UITextFieldTextDidChangeNotification object:nil];
+}
+
+#pragma mark - PrivateMethod
+- (void)textfieldIsEditing:(NSNotification *)notification{
+    if (self.numberInput.text.length >= 11) {
+        [self.loginBtn setImage:[UIImage imageNamed:@"login_enablebtn"] forState:UIControlStateNormal];
+        self.loginBtn.enabled = YES;
+    }else{
+        [self.loginBtn setImage:[UIImage imageNamed:@"login_unablebtn"] forState:UIControlStateNormal];
+        self.loginBtn.enabled = NO;
+    }
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -69,14 +90,14 @@
 //忘记密码
 - (IBAction)forgotPassword:(id)sender {
     
-    [self performSegueWithIdentifier:@"forgetSegue" sender:nil];
+    //[self performSegueWithIdentifier:@"forgetSegue" sender:nil];
 
 }
 
 //注册账号
 - (IBAction)registerBtn:(id)sender {
     
-    [self performSegueWithIdentifier:@"registerSegue" sender:nil];
+//    [self performSegueWithIdentifier:@"registerSegue" sender:nil];
 
 }
 

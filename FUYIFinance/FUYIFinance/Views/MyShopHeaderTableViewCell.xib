@@ -203,6 +203,12 @@
                     <constraint firstItem="BTQ-ct-Cs1" firstAttribute="top" secondItem="6Md-5x-VXf" secondAttribute="bottom" id="wb3-cf-oNS"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="headicon" destination="arh-S7-ZQd" id="kjB-xs-sw8"/>
+                <outlet property="ordercount" destination="Pgz-iJ-KTV" id="wlv-sy-mhv"/>
+                <outlet property="totoalcount" destination="6IR-FC-cBg" id="LZw-Ad-Dy4"/>
+                <outlet property="vivstcount" destination="FhI-fc-rIe" id="gR2-lQ-GJw"/>
+            </connections>
             <point key="canvasLocation" x="526" y="317.5"/>
         </tableViewCell>
     </objects>
