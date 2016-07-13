@@ -33,6 +33,18 @@
     
 }
 
+#pragma mark -PRIVATEMETHOD
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
+    if(self.isGoodsSetting){
+        self.navigationItem.title = @"宝贝管理";
+    }else{
+        self.navigationItem.title = @"订单管理";
+    }
+    
+}
+
 - (void)addChatBtn{
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(0, 0, 31, 27);
@@ -126,10 +138,7 @@
     
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = NO;
-}
+
 
 //退回到上级界面
 - (IBAction)back:(id)sender {

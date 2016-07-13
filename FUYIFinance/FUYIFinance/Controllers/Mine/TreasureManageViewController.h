@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface TreasureManageViewController : BaseViewController
-
+@property (nonatomic,assign) BOOL isGoodsSetting;
 @end

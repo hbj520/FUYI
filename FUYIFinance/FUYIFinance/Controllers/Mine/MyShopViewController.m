@@ -7,6 +7,7 @@
 //
 
 #import "MyShopViewController.h"
+#import "TreasureManageViewController.h"
 #import "MyShopHeaderTableViewCell.h"
 #import "ShopTopTableViewCell.h"
 #import "FourBtnTableViewCell.h"
@@ -176,13 +177,14 @@
 //宝贝管理
 - (void)treasureManage
 {
-    [self performSegueWithIdentifier:@"treasureSegue" sender:nil];
+    
+    [self performSegueWithIdentifier:@"treasureSegue" sender:[NSNumber numberWithBool:YES]];
 }
 
 //订单管理
 - (void)orderManage
 {
-    [self performSegueWithIdentifier:@"treasureSegue" sender:nil];
+    [self performSegueWithIdentifier:@"treasureSegue" sender:[NSNumber numberWithBool:NO]];
 }
 
 //店铺设置
@@ -212,14 +214,14 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    TreasureManageViewController * vc = [[TreasureManageViewController alloc] init];
+    vc.isGoodsSetting = sender;
 }
-*/
+
 
 @end
