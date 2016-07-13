@@ -113,6 +113,13 @@
 		CC6FD6111D362E0300DA60AB /* NSObject+MJKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6FD6051D362E0300DA60AB /* NSObject+MJKeyValue.m */; };
 		CC6FD6121D362E0300DA60AB /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6FD6071D362E0300DA60AB /* NSObject+MJProperty.m */; };
 		CC6FD6131D362E0300DA60AB /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6FD6091D362E0300DA60AB /* NSString+MJExtension.m */; };
+		CC6FD6161D362F6B00DA60AB /* MineMyAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6FD6151D362F6B00DA60AB /* MineMyAddressViewController.m */; };
+		CC6FD61A1D363E7200DA60AB /* MyAddressFirstTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6FD6181D363E7200DA60AB /* MyAddressFirstTableViewCell.m */; };
+		CC6FD61B1D363E7200DA60AB /* MyAddressFirstTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC6FD6191D363E7200DA60AB /* MyAddressFirstTableViewCell.xib */; };
+		CC6FD61F1D36409600DA60AB /* MyAddressChoiceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6FD61D1D36409600DA60AB /* MyAddressChoiceTableViewCell.m */; };
+		CC6FD6201D36409600DA60AB /* MyAddressChoiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC6FD61E1D36409600DA60AB /* MyAddressChoiceTableViewCell.xib */; };
+		CC6FD6241D36423800DA60AB /* MyAddressTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6FD6221D36423800DA60AB /* MyAddressTextTableViewCell.m */; };
+		CC6FD6251D36423800DA60AB /* MyAddressTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC6FD6231D36423800DA60AB /* MyAddressTextTableViewCell.xib */; };
 		CC72D0241D225B6200945BCF /* MineTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D0231D225B6200945BCF /* MineTableViewController.m */; };
 		CC72D0271D22620000945BCF /* MyOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D0261D22620000945BCF /* MyOrderViewController.m */; };
 		CC72D02C1D2263CF00945BCF /* PersonalWaitPayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D02A1D2263CF00945BCF /* PersonalWaitPayTableViewCell.m */; };
@@ -393,6 +400,17 @@
 		CC6FD6071D362E0300DA60AB /* NSObject+MJProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJProperty.m"; sourceTree = "<group>"; };
 		CC6FD6081D362E0300DA60AB /* NSString+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MJExtension.h"; sourceTree = "<group>"; };
 		CC6FD6091D362E0300DA60AB /* NSString+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MJExtension.m"; sourceTree = "<group>"; };
+		CC6FD6141D362F6B00DA60AB /* MineMyAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineMyAddressViewController.h; sourceTree = "<group>"; };
+		CC6FD6151D362F6B00DA60AB /* MineMyAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineMyAddressViewController.m; sourceTree = "<group>"; };
+		CC6FD6171D363E7200DA60AB /* MyAddressFirstTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAddressFirstTableViewCell.h; sourceTree = "<group>"; };
+		CC6FD6181D363E7200DA60AB /* MyAddressFirstTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAddressFirstTableViewCell.m; sourceTree = "<group>"; };
+		CC6FD6191D363E7200DA60AB /* MyAddressFirstTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyAddressFirstTableViewCell.xib; sourceTree = "<group>"; };
+		CC6FD61C1D36409600DA60AB /* MyAddressChoiceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAddressChoiceTableViewCell.h; sourceTree = "<group>"; };
+		CC6FD61D1D36409600DA60AB /* MyAddressChoiceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAddressChoiceTableViewCell.m; sourceTree = "<group>"; };
+		CC6FD61E1D36409600DA60AB /* MyAddressChoiceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyAddressChoiceTableViewCell.xib; sourceTree = "<group>"; };
+		CC6FD6211D36423800DA60AB /* MyAddressTextTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAddressTextTableViewCell.h; sourceTree = "<group>"; };
+		CC6FD6221D36423800DA60AB /* MyAddressTextTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAddressTextTableViewCell.m; sourceTree = "<group>"; };
+		CC6FD6231D36423800DA60AB /* MyAddressTextTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyAddressTextTableViewCell.xib; sourceTree = "<group>"; };
 		CC72D0221D225B6200945BCF /* MineTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineTableViewController.h; sourceTree = "<group>"; };
 		CC72D0231D225B6200945BCF /* MineTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineTableViewController.m; sourceTree = "<group>"; };
 		CC72D0251D22620000945BCF /* MyOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderViewController.h; sourceTree = "<group>"; };
@@ -805,6 +823,8 @@
 				CC6BD0791D2FA72900659C96 /* ReGetViewController.m */,
 				CC6FD5E81D36096200DA60AB /* MyAddressViewController.h */,
 				CC6FD5E91D36096200DA60AB /* MyAddressViewController.m */,
+				CC6FD6141D362F6B00DA60AB /* MineMyAddressViewController.h */,
+				CC6FD6151D362F6B00DA60AB /* MineMyAddressViewController.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -1102,6 +1122,15 @@
 				CC95F1A51D338C28009F559D /* ChangeHeadView.h */,
 				CC95F1A61D338C28009F559D /* ChangeHeadView.m */,
 				CC95F1A81D338C3E009F559D /* ChangeHeadView.xib */,
+				CC6FD6171D363E7200DA60AB /* MyAddressFirstTableViewCell.h */,
+				CC6FD6181D363E7200DA60AB /* MyAddressFirstTableViewCell.m */,
+				CC6FD6191D363E7200DA60AB /* MyAddressFirstTableViewCell.xib */,
+				CC6FD61C1D36409600DA60AB /* MyAddressChoiceTableViewCell.h */,
+				CC6FD61D1D36409600DA60AB /* MyAddressChoiceTableViewCell.m */,
+				CC6FD61E1D36409600DA60AB /* MyAddressChoiceTableViewCell.xib */,
+				CC6FD6211D36423800DA60AB /* MyAddressTextTableViewCell.h */,
+				CC6FD6221D36423800DA60AB /* MyAddressTextTableViewCell.m */,
+				CC6FD6231D36423800DA60AB /* MyAddressTextTableViewCell.xib */,
 			);
 			name = Mine;
 			sourceTree = "<group>";
@@ -1300,6 +1329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB36CE381D1B818300D0E4C7 /* HomepageHeaderTableViewCell.xib in Resources */,
+				CC6FD6201D36409600DA60AB /* MyAddressChoiceTableViewCell.xib in Resources */,
 				CC42E26F1D24F0A90008A8D7 /* MyJudgeTableViewCell.xib in Resources */,
 				D1F130531D2E23E000EE1690 /* VideoShopNavigationItem.xib in Resources */,
 				CC72D02D1D2263CF00945BCF /* PersonalWaitPayTableViewCell.xib in Resources */,
@@ -1322,6 +1352,7 @@
 				AB36CDC21D128D1900D0E4C7 /* HomePageNavgationItem.xib in Resources */,
 				D15BA38E1D237E3300904DEF /* HeaderView.xib in Resources */,
 				CC593CBC1D29FCC30077B096 /* FourBtnTableViewCell.xib in Resources */,
+				CC6FD61B1D363E7200DA60AB /* MyAddressFirstTableViewCell.xib in Resources */,
 				AB708F961D0543BE007D0B4D /* Assets.xcassets in Resources */,
 				CC42E2801D24F1690008A8D7 /* MyCollectionShopTableViewCell.xib in Resources */,
 				D15BA3891D237CE200904DEF /* ShopCarTableViewCell.xib in Resources */,
@@ -1340,6 +1371,7 @@
 				AB708F941D0543BE007D0B4D /* Main.storyboard in Resources */,
 				CC95F1A91D338C3E009F559D /* ChangeHeadView.xib in Resources */,
 				ABF5DE521D0FA803007CE1AB /* Mine.storyboard in Resources */,
+				CC6FD6251D36423800DA60AB /* MyAddressTextTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1426,6 +1458,7 @@
 				CC6FD60A1D362E0300DA60AB /* MJExtensionConst.m in Sources */,
 				CC72D03A1D226AE300945BCF /* MyOrderWaitPayViewController.m in Sources */,
 				CC593CB11D29F1520077B096 /* MyShopHeaderTableViewCell.m in Sources */,
+				CC6FD61A1D363E7200DA60AB /* MyAddressFirstTableViewCell.m in Sources */,
 				CC42E2771D24F13D0008A8D7 /* MyCollectionShopViewController.m in Sources */,
 				CC72D0441D227DF500945BCF /* PersonalWaitJudgeTableViewCell.m in Sources */,
 				AB36CE431D1BE8FD00D0E4C7 /* InversetScrollView.m in Sources */,
@@ -1484,6 +1517,7 @@
 				D15BA38C1D237E2400904DEF /* HeaderView.m in Sources */,
 				CC593CC01D2A02070077B096 /* MyShopDetailTableViewCell.m in Sources */,
 				D1E37F3F1D24A91E00920E17 /* BBBadgeBarButtonItem.m in Sources */,
+				CC6FD6161D362F6B00DA60AB /* MineMyAddressViewController.m in Sources */,
 				ABF5DE571D0FD930007CE1AB /* HomeTabbarViewController.m in Sources */,
 				ABEACD601D2B87DE00574259 /* NSString+MD5.m in Sources */,
 				CC6FD5F31D362DAB00DA60AB /* ZoneModel.m in Sources */,
@@ -1496,7 +1530,9 @@
 				CC6FD60D1D362E0300DA60AB /* MJPropertyKey.m in Sources */,
 				D1F1305C1D2E3F7000EE1690 /* StoreDataModel.m in Sources */,
 				AB36CE301D1B710400D0E4C7 /* TAPageControl.m in Sources */,
+				CC6FD6241D36423800DA60AB /* MyAddressTextTableViewCell.m in Sources */,
 				CC42E26E1D24F0A90008A8D7 /* MyJudgeTableViewCell.m in Sources */,
+				CC6FD61F1D36409600DA60AB /* MyAddressChoiceTableViewCell.m in Sources */,
 				CC6FD60B1D362E0300DA60AB /* MJFoundation.m in Sources */,
 				CC6FD6131D362E0300DA60AB /* NSString+MJExtension.m in Sources */,
 				D1F1302F1D2B8F5000EE1690 /* BuyCountTableViewCell.m in Sources */,

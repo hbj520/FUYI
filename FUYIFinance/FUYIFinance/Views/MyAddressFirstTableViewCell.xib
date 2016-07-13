@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="addressid1" id="KGk-i7-Jjw" customClass="MyAddressFirstTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FuL-Da-1Z5">
+                        <rect key="frame" x="11" y="13" width="60" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="Oiz-k4-Omh"/>
+                            <constraint firstAttribute="width" constant="60" id="fV7-GS-5h2"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lsc-p3-e4t">
+                        <rect key="frame" x="203" y="13" width="105" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="105" id="Fjo-bC-ZpO"/>
+                            <constraint firstAttribute="height" constant="20" id="qU3-Iq-XP9"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="FuL-Da-1Z5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="11" id="3v0-ed-cwz"/>
+                    <constraint firstItem="Lsc-p3-e4t" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="Qdg-u4-rNl"/>
+                    <constraint firstAttribute="trailing" secondItem="Lsc-p3-e4t" secondAttribute="trailing" constant="12" id="U6h-5g-PCi"/>
+                    <constraint firstItem="FuL-Da-1Z5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="i63-xR-fiK"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="desctitle" destination="Lsc-p3-e4t" id="vVi-ke-Cn0"/>
+                <outlet property="titlename" destination="FuL-Da-1Z5" id="Qp7-3w-cgE"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>
