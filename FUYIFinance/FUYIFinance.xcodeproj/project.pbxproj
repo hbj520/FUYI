@@ -158,6 +158,7 @@
 		D1F130531D2E23E000EE1690 /* VideoShopNavigationItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F130521D2E23E000EE1690 /* VideoShopNavigationItem.xib */; };
 		D1F1305C1D2E3F7000EE1690 /* StoreDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F1305B1D2E3F7000EE1690 /* StoreDataModel.m */; };
 		D1F130641D34EE5400EE1690 /* AnimationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F130631D34EE5400EE1690 /* AnimationHelper.m */; };
+		D1F130671D35D32300EE1690 /* LPPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F130661D35D32300EE1690 /* LPPopup.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -446,6 +447,8 @@
 		D1F1305B1D2E3F7000EE1690 /* StoreDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreDataModel.m; sourceTree = "<group>"; };
 		D1F130621D34EE5400EE1690 /* AnimationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationHelper.h; sourceTree = "<group>"; };
 		D1F130631D34EE5400EE1690 /* AnimationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationHelper.m; sourceTree = "<group>"; };
+		D1F130651D35D32300EE1690 /* LPPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPPopup.h; sourceTree = "<group>"; };
+		D1F130661D35D32300EE1690 /* LPPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPPopup.m; sourceTree = "<group>"; };
 		E2D217BF4D0AE0F6C9591577 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FA5515060D58FFB367588DFA /* Pods-FUYIFinance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FUYIFinance.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FUYIFinance/Pods-FUYIFinance.debug.xcconfig"; sourceTree = "<group>"; };
 		FB5E00328843A9E289111723 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -618,6 +621,8 @@
 				CC6BD0761D2F496900659C96 /* Config.m */,
 				D1F130621D34EE5400EE1690 /* AnimationHelper.h */,
 				D1F130631D34EE5400EE1690 /* AnimationHelper.m */,
+				D1F130651D35D32300EE1690 /* LPPopup.h */,
+				D1F130661D35D32300EE1690 /* LPPopup.m */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -1302,6 +1307,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1F130671D35D32300EE1690 /* LPPopup.m in Sources */,
 				CC35F66A1D2CCB3000EF3B4B /* PriceLabel.m in Sources */,
 				AB36CE2E1D1B710400D0E4C7 /* TAAnimatedDotView.m in Sources */,
 				CC593CCD1D2A69500077B096 /* ShopNameViewController.m in Sources */,
