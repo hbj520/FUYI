@@ -64,10 +64,7 @@ typedef void (^ErrorBlock) (NSError *enginerError);
 #pragma mark -商城-产品类型
 - (void)videoStoreWithResult:(ArrayBlock)result
                  errorResult:(ErrorBlock)errorResult;
-#pragma mark -商城默认
-- (void)videoStoreDefaultDataWithPage:(NSString*)page
-                               Result:(ArrayBlock)result
-                           erroResult:(ErrorBlock)erroResult;
+
 #pragma mark -id加载商城
 - (void)videoStoreWithTypeSelectId:(NSString*)typeSelectId
                      labelSelectId:(NSString*)labelSelectId
@@ -76,9 +73,23 @@ typedef void (^ErrorBlock) (NSError *enginerError);
                             result:(ArrayBlock)result
                        errorResult:(ErrorBlock)errorResult;
 
-- (void)videoStoreWithRightSelectId:(NSString*)RightSelectId
-                        result:(ArrayBlock)result
-                   errorResult:(ErrorBlock)errorResult;
+#pragma mark -收藏商品
+- (void)collectGoodsWithToken:(NSString*)token
+                      goodsId:(NSString*)goodsId
+                         type:(NSString*)type
+                       result:(StateBlock)result
+                  errorResult:(ErrorBlock)errorResult;
+
+#pragma mark -加入购物车
+- (void)addGoodIntoShopCarWithToken:(NSString*)token
+                            goodsId:(NSString*)goodsId
+                               type:(NSString*)type
+                              money:(NSString*)money
+                             result:(StateBlock)result
+                        errorResult:(ErrorBlock)errorResult;
+
+
+
 #pragma mark -博客
 #pragma mark -个人中心
 /**

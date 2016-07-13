@@ -17,7 +17,7 @@
 #import "SelectModel.h"
 #import "StoreDataModel.h"
 
-
+#import "LabelHelper.h"
 #import <MJRefresh.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 
@@ -62,6 +62,7 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
     [self loadMenuData];
     [self loadDataWithTypeSelectId:typeId labelSelectId:labelId pageNum:_page keyWord:key];
     [self addRefresh];
+    //[self addTap];
 }
 - (void)viewWillDisappear:(BOOL)animated
 {
@@ -82,9 +83,6 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
     //添加刷新
     __weak VideoShopViewController *weakself = self;
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-//        if (storeArray.count > 0) {
-//            [storeArray removeAllObjects];
-//        }
         _page = 1;
         [weakself loadDataWithTypeSelectId:typeId labelSelectId:labelId pageNum:_page keyWord:key];
     }];
@@ -94,6 +92,11 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
     }];
 }
 
+- (void)addTap{
+    UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(TapAct:)];
+    [self.view addGestureRecognizer:tapGes];
+    
+}
 - (void)TapAct:(UIGestureRecognizer *)ges{
     [Tools hideKeyBoard];
 }
@@ -109,7 +112,11 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
 - (void)addCustomerNavgationItem{
     VideoShopNavigationItem *navItem = [[[NSBundle mainBundle] loadNibNamed:@"VideoShopNavigationItem" owner:self options:nil] lastObject];
     navItem.frame = CGRectMake(0, 0,ScreenWidth, 64);
+    navItem.backBlock = ^(){
+        [self.navigationController popViewControllerAnimated:YES];
+    };
     
+    //[navItem setBackColor];
     [self.view addSubview:navItem];
 }
 
@@ -232,7 +239,9 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
     [cell.videoImage sd_setImageWithURL:[NSURL URLWithString:model.videoImage]placeholderImage:[UIImage imageNamed:@"bigimage"]];
     cell.videoTitle.text = model.videoName;
     cell.teacherName.text = [NSString stringWithFormat:@"讲师： %@",model.teacherName];
-    cell.videoPrice.text = [NSString stringWithFormat:@"¥ %@",model.videoPrice];
+    //cell.videoPrice.text = [NSString stringWithFormat:@"¥ %@",model.videoPrice];
+    
+    cell.videoPrice.attributedText = [[LabelHelper alloc] attributedFontStringWithString:[NSString stringWithFormat:@"¥ %@",model.videoPrice]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
     
@@ -242,18 +251,27 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"++++++++++++++++++++++++++");
-    [self performSegueWithIdentifier:@"videoDetailSegue" sender:nil];
+    StoreDataModel *model = [storeArray objectAtIndex:indexPath.row];
+
+    [self performSegueWithIdentifier:@"videoDetailSegue" sender:model];
+    
+    //self.saveId
+    
+    
+    
     
 }
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    VideoDetailViewController *detailVC = segue.destinationViewController;
+    detailVC.model = sender;
 }
-*/
+
 
 #pragma mark - UIVew
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{

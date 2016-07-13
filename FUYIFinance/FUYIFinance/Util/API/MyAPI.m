@@ -217,6 +217,56 @@
     
 }
 
+#pragma mark -收藏商品
+- (void)collectGoodsWithToken:(NSString*)token
+                      goodsId:(NSString*)goodsId
+                         type:(NSString*)type
+                       result:(StateBlock)result
+                  errorResult:(ErrorBlock)errorResult{
+    NSDictionary *parameters = @{
+                                 @"goods":goodsId,
+                                 @"type":type
+                                 };
+    [self.manager POST:@"addcollect" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * state = responseObject[@"state"];
+        NSString * information = responseObject[@"info"];
+        if([state isEqualToString:@"1"]){
+            result(YES,information);
+        }else{
+            result(NO,information);
+        }
+        
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+    }];
+}
+
+#pragma mark -加入购物车
+- (void)addGoodIntoShopCarWithToken:(NSString*)token
+                            goodsId:(NSString*)goodsId
+                               type:(NSString*)type
+                              money:(NSString*)money
+                             result:(StateBlock)result
+                        errorResult:(ErrorBlock)errorResult{
+    NSDictionary *parameters = @{
+                                 @"goodsid":goodsId,
+                                 @"type":type,
+                                 @"money":money
+                                 };
+    [self.manager POST:@"addcart" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * state = responseObject[@"state"];
+        NSString * information = responseObject[@"info"];
+        if([state isEqualToString:@"1"]){
+            result(YES,information);
+        }else{
+            result(NO,information);
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+         errorResult(error);
+    }];
+    
+    
+}
 
 #pragma mark -博客
 #pragma mark -个人中心
