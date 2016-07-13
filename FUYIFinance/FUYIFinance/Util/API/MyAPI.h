@@ -74,17 +74,19 @@ typedef void (^ErrorBlock) (NSError *enginerError);
                        errorResult:(ErrorBlock)errorResult;
 
 #pragma mark -收藏商品
-- (void)collectGoodsWithGoodsId:(NSString*)goodsId
-                           type:(NSString*)type
-                         result:(StateBlock)result
-                    errorResult:(ErrorBlock)errorResult;
+- (void)collectGoodsWithToken:(NSString*)token
+                      goodsId:(NSString*)goodsId
+                         type:(NSString*)type
+                       result:(StateBlock)result
+                  errorResult:(ErrorBlock)errorResult;
 
 #pragma mark -加入购物车
-- (void)addGoodIntoShopCarWithGoodsId:(NSString*)goodsId
-                                 type:(NSString*)type
-                                money:(NSString*)money
-                               result:(StateBlock)result
-                          errorResult:(ErrorBlock)errorResult;
+- (void)addGoodIntoShopCarWithToken:(NSString*)token
+                            goodsId:(NSString*)goodsId
+                               type:(NSString*)type
+                              money:(NSString*)money
+                             result:(StateBlock)result
+                        errorResult:(ErrorBlock)errorResult;
 
 
 
