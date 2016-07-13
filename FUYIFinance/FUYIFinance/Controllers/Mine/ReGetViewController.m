@@ -12,7 +12,7 @@
 #import "Tools.h"
 #import "HexColor.h"
 
-@interface ReGetViewController ()
+@interface ReGetViewController ()<UITextFieldDelegate>
 {
     NSTimer *timer;
     NSInteger time;
@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *confirmpasswordNum;  //确定密码
 @property (weak, nonatomic) IBOutlet UIButton *testBtn;                //发送验证码按钮
 @property (weak, nonatomic) IBOutlet UIButton *sureBtn;                //确定按钮
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *distancewithtoplayout;
 
 @end
 
@@ -36,11 +37,26 @@
     self.sureBtn.layer.cornerRadius = 6;
     self.sureBtn.layer.masksToBounds = YES;
     
+    self.phoneNum.delegate = self;
+    self.yzmNum.delegate = self;
+    self.passwordNum.delegate = self;
+    self.confirmpasswordNum.delegate = self;
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    //self.distancewithtoplayout.constant = 210;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+  //  self.distancewithtoplayout.constant = 0;
 }
 
 - (IBAction)testCode:(id)sender {

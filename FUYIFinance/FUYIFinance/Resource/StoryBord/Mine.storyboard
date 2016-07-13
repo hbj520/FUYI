@@ -628,10 +628,12 @@
                         <outlet property="ShopKeeper" destination="96o-XN-Z6I" id="C1f-mx-g1A"/>
                         <outlet property="badgeLabel3" destination="w7A-PR-sUW" id="gR6-XI-x12"/>
                         <outlet property="collectionShop" destination="C22-u5-0rQ" id="c9d-qn-hOY"/>
+                        <outlet property="headimage" destination="HM8-rN-k7A" id="a1P-yx-aEn"/>
                         <outlet property="myOrder" destination="QJP-f8-Qjn" id="mKW-sm-xf9"/>
                         <outlet property="preparPay" destination="KKT-oW-XNw" id="AZb-5e-8Xt"/>
                         <outlet property="prepareForgood" destination="GT3-Cj-ft8" id="Ble-X1-xk4"/>
                         <outlet property="prepareForjudge" destination="yzK-Qa-xBO" id="m93-0r-u8r"/>
+                        <outlet property="teachername" destination="Afo-lo-50i" id="bDx-jk-gCk"/>
                         <segue destination="f1T-Ak-TJF" kind="push" identifier="myorderSegue" id="xFS-qr-VxC"/>
                         <segue destination="VUz-X2-Jl1" kind="push" identifier="mycollectionSegue" id="Zjk-xh-iOn"/>
                         <segue destination="jt4-7P-wzc" kind="push" identifier="myjudgeSegue" id="mMG-gg-YgZ"/>
@@ -1467,6 +1469,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="sureJudge:" destination="7Nh-eB-uTW" eventType="touchUpInside" id="Igp-Tz-IRd"/>
                                     <segue destination="jQW-DR-hMJ" kind="push" id="avG-gU-JXj"/>
                                 </connections>
                             </button>
@@ -1666,6 +1669,7 @@
                     <navigationItem key="navigationItem" id="A04-50-z8Q"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="distancewithtoplayout" destination="KW0-ib-RPb" id="xDb-3P-SfI"/>
                         <outlet property="loginBtn" destination="pUF-mH-gsY" id="I0s-a2-dAW"/>
                         <outlet property="numberInput" destination="Cjl-mD-aRD" id="YSj-q7-Efh"/>
                         <outlet property="passwordInput" destination="tAi-d6-eYT" id="GMu-WK-eIw"/>
@@ -1875,6 +1879,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="confirmpasswordNum" destination="BOs-K4-uxb" id="9Bs-ba-Yqp"/>
+                        <outlet property="distancewithtoplayout" destination="hfZ-bM-Ruf" id="pVa-Cx-MdI"/>
                         <outlet property="passwordNum" destination="dHQ-aW-wUH" id="kbW-kX-igv"/>
                         <outlet property="phoneNum" destination="13k-hZ-cE7" id="4VQ-Ng-zRp"/>
                         <outlet property="sureBtn" destination="N8T-bh-z21" id="4zT-vH-XUr"/>
@@ -2074,6 +2079,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="PhoneNum" destination="b0Y-Zi-fIu" id="5p1-3a-kw7"/>
+                        <outlet property="distancewithtop" destination="hll-gK-twr" id="6qN-Sl-iWT"/>
                         <outlet property="password" destination="Q3S-SY-ryh" id="md6-de-fpF"/>
                         <outlet property="registerBtn" destination="7yO-GA-xEZ" id="naz-Kh-59B"/>
                         <outlet property="repassword" destination="jmK-Ya-OOY" id="K84-Wf-dxx"/>

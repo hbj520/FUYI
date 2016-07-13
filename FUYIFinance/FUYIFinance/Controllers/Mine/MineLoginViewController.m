@@ -11,7 +11,7 @@
 #import "MyAPI.h"
 #import "Tools.h"
 
-@interface MineLoginViewController ()
+@interface MineLoginViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *numberInput;    //手机号码
 
 @property (weak, nonatomic) IBOutlet UITextField *passwordInput;  //密码
@@ -25,6 +25,7 @@
 - (IBAction)registerBtn:(id)sender;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *toplayout;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *distancewithtoplayout;
 
 @end
 
@@ -33,10 +34,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.numberInput.delegate = self;
+    self.passwordInput.delegate = self;
     if(self.view.frame.size.height == 480){
         self.toplayout.constant = 30;
     }
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textfieldIsEditing:) name:UITextFieldTextDidChangeNotification object:nil];
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    if(self.view.frame.size.height==480){
+    self.distancewithtoplayout.constant = -70;
+    }
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if(self.view.frame.size.height==480){
+    self.distancewithtoplayout.constant = 0;
+    }
 }
 
 #pragma mark - PrivateMethod

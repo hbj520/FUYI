@@ -72,6 +72,12 @@
                     <constraint firstAttribute="trailing" secondItem="fBI-sS-Hbk" secondAttribute="trailing" constant="8" id="vIi-Hf-h5D"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="pricelabel" destination="pzT-ef-4nw" id="9yt-Pi-8J2"/>
+                <outlet property="teachername" destination="mg2-7e-h4o" id="oVv-t0-heG"/>
+                <outlet property="thumbimage" destination="0U2-jx-lkI" id="bbM-4j-l2v"/>
+                <outlet property="titlename" destination="95w-HL-hZQ" id="h6g-JW-GXz"/>
+            </connections>
         </tableViewCell>
     </objects>
     <resources>

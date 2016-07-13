@@ -8,7 +8,7 @@
 #import <AFNetworking/AFNetworking.h>
 #import <AFNetworking/AFURLResponseSerialization.h>
 #import "MyAPI.h"
-
+#import "Config.h"
 
 //models
 #import "HomepageBannerModel.h"
@@ -272,8 +272,8 @@
 #pragma mark -个人中心
 - (void)requestCollectionTreasureDataWithParameters:(NSString*)page result:(ArrayBlock)result errorResult:(ErrorBlock)errorResult
 {
- NSString * token = @"";
-    NSDictionary * parameters = @{@"token":token};
+
+    NSDictionary * parameters = @{@"token":KToken};
     [self.manager POST:@"" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         NSString * status = responseObject[@"status"];
         NSString * info = responseObject[@"info"];
@@ -298,8 +298,7 @@
 
 - (void)requestCollectionShopDataWithParameters:(NSString*)page result:(ArrayBlock)result errorResult:(ErrorBlock)errorResult
 {
-    NSString * token = @"";
-    NSDictionary * parameters = @{@"token":token,@"page":page};
+    NSDictionary * parameters = @{@"token":KToken,@"page":page};
     [self.manager POST:@"allstore" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         NSString * status = responseObject[@"status"];
         NSString * info = responseObject[@"info"];
@@ -325,8 +324,7 @@
 
 - (void)requestMyJudgeDataWithParameters:(NSString *)page result:(ArrayBlock)result errorResult:(ErrorBlock)errorResult
 {
-    NSString * token = @"";
-    NSDictionary * parameters = @{@"token":token,@"page":page};
+    NSDictionary * parameters = @{@"token":KToken,@"page":page};
     [self.manager POST:@"alleva" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         NSString * status = responseObject[@"status"];
         NSString * info = responseObject[@"info"];
@@ -356,6 +354,26 @@
       
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         
+    }];
+}
+
+- (void)uploadUserJudgeWithParameters:(NSString *)score Anonymous:(NSString *)anonymous Content:(NSString *)content Goodstyle:(NSString *)goodstyle Goodsid:(NSString *)goodsid result:(StateBlock)result errorResult:(ErrorBlock)errorResult
+{
+    NSDictionary * parameters = @{@"score":score,
+                                  @"anonymous":anonymous,
+                                  @"content":content,
+                                  @"goodstyle":goodstyle,
+                                  @"goodsid":goodsid};
+    [self.manager POST:@"replygood" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * status = responseObject[@"status"];
+        NSString * information = responseObject[@"info"];
+        if([status isEqualToString:@"1"]){
+            result(YES,information);
+        }else{
+            result(NO,information);
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
     }];
 }
 

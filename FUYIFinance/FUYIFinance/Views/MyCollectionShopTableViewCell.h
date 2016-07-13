@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface MyCollectionShopTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *thumbimage;
+@property (weak, nonatomic) IBOutlet UILabel *titlename;
+@property (weak, nonatomic) IBOutlet UILabel *teachername;
 
 @end

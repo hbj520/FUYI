@@ -75,6 +75,13 @@
                     <constraint firstItem="b8e-yP-j0K" firstAttribute="leading" secondItem="bTG-8j-Via" secondAttribute="trailing" constant="13" id="oel-AI-AxX"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="defaultjudge" destination="b8e-yP-j0K" id="Aht-5f-gEA"/>
+                <outlet property="judgelabel" destination="U4P-Lp-t4a" id="K5O-eO-SPQ"/>
+                <outlet property="thumbimage" destination="bTG-8j-Via" id="0tI-vB-8ZV"/>
+                <outlet property="timelabel" destination="3Pq-cP-G96" id="IS3-xg-RYc"/>
+                <outlet property="titlename" destination="3n6-zh-r63" id="IXc-FP-HqT"/>
+            </connections>
         </tableViewCell>
     </objects>
     <resources>

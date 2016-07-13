@@ -127,6 +127,11 @@
             <connections>
                 <outlet property="deleteBtn" destination="gL5-P2-7wz" id="iU3-ha-b8A"/>
                 <outlet property="modifyBtn" destination="neT-iW-gxO" id="u8V-7g-N6j"/>
+                <outlet property="pricelabel" destination="iyc-If-ahx" id="Ax8-vk-pBl"/>
+                <outlet property="sellcount" destination="YaY-Dm-c2c" id="50Y-lh-lm8"/>
+                <outlet property="thumbimage" destination="gCO-jj-j2k" id="mNo-xG-YqU"/>
+                <outlet property="titlelabel" destination="unA-CN-efq" id="SUN-M9-Tb0"/>
+                <outlet property="uploadtime" destination="bFO-05-KgB" id="fq3-NZ-YhH"/>
             </connections>
         </tableViewCell>
     </objects>
