@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void(^textViewBlock)();
 @interface MyAddressTextTableViewCell : UITableViewCell<UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UILabel *label1;
-
+@property (nonatomic,copy)textViewBlock block;
 @end

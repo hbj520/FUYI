@@ -185,6 +185,7 @@
         }else if (indexPath.row==2){
             
         }else if (indexPath.row==3){
+            [self performSegueWithIdentifier:@"noticeSegue" sender:nil];
             
         }
     }else if (indexPath.section == 3){

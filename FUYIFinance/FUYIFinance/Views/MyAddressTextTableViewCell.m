@@ -23,7 +23,12 @@
 
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
+    if(textView.text.length){
+        self.label1.hidden = YES;
+    }else{
     self.label1.hidden = NO;
+    }
+    self.block();
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

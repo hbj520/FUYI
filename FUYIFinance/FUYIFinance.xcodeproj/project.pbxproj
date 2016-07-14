@@ -137,6 +137,8 @@
 		CC95F1581D334163009F559D /* ModifyHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC95F1571D334163009F559D /* ModifyHeadView.xib */; };
 		CC95F1A71D338C28009F559D /* ChangeHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC95F1A61D338C28009F559D /* ChangeHeadView.m */; };
 		CC95F1A91D338C3E009F559D /* ChangeHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC95F1A81D338C3E009F559D /* ChangeHeadView.xib */; };
+		CCEEFC0C1D37400B0001C7AA /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEEFC0B1D37400B0001C7AA /* UserInfoModel.m */; };
+		CCEEFC121D37613A0001C7AA /* MineNoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEEFC111D37613A0001C7AA /* MineNoticeViewController.m */; };
 		D114DC571D24EEC50001CE21 /* Brand.m in Sources */ = {isa = PBXBuildFile; fileRef = D114DC541D24EEC50001CE21 /* Brand.m */; };
 		D114DC581D24EEC50001CE21 /* Good.m in Sources */ = {isa = PBXBuildFile; fileRef = D114DC561D24EEC50001CE21 /* Good.m */; };
 		D15BA3841D235E5700904DEF /* shopCar.json in Resources */ = {isa = PBXBuildFile; fileRef = D15BA3831D235E5700904DEF /* shopCar.json */; };
@@ -441,6 +443,10 @@
 		CC95F1A51D338C28009F559D /* ChangeHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeHeadView.h; sourceTree = "<group>"; };
 		CC95F1A61D338C28009F559D /* ChangeHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeHeadView.m; sourceTree = "<group>"; };
 		CC95F1A81D338C3E009F559D /* ChangeHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangeHeadView.xib; sourceTree = "<group>"; };
+		CCEEFC0A1D37400B0001C7AA /* UserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoModel.h; sourceTree = "<group>"; };
+		CCEEFC0B1D37400B0001C7AA /* UserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoModel.m; sourceTree = "<group>"; };
+		CCEEFC101D37613A0001C7AA /* MineNoticeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineNoticeViewController.h; sourceTree = "<group>"; };
+		CCEEFC111D37613A0001C7AA /* MineNoticeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineNoticeViewController.m; sourceTree = "<group>"; };
 		D114DC531D24EEC50001CE21 /* Brand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Brand.h; sourceTree = "<group>"; };
 		D114DC541D24EEC50001CE21 /* Brand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Brand.m; sourceTree = "<group>"; };
 		D114DC551D24EEC50001CE21 /* Good.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Good.h; sourceTree = "<group>"; };
@@ -825,6 +831,8 @@
 				CC6FD5E91D36096200DA60AB /* MyAddressViewController.m */,
 				CC6FD6141D362F6B00DA60AB /* MineMyAddressViewController.h */,
 				CC6FD6151D362F6B00DA60AB /* MineMyAddressViewController.m */,
+				CCEEFC101D37613A0001C7AA /* MineNoticeViewController.h */,
+				CCEEFC111D37613A0001C7AA /* MineNoticeViewController.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -1025,6 +1033,8 @@
 				CC6FD5EF1D362D7E00DA60AB /* cityModel.m */,
 				CC6FD5F11D362DAB00DA60AB /* ZoneModel.h */,
 				CC6FD5F21D362DAB00DA60AB /* ZoneModel.m */,
+				CCEEFC0A1D37400B0001C7AA /* UserInfoModel.h */,
+				CCEEFC0B1D37400B0001C7AA /* UserInfoModel.m */,
 			);
 			name = Mine;
 			sourceTree = "<group>";
@@ -1514,6 +1524,7 @@
 				CC4F37321D2DFEFF00312F11 /* MineLoginViewController.m in Sources */,
 				CC72D0271D22620000945BCF /* MyOrderViewController.m in Sources */,
 				D1F130241D2B80DB00EE1690 /* ConInfoTableViewCell.m in Sources */,
+				CCEEFC0C1D37400B0001C7AA /* UserInfoModel.m in Sources */,
 				D15BA38C1D237E2400904DEF /* HeaderView.m in Sources */,
 				CC593CC01D2A02070077B096 /* MyShopDetailTableViewCell.m in Sources */,
 				D1E37F3F1D24A91E00920E17 /* BBBadgeBarButtonItem.m in Sources */,
@@ -1537,6 +1548,7 @@
 				CC6FD6131D362E0300DA60AB /* NSString+MJExtension.m in Sources */,
 				D1F1302F1D2B8F5000EE1690 /* BuyCountTableViewCell.m in Sources */,
 				CC42E27F1D24F1690008A8D7 /* MyCollectionShopTableViewCell.m in Sources */,
+				CCEEFC121D37613A0001C7AA /* MineNoticeViewController.m in Sources */,
 				AB36CE2D1D1B710400D0E4C7 /* TAAbstractDotView.m in Sources */,
 				CC6BD0771D2F496900659C96 /* Config.m in Sources */,
 				CC4F372F1D2DEFEC00312F11 /* MineWaitPayModel.m in Sources */,

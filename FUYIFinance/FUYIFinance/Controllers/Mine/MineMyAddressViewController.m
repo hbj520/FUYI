@@ -26,7 +26,9 @@
     BOOL isShow2;
     NSString * provinceLabel;
     NSString * cityLabel;
+    NSString * citydefaultLabel;
     NSString * areaLabel;
+    NSString * areadefaultLabel;
     BBBadgeBarButtonItem * _chatBtn;         //自定制导航栏按钮
     BBBadgeBarButtonItem * _chatBtn1;        //自定制导航栏按钮
     
@@ -184,6 +186,11 @@
     return 40;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 1;
+}
+
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
@@ -210,10 +217,13 @@
                 
             }else if (indexPath.row == 3){
                 cell.arealabel.text = @"城市";
+               
                 if(cityLabel){
                     cell.areadetaillabel.text = cityLabel;
-                }else{
+                        }else{
+                    
                 cell.areadetaillabel.text = @"洛阳";
+                 
                 }
             }else{
                 cell.arealabel.text = @"地区";
@@ -226,6 +236,9 @@
             return cell;
         }else{
             MyAddressTextTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"addressid3" forIndexPath:indexPath];
+            cell.block = ^(){
+                
+            };
             return cell;
         }
     }else if (tableView == self.tableView)
@@ -253,7 +266,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(tableView == self.tableView1){
-        [self.view endEditing:YES];
         if(indexPath.row == 2){
         [[KGModal sharedInstance] setCloseButtonType:KGModalCloseButtonTypeNone];
         [KGModal sharedInstance].modalBackgroundColor = [UIColor whiteColor];
@@ -288,6 +300,8 @@
             //     NSLog(@"%@",messageData);
             self.cityArray=[NSMutableArray array];
             self.cityArray = (NSMutableArray *)[cityModel mj_objectArrayWithKeyValuesArray:messageData[0]];
+            cityModel * model1 = self.cityArray[0];
+            citydefaultLabel = model1.fullname;
             [self.citytableView reloadData];
             //    NSLog(@"%lu",(unsigned long)self.CityNary.count);
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
