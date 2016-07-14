@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -154,15 +154,15 @@
                             <constraint firstAttribute="width" constant="50" id="Jf1-e6-Jvm"/>
                             <constraint firstAttribute="height" constant="22" id="m65-n6-qrw"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                         <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rightArrow" translatesAutoresizingMaskIntoConstraints="NO" id="fbQ-KT-MYw">
-                        <rect key="frame" x="123" y="14" width="12" height="17"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jiantou" translatesAutoresizingMaskIntoConstraints="NO" id="fbQ-KT-MYw">
+                        <rect key="frame" x="123" y="15" width="10" height="15"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="12" id="C2o-wj-0zj"/>
-                            <constraint firstAttribute="height" constant="17" id="thg-Hg-36s"/>
+                            <constraint firstAttribute="width" constant="10" id="C2o-wj-0zj"/>
+                            <constraint firstAttribute="height" constant="15" id="thg-Hg-36s"/>
                         </constraints>
                     </imageView>
                 </subviews>
@@ -173,7 +173,7 @@
                     <constraint firstItem="jaC-Ze-peU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="7j6-g3-V8G"/>
                     <constraint firstItem="QX2-Xe-0Hh" firstAttribute="top" secondItem="WVl-M2-PMx" secondAttribute="bottom" constant="46" id="B5j-X1-1W8"/>
                     <constraint firstItem="PGb-hT-PCL" firstAttribute="top" secondItem="WVl-M2-PMx" secondAttribute="bottom" constant="8" id="L1l-lX-QiC"/>
-                    <constraint firstItem="fbQ-KT-MYw" firstAttribute="top" secondItem="VGn-AY-Fla" secondAttribute="bottom" constant="13" id="NS0-lA-g96"/>
+                    <constraint firstItem="fbQ-KT-MYw" firstAttribute="top" secondItem="VGn-AY-Fla" secondAttribute="bottom" constant="14" id="NS0-lA-g96"/>
                     <constraint firstItem="WVl-M2-PMx" firstAttribute="top" secondItem="VGn-AY-Fla" secondAttribute="bottom" constant="40" id="Ox8-KG-soz"/>
                     <constraint firstItem="oYr-s9-eEY" firstAttribute="top" secondItem="VGn-AY-Fla" secondAttribute="bottom" constant="9" id="Q9f-NY-AbB"/>
                     <constraint firstItem="hEC-hk-L5r" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="RJD-wG-4tg"/>
@@ -219,8 +219,8 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="jiantou" width="25" height="34"/>
         <image name="myorderheadicon" width="43" height="43"/>
         <image name="myorderthumbimage" width="134" height="126"/>
-        <image name="rightArrow" width="25" height="32"/>
     </resources>
 </document>

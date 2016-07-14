@@ -1,33 +1,36 @@
 //
-//  ShopSettingTableViewController.m
+//  MineNoticeViewController.m
 //  FUYIFinance
 //
-//  Created by 张哲 on 16/7/4.
+//  Created by 张哲 on 16/7/14.
 //  Copyright © 2016年 youyou. All rights reserved.
 //
 
-#import "ShopSettingTableViewController.h"
-#import "UIViewController+HUD.h"
-#import "ModifyHeadView.h"
-#import "ChangeHeadView.h"
-#import "KGModal.h"
-@interface ShopSettingTableViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
-{
-    UIImagePickerController * _picker;
-}
+#import "MineNoticeViewController.h"
+
+@interface MineNoticeViewController ()
+
 @end
 
-@implementation ShopSettingTableViewController
+@implementation MineNoticeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self initPickView];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -38,103 +41,33 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 #warning Incomplete implementation, return the number of sections
-    return 2;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
-    if (section==0) {
-        return 5;
-    }else{
-        return 1;
-    }
+    return 2;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if(section==0){
-        return 15;
-    }else if(section==1){
-        return 220;
-    }else{
-        return 0;
-    }
+    return 1;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0) {
-        if(indexPath.row == 0){
-            [self showModalView];
-        }
-        if(indexPath.row == 1){
-            [self performSegueWithIdentifier:@"shopnameSegue" sender:nil];
-        }
-        if(indexPath.row == 4){
-            [self performSegueWithIdentifier:@"addressSegue" sender:nil];
-        }
+    if(indexPath.row == 0){
+        
+    }else if (indexPath.row == 1){
+        
     }
 }
 
-- (void)showModalView
-{
-   // [[KGModal sharedInstance] setTapOutsideToDismiss:NO];
-    [[KGModal sharedInstance] setCloseButtonType:KGModalCloseButtonTypeNone];
-    [KGModal sharedInstance].modalBackgroundColor = [UIColor whiteColor];
-  
-    ChangeHeadView * modifyView = [[[NSBundle mainBundle] loadNibNamed:@"ChangeHeadView" owner:self options:nil] lastObject];
-    
-    [[KGModal sharedInstance] showWithContentView:modifyView andAnimated:YES];
-    
-    modifyView.LibraryBlock = ^(){
-        [self openPhotoAlbun];
-      [[KGModal sharedInstance] hideAnimated:YES];
-    };
-    modifyView.TakeBlock = ^(){
-        [self openCamera];
-      [[KGModal sharedInstance] hideAnimated:YES];  
-    };
-   // ModifyHeadView * modifyView = [[[NSBundle mainBundle] loadNibNamed:@"ModifyHeadView" owner:self options:nil] lastObject];
-   // [modifyView createUI];
-       
-}
-- (void)initPickView
-{
-    _picker = [[UIImagePickerController alloc] init];
-    _picker.delegate = self;
-}
-
-- (void)openCamera
-{
-    _picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-    [self presentViewController:_picker animated:YES completion:nil];
-}
-
-- (void)openPhotoAlbun
-{
-    _picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    [self presentViewController:_picker animated:YES completion:nil];
-}
-#pragma mark-UINavigationControllerDelegate & UIImagePickerControllerDelegate
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
-{
-    [picker dismissViewControllerAnimated:YES completion:nil];
-    UIImage * image = info[UIImagePickerControllerOriginalImage];
-    [self showHudInView:self.view hint:@"上传图片..."];
-    NSData * data = UIImageJPEGRepresentation(image, 0.1);
-    
-}
-
 - (IBAction)back:(id)sender {
-    
+      self.navigationController.navigationBarHidden = YES;
     [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (void)setValue:(id)value forUndefinedKey:(NSString *)key
-{
     
 }
-
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

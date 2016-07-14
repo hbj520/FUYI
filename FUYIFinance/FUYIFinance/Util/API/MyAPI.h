@@ -117,7 +117,7 @@ typedef void (^ErrorBlock) (NSError *enginerError);
  *  @param result      模型数组
  *  @param errorResult 错误信息
  */
-- (void)requestMyJudgeDataWithParameters:(NSString*)page result:(StateBlock)result errorResult:(ErrorBlock)errorResult;
+- (void)requestMyJudgeDataWithParameters:(NSString*)page result:(ArrayBlock)result errorResult:(ErrorBlock)errorResult;
 
 /**
  *  用户待付款的订单
