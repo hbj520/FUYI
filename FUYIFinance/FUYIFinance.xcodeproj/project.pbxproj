@@ -99,7 +99,6 @@
 		CC6BD07A1D2FA72900659C96 /* ReGetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6BD0791D2FA72900659C96 /* ReGetViewController.m */; };
 		CC6FD5E21D36047500DA60AB /* area.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC6FD5E11D36047500DA60AB /* area.plist */; };
 		CC6FD5E71D36062A00DA60AB /* chdButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6FD5E61D36062A00DA60AB /* chdButton.m */; };
-		CC6FD5EA1D36096200DA60AB /* MyAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6FD5E91D36096200DA60AB /* MyAddressViewController.m */; };
 		CC6FD5ED1D362D2600DA60AB /* ProvinceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6FD5EC1D362D2600DA60AB /* ProvinceModel.m */; };
 		CC6FD5F01D362D7E00DA60AB /* cityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6FD5EF1D362D7E00DA60AB /* cityModel.m */; };
 		CC6FD5F31D362DAB00DA60AB /* ZoneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6FD5F21D362DAB00DA60AB /* ZoneModel.m */; };
@@ -373,8 +372,6 @@
 		CC6FD5E11D36047500DA60AB /* area.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = area.plist; sourceTree = "<group>"; };
 		CC6FD5E51D36062A00DA60AB /* chdButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chdButton.h; sourceTree = "<group>"; };
 		CC6FD5E61D36062A00DA60AB /* chdButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = chdButton.m; sourceTree = "<group>"; };
-		CC6FD5E81D36096200DA60AB /* MyAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAddressViewController.h; sourceTree = "<group>"; };
-		CC6FD5E91D36096200DA60AB /* MyAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAddressViewController.m; sourceTree = "<group>"; };
 		CC6FD5EB1D362D2600DA60AB /* ProvinceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProvinceModel.h; sourceTree = "<group>"; };
 		CC6FD5EC1D362D2600DA60AB /* ProvinceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProvinceModel.m; sourceTree = "<group>"; };
 		CC6FD5EE1D362D7E00DA60AB /* cityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cityModel.h; sourceTree = "<group>"; };
@@ -827,8 +824,6 @@
 				CC4F37381D2E58BF00312F11 /* MineRegisterViewController.m */,
 				CC6BD0781D2FA72900659C96 /* ReGetViewController.h */,
 				CC6BD0791D2FA72900659C96 /* ReGetViewController.m */,
-				CC6FD5E81D36096200DA60AB /* MyAddressViewController.h */,
-				CC6FD5E91D36096200DA60AB /* MyAddressViewController.m */,
 				CC6FD6141D362F6B00DA60AB /* MineMyAddressViewController.h */,
 				CC6FD6151D362F6B00DA60AB /* MineMyAddressViewController.m */,
 				CCEEFC101D37613A0001C7AA /* MineNoticeViewController.h */,
@@ -1555,7 +1550,6 @@
 				CC42E2811D24F1690008A8D7 /* MyCollectionTableViewCell.m in Sources */,
 				ABEACD5F1D2B87DE00574259 /* NSData+Base64.m in Sources */,
 				AB36CE321D1B710400D0E4C7 /* SDCycleScrollView.m in Sources */,
-				CC6FD5EA1D36096200DA60AB /* MyAddressViewController.m in Sources */,
 				CC95F1561D33414E009F559D /* ModifyHeadView.m in Sources */,
 				D1F130641D34EE5400EE1690 /* AnimationHelper.m in Sources */,
 				ABEACD611D2B87DE00574259 /* NSString+URLEncoding.m in Sources */,
