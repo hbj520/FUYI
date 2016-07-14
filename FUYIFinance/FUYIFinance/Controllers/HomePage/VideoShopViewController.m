@@ -34,7 +34,7 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
     NSString *labelId;
     NSInteger _page;
     NSString *key;
-   
+    
 }
 @property (nonatomic,copy) NSString *saveId;
 @property (nonatomic, weak) DOPDropDownMenu *menu;
@@ -78,7 +78,7 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-#pragma   mark -PrivateMethod 
+#pragma   mark -PrivateMethod
 - (void)addRefresh{
     //添加刷新
     __weak VideoShopViewController *weakself = self;
@@ -135,7 +135,7 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
 //根据id刷新商城
 -(void)loadDataWithTypeSelectId:(NSString*)typeSelectId
                   labelSelectId:(NSString*)labelSelectId
-                           pageNum:(NSInteger)pageNum
+                        pageNum:(NSInteger)pageNum
                         keyWord:(NSString*)keyWord{
     NSString *nowPage = [NSString stringWithFormat:@"%ld",_page];
     [[MyAPI sharedAPI] videoStoreWithTypeSelectId:typeSelectId labelSelectId:labelSelectId page:nowPage keyWord:keyWord result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
@@ -184,15 +184,15 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
         if (indexPath.row == 0) {
             return @"金融品种";
         }else{
-        SelectModel *model = financeSelectData[indexPath.row-1];
-        return model.selectName;
+            SelectModel *model = financeSelectData[indexPath.row-1];
+            return model.selectName;
         }
     }else {
         if (indexPath.row == 0) {
             return @"课程类型";
         }else{
             SelectModel *model = classSelectData[indexPath.row-1];
-        return model.selectName;
+            return model.selectName;
         }
     }
 }
@@ -210,7 +210,7 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
             [self loadDataWithTypeSelectId:typeId labelSelectId:labelId pageNum:_page keyWord:key];
         }
         
-    }else {
+    }else{
         NSLog(@"点击了 %ld - %ld 项目",indexPath.column,indexPath.row);
         if (indexPath.row == 0) {
             return;
@@ -229,7 +229,8 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return storeArray.count;
+   return storeArray.count;
+  
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -251,14 +252,10 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"++++++++++++++++++++++++++");
-    StoreDataModel *model = [storeArray objectAtIndex:indexPath.row];
-
+   StoreDataModel *model = [storeArray objectAtIndex:indexPath.row];
+    
     [self performSegueWithIdentifier:@"videoDetailSegue" sender:model];
-    
-    //self.saveId
-    
-    
-    
+
     
 }
 

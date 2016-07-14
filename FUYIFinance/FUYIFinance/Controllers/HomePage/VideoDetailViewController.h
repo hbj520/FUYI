@@ -17,4 +17,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *collectBtn;
 @property (weak, nonatomic) IBOutlet UIButton *addShopCarBtn;
 
+@property (weak, nonatomic) IBOutlet UILabel *numLab;
+
+
+@property (weak, nonatomic) IBOutlet UIButton *shopCarBtn;
+
 @end

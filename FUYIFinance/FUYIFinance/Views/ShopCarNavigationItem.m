@@ -20,7 +20,17 @@
 - (void)awakeFromNib{
     [self.messageBtn addTarget:self action:@selector(messageAct:) forControlEvents:UIControlEventTouchUpInside];
 
+    [self.backBtn addTarget:self action:@selector(backClick:) forControlEvents:UIControlEventTouchUpInside];
+    
+    
 }
+
+- (void)backClick:(id)sender{
+    if (self.backBlock) {
+        self.backBlock();
+    }
+}
+
 - (void)messageAct:(id)sender{
     if (self.messageBlock) {
         self.messageBlock();
