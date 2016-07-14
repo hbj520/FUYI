@@ -27,6 +27,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *TopConstraintLayout;
 @property(nonatomic,retain)NSMutableArray * isSelected;
 @property(nonatomic,retain)NSMutableArray * headIsSelected;
 @property(nonatomic,assign)BOOL isAllSelected;
@@ -44,6 +45,8 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+    self.tabBarController.tabBar.hidden = NO;
 
 }
 
@@ -56,6 +59,7 @@
     [self loadData];
     
 }
+
 -(void)loadData
 {
     //创建数据
@@ -79,6 +83,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"ShopCarTableViewCell" bundle:nil] forCellReuseIdentifier:@"shopCarCellReuseID"];
     self.tableView.rowHeight = 127;
     
+    self.TopConstraintLayout.constant = 44;
     //导航栏
     [self addCustomerNavigationItem];
     //底部结算View
@@ -329,9 +334,20 @@
 //导航栏
 -(void)addCustomerNavigationItem
 {
+    
     ShopCarNavigationItem *navItem = [[[NSBundle mainBundle]loadNibNamed:@"ShopCarNavigationItem" owner:self options:nil]lastObject];
     navItem.backgroundColor = RGBACOLOR(244,244,244,1);
     navItem.frame = CGRectMake(0, 0,ScreenWidth, 64);
+    
+    if (self.isPush) {
+        navItem.backBtn.hidden = NO;
+    }
+    
+    navItem.backBlock = ^(){
+        [self.navigationController popViewControllerAnimated:YES];
+    };
+    
+    
     //消息按钮
     navItem.messageBlock = ^(){
         

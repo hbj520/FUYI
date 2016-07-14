@@ -70,6 +70,9 @@
         if(indexPath.row == 1){
             [self performSegueWithIdentifier:@"shopnameSegue" sender:nil];
         }
+        if(indexPath.row == 4){
+            [self performSegueWithIdentifier:@"addressSegue" sender:nil];
+        }
     }
 }
 

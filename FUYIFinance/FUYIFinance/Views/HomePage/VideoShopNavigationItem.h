@@ -12,6 +12,7 @@
 typedef void (^BackBlock) ();
 typedef void (^SearchBlock) (NSString *);
 typedef void (^SearchBtnBlock) (NSString *);
+typedef void (^SearchBeginBlock) ();
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UIButton *searchBtn;
@@ -20,5 +21,7 @@ typedef void (^SearchBtnBlock) (NSString *);
 @property (nonatomic,copy) BackBlock backBlock;
 @property (nonatomic,copy) SearchBlock searchResultBlock;
 @property (nonatomic,copy) SearchBtnBlock searchBtnBlock;
+@property (nonatomic,copy) SearchBeginBlock searchBeginBlock;
+
 - (void)setBackColor;
 @end

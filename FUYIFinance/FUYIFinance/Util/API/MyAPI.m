@@ -21,7 +21,7 @@
 #import "MineCollectionTreasureModel.h"
 #import "MineCollectionShopModel.h"
 #import "MineMyJudgeModel.h"
-
+#import "UserInfoModel.h"
 @interface MyAPI ()
 @property (nonatomic, strong) AFHTTPRequestOperationManager *manager;
 
@@ -119,6 +119,9 @@
         NSString * state = responseObject[@"status"];
         NSString * information = responseObject[@"info"];
         if([state isEqualToString:@"1"]){
+            NSDictionary * data = responseObject[@"data"];
+            UserInfoModel * userinfo = [[UserInfoModel alloc] buildWithDatas:data];
+            [[Config Instance] saveImgthumb:userinfo.imgthumb token:userinfo.token username:userinfo.username];
             result(YES,information);
         }else{
             result(NO,information);

@@ -164,17 +164,17 @@
                             <constraint firstAttribute="height" constant="65" id="j6q-VS-dyi"/>
                         </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rightArrow" translatesAutoresizingMaskIntoConstraints="NO" id="jsI-Qn-Lp5">
-                        <rect key="frame" x="120" y="12" width="12" height="17"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jiantou" translatesAutoresizingMaskIntoConstraints="NO" id="jsI-Qn-Lp5">
+                        <rect key="frame" x="120" y="13" width="10" height="15"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="17" id="J13-TP-n9e"/>
-                            <constraint firstAttribute="width" constant="12" id="SJX-gf-f4y"/>
+                            <constraint firstAttribute="height" constant="15" id="J13-TP-n9e"/>
+                            <constraint firstAttribute="width" constant="10" id="SJX-gf-f4y"/>
                         </constraints>
                     </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="F2b-Qz-jVP" firstAttribute="top" secondItem="dbC-XE-7pb" secondAttribute="bottom" constant="9" id="04J-6T-SGA"/>
-                    <constraint firstItem="jsI-Qn-Lp5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="0UO-3S-bMB"/>
+                    <constraint firstItem="jsI-Qn-Lp5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="0UO-3S-bMB"/>
                     <constraint firstItem="cka-Wq-QFL" firstAttribute="leading" secondItem="HUB-9R-eOG" secondAttribute="trailing" constant="2" id="19C-dS-ivA"/>
                     <constraint firstItem="5Qj-7Q-K6s" firstAttribute="top" secondItem="NHG-2N-0eC" secondAttribute="bottom" constant="8" id="4L6-fT-BRX"/>
                     <constraint firstItem="Syc-Jy-jqm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="8bC-Nh-kOZ"/>
@@ -225,8 +225,8 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="jiantou" width="25" height="34"/>
         <image name="myorderheadicon" width="43" height="43"/>
         <image name="myorderthumbimage" width="134" height="126"/>
-        <image name="rightArrow" width="25" height="32"/>
     </resources>
 </document>

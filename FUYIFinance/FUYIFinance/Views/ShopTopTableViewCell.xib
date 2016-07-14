@@ -30,7 +30,7 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="原油投资分析6月1日上午10点正式发布！" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7g-cu-QKs">
-                        <rect key="frame" x="106" y="10" width="183" height="20"/>
+                        <rect key="frame" x="106" y="10" width="186" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="1lG-Gd-Zhd"/>
                         </constraints>
@@ -38,10 +38,10 @@
                         <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rightArrow" translatesAutoresizingMaskIntoConstraints="NO" id="72E-kA-Iwx">
-                        <rect key="frame" x="299" y="12" width="13" height="15"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jiantou" translatesAutoresizingMaskIntoConstraints="NO" id="72E-kA-Iwx">
+                        <rect key="frame" x="302" y="12" width="10" height="15"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="13" id="8iD-1J-oGx"/>
+                            <constraint firstAttribute="width" constant="10" id="8iD-1J-oGx"/>
                             <constraint firstAttribute="height" constant="15" id="VHm-EC-2yK"/>
                         </constraints>
                     </imageView>
@@ -62,7 +62,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="rightArrow" width="25" height="32"/>
+        <image name="jiantou" width="25" height="34"/>
         <image name="shoptop" width="153" height="38"/>
     </resources>
 </document>

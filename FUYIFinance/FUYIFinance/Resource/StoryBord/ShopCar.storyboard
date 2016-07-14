@@ -1,14 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ZQV-tI-Yyx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="JC4-N4-M7W">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="dCr-00-2De">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="JC4-N4-M7W" sceneMemberID="viewController">
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="3Uc-95-VFY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ZQV-tI-Yyx" kind="relationship" relationship="rootViewController" id="xBg-Wy-UKT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nx9-7f-KNf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-96" y="191"/>
+        </scene>
         <!--Shop Car View Controller-->
         <scene sceneID="R3r-oN-w89">
             <objects>
-                <viewController id="ZQV-tI-Yyx" customClass="ShopCarViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ShopCarStorybordId" id="ZQV-tI-Yyx" customClass="ShopCarViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eCU-ci-N0I"/>
                         <viewControllerLayoutGuide type="bottom" id="MWv-F5-GbH"/>
@@ -18,28 +35,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="MdX-68-rhy">
-                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="MdX-68-rhy" firstAttribute="leading" secondItem="2dX-jf-gFJ" secondAttribute="leading" id="0Jn-kg-rtz"/>
-                            <constraint firstItem="MdX-68-rhy" firstAttribute="top" secondItem="2dX-jf-gFJ" secondAttribute="top" constant="64" id="NZK-co-VOY"/>
+                            <constraint firstItem="MdX-68-rhy" firstAttribute="top" secondItem="2dX-jf-gFJ" secondAttribute="top" id="NZK-co-VOY"/>
                             <constraint firstAttribute="bottom" secondItem="MdX-68-rhy" secondAttribute="bottom" constant="49" id="VeT-rw-Ug9"/>
                             <constraint firstAttribute="trailing" secondItem="MdX-68-rhy" secondAttribute="trailing" id="eVh-fm-bwl"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Gz4-Xm-izM"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <navigationItem key="navigationItem" id="AEq-2a-ATK"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="TopConstraintLayout" destination="NZK-co-VOY" id="RtB-ou-AMR"/>
                         <outlet property="tableView" destination="MdX-68-rhy" id="j0D-zD-J9A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s4O-jJ-9Vi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="227" y="254"/>
+            <point key="canvasLocation" x="287" y="191"/>
         </scene>
     </scenes>
 </document>

@@ -16,12 +16,18 @@
 #import "NoticeTableViewCell.h"
 #import "PayView.h"
 
+#import "StoreDataModel.h"
+
 #import "ConfirmOrderViewController.h"
+
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "LabelHelper.h"
 
 @interface ConfirmOrderViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     PayView* _payView;
     UIButton* _shadowBtn;
+    int a;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -33,6 +39,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self creatUI];
+    a = 1;
 
 }
 
@@ -44,7 +51,9 @@
         [self.tableView registerNib:[UINib nibWithNibName:@"BuyCountTableViewCell" bundle:nil] forCellReuseIdentifier:@"buyerCountCellReuseID"];
         [self.tableView registerNib:[UINib nibWithNibName:@"DeliverMethodTableViewCell" bundle:nil] forCellReuseIdentifier:@"deliMethodCellReuseID"];
         [self.tableView registerNib:[UINib nibWithNibName:@"NoticeTableViewCell" bundle:nil] forCellReuseIdentifier:@"noticeCellReuseID"];
-    [self creatHidePayView];
+    [self creatHidePayView];//弹出视图
+
+    self.allPriceLab.attributedText = [[LabelHelper alloc]attributedFontStringWithString:[NSString stringWithFormat:@"¥ %@",_model.videoPrice] firstFont:14 secFont:18 thirdFont:18];//商品数为1时的价格
 
 }
 //弹出视图
@@ -53,7 +62,7 @@
      _payView = [[[NSBundle mainBundle]loadNibNamed:@"PayView" owner:self options:nil]lastObject];
     _payView.frame = CGRectMake(0, ScreenHeight, ScreenWidth, ScreenHeight*0.65);
     [_payView.downBtn addTarget:self action:@selector(down) forControlEvents:UIControlEventTouchUpInside];
-    [_payView.payWayBtn addTarget:self action:@selector(selectBank) forControlEvents:UIControlEventTouchUpInside];
+    //[_payView.payWayBtn addTarget:self action:@selector(selectBank) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_payView];
 }
 
@@ -84,6 +93,11 @@
             }if (indexPath.section == 1) {
         if (indexPath.row == 0) {
             VideoInfoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"videoInfoCellReuseID" forIndexPath:indexPath];
+            
+            [cell.videoImage sd_setImageWithURL:[NSURL URLWithString:_model.videoImage] placeholderImage:[UIImage imageNamed:@"classImageDemo_1"]];
+            cell.videoContentLab.text = _model.videoName;
+            cell.videoPriceLab.attributedText = [[LabelHelper alloc]attributedFontStringWithString:[NSString stringWithFormat:@"¥ %@",_model.videoPrice] firstFont:14 secFont:18 thirdFont:15];
+            
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
         }if (indexPath.row == 1) {
@@ -159,7 +173,7 @@
 - (void)changeCount:(UIButton*)button{
     NSLog(@"加减");
     BuyCountTableViewCell* buyCell = (BuyCountTableViewCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:1]];
-    int a = [buyCell.countText.text intValue];
+    a = [buyCell.countText.text intValue];
     if (button.tag == 10) {
  
         if (a < 2) {
@@ -173,18 +187,11 @@
         a = a + 1;
     }
     buyCell.countText.text = [NSString stringWithFormat:@"%d",a];
+    
+    NSLog(@"商品数量显示%@",buyCell.countText.text);
+    
+    self.allPriceLab.attributedText = [[LabelHelper alloc]attributedFontStringWithString:[NSString stringWithFormat:@"¥ %.2f",[_model.videoPrice floatValue] * [buyCell.countText.text floatValue]] firstFont:14 secFont:18 thirdFont:18];
 }
-
--(void)selectBank{
-    
-    
-    
-    
-    
-    
-}
-
-
 
 
 //确认付款弹出
@@ -199,6 +206,7 @@
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:1.0];
     _payView.frame = CGRectMake(0, ScreenHeight*0.35, ScreenWidth, ScreenHeight*0.65);
+    _payView.lastPriceLab.text = [NSString stringWithFormat:@"%@元",self.allPriceLab.text];
     _shadowBtn.frame = CGRectMake(0, -ScreenHeight*0.65, ScreenWidth, ScreenHeight);
     [UIView commitAnimations];
 }

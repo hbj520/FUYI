@@ -41,17 +41,20 @@
     return nil;
 }
 
-
-- (NSMutableAttributedString *)attributedFontStringWithString:(NSString*)string
+//价格字体大小富文本
+- (NSMutableAttributedString *)attributedFontStringWithString:(NSString*)string firstFont:(NSInteger)firstFont secFont:(NSInteger)secFont thirdFont:(NSInteger)thirdFont
 {
     NSArray * stringArray = [string componentsSeparatedByString:@"."];
     NSString * numString = stringArray[0];
-    NSString * numberString = [numString stringByAppendingString:@"."];
-    NSInteger length = numberString.length;
+    NSArray * strArr = [numString componentsSeparatedByString:@" "];
+    NSString * preString = strArr[0];
+    NSInteger length = preString.length;
+    NSInteger pointLength = numString.length;
     NSInteger contentlength = string.length;
     NSMutableAttributedString * attributeString = [[NSMutableAttributedString alloc] initWithString:string];
-    [attributeString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:24] range:NSMakeRange(0, length)];
-    [attributeString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:18] range:NSMakeRange(length,contentlength - length)];
+    [attributeString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:firstFont] range:NSMakeRange(0, length)];
+    [attributeString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:secFont] range:NSMakeRange(length, pointLength-length)];
+    [attributeString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:thirdFont] range:NSMakeRange(pointLength,contentlength - pointLength)];
     return attributeString;
 }
 

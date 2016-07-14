@@ -50,8 +50,13 @@
 
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
+    if(textView.text.length){
+        self.label1.hidden = YES;
+        self.label2.hidden = YES;
+    }else{
     self.label1.hidden = NO;
     self.label2.hidden = NO;
+    }
 }
 //手势方法的实现
 - (void)renewStar:(UIGestureRecognizer *)sender
