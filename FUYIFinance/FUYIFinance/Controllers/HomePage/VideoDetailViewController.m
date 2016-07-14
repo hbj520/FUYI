@@ -6,13 +6,16 @@
 //  Copyright © 2016年 youyou. All rights reserved.
 //
 
+
+
+#import "VideoDetailViewController.h"
+#import "ShopCarViewController.h"
+#import "ConfirmOrderViewController.h"
+
 //view
 #import "VideoDetailFirstTableViewCell.h"
 #import "VideoDetailSecTableViewCell.h"
 #import "VideoDetailThirdtTableViewCell.h"
-
-#import "VideoDetailViewController.h"
-
 #import "StoreDataModel.h"
 
 #import "LabelHelper.h"
@@ -25,30 +28,23 @@
 @property (nonatomic,strong) UIBezierPath *path;
 
 @end
-
 @implementation VideoDetailViewController
 {
     CALayer     *layer;
-    UILabel     *_cntLabel;// 购物车总数量显示文本
+    //UILabel     *_cntLabel;// 购物车总数量显示文本
     NSInteger    _cnt;// 总数量
-    
-    
 }
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self creatUI];
       _cnt = 0;
-
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = YES;
     self.tabBarController.tabBar.hidden = YES;
-    
 }
 
 -(void)creatUI{
@@ -60,33 +56,36 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"VideoDetailThirdtTableViewCell" bundle:nil] forCellReuseIdentifier:@"detailThirdReuseID"];
     [self addBottomTapGesAndButton];//添加底部点击事件
     
-//    // label
-//    _cntLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-30, 25, 20, 20)];
-//    _cntLabel.textColor = customColor;
-//    _cntLabel.textAlignment = NSTextAlignmentCenter;
-//    _cntLabel.font = [UIFont boldSystemFontOfSize:13];
-//    _cntLabel.backgroundColor = [UIColor whiteColor];
-//    _cntLabel.layer.cornerRadius = CGRectGetHeight(_cntLabel.bounds)/2;
-//    _cntLabel.layer.masksToBounds = YES;
-//    _cntLabel.layer.borderWidth = 1.0f;
-//    _cntLabel.layer.borderColor = customColor.CGColor;
-//    [self.view addSubview:_cntLabel];
-//    
-//    if (_cnt == 0) {
-//        _cntLabel.hidden = YES;
-//    }
-//    
-//    _path = [UIBezierPath bezierPath];
-//    [_path moveToPoint:CGPointMake(50, SCREEN_HEIGHT * 0.7)];
-//    [_path addQuadCurveToPoint:CGPointMake(SCREEN_WIDTH-50-10, 5)
-//                  controlPoint:CGPointMake(156, 100)];
+    //右上角数字label
+    _numLab.textAlignment = NSTextAlignmentCenter;
+    _numLab.layer.cornerRadius = CGRectGetHeight(_numLab.bounds)/2;
+    _numLab.layer.masksToBounds = YES;
+    _numLab.layer.borderWidth = 1.0f;
+    _numLab.layer.borderColor = [[UIColor whiteColor]CGColor];
+    [self.view addSubview:_numLab];
     
+    if (_cnt == 0) {
+        _numLab.hidden = YES;
+    }
     
+    //路线坐标
+    _path = [UIBezierPath bezierPath];
+    [_path moveToPoint:CGPointMake(ScreenWidth*0.6, ScreenHeight * 0.9)];
+    [_path addQuadCurveToPoint:CGPointMake(ScreenWidth-68, 10)
+                  controlPoint:CGPointMake(50, 200)];
+}
+//进购物车界面
+- (IBAction)pushToShopCar:(id)sender {
+    UIStoryboard *storyBord = [UIStoryboard storyboardWithName:@"ShopCar" bundle:[NSBundle mainBundle]];
+    ShopCarViewController *shopVC = [storyBord instantiateViewControllerWithIdentifier:@"ShopCarStorybordId"];
+    shopVC.isPush = YES;
+    [self.navigationController pushViewController:shopVC animated:YES];
+//    [self performSegueWithIdentifier:@"PushToShopCarSegue" sender:[NSNumber numberWithBool:YES]];
+    //self.tabBarController.selectedIndex = 2;
 }
 
 - (void)addBottomTapGesAndButton{
 
-    [self.collectBtn addTarget:self action:@selector(collectClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.collectBtn setBackgroundImage:[UIImage imageNamed:@"VD_star"] forState:UIControlStateNormal];
     [self.collectBtn setBackgroundImage:[UIImage imageNamed:@"VD_red_Star.jpg"] forState:UIControlStateSelected];
     
@@ -104,21 +103,17 @@
     
     if (!layer)
     {
-        UIColor *customColor  = [UIColor colorWithRed:237/255.0 green:20/255.0 blue:91/255.0 alpha:1.0f];
-        
         button.enabled = NO;
         layer = [CALayer layer];
-        layer.contents = (__bridge id)[UIImage imageNamed:@"test01.jpg"].CGImage;
+        layer.contents = (__bridge id)[UIImage imageNamed:@"classImageDemo_1"].CGImage;
         layer.contentsGravity = kCAGravityResizeAspectFill;
         layer.bounds = CGRectMake(0, 0, 50, 50);
-        
         layer.masksToBounds = YES;
-        layer.position = CGPointMake(50, 150);
-        layer.borderColor = customColor.CGColor;
+        //layer.position = CGPointMake(50, 150);
+        layer.borderColor = (__bridge CGColorRef _Nullable)([UIColor whiteColor]);
         [self.view.layer addSublayer:layer];
     }
-    
-    [self groupAnimation];
+    [self groupAnimation];//加入购物车动画
 }
 
 - (void)groupAnimation
@@ -161,20 +156,55 @@
     [layer addAnimation:groups forKey:@"group"];
 }
 
-
-
-
-
-
-
-
-//收藏
-- (void)collectClick:(UIButton*)button{
-    button.selected = !button.selected;
-    
-
+//动画结束后
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
+{
+    if (anim == [layer animationForKey:@"group"]) {
+        self.addShopCarBtn.enabled = YES;
+        [layer removeFromSuperlayer];
+        layer = nil;
+        _cnt++;
+        if (_cnt) {
+            _numLab.hidden = NO;
+        }
+        
+        CATransition *animation = [CATransition animation];
+        animation.duration = 0.15f;
+        _numLab.text = [NSString stringWithFormat:@"%ld",_cnt];
+        [_numLab.layer addAnimation:animation forKey:nil];
+        
+        CABasicAnimation *shakeAnimation = [CABasicAnimation animationWithKeyPath:@"transform.translation.y"];
+        shakeAnimation.duration = 0.15f;
+        shakeAnimation.fromValue = [NSNumber numberWithFloat:-5];
+        shakeAnimation.toValue = [NSNumber numberWithFloat:5];
+        shakeAnimation.autoreverses = YES;
+        [self.shopCarBtn.layer addAnimation:shakeAnimation forKey:nil];
+        
+        [self showPopup:@"加入购物车成功！"];
+    }
 }
 
+#pragma mark - creatLPPopup
+
+- (void)showPopup:(NSString *)popupWithText
+{
+    LPPopup *popup = [LPPopup popupWithText:popupWithText];
+    [popup showInView:self.view
+        centerAtPoint:self.view.center
+             duration:kLPPopupDefaultWaitDuration
+           completion:nil];
+}
+
+//收藏
+- (IBAction)collectClick:(UIButton*)button {
+    button.selected = !button.selected;
+    if (button.selected) {
+        [self showPopup:@"收藏成功"];
+    }else{
+        [self showPopup:@"取消收藏"];
+    }
+
+}
 
 //店铺
 - (void)shopClick:(UIGestureRecognizer *)ges{
@@ -185,8 +215,6 @@
 - (void)serviceClick:(UIGestureRecognizer *)ges{
     
 }
-
-
 
 #pragma mark - UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -205,9 +233,9 @@
     if (indexPath.section == 0 && indexPath.row == 0) {
         VideoDetailFirstTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"detailFirstReuseID" forIndexPath:indexPath];
         cell.videoTitleLab.text = _model.videoName;
-        //cell.detailVideoPriceLab.text = [NSString stringWithFormat:@"¥%@",_model.videoPrice];
-        cell.detailVideoPriceLab.attributedText = [[LabelHelper alloc] attributedFontStringWithString:[NSString stringWithFormat:@"¥ %@",_model.videoPrice]];
-        cell.authorLab.text = [NSString stringWithFormat:@"讲师： %@",_model.teacherName];
+        cell.detailVideoPriceLab.attributedText = [[LabelHelper alloc]attributedFontStringWithString:[NSString stringWithFormat:@"¥ %@",_model.videoPrice] firstFont:17 secFont:24 thirdFont:19];
+        
+        cell.authorLab.text = [NSString stringWithFormat:@"讲师：%@",_model.teacherName];
         cell.saleCountsLab.text = [NSString stringWithFormat:@"月销%@笔",_model.sellNum];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
@@ -232,7 +260,7 @@
         return head1;
     }else{
         UIImageView *head0 = [[UIImageView alloc]init];
-       // head0.image = [UIImage imageNamed:@"VD_class_demo"];
+      // head0.image = [UIImage imageNamed:@"VD_class_demo"];
       [head0 sd_setImageWithURL:[NSURL URLWithString:_model.videoImage]placeholderImage:[UIImage imageNamed:@"VD_class_demo"]];
         return head0;
     }
@@ -243,7 +271,13 @@
 }
 
 - (IBAction)buyNow:(id)sender {
-   [self performSegueWithIdentifier:@"ConfirmOrderSegue" sender:nil];
+   [self performSegueWithIdentifier:@"ConfirmOrderSegue" sender:self.model];
+    
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    ConfirmOrderViewController *confirmVC = segue.destinationViewController;
+    confirmVC.model = sender;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -273,14 +307,21 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-}
-*/
+    
+    
+//    ShopCarViewController *shopVC = segue.destinationViewController;
+//    NSNumber *isPushNumber = sender;
+//    BOOL isPush = isPushNumber.boolValue;
+//   shopVC.isPush = isPush;
+    
+//}
+
 
 @end

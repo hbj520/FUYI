@@ -9,22 +9,49 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ShopCarNavigationItem">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="72"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="购物车" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tC2-TG-yuz">
-                    <rect key="frame" x="159" y="32" width="57" height="23"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="购物车(12)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tC2-TG-yuz">
+                    <rect key="frame" x="143" y="32" width="89" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="Q7R-I6-rnm"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="19"/>
                     <color key="textColor" red="0.52983431208053688" green="0.52582319630872487" blue="0.52776321308724827" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hby-ha-hAS">
-                    <rect key="frame" x="318" y="26" width="39" height="34"/>
+                    <rect key="frame" x="332" y="26" width="30" height="26"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="34" id="4k6-oU-aWt"/>
+                        <constraint firstAttribute="height" constant="26" id="6c5-Xy-fDF"/>
                         <constraint firstAttribute="width" constant="39" id="GeK-mz-Pwx"/>
+                        <constraint firstAttribute="width" constant="30" id="YAF-1k-Hvm"/>
                     </constraints>
                     <state key="normal" title="Button" image="messageBtn"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="4k6-oU-aWt"/>
+                            <exclude reference="GeK-mz-Pwx"/>
+                        </mask>
+                    </variation>
+                </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j0A-pF-Jet">
+                    <rect key="frame" x="13" y="27" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="25" id="IZY-TR-B14"/>
+                        <constraint firstAttribute="width" constant="25" id="SpR-gj-II0"/>
+                        <constraint firstAttribute="height" constant="25" id="XrU-1f-mQN"/>
+                        <constraint firstAttribute="height" constant="25" id="ZyW-1r-vil"/>
+                    </constraints>
+                    <state key="normal" image="back"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="IZY-TR-B14"/>
+                            <exclude reference="ZyW-1r-vil"/>
+                        </mask>
+                    </variation>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -33,15 +60,31 @@
                 <constraint firstItem="hby-ha-hAS" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="1.2" id="3mE-DY-aXK"/>
                 <constraint firstItem="tC2-TG-yuz" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="1.2" id="BDG-I4-ddc"/>
                 <constraint firstItem="hby-ha-hAS" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" multiplier="1.8" id="FXb-NX-SfP"/>
+                <constraint firstAttribute="trailing" secondItem="hby-ha-hAS" secondAttribute="trailing" constant="13" id="Mg4-pg-oei"/>
+                <constraint firstItem="j0A-pF-Jet" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="13" id="SoO-5U-aLm"/>
+                <constraint firstAttribute="bottom" secondItem="tC2-TG-yuz" secondAttribute="bottom" constant="12" id="VoH-Jp-4LC"/>
+                <constraint firstItem="tC2-TG-yuz" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="his-o9-FvM"/>
+                <constraint firstAttribute="bottom" secondItem="j0A-pF-Jet" secondAttribute="bottom" constant="12" id="oal-Ax-qu1"/>
+                <constraint firstAttribute="bottom" secondItem="hby-ha-hAS" secondAttribute="bottom" constant="12" id="zc4-kf-SYo"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="0oX-RF-4AC"/>
+                    <exclude reference="BDG-I4-ddc"/>
+                    <exclude reference="3mE-DY-aXK"/>
+                    <exclude reference="FXb-NX-SfP"/>
+                </mask>
+            </variation>
             <connections>
+                <outlet property="backBtn" destination="j0A-pF-Jet" id="AQV-J6-dxI"/>
                 <outlet property="messageBtn" destination="hby-ha-hAS" id="gTM-RB-4TW"/>
             </connections>
             <point key="canvasLocation" x="296.5" y="266"/>
         </view>
     </objects>
     <resources>
+        <image name="back" width="12" height="17"/>
         <image name="messageBtn" width="63" height="52"/>
     </resources>
 </document>

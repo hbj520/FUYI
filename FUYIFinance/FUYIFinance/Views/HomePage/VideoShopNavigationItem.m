@@ -36,6 +36,13 @@
     
 }
 
+- (void)searchClick{
+    if (self.searchBtnBlock) {
+        self.searchBtnBlock;
+    }
+}
+
+
 - (void)back{
     if (self.backBlock) {
         self.backBlock();

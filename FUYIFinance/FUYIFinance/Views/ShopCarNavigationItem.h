@@ -8,9 +8,14 @@
 
 #import <UIKit/UIKit.h>
 typedef void (^MessageBlock) ();
+typedef void (^BackBlock) ();
 
 @interface ShopCarNavigationItem : UIView
 
 @property (weak, nonatomic) IBOutlet UIButton *messageBtn;
 @property (nonatomic,copy) MessageBlock messageBlock;
+
+@property (weak, nonatomic) IBOutlet UIButton *backBtn;
+@property (nonatomic,copy) BackBlock backBlock;
+
 @end

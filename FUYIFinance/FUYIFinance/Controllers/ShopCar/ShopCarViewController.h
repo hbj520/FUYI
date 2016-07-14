@@ -9,6 +9,6 @@
 #import "BaseViewController.h"
 
 @interface ShopCarViewController : BaseViewController
-
+@property (nonatomic,assign) BOOL isPush;//从详情进入标志
 
 @end
