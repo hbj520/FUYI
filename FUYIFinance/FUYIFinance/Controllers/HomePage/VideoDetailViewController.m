@@ -33,6 +33,7 @@
     CALayer     *layer;
     //UILabel     *_cntLabel;// 购物车总数量显示文本
     NSInteger    _cnt;// 总数量
+    UIImageView *head0;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -105,7 +106,7 @@
     {
         button.enabled = NO;
         layer = [CALayer layer];
-        layer.contents = (__bridge id)[UIImage imageNamed:@"classImageDemo_1"].CGImage;
+        layer.contents = (__bridge id)head0.image.CGImage;
         layer.contentsGravity = kCAGravityResizeAspectFill;
         layer.bounds = CGRectMake(0, 0, 50, 50);
         layer.masksToBounds = YES;
@@ -259,7 +260,7 @@
         head1.backgroundColor = RGBACOLOR(234, 235, 236, 1);
         return head1;
     }else{
-        UIImageView *head0 = [[UIImageView alloc]init];
+        head0 = [[UIImageView alloc]init];
       // head0.image = [UIImage imageNamed:@"VD_class_demo"];
       [head0 sd_setImageWithURL:[NSURL URLWithString:_model.videoImage]placeholderImage:[UIImage imageNamed:@"VD_class_demo"]];
         return head0;

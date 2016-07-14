@@ -35,6 +35,8 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
     NSInteger _page;
     NSString *key;
     
+    UIButton* _shadowBtn;
+    
 }
 @property (nonatomic,copy) NSString *saveId;
 @property (nonatomic, weak) DOPDropDownMenu *menu;
@@ -59,10 +61,10 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
     labelId = @"";
     key = @"";
     
-    [self loadMenuData];
+    [self loadMenuData];//下拉菜单数据
     [self loadDataWithTypeSelectId:typeId labelSelectId:labelId pageNum:_page keyWord:key];
-    [self addRefresh];
-    //[self addTap];
+    [self addRefresh];//刷新
+    [self keyBoardChange];//键盘
 }
 - (void)viewWillDisappear:(BOOL)animated
 {
@@ -92,14 +94,6 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
     }];
 }
 
-- (void)addTap{
-    UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(TapAct:)];
-    [self.view addGestureRecognizer:tapGes];
-    
-}
-- (void)TapAct:(UIGestureRecognizer *)ges{
-    [Tools hideKeyBoard];
-}
 
 -(void)creatUI{
     self.tableView.delegate = self;
@@ -115,10 +109,46 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
     navItem.backBlock = ^(){
         [self.navigationController popViewControllerAnimated:YES];
     };
-  
-    
-    //[navItem setBackColor];
+    //搜索
+    navItem.searchResultBlock = ^(NSString *resutText){
+   
+        [self loadDataWithTypeSelectId:typeId labelSelectId:labelId pageNum:_page keyWord:resutText];
+        _shadowBtn.hidden = YES;
+         [Tools hideKeyBoard];
+    };
+    navItem.searchBtnBlock = ^(NSString *resultTest){
+      
+        [self loadDataWithTypeSelectId:typeId labelSelectId:labelId pageNum:_page keyWord:resultTest];
+        _shadowBtn.hidden = YES;
+        [Tools hideKeyBoard];
+    };
+    //搜索框点击是
+    navItem.searchBeginBlock = ^(){
+        
+    };
     [self.view addSubview:navItem];
+}
+
+//键盘变化
+- (void)keyBoardChange{
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+}
+
+- (void)keyboardWillShow:(NSNotification *)aNotification{
+    
+    _shadowBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight)];
+    _shadowBtn.backgroundColor = RGBACOLOR(0, 0, 0, 0.5);
+    [_shadowBtn addTarget:self action:@selector(down) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_shadowBtn];
+}
+
+- (void)down{
+    _shadowBtn.hidden = YES;
+    [Tools hideKeyBoard];
 }
 
 - (void)loadMenuData{
@@ -231,7 +261,6 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
    return storeArray.count;
-  
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -245,17 +274,15 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
-    
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 115;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-   StoreDataModel *model = [storeArray objectAtIndex:indexPath.row];
+    StoreDataModel *model = [storeArray objectAtIndex:indexPath.row];
     
     [self performSegueWithIdentifier:@"videoDetailSegue" sender:model];
-
-    
 }
 
 #pragma mark - Navigation

@@ -12,4 +12,6 @@
 
 @property (nonatomic,strong)StoreDataModel *model;
 
+@property (weak, nonatomic) IBOutlet UILabel *allPriceLab;
+
 @end

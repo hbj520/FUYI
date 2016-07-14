@@ -30,18 +30,17 @@
 //    searchField.layer.mask = maskLayer;
     //searchField.layer.cornerRadius = 10;
     [self.backBtn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-    [self.searchBtn addTarget:self action:@selector(searchClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.searchBtn addTarget:self action:@selector(searchClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.searchBar setSearchResultsButtonSelected:YES];
     
     
 }
 
-- (void)searchClick{
+- (void)searchClick:(UIButton*)button{
     if (self.searchBtnBlock) {
-        self.searchBtnBlock;
+        self.searchBtnBlock(_searchBar.text);
     }
 }
-
 
 - (void)back{
     if (self.backBlock) {
@@ -54,6 +53,13 @@
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     if (self.searchResultBlock) {
         self.searchResultBlock(searchBar.text);
+    }
+}
+
+- (void) searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    if (self.searchBeginBlock) {
+        self.searchBeginBlock();
     }
     
 }

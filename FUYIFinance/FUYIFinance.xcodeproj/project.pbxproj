@@ -183,6 +183,7 @@
 		D1F1305C1D2E3F7000EE1690 /* StoreDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F1305B1D2E3F7000EE1690 /* StoreDataModel.m */; };
 		D1F130641D34EE5400EE1690 /* AnimationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F130631D34EE5400EE1690 /* AnimationHelper.m */; };
 		D1F130671D35D32300EE1690 /* LPPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F130661D35D32300EE1690 /* LPPopup.m */; };
+		D1F1306A1D378D0A00EE1690 /* TeacherTeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F130691D378D0A00EE1690 /* TeacherTeamViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -518,6 +519,8 @@
 		D1F130631D34EE5400EE1690 /* AnimationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationHelper.m; sourceTree = "<group>"; };
 		D1F130651D35D32300EE1690 /* LPPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPPopup.h; sourceTree = "<group>"; };
 		D1F130661D35D32300EE1690 /* LPPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPPopup.m; sourceTree = "<group>"; };
+		D1F130681D378D0A00EE1690 /* TeacherTeamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherTeamViewController.h; sourceTree = "<group>"; };
+		D1F130691D378D0A00EE1690 /* TeacherTeamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherTeamViewController.m; sourceTree = "<group>"; };
 		E2D217BF4D0AE0F6C9591577 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FA5515060D58FFB367588DFA /* Pods-FUYIFinance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FUYIFinance.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FUYIFinance/Pods-FUYIFinance.debug.xcconfig"; sourceTree = "<group>"; };
 		FB5E00328843A9E289111723 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -777,6 +780,8 @@
 				D1F12FFD1D2A2C4800EE1690 /* VideoDetailViewController.m */,
 				D1F1301E1D2B642A00EE1690 /* ConfirmOrderViewController.h */,
 				D1F1301F1D2B642A00EE1690 /* ConfirmOrderViewController.m */,
+				D1F130681D378D0A00EE1690 /* TeacherTeamViewController.h */,
+				D1F130691D378D0A00EE1690 /* TeacherTeamViewController.m */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -1517,6 +1522,7 @@
 				D1F130131D2A4E5A00EE1690 /* VideoDetailThirdtTableViewCell.m in Sources */,
 				AB36CE401D1BC9C100D0E4C7 /* InvestCollectionViewTableViewCell.m in Sources */,
 				CC4F37321D2DFEFF00312F11 /* MineLoginViewController.m in Sources */,
+				D1F1306A1D378D0A00EE1690 /* TeacherTeamViewController.m in Sources */,
 				CC72D0271D22620000945BCF /* MyOrderViewController.m in Sources */,
 				D1F130241D2B80DB00EE1690 /* ConInfoTableViewCell.m in Sources */,
 				CCEEFC0C1D37400B0001C7AA /* UserInfoModel.m in Sources */,

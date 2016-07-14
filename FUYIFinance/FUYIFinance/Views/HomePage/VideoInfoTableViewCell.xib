@@ -42,9 +42,9 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥39.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ez6-BQ-Xvs">
-                        <rect key="frame" x="160" y="93" width="70" height="20"/>
+                        <rect key="frame" x="160" y="93" width="120" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="70" id="T4p-L4-0g5"/>
+                            <constraint firstAttribute="width" constant="120" id="T4p-L4-0g5"/>
                             <constraint firstAttribute="height" constant="20" id="xk8-ij-Nh4"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
