@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MyAddressTextTableViewCell : UITableViewCell
+@interface MyAddressTextTableViewCell : UITableViewCell<UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (weak, nonatomic) IBOutlet UILabel *label1;
 
 @end

@@ -7,6 +7,10 @@
 //
 
 #import "MineMyAddressViewController.h"
+#import "MyAddressFirstTableViewCell.h"
+#import "MyAddressChoiceTableViewCell.h"
+#import "MyAddressTextTableViewCell.h"
+#import "BBBadgeBarButtonItem.h"
 #import "chdButton.h"
 #import "KGModal.h"
 #import "MJExtension.h"
@@ -20,13 +24,24 @@
     BOOL isShow;
     BOOL isShow1;
     BOOL isShow2;
+    NSString * provinceLabel;
+    NSString * cityLabel;
+    NSString * areaLabel;
+    BBBadgeBarButtonItem * _chatBtn;         //自定制导航栏按钮
+    BBBadgeBarButtonItem * _chatBtn1;        //自定制导航栏按钮
+    
 }
 @property (weak, nonatomic) IBOutlet chdButton *provinceBtn;
 @property (weak, nonatomic) IBOutlet chdButton *cityBtn;
 @property (weak, nonatomic) IBOutlet chdButton *areaBtn;
 @property (nonatomic,strong)NSMutableArray * provinceArray;
-@property (nonatomic,strong)UITableView * tableView1;
+@property (nonatomic,strong)NSMutableArray * cityArray;
+@property (nonatomic,strong)NSMutableArray * areaArray;
+@property (weak, nonatomic) IBOutlet UITableView *tableView1;
 @property (nonatomic,strong)UITableView * tableView;
+@property (nonatomic,strong)UITableView * citytableView;
+@property (nonatomic,strong)UITableView * areatableView;
+
 @end
 
 @implementation MineMyAddressViewController
@@ -34,36 +49,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self.provinceBtn setTitle:@"河南" forState:UIControlStateNormal];
-    self.provinceBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
-    self.provinceBtn.backgroundColor = [UIColor whiteColor];
-    [self.provinceBtn setImage:[UIImage imageNamed:@"up1"] forState:UIControlStateNormal];
-    self.provinceBtn.imageView.transform = CGAffineTransformMakeRotation(M_PI);
-    self.provinceBtn.font = [UIFont systemFontOfSize:15];
-    // [self.provinceBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [self.provinceBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
-    self.provinceBtn.tag = 1;
-    
-    [self.cityBtn setTitle:@"洛阳" forState:UIControlStateNormal];
-    self.cityBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
-    self.cityBtn.backgroundColor = [UIColor whiteColor];
-    [self.cityBtn setImage:[UIImage imageNamed:@"up1"] forState:UIControlStateNormal];
-    self.cityBtn.imageView.transform = CGAffineTransformMakeRotation(M_PI);
-    self.cityBtn.font = [UIFont systemFontOfSize:15];
-    // [self.cityBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [self.cityBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
-    self.cityBtn.tag = 2;
-    
-    [self.areaBtn setTitle:@"东城区" forState:UIControlStateNormal];
-    self.areaBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
-    self.areaBtn.backgroundColor = [UIColor whiteColor];
-    [self.areaBtn setImage:[UIImage imageNamed:@"up1"] forState:UIControlStateNormal];
-    self.areaBtn.imageView.transform = CGAffineTransformMakeRotation(M_PI);
-    self.areaBtn.font = [UIFont systemFontOfSize:15];
-    // [self.areaBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [self.areaBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
-    self.areaBtn.tag = 3;
-
+    [self addChatBtn];
     [self configView];
     NSString * urlStr = [NSString stringWithFormat:@"http://apis.map.qq.com/ws/district/v1/list?key=K3VBZ-M6WWV-PPSPY-UVGGC-DRM2Z-PGBMV"];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -99,74 +85,246 @@
 
 }
 
-- (void)btnClick:(UIButton*)sender
-{
+//添加自定制导航栏按钮
+- (void)addChatBtn{
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = CGRectMake(0, 0, 31, 27);
+    [btn setImage:[UIImage imageNamed:@"messageBtn"] forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(chatAct:) forControlEvents:UIControlEventTouchUpInside];
     
-    NSInteger tag = sender.tag;
-    if(tag == 1){
-        isShow = !isShow;
-        if(isShow){
-            sender.imageView.transform = CGAffineTransformMakeRotation(0);
-            [[KGModal sharedInstance] setCloseButtonType:KGModalCloseButtonTypeNone];
-            [KGModal sharedInstance].modalBackgroundColor = [UIColor whiteColor];
-            [[KGModal sharedInstance] showWithContentView:self.tableView andAnimated:YES];
-        }else{
-            sender.imageView.transform = CGAffineTransformMakeRotation(M_PI);
-        }
-    }
-    if(tag == 2){
-        isShow1 = !isShow1;
-        if(isShow1){
-            sender.imageView.transform = CGAffineTransformMakeRotation(0);
-            
-        }else{
-            sender.imageView.transform = CGAffineTransformMakeRotation(M_PI);
-        }
-    }
-    if(tag == 3){
-        isShow2 = !isShow2;
-        if(isShow2){
-            sender.imageView.transform = CGAffineTransformMakeRotation(0);
-        }else{
-            sender.imageView.transform = CGAffineTransformMakeRotation(M_PI);
-        }
-    }
+    UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn1.frame = CGRectMake(0, 0,20,20);
+    [btn1 addTarget:self action:@selector(btnclick1:) forControlEvents:UIControlEventTouchUpInside];
+    [btn1 setImage:[UIImage imageNamed:@"barimage"] forState:UIControlStateNormal];
+    
+    _chatBtn = [[BBBadgeBarButtonItem alloc] initWithCustomUIButton:btn];
+    _chatBtn.badgeFont = [UIFont systemFontOfSize:10.0f];
+    _chatBtn.badgeOriginX = 15.5;
+    _chatBtn.badgeOriginY = -2.5;
+    _chatBtn.badgePadding = 2;
+    _chatBtn.badgeValue = @"0";
+    
+    _chatBtn1 = [[BBBadgeBarButtonItem alloc] initWithCustomUIButton:btn1];
+    _chatBtn1.badgeFont = [UIFont systemFontOfSize:10.0f];
+    _chatBtn1.badgeOriginX = 15.5;
+    _chatBtn1.badgeOriginY = -2.5;
+    _chatBtn1.badgePadding = 2;
+    _chatBtn1.badgeValue = @"0";
+    
+    NSMutableArray *arryBtn = [NSMutableArray arrayWithObjects:_chatBtn,_chatBtn1, nil];
+    self.navigationItem.rightBarButtonItems = arryBtn;
 }
 
-- (void)configView
+//自定制导航栏信息按钮的事件响应方法
+- (void)chatAct:(id)sender{
+    
+}
+
+- (void)btnclick1:(id)sender
 {
     
-    self.tableView1 = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight-109) style:UITableViewStyleGrouped];
-    self.tableView1.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    [self.view addSubview:self.tableView1];
+}
+
+//搭界面
+- (void)configView
+{
+    self.tableView1.delegate = self;
+    self.tableView1.dataSource = self;
+    [self.tableView1 registerNib:[UINib nibWithNibName:@"MyAddressFirstTableViewCell" bundle:nil] forCellReuseIdentifier:@"addressid1"];
+    [self.tableView1 registerNib:[UINib nibWithNibName:@"MyAddressChoiceTableViewCell" bundle:nil] forCellReuseIdentifier:@"addressid2"];
+    [self.tableView1 registerNib:[UINib nibWithNibName:@"MyAddressTextTableViewCell" bundle:nil] forCellReuseIdentifier:@"addressid3"];
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 300, 400) style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.citytableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 300, 400) style:UITableViewStylePlain];
+    self.citytableView.delegate = self;
+    self.citytableView.dataSource = self;
+    self.areatableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 300, 400) style:UITableViewStylePlain];
+    self.areatableView.delegate = self;
+    self.areatableView.dataSource = self;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    if(tableView == self.tableView1){
+        return 1;
+    }
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 6;
+    if(tableView == self.tableView1){
+        return 6;
+    }
+    if(tableView == self.tableView)
+    {
+    return self.provinceArray.count;
+    }
+    if(tableView == self.citytableView)
+    {
+        return self.cityArray.count;
+    }
+    if(tableView == self.areatableView)
+    {
+        return self.areaArray.count;
+    }
+    return 1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if(tableView == self.tableView1){
+        if(indexPath.row == 5){
+            return 116;
+        }else{
+            return 45;
+        }
+    }
     return 40;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
+    if(tableView == self.tableView1){
+        if(indexPath.row == 0 ||indexPath.row==1){
+            MyAddressFirstTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"addressid1" forIndexPath:indexPath];
+            if(indexPath.row == 0){
+                cell.titlename.text = @"收货人";
+                cell.desctitle.text = @"李小刚";
+            }else{
+                cell.titlename.text = @"手机号码";
+            cell.desctitle.text = @"158567812345";
+            }
+            return cell;
+        }else if (indexPath.row == 2 ||indexPath.row==3 ||indexPath.row==4){
+            MyAddressChoiceTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"addressid2" forIndexPath:indexPath];
+            if(indexPath.row == 2){
+                cell.arealabel.text = @"省份";
+                if(provinceLabel){
+                    cell.areadetaillabel.text = provinceLabel;
+                }else{
+                cell.areadetaillabel.text = @"河南";
+                    }
+                
+            }else if (indexPath.row == 3){
+                cell.arealabel.text = @"城市";
+                if(cityLabel){
+                    cell.areadetaillabel.text = cityLabel;
+                }else{
+                cell.areadetaillabel.text = @"洛阳";
+                }
+            }else{
+                cell.arealabel.text = @"地区";
+                if(areaLabel){
+                    cell.areadetaillabel.text = areaLabel;
+                }else{
+                cell.areadetaillabel.text = @"东城区";
+                }
+            }
+            return cell;
+        }else{
+            MyAddressTextTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"addressid3" forIndexPath:indexPath];
+            return cell;
+        }
+    }else if (tableView == self.tableView)
+    {
     UITableViewCell * cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     ProvinceModel * model = self.provinceArray[indexPath.row];
     cell.textLabel.highlightedTextColor = [UIColor redColor];
     cell.textLabel.text = model.fullname;
     return cell;
+    }else if (tableView == self.citytableView){
+        UITableViewCell * cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+        cityModel * model = self.cityArray[indexPath.row];
+        cell.textLabel.highlightedTextColor = [UIColor redColor];
+        cell.textLabel.text = model.fullname;
+        return cell;
+    }else{
+        UITableViewCell * cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+        ZoneModel * model = self.areaArray[indexPath.row];
+        cell.textLabel.highlightedTextColor = [UIColor redColor];
+        cell.textLabel.text = model.fullname;
+        return cell;
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(tableView == self.tableView1){
+        [self.view endEditing:YES];
+        if(indexPath.row == 2){
+        [[KGModal sharedInstance] setCloseButtonType:KGModalCloseButtonTypeNone];
+        [KGModal sharedInstance].modalBackgroundColor = [UIColor whiteColor];
+        [[KGModal sharedInstance] showWithContentView:self.tableView andAnimated:YES];
+        }else if (indexPath.row == 3){
+           
+            [[KGModal sharedInstance] setCloseButtonType:KGModalCloseButtonTypeNone];
+            [KGModal sharedInstance].modalBackgroundColor = [UIColor whiteColor];
+            [[KGModal sharedInstance] showWithContentView:self.citytableView andAnimated:YES];
+        }else if (indexPath.row == 4){
+            [[KGModal sharedInstance] setCloseButtonType:KGModalCloseButtonTypeNone];
+            [KGModal sharedInstance].modalBackgroundColor = [UIColor whiteColor];
+            [[KGModal sharedInstance] showWithContentView:self.areatableView andAnimated:YES];
+            
+        }
+    }else if(tableView == self.tableView) {
+        ProvinceModel * model = self.provinceArray[indexPath.row];
+        provinceLabel = model.fullname;
+        NSString *urlStr=[NSString stringWithFormat:@"http://apis.map.qq.com/ws/district/v1/getchildren?&id=%@&key=K3VBZ-M6WWV-PPSPY-UVGGC-DRM2Z-PGBMV",model.id];
+        
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        
+        
+        [manager GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            
+            
+            // NSLog(@"%@",responseObject);
+            
+            //        //数组字典（JSON）转模型用框架
+            NSMutableArray *messageData=[responseObject objectForKey:@"result"];
+            //
+            //     NSLog(@"%@",messageData);
+            self.cityArray=[NSMutableArray array];
+            self.cityArray = (NSMutableArray *)[cityModel mj_objectArrayWithKeyValuesArray:messageData[0]];
+            [self.citytableView reloadData];
+            //    NSLog(@"%lu",(unsigned long)self.CityNary.count);
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            
+        }];
+
+        [[KGModal sharedInstance] hideAnimated:YES];
+        [self.tableView1 reloadData];
+    }else if (tableView == self.citytableView){
+        cityModel * model = self.cityArray[indexPath.row];
+        cityLabel = model.fullname;
+        NSString *urlString = [NSString stringWithFormat:@"http://apis.map.qq.com/ws/district/v1/getchildren?&id=%@&key=K3VBZ-M6WWV-PPSPY-UVGGC-DRM2Z-PGBMV", model.id];
+        NSURL *URL = [NSURL URLWithString:urlString];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
+        NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        
+        //        //数组字典（JSON）转模型用框架
+        NSMutableArray *messageData=[dic objectForKey:@"result"];
+        //
+        //     NSLog(@"%@",messageData);
+        self.areaArray = [NSMutableArray array];
+        self.areaArray = (NSMutableArray *)[ZoneModel mj_objectArrayWithKeyValuesArray:messageData[0]];
+         [[KGModal sharedInstance] hideAnimated:YES];
+        [self.areatableView reloadData];
+        [self.tableView1 reloadData];
+    }else{
+        ZoneModel * model = self.areaArray[indexPath.row];
+        areaLabel = model.fullname;
+        [[KGModal sharedInstance] hideAnimated:YES];
+        [self.tableView1 reloadData];
+    }
+
+}
+
+- (IBAction)sureModify:(id)sender {
+    [self.view endEditing:YES];
 }
 
 - (void)didReceiveMemoryWarning {

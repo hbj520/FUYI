@@ -20,15 +20,28 @@
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="时代广场C3座17楼" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ocY-nm-FXl">
+                        <rect key="frame" x="12" y="8" width="122" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="122" id="CFv-4I-UEn"/>
+                            <constraint firstAttribute="height" constant="20" id="IOe-fQ-Fl6"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="UZx-Vb-MaV" secondAttribute="bottom" id="4ff-hv-Wxm"/>
                     <constraint firstItem="UZx-Vb-MaV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="NjY-fO-yG7"/>
+                    <constraint firstItem="ocY-nm-FXl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="PfZ-US-idH"/>
                     <constraint firstAttribute="trailing" secondItem="UZx-Vb-MaV" secondAttribute="trailing" id="fY2-zT-bYn"/>
                     <constraint firstItem="UZx-Vb-MaV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="nAl-6U-uxQ"/>
+                    <constraint firstItem="ocY-nm-FXl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="uTi-d8-Yu2"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="label1" destination="ocY-nm-FXl" id="S0P-gg-8jg"/>
                 <outlet property="textView" destination="UZx-Vb-MaV" id="p3K-pI-nIF"/>
             </connections>
         </tableViewCell>

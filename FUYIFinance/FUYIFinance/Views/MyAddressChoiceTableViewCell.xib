@@ -32,10 +32,10 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xf3-6J-aXf">
-                        <rect key="frame" x="237" y="12" width="63" height="20"/>
+                        <rect key="frame" x="170" y="12" width="130" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="KEP-4h-EyT"/>
-                            <constraint firstAttribute="width" constant="63" id="gLH-V4-l8E"/>
+                            <constraint firstAttribute="width" constant="130" id="gLH-V4-l8E"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>

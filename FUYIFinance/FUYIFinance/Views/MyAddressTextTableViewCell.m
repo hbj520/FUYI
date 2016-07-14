@@ -13,6 +13,17 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    self.textView.delegate = self;
+}
+
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+    self.label1.hidden = YES;
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    self.label1.hidden = NO;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
