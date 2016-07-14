@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *bankLab;
 @property (weak, nonatomic) IBOutlet UIButton *payWayBtn;
 @property (weak, nonatomic) IBOutlet UILabel *titleLab;
+@property (weak, nonatomic) IBOutlet UILabel *lastPriceLab;
 
 @end
