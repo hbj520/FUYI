@@ -16,7 +16,12 @@
 #import "NoticeTableViewCell.h"
 #import "PayView.h"
 
+#import "StoreDataModel.h"
+
 #import "ConfirmOrderViewController.h"
+
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "LabelHelper.h"
 
 @interface ConfirmOrderViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
@@ -84,6 +89,11 @@
             }if (indexPath.section == 1) {
         if (indexPath.row == 0) {
             VideoInfoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"videoInfoCellReuseID" forIndexPath:indexPath];
+            
+            [cell.videoImage sd_setImageWithURL:[NSURL URLWithString:_model.videoImage] placeholderImage:[UIImage imageNamed:@"classImageDemo_1"]];
+            cell.videoContentLab.text = _model.videoName;
+            cell.videoPriceLab.attributedText = [[LabelHelper alloc]attributedFontStringWithString:[NSString stringWithFormat:@"¥ %@",_model.videoPrice] firstFont:14 secFont:18 thirdFont:15];
+            
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
         }if (indexPath.row == 1) {

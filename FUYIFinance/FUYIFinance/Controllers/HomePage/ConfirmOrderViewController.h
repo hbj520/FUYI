@@ -7,7 +7,9 @@
 //
 
 #import "BaseViewController.h"
-
+@class StoreDataModel;
 @interface ConfirmOrderViewController : BaseViewController
+
+@property (nonatomic,strong)StoreDataModel *model;
 
 @end

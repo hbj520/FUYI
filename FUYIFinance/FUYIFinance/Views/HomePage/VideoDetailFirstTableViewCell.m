@@ -15,7 +15,7 @@
     // Initialization code
     
     
-  self.detailVideoPriceLab.attributedText = [[LabelHelper alloc] attributedFontStringWithString:@"¥ 39.00"];
+ // self.detailVideoPriceLab.attributedText = [[LabelHelper alloc] attributedFontStringWithString:@"¥ 39.00"];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

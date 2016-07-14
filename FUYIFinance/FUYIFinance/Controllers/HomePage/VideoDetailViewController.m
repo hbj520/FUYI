@@ -10,6 +10,7 @@
 
 #import "VideoDetailViewController.h"
 #import "ShopCarViewController.h"
+#import "ConfirmOrderViewController.h"
 
 //view
 #import "VideoDetailFirstTableViewCell.h"
@@ -27,30 +28,23 @@
 @property (nonatomic,strong) UIBezierPath *path;
 
 @end
-
 @implementation VideoDetailViewController
 {
     CALayer     *layer;
     //UILabel     *_cntLabel;// 购物车总数量显示文本
     NSInteger    _cnt;// 总数量
-    
-    
 }
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self creatUI];
       _cnt = 0;
-
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = YES;
     self.tabBarController.tabBar.hidden = YES;
-    
 }
 
 -(void)creatUI{
@@ -80,7 +74,6 @@
     [_path addQuadCurveToPoint:CGPointMake(ScreenWidth-68, 10)
                   controlPoint:CGPointMake(50, 200)];
 }
-
 //进购物车界面
 - (IBAction)pushToShopCar:(id)sender {
     UIStoryboard *storyBord = [UIStoryboard storyboardWithName:@"ShopCar" bundle:[NSBundle mainBundle]];
@@ -89,12 +82,10 @@
     [self.navigationController pushViewController:shopVC animated:YES];
 //    [self performSegueWithIdentifier:@"PushToShopCarSegue" sender:[NSNumber numberWithBool:YES]];
     //self.tabBarController.selectedIndex = 2;
-    
 }
 
 - (void)addBottomTapGesAndButton{
 
-    [self.collectBtn addTarget:self action:@selector(collectClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.collectBtn setBackgroundImage:[UIImage imageNamed:@"VD_star"] forState:UIControlStateNormal];
     [self.collectBtn setBackgroundImage:[UIImage imageNamed:@"VD_red_Star.jpg"] forState:UIControlStateSelected];
     
@@ -204,11 +195,14 @@
            completion:nil];
 }
 
-
 //收藏
-- (void)collectClick:(UIButton*)button{
+- (IBAction)collectClick:(UIButton*)button {
     button.selected = !button.selected;
-
+    if (button.selected) {
+        [self showPopup:@"收藏成功"];
+    }else{
+        [self showPopup:@"取消收藏"];
+    }
 
 }
 
@@ -221,8 +215,6 @@
 - (void)serviceClick:(UIGestureRecognizer *)ges{
     
 }
-
-
 
 #pragma mark - UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -241,9 +233,9 @@
     if (indexPath.section == 0 && indexPath.row == 0) {
         VideoDetailFirstTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"detailFirstReuseID" forIndexPath:indexPath];
         cell.videoTitleLab.text = _model.videoName;
-        //cell.detailVideoPriceLab.text = [NSString stringWithFormat:@"¥%@",_model.videoPrice];
-        cell.detailVideoPriceLab.attributedText = [[LabelHelper alloc] attributedFontStringWithString:[NSString stringWithFormat:@"¥ %@",_model.videoPrice]];
-        cell.authorLab.text = [NSString stringWithFormat:@"讲师： %@",_model.teacherName];
+        cell.detailVideoPriceLab.attributedText = [[LabelHelper alloc]attributedFontStringWithString:[NSString stringWithFormat:@"¥ %@",_model.videoPrice] firstFont:17 secFont:24 thirdFont:19];
+        
+        cell.authorLab.text = [NSString stringWithFormat:@"讲师：%@",_model.teacherName];
         cell.saleCountsLab.text = [NSString stringWithFormat:@"月销%@笔",_model.sellNum];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
@@ -279,7 +271,13 @@
 }
 
 - (IBAction)buyNow:(id)sender {
-   [self performSegueWithIdentifier:@"ConfirmOrderSegue" sender:nil];
+   [self performSegueWithIdentifier:@"ConfirmOrderSegue" sender:self.model];
+    
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    ConfirmOrderViewController *confirmVC = segue.destinationViewController;
+    confirmVC.model = sender;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -313,7 +311,7 @@
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     
@@ -323,7 +321,7 @@
 //    BOOL isPush = isPushNumber.boolValue;
 //   shopVC.isPush = isPush;
     
-}
+//}
 
 
 @end

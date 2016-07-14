@@ -11,7 +11,7 @@
 @interface VideoShopNavigationItem : UINavigationBar<UISearchBarDelegate>
 typedef void (^BackBlock) ();
 typedef void (^SearchBlock) (NSString *);
-typedef void (^SearchBtnBlock) (NSString *);
+typedef void (^SearchBtnBlock) ();
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UIButton *searchBtn;

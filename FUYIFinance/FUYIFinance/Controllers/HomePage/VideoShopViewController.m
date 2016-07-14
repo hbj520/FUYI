@@ -115,6 +115,7 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
     navItem.backBlock = ^(){
         [self.navigationController popViewControllerAnimated:YES];
     };
+  
     
     //[navItem setBackColor];
     [self.view addSubview:navItem];
@@ -240,9 +241,8 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
     [cell.videoImage sd_setImageWithURL:[NSURL URLWithString:model.videoImage]placeholderImage:[UIImage imageNamed:@"bigimage"]];
     cell.videoTitle.text = model.videoName;
     cell.teacherName.text = [NSString stringWithFormat:@"讲师： %@",model.teacherName];
-    //cell.videoPrice.text = [NSString stringWithFormat:@"¥ %@",model.videoPrice];
+    cell.videoPrice.attributedText = [[LabelHelper alloc]attributedFontStringWithString:[NSString stringWithFormat:@"¥ %@",model.videoPrice] firstFont:13 secFont:17 thirdFont:14];
     
-    cell.videoPrice.attributedText = [[LabelHelper alloc] attributedFontStringWithString:[NSString stringWithFormat:@"¥ %@",model.videoPrice]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
     
@@ -251,7 +251,6 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
     return 115;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"++++++++++++++++++++++++++");
    StoreDataModel *model = [storeArray objectAtIndex:indexPath.row];
     
     [self performSegueWithIdentifier:@"videoDetailSegue" sender:model];
