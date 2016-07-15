@@ -21,9 +21,15 @@
  *  @param token    用户登录令牌
  *  @param icon     用户头像
  */
-- (void)saveUserid:(NSString*)userid userName:(NSString*)username userPhoneNum:(NSString*)PhoneNum token:(NSString*)token icon:(NSString*)icon;
+- (void)saveUserid:(NSString*)userid
+          userName:(NSString*)username
+      userPhoneNum:(NSString*)PhoneNum
+             token:(NSString*)token
+              icon:(NSString*)icon;
 
-- (void)saveImgthumb:(NSString *)imgthumb token:(NSString *)token username:(NSString *)username;
+- (void)saveImgthumb:(NSString *)imgthumb
+               token:(NSString *)token
+            username:(NSString *)username;
 /**
  *  保存用户密码
  *

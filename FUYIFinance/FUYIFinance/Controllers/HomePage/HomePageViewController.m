@@ -64,6 +64,10 @@ static NSString *investReuseId = @"investReuseId";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+#pragma mark -ViewLifeCycle
+- (void)loadView{
+    [super loadView];
+}
 #pragma mark - PrivateMethod
 - (void)addRefresh{
     //添加刷新

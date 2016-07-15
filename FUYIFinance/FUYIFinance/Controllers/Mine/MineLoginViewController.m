@@ -7,6 +7,8 @@
 //
 
 #import "MineLoginViewController.h"
+#import "MineRegisterViewController.h"
+
 #import "UIViewController+HUD.h"
 #import "MyAPI.h"
 #import "Tools.h"
@@ -17,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *passwordInput;  //密码
 
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;          //登录按钮
+- (IBAction)backBtn:(id)sender;
 
 - (IBAction)loginBtn:(id)sender;
 
@@ -26,6 +29,7 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *toplayout;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *distancewithtoplayout;
+@property (nonatomic,strong) UINavigationController *myNav;
 
 @end
 
@@ -36,6 +40,7 @@
     // Do any additional setup after loading the view.
     self.numberInput.delegate = self;
     self.passwordInput.delegate = self;
+    self.myNav = [[UINavigationController alloc] init];
     if(self.view.frame.size.height == 480){
         self.toplayout.constant = 30;
     }
@@ -86,15 +91,26 @@
     // Pass the selected object to the new view controller.
 }
 */
+#pragma mark-PrivateMethod
+- (void)loginSucessAct{
+    [self dismissModalViewControllerAnimated:YES];
+}
+- (IBAction)backBtn:(id)sender {
+    [self dismissModalViewControllerAnimated:YES];
 
+}
 //登录
+
 - (IBAction)loginBtn:(id)sender {
     NSString * phoneNum = self.numberInput.text;
     NSString * password = self.passwordInput.text;
     NSString * securityString = [Tools loginPasswordSecurityLock:password];
-    [[MyAPI sharedAPI] LoginWithNumber:phoneNum password:securityString result:^(BOOL sucess, NSString *msg) {
+    [[MyAPI sharedAPI] LoginWithNumber:phoneNum
+                              password:securityString
+                                result:^(BOOL sucess, NSString *msg) {
         if(sucess){
             [self showHint:@"登陆成功!"];
+            [self loginSucessAct];
         }else{
             [self showHint:msg];
         }
@@ -106,16 +122,11 @@
 
 //忘记密码
 - (IBAction)forgotPassword:(id)sender {
-    
-    //[self performSegueWithIdentifier:@"forgetSegue" sender:nil];
 
 }
 
 //注册账号
 - (IBAction)registerBtn:(id)sender {
-    
-//    [self performSegueWithIdentifier:@"registerSegue" sender:nil];
-
 }
 
 @end
