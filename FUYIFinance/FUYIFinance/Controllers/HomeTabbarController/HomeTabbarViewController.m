@@ -9,7 +9,7 @@
 #import "HomeTabbarViewController.h"
 #import "HexColor.h"
 
-@interface HomeTabbarViewController ()
+@interface HomeTabbarViewController ()<UITabBarControllerDelegate>
 {
     NSArray *titleArrays;
     NSMutableArray *menusVCs;//tabbars的控制器
@@ -70,13 +70,23 @@
         [menusVCs addObject:vc];
     }
     self.viewControllers = menusVCs;
-    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+#pragma mark - TabbarDelegate
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
+    
+//    if ([item.title isEqualToString:@"个人中心"]) {
+//        if (!KToken) {
+//            [self LoginAct];
+//        }
+//    }
+}
+
+#pragma mark - PrivateMethod
 
 /*
 #pragma mark - Navigation

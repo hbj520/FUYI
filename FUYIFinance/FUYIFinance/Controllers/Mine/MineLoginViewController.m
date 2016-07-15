@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *passwordInput;  //密码
 
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;          //登录按钮
+- (IBAction)backBtn:(id)sender;
 
 - (IBAction)loginBtn:(id)sender;
 
@@ -90,15 +91,26 @@
     // Pass the selected object to the new view controller.
 }
 */
+#pragma mark-PrivateMethod
+- (void)loginSucessAct{
+    [self dismissModalViewControllerAnimated:YES];
+}
+- (IBAction)backBtn:(id)sender {
+    [self dismissModalViewControllerAnimated:YES];
 
+}
 //登录
+
 - (IBAction)loginBtn:(id)sender {
     NSString * phoneNum = self.numberInput.text;
     NSString * password = self.passwordInput.text;
     NSString * securityString = [Tools loginPasswordSecurityLock:password];
-    [[MyAPI sharedAPI] LoginWithNumber:phoneNum password:securityString result:^(BOOL sucess, NSString *msg) {
+    [[MyAPI sharedAPI] LoginWithNumber:phoneNum
+                              password:securityString
+                                result:^(BOOL sucess, NSString *msg) {
         if(sucess){
             [self showHint:@"登陆成功!"];
+            [self loginSucessAct];
         }else{
             [self showHint:msg];
         }
@@ -110,23 +122,11 @@
 
 //忘记密码
 - (IBAction)forgotPassword:(id)sender {
-    
-
-    //[self performSegueWithIdentifier:@"forgetSegue" sender:nil];
 
 }
 
 //注册账号
 - (IBAction)registerBtn:(id)sender {
-    UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Mine" bundle:[NSBundle mainBundle]];
-
-//    MineRegisterViewController *registerVC = [storybord instantiateViewControllerWithIdentifier:@"registerStorybordId"];
-//    registerVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-//    [self.navigationController presentModalViewController:registerVC animated:YES];
-    //[self.navigationController pushViewController:registerVC animated:YES];
-    
-//    [self performSegueWithIdentifier:@"registerSegue" sender:nil];
-
 }
 
 @end

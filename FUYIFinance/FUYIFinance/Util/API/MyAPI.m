@@ -112,8 +112,10 @@
  *  @param result      返回登录结果
  *  @param errorResult 错误信息
  */
-- (void)LoginWithNumber:(NSString *)phoneNumber password:(NSString *)password result:(StateBlock)result errorResult:(ErrorBlock)errorResult
-{
+- (void)LoginWithNumber:(NSString *)phoneNumber
+               password:(NSString *)password
+                 result:(StateBlock)result
+            errorResult:(ErrorBlock)errorResult{
     NSDictionary * parameters = @{@"phone":phoneNumber,@"userpwd":password};
     [self.manager POST:@"nos_login" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         NSString * state = responseObject[@"status"];

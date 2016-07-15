@@ -26,10 +26,12 @@
     // Dispose of any resources that can be recreated.
 }
 #pragma mark - PrivateMethod
-//登陆超时和未登录跳转至登陆界面
+//登陆超时和未登录跳转至登陆
 - (void)logOut{
-    ApplicationDelegate.mStorybord = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
-    ApplicationDelegate.window.rootViewController = [ApplicationDelegate.mStorybord instantiateViewControllerWithIdentifier:@"LoginStorybordId"];
+    UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
+    UINavigationController *loginVC = [storybord instantiateViewControllerWithIdentifier:@"LoginStorybordId"];
+    loginVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self.navigationController presentModalViewController:loginVC animated:YES];
 }
 
 /*
