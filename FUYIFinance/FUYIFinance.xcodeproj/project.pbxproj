@@ -131,6 +131,7 @@
 		CC72D0401D226B1100945BCF /* MyOrderWaitJudgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D03F1D226B1100945BCF /* MyOrderWaitJudgeViewController.m */; };
 		CC72D0441D227DF500945BCF /* PersonalWaitJudgeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D0421D227DF500945BCF /* PersonalWaitJudgeTableViewCell.m */; };
 		CC72D0451D227DF500945BCF /* PersonalWaitJudgeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC72D0431D227DF500945BCF /* PersonalWaitJudgeTableViewCell.xib */; };
+		CC7E9AEE1D387FC000DB1BE9 /* MyOrderSecondWaitPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7E9AED1D387FC000DB1BE9 /* MyOrderSecondWaitPayViewController.m */; };
 		CC95F14E1D333B76009F559D /* KGModal.m in Sources */ = {isa = PBXBuildFile; fileRef = CC95F14D1D333B76009F559D /* KGModal.m */; };
 		CC95F1561D33414E009F559D /* ModifyHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC95F1551D33414E009F559D /* ModifyHeadView.m */; };
 		CC95F1581D334163009F559D /* ModifyHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC95F1571D334163009F559D /* ModifyHeadView.xib */; };
@@ -433,6 +434,8 @@
 		CC72D0411D227DF500945BCF /* PersonalWaitJudgeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalWaitJudgeTableViewCell.h; sourceTree = "<group>"; };
 		CC72D0421D227DF500945BCF /* PersonalWaitJudgeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalWaitJudgeTableViewCell.m; sourceTree = "<group>"; };
 		CC72D0431D227DF500945BCF /* PersonalWaitJudgeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalWaitJudgeTableViewCell.xib; sourceTree = "<group>"; };
+		CC7E9AEC1D387FC000DB1BE9 /* MyOrderSecondWaitPayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderSecondWaitPayViewController.h; sourceTree = "<group>"; };
+		CC7E9AED1D387FC000DB1BE9 /* MyOrderSecondWaitPayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderSecondWaitPayViewController.m; sourceTree = "<group>"; };
 		CC95F14C1D333B76009F559D /* KGModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGModal.h; sourceTree = "<group>"; };
 		CC95F14D1D333B76009F559D /* KGModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGModal.m; sourceTree = "<group>"; };
 		CC95F1541D33414E009F559D /* ModifyHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyHeadView.h; sourceTree = "<group>"; };
@@ -805,6 +808,8 @@
 				CC72D0361D226AD000945BCF /* MyOrderAllViewController.m */,
 				CC72D0381D226AE300945BCF /* MyOrderWaitPayViewController.h */,
 				CC72D0391D226AE300945BCF /* MyOrderWaitPayViewController.m */,
+				CC7E9AEC1D387FC000DB1BE9 /* MyOrderSecondWaitPayViewController.h */,
+				CC7E9AED1D387FC000DB1BE9 /* MyOrderSecondWaitPayViewController.m */,
 				CC72D03B1D226AF700945BCF /* MyOrderWaitGoodViewController.h */,
 				CC72D03C1D226AF700945BCF /* MyOrderWaitGoodViewController.m */,
 				CC72D03E1D226B1100945BCF /* MyOrderWaitJudgeViewController.h */,
@@ -1301,7 +1306,7 @@
 				TargetAttributes = {
 					AB708F851D0543BE007D0B4D = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = MGR47JT33V;
+						DevelopmentTeam = 3L5Q37H6H3;
 					};
 					AB708F9E1D0543BE007D0B4D = {
 						CreatedOnToolsVersion = 7.3;
@@ -1583,6 +1588,7 @@
 				CC72D0331D226A5C00945BCF /* YSLContainerViewController.m in Sources */,
 				D1F130171D2A5B3B00EE1690 /* VideoDetailHeader.m in Sources */,
 				CC35F6671D2C9A9800EF3B4B /* LabelHelper.m in Sources */,
+				CC7E9AEE1D387FC000DB1BE9 /* MyOrderSecondWaitPayViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
