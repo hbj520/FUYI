@@ -185,6 +185,17 @@
 		D1F130641D34EE5400EE1690 /* AnimationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F130631D34EE5400EE1690 /* AnimationHelper.m */; };
 		D1F130671D35D32300EE1690 /* LPPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F130661D35D32300EE1690 /* LPPopup.m */; };
 		D1F1306A1D378D0A00EE1690 /* TeacherTeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F130691D378D0A00EE1690 /* TeacherTeamViewController.m */; };
+		D1F1306D1D37907D00EE1690 /* TeacherTeamNavigationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F1306C1D37907D00EE1690 /* TeacherTeamNavigationItem.m */; };
+		D1F1306F1D3790A700EE1690 /* TeacherTeamNavigationItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F1306E1D3790A700EE1690 /* TeacherTeamNavigationItem.xib */; };
+		D1F130731D3796C800EE1690 /* TeacherTeamTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F130711D3796C800EE1690 /* TeacherTeamTableViewCell.m */; };
+		D1F130741D3796C800EE1690 /* TeacherTeamTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F130721D3796C800EE1690 /* TeacherTeamTableViewCell.xib */; };
+		D1F130771D387BB700EE1690 /* TeacherPersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F130761D387BB700EE1690 /* TeacherPersonalViewController.m */; };
+		D1F1307B1D388AA000EE1690 /* TeacherPersonalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F130791D388AA000EE1690 /* TeacherPersonalTableViewCell.m */; };
+		D1F1307C1D388AA000EE1690 /* TeacherPersonalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F1307A1D388AA000EE1690 /* TeacherPersonalTableViewCell.xib */; };
+		D1F130801D388AE300EE1690 /* TeacherPersonalInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F1307E1D388AE300EE1690 /* TeacherPersonalInfoTableViewCell.m */; };
+		D1F130811D388AE300EE1690 /* TeacherPersonalInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F1307F1D388AE300EE1690 /* TeacherPersonalInfoTableViewCell.xib */; };
+		D1F130841D38ACED00EE1690 /* FooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F130831D38ACED00EE1690 /* FooterView.m */; };
+		D1F130861D38AD0000EE1690 /* FooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F130851D38AD0000EE1690 /* FooterView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -524,6 +535,23 @@
 		D1F130661D35D32300EE1690 /* LPPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPPopup.m; sourceTree = "<group>"; };
 		D1F130681D378D0A00EE1690 /* TeacherTeamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherTeamViewController.h; sourceTree = "<group>"; };
 		D1F130691D378D0A00EE1690 /* TeacherTeamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherTeamViewController.m; sourceTree = "<group>"; };
+		D1F1306B1D37907D00EE1690 /* TeacherTeamNavigationItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherTeamNavigationItem.h; sourceTree = "<group>"; };
+		D1F1306C1D37907D00EE1690 /* TeacherTeamNavigationItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherTeamNavigationItem.m; sourceTree = "<group>"; };
+		D1F1306E1D3790A700EE1690 /* TeacherTeamNavigationItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeacherTeamNavigationItem.xib; sourceTree = "<group>"; };
+		D1F130701D3796C800EE1690 /* TeacherTeamTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherTeamTableViewCell.h; sourceTree = "<group>"; };
+		D1F130711D3796C800EE1690 /* TeacherTeamTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherTeamTableViewCell.m; sourceTree = "<group>"; };
+		D1F130721D3796C800EE1690 /* TeacherTeamTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeacherTeamTableViewCell.xib; sourceTree = "<group>"; };
+		D1F130751D387BB700EE1690 /* TeacherPersonalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherPersonalViewController.h; sourceTree = "<group>"; };
+		D1F130761D387BB700EE1690 /* TeacherPersonalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherPersonalViewController.m; sourceTree = "<group>"; };
+		D1F130781D388AA000EE1690 /* TeacherPersonalTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherPersonalTableViewCell.h; sourceTree = "<group>"; };
+		D1F130791D388AA000EE1690 /* TeacherPersonalTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherPersonalTableViewCell.m; sourceTree = "<group>"; };
+		D1F1307A1D388AA000EE1690 /* TeacherPersonalTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeacherPersonalTableViewCell.xib; sourceTree = "<group>"; };
+		D1F1307D1D388AE300EE1690 /* TeacherPersonalInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherPersonalInfoTableViewCell.h; sourceTree = "<group>"; };
+		D1F1307E1D388AE300EE1690 /* TeacherPersonalInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherPersonalInfoTableViewCell.m; sourceTree = "<group>"; };
+		D1F1307F1D388AE300EE1690 /* TeacherPersonalInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeacherPersonalInfoTableViewCell.xib; sourceTree = "<group>"; };
+		D1F130821D38ACED00EE1690 /* FooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FooterView.h; sourceTree = "<group>"; };
+		D1F130831D38ACED00EE1690 /* FooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FooterView.m; sourceTree = "<group>"; };
+		D1F130851D38AD0000EE1690 /* FooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FooterView.xib; sourceTree = "<group>"; };
 		E2D217BF4D0AE0F6C9591577 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FA5515060D58FFB367588DFA /* Pods-FUYIFinance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FUYIFinance.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FUYIFinance/Pods-FUYIFinance.debug.xcconfig"; sourceTree = "<group>"; };
 		FB5E00328843A9E289111723 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -785,6 +813,8 @@
 				D1F1301F1D2B642A00EE1690 /* ConfirmOrderViewController.m */,
 				D1F130681D378D0A00EE1690 /* TeacherTeamViewController.h */,
 				D1F130691D378D0A00EE1690 /* TeacherTeamViewController.m */,
+				D1F130751D387BB700EE1690 /* TeacherPersonalViewController.h */,
+				D1F130761D387BB700EE1690 /* TeacherPersonalViewController.m */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -971,6 +1001,21 @@
 				D1F1303E1D2C9C9A00EE1690 /* PayView.h */,
 				D1F1303F1D2C9C9A00EE1690 /* PayView.m */,
 				D1F130411D2C9CAA00EE1690 /* PayView.xib */,
+				D1F1306B1D37907D00EE1690 /* TeacherTeamNavigationItem.h */,
+				D1F1306C1D37907D00EE1690 /* TeacherTeamNavigationItem.m */,
+				D1F1306E1D3790A700EE1690 /* TeacherTeamNavigationItem.xib */,
+				D1F130701D3796C800EE1690 /* TeacherTeamTableViewCell.h */,
+				D1F130711D3796C800EE1690 /* TeacherTeamTableViewCell.m */,
+				D1F130721D3796C800EE1690 /* TeacherTeamTableViewCell.xib */,
+				D1F130781D388AA000EE1690 /* TeacherPersonalTableViewCell.h */,
+				D1F130791D388AA000EE1690 /* TeacherPersonalTableViewCell.m */,
+				D1F1307A1D388AA000EE1690 /* TeacherPersonalTableViewCell.xib */,
+				D1F1307D1D388AE300EE1690 /* TeacherPersonalInfoTableViewCell.h */,
+				D1F1307E1D388AE300EE1690 /* TeacherPersonalInfoTableViewCell.m */,
+				D1F1307F1D388AE300EE1690 /* TeacherPersonalInfoTableViewCell.xib */,
+				D1F130821D38ACED00EE1690 /* FooterView.h */,
+				D1F130831D38ACED00EE1690 /* FooterView.m */,
+				D1F130851D38AD0000EE1690 /* FooterView.xib */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -1364,9 +1409,11 @@
 				D15BA3841D235E5700904DEF /* shopCar.json in Resources */,
 				D1F1300A1D2A4E0C00EE1690 /* VideoDetailFirstTableViewCell.xib in Resources */,
 				AB708F991D0543BE007D0B4D /* LaunchScreen.storyboard in Resources */,
+				D1F130741D3796C800EE1690 /* TeacherTeamTableViewCell.xib in Resources */,
 				AB36CDC21D128D1900D0E4C7 /* HomePageNavgationItem.xib in Resources */,
 				D15BA38E1D237E3300904DEF /* HeaderView.xib in Resources */,
 				CC593CBC1D29FCC30077B096 /* FourBtnTableViewCell.xib in Resources */,
+				D1F1306F1D3790A700EE1690 /* TeacherTeamNavigationItem.xib in Resources */,
 				CC6FD61B1D363E7200DA60AB /* MyAddressFirstTableViewCell.xib in Resources */,
 				AB708F961D0543BE007D0B4D /* Assets.xcassets in Resources */,
 				CC42E2801D24F1690008A8D7 /* MyCollectionShopTableViewCell.xib in Resources */,
@@ -1377,11 +1424,14 @@
 				AB36CE3D1D1B88A600D0E4C7 /* HomePageHotNewTableViewCell.xib in Resources */,
 				D1F130251D2B80DB00EE1690 /* ConInfoTableViewCell.xib in Resources */,
 				D1C49B071D224DE8003C17DA /* ShopCarNavigationItem.xib in Resources */,
+				D1F130811D388AE300EE1690 /* TeacherPersonalInfoTableViewCell.xib in Resources */,
 				CC42E2871D24F6A10008A8D7 /* LoveManageTableViewCell.xib in Resources */,
 				CC6FD5E21D36047500DA60AB /* area.plist in Resources */,
 				ABF5DE501D0FA7FC007CE1AB /* ShopCar.storyboard in Resources */,
 				CC593CC11D2A02070077B096 /* MyShopDetailTableViewCell.xib in Resources */,
 				ABEACD441D2B7C0900574259 /* VideoShopTableViewCell.xib in Resources */,
+				D1F130861D38AD0000EE1690 /* FooterView.xib in Resources */,
+				D1F1307C1D388AA000EE1690 /* TeacherPersonalTableViewCell.xib in Resources */,
 				D1F130351D2B96AC00EE1690 /* DeliverMethodTableViewCell.xib in Resources */,
 				AB708F941D0543BE007D0B4D /* Main.storyboard in Resources */,
 				CC95F1A91D338C3E009F559D /* ChangeHeadView.xib in Resources */,
@@ -1486,6 +1536,7 @@
 				ABEACD5E1D2B87DE00574259 /* NSData+AES.m in Sources */,
 				D1C49B051D224DB6003C17DA /* ShopCarNavigationItem.m in Sources */,
 				D1F1300E1D2A4E3100EE1690 /* VideoDetailSecTableViewCell.m in Sources */,
+				D1F1306D1D37907D00EE1690 /* TeacherTeamNavigationItem.m in Sources */,
 				D1F130401D2C9C9A00EE1690 /* PayView.m in Sources */,
 				D1F130511D2E23C200EE1690 /* VideoShopNavigationItem.m in Sources */,
 				D1F1301D1D2B503500EE1690 /* VideoShopViewController.m in Sources */,
@@ -1506,6 +1557,7 @@
 				CC72D0371D226AD000945BCF /* MyOrderAllViewController.m in Sources */,
 				CC72D03D1D226AF700945BCF /* MyOrderWaitGoodViewController.m in Sources */,
 				CC6FD6101D362E0300DA60AB /* NSObject+MJCoding.m in Sources */,
+				D1F130801D388AE300EE1690 /* TeacherPersonalInfoTableViewCell.m in Sources */,
 				CC95F1A71D338C28009F559D /* ChangeHeadView.m in Sources */,
 				D1F130091D2A4E0C00EE1690 /* VideoDetailFirstTableViewCell.m in Sources */,
 				CC57E0F51D25157500B00AA8 /* TreasureManageViewController.m in Sources */,
@@ -1550,6 +1602,7 @@
 				CC6FD6241D36423800DA60AB /* MyAddressTextTableViewCell.m in Sources */,
 				CC42E26E1D24F0A90008A8D7 /* MyJudgeTableViewCell.m in Sources */,
 				CC6FD61F1D36409600DA60AB /* MyAddressChoiceTableViewCell.m in Sources */,
+				D1F130771D387BB700EE1690 /* TeacherPersonalViewController.m in Sources */,
 				CC6FD60B1D362E0300DA60AB /* MJFoundation.m in Sources */,
 				CC6FD6131D362E0300DA60AB /* NSString+MJExtension.m in Sources */,
 				D1F1302F1D2B8F5000EE1690 /* BuyCountTableViewCell.m in Sources */,
@@ -1561,13 +1614,17 @@
 				CC42E2811D24F1690008A8D7 /* MyCollectionTableViewCell.m in Sources */,
 				ABEACD5F1D2B87DE00574259 /* NSData+Base64.m in Sources */,
 				AB36CE321D1B710400D0E4C7 /* SDCycleScrollView.m in Sources */,
+				D1F130841D38ACED00EE1690 /* FooterView.m in Sources */,
+				CC6FD5EA1D36096200DA60AB /* MyAddressViewController.m in Sources */,
 				CC95F1561D33414E009F559D /* ModifyHeadView.m in Sources */,
+				D1F1307B1D388AA000EE1690 /* TeacherPersonalTableViewCell.m in Sources */,
 				D1F130641D34EE5400EE1690 /* AnimationHelper.m in Sources */,
 				ABEACD611D2B87DE00574259 /* NSString+URLEncoding.m in Sources */,
 				CC593CBB1D29FCC30077B096 /* FourBtnTableViewCell.m in Sources */,
 				CC42E2861D24F6A10008A8D7 /* LoveManageTableViewCell.m in Sources */,
 				ABEACD621D2B87DE00574259 /* SecurityUtil.m in Sources */,
 				CC6FD5ED1D362D2600DA60AB /* ProvinceModel.m in Sources */,
+				D1F130731D3796C800EE1690 /* TeacherTeamTableViewCell.m in Sources */,
 				CC72D0401D226B1100945BCF /* MyOrderWaitJudgeViewController.m in Sources */,
 				D1F130341D2B96AC00EE1690 /* DeliverMethodTableViewCell.m in Sources */,
 				CC57E0FB1D2520BB00B00AA8 /* ManageTreasureTableViewController.m in Sources */,
