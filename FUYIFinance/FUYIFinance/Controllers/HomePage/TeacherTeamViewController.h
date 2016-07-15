@@ -9,5 +9,6 @@
 #import "BaseViewController.h"
 
 @interface TeacherTeamViewController : BaseViewController
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end

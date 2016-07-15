@@ -122,7 +122,7 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
         _shadowBtn.hidden = YES;
         [Tools hideKeyBoard];
     };
-    //搜索框点击是
+    //搜索框点击时
     navItem.searchBeginBlock = ^(){
         
     };
@@ -297,9 +297,7 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
 
 
 #pragma mark - UIVew
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    [self.view endEditing:YES];
-}
+
 
 - (IBAction)back:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];

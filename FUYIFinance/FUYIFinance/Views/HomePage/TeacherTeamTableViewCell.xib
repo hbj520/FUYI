@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="68" id="KGk-i7-Jjw" customClass="TeacherTeamTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="374" height="66"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="374" height="65"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TeacherTeam_headImage" translatesAutoresizingMaskIntoConstraints="NO" id="ahU-xt-KUr">
+                        <rect key="frame" x="6" y="6" width="58" height="53"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="58" id="3iN-EV-JSk"/>
+                            <constraint firstAttribute="height" constant="53" id="zPd-o4-1y7"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="zPd-o4-1y7"/>
+                            </mask>
+                        </variation>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="李老师" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xar-61-IYA">
+                        <rect key="frame" x="69" y="15" width="60" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="17" id="q3R-Bc-TbL"/>
+                            <constraint firstAttribute="width" constant="60" id="uoE-bL-WCg"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="艺术是天生的，技术是学习的" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="73R-eQ-tSY">
+                        <rect key="frame" x="69" y="37" width="150" height="11"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="150" id="4et-qt-Mi5"/>
+                            <constraint firstAttribute="height" constant="11" id="dDK-ZW-dfq"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" red="0.53725490196078429" green="0.53725490196078429" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pbc-C2-6cV">
+                        <rect key="frame" x="302" y="11" width="25" height="13"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="13" id="HZY-ec-hln"/>
+                            <constraint firstAttribute="width" constant="25" id="I92-mw-1gV"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" red="1" green="0.2728747203579418" blue="0.0057193997565469345" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="人关注" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WIB-ad-aBy">
+                        <rect key="frame" x="322" y="11" width="30" height="13"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="13" id="N9G-Zd-vJp"/>
+                            <constraint firstAttribute="width" constant="30" id="z1V-K3-Fdo"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LfR-or-Ucw">
+                        <rect key="frame" x="283" y="29" width="84" height="23"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="84" id="SPn-zR-gHe"/>
+                            <constraint firstAttribute="height" constant="23" id="jKx-Ca-UCB"/>
+                        </constraints>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="LfR-or-Ucw" secondAttribute="bottom" constant="10" id="4aj-Rp-IbS"/>
+                    <constraint firstItem="73R-eQ-tSY" firstAttribute="top" secondItem="xar-61-IYA" secondAttribute="bottom" constant="5" id="4xY-6L-pbo"/>
+                    <constraint firstItem="xar-61-IYA" firstAttribute="leading" secondItem="ahU-xt-KUr" secondAttribute="trailing" constant="5" id="6fW-YO-8iZ"/>
+                    <constraint firstItem="ahU-xt-KUr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="92t-Aw-VO4"/>
+                    <constraint firstItem="73R-eQ-tSY" firstAttribute="top" secondItem="xar-61-IYA" secondAttribute="bottom" constant="5" id="EeN-PE-Sbc"/>
+                    <constraint firstAttribute="bottom" secondItem="73R-eQ-tSY" secondAttribute="bottom" constant="12" id="Hcq-j0-nDC"/>
+                    <constraint firstItem="WIB-ad-aBy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="TuD-a6-arM"/>
+                    <constraint firstItem="LfR-or-Ucw" firstAttribute="top" secondItem="WIB-ad-aBy" secondAttribute="bottom" constant="5" id="YRB-tm-IKQ"/>
+                    <constraint firstItem="Pbc-C2-6cV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="aU2-P6-Wak"/>
+                    <constraint firstAttribute="trailing" secondItem="LfR-or-Ucw" secondAttribute="trailing" constant="7" id="dnu-iV-iIy"/>
+                    <constraint firstItem="WIB-ad-aBy" firstAttribute="leading" secondItem="Pbc-C2-6cV" secondAttribute="trailing" constant="-5" id="e2q-7w-FgO"/>
+                    <constraint firstItem="73R-eQ-tSY" firstAttribute="leading" secondItem="ahU-xt-KUr" secondAttribute="trailing" constant="5" id="ehm-X7-eUf"/>
+                    <constraint firstItem="xar-61-IYA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="mBW-2t-wwl"/>
+                    <constraint firstItem="ahU-xt-KUr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="6" id="rvG-tk-AqR"/>
+                    <constraint firstAttribute="trailing" secondItem="WIB-ad-aBy" secondAttribute="trailing" constant="22" id="uSX-kg-i16"/>
+                    <constraint firstItem="LfR-or-Ucw" firstAttribute="top" secondItem="Pbc-C2-6cV" secondAttribute="bottom" constant="5" id="ubB-lf-Vb1"/>
+                    <constraint firstAttribute="bottom" secondItem="ahU-xt-KUr" secondAttribute="bottom" constant="6" id="w0U-Pw-At6"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="4xY-6L-pbo"/>
+                        <exclude reference="Hcq-j0-nDC"/>
+                        <exclude reference="4aj-Rp-IbS"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="focusAndCancelBtn" destination="LfR-or-Ucw" id="qym-Nh-ecj"/>
+                <outlet property="focusNum" destination="Pbc-C2-6cV" id="KVc-5F-jPn"/>
+                <outlet property="headImage" destination="ahU-xt-KUr" id="teh-wE-hcs"/>
+                <outlet property="teacherNameLab" destination="xar-61-IYA" id="gBY-mM-zkQ"/>
+                <outlet property="teacherSaying" destination="73R-eQ-tSY" id="ol7-ch-Jqz"/>
+            </connections>
+            <point key="canvasLocation" x="361" y="215"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="TeacherTeam_headImage" width="116" height="112"/>
+    </resources>
+</document>

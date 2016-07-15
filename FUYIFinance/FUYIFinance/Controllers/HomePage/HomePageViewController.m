@@ -22,6 +22,7 @@
 #import "HomePageInvestModel.h"
 
 #import "VideoShopViewController.h"
+#import "TeacherTeamViewController.h"
 
 #define DEF_SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
 
@@ -162,10 +163,11 @@ static NSString *investReuseId = @"investReuseId";
             }
             headerCell.teachTeamBlock = ^{//讲师团队
                 
+                [self performSegueWithIdentifier:@"TeacherTeamSegue" sender:nil];
             };
             headerCell.videoShopBolck = ^{//视频商城
-           
-            [self performSegueWithIdentifier:@"VideoStoreSegue" sender:nil];
+                
+                [self performSegueWithIdentifier:@"VideoStoreSegue" sender:nil];
             };
             headerCell.blogAreaBlock = ^{//博客专区
                 
