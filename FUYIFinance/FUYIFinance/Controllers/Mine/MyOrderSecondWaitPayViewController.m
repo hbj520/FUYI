@@ -1,25 +1,27 @@
 //
-//  MyOrderWaitPayViewController.m
+//  MyOrderSecondWaitPayViewController.m
 //  FUYIFinance
 //
-//  Created by 张哲 on 16/6/28.
+//  Created by 张哲 on 16/7/15.
 //  Copyright © 2016年 youyou. All rights reserved.
 //
 
-#import "MyOrderWaitPayViewController.h"
+#import "MyOrderSecondWaitPayViewController.h"
 #import "PersonalWaitPayTableViewCell.h"
 #import "PayView.h"
 
-@interface MyOrderWaitPayViewController ()<UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate>
+@interface MyOrderSecondWaitPayViewController ()<UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate>
 {
     UITableView * _tableView;
     NSMutableArray * _dataSource; //待付款的数据
     PayView* _payView;
     UIButton* _shadowBtn;
 }
+
+
 @end
 
-@implementation MyOrderWaitPayViewController
+@implementation MyOrderSecondWaitPayViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,12 +32,13 @@
     _tableView.dataSource = self;
     
     [_tableView registerNib:[UINib
-                            nibWithNibName:@"PersonalWaitPayTableViewCell" bundle:nil] forCellReuseIdentifier:@"MyOrderId"];
+                             nibWithNibName:@"PersonalWaitPayTableViewCell" bundle:nil] forCellReuseIdentifier:@"MyOrderId"];
     
-
+    
     [self.view addSubview:_tableView];
-
+    
     [self creatHidePayView];
+
 }
 
 -(void)creatHidePayView{
@@ -78,7 +81,7 @@
     //确定按钮
     cell.sureBtn.tag = indexPath.section;
     [cell.sureBtn addTarget:self action:@selector(clickSureBtn:) forControlEvents:UIControlEventTouchUpInside];
-   
+    
     return cell;
 }
 
@@ -100,11 +103,11 @@
     [self.view addSubview:_shadowBtn];
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:1.0];
-    _payView.frame = CGRectMake(0, ScreenHeight*0.35, ScreenWidth, ScreenHeight * 0.65);
-    _shadowBtn.frame = CGRectMake(0, -ScreenHeight * 0.65, ScreenWidth, ScreenHeight);
+    _payView.frame = CGRectMake(0, ScreenHeight*0.35 - 100, ScreenWidth, ScreenHeight * 0.65);
+    _shadowBtn.frame = CGRectMake(0, -ScreenHeight * 0.65 - 100, ScreenWidth, ScreenHeight);
     
     [UIView commitAnimations];
-
+    
     NSLog(@"%ld",(long)sender.tag);
 }
 
@@ -125,18 +128,6 @@
     [UIView commitAnimations];
 }
 
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = NO;
-}
-
-//退回到上级界面
-- (IBAction)back:(id)sender {
-    self.navigationController.navigationBarHidden = YES;
-    [self.navigationController popViewControllerAnimated:YES];
-}
 
 
 

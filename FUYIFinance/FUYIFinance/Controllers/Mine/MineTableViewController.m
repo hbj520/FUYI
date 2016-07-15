@@ -100,7 +100,7 @@
 //收藏的店铺
 - (void)collectionShopAct
 {
-    
+   [self performSegueWithIdentifier:@"mycollectionSegue" sender:nil];
 }
 
 //我是商家
