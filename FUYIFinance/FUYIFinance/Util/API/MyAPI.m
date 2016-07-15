@@ -21,6 +21,7 @@
 #import "MineCollectionTreasureModel.h"
 #import "MineCollectionShopModel.h"
 #import "MineMyJudgeModel.h"
+#import "MineWaitPayModel.h"
 #import "UserInfoModel.h"
 @interface MyAPI ()
 @property (nonatomic, strong) AFHTTPRequestOperationManager *manager;
@@ -334,7 +335,9 @@
         NSString * status = responseObject[@"status"];
         NSString * info = responseObject[@"info"];
         NSArray * data = responseObject[@"data"];
-        
+        if([status isEqualToString:@"-1"]){
+            [[Config Instance] logout];
+        }
         if ([status isEqualToString:@"1"]) {
             if ([data isEqual:[NSNull null]]) {
                 result(YES,info,nil);
@@ -353,12 +356,23 @@
 
 - (void)requestWaitpayDataWithParameters:(NSString *)page result:(ArrayBlock)result errorResult:(ErrorBlock)errorResult
 {
- NSString * token = @"";
-    NSDictionary * parameters = @{@"token":token,@"page":page};
+    NSDictionary * parameters = @{@"token":KToken,@"page":page};
     [self.manager POST:@"pendpay" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-      
+        NSString * status = responseObject[@"status"];
+        NSString * info = responseObject[@"info"];
+        NSArray * data = responseObject[@"data"];
+        if([status isEqualToString:@"1"]){
+            if([data isEqual:[NSNull null]]){
+                result(YES,info,nil);
+            }else{
+                NSMutableArray * WaitPayModelArray = [[MineWaitPayModel alloc] buildWithData:data];
+                result(YES,info,WaitPayModelArray);
+            }
+        }else{
+            result(NO,info,nil);
+        }
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
-        
+        errorResult(error);
     }];
 }
 

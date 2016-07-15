@@ -9,7 +9,8 @@
 #import "MyOrderWaitPayViewController.h"
 #import "PersonalWaitPayTableViewCell.h"
 #import "PayView.h"
-
+#import "MineWaitPayModel.h"
+#import "MyAPI.h"
 @interface MyOrderWaitPayViewController ()<UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate>
 {
     UITableView * _tableView;
@@ -35,7 +36,22 @@
 
     [self.view addSubview:_tableView];
 
+    [self loadData];
+    
     [self creatHidePayView];
+}
+
+//加载数据
+- (void)loadData
+{
+    [[MyAPI sharedAPI] requestWaitpayDataWithParameters:@"" result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
+        if(success){
+            _dataSource = arrays;
+        }
+    } errorResult:^(NSError *enginerError) {
+        
+    }];
+    
 }
 
 -(void)creatHidePayView{

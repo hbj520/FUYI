@@ -9,11 +9,13 @@
 #import "MyJudgeViewController.h"
 #import "MyJudgeTableViewCell.h"
 #import "BBBadgeBarButtonItem.h"
-
+#import "MyAPI.h"
+#import "MineMyJudgeModel.h"
 @interface MyJudgeViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     UITableView * _tableView;
     BBBadgeBarButtonItem *_chatBtn;//导航栏自定义按钮
+    NSMutableArray * dataSource;
 }
 @end
 
@@ -29,6 +31,16 @@
     _tableView.delegate = self;
     [_tableView registerNib:[UINib nibWithNibName:@"MyJudgeTableViewCell" bundle:nil] forCellReuseIdentifier:@"MyJudgeId"];
     [self.view addSubview:_tableView];
+    [self loadData];
+}
+
+- (void)loadData
+{
+    [[MyAPI sharedAPI] requestMyJudgeDataWithParameters:@"" result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
+        dataSource = arrays;
+    } errorResult:^(NSError *enginerError) {
+        
+    }];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

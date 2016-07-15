@@ -8,10 +8,12 @@
 
 #import "MyCollectionShopViewController.h"
 #import "MyCollectionShopTableViewCell.h"
-
+#import "MineCollectionShopModel.h"
+#import "MyAPI.h"
 @interface MyCollectionShopViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     UITableView * _tableView;
+    NSMutableArray * dataSource;
 }
 @end
 
@@ -28,6 +30,19 @@
     _tableView.showsVerticalScrollIndicator = NO;
     [_tableView registerNib:[UINib nibWithNibName:@"MyCollectionShopTableViewCell" bundle:nil] forCellReuseIdentifier:@"ColectionShopId"];
     [self.view addSubview:_tableView];
+    [self loadData];
+}
+
+//加载数据
+- (void)loadData
+{
+    [[MyAPI sharedAPI] requestCollectionShopDataWithParameters:@"" result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
+        if(success){
+            dataSource  = arrays;
+        }
+    } errorResult:^(NSError *enginerError) {
+        
+    }];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
