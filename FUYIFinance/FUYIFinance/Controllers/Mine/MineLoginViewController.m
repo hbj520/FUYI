@@ -7,6 +7,8 @@
 //
 
 #import "MineLoginViewController.h"
+#import "MineRegisterViewController.h"
+
 #import "UIViewController+HUD.h"
 #import "MyAPI.h"
 #import "Tools.h"
@@ -26,6 +28,7 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *toplayout;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *distancewithtoplayout;
+@property (nonatomic,strong) UINavigationController *myNav;
 
 @end
 
@@ -36,6 +39,7 @@
     // Do any additional setup after loading the view.
     self.numberInput.delegate = self;
     self.passwordInput.delegate = self;
+    self.myNav = [[UINavigationController alloc] init];
     if(self.view.frame.size.height == 480){
         self.toplayout.constant = 30;
     }
@@ -107,12 +111,19 @@
 //忘记密码
 - (IBAction)forgotPassword:(id)sender {
     
+
     //[self performSegueWithIdentifier:@"forgetSegue" sender:nil];
 
 }
 
 //注册账号
 - (IBAction)registerBtn:(id)sender {
+    UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Mine" bundle:[NSBundle mainBundle]];
+
+//    MineRegisterViewController *registerVC = [storybord instantiateViewControllerWithIdentifier:@"registerStorybordId"];
+//    registerVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+//    [self.navigationController presentModalViewController:registerVC animated:YES];
+    //[self.navigationController pushViewController:registerVC animated:YES];
     
 //    [self performSegueWithIdentifier:@"registerSegue" sender:nil];
 

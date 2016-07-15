@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="QaL-7E-fUx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="QaL-7E-fUx">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -1677,7 +1677,6 @@
                                 </state>
                                 <connections>
                                     <action selector="sureJudge:" destination="7Nh-eB-uTW" eventType="touchUpInside" id="Igp-Tz-IRd"/>
-                                    <segue destination="jQW-DR-hMJ" kind="push" id="avG-gU-JXj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Pv-hq-g9P">
@@ -1732,6 +1731,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ub6-gY-PL8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-4149" y="1886"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="SXa-L7-BNk">
+            <objects>
+                <navigationController storyboardIdentifier="LoginStorybordId" id="dZB-Wu-dmd" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JHQ-Cd-8Xd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="jQW-DR-hMJ" kind="relationship" relationship="rootViewController" id="OZr-Ke-Up9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DTv-ht-cgu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-5283" y="2988"/>
         </scene>
         <!--Mine Login View Controller-->
         <scene sceneID="gf4-Jr-GEg">
@@ -1810,7 +1825,7 @@
                                 </state>
                                 <connections>
                                     <action selector="forgotPassword:" destination="jQW-DR-hMJ" eventType="touchUpInside" id="ZI2-wB-1SX"/>
-                                    <segue destination="VMg-p0-bNf" kind="push" id="a6V-S7-HFD"/>
+                                    <segue destination="VMg-p0-bNf" kind="push" id="bNO-CE-0tv"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w6Y-91-LVx">
@@ -1824,7 +1839,7 @@
                                 </state>
                                 <connections>
                                     <action selector="registerBtn:" destination="jQW-DR-hMJ" eventType="touchUpInside" id="HQx-tA-c57"/>
-                                    <segue destination="FBY-IB-VY2" kind="push" id="lFB-bD-ysQ"/>
+                                    <segue destination="FBY-IB-VY2" kind="push" id="yNU-iQ-0Hh"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="accountregister" translatesAutoresizingMaskIntoConstraints="NO" id="03d-lq-iWa">
@@ -1885,7 +1900,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zM7-MZ-Lql" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3602" y="1886"/>
+            <point key="canvasLocation" x="-4763" y="2988"/>
         </scene>
         <!--忘记密码-->
         <scene sceneID="dHy-gd-hwo">
@@ -2096,12 +2111,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A0E-5E-Z8C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3006" y="1238"/>
+            <point key="canvasLocation" x="-2946" y="2358"/>
         </scene>
         <!--注册-->
         <scene sceneID="50M-FT-hoX">
             <objects>
-                <viewController id="FBY-IB-VY2" customClass="MineRegisterViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="registerStorybordId" id="FBY-IB-VY2" customClass="MineRegisterViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OeN-Hf-uuV"/>
                         <viewControllerLayoutGuide type="bottom" id="K37-jF-7h1"/>
@@ -2297,7 +2312,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PDI-j5-ZYg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3006" y="2350"/>
+            <point key="canvasLocation" x="-2922" y="3230"/>
         </scene>
         <!--Treasure Manage View Controller-->
         <scene sceneID="oaR-0B-0sa">

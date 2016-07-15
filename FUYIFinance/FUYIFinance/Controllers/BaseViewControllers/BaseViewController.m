@@ -7,6 +7,8 @@
 //
 
 #import "BaseViewController.h"
+#import "MineLoginViewController.h"
+#import "AppDelegate.h"
 
 @interface BaseViewController ()
 
@@ -22,6 +24,12 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+#pragma mark - PrivateMethod
+//登陆超时和未登录跳转至登陆界面
+- (void)logOut{
+    ApplicationDelegate.mStorybord = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
+    ApplicationDelegate.window.rootViewController = [ApplicationDelegate.mStorybord instantiateViewControllerWithIdentifier:@"LoginStorybordId"];
 }
 
 /*

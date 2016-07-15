@@ -79,6 +79,7 @@
 }
 //确定按钮的事件响应方法
 - (IBAction)Commit:(UIButton*)sender {
+    
     IsCommit = !IsCommit;
     if(IsCommit){
        [sender setImage:[UIImage imageNamed:@"btnhighlighted"] forState:UIControlStateNormal];
@@ -90,7 +91,7 @@
 }
 
 - (IBAction)sureJudge:(id)sender {
-    
+    [self logOut];
 }
 
 
