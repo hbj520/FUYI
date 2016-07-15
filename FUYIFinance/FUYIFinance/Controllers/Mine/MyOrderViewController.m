@@ -11,6 +11,7 @@
 #import "YSLContainerViewController.h"
 #import "MyOrderAllViewController.h"
 #import "MyOrderWaitPayViewController.h"
+#import "MyOrderSecondWaitPayViewController.h"
 #import "MyOrderWaitGoodViewController.h"
 #import "MyOrderWaitJudgeViewController.h"
 
@@ -33,7 +34,7 @@
     myOrderAllVC.title = @"全部";
     
     //创建待付款界面
-    MyOrderWaitPayViewController * myOrderWaitPayVC = [[MyOrderWaitPayViewController alloc] init];
+    MyOrderSecondWaitPayViewController * myOrderWaitPayVC = [[MyOrderSecondWaitPayViewController alloc] init];
     myOrderWaitPayVC.title = @"待付款";
     
     //创建待收货界面

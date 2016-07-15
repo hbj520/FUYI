@@ -41,7 +41,12 @@ typedef void (^ErrorBlock) (NSError *enginerError);
  *  @param result      正常返回结果
  *  @param errorResult 返回出错
  */
-- (void)registerWithParameters:(NSString*)phoneNum Password:(NSString*)password RePassword:(NSString*)repassword YZMNum:(NSString*)yzmnum result:(StateBlock)result errorResult:(ErrorBlock)errorResult;
+- (void)registerWithParameters:(NSString*)phoneNum
+                      Password:(NSString*)password
+                    RePassword:(NSString*)repassword
+                        YZMNum:(NSString*)yzmnum
+                        result:(StateBlock)result
+                   errorResult:(ErrorBlock)errorResult;
 
    
    
@@ -53,8 +58,10 @@ typedef void (^ErrorBlock) (NSError *enginerError);
  *  @param result      返回登录结果
  *  @param errorResult 错误信息
  */
-- (void)LoginWithNumber:(NSString*)phoneNumber password:(NSString*)password
-                 result:(StateBlock)result errorResult:(ErrorBlock)errorResult;
+- (void)LoginWithNumber:(NSString*)phoneNumber
+               password:(NSString*)password
+                 result:(StateBlock)result
+            errorResult:(ErrorBlock)errorResult;
 
 
 
@@ -99,7 +106,9 @@ typedef void (^ErrorBlock) (NSError *enginerError);
  *  @param result      模型数组
  *  @param errorResult 错误信息
  */
-- (void)requestCollectionTreasureDataWithParameters:(NSString*)page result:(ArrayBlock)result errorResult:(ErrorBlock)errorResult;
+- (void)requestCollectionTreasureDataWithParameters:(NSString*)page
+                                             result:(ArrayBlock)result
+                                        errorResult:(ErrorBlock)errorResult;
 
 /**
  *  用户收藏的店铺
@@ -108,7 +117,9 @@ typedef void (^ErrorBlock) (NSError *enginerError);
  *  @param result      模型数组
  *  @param errorResult 错误信息
  */
-- (void)requestCollectionShopDataWithParameters:(NSString*)page result:(ArrayBlock)result errorResult:(ErrorBlock)errorResult;
+- (void)requestCollectionShopDataWithParameters:(NSString*)page
+                                         result:(ArrayBlock)result
+                                    errorResult:(ErrorBlock)errorResult;
 
 /**
  *  用户的评价
@@ -117,7 +128,9 @@ typedef void (^ErrorBlock) (NSError *enginerError);
  *  @param result      模型数组
  *  @param errorResult 错误信息
  */
-- (void)requestMyJudgeDataWithParameters:(NSString*)page result:(ArrayBlock)result errorResult:(ErrorBlock)errorResult;
+- (void)requestMyJudgeDataWithParameters:(NSString*)page
+                                  result:(ArrayBlock)result
+                             errorResult:(ErrorBlock)errorResult;
 
 /**
  *  用户待付款的订单
@@ -126,7 +139,9 @@ typedef void (^ErrorBlock) (NSError *enginerError);
  *  @param result      模型数组
  *  @param errorResult 错误信息
  */
-- (void)requestWaitpayDataWithParameters:(NSString*)page result:(ArrayBlock)result errorResult:(ErrorBlock)errorResult;
+- (void)requestWaitpayDataWithParameters:(NSString*)page
+                                  result:(ArrayBlock)result
+                             errorResult:(ErrorBlock)errorResult;
 /**
  *  用户评价商品
  *
@@ -138,7 +153,13 @@ typedef void (^ErrorBlock) (NSError *enginerError);
  *  @param result      模型数组
  *  @param errorResult 错误信息
  */
-- (void)uploadUserJudgeWithParameters:(NSString*)score Anonymous:(NSString*)anonymous Content:(NSString*)content Goodstyle:(NSString*)goodstyle Goodsid:(NSString*)goodsid result:(StateBlock)result errorResult:(ErrorBlock)errorResult;
+- (void)uploadUserJudgeWithParameters:(NSString*)score
+                            Anonymous:(NSString*)anonymous
+                              Content:(NSString*)content
+                            Goodstyle:(NSString*)goodstyle
+                              Goodsid:(NSString*)goodsid
+                               result:(StateBlock)result
+                          errorResult:(ErrorBlock)errorResult;
 #pragma mark -讲师团队
 
 

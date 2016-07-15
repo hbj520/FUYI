@@ -16,7 +16,14 @@
     // Initialization code
     self.judgeBtn.layer.cornerRadius = 3;
     self.totalPrice.attributedText = [[LabelHelper alloc] attributedStringWithString:@"¥39.00"];
-    
+    [self.judgeBtn addTarget:self action:@selector(selectBtn:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)selectBtn:(id)sender
+{
+    if(self.block){
+        self.block(self.indexpath);
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

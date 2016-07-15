@@ -5,15 +5,21 @@
 //  Created by 张哲 on 16/6/28.
 //  Copyright © 2016年 youyou. All rights reserved.
 //
-
+#import "MineLoginViewController.h"
 #import "MineTableViewController.h"
 #import "MyOrderWaitJudgeViewController.h"
 @interface MineTableViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *headimage;
 @property (weak, nonatomic) IBOutlet UILabel *teachername;
+@property (weak, nonatomic) IBOutlet UIImageView *messageImageView;
 
 @property (weak, nonatomic) IBOutlet UIView *preparPay;   //待付款
 @property (weak, nonatomic) IBOutlet UIView *collectionShop;   //收藏的店铺
+@property (weak, nonatomic) IBOutlet UILabel *accountSetttingLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *goldTeacherImageView;
+@property (weak, nonatomic) IBOutlet UILabel *welcomeLabel;//欢迎label
+@property (weak, nonatomic) IBOutlet UIButton *loginBtn;//登录注册按钮
+- (IBAction)loginBtn:(id)sender;//登录注册按钮
 
 @property (weak, nonatomic) IBOutlet UIView *ShopKeeper;   //我是商家
 @property (weak, nonatomic) IBOutlet UIView *MyJudgeMent;  //我的评价
@@ -30,7 +36,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self CreateUI];
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -39,6 +45,7 @@
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self CreateUI];
      self.navigationController.navigationBar.hidden = YES;
 }
 - (void)didReceiveMemoryWarning {
@@ -46,8 +53,36 @@
     // Dispose of any resources that can be recreated.
 }
 #pragma mark -PrivateMethod
+- (void)LoginAct{
+    UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
+    UINavigationController *loginVC = [storybord instantiateViewControllerWithIdentifier:@"LoginStorybordId"];
+    loginVC.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    [self.navigationController presentModalViewController:loginVC animated:YES];
+}
+- (void)LoginActCell{
+    UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
+    UINavigationController *loginVC = [storybord instantiateViewControllerWithIdentifier:@"LoginStorybordId"];
+    loginVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self.navigationController presentModalViewController:loginVC animated:YES];
+}
 - (void)CreateUI{
-    
+    if (KToken) {
+        self.headimage.hidden = NO;
+        self.teachername.hidden = NO;
+        self.messageImageView.hidden = NO;
+        self.goldTeacherImageView.hidden = NO;
+        self.accountSetttingLabel.hidden = NO;
+        self.welcomeLabel.hidden = YES;
+        self.loginBtn.hidden = YES;
+    }else{
+        self.headimage.hidden = YES;
+        self.teachername.hidden = YES;
+        self.messageImageView.hidden = YES;
+        self.goldTeacherImageView.hidden = YES;
+        self.accountSetttingLabel.hidden = YES;
+        self.welcomeLabel.hidden = NO;
+        self.loginBtn.hidden = NO;
+    }
     //待评价按钮的自定义badge标签
     self.badgeLabel3.layer.cornerRadius = 8;
     self.badgeLabel3.layer.masksToBounds = YES;
@@ -87,39 +122,53 @@
     UITapGestureRecognizer * tapMyorder = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(MyorderAct)];
     [self.myOrder addGestureRecognizer:tapMyorder];
     
-    
-    
 }
 
 
 //待付款
 - (void)prepareAct:(UIGestureRecognizer *)ges{
-    [self performSegueWithIdentifier:@"waitpaySegue" sender:nil];
+    if (!KToken) {
+        [self LoginAct];
+    }else{
+        [self performSegueWithIdentifier:@"waitpaySegue" sender:nil];
+    }
 }
 
 //收藏的店铺
 - (void)collectionShopAct
 {
-    
+   [self performSegueWithIdentifier:@"mycollectionSegue" sender:nil];
 }
 
 //我是商家
 - (void)shopKeeperAct
 {
    // [self performSegueWithIdentifier:@"treasureSegue" sender:nil];
-    [self performSegueWithIdentifier:@"myshopSegue" sender:nil];
+    if (!KToken) {
+        [self LoginAct];
+    }else{
+        [self performSegueWithIdentifier:@"myshopSegue" sender:nil];
+    }
 }
 
 //我的评价
 - (void)judgeAct
 {
-    [self performSegueWithIdentifier:@"myjudgeSegue" sender:nil];
+    if (!KToken) {
+        [self LoginAct];
+    }else{
+        [self performSegueWithIdentifier:@"myjudgeSegue" sender:nil];
+    }
 }
 
 //收藏的宝贝
 - (void)favoriteCollectionAct
 {
-    [self performSegueWithIdentifier:@"mycollectionSegue" sender:nil];
+    if (!KToken) {
+        [self LoginAct];
+    }else{
+        [self performSegueWithIdentifier:@"mycollectionSegue" sender:nil];
+    }
 }
 
 //待收货
@@ -131,26 +180,31 @@
 //待评价
 - (void)prepareForjudgeAct
 {
-    
-    [self performSegueWithIdentifier:@"waitjudgeSegue" sender:nil];
+    if (!KToken) {
+        [self LoginAct];
+    }else{
+        [self performSegueWithIdentifier:@"waitjudgeSegue" sender:nil];
+    }
 }
 
 //我的订单
 - (void)MyorderAct
 {
-    [self performSegueWithIdentifier:@"myorderSegue" sender:nil];
+    if (!KToken) {
+        [self LoginAct];
+    }else{
+        [self performSegueWithIdentifier:@"myorderSegue" sender:nil];
+    }
 }
 
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
     return 4;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
     if(section==0){
         return 1;
     }else if (section==1){
@@ -177,6 +231,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (!KToken) {
+        [self LoginActCell];
+    }
     if(indexPath.section == 2){
         if(indexPath.row==0){
             
@@ -247,4 +304,7 @@
 }
 */
 
+- (IBAction)loginBtn:(id)sender {
+    [self LoginAct];
+}
 @end

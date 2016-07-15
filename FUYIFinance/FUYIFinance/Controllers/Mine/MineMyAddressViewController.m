@@ -21,28 +21,22 @@
 
 @interface MineMyAddressViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
-    BOOL isShow;
-    BOOL isShow1;
-    BOOL isShow2;
-    NSString * provinceLabel;
-    NSString * cityLabel;
-    NSString * citydefaultLabel;
-    NSString * areaLabel;
-    NSString * areadefaultLabel;
+    NSString * provinceLabel;                //省份
+    NSString * cityLabel;                    //城市
+    NSString * citydefaultLabel;             //默认城市
+    NSString * areaLabel;                    //地区
+    NSString * areadefaultLabel;             //默认地区
     BBBadgeBarButtonItem * _chatBtn;         //自定制导航栏按钮
     BBBadgeBarButtonItem * _chatBtn1;        //自定制导航栏按钮
     
 }
-@property (weak, nonatomic) IBOutlet chdButton *provinceBtn;
-@property (weak, nonatomic) IBOutlet chdButton *cityBtn;
-@property (weak, nonatomic) IBOutlet chdButton *areaBtn;
-@property (nonatomic,strong)NSMutableArray * provinceArray;
-@property (nonatomic,strong)NSMutableArray * cityArray;
-@property (nonatomic,strong)NSMutableArray * areaArray;
-@property (weak, nonatomic) IBOutlet UITableView *tableView1;
-@property (nonatomic,strong)UITableView * tableView;
-@property (nonatomic,strong)UITableView * citytableView;
-@property (nonatomic,strong)UITableView * areatableView;
+@property (nonatomic,strong)NSMutableArray * provinceArray;    //省份数组
+@property (nonatomic,strong)NSMutableArray * cityArray;        //城市数组
+@property (nonatomic,strong)NSMutableArray * areaArray;        //地区数组
+@property (weak, nonatomic) IBOutlet UITableView *tableView1;  //界面
+@property (nonatomic,strong)UITableView * tableView;           //省份界面
+@property (nonatomic,strong)UITableView * citytableView;       //城市界面
+@property (nonatomic,strong)UITableView * areatableView;       //地区界面
 
 @end
 
@@ -51,8 +45,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self addChatBtn];
-    [self configView];
+    [self addChatBtn];                      //添加自定制导航栏按钮
+    [self configView];                      //搭接面
     NSString * urlStr = [NSString stringWithFormat:@"http://apis.map.qq.com/ws/district/v1/list?key=K3VBZ-M6WWV-PPSPY-UVGGC-DRM2Z-PGBMV"];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
@@ -146,6 +140,8 @@
     self.areatableView.dataSource = self;
 }
 
+
+#pragma mark - TableViewDelegate & TableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     if(tableView == self.tableView1){
@@ -303,7 +299,7 @@
             cityModel * model1 = self.cityArray[0];
             citydefaultLabel = model1.fullname;
             [self.citytableView reloadData];
-            //    NSLog(@"%lu",(unsigned long)self.CityNary.count);
+          
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             
         }];
@@ -337,8 +333,14 @@
 
 }
 
+//确定修改
 - (IBAction)sureModify:(id)sender {
     [self.view endEditing:YES];
+}
+
+
+- (IBAction)back:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
