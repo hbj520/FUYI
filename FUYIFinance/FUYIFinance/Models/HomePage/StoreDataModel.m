@@ -17,7 +17,8 @@
                  sellNum:(NSString *)sellNum
         videodescription:(NSString *)videodescription
                teacherId:(NSString *)teacherId
-               videoType:(NSString *)videoType{
+               videoType:(NSString *)videoType
+            videoCollect:(NSString*)videoCollect{
     StoreDataModel *model = [[StoreDataModel alloc]init];
     model.videoId = videoId;
     model.videoName = videoName;
@@ -28,6 +29,7 @@
     model.videodescription = videodescription;
     model.teacherId = teacherId;
     model.videoType = videoType;
+    model.videoCollect = videoCollect;
     return model;
 }
 
@@ -45,16 +47,19 @@
         NSString *teacherId = dic[@"tid"];
         NSNumber *Type = dic[@"type"];
         NSString *videoType = [NSString stringWithFormat:@"%ld",Type.integerValue];
+        NSNumber *collect = dic[@"collect"];
+        NSString *videoCollect = [NSString stringWithFormat:@"%ld",collect.integerValue];
         
         StoreDataModel *model = [[StoreDataModel alloc]initWithParameters:videoId
-                                                                              videoName:videoName
-                                                                            teacherName:teacherName
-                                                                             videoImage:videoImage
-                                                                             videoPrice:videoPrice
-                                                                                sellNum:sellNum
-                                                                       videodescription:videodescription
-                                                                              teacherId:teacherId
-                                                                              videoType:videoType];
+                                                                videoName:videoName
+                                                              teacherName:teacherName
+                                                               videoImage:videoImage
+                                                               videoPrice:videoPrice
+                                                                  sellNum:sellNum
+                                                         videodescription:videodescription
+                                                                teacherId:teacherId
+                                                                videoType:videoType
+                                                             videoCollect:videoCollect];
         [modelArr addObject:model];
     }
     

@@ -18,7 +18,7 @@
 @property (nonatomic,strong) NSString *videodescription;
 @property (nonatomic,strong) NSString *teacherId;
 @property (nonatomic,strong) NSString *videoType;
-
+@property (nonatomic,strong) NSString *videoCollect;
 /**
  *  商城列表详情
  *
@@ -42,7 +42,8 @@
                  sellNum:(NSString *)sellNum
         videodescription:(NSString *)videodescription
                teacherId:(NSString *)teacherId
-               videoType:(NSString *)videoType;
+               videoType:(NSString *)videoType
+            videoCollect:(NSString*)videoCollect;
 
 
 

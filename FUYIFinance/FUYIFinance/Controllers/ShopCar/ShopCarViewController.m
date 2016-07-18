@@ -53,10 +53,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self creatUI];
-     self.isAllSelected = YES;
-    //加载数据源
-    [self loadData];
+    if (!KToken) {
+        [self logOut];
+    }else{
+        [self creatUI];
+        self.isAllSelected = YES;
+        //加载数据源
+        [self loadData];
+    }
+
     
 }
 

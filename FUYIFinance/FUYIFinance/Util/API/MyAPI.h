@@ -73,12 +73,13 @@ typedef void (^ErrorBlock) (NSError *enginerError);
                  errorResult:(ErrorBlock)errorResult;
 
 #pragma mark -id加载商城
-- (void)videoStoreWithTypeSelectId:(NSString*)typeSelectId
-                     labelSelectId:(NSString*)labelSelectId
-                              page:(NSString*)page
-                           keyWord:(NSString*)keyWord
-                            result:(ArrayBlock)result
-                       errorResult:(ErrorBlock)errorResult;
+- (void)videoStoreWithToken:(NSString*)token
+               typeSelectId:(NSString*)typeSelectId
+              labelSelectId:(NSString*)labelSelectId
+                       page:(NSString*)page
+                    keyWord:(NSString*)keyWord
+                     result:(ArrayBlock)result
+                errorResult:(ErrorBlock)errorResult;
 
 #pragma mark -收藏商品
 - (void)collectGoodsWithToken:(NSString*)token
@@ -86,6 +87,14 @@ typedef void (^ErrorBlock) (NSError *enginerError);
                          type:(NSString*)type
                        result:(StateBlock)result
                   errorResult:(ErrorBlock)errorResult;
+
+
+#pragma mark -取消收藏商品
+- (void)cancelCollectGoodsWithWithToken:(NSString*)token
+                                goodsId:(NSString*)goodsId
+                                   type:(NSString*)type
+                                 result:(StateBlock)result
+                            errorResult:(ErrorBlock)errorResult;
 
 #pragma mark -加入购物车
 - (void)addGoodIntoShopCarWithToken:(NSString*)token

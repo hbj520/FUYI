@@ -169,7 +169,7 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
                         pageNum:(NSInteger)pageNum
                         keyWord:(NSString*)keyWord{
     NSString *nowPage = [NSString stringWithFormat:@"%ld",_page];
-    [[MyAPI sharedAPI] videoStoreWithTypeSelectId:typeSelectId labelSelectId:labelSelectId page:nowPage keyWord:keyWord result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
+    [[MyAPI sharedAPI] videoStoreWithToken:KToken typeSelectId:typeSelectId labelSelectId:labelSelectId page:nowPage keyWord:keyWord result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
         if (success) {
             storeArray = arrays;
             [self.tableView.mj_header endRefreshing];
