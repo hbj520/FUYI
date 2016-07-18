@@ -34,6 +34,8 @@
     self.tableView.dataSource = self;
     [self addCustomNavigationItem];
     
+        [self.tableView registerNib:[UINib nibWithNibName:@"TeacherPersonalTableViewCell" bundle:nil] forCellReuseIdentifier:@"TeacherPersonalId"];
+            [self.tableView registerNib:[UINib nibWithNibName:@"TeacherPersonalInfoTableViewCell" bundle:nil] forCellReuseIdentifier:@"TeacherPersonalInfoId"];
 }
 
 - (void)addCustomNavigationItem{
