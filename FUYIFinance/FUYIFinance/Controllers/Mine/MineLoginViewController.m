@@ -105,6 +105,7 @@
     NSString * phoneNum = self.numberInput.text;
     NSString * password = self.passwordInput.text;
     NSString * securityString = [Tools loginPasswordSecurityLock:password];
+    [self showHudInView:self.view hint:@"正在登陆"];
     [[MyAPI sharedAPI] LoginWithNumber:phoneNum
                               password:securityString
                                 result:^(BOOL sucess, NSString *msg) {

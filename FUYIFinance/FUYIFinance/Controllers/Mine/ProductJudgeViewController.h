@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface ProductJudgeViewController : BaseViewController
-
+@property (nonatomic,assign) NSInteger indx;
 @end

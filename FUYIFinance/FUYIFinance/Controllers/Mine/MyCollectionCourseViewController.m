@@ -8,10 +8,13 @@
 
 #import "MyCollectionCourseViewController.h"
 #import "MyCollectionTableViewCell.h"
+#import "MineCollectionTreasureModel.h"
+#import "MyAPI.h"
 
 @interface MyCollectionCourseViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     UITableView * _tableView;
+    NSMutableArray * dataSource;
 }
 @end
 
@@ -26,6 +29,19 @@
     _tableView.dataSource = self;
     [_tableView registerNib:[UINib nibWithNibName:@"MyCollectionTableViewCell" bundle:nil] forCellReuseIdentifier:@"MyCollectionId"];
     [self.view addSubview:_tableView];
+    [self loadData];
+}
+
+//加载数据
+- (void)loadData
+{
+    [[MyAPI sharedAPI] requestCollectionTreasureDataWithParameters:@"" result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
+        if(success){
+            dataSource = arrays;
+        }
+    } errorResult:^(NSError *enginerError) {
+        
+    }];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

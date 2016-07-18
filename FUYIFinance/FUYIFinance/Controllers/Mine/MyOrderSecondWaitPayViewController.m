@@ -41,6 +41,8 @@
 
 }
 
+
+
 -(void)creatHidePayView{
     
     _payView = [[[NSBundle mainBundle]loadNibNamed:@"PayView" owner:self options:nil]lastObject];;

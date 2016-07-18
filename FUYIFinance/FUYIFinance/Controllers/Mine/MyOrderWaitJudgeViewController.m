@@ -61,10 +61,7 @@
     cell.block = ^(NSIndexPath * cellindexpath){
         [weakself clickjudgeBtnWithIndexpath:cellindexpath];
     };
-    if(indexPath.row==1){
-        cell.lineView.hidden = YES;
-    }
-    return cell;
+        return cell;
 }
 
 //点击评价按钮的事件响应方法
@@ -73,6 +70,8 @@
     //跳转到商品评价界面
     UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
     ProductJudgeViewController * VC = (ProductJudgeViewController*)[storyboard instantiateViewControllerWithIdentifier:@"productJudge"];
+    NSInteger indx = indexpath.section;
+    VC.indx = indx;
     [self.navigationController pushViewController:VC animated:YES];
 }
 

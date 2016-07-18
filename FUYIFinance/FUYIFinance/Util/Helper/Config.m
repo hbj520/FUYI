@@ -79,6 +79,7 @@ static Config * instance = nil;
 
 }
 
+
 /**
  *  保存密码
  *
@@ -124,5 +125,12 @@ static Config * instance = nil;
     return [settings stringForKey:@"phonenum"];
 }
 
+- (void)logOut{
+    NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
+    [settings removeObjectForKey:@"token"];
+    [settings removeObjectForKey:@"icon"];
+    [settings removeObjectForKey:@"username"];
+    
+}
 
 @end
