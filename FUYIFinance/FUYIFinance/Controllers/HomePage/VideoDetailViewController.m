@@ -129,7 +129,15 @@
         [self.view.layer addSublayer:layer];
     }
      [self groupAnimation];//加入购物车动画
-    [[MyAPI sharedAPI]addGoodIntoShopCarWithToken:KToken goodsId:_model.videoId type:_model.videoType money:_model.videoPrice result:^(BOOL sucess, NSString *msg) {
+    [[MyAPI sharedAPI]addGoodIntoShopCarWithToken:KToken
+                                          goodsId:_model.videoId
+                                             type:_model.videoType
+                                            money:_model.videoPrice
+                                           result:^(BOOL sucess, NSString *msg) {
+                                               
+                                               if ([msg isEqualToString:@"登录超时"]) {
+                                                   [self logOut];
+                                               }
         
         if (sucess) {
              //[self groupAnimation];//加入购物车动画
@@ -230,42 +238,51 @@
     
     //if ([_model.videoCollect isEqualToString:@"0"]) {
         
-     if (button.selected == NO) {
-         button.selected = !button.selected;
-        NSLog(@"%@+++++++++++++++++++",_model.videoCollect);
-
+    if (button.selected == NO) {
         
-         [[MyAPI sharedAPI]collectGoodsWithToken:KToken goodsId:_model.videoId type:_model.videoType result:^(BOOL sucess, NSString *msg) {
-                if ([msg isEqualToString:@"登录超时"]) {
-                    [self logOut];
-                }
-                
-                if (sucess) {
-                    [self showPopup:@"收藏成功"];
-                }else{
-                    [self showPopup:@"收藏不成功"];
-                }
-            } errorResult:^(NSError *enginerError) {
-                
-            }];
-            
-            
-       }else{
-            button.selected = !button.selected;
-           
-           [[MyAPI sharedAPI] cancelCollectGoodsWithWithToken:KToken goodsId:_model.videoId type:_model.videoType result:^(BOOL sucess, NSString *msg) {
-               if (sucess) {
-                    [self showPopup:@"取消收藏"];
-               }else{
-                   [self showPopup:@"取消失败"];
-               }
-           } errorResult:^(NSError *enginerError) {
-               
-           }];
-           
-           
-     }
-   // }
+        NSLog(@"%@+++++++++++++++++++",_model.videoCollect);
+        
+        button.selected = !button.selected;
+        [[MyAPI sharedAPI]collectGoodsWithToken:KToken
+                                        goodsId:_model.videoId
+                                           type:_model.videoType
+                                         result:^(BOOL sucess, NSString *msg) {
+                                             if ([msg isEqualToString:@"登录超时"]) {
+
+                                                 [self logOut];
+                                             }
+                                             
+                                             if (sucess) {
+                                                 
+                                                 [self showPopup:msg];
+                                                 _model.videoCollect = @"1";
+                                             }else{
+                                                 [self showPopup:msg];
+                                                 
+                                             }
+                                         } errorResult:^(NSError *enginerError) {
+                                             
+                                         }];
+        
+    }else{
+        button.selected = !button.selected;
+        [[MyAPI sharedAPI] cancelCollectGoodsWithWithToken:KToken
+                                                   goodsId:_model.videoId
+                                                      type:_model.videoType
+                                                    result:^(BOOL sucess, NSString *msg) {
+                                                        if (sucess) {
+                                                            
+                                                            [self showPopup:@"取消收藏"];
+                                                            _model.videoCollect = @"0";
+                                                        }else{
+                                                            [self showPopup:@"取消失败"];
+                                                            
+                                                        }
+                                                    } errorResult:^(NSError *enginerError) {
+                                                        
+                                                    }];
+        
+    }
 }
 
 //店铺
