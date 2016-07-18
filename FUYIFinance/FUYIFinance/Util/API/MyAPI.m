@@ -240,6 +240,8 @@
         NSString * state = responseObject[@"status"];
         NSString * information = responseObject[@"info"];
         
+
+        
         if ([state isEqualToString:@"-1"]) {
            result(NO,@"登录超时");
         }
