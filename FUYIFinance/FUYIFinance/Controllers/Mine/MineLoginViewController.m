@@ -115,9 +115,12 @@
         }else{
             [self showHint:msg];
         }
+       [self hideHud];
+
     } errorResult:^(NSError *enginerError) {
         [self showHint:@"登录出错"];
         [self hideHud];
+        
     }];
 }
 
