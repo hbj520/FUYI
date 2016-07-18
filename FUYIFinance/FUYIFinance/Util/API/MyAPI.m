@@ -191,13 +191,15 @@
 }
 
 #pragma mark -商城
-- (void)videoStoreWithTypeSelectId:(NSString*)typeSelectId
-                     labelSelectId:(NSString*)labelSelectId
-                              page:(NSString*)page
-                           keyWord:(NSString*)keyWord
-                            result:(ArrayBlock)result
-                       errorResult:(ErrorBlock)errorResult{
+- (void)videoStoreWithToken:(NSString*)token
+               typeSelectId:(NSString*)typeSelectId
+              labelSelectId:(NSString*)labelSelectId
+                       page:(NSString*)page
+                    keyWord:(NSString*)keyWord
+                     result:(ArrayBlock)result
+                errorResult:(ErrorBlock)errorResult{
     NSDictionary *parameters = @{
+                                 @"token":token,
                                  @"type":typeSelectId,
                                  @"lael":labelSelectId,
                                  @"page":page,
@@ -229,11 +231,12 @@
                        result:(StateBlock)result
                   errorResult:(ErrorBlock)errorResult{
     NSDictionary *parameters = @{
+                                 @"token":KToken,
                                  @"goods":goodsId,
                                  @"type":type
                                  };
     [self.manager POST:@"addcollect" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-        NSString * state = responseObject[@"state"];
+        NSString * state = responseObject[@"status"];
         NSString * information = responseObject[@"info"];
         if([state isEqualToString:@"1"]){
             result(YES,information);
@@ -254,12 +257,13 @@
                              result:(StateBlock)result
                         errorResult:(ErrorBlock)errorResult{
     NSDictionary *parameters = @{
+                                 @"token":KToken,
                                  @"goodsid":goodsId,
                                  @"type":type,
                                  @"money":money
                                  };
     [self.manager POST:@"addcart" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-        NSString * state = responseObject[@"state"];
+        NSString * state = responseObject[@"status"];
         NSString * information = responseObject[@"info"];
         if([state isEqualToString:@"1"]){
             result(YES,information);

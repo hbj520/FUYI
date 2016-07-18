@@ -73,12 +73,13 @@ typedef void (^ErrorBlock) (NSError *enginerError);
                  errorResult:(ErrorBlock)errorResult;
 
 #pragma mark -id加载商城
-- (void)videoStoreWithTypeSelectId:(NSString*)typeSelectId
-                     labelSelectId:(NSString*)labelSelectId
-                              page:(NSString*)page
-                           keyWord:(NSString*)keyWord
-                            result:(ArrayBlock)result
-                       errorResult:(ErrorBlock)errorResult;
+- (void)videoStoreWithToken:(NSString*)token
+               typeSelectId:(NSString*)typeSelectId
+              labelSelectId:(NSString*)labelSelectId
+                       page:(NSString*)page
+                    keyWord:(NSString*)keyWord
+                     result:(ArrayBlock)result
+                errorResult:(ErrorBlock)errorResult;
 
 #pragma mark -收藏商品
 - (void)collectGoodsWithToken:(NSString*)token

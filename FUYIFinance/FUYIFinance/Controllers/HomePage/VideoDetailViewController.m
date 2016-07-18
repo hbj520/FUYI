@@ -20,6 +20,7 @@
 
 #import "LabelHelper.h"
 #import "LPPopup.h"
+#import "MyAPI.h"
 
 #import <SDWebImage/UIImageView+WebCache.h>
 
@@ -40,12 +41,25 @@
     // Do any additional setup after loading the view.
     [self creatUI];
       _cnt = 0;
+    
+    [self judgeCollectSelected];//判断第一次进来的按钮状态
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = YES;
     self.tabBarController.tabBar.hidden = YES;
+}
+
+//判断第一次进来的按钮状态
+- (void)judgeCollectSelected{
+    if ([_model.videoCollect isEqualToString:@"0"]) {
+        self.collectBtn.selected = NO;
+    }else{
+        self.collectBtn.selected = YES;
+    }
+    
+    
 }
 
 -(void)creatUI{
@@ -114,7 +128,22 @@
         layer.borderColor = (__bridge CGColorRef _Nullable)([UIColor whiteColor]);
         [self.view.layer addSublayer:layer];
     }
-    [self groupAnimation];//加入购物车动画
+     [self groupAnimation];//加入购物车动画
+    [[MyAPI sharedAPI]addGoodIntoShopCarWithToken:KToken goodsId:_model.videoId type:_model.videoType money:_model.videoPrice result:^(BOOL sucess, NSString *msg) {
+        
+        if (sucess) {
+             //[self groupAnimation];//加入购物车动画
+            [self showPopup:@"加入购物车成功!"];
+        }else{
+            [self showPopup:@"加入购物车失败!"];
+        }
+        
+    } errorResult:^(NSError *enginerError) {
+        
+    }];
+    
+
+   
 }
 
 - (void)groupAnimation
@@ -181,7 +210,7 @@
         shakeAnimation.autoreverses = YES;
         [self.shopCarBtn.layer addAnimation:shakeAnimation forKey:nil];
         
-        [self showPopup:@"加入购物车成功！"];
+       // [self showPopup:@"加入购物车成功！"];
     }
 }
 
@@ -198,13 +227,31 @@
 
 //收藏
 - (IBAction)collectClick:(UIButton*)button {
-    button.selected = !button.selected;
-    if (button.selected) {
-        [self showPopup:@"收藏成功"];
-    }else{
-        [self showPopup:@"取消收藏"];
+          button.selected = !button.selected;
+    if ([_model.videoCollect isEqualToString:@"0"]) {
+        
+     if (button.selected) {
+        
+        NSLog(@"%@+++++++++++++++++++",_model.videoCollect);
+            [[MyAPI sharedAPI]collectGoodsWithToken:KToken goodsId:_model.videoId type:_model.videoType result:^(BOOL sucess, NSString *msg) {
+                if (sucess) {
+                    NSLog(@"%@+++++++++++++++++++",_model.videoCollect);
+                    
+                    [self showPopup:@"收藏成功"];
+                }else{
+                    [self showPopup:@"收藏不成功"];
+                }
+            } errorResult:^(NSError *enginerError) {
+                
+            }];
+            
+            
+       }else{
+            
+            //待写接口
+            [self showPopup:@"取消收藏"];
+     }
     }
-
 }
 
 //店铺

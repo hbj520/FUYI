@@ -65,20 +65,21 @@
 
     if (indexPath.section == 0) {
         TeacherPersonalTableViewCell *Cell = [[[NSBundle mainBundle]loadNibNamed:@"TeacherPersonalTableViewCell" owner:self options:nil]lastObject];
+           Cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return Cell;
     }else{
-        TeacherPersonalInfoTableViewCell *Cell = [[[NSBundle mainBundle]loadNibNamed:@"TeacherPersonalInfoTableViewCell" owner:self options:nil]lastObject];
+        TeacherPersonalInfoTableViewCell *cell = [[[NSBundle mainBundle]loadNibNamed:@"TeacherPersonalInfoTableViewCell" owner:self options:nil]lastObject];
         if (indexPath.row == 0) {
-            Cell.detailInfoLab.text = @"姓名： 李小龙";
+            cell.detailInfoLab.text = @"姓名： 李小龙";
         }if (indexPath.row == 1) {
-            Cell.detailInfoLab.text = @"毕业院校： 北京大学，营销管理";
+            cell.detailInfoLab.text = @"毕业院校： 北京大学，营销管理";
         }if (indexPath.row == 2) {
-            Cell.detailInfoLab.text = @"所处位置：安徽合肥";
+            cell.detailInfoLab.text = @"所处位置：安徽合肥";
         }else{
-            Cell.detailInfoLab.text = @"发表文章：关于原油的投资分析";
+            cell.detailInfoLab.text = @"发表文章：关于原油的投资分析";
         }
-        
-       return Cell;
+           cell.selectionStyle = UITableViewCellSelectionStyleNone;
+       return cell;
     }
 }
 
@@ -92,9 +93,13 @@
 }
 
 - (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    UIView *headView = [[UIView alloc]init];
-    headView.backgroundColor = RGBACOLOR(246, 245, 248, 1);
-    return headView;
+    if (section == 0) {
+        UIView *headView = [[UIView alloc]init];
+        headView.backgroundColor = RGBACOLOR(246, 245, 248, 1);
+        return headView;
+    }else{
+        return nil;
+    }
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -110,7 +115,7 @@
         FooterView *footView = [[[NSBundle mainBundle]loadNibNamed:@"FooterView" owner:self options:nil]lastObject];
         return footView;
     }else{
-        UIView *foot = [[UIView alloc]init];
+        UIView *foot = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 19)];
         return foot;
     }
  
