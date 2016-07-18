@@ -88,6 +88,14 @@ typedef void (^ErrorBlock) (NSError *enginerError);
                        result:(StateBlock)result
                   errorResult:(ErrorBlock)errorResult;
 
+
+#pragma mark -取消收藏商品
+- (void)cancelCollectGoodsWithWithToken:(NSString*)token
+                                goodsId:(NSString*)goodsId
+                                   type:(NSString*)type
+                                 result:(StateBlock)result
+                            errorResult:(ErrorBlock)errorResult;
+
 #pragma mark -加入购物车
 - (void)addGoodIntoShopCarWithToken:(NSString*)token
                             goodsId:(NSString*)goodsId

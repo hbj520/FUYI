@@ -239,6 +239,11 @@
     [self.manager POST:@"addcollect" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         NSString * state = responseObject[@"status"];
         NSString * information = responseObject[@"info"];
+        
+        if ([state isEqualToString:@"-1"]) {
+           result(NO,@"登录超时");
+        }
+        
         if([state isEqualToString:@"1"]){
             result(YES,information);
         }else{
@@ -248,6 +253,32 @@
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         errorResult(error);
     }];
+}
+
+#pragma mark -取消收藏商品
+- (void)cancelCollectGoodsWithWithToken:(NSString*)token
+                                goodsId:(NSString*)goodsId
+                                   type:(NSString*)type
+                                 result:(StateBlock)result
+                            errorResult:(ErrorBlock)errorResult{
+    
+    NSDictionary *parameters = @{
+                                 @"token":KToken,
+                                 @"goods":goodsId,
+                                 @"type":type
+                                 };
+    [self.manager POST:@"re_collect" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * state = responseObject[@"status"];
+        NSString * information = responseObject[@"info"];
+        if([state isEqualToString:@"1"]){
+            result(YES,information);
+        }else{
+            result(NO,information);
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+    }];
+    
 }
 
 #pragma mark -加入购物车

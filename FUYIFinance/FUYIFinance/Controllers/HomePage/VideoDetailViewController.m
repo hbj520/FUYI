@@ -227,16 +227,20 @@
 
 //收藏
 - (IBAction)collectClick:(UIButton*)button {
-          button.selected = !button.selected;
-    if ([_model.videoCollect isEqualToString:@"0"]) {
+    
+    //if ([_model.videoCollect isEqualToString:@"0"]) {
         
-     if (button.selected) {
-        
+     if (button.selected == NO) {
+         button.selected = !button.selected;
         NSLog(@"%@+++++++++++++++++++",_model.videoCollect);
-            [[MyAPI sharedAPI]collectGoodsWithToken:KToken goodsId:_model.videoId type:_model.videoType result:^(BOOL sucess, NSString *msg) {
+
+        
+         [[MyAPI sharedAPI]collectGoodsWithToken:KToken goodsId:_model.videoId type:_model.videoType result:^(BOOL sucess, NSString *msg) {
+                if ([msg isEqualToString:@"登录超时"]) {
+                    [self logOut];
+                }
+                
                 if (sucess) {
-                    NSLog(@"%@+++++++++++++++++++",_model.videoCollect);
-                    
                     [self showPopup:@"收藏成功"];
                 }else{
                     [self showPopup:@"收藏不成功"];
@@ -247,11 +251,21 @@
             
             
        }else{
-            
-            //待写接口
-            [self showPopup:@"取消收藏"];
+            button.selected = !button.selected;
+           
+           [[MyAPI sharedAPI] cancelCollectGoodsWithWithToken:KToken goodsId:_model.videoId type:_model.videoType result:^(BOOL sucess, NSString *msg) {
+               if (sucess) {
+                    [self showPopup:@"取消收藏"];
+               }else{
+                   [self showPopup:@"取消失败"];
+               }
+           } errorResult:^(NSError *enginerError) {
+               
+           }];
+           
+           
      }
-    }
+   // }
 }
 
 //店铺
