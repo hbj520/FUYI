@@ -27,11 +27,12 @@
     [self addChatBtn];
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     _tableView.dataSource = self;
     _tableView.delegate = self;
     [_tableView registerNib:[UINib nibWithNibName:@"MyJudgeTableViewCell" bundle:nil] forCellReuseIdentifier:@"MyJudgeId"];
     [self.view addSubview:_tableView];
-    [self loadData];
+   // [self loadData];
 }
 
 - (void)loadData

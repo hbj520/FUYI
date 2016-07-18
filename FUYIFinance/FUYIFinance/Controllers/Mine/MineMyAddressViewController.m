@@ -213,20 +213,26 @@
                 
             }else if (indexPath.row == 3){
                 cell.arealabel.text = @"城市";
-               
+                
                 if(cityLabel){
                     cell.areadetaillabel.text = cityLabel;
                         }else{
-                    
+                            if(citydefaultLabel){
+                                cell.areadetaillabel.text = citydefaultLabel;
+                            }else{
                 cell.areadetaillabel.text = @"洛阳";
-                 
+                            }
                 }
             }else{
                 cell.arealabel.text = @"地区";
                 if(areaLabel){
                     cell.areadetaillabel.text = areaLabel;
                 }else{
+                    if(areadefaultLabel){
+                        cell.areadetaillabel.text = areadefaultLabel;
+                    }else{
                 cell.areadetaillabel.text = @"东城区";
+                    }
                 }
             }
             return cell;
@@ -298,6 +304,7 @@
             self.cityArray = (NSMutableArray *)[cityModel mj_objectArrayWithKeyValuesArray:messageData[0]];
             cityModel * model1 = self.cityArray[0];
             citydefaultLabel = model1.fullname;
+            [self.tableView1 reloadData];
             [self.citytableView reloadData];
           
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -321,6 +328,8 @@
         //     NSLog(@"%@",messageData);
         self.areaArray = [NSMutableArray array];
         self.areaArray = (NSMutableArray *)[ZoneModel mj_objectArrayWithKeyValuesArray:messageData[0]];
+        ZoneModel* model1 = self.areaArray[0];
+        areadefaultLabel = model1.fullname;
          [[KGModal sharedInstance] hideAnimated:YES];
         [self.areatableView reloadData];
         [self.tableView1 reloadData];

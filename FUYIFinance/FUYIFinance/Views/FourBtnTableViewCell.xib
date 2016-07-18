@@ -31,7 +31,7 @@
                                     <constraint firstAttribute="height" constant="17" id="aw4-f8-inr"/>
                                     <constraint firstAttribute="width" constant="72" id="gtM-P4-mOH"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -48,26 +48,26 @@
                         <rect key="frame" x="80" y="0.0" width="80" height="109"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="treasure_manage" translatesAutoresizingMaskIntoConstraints="NO" id="ROW-st-gq5">
-                                <rect key="frame" x="10" y="8" width="60" height="60"/>
+                                <rect key="frame" x="10" y="8" width="61" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="oSn-bB-Yxs"/>
+                                    <constraint firstAttribute="width" constant="61" id="oSn-bB-Yxs"/>
                                     <constraint firstAttribute="height" constant="60" id="z2v-5N-clt"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="宝贝管理" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="55U-0r-FIL">
-                                <rect key="frame" x="10" y="69" width="60" height="16"/>
+                                <rect key="frame" x="10" y="71" width="60" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="3V7-fe-lni"/>
                                     <constraint firstAttribute="height" constant="16" id="tAf-TJ-CT3"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="55U-0r-FIL" firstAttribute="top" secondItem="ROW-st-gq5" secondAttribute="bottom" constant="1" id="9XR-Cf-M9f"/>
+                            <constraint firstItem="55U-0r-FIL" firstAttribute="top" secondItem="ROW-st-gq5" secondAttribute="bottom" constant="3" id="9XR-Cf-M9f"/>
                             <constraint firstItem="ROW-st-gq5" firstAttribute="centerX" secondItem="Tuh-gb-PM6" secondAttribute="centerX" id="IfZ-2c-iUm"/>
                             <constraint firstItem="ROW-st-gq5" firstAttribute="top" secondItem="Tuh-gb-PM6" secondAttribute="top" constant="8" id="bnd-Cw-s49"/>
                             <constraint firstItem="55U-0r-FIL" firstAttribute="centerX" secondItem="Tuh-gb-PM6" secondAttribute="centerX" id="ldO-L8-PZq"/>
@@ -76,23 +76,23 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mZU-y0-hyh">
                         <rect key="frame" x="160" y="0.0" width="80" height="109"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="order_manage" translatesAutoresizingMaskIntoConstraints="NO" id="5Ne-Dq-Da9">
-                                <rect key="frame" x="10" y="8" width="60" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="6pq-TM-kqb"/>
-                                    <constraint firstAttribute="height" constant="60" id="z0g-O5-emi"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="订单管理" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mmc-r6-hjv">
                                 <rect key="frame" x="7" y="70" width="67" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="VOB-Ij-gtL"/>
                                     <constraint firstAttribute="width" constant="67" id="W6s-xd-BVn"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="order_manage" translatesAutoresizingMaskIntoConstraints="NO" id="5Ne-Dq-Da9">
+                                <rect key="frame" x="9" y="8" width="62" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="62" id="6pq-TM-kqb"/>
+                                    <constraint firstAttribute="height" constant="60" id="z0g-O5-emi"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -106,10 +106,10 @@
                         <rect key="frame" x="240" y="0.0" width="80" height="109"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shop_setting" translatesAutoresizingMaskIntoConstraints="NO" id="KVQ-zt-eaU">
-                                <rect key="frame" x="10" y="7" width="60" height="60"/>
+                                <rect key="frame" x="9" y="7" width="62" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="4Rc-fW-Q05"/>
-                                    <constraint firstAttribute="width" constant="60" id="IPL-qD-KXm"/>
+                                    <constraint firstAttribute="width" constant="62" id="IPL-qD-KXm"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="店铺设置" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRh-q8-U8W">
@@ -118,7 +118,7 @@
                                     <constraint firstAttribute="width" constant="70" id="SST-lQ-Tru"/>
                                     <constraint firstAttribute="height" constant="17" id="rgV-lb-n4r"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>

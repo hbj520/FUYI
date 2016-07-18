@@ -77,12 +77,12 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="账户管理 &gt;" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJT-ZS-ibE">
-                                                            <rect key="frame" x="234" y="51" width="84" height="20"/>
+                                                            <rect key="frame" x="224" y="51" width="84" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="6Uu-nT-QJJ"/>
                                                                 <constraint firstAttribute="width" constant="84" id="Jcv-7b-1bx"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -125,7 +125,7 @@
                                                     <color key="backgroundColor" red="0.86274509799999999" green="0.08235294118" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="bKD-LI-uei" firstAttribute="leading" secondItem="HM8-rN-k7A" secondAttribute="trailing" constant="5" id="0X9-8L-9FD"/>
-                                                        <constraint firstAttribute="trailing" secondItem="mJT-ZS-ibE" secondAttribute="trailing" constant="2" id="2Oh-ZB-7kn"/>
+                                                        <constraint firstAttribute="trailing" secondItem="mJT-ZS-ibE" secondAttribute="trailing" constant="12" id="2Oh-ZB-7kn"/>
                                                         <constraint firstItem="jDy-0t-lBl" firstAttribute="top" secondItem="fFo-PT-NBv" secondAttribute="bottom" constant="15" id="7MZ-sZ-16J"/>
                                                         <constraint firstItem="bKD-LI-uei" firstAttribute="top" secondItem="Afo-lo-50i" secondAttribute="bottom" id="9Xq-S4-tdj"/>
                                                         <constraint firstItem="Afo-lo-50i" firstAttribute="leading" secondItem="HM8-rN-k7A" secondAttribute="trailing" constant="8" id="Eni-QV-2rY"/>
