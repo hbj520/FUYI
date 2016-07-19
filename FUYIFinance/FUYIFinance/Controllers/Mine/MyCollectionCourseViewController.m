@@ -9,6 +9,7 @@
 #import "MyCollectionCourseViewController.h"
 #import "MyCollectionTableViewCell.h"
 #import "MineCollectionTreasureModel.h"
+#import "UIViewController+HUD.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "MyAPI.h"
 
@@ -37,10 +38,12 @@
 //加载数据
 - (void)loadData
 {
+    [self showHudInView:self.view hint:@"正在加载中"];
     [[MyAPI sharedAPI] requestCollectionTreasureDataWithParameters:@"" result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
         dataSource = [NSMutableArray array];
         if(success){
             dataSource = arrays;
+            [self hideHud];
             [_tableView reloadData];
         }else{
             [self logOut];
