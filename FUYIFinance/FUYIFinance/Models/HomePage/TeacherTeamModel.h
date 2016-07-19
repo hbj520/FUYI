@@ -17,15 +17,24 @@
 @property (nonatomic,strong) NSString *teacherId;
 @property (nonatomic,strong) NSString *teacherType;
 
+/**
+ *  讲师团队列表
+ *
+ *  @param teacherName        讲师姓名
+ *  @param teacherImage       讲师头像
+ *  @param teacherFansNum     关注人数
+ *  @param teacherDescription 教师描述
+ *  @param teacherId          讲师id
+ *  @param teacherType        讲师类型
+ *
+ *  @return 
+ */
 - (id)initWithParameters:(NSString*)teacherName
               teacherImage:(NSString*)teacherImage
             teacherFansNum:(NSString*)teacherFansNum
         teacherDescription:(NSString*)teacherDescription
                  teacherId:(NSString*)teacherId
                teacherType:(NSString*)teacherType;
-
-
-
 
 
 - (NSArray *)buildWithData:(NSArray *)data;

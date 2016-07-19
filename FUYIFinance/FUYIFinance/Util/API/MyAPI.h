@@ -170,8 +170,20 @@ typedef void (^ErrorBlock) (NSError *enginerError);
                                result:(StateBlock)result
                           errorResult:(ErrorBlock)errorResult;
 #pragma mark -讲师团队
+- (void)getTeacherTeamDataWithToken:(NSString*)token
+                               page:(NSString*)page
+                             result:(ArrayBlock)result
+                        errorResult:(ErrorBlock)errorResult;
 
+#pragma mark -关注讲师
+- (void)focusTeacherWithToken:(NSString*)token
+                    teacherId:(NSString*)teacherId
+                       result:(StateBlock)result
+                  errorResult:(ErrorBlock)errorResult;
 
-
-
+#pragma mark -讲师详情
+- (void)getTeacherDetailDataWithToken:(NSString*)token
+                            teacherId:(NSString*)teacherId
+                               result:(ModelBlock)result
+                          errorResult:(ErrorBlock)errorResult;
 @end

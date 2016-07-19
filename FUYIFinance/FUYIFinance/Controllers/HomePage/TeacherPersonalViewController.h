@@ -8,6 +8,12 @@
 
 #import "BaseViewController.h"
 
+#import "TeacherModel.h"
+#import "TeacherTeamModel.h"
+
 @interface TeacherPersonalViewController : BaseViewController
+@property (nonatomic,strong) TeacherTeamModel *model;
+
+
 
 @end

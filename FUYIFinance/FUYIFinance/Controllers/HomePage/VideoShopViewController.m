@@ -184,16 +184,17 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
                                       page:nowPage
                                    keyWord:keyWord
                                     result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
-        if (success) {
-            [storeArray addObjectsFromArray:arrays];
-            [self.tableView.mj_header endRefreshing];
-            [self.tableView.mj_footer endRefreshing];
-            [self.tableView reloadData];
-        }
-    } errorResult:^(NSError *enginerError) {
-        [self.tableView.mj_header endRefreshing];
-        [self.tableView.mj_footer endRefreshing];
-    }];
+                                        if (success) {
+                                            [storeArray addObjectsFromArray:arrays];
+                                            
+                                            [self.tableView reloadData];
+                                        }
+                                        [self.tableView.mj_header endRefreshing];
+                                        [self.tableView.mj_footer endRefreshing];
+                                    } errorResult:^(NSError *enginerError) {
+                                        [self.tableView.mj_header endRefreshing];
+                                        [self.tableView.mj_footer endRefreshing];
+                                    }];
 }
 - (void)dropDownMenu
 {
