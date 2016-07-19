@@ -49,6 +49,9 @@
         if(success){
             _dataSource = arrays;
         }
+        else{
+            [self logOut];
+        }
     } errorResult:^(NSError *enginerError) {
         
     }];

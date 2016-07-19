@@ -32,13 +32,16 @@
     _tableView.delegate = self;
     [_tableView registerNib:[UINib nibWithNibName:@"MyJudgeTableViewCell" bundle:nil] forCellReuseIdentifier:@"MyJudgeId"];
     [self.view addSubview:_tableView];
-   // [self loadData];
+[self loadData];
 }
 
 - (void)loadData
 {
     [[MyAPI sharedAPI] requestMyJudgeDataWithParameters:@"" result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
         dataSource = arrays;
+        if([msg isEqualToString:@"-1"]){
+            [self logOut];
+        }
     } errorResult:^(NSError *enginerError) {
         
     }];

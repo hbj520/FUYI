@@ -315,7 +315,7 @@
 {
 
     NSDictionary * parameters = @{@"token":KToken};
-    [self.manager POST:@"" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+    [self.manager POST:@"allcollect" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         NSString * status = responseObject[@"status"];
         NSString * info = responseObject[@"info"];
         
@@ -329,7 +329,11 @@
                 result(YES,info,collectionTreasureModelArray);
             }
         }else{
+            if([status isEqualToString:@"-1"]){
+                result(NO,@"-1",nil);
+            }else{
             result(NO,info,nil);
+            }
         }
         
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
@@ -355,7 +359,11 @@
                 
             }
         }else{
+            if([status isEqualToString:@"-1"]){
+                result(NO,@"-1",nil);
+            }else{
             result(NO,info,nil);
+            }
         }
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         errorResult(error);
@@ -371,7 +379,7 @@
         NSString * info = responseObject[@"info"];
         NSArray * data = responseObject[@"data"];
         if([status isEqualToString:@"-1"]){
-            [[Config Instance] logout];
+            result(NO,@"-1",nil);
         }
         if ([status isEqualToString:@"1"]) {
             if ([data isEqual:[NSNull null]]) {
@@ -381,7 +389,11 @@
                 result(YES,info,MyJudgeModelArray);
             }
         }else{
+            if([status isEqualToString:@"-1"]){
+                result(NO,@"-1",nil);
+            }else{
             result(NO,info,nil);
+            }
         }
         
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
