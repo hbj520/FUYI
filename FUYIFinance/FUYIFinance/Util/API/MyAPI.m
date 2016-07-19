@@ -18,7 +18,7 @@
 #import "SelectModel.h"
 #import "StoreDataModel.h"
 #import "TeacherTeamModel.h"
-
+#import "TeacherModel.h"
 //mine models
 #import "MineCollectionTreasureModel.h"
 #import "MineCollectionShopModel.h"
@@ -220,6 +220,8 @@
                 NSArray *storeArray = [model buildWithData:newArray];
                 return result(YES,info,storeArray);
             }
+        }else{
+            return result(NO,info,nil);
         }
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         errorResult(error);
@@ -319,6 +321,55 @@
     
 }
 
+#pragma mark -关注讲师
+- (void)focusTeacherWithToken:(NSString*)token
+                    teacherId:(NSString*)teacherId
+                       result:(StateBlock)result
+                  errorResult:(ErrorBlock)errorResult{
+    NSDictionary *parameters = @{
+                                 @"token":KToken,
+                                 @"tid":teacherId
+                                 };
+    [self.manager POST:@"addAttention" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString *status = responseObject[@"status"];
+        NSString *info = responseObject[@"info"];
+        if ([status isEqualToString:@"1"]) {
+            result(YES,info);
+        }else{
+            result(NO,info);
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+         errorResult(error);
+    }];
+    
+    
+}
+
+#pragma mark -讲师详情
+- (void)getTeacherDetailDataWithToken:(NSString*)token
+                            teacherId:(NSString*)teacherId
+                               result:(ModelBlock)result
+                          errorResult:(ErrorBlock)errorResult{
+    NSDictionary *parameters = @{
+                                 @"token":KToken,
+                                 @"tid":teacherId
+                                 };
+    [self.manager POST:@"teacherinfo" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString *state = responseObject[@"status"];
+        NSString *info = responseObject[@"info"];
+        if ([state isEqualToString:@"1"]) {
+            NSDictionary *newDic = responseObject[@"data"];
+            TeacherModel *model = [TeacherModel buildWithData:newDic];
+          //  TeacherModel *newModel = [model buildWithData:newDic];
+            return result(YES,info,model);
+        }
+
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+    }];
+    
+}
+
 #pragma mark -讲师团队
 - (void)getTeacherTeamDataWithToken:(NSString*)token
                                page:(NSString*)page
@@ -328,19 +379,27 @@
                                  @"token":KToken,
                                  @"page":page
                                  };
-    [self.manager POST:@"" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+    [self.manager POST:@"teacherlist" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         NSString *status = responseObject[@"status"];
         NSString *info = responseObject[@"info"];
+        
+        if ([status isEqualToString:@"-1"]) {
+          return result(NO,info,nil);
+        }
+        
         if ([status isEqualToString:@"1"]) {
             if ([responseObject[@"data"]isEqual:[NSNull null]]) {
                 return result(YES,info,nil);
             }else{
-                NSArray *newArray = responseObject[@"data"];
+                NSArray *newArray = responseObject[@"data"][@"teacherlist"];
+                
                 TeacherTeamModel *model = [[TeacherTeamModel alloc]init];
                 NSArray *techerTeamArray = [model buildWithData:newArray];
                 return result(YES,info,techerTeamArray);
-                
+              //  NSLog(@"+++++++++%lu",(unsigned long)techerTeamArray.count);
             }
+        }else{
+            return result(NO,info,nil);
         }
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
          errorResult(error);
