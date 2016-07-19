@@ -12,11 +12,11 @@
 
 
 - (id)initWithParameters:(NSString*)teacherName
-              teacherImage:(NSString*)teacherImage
-            teacherFansNum:(NSString*)teacherFansNum
-        teacherDescription:(NSString*)teacherDescription
-                 teacherId:(NSString*)teacherId
-               teacherType:(NSString*)teacherType{
+            teacherImage:(NSString*)teacherImage
+          teacherFansNum:(NSString*)teacherFansNum
+      teacherDescription:(NSString*)teacherDescription
+               teacherId:(NSString*)teacherId
+             teacherType:(NSString*)teacherType{
     TeacherTeamModel *model = [[TeacherTeamModel alloc]init];
     model.teacherName = teacherName;
     model.teacherImage = teacherImage;
@@ -31,17 +31,18 @@
 
 - (NSArray *)buildWithData:(NSArray *)data{
     NSMutableArray *modelArr = [NSMutableArray array];
+
     for (NSDictionary *dic in data) {
         NSString *teacherName = dic[@"turename"];
         NSString *teacherImage = dic[@"imgthumb"];
-        NSNumber *teacherFans = dic[@"imgthumb"];
-        NSString *teacherFansNum = [NSString stringWithFormat:@"%ld",(long)[teacherFans integerValue]];
+        NSNumber *teacherFans = dic[@"concern"];
+        NSString *teacherFansNum = [NSString stringWithFormat:@"%ld",teacherFans.integerValue];
         NSString *teacherDescription = dic[@"description"];
         NSString *teacherId = dic[@"userid"];
         NSNumber *type = dic[@"type"];
-        NSString *teacherType = [NSString stringWithFormat:@"%ld",(long)[type integerValue]];
+        NSString *teacherType = [NSString stringWithFormat:@"%ld",type.integerValue];
         
-        TeacherTeamModel *model = [[TeacherTeamModel alloc]initWithParameters:teacherName
+        TeacherTeamModel *model = [[TeacherTeamModel alloc]initWithParameters:   teacherName
                                                                  teacherImage:teacherImage
                                                                teacherFansNum:teacherFansNum
                                                            teacherDescription:teacherDescription
