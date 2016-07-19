@@ -17,6 +17,8 @@
 
 #import "SelectModel.h"
 #import "StoreDataModel.h"
+#import "TeacherTeamModel.h"
+
 //mine models
 #import "MineCollectionTreasureModel.h"
 #import "MineCollectionShopModel.h"
@@ -317,6 +319,38 @@
     
 }
 
+#pragma mark -讲师团队
+- (void)getTeacherTeamDataWithToken:(NSString*)token
+                               page:(NSString*)page
+                             result:(ArrayBlock)result
+                        errorResult:(ErrorBlock)errorResult{
+    NSDictionary *parameters = @{
+                                 @"token":KToken,
+                                 @"page":page
+                                 };
+    [self.manager POST:@"" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString *status = responseObject[@"status"];
+        NSString *info = responseObject[@"info"];
+        if ([status isEqualToString:@"1"]) {
+            if ([responseObject[@"data"]isEqual:[NSNull null]]) {
+                return result(YES,info,nil);
+            }else{
+                NSArray *newArray = responseObject[@"data"];
+                TeacherTeamModel *model = [[TeacherTeamModel alloc]init];
+                NSArray *techerTeamArray = [model buildWithData:newArray];
+                return result(YES,info,techerTeamArray);
+                
+            }
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+         errorResult(error);
+    }];
+    
+    
+}
+
+
+
 #pragma mark -博客
 #pragma mark -个人中心
 - (void)requestCollectionTreasureDataWithParameters:(NSString*)page result:(ArrayBlock)result errorResult:(ErrorBlock)errorResult
@@ -439,5 +473,11 @@
     }];
 }
 
-#pragma mark -讲师团队
+
+
+
+
+
+
+
 @end

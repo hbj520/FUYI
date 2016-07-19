@@ -23,17 +23,17 @@
                     </state>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="李笑笑视频课堂" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="usZ-x8-4UL">
-                    <rect key="frame" x="48" y="12" width="145" height="28"/>
+                    <rect key="frame" x="48" y="12" width="120" height="28"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="28" id="1X9-rR-PKn"/>
-                        <constraint firstAttribute="width" constant="145" id="6Fc-Us-vUK"/>
+                        <constraint firstAttribute="width" constant="120" id="6Fc-Us-vUK"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shopCar1" translatesAutoresizingMaskIntoConstraints="NO" id="5Qi-dR-2Ok">
-                    <rect key="frame" x="201" y="18" width="11" height="16"/>
+                    <rect key="frame" x="176" y="18" width="11" height="16"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="16" id="HmO-LJ-Y2J"/>
                         <constraint firstAttribute="width" constant="11" id="gYI-h7-Pfc"/>
@@ -47,7 +47,7 @@
                     </constraints>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="6Pz-WZ-yDl" firstAttribute="centerY" secondItem="2CO-4Z-uKH" secondAttribute="centerY" id="8AY-bf-Us0"/>
                 <constraint firstItem="usZ-x8-4UL" firstAttribute="leading" secondItem="6Pz-WZ-yDl" secondAttribute="trailing" constant="13" id="B0q-gb-4hn"/>

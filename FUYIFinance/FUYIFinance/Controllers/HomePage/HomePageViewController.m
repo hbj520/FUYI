@@ -166,8 +166,11 @@ static NSString *investReuseId = @"investReuseId";
                 headerCell = [[[NSBundle mainBundle] loadNibNamed:@"HomepageHeaderTableViewCell" owner:self options:nil] lastObject];
             }
             headerCell.teachTeamBlock = ^{//讲师团队
-                
-                [self performSegueWithIdentifier:@"TeacherTeamSegue" sender:nil];
+                if (KToken) {
+                    [self performSegueWithIdentifier:@"TeacherTeamSegue" sender:nil];
+                }else{
+                    [self logOut];
+                }
             };
             headerCell.videoShopBolck = ^{//视频商城
                 
@@ -179,7 +182,7 @@ static NSString *investReuseId = @"investReuseId";
             headerCell.financeBlock = ^{//金融学院
                 
             };
-           // headerCell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
+            // headerCell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
             return headerCell;
 
         }else{
