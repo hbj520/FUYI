@@ -60,9 +60,11 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
     typeId = @"";
     labelId = @"";
     key = @"";
-    
     [self loadMenuData];//下拉菜单数据
-    [self loadDataWithTypeSelectId:typeId labelSelectId:labelId pageNum:_page keyWord:key];
+    [self loadDataWithTypeSelectId:typeId
+                     labelSelectId:labelId
+                           pageNum:_page
+                           keyWord:key];
     [self addRefresh];//刷新
     [self keyBoardChange];//键盘
 }
@@ -86,6 +88,9 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
     __weak VideoShopViewController *weakself = self;
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         _page = 1;
+        if (storeArray.count > 0) {
+            [storeArray removeAllObjects];
+        }
         [weakself loadDataWithTypeSelectId:typeId labelSelectId:labelId pageNum:_page keyWord:key];
     }];
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
@@ -169,9 +174,18 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
                         pageNum:(NSInteger)pageNum
                         keyWord:(NSString*)keyWord{
     NSString *nowPage = [NSString stringWithFormat:@"%ld",_page];
-    [[MyAPI sharedAPI] videoStoreWithToken:KToken typeSelectId:typeSelectId labelSelectId:labelSelectId page:nowPage keyWord:keyWord result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
+    NSString *token = KToken;
+    if (!token) {
+        token = @"";
+    }
+    [[MyAPI sharedAPI] videoStoreWithToken:token
+                              typeSelectId:typeSelectId
+                             labelSelectId:labelSelectId
+                                      page:nowPage
+                                   keyWord:keyWord
+                                    result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
         if (success) {
-            storeArray = arrays;
+            [storeArray addObjectsFromArray:arrays];
             [self.tableView.mj_header endRefreshing];
             [self.tableView.mj_footer endRefreshing];
             [self.tableView reloadData];
@@ -235,17 +249,25 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
         if (indexPath.row == 0) {
             return;
         }else{
+            if (storeArray.count > 0) {
+                [storeArray removeAllObjects];
+            }
             SelectModel *model = financeSelectData[indexPath.row-1];
             typeId = model.selectId;
             _page = 1;
-            [self loadDataWithTypeSelectId:typeId labelSelectId:labelId pageNum:_page keyWord:key];
+            [self loadDataWithTypeSelectId:typeId
+                             labelSelectId:labelId
+                                   pageNum:_page
+                                   keyWord:key];
         }
-        
     }else{
         NSLog(@"点击了 %ld - %ld 项目",indexPath.column,indexPath.row);
         if (indexPath.row == 0) {
             return;
         }else{
+            if (storeArray.count > 0) {
+                [storeArray removeAllObjects];
+            }
             SelectModel *model = classSelectData[indexPath.row-1];
             labelId = model.selectId;
             _page = 1;

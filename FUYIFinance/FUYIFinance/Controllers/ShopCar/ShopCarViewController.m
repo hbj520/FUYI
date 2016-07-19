@@ -53,16 +53,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    if (!KToken) {
-        [self logOut];
-    }else{
+    if (KToken) {
         [self creatUI];
         self.isAllSelected = YES;
         //加载数据源
         [self loadData];
     }
-
-    
 }
 
 -(void)loadData
@@ -84,7 +80,7 @@
 {
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.backgroundColor = [UIColor whiteColor];
+    self.tableView.backgroundColor = RGBACOLOR(235, 235, 235, 1);
     [self.tableView registerNib:[UINib nibWithNibName:@"ShopCarTableViewCell" bundle:nil] forCellReuseIdentifier:@"shopCarCellReuseID"];
     self.tableView.rowHeight = 127;
     
@@ -126,7 +122,7 @@
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     HeaderView* headerView = [[[NSBundle mainBundle]loadNibNamed:@"HeaderView" owner:self options:nil]lastObject];
- 
+    
     [headerView.selectBtn setBackgroundImage:[UIImage imageNamed:@"shopCar2.jpg"] forState:UIControlStateNormal];
     [headerView.selectBtn setBackgroundImage:[UIImage imageNamed:@"shopCar21.jpg"] forState:UIControlStateSelected];
     
@@ -137,9 +133,19 @@
     
     headerView.deleteBtn.tag = section;
     [headerView.deleteBtn addTarget:self action:@selector(deleteButton:) forControlEvents:UIControlEventTouchUpInside];
-   
+    
+    //设置header颜色
+    headerView.backgroundView = [[UIImageView alloc]init];
+    headerView.backgroundView.backgroundColor = [UIColor whiteColor];
+    
     return headerView;
 }
+
+//- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section{
+//    view.contentView.backgroundColor = [UIColor blackColor];
+//}
+
+
 
 #pragma mark --privateMethod
 //cell单选按钮

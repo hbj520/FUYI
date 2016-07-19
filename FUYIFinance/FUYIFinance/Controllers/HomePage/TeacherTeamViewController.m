@@ -12,6 +12,12 @@
 #import "TeacherTeamTableViewCell.h"
 
 @interface TeacherTeamViewController ()<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate>
+{
+    NSInteger _page;
+    NSMutableArray *TeacherTeamArr;
+    
+    
+}
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
@@ -23,6 +29,11 @@
     // Do any additional setup after loading the view.
     [self creatUI];
     
+    [self addRefresh];
+    
+}
+
+- (void)addRefresh{
     
 }
 
@@ -35,17 +46,7 @@
     searchField.borderStyle = UITextBorderStyleNone;
     searchField.backgroundColor = RGBACOLOR(235, 235, 235, 1);
     searchField.layer.cornerRadius = 10;
-    //去掉上线边界黑线代码
-//    for (UIView *obj in [_searchBar subviews]) {
-//        for (UIView *objs in [obj subviews]) {
-//            if ([objs isKindOfClass:NSClassFromString(@"UISearchBarBackground")]){
-//                [objs removeFromSuperview];
-//            }
-//        }
-//        if ([obj isKindOfClass:NSClassFromString(@"UISearchBarBackground")]){
-//            [obj removeFromSuperview];
-//        }
-//    }
+
 }
 
 - (void)addCustomerNavgationItem{

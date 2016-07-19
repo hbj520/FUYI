@@ -79,15 +79,20 @@
 #pragma mark - TabbarDelegate
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
     
-//    if ([item.title isEqualToString:@"个人中心"]) {
-//        if (!KToken) {
-//            [self LoginAct];
-//        }
-//    }
+    if ([item.title isEqualToString:@"购物车"]) {
+        if (!KToken) {
+            [self LoginAct];
+        }
+    }
 }
 
 #pragma mark - PrivateMethod
-
+- (void)LoginAct{
+    UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
+    UINavigationController *loginVC = [storybord instantiateViewControllerWithIdentifier:@"LoginStorybordId"];
+    loginVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self.viewControllers[0] presentModalViewController:loginVC animated:YES];
+}
 /*
 #pragma mark - Navigation
 
