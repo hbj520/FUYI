@@ -30,6 +30,19 @@
 - (void)saveImgthumb:(NSString *)imgthumb
                token:(NSString *)token
             username:(NSString *)username;
+
+/**
+ *  保存待评价的索引
+ *
+ *  @param index 索引
+ */
+- (void)saveIndex:(NSString *)index;
+
+/**
+ *  获取索引
+ */
+- (void)getIndex;
+
 /**
  *  保存用户密码
  *

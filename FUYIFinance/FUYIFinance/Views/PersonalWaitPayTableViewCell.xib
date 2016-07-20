@@ -216,8 +216,11 @@
                 <outlet property="cancelBtn" destination="ScO-Zh-UnO" id="9yr-iN-a39"/>
                 <outlet property="countlabel" destination="HUB-9R-eOG" id="a5N-JT-mL4"/>
                 <outlet property="price" destination="onb-hw-LbY" id="lie-f3-Rge"/>
+                <outlet property="shopname" destination="NHG-2N-0eC" id="FTc-dz-Ick"/>
                 <outlet property="sureBtn" destination="LuL-P4-xX8" id="n6d-b1-DoJ"/>
+                <outlet property="teachername" destination="dbC-XE-7pb" id="HBc-8i-KfV"/>
                 <outlet property="thumbImage" destination="TJ4-rW-exj" id="min-j0-bzt"/>
+                <outlet property="titlename" destination="SJu-BE-Nn4" id="x6E-yy-mJq"/>
                 <outlet property="totalPrice" destination="cka-Wq-QFL" id="zYZ-Mu-byl"/>
                 <outlet property="treasureCount" destination="U7k-Rr-Kpl" id="Uom-w6-tdM"/>
             </connections>

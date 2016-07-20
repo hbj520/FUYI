@@ -8,6 +8,7 @@
 
 #import "MyOrderWaitPayViewController.h"
 #import "PersonalWaitPayTableViewCell.h"
+#import <MJRefresh/MJRefresh.h>
 #import "PayView.h"
 #import "MineWaitPayModel.h"
 #import "MyAPI.h"
@@ -17,6 +18,8 @@
     NSMutableArray * _dataSource; //待付款的数据
     PayView* _payView;
     UIButton* _shadowBtn;
+    NSInteger  index;
+    NSInteger page;
 }
 @end
 
@@ -30,30 +33,67 @@
     _tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     _tableView.delegate = self;
     _tableView.dataSource = self;
-    
+    _dataSource = [NSMutableArray array];
+    page = 1;
     [_tableView registerNib:[UINib
                             nibWithNibName:@"PersonalWaitPayTableViewCell" bundle:nil] forCellReuseIdentifier:@"MyOrderId"];
     
 
     [self.view addSubview:_tableView];
 
+    [self addRefresh];
+    
     [self loadData];
     
     [self creatHidePayView];
 }
 
+
+- (void)addRefresh
+{
+    __weak MyOrderWaitPayViewController * weakself = self;
+    _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        
+        page = 1;
+        if(_dataSource.count>0){
+            [_dataSource removeAllObjects];
+        }
+        [weakself loadData];
+        
+    }];
+    MJRefreshAutoNormalFooter * footerRefresh = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        page++;
+        [weakself loadData];
+    }];
+    footerRefresh.automaticallyRefresh = NO;
+    _tableView.mj_footer = footerRefresh;
+}
+
 //加载数据
 - (void)loadData
 {
-    [[MyAPI sharedAPI] requestWaitpayDataWithParameters:@"" result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
+    NSString * pagestr = [NSString stringWithFormat:@"%ld",page];
+    [[MyAPI sharedAPI] requestWaitpayDataWithParameters:pagestr
+                                                 result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
         if(success){
             [_dataSource addObjectsFromArray:arrays];
+            [_tableView reloadData];
+            [_tableView.mj_header endRefreshing];
+            [_tableView.mj_footer endRefreshing];
         }
         else{
+            if([msg isEqualToString:@"-1"]){
             [self logOut];
+            }else{
+                [_tableView.mj_header endRefreshing];
+                [_tableView.mj_footer endRefreshing];
+            }
+            
+            
         }
     } errorResult:^(NSError *enginerError) {
-        
+        [_tableView.mj_header endRefreshing];
+        [_tableView.mj_footer endRefreshing];
     }];
     
 }
@@ -69,7 +109,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return _dataSource.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -98,7 +138,9 @@
     //确定按钮
     cell.sureBtn.tag = indexPath.section;
     [cell.sureBtn addTarget:self action:@selector(clickSureBtn:) forControlEvents:UIControlEventTouchUpInside];
-   
+    MineWaitPayModel * model = [[MineWaitPayModel alloc] init];
+    model = _dataSource[indexPath.section];
+    cell.model = model;
     return cell;
 }
 
@@ -107,6 +149,7 @@
 {
     UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"确认删除订单？" message:@"删除之后可以从电脑端订单回收站恢复" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认", nil];
     [alertView show];
+    index = sender.tag;
     NSLog(@"%ld",(long)sender.tag);
 }
 
@@ -131,7 +174,8 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if(buttonIndex == 1){
-        
+        [_dataSource removeObjectAtIndex:index - 10];
+        [_tableView reloadData];
     }
 }
 
@@ -145,7 +189,7 @@
     [UIView commitAnimations];
 }
 
-
+#pragma mark- privatemethod
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];

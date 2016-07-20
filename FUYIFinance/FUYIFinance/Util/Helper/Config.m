@@ -79,6 +79,15 @@ static Config * instance = nil;
 
 }
 
+- (void)saveIndex:(NSString *)index
+{
+    NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
+    [settings removeObjectForKey:@"index"];
+    [settings setObject:index forKey:@"index"];
+    
+    [settings synchronize];
+}
+
 
 /**
  *  保存密码
