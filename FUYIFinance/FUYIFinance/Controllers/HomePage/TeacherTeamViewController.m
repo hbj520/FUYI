@@ -42,9 +42,23 @@
     _page = 1;
     [self loadDataWithToken:KToken page:_page];
     [self addRefresh];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(selector:)
+                                                 name:@"refresh"
+                                               object:nil];
+}
+
+#pragma mark - privateMethod
+- (void)selector:(id)sender{
+    
+    [self loadDataWithToken:KToken page:_page];
     
 }
 
+- (void)dealloc{
+     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"refresh" object:nil];
+  
+}
 
 
 - (void)addRefresh{
@@ -96,7 +110,7 @@
     searchField.borderStyle = UITextBorderStyleNone;
     searchField.backgroundColor = RGBACOLOR(235, 235, 235, 1);
     searchField.layer.cornerRadius = 10;
-    
+
     
 }
 
@@ -136,16 +150,6 @@
     [cell.focusAndCancelBtn setImage:[UIImage imageNamed:@"TeacherTeam_cancel"] forState:UIControlStateSelected];
     cell.focusAndCancelBtn.index = indexPath;
     
-    TeacherPersonalViewController *pVC = [[TeacherPersonalViewController alloc]init];
-    pVC.passTypeBlock = ^(NSString *type){
-        
-        if ([type isEqualToString:@"1"]) {
-            cell.focusAndCancelBtn.selected = YES;
-        }else{
-            cell.focusAndCancelBtn.selected = NO;
-        }
-    };
-
     //刚进来判断按钮状态
     if ([_saveModel.teacherType isEqualToString:@"1"]) {
          cell.focusAndCancelBtn.selected = YES;
@@ -233,7 +237,6 @@
     TeacherPersonalViewController *personVC = segue.destinationViewController;
     personVC.model = sender;
 }
-
 
 /*
 #pragma mark - Navigation
