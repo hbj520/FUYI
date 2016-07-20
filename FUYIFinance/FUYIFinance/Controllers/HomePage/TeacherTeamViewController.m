@@ -42,10 +42,17 @@
     _page = 1;
     [self loadDataWithToken:KToken page:_page];
     [self addRefresh];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(selector)
+                                                 name:@"refresh"
+                                               object:nil];
 }
 
-
+- (void)selector{
+    
+    [self loadDataWithToken:KToken page:_page];
+    
+}
 
 - (void)addRefresh{
     //添加刷新

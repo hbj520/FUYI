@@ -166,6 +166,9 @@
 }
 
 - (void)FocusOrNotClick:(UIButton*)button{
+    
+       [[NSNotificationCenter defaultCenter]postNotificationName:@"refresh" object:self userInfo:nil];
+    
     if (button.selected == NO) {
         button.selected = !button.selected;
          [self FocusTeacherWithId:_model.teacherId];
