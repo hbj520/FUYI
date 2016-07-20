@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MineCollectionTreasureModel.h"
 
 @interface MyCollectionTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *thumbimage;
 @property (weak, nonatomic) IBOutlet UILabel *titlename;
 @property (weak, nonatomic) IBOutlet UILabel *teachername;
 @property (weak, nonatomic) IBOutlet UILabel *pricelabel;
-
+@property (nonatomic,strong) MineCollectionTreasureModel * model;
 @end

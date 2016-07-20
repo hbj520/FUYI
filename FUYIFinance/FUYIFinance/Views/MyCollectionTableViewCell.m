@@ -7,12 +7,22 @@
 //
 
 #import "MyCollectionTableViewCell.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation MyCollectionTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+      
+}
+
+- (void)setModel:(MineCollectionTreasureModel *)model
+{
+    //[self.thumbimage sd_setImageWithURL:[NSURL URLWithString:self.model.image] placeholderImage:[UIImage imageNamed:@""]];
+    //self.titlename.text = self.model.name;
+    //self.teachername.text = self.model.teacher;
+   // self.pricelabel.text = self.model.price;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

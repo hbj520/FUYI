@@ -151,6 +151,10 @@ typedef void (^ErrorBlock) (NSError *enginerError);
 - (void)requestWaitpayDataWithParameters:(NSString*)page
                                   result:(ArrayBlock)result
                              errorResult:(ErrorBlock)errorResult;
+
+- (void)requestWaitjudgeDataWithParameters:(NSString*)page
+                                    result:(ArrayBlock)result
+                               errorResult:(ErrorBlock)errorResult;
 /**
  *  用户评价商品
  *

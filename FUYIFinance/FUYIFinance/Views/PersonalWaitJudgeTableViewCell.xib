@@ -210,6 +210,7 @@
             <connections>
                 <outlet property="judgeBtn" destination="hBy-EM-Yk0" id="oUg-NV-AMA"/>
                 <outlet property="price" destination="8Fi-Js-YJb" id="u9y-wz-UT0"/>
+                <outlet property="shopname" destination="oYr-s9-eEY" id="IQZ-mD-zVm"/>
                 <outlet property="teacherName" destination="QX2-Xe-0Hh" id="ktU-M3-qx3"/>
                 <outlet property="thumbImage" destination="PGb-hT-PCL" id="58B-i7-oUB"/>
                 <outlet property="title" destination="M1E-gh-O1Z" id="Zn1-L7-uk5"/>

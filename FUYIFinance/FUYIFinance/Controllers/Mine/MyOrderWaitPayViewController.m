@@ -27,6 +27,7 @@
     // Do any additional setup after loading the view.
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     
@@ -46,7 +47,10 @@
 {
     [[MyAPI sharedAPI] requestWaitpayDataWithParameters:@"" result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
         if(success){
-            _dataSource = arrays;
+            [_dataSource addObjectsFromArray:arrays];
+        }
+        else{
+            [self logOut];
         }
     } errorResult:^(NSError *enginerError) {
         
@@ -80,7 +84,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 10;
+    return 8;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

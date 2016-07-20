@@ -24,6 +24,7 @@
     // Do any additional setup after loading the view.
     self.automaticallyAdjustsScrollViewInsets = NO;
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 64 - 45) style:UITableViewStylePlain];
+    _tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     _tableView.dataSource = self;
     _tableView.delegate = self;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
@@ -38,7 +39,12 @@
 {
     [[MyAPI sharedAPI] requestCollectionShopDataWithParameters:@"" result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
         if(success){
+            dataSource = [NSMutableArray array];
             dataSource  = arrays;
+        }else{
+            if([msg isEqualToString:@"-1"]){
+                [self logOut];
+            }
         }
     } errorResult:^(NSError *enginerError) {
         

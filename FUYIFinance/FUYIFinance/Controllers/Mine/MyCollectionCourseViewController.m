@@ -9,12 +9,16 @@
 #import "MyCollectionCourseViewController.h"
 #import "MyCollectionTableViewCell.h"
 #import "MineCollectionTreasureModel.h"
+#import "UIViewController+HUD.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import <MJRefresh/MJRefresh.h>
 #import "MyAPI.h"
 
 @interface MyCollectionCourseViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     UITableView * _tableView;
     NSMutableArray * dataSource;
+    NSInteger page;
 }
 @end
 
@@ -23,30 +27,71 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
+    page = 1;
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 100) style:UITableViewStylePlain];
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [_tableView registerNib:[UINib nibWithNibName:@"MyCollectionTableViewCell" bundle:nil] forCellReuseIdentifier:@"MyCollectionId"];
     [self.view addSubview:_tableView];
+    [self addRefresh];
     [self loadData];
 }
+
+- (void)addRefresh
+{
+    __weak MyCollectionCourseViewController* weakself = self;
+    _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        
+        page = 1;
+        if(dataSource.count>0){
+            [dataSource removeAllObjects];
+        }
+        [weakself loadData];
+        
+    }];
+    MJRefreshAutoNormalFooter * footerRefresh = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        page++;
+        [weakself loadData];
+    }];
+    footerRefresh.automaticallyRefresh = NO;
+    _tableView.mj_footer = footerRefresh;
+}
+
 
 //加载数据
 - (void)loadData
 {
-    [[MyAPI sharedAPI] requestCollectionTreasureDataWithParameters:@"" result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
+    [self showHudInView:self.view hint:@"正在加载中"];
+    NSString * pagestr = [NSString stringWithFormat:@"%ld",page];
+    [[MyAPI sharedAPI] requestCollectionTreasureDataWithParameters:pagestr result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
+        dataSource = [NSMutableArray array];
         if(success){
             dataSource = arrays;
+            [self hideHud];
+            [_tableView reloadData];
+            [_tableView.mj_header endRefreshing];
+            [_tableView.mj_footer endRefreshing];
+
+        }else{
+            [_tableView.mj_header endRefreshing];
+            [_tableView.mj_footer endRefreshing];
+
+            [self logOut];
         }
     } errorResult:^(NSError *enginerError) {
+        [self hideHud];
+        [_tableView.mj_header endRefreshing];
+        [_tableView.mj_footer endRefreshing];
+
         
     }];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return dataSource.count;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -67,6 +112,15 @@
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MyCollectionTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MyCollectionId" forIndexPath:indexPath];
+    MineCollectionTreasureModel * model = [[MineCollectionTreasureModel alloc] init];
+    model = dataSource[indexPath.section];
+    [cell.thumbimage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"placeimage"]];
+    cell.titlename.text = model.name;
+    NSString * teachername = [NSString stringWithFormat:@"讲师:%@",model.teacher];
+    cell.teachername.text = teachername;
+    NSString * pricelabel = [NSString stringWithFormat:@"¥ %@",model.price];
+    NSString * price = [NSString stringWithFormat:@"%@",pricelabel];
+    cell.pricelabel.text = price;
     return cell;
 }
 

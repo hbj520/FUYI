@@ -9,5 +9,7 @@
 #import "BaseViewController.h"
 
 @interface ProductJudgeViewController : BaseViewController
+@property (nonatomic,copy) NSString * uid;
+@property (nonatomic,copy) NSString * ustyle;
 @property (nonatomic,assign) NSInteger indx;
 @end
