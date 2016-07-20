@@ -71,10 +71,10 @@
     navItem.backBlock = ^(){
         [self.navigationController popViewControllerAnimated:YES];
         
-        if (self.passTypeBlock) {
-            self.passTypeBlock(_model.teacherType);
-            NSLog(@"哈哈哈%@",_model.teacherType);
-        }
+//        if (self.passTypeBlock) {
+//            self.passTypeBlock(_model.teacherType);
+//            NSLog(@"哈哈哈%@",_model.teacherType);
+//        }
     };
     [self.view addSubview:navItem];
 }
@@ -167,12 +167,14 @@
 
 - (void)FocusOrNotClick:(UIButton*)button{
     
-       [[NSNotificationCenter defaultCenter]postNotificationName:@"refresh" object:self userInfo:nil];
+    
     
     if (button.selected == NO) {
+         [[NSNotificationCenter defaultCenter]postNotificationName:@"refresh" object:self userInfo:nil];
         button.selected = !button.selected;
          [self FocusTeacherWithId:_model.teacherId];
     }else{
+         [[NSNotificationCenter defaultCenter]postNotificationName:@"refresh" object:self userInfo:nil];
         button.selected = !button.selected;
         [self CancelFocusTeacherWithId:_model.teacherId];
     }
