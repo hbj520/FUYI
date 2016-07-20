@@ -24,7 +24,7 @@
 {
     NSInteger _page;
     NSMutableArray *TeacherTeamArr;
-    
+    TeacherTeamModel *_saveModel;
     
 }
 
@@ -37,6 +37,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self creatUI];
+    _saveModel = [[TeacherTeamModel alloc]init];
     TeacherTeamArr = [NSMutableArray array];
     _page = 1;
     [self loadDataWithToken:KToken page:_page];
@@ -95,12 +96,13 @@
     searchField.borderStyle = UITextBorderStyleNone;
     searchField.backgroundColor = RGBACOLOR(235, 235, 235, 1);
     searchField.layer.cornerRadius = 10;
+    
+    
 }
 
 - (void)addCustomerNavgationItem{
     TeacherTeamNavigationItem *navItem = [[[NSBundle mainBundle]loadNibNamed:@"TeacherTeamNavigationItem" owner:self options:nil]lastObject];
     navItem.frame = CGRectMake(0, 0, ScreenWidth, 64);
-    
     
     navItem.backBlock = ^(){
         [self.navigationController popViewControllerAnimated:YES];
@@ -108,7 +110,6 @@
     navItem.newsBlock = ^(){
         
     };
-    
     [self.view addSubview:navItem];
 }
 
@@ -122,35 +123,56 @@
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     TeacherTeamTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"TeacherTeamTableViewCell" owner:self options:nil] lastObject];
-  
-    
     TeacherTeamModel *model = [TeacherTeamArr objectAtIndex:indexPath.row];
+    _saveModel = model;
     [cell.headImage sd_setImageWithURL:[NSURL URLWithString:model.teacherImage] placeholderImage:[UIImage imageNamed:@"TeacherTeam_headImage"]];
     cell.teacherNameLab.text = model.teacherName;
     cell.teacherSaying.text = model.teacherDescription;
     cell.focusNum.text = model.teacherFansNum;
+    cell.focusAndCancelBtn.str = model.teacherId;
     
-    //关注&取消关注
-    cell.focusBtnBlock = ^(UIButton *button){
+    [cell.focusAndCancelBtn addTarget:self action:@selector(focusClick:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.focusAndCancelBtn setImage:[UIImage imageNamed:@"TeacherTeam_focus"] forState:UIControlStateNormal];
+    [cell.focusAndCancelBtn setImage:[UIImage imageNamed:@"TeacherTeam_cancel"] forState:UIControlStateSelected];
+    cell.focusAndCancelBtn.index = indexPath;
+    
+    TeacherPersonalViewController *pVC = [[TeacherPersonalViewController alloc]init];
+    pVC.passTypeBlock = ^(NSString *type){
         
-        if ([model.teacherType isEqualToString:@"0"]) {
-            button.selected = NO;
-            [self FocusTeacherWithId:model.teacherId];
-            model.teacherId = @"1";
+        if ([type isEqualToString:@"1"]) {
+            cell.focusAndCancelBtn.selected = YES;
         }else{
-            button.selected = YES;
-            [self CancelFocusTeacherWithId:model.teacherId];
-            model.teacherId = @"0";
+            cell.focusAndCancelBtn.selected = NO;
         }
     };
-    
+
+    //刚进来判断按钮状态
+    if ([_saveModel.teacherType isEqualToString:@"1"]) {
+         cell.focusAndCancelBtn.selected = YES;
+    }else{
+         cell.focusAndCancelBtn.selected = NO;
+    }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
--(void)FocusTeacherWithId:(NSString*)tId{
-    [[MyAPI sharedAPI] focusTeacherWithToken:KToken teacherId:tId result:^(BOOL sucess, NSString *msg) {
+- (void)focusClick:(CustomBtn*)button{
+    if (button.selected == NO) {
+        button.selected = !button.selected;
+       [self FocusTeacherWithId:button];
+    }else{
+        button.selected = !button.selected;
+        [self CancelFocusTeacherWithId:button];
+    }
+}
+//关注
+-(void)FocusTeacherWithId:(CustomBtn*)button{
+    [[MyAPI sharedAPI] focusTeacherWithToken:KToken teacherId:button.str result:^(BOOL sucess, NSString *msg) {
         if (sucess) {
+            TeacherTeamTableViewCell *cell = (TeacherTeamTableViewCell*)[self.tableView cellForRowAtIndexPath:button.index];
+            NSInteger x = [cell.focusNum.text integerValue];
+            x = x + 1;
+            cell.focusNum.text = [NSString stringWithFormat:@"%ld",(long)x];
              [self showPopup:msg];
         }else{
              [self showPopup:msg];
@@ -160,8 +182,22 @@
     }];
 }
 
--(void)CancelFocusTeacherWithId:(NSString*)tId{
-    
+//取消
+-(void)CancelFocusTeacherWithId:(CustomBtn*)button{
+    [[MyAPI sharedAPI] cancelFocusTeacherWithToken:KToken teacherId:button.str result:^(BOOL sucess, NSString *msg) {
+        if (sucess) {
+            TeacherTeamTableViewCell *cell = (TeacherTeamTableViewCell*)[self.tableView cellForRowAtIndexPath:button.index];
+            NSInteger x = [cell.focusNum.text integerValue];
+            x = x - 1;
+            cell.focusNum.text = [NSString stringWithFormat:@"%ld",(long)x];
+            
+            [self showPopup:msg];
+        }else{
+            [self showPopup:msg];
+        }
+    } errorResult:^(NSError *enginerError) {
+        
+    }];
 }
 
 #pragma mark - creatLPPopup

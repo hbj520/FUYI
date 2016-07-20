@@ -27,6 +27,9 @@
                 <constraint firstItem="2L9-qF-SRO" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.9" id="UZz-ru-Lj2"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="FocusOrNotBtn" destination="2L9-qF-SRO" id="hLz-bv-Ppy"/>
+            </connections>
             <point key="canvasLocation" x="339.5" y="174.5"/>
         </view>
     </objects>

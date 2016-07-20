@@ -66,7 +66,7 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LfR-or-Ucw">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LfR-or-Ucw" customClass="CustomBtn">
                         <rect key="frame" x="283" y="29" width="84" height="23"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="84" id="SPn-zR-gHe"/>

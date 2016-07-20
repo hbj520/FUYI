@@ -288,7 +288,6 @@
                                              
                                              [self logOut];
                                          }
-                                         
                                          if (sucess) {
                                              
                                              [self showPopup:msg];
@@ -298,7 +297,6 @@
                                              
                                          }
                                      } errorResult:^(NSError *enginerError) {
-                                         
                                      }];
 }
 //店铺

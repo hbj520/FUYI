@@ -11,4 +11,6 @@
 @interface CustomBtn : UIButton
 
 @property(nonatomic,retain)NSIndexPath * index;
+@property(nonatomic,copy)NSString * str;
+
 @end

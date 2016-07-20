@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface FooterView : UITableViewHeaderFooterView
+@property (weak, nonatomic) IBOutlet UIButton *FocusOrNotBtn;
 
 @end

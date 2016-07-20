@@ -99,7 +99,6 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
     }];
 }
 
-
 -(void)creatUI{
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
