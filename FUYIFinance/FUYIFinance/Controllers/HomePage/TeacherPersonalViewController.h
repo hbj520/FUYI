@@ -12,9 +12,9 @@
 #import "TeacherTeamModel.h"
 
 @interface TeacherPersonalViewController : BaseViewController
-typedef void (^passBlock) (NSString *);
+//typedef void (^passBlock) (NSString *);
 
-@property (nonatomic,copy) passBlock passTypeBlock;
+//@property (nonatomic,copy) passBlock passTypeBlock;
 
 @property (nonatomic,strong) TeacherTeamModel *model;
 
