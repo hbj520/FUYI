@@ -11,6 +11,7 @@
 @interface MineWaitJudgeModel : NSObject
 @property (nonatomic,copy)NSString * ctime;
 @property (nonatomic,copy)NSString * goodsid;
+@property (nonatomic,copy)NSString * goodstyle;
 @property (nonatomic,copy)NSString * price;
 @property (nonatomic,copy)NSString * image;
 @property (nonatomic,copy)NSString * name;
@@ -31,6 +32,7 @@
  */
 - (id)initWithCtime:(NSString *)ctime
             Goodsid:(NSString *)goodsid
+          Goodstyle:(NSString *)goodstyle
               Price:(NSString *)price
               Image:(NSString *)image
                Name:(NSString *)name

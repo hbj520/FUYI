@@ -12,6 +12,7 @@
 
 - (id)initWithCtime:(NSString *)ctime
             Goodsid:(NSString *)goodsid
+          Goodstyle:(NSString *)goodstyle
               Price:(NSString *)price
               Image:(NSString *)image
                Name:(NSString *)name
@@ -21,6 +22,7 @@
     MineWaitJudgeModel * model = [[MineWaitJudgeModel alloc] init];
     model.ctime = ctime;
     model.goodsid = goodsid;
+    model.goodstyle = goodstyle;
     model.price = price;
     model.image = image;
     model.name = name;
@@ -35,12 +37,13 @@
     for(NSDictionary * dict in data){
         NSString * ctime = dict[@"ctime"];
         NSString * goodsid = dict[@"goodsid"];
+        NSString * goodstyle = dict[@"goodstype"];
         NSString * price = dict[@"price"];
         NSString * image = dict[@"image"];
         NSString * name = dict[@"name"];
         NSString * teacher = dict[@"teacher"];
         NSString * shopname = dict[@"shopname"];
-        MineWaitJudgeModel * model = [[MineWaitJudgeModel alloc] initWithCtime:ctime Goodsid:goodsid Price:price Image:image Name:name Teacher:teacher Shopname:shopname];
+        MineWaitJudgeModel * model = [[MineWaitJudgeModel alloc] initWithCtime:ctime Goodsid:goodsid Goodstyle:goodstyle Price:price Image:image Name:name Teacher:teacher Shopname:shopname];
         [waitjudgeArray addObject:model];
     }
     return waitjudgeArray;

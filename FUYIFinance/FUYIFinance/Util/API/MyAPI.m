@@ -553,7 +553,8 @@
 
 - (void)uploadUserJudgeWithParameters:(NSString *)score Anonymous:(NSString *)anonymous Content:(NSString *)content Goodstyle:(NSString *)goodstyle Goodsid:(NSString *)goodsid result:(StateBlock)result errorResult:(ErrorBlock)errorResult
 {
-    NSDictionary * parameters = @{@"score":score,
+    NSDictionary * parameters = @{@"token":KToken,
+                                  @"score":score,
                                   @"anonymous":anonymous,
                                   @"content":content,
                                   @"goodstyle":goodstyle,

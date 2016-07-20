@@ -7,6 +7,7 @@
 //
 
 #import "ProductJudgeViewController.h"
+#import "UIViewController+HUD.h"
 #import "TreasureJudgeStarView.h"
 #import "MyAPI.h"
 
@@ -69,7 +70,7 @@
     starNum = [NSString stringWithFormat:@"%d",starnumber];
     UIImageView * imgStar = (UIImageView*)[self.starView viewWithTag:1];
     imgStar.clipsToBounds = YES;
-    imgStar.frame = CGRectMake(0, 0, 136 * scale, 18);
+    imgStar.frame = CGRectMake(0, 0, 136 * starnumber/5, 18);
     
 }
 
@@ -83,15 +84,26 @@
     IsCommit = !IsCommit;
     if(IsCommit){
        [sender setImage:[UIImage imageNamed:@"btnhighlighted"] forState:UIControlStateNormal];
-        //self.surebtn.enabled = YES;
+       
     }else{
         [sender setImage:[UIImage imageNamed:@"btndark"] forState:UIControlStateNormal];
-       // self.surebtn.enabled = NO;
+       
     }
 }
 
 - (IBAction)sureJudge:(id)sender {
-    [self logOut];
+    if(!KToken){
+        [self logOut];
+    }else{
+    NSString * anonymous = [NSString stringWithFormat:@"%d",IsCommit];
+    [[MyAPI sharedAPI] uploadUserJudgeWithParameters:starNum Anonymous:anonymous Content:self.textView.text Goodstyle:self.ustyle Goodsid:self.uid result:^(BOOL sucess, NSString *msg) {
+        if (sucess) {
+            [self showHint:@"评价成功"];
+        }
+    } errorResult:^(NSError *enginerError) {
+        
+    }];
+    }
 }
 
 

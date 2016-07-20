@@ -138,8 +138,12 @@
 - (void)clickjudgeBtnWithIndexpath:(NSIndexPath *)indexpath
 {
     //跳转到商品评价界面
+    MineWaitJudgeModel * model = dataSource[indexpath.section];
+    
     UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
     ProductJudgeViewController * VC = (ProductJudgeViewController*)[storyboard instantiateViewControllerWithIdentifier:@"productJudge"];
+    VC.uid = model.goodsid;
+    VC.ustyle = model.goodstyle;
     NSInteger indx = indexpath.section;
     VC.indx = indx;
     [self.navigationController pushViewController:VC animated:YES];
