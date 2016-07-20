@@ -8,18 +8,23 @@
 
 #import <UIKit/UIKit.h>
 #import "CustomBtn.h"
+#import "MineWaitJudgeModel.h"
 typedef void (^selectedBtnblock) (NSIndexPath * indexpath);
 @interface PersonalWaitJudgeTableViewCell : UITableViewCell
+
 
 @property (weak, nonatomic) IBOutlet UIImageView *thumbImage;
 @property (weak, nonatomic) IBOutlet UILabel *title;
 @property (weak, nonatomic) IBOutlet UILabel *teacherName;
 @property (weak, nonatomic) IBOutlet UILabel *price;
 @property (weak, nonatomic) IBOutlet UILabel *totalPrice;
+@property (weak, nonatomic) IBOutlet UILabel *shopname;
 
 @property (weak, nonatomic) IBOutlet CustomBtn *judgeBtn;
 @property (nonatomic,assign) NSIndexPath * indexpath;
 @property (nonatomic,copy) selectedBtnblock block;
 @property (weak, nonatomic) IBOutlet UIView *lineView;
+@property (nonatomic,strong) MineWaitJudgeModel * model;
+
 
 @end

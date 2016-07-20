@@ -47,7 +47,7 @@
 {
     [[MyAPI sharedAPI] requestWaitpayDataWithParameters:@"" result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
         if(success){
-            _dataSource = arrays;
+            [_dataSource addObjectsFromArray:arrays];
         }
         else{
             [self logOut];
@@ -84,7 +84,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 10;
+    return 8;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

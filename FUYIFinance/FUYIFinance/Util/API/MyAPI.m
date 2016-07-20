@@ -24,6 +24,7 @@
 #import "MineCollectionShopModel.h"
 #import "MineMyJudgeModel.h"
 #import "MineWaitPayModel.h"
+#import "MineWaitJudgeModel.h"
 #import "UserInfoModel.h"
 @interface MyAPI ()
 @property (nonatomic, strong) AFHTTPRequestOperationManager *manager;
@@ -360,7 +361,7 @@
         if ([state isEqualToString:@"1"]) {
             NSDictionary *newDic = responseObject[@"data"];
             TeacherModel *model = [TeacherModel buildWithData:newDic];
-          //  TeacherModel *newModel = [model buildWithData:newDic];
+         //   TeacherModel *newModel = [model buildWithData:newDic];
             return result(YES,info,model);
         }
 
@@ -522,6 +523,32 @@
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         errorResult(error);
     }];
+}
+
+- (void)requestWaitjudgeDataWithParameters:(NSString *)page
+                                    result:(ArrayBlock)result
+                               errorResult:(ErrorBlock)errorResult
+{
+    NSDictionary * parameters = @{@"page":page,@"token":KToken};
+    [self.manager POST:@"reva" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * status = responseObject[@"status"];
+        NSString * info = responseObject[@"info"];
+        NSArray * data = responseObject[@"data"];
+        if([status isEqualToString:@"-1"]){
+            result(NO,@"-1",nil);
+        }
+        if([status isEqualToString:@"1"]){
+            if([data isEqual:[NSNull null]]){
+                result(YES,info,nil);
+            }else{
+                NSMutableArray * waitJudgeModelArray = [[MineWaitJudgeModel alloc] buildWithData:data];
+                result(YES,info,waitJudgeModelArray);
+            }
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+    }];
+    
 }
 
 - (void)uploadUserJudgeWithParameters:(NSString *)score Anonymous:(NSString *)anonymous Content:(NSString *)content Goodstyle:(NSString *)goodstyle Goodsid:(NSString *)goodsid result:(StateBlock)result errorResult:(ErrorBlock)errorResult

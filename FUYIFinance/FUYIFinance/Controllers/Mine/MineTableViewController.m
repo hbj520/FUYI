@@ -8,14 +8,15 @@
 #import "MineLoginViewController.h"
 #import "MineTableViewController.h"
 #import "MyOrderWaitJudgeViewController.h"
+#import "Config.h"
 @interface MineTableViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *headimage;
 @property (weak, nonatomic) IBOutlet UILabel *teachername;
-@property (weak, nonatomic) IBOutlet UIImageView *messageImageView;
-
+@property (weak, nonatomic) IBOutlet UIButton *messagebtn;
 @property (weak, nonatomic) IBOutlet UIView *preparPay;   //待付款
 @property (weak, nonatomic) IBOutlet UIView *collectionShop;   //收藏的店铺
-@property (weak, nonatomic) IBOutlet UILabel *accountSetttingLabel;
+@property (weak, nonatomic) IBOutlet UIButton *accountbtn;
+
 @property (weak, nonatomic) IBOutlet UIImageView *goldTeacherImageView;
 @property (weak, nonatomic) IBOutlet UILabel *welcomeLabel;//欢迎label
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;//登录注册按钮
@@ -29,6 +30,7 @@
 @property (weak, nonatomic) IBOutlet UIView *prepareForjudge;   //待评价
 @property (weak, nonatomic) IBOutlet UIView *myOrder;    //我的订单
 @property (weak, nonatomic) IBOutlet UILabel *badgeLabel3;//待评价按钮上面的自定义badge标签
+@property (weak, nonatomic) IBOutlet UILabel *teacherName;
 
 @end
 
@@ -36,7 +38,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+   
+    
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -67,19 +71,20 @@
 }
 - (void)CreateUI{
     if (KToken) {
+        self.teacherName.text = [[Config Instance] getUserName];
         self.headimage.hidden = NO;
         self.teachername.hidden = NO;
-        self.messageImageView.hidden = NO;
+        self.messagebtn.hidden = NO;
         self.goldTeacherImageView.hidden = NO;
-        self.accountSetttingLabel.hidden = NO;
+        self.accountbtn.hidden = NO;
         self.welcomeLabel.hidden = YES;
         self.loginBtn.hidden = YES;
     }else{
         self.headimage.hidden = YES;
         self.teachername.hidden = YES;
-        self.messageImageView.hidden = YES;
+        self.messagebtn.hidden = YES;
         self.goldTeacherImageView.hidden = YES;
-        self.accountSetttingLabel.hidden = YES;
+        self.accountbtn.hidden = YES;
         self.welcomeLabel.hidden = NO;
         self.loginBtn.hidden = NO;
     }
