@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomBtn.h"
 
-typedef void (^FocuBtnBlock) (UIButton*);
+//typedef void (^FocuBtnBlock) (UIButton*);
 @interface TeacherTeamTableViewCell : UITableViewCell
 
 
@@ -17,8 +18,8 @@ typedef void (^FocuBtnBlock) (UIButton*);
 @property (weak, nonatomic) IBOutlet UILabel *teacherSaying;
 @property (weak, nonatomic) IBOutlet UILabel *focusNum;
 
-@property (weak, nonatomic) IBOutlet UIButton *focusAndCancelBtn;
+@property (weak, nonatomic) IBOutlet CustomBtn *focusAndCancelBtn;
 
-@property (nonatomic,copy) FocuBtnBlock focusBtnBlock;
+//@property (nonatomic,copy) FocuBtnBlock focusBtnBlock;
 
 @end

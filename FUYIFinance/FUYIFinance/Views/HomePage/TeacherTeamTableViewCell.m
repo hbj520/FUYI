@@ -13,16 +13,16 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    [self.focusAndCancelBtn addTarget:self action:@selector(focusClick:) forControlEvents:UIControlEventTouchUpInside];
-    [self.focusAndCancelBtn setImage:[UIImage imageNamed:@"TeacherTeam_focus"] forState:UIControlStateNormal];
-    [self.focusAndCancelBtn setImage:[UIImage imageNamed:@"TeacherTeam_cancel"] forState:UIControlStateSelected];
+//    [self.focusAndCancelBtn addTarget:self action:@selector(focusClick:) forControlEvents:UIControlEventTouchUpInside];
+//    [self.focusAndCancelBtn setImage:[UIImage imageNamed:@"TeacherTeam_focus"] forState:UIControlStateNormal];
+//    [self.focusAndCancelBtn setImage:[UIImage imageNamed:@"TeacherTeam_cancel"] forState:UIControlStateSelected];
     
 }
-- (void)focusClick:(UIButton*)button{
-    if (self.focusBtnBlock) {
-        self.focusBtnBlock(button);
-    }
-}
+//- (void)focusClick:(UIButton*)button{
+//    if (self.focusBtnBlock) {
+//        self.focusBtnBlock(button);
+//    }
+//}
 
 
 

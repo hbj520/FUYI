@@ -13,6 +13,7 @@
 #import "TeacherPersonalInfoTableViewCell.h"
 #import "FooterView.h"
 
+#import "LPPopup.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "MyAPI.h"
 
@@ -21,8 +22,8 @@
 @interface TeacherPersonalViewController ()<UITableViewDataSource,UITableViewDelegate>{
     
     TeacherModel *_newModel;
-    
 }
+
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -34,7 +35,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _newModel = [[TeacherModel alloc]init];
+    //_newModel = [[TeacherModel alloc]init];
     [self creatUI];
     [self loadData];
 }
@@ -69,8 +70,12 @@
     
     navItem.backBlock = ^(){
         [self.navigationController popViewControllerAnimated:YES];
+        
+        if (self.passTypeBlock) {
+            self.passTypeBlock(_model.teacherType);
+            NSLog(@"哈哈哈%@",_model.teacherType);
+        }
     };
-    
     [self.view addSubview:navItem];
 }
 
@@ -94,8 +99,7 @@
         [cell.headImage sd_setImageWithURL:[NSURL URLWithString:_model.teacherImage] placeholderImage:[UIImage imageNamed:@"TeacherTeam_headImage"]];
         cell.focusNumLab.text = _model.teacherFansNum;
         
-        
-           cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }else{
         TeacherPersonalInfoTableViewCell *cell = [[[NSBundle mainBundle]loadNibNamed:@"TeacherPersonalInfoTableViewCell" owner:self options:nil]lastObject];
@@ -143,12 +147,71 @@
 - (UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     if (section == 1) {
         FooterView *footView = [[[NSBundle mainBundle]loadNibNamed:@"FooterView" owner:self options:nil]lastObject];
+        [footView.FocusOrNotBtn setImage:[UIImage imageNamed:@"TeacherPersonal_FOCUS"] forState:UIControlStateNormal];
+        [footView.FocusOrNotBtn setImage:[UIImage imageNamed:@"TeacherPersonal_cancelFOCUS"] forState:UIControlStateSelected];
+        [footView.FocusOrNotBtn addTarget:self action:@selector(FocusOrNotClick:) forControlEvents:UIControlEventTouchUpInside];
+        
+        if ([_newModel.type isEqualToString:@"1"]) {
+            footView.FocusOrNotBtn.selected = YES;
+        }else{
+            footView.FocusOrNotBtn.selected = NO;
+        }
+        
         return footView;
     }else{
         UIView *foot = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 19)];
         return foot;
     }
  
+}
+
+- (void)FocusOrNotClick:(UIButton*)button{
+    if (button.selected == NO) {
+        button.selected = !button.selected;
+         [self FocusTeacherWithId:_model.teacherId];
+    }else{
+        button.selected = !button.selected;
+        [self CancelFocusTeacherWithId:_model.teacherId];
+    }
+}
+
+//关注
+-(void)FocusTeacherWithId:(NSString*)tId{
+    [[MyAPI sharedAPI] focusTeacherWithToken:KToken teacherId:tId result:^(BOOL sucess, NSString *msg) {
+        if (sucess) {
+            [self showPopup:msg];
+               _model.teacherType = @"1";
+        }else{
+            [self showPopup:msg];
+        }
+    } errorResult:^(NSError *enginerError) {
+        
+    }];
+}
+
+//取消
+-(void)CancelFocusTeacherWithId:(NSString*)tId{
+    [[MyAPI sharedAPI] cancelFocusTeacherWithToken:KToken teacherId:tId result:^(BOOL sucess, NSString *msg) {
+        if (sucess) {
+            [self showPopup:msg];
+            _model.teacherType = @"0";
+        }else{
+            [self showPopup:msg];
+        }
+    } errorResult:^(NSError *enginerError) {
+        
+    }];
+}
+
+#pragma mark - creatLPPopup
+
+- (void)showPopup:(NSString *)popupWithText
+{
+    LPPopup *popup = [LPPopup popupWithText:popupWithText];
+    [popup showInView:self.view
+        centerAtPoint:self.view.center
+             duration:kLPPopupDefaultWaitDuration
+           completion:nil];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{

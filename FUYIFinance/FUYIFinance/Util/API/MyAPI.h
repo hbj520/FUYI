@@ -179,6 +179,12 @@ typedef void (^ErrorBlock) (NSError *enginerError);
                              result:(ArrayBlock)result
                         errorResult:(ErrorBlock)errorResult;
 
+#pragma mark -取消关注讲师
+- (void)cancelFocusTeacherWithToken:(NSString*)token
+                          teacherId:(NSString*)teacherId
+                             result:(StateBlock)result
+                        errorResult:(ErrorBlock)errorResult;
+
 #pragma mark -关注讲师
 - (void)focusTeacherWithToken:(NSString*)token
                     teacherId:(NSString*)teacherId

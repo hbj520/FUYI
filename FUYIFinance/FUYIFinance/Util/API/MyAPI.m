@@ -321,6 +321,31 @@
     
     
 }
+#pragma mark -取消关注讲师
+- (void)cancelFocusTeacherWithToken:(NSString*)token
+                          teacherId:(NSString*)teacherId
+                             result:(StateBlock)result
+                        errorResult:(ErrorBlock)errorResult{
+    NSDictionary *parameters = @{
+                                 @"token":KToken,
+                                 @"tid":teacherId
+                                 };
+    [self.manager POST:@"delAttention" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString *status = responseObject[@"status"];
+        NSString *info = responseObject[@"info"];
+        if ([status isEqualToString:@"1"]) {
+            result(YES,info);
+        }else{
+            result(NO,info);
+        }
+        
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+    }];
+    
+    
+    
+}
 
 #pragma mark -关注讲师
 - (void)focusTeacherWithToken:(NSString*)token
@@ -342,8 +367,6 @@
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
          errorResult(error);
     }];
-    
-    
 }
 
 #pragma mark -讲师详情
@@ -389,9 +412,9 @@
         }
         
         if ([status isEqualToString:@"1"]) {
-            if ([responseObject[@"data"]isEqual:[NSNull null]]) {
+            if ([responseObject[@"data"][@"teacherlist"]isEqual:[NSNull null]]) {
                 return result(YES,info,nil);
-            }else{
+           }else{
                 NSArray *newArray = responseObject[@"data"][@"teacherlist"];
                 
                 TeacherTeamModel *model = [[TeacherTeamModel alloc]init];
@@ -408,8 +431,6 @@
     
     
 }
-
-
 
 #pragma mark -博客
 #pragma mark -个人中心
