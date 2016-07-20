@@ -56,7 +56,7 @@
 }
 
 - (void)dealloc{
-     [[NSNotificationCenter defaultCenter] removeObserver:self];
+     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"refresh" object:nil];
   
 }
 
@@ -150,16 +150,6 @@
     [cell.focusAndCancelBtn setImage:[UIImage imageNamed:@"TeacherTeam_cancel"] forState:UIControlStateSelected];
     cell.focusAndCancelBtn.index = indexPath;
     
-//    TeacherPersonalViewController *pVC = [[TeacherPersonalViewController alloc]init];
-//    pVC.passTypeBlock = ^(NSString *type){
-//        
-//        if ([type isEqualToString:@"1"]) {
-//            cell.focusAndCancelBtn.selected = YES;
-//        }else{
-//            cell.focusAndCancelBtn.selected = NO;
-//        }
-//    };
-
     //刚进来判断按钮状态
     if ([_saveModel.teacherType isEqualToString:@"1"]) {
          cell.focusAndCancelBtn.selected = YES;
