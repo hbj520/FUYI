@@ -10,13 +10,34 @@
 
 @interface Good : NSObject
 
+@property (nonatomic,strong) NSString *goodId;
+@property (nonatomic,strong) NSString *goodType;
+@property (nonatomic,strong) NSString *goodPrice;
+@property (nonatomic,strong) NSString *goodName;
+@property (nonatomic,strong) NSString *goodImage;
+@property (nonatomic,strong) NSString *teacherName;
+@property (nonatomic,strong) NSString *type;
 
+/**
+ *  购物车列表
+ *
+ *  @param goodId      商品id
+ *  @param goodType    商品类型
+ *  @param goodPrice   商品价格
+ *  @param goodName    商品名称
+ *  @param goodImage   商品图片
+ *  @param teacherName 讲师姓名
+ *  @param type        类型
+ *
+ *  @return 
+ */
+- (id)initWithParameters:(NSString*)goodId
+                goodType:(NSString*)goodType
+               goodPrice:(NSString*)goodPrice
+                goodName:(NSString*)goodName
+               goodImage:(NSString*)goodImage
+             teacherName:(NSString*)teacherName
+                    type:(NSString*)type;
 
-//@property (nonatomic,assign) BOOL select;
-@property (nonatomic,assign) NSInteger number;
-@property (nonatomic,copy) NSString *price;
-@property (nonatomic,copy) NSString *contenetStr;
-@property (nonatomic,retain)UIImage *image;
-
-
+- (NSArray *)buildWithData:(NSArray *)data;
 @end

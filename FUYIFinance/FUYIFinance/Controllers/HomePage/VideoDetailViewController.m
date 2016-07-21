@@ -79,7 +79,7 @@
     _numLab.layer.borderColor = [[UIColor whiteColor]CGColor];
     [self.view addSubview:_numLab];
     
-    if (_cnt == 0) {
+    if (_cnt >= 0) {
         _numLab.hidden = YES;
     }
     
@@ -141,9 +141,9 @@
         
         if (sucess) {
              //[self groupAnimation];//加入购物车动画
-            [self showPopup:@"加入购物车成功!"];
+            [self showPopup:msg];
         }else{
-            [self showPopup:@"加入购物车失败!"];
+            [self showPopup:msg];
         }
         
     } errorResult:^(NSError *enginerError) {
@@ -202,8 +202,8 @@
         [layer removeFromSuperlayer];
         layer = nil;
         _cnt++;
-        if (_cnt) {
-            _numLab.hidden = NO;
+        if (_cnt >= 0) {
+            _numLab.hidden = YES;
         }
         
         CATransition *animation = [CATransition animation];
@@ -237,19 +237,13 @@
 - (IBAction)collectClick:(UIButton*)button {
     
     //if ([_model.videoCollect isEqualToString:@"0"]) {
-        
     if (button.selected == NO) {
-        
-        NSLog(@"%@+++++++++++++++++++",_model.videoCollect);
-        
         button.selected = !button.selected;
         if (KToken) {
             [self postCollection];
         }else{
             [self logOut];
         }
-       
-        
     }else{
         button.selected = !button.selected;
         if (KToken) {
@@ -267,10 +261,10 @@
                                                 result:^(BOOL sucess, NSString *msg) {
                                                     if (sucess) {
                                                         
-                                                        [self showPopup:@"取消收藏"];
+                                                        [self showPopup:msg];
                                                         _model.videoCollect = @"0";
                                                     }else{
-                                                        [self showPopup:@"取消失败"];
+                                                        [self showPopup:msg];
                                                         
                                                     }
                                                 } errorResult:^(NSError *enginerError) {
@@ -343,7 +337,6 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
-    
 }
 
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
@@ -357,15 +350,14 @@
       [head0 sd_setImageWithURL:[NSURL URLWithString:_model.videoImage]placeholderImage:[UIImage imageNamed:@"VD_class_demo"]];
         return head0;
     }
-    
 }
+
 - (IBAction)back:(id)sender {
      [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)buyNow:(id)sender {
    [self performSegueWithIdentifier:@"ConfirmOrderSegue" sender:self.model];
-    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -399,7 +391,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 #pragma mark - Navigation
 

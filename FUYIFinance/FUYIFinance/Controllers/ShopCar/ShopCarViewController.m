@@ -11,19 +11,24 @@
 #import "ShopCarBottomView.h"
 #import "ShopCarTableViewCell.h"
 #import "HeaderView.h"
-
 #import "CustomBtn.h"
 
 #import "ShopCarViewController.h"
 
 #import "Good.h"
-#import "Brand.h"
 
+#import "MyAPI.h"
+#import "LabelHelper.h"
+#import <MJRefresh.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 //static NSString *videoHeader = @"videoHeaderReuseId";
 
 
 
-@interface ShopCarViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface ShopCarViewController ()<UITableViewDelegate,UITableViewDataSource>{
+    
+    NSInteger _page;
+}
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -53,16 +58,54 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    _goodArray = [NSMutableArray array];
     if (KToken) {
         [self creatUI];
         self.isAllSelected = YES;
         //加载数据源
+        _page = 1;
         [self loadData];
+        [self addRefresh];
+        
     }
+}
+
+- (void)addRefresh{
+    __weak ShopCarViewController *weakself = self;
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        _page = 1;
+        if (_goodArray.count > 0) {
+            [_goodArray removeAllObjects];
+        }
+        [weakself loadData];
+    }];
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        _page++;
+        [weakself loadData];
+    }];
 }
 
 -(void)loadData
 {
+    NSString *nowPage = [NSString stringWithFormat:@"%ld",(long)_page];
+    [[MyAPI sharedAPI] getShopCarDataWithToken:KToken
+                                          page:nowPage
+                                        result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
+        
+        if ([msg isEqualToString:@"err token"]) {
+            [self logOut];
+        }
+        if (success) {
+            [_goodArray addObjectsFromArray:arrays];
+            [self.tableView reloadData];
+        }
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
+        
+    } errorResult:^(NSError *enginerError) {
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
+    }];
     //创建数据
     [self creatData];
 }

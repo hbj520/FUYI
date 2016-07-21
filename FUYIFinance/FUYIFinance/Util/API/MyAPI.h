@@ -95,6 +95,11 @@ typedef void (^ErrorBlock) (NSError *enginerError);
                                    type:(NSString*)type
                                  result:(StateBlock)result
                             errorResult:(ErrorBlock)errorResult;
+#pragma mark -购物车界面
+- (void)getShopCarDataWithToken:(NSString*)token
+                           page:(NSString*)page
+                         result:(ArrayBlock)result
+                    errorResult:(ErrorBlock)errorResult;
 
 #pragma mark -加入购物车
 - (void)addGoodIntoShopCarWithToken:(NSString*)token

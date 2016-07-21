@@ -26,7 +26,7 @@
 
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@property (nonatomic,assign) BOOL stateChange;
 
 @end
 
@@ -69,12 +69,10 @@
     navItem.newsBtn.hidden = YES;
     
     navItem.backBlock = ^(){
-        [self.navigationController popViewControllerAnimated:YES];
-        
-//        if (self.passTypeBlock) {
-//            self.passTypeBlock(_model.teacherType);
-//            NSLog(@"哈哈哈%@",_model.teacherType);
-//        }
+        if (self.stateChange) {
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"refresh" object:self userInfo:nil];
+           }
+             [self.navigationController popViewControllerAnimated:YES];
     };
     [self.view addSubview:navItem];
 }
@@ -95,9 +93,11 @@
 
     if (indexPath.section == 0) {
         TeacherPersonalTableViewCell *cell = [[[NSBundle mainBundle]loadNibNamed:@"TeacherPersonalTableViewCell" owner:self options:nil]lastObject];
-        cell.teacherName.text = _model.teacherName;
+        cell.teacherName.text = _newModel.teacherName;
         [cell.headImage sd_setImageWithURL:[NSURL URLWithString:_model.teacherImage] placeholderImage:[UIImage imageNamed:@"TeacherTeam_headImage"]];
-        cell.focusNumLab.text = _model.teacherFansNum;
+        cell.headImage.layer.cornerRadius = 28;
+        cell.headImage.layer.masksToBounds = YES;
+        cell.focusNumLab.text = _newModel.fans;
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
@@ -166,15 +166,11 @@
 }
 
 - (void)FocusOrNotClick:(UIButton*)button{
-    
-    
-    
+
     if (button.selected == NO) {
-         [[NSNotificationCenter defaultCenter]postNotificationName:@"refresh" object:self userInfo:nil];
         button.selected = !button.selected;
          [self FocusTeacherWithId:_model.teacherId];
     }else{
-         [[NSNotificationCenter defaultCenter]postNotificationName:@"refresh" object:self userInfo:nil];
         button.selected = !button.selected;
         [self CancelFocusTeacherWithId:_model.teacherId];
     }
@@ -186,20 +182,30 @@
         if (sucess) {
             [self showPopup:msg];
                _model.teacherType = @"1";
+            TeacherPersonalTableViewCell *cell = (TeacherPersonalTableViewCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+            NSInteger y = [cell.focusNumLab.text integerValue];
+            y = y + 1;
+            cell.focusNumLab.text = [NSString stringWithFormat:@"%ld",(long)y];
+            self.stateChange = YES;
         }else{
             [self showPopup:msg];
         }
     } errorResult:^(NSError *enginerError) {
-        
     }];
 }
 
 //取消
 -(void)CancelFocusTeacherWithId:(NSString*)tId{
-    [[MyAPI sharedAPI] cancelFocusTeacherWithToken:KToken teacherId:tId result:^(BOOL sucess, NSString *msg) {
+    [[MyAPI sharedAPI] cancelFocusTeacherWithToken:KToken
+                                         teacherId:tId result:^(BOOL sucess, NSString *msg) {
         if (sucess) {
+            TeacherPersonalTableViewCell *cell = (TeacherPersonalTableViewCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+            NSInteger y = [cell.focusNumLab.text integerValue];
+            y = y - 1;
+            cell.focusNumLab.text = [NSString stringWithFormat:@"%ld",(long)y];
             [self showPopup:msg];
             _model.teacherType = @"0";
+            self.stateChange = YES;
         }else{
             [self showPopup:msg];
         }

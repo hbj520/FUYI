@@ -40,7 +40,6 @@
     // Do any additional setup after loading the view.
     [self creatUI];
     a = 1;
-
 }
 
 - (void)creatUI{

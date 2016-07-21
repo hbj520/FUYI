@@ -19,6 +19,9 @@
 #import "StoreDataModel.h"
 #import "TeacherTeamModel.h"
 #import "TeacherModel.h"
+
+#import "Good.h"
+
 //mine models
 #import "MineCollectionTreasureModel.h"
 #import "MineCollectionShopModel.h"
@@ -287,6 +290,44 @@
     }];
     
 }
+
+#pragma mark -购物车界面
+- (void)getShopCarDataWithToken:(NSString*)token
+                           page:(NSString*)page
+                         result:(ArrayBlock)result
+                    errorResult:(ErrorBlock)errorResult{
+    
+    NSDictionary *parameters = @{
+                                 @"token":KToken,
+                                 @"page":page
+                                 };
+    
+    [self.manager POST:@"cart" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString *state = responseObject[@"status"];
+        NSString *info = responseObject[@"info"];
+        if ([state isEqualToString:@"-1"]) {
+            return result(NO,info,nil);
+        }
+    
+        if ([state isEqualToString:@"1"]) {
+            NSArray *newStoreArray = responseObject[@"data"];
+            NSLog(@"%@+++++++",newStoreArray);
+            NSArray *newGoodArray
+            Good *model = [[Good alloc]init];
+            NSArray *shopCarArray = [model buildWithData:newStoreArray];
+            return result(YES,info,shopCarArray);
+        }else{
+            return result(NO,info,nil);
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+    }];
+}
+
+
+
+
+
 
 #pragma mark -加入购物车
 - (void)addGoodIntoShopCarWithToken:(NSString*)token

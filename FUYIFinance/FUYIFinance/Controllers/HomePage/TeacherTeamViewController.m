@@ -48,16 +48,20 @@
                                                object:nil];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+
+}
+
 #pragma mark - privateMethod
-- (void)selector:(id)sender{
+- (void)selector:(NSNotification*)sender{
     
     [self loadDataWithToken:KToken page:_page];
     
 }
 
 - (void)dealloc{
-     [[NSNotificationCenter defaultCenter] removeObserver:self];
-  
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 
@@ -86,8 +90,10 @@
            [self logOut];
        }
        if (success) {
+           if (TeacherTeamArr.count > 0) {
+                [TeacherTeamArr removeAllObjects];
+           }
            [TeacherTeamArr addObjectsFromArray:arrays];
-
            [self.tableView reloadData];
        }
        [self.tableView.mj_header endRefreshing];
@@ -111,7 +117,6 @@
     searchField.backgroundColor = RGBACOLOR(235, 235, 235, 1);
     searchField.layer.cornerRadius = 10;
 
-    
 }
 
 - (void)addCustomerNavgationItem{
@@ -140,6 +145,8 @@
     TeacherTeamModel *model = [TeacherTeamArr objectAtIndex:indexPath.row];
     _saveModel = model;
     [cell.headImage sd_setImageWithURL:[NSURL URLWithString:model.teacherImage] placeholderImage:[UIImage imageNamed:@"TeacherTeam_headImage"]];
+    cell.headImage.layer.cornerRadius = 27;
+    cell.headImage.layer.masksToBounds = YES;
     cell.teacherNameLab.text = model.teacherName;
     cell.teacherSaying.text = model.teacherDescription;
     cell.focusNum.text = model.teacherFansNum;
