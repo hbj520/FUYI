@@ -312,7 +312,7 @@
         if ([state isEqualToString:@"1"]) {
             NSArray *newStoreArray = responseObject[@"data"];
             NSLog(@"%@+++++++",newStoreArray);
-            NSArray *newGoodArray
+          //  NSArray *newGoodArray
             Good *model = [[Good alloc]init];
             NSArray *shopCarArray = [model buildWithData:newStoreArray];
             return result(YES,info,shopCarArray);
