@@ -47,10 +47,8 @@
 		AB36CE4B1D1CE72400D0E4C7 /* ThreeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36CE481D1CE72400D0E4C7 /* ThreeTableViewCell.m */; };
 		AB45FC3B1D409500008E6FBA /* IJKMediaControl.m in Sources */ = {isa = PBXBuildFile; fileRef = AB45FC351D409500008E6FBA /* IJKMediaControl.m */; };
 		AB45FC3C1D409500008E6FBA /* IJKMoviePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB45FC371D409500008E6FBA /* IJKMoviePlayerViewController.m */; };
-		AB45FC3D1D409500008E6FBA /* IJKMoviePlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB45FC381D409500008E6FBA /* IJKMoviePlayerViewController.xib */; };
 		AB45FC3E1D409500008E6FBA /* LGDRTMPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB45FC3A1D409500008E6FBA /* LGDRTMPViewController.m */; };
 		AB45FC441D409529008E6FBA /* Barcode.m in Sources */ = {isa = PBXBuildFile; fileRef = AB45FC401D409529008E6FBA /* Barcode.m */; };
-		AB45FC451D409529008E6FBA /* IJKDemoHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = AB45FC431D409529008E6FBA /* IJKDemoHistory.m */; };
 		AB708F8B1D0543BE007D0B4D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AB708F8A1D0543BE007D0B4D /* main.m */; };
 		AB708F8E1D0543BE007D0B4D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AB708F8D1D0543BE007D0B4D /* AppDelegate.m */; };
 		AB708F911D0543BE007D0B4D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB708F901D0543BE007D0B4D /* ViewController.m */; };
@@ -162,6 +160,7 @@
 		CC95F1581D334163009F559D /* ModifyHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC95F1571D334163009F559D /* ModifyHeadView.xib */; };
 		CC95F1A71D338C28009F559D /* ChangeHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC95F1A61D338C28009F559D /* ChangeHeadView.m */; };
 		CC95F1A91D338C3E009F559D /* ChangeHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC95F1A81D338C3E009F559D /* ChangeHeadView.xib */; };
+		CCC2F2301D40E4AA000FC256 /* IJKDemoHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = AB45FC431D409529008E6FBA /* IJKDemoHistory.m */; };
 		CCEEFC0C1D37400B0001C7AA /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEEFC0B1D37400B0001C7AA /* UserInfoModel.m */; };
 		CCEEFC121D37613A0001C7AA /* MineNoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEEFC111D37613A0001C7AA /* MineNoticeViewController.m */; };
 		D114DC571D24EEC50001CE21 /* Brand.m in Sources */ = {isa = PBXBuildFile; fileRef = D114DC541D24EEC50001CE21 /* Brand.m */; };
@@ -1513,7 +1512,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB45FC3D1D409500008E6FBA /* IJKMoviePlayerViewController.xib in Resources */,
 				AB36CE381D1B818300D0E4C7 /* HomepageHeaderTableViewCell.xib in Resources */,
 				CC6FD6201D36409600DA60AB /* MyAddressChoiceTableViewCell.xib in Resources */,
 				CC42E26F1D24F0A90008A8D7 /* MyJudgeTableViewCell.xib in Resources */,
@@ -1650,6 +1648,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCC2F2301D40E4AA000FC256 /* IJKDemoHistory.m in Sources */,
 				CC3096F31D40B73E0025305F /* ModfyNickNameViewController.m in Sources */,
 				D1F130671D35D32300EE1690 /* LPPopup.m in Sources */,
 				CC35F66A1D2CCB3000EF3B4B /* PriceLabel.m in Sources */,

@@ -43,6 +43,8 @@
 
     [self addRefresh];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshtableview) name:@"refreshView" object:nil];
+    
     [self loadData];
     
     [self creatHidePayView];
