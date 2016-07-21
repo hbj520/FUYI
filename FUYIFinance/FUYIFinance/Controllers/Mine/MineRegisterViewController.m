@@ -124,7 +124,11 @@
     }
     NSString * securitypasswordnumber = [Tools loginPasswordSecurityLock:passwordnumber];
     NSString * securityrepasswordnumber = [Tools loginPasswordSecurityLock:repasswordnumber];
-    [[MyAPI sharedAPI] registerWithParameters:phonenumber Password:securitypasswordnumber RePassword:securityrepasswordnumber YZMNum:textcodenum result:^(BOOL sucess, NSString *msg) {
+    [[MyAPI sharedAPI] registerWithParameters:phonenumber
+                                     Password:securitypasswordnumber
+                                   RePassword:securityrepasswordnumber
+                                       YZMNum:textcodenum
+                                       result:^(BOOL sucess, NSString *msg) {
         if(sucess){
             [self showHint:@"注册成功，请登录"];
             

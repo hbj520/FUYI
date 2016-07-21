@@ -8,7 +8,10 @@
 
 #import "MyOrderSecondWaitPayViewController.h"
 #import "PersonalWaitPayTableViewCell.h"
+#import "MineWaitPayModel.h"
 #import "PayView.h"
+#import "MyAPI.h"
+#import <MJRefresh/MJRefresh.h>
 
 @interface MyOrderSecondWaitPayViewController ()<UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate>
 {
@@ -16,6 +19,8 @@
     NSMutableArray * _dataSource; //待付款的数据
     PayView* _payView;
     UIButton* _shadowBtn;
+    NSInteger index;
+    NSInteger page;
 }
 
 
@@ -26,7 +31,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
+    page = 1;
+    _dataSource = [NSMutableArray array];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height - 100) style:UITableViewStylePlain];
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     _tableView.delegate = self;
@@ -37,12 +44,39 @@
     
     
     [self.view addSubview:_tableView];
-    
+    [self loadData];
     [self creatHidePayView];
 
 }
 
 
+- (void)loadData
+{
+    NSString * pagestr = [NSString stringWithFormat:@"%ld",page];
+    [[MyAPI sharedAPI] requestWaitpayDataWithParameters:pagestr
+                                                 result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
+        if(success){
+            [_dataSource addObjectsFromArray:arrays];
+            [_tableView reloadData];
+            [_tableView.mj_header endRefreshing];
+            [_tableView.mj_footer endRefreshing];
+        }
+        else{
+            if([msg isEqualToString:@"-1"]){
+                [self logOut];
+            }else{
+                [_tableView.mj_header endRefreshing];
+                [_tableView.mj_footer endRefreshing];
+            }
+            
+            
+        }
+    } errorResult:^(NSError *enginerError) {
+        [_tableView.mj_header endRefreshing];
+        [_tableView.mj_footer endRefreshing];
+    }];
+    
+}
 
 -(void)creatHidePayView{
     
@@ -55,7 +89,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return _dataSource.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -84,7 +118,8 @@
     //确定按钮
     cell.sureBtn.tag = indexPath.section;
     [cell.sureBtn addTarget:self action:@selector(clickSureBtn:) forControlEvents:UIControlEventTouchUpInside];
-    
+    MineWaitPayModel * model = _dataSource[indexPath.section];
+    cell.model = model;
     return cell;
 }
 
@@ -93,6 +128,7 @@
 {
     UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"确认删除订单？" message:@"删除之后可以从电脑端订单回收站恢复" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认", nil];
     [alertView show];
+    index = sender.tag;
     NSLog(@"%ld",(long)sender.tag);
 }
 
@@ -117,7 +153,8 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if(buttonIndex == 1){
-        
+        [_dataSource removeObjectAtIndex:index - 10];
+        [_tableView reloadData];
     }
 }
 

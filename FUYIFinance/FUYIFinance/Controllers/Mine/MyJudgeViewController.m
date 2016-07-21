@@ -9,6 +9,7 @@
 #import "MyJudgeViewController.h"
 #import "MyJudgeTableViewCell.h"
 #import "BBBadgeBarButtonItem.h"
+#import <MJRefresh/MJRefresh.h>
 #import "MyAPI.h"
 #import "MineMyJudgeModel.h"
 @interface MyJudgeViewController ()<UITableViewDataSource,UITableViewDelegate>
@@ -16,6 +17,7 @@
     UITableView * _tableView;
     BBBadgeBarButtonItem *_chatBtn;//导航栏自定义按钮
     NSMutableArray * dataSource;
+    NSInteger page;
 }
 @end
 
@@ -25,6 +27,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self addChatBtn];
+    if(!KToken){
+        [self logOut];
+    }
+    dataSource = [NSMutableArray array];
+    page = 1;
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
@@ -32,24 +39,62 @@
     _tableView.delegate = self;
     [_tableView registerNib:[UINib nibWithNibName:@"MyJudgeTableViewCell" bundle:nil] forCellReuseIdentifier:@"MyJudgeId"];
     [self.view addSubview:_tableView];
-[self loadData];
+    [self loadData];
+    [self addRefresh];
 }
+
+- (void)addRefresh
+{
+    __weak MyJudgeViewController * weakself = self;
+    _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        
+        page = 1;
+        if(dataSource.count>0){
+            [dataSource removeAllObjects];
+        }
+        [weakself loadData];
+        
+    }];
+    MJRefreshAutoNormalFooter * footerRefresh = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        page++;
+        [weakself loadData];
+    }];
+    footerRefresh.automaticallyRefresh = NO;
+    _tableView.mj_footer = footerRefresh;
+}
+
 
 - (void)loadData
 {
-    [[MyAPI sharedAPI] requestMyJudgeDataWithParameters:@"" result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
-        dataSource = arrays;
+    NSString * pagestr = [NSString stringWithFormat:@"%ld",page];
+    [[MyAPI sharedAPI] requestMyJudgeDataWithParameters:pagestr result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
         if([msg isEqualToString:@"-1"]){
             [self logOut];
+            [_tableView.mj_header endRefreshing];
+            [_tableView.mj_footer endRefreshing];
+        }else{
+            [_tableView.mj_header endRefreshing];
+            [_tableView.mj_footer endRefreshing];
         }
-    } errorResult:^(NSError *enginerError) {
-        
+
+        if(success){
+        dataSource  = arrays;
+        [_tableView reloadData];
+            [_tableView.mj_header endRefreshing];
+            [_tableView.mj_footer endRefreshing];
+        }else{
+            [_tableView.mj_header endRefreshing];
+            [_tableView.mj_footer endRefreshing];
+        }
+           } errorResult:^(NSError *enginerError) {
+               [_tableView.mj_header endRefreshing];
+               [_tableView.mj_footer endRefreshing];
     }];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 6;
+    return dataSource.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -70,6 +115,9 @@
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MyJudgeTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MyJudgeId" forIndexPath:indexPath];
+    MineMyJudgeModel * model = [[MineMyJudgeModel alloc] init];
+    model = dataSource[indexPath.section];
+    cell.model = model;
     return cell;
 }
 

@@ -7,12 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MineWaitPayModel.h"
 #import "CustomBtn.h"
 typedef void (^SelectBtnBlock) (NSIndexPath *);
 @interface PersonalWaitPayTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *thumbImage;
 @property (weak, nonatomic) IBOutlet UILabel *treasureCount;
+@property (weak, nonatomic) IBOutlet UILabel *shopname;
+@property (weak, nonatomic) IBOutlet UILabel *titlename;
+@property (weak, nonatomic) IBOutlet UILabel *teachername;
 
 @property (weak, nonatomic) IBOutlet UILabel *price;
 @property (weak, nonatomic) IBOutlet UILabel *totalPrice;
@@ -29,5 +33,5 @@ typedef void (^SelectBtnBlock) (NSIndexPath *);
 @property (nonatomic,copy) SelectBtnBlock selectBtnBlock;
 @property (weak, nonatomic) IBOutlet UILabel *countlabel;
 - (void)addPriceLabel;
-
+@property (nonatomic,strong)MineWaitPayModel * model;
 @end

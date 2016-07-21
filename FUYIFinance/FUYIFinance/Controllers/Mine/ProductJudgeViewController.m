@@ -91,14 +91,26 @@
     }
 }
 
+//确认评价
 - (IBAction)sureJudge:(id)sender {
     if(!KToken){
         [self logOut];
     }else{
     NSString * anonymous = [NSString stringWithFormat:@"%d",IsCommit];
-    [[MyAPI sharedAPI] uploadUserJudgeWithParameters:starNum Anonymous:anonymous Content:self.textView.text Goodstyle:self.ustyle Goodsid:self.uid result:^(BOOL sucess, NSString *msg) {
+        if (self.deleteblock) {
+            self.deleteblock(self.indexpath);
+        }
+        
+    [[MyAPI sharedAPI] uploadUserJudgeWithParameters:starNum
+                                           Anonymous:anonymous
+                                             Content:self.textView.text
+                                           Goodstyle:self.ustyle
+                                             Goodsid:self.uid
+                                              result:^(BOOL sucess, NSString *msg) {
         if (sucess) {
             [self showHint:@"评价成功"];
+      //     self.deleteblock(self.indexpath);
+            [self.navigationController popViewControllerAnimated:YES];
         }
     } errorResult:^(NSError *enginerError) {
         
