@@ -29,6 +29,9 @@
 #pragma mark - PrivateMethod
 //登陆超时和未登录跳转至登陆
 - (void)logOut{
+    if (KToken) {
+        [[Config Instance] logout];
+    }
     UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
     UINavigationController *loginVC = [storybord instantiateViewControllerWithIdentifier:@"LoginStorybordId"];
     loginVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;

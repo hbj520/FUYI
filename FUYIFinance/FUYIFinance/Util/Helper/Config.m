@@ -127,14 +127,13 @@ static Config * instance = nil;
     NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
     return [settings stringForKey:@"token"];
 }
-
 - (NSString *)getUserPhoneNum
 {
     NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
     return [settings stringForKey:@"phonenum"];
 }
 
-- (void)logOut{
+- (void)logout{
     NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
     [settings removeObjectForKey:@"token"];
     [settings removeObjectForKey:@"icon"];
