@@ -9,6 +9,7 @@
 #import "BaseViewController.h"
 #import "MineLoginViewController.h"
 #import "AppDelegate.h"
+#import <IJKMediaFramework/IJKFFMonitor.h>
 
 @interface BaseViewController ()
 
