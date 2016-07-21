@@ -102,6 +102,7 @@
         }
         
     [[MyAPI sharedAPI] uploadUserJudgeWithParameters:starNum
+                                            OrderNum:self.ordernum
                                            Anonymous:anonymous
                                              Content:self.textView.text
                                            Goodstyle:self.ustyle

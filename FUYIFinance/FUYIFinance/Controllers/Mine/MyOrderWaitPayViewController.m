@@ -46,6 +46,8 @@
     [self loadData];
     
     [self creatHidePayView];
+    
+    
 }
 
 

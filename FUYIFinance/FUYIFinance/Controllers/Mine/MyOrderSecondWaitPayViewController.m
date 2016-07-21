@@ -45,8 +45,29 @@
     
     [self.view addSubview:_tableView];
     [self loadData];
+    [self addRefresh];
     [self creatHidePayView];
 
+}
+
+- (void)addRefresh
+{
+    __weak MyOrderSecondWaitPayViewController * weakself = self;
+    _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        
+        page = 1;
+        if(_dataSource.count>0){
+            [_dataSource removeAllObjects];
+        }
+        [weakself loadData];
+        
+    }];
+    MJRefreshAutoNormalFooter * footerRefresh = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        page++;
+        [weakself loadData];
+    }];
+    footerRefresh.automaticallyRefresh = NO;
+    _tableView.mj_footer = footerRefresh;
 }
 
 

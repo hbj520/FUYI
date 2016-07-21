@@ -241,7 +241,7 @@
     }
     if(indexPath.section == 2){
         if(indexPath.row==0){
-            
+        [self performSegueWithIdentifier:@"modifyinfoSegue" sender:nil];
         }else if (indexPath.row==1){
             
         }else if (indexPath.row==2){

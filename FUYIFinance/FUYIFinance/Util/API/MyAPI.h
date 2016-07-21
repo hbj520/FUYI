@@ -167,12 +167,25 @@ typedef void (^ErrorBlock) (NSError *enginerError);
  *  @param errorResult 错误信息
  */
 - (void)uploadUserJudgeWithParameters:(NSString*)score
+                             OrderNum:(NSString*)ordernum
                             Anonymous:(NSString*)anonymous
                               Content:(NSString*)content
                             Goodstyle:(NSString*)goodstyle
                               Goodsid:(NSString*)goodsid
                                result:(StateBlock)result
                           errorResult:(ErrorBlock)errorResult;
+
+/**
+ *  全部的订单
+ *
+ *  @param page        页数
+ *  @param result      模型数组
+ *  @param errorResult 错误信息
+ */
+- (void)requestAllOrderDataWithParameters:(NSString *)page
+                                   result:(ArrayBlock)result
+                              errorResult:(ErrorBlock)errorResult;
+
 #pragma mark -讲师团队
 - (void)getTeacherTeamDataWithToken:(NSString*)token
                                page:(NSString*)page

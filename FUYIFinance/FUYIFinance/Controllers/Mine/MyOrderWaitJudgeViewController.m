@@ -152,6 +152,7 @@
     };
     VC.uid = model.goodsid;
     VC.ustyle = model.goodstyle;
+    VC.ordernum = model.ordernum;
     VC.indexpath = indexpath;
     VC.index = indexpath.section;
     NSLog(@"%ld",VC.index);

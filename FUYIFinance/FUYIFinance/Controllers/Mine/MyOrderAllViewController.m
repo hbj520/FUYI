@@ -9,10 +9,20 @@
 #import "MyOrderAllViewController.h"
 #import "PersonalWaitPayTableViewCell.h"
 #import "PersonalWaitJudgeTableViewCell.h"
+#import "MyJudgeTableViewCell.h"
+#import "AllOderModel.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import <MJRefresh/MJRefresh.h>
+#import "LabelHelper.h"
+#import "MyAPI.h"
 
 @interface MyOrderAllViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     UITableView * _tableView;
+    NSMutableArray * waitjudgeArray;
+    NSMutableArray * waitpayArray;
+    NSMutableArray * isjudgeArray;
+    NSInteger page;
 }
 @end
 
@@ -27,28 +37,130 @@
     _tableView.dataSource = self;
     [_tableView registerNib:[UINib nibWithNibName:@"PersonalWaitPayTableViewCell" bundle:nil] forCellReuseIdentifier:@"MyOrderId"];
     [_tableView registerNib:[UINib nibWithNibName:@"PersonalWaitJudgeTableViewCell" bundle:nil] forCellReuseIdentifier:@"WaitJudgeId"];
+    [_tableView registerNib:[UINib nibWithNibName:@"MyJudgeTableViewCell" bundle:nil] forCellReuseIdentifier:@"MyJudgeId"];
+    
     [self.view addSubview:_tableView];
+    waitjudgeArray = [NSMutableArray array];
+    waitpayArray = [NSMutableArray array];
+    isjudgeArray = [NSMutableArray array];
+    page = 1;
+    [self loadData];
+    [self addRefresh];
+}
+
+- (void)addRefresh
+{
+    __weak MyOrderAllViewController * weakself = self;
+    _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        
+        page = 1;
+        if(waitjudgeArray.count>0||waitpayArray.count>0||isjudgeArray.count>0){
+            [waitpayArray removeAllObjects];
+            [waitjudgeArray removeAllObjects];
+            [isjudgeArray removeAllObjects];
+        }
+        [weakself loadData];
+        
+    }];
+    MJRefreshAutoNormalFooter * footerRefresh = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        page++;
+        [weakself loadData];
+    }];
+    footerRefresh.automaticallyRefresh = NO;
+    _tableView.mj_footer = footerRefresh;
+}
+
+
+- (void)loadData
+{
+    NSString * pagestr = [NSString stringWithFormat:@"%ld",page];
+    [[MyAPI sharedAPI] requestAllOrderDataWithParameters:pagestr result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
+        if(success){
+            for(AllOderModel * model in arrays){
+                if([model.state isEqualToString:@"0"]){
+                    [waitpayArray addObject:model];
+                }else if ([model.state isEqualToString:@"1"]){
+                    [waitjudgeArray addObject:model];
+                }else{
+                    [isjudgeArray addObject:model];
+                }
+            }
+            [_tableView reloadData];
+            [_tableView.mj_header endRefreshing];
+            [_tableView.mj_footer endRefreshing];
+        }else{
+            if([msg isEqualToString:@"-1"]){
+                [self logOut];
+                [_tableView.mj_header endRefreshing];
+                [_tableView.mj_footer endRefreshing];
+            }
+            [_tableView.mj_header endRefreshing];
+            [_tableView.mj_footer endRefreshing];
+        }
+            
+    } errorResult:^(NSError *enginerError) {
+        [_tableView.mj_header endRefreshing];
+        [_tableView.mj_footer endRefreshing];
+    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    if(section == 0){
+        return waitpayArray.count;
+    }else if (section == 1){
+        return waitjudgeArray.count;
+    }else{
+        return isjudgeArray.count;
+    }
+
 }
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 3;
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(indexPath.section == 0){
         PersonalWaitPayTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MyOrderId" forIndexPath:indexPath];
+        AllOderModel * model = [[AllOderModel alloc] init];
+        model = waitpayArray[indexPath.row];
+        [cell.thumbImage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"placeimage"]];
+        cell.shopname.text = model.shopname;
+        cell.titlename.text = model.name;
+        NSString * pricelabel = [NSString stringWithFormat:@"¥%@",model.price];
+        cell.price.text = pricelabel;
+        NSString * teacherlabel = [NSString stringWithFormat:@"讲师：%@",model.teacher];
+        cell.teachername.text = teacherlabel;
+       cell.totalPrice.attributedText = [[LabelHelper alloc] attributedStringWithString:pricelabel];
+        return cell;
+    }else if(indexPath.section == 1){
+        PersonalWaitJudgeTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"WaitJudgeId" forIndexPath:indexPath];
+        AllOderModel * model = [[AllOderModel alloc] init];
+        model = waitjudgeArray[indexPath.row];
+        [cell.thumbImage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"placeimage"]];
+        cell.shopname.text = model.shopname;
+        cell.title.text = model.name;
+        NSString * teacherlabel = [NSString stringWithFormat:@"讲师：%@",model.teacher];
+        cell.teacherName.text = teacherlabel;
+        NSString * pricelabel = [NSString stringWithFormat:@"¥%@",model.price];
+        cell.price.text = pricelabel;
+        cell.totalPrice.attributedText = [[LabelHelper alloc] attributedStringWithString:pricelabel];
         return cell;
     }else{
-        PersonalWaitJudgeTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"WaitJudgeId" forIndexPath:indexPath];
+        MyJudgeTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MyJudgeId" forIndexPath:indexPath];
+        AllOderModel * model = [[AllOderModel alloc] init];
+        model = isjudgeArray[indexPath.row];
+        [cell.thumbimage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"placeimage"]];
+        cell.titlename.text = model.name;
+        cell.timelabel.text = model.ctime;
         return cell;
     }
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -58,7 +170,12 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if(indexPath.section == 2){
+        return 80;
+    }
+    else{
     return 217;
+    }
 }
 
 

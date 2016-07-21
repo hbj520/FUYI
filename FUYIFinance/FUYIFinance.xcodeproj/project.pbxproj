@@ -60,6 +60,9 @@
 		ABF5DE571D0FD930007CE1AB /* HomeTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF5DE561D0FD930007CE1AB /* HomeTabbarViewController.m */; };
 		CC26F0DA1D261CAB003964A1 /* ProductJudgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC26F0D91D261CAB003964A1 /* ProductJudgeViewController.m */; };
 		CC26F0E11D264C61003964A1 /* PublishTreasureTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC26F0E01D264C61003964A1 /* PublishTreasureTableViewController.m */; };
+		CC3096ED1D406DC10025305F /* AllOderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3096EC1D406DC10025305F /* AllOderModel.m */; };
+		CC3096F01D40ACF70025305F /* MineModifyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3096EF1D40ACF70025305F /* MineModifyInfoViewController.m */; };
+		CC3096F31D40B73E0025305F /* ModfyNickNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3096F21D40B73E0025305F /* ModfyNickNameViewController.m */; };
 		CC322E1C1D3E24190054D3D8 /* TeacherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC322E1B1D3E24190054D3D8 /* TeacherModel.m */; };
 		CC322E1F1D3E2A890054D3D8 /* MineWaitJudgeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC322E1E1D3E2A890054D3D8 /* MineWaitJudgeModel.m */; };
 		CC35F6671D2C9A9800EF3B4B /* LabelHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CC35F6661D2C9A9800EF3B4B /* LabelHelper.m */; };
@@ -319,6 +322,12 @@
 		CC26F0D91D261CAB003964A1 /* ProductJudgeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductJudgeViewController.m; sourceTree = "<group>"; };
 		CC26F0DF1D264C61003964A1 /* PublishTreasureTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishTreasureTableViewController.h; sourceTree = "<group>"; };
 		CC26F0E01D264C61003964A1 /* PublishTreasureTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishTreasureTableViewController.m; sourceTree = "<group>"; };
+		CC3096EB1D406DC10025305F /* AllOderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllOderModel.h; sourceTree = "<group>"; };
+		CC3096EC1D406DC10025305F /* AllOderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllOderModel.m; sourceTree = "<group>"; };
+		CC3096EE1D40ACF70025305F /* MineModifyInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineModifyInfoViewController.h; sourceTree = "<group>"; };
+		CC3096EF1D40ACF70025305F /* MineModifyInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineModifyInfoViewController.m; sourceTree = "<group>"; };
+		CC3096F11D40B73E0025305F /* ModfyNickNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModfyNickNameViewController.h; sourceTree = "<group>"; };
+		CC3096F21D40B73E0025305F /* ModfyNickNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModfyNickNameViewController.m; sourceTree = "<group>"; };
 		CC322E1A1D3E24190054D3D8 /* TeacherModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherModel.h; sourceTree = "<group>"; };
 		CC322E1B1D3E24190054D3D8 /* TeacherModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherModel.m; sourceTree = "<group>"; };
 		CC322E1D1D3E2A890054D3D8 /* MineWaitJudgeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineWaitJudgeModel.h; sourceTree = "<group>"; };
@@ -881,6 +890,10 @@
 				CC6FD6151D362F6B00DA60AB /* MineMyAddressViewController.m */,
 				CCEEFC101D37613A0001C7AA /* MineNoticeViewController.h */,
 				CCEEFC111D37613A0001C7AA /* MineNoticeViewController.m */,
+				CC3096EE1D40ACF70025305F /* MineModifyInfoViewController.h */,
+				CC3096EF1D40ACF70025305F /* MineModifyInfoViewController.m */,
+				CC3096F11D40B73E0025305F /* ModfyNickNameViewController.h */,
+				CC3096F21D40B73E0025305F /* ModfyNickNameViewController.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -1100,6 +1113,8 @@
 				CC6FD5F21D362DAB00DA60AB /* ZoneModel.m */,
 				CCEEFC0A1D37400B0001C7AA /* UserInfoModel.h */,
 				CCEEFC0B1D37400B0001C7AA /* UserInfoModel.m */,
+				CC3096EB1D406DC10025305F /* AllOderModel.h */,
+				CC3096EC1D406DC10025305F /* AllOderModel.m */,
 			);
 			name = Mine;
 			sourceTree = "<group>";
@@ -1540,6 +1555,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC3096F31D40B73E0025305F /* ModfyNickNameViewController.m in Sources */,
 				D1F130671D35D32300EE1690 /* LPPopup.m in Sources */,
 				CC35F66A1D2CCB3000EF3B4B /* PriceLabel.m in Sources */,
 				AB36CE2E1D1B710400D0E4C7 /* TAAnimatedDotView.m in Sources */,
@@ -1565,6 +1581,7 @@
 				AB36CDB71D12773400D0E4C7 /* BaseViewController.m in Sources */,
 				CC6BD07A1D2FA72900659C96 /* ReGetViewController.m in Sources */,
 				ABEACD5E1D2B87DE00574259 /* NSData+AES.m in Sources */,
+				CC3096ED1D406DC10025305F /* AllOderModel.m in Sources */,
 				D1C49B051D224DB6003C17DA /* ShopCarNavigationItem.m in Sources */,
 				D1F1300E1D2A4E3100EE1690 /* VideoDetailSecTableViewCell.m in Sources */,
 				D1F1306D1D37907D00EE1690 /* TeacherTeamNavigationItem.m in Sources */,
@@ -1656,6 +1673,7 @@
 				CC593CBB1D29FCC30077B096 /* FourBtnTableViewCell.m in Sources */,
 				CC42E2861D24F6A10008A8D7 /* LoveManageTableViewCell.m in Sources */,
 				ABEACD621D2B87DE00574259 /* SecurityUtil.m in Sources */,
+				CC3096F01D40ACF70025305F /* MineModifyInfoViewController.m in Sources */,
 				CC6FD5ED1D362D2600DA60AB /* ProvinceModel.m in Sources */,
 				D1F130731D3796C800EE1690 /* TeacherTeamTableViewCell.m in Sources */,
 				CC72D0401D226B1100945BCF /* MyOrderWaitJudgeViewController.m in Sources */,
