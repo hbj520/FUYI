@@ -57,7 +57,6 @@
 
 - (void)dealloc{
      [[NSNotificationCenter defaultCenter] removeObserver:self name:@"refresh" object:nil];
-  
 }
 
 

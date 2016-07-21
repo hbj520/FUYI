@@ -32,18 +32,6 @@
             username:(NSString *)username;
 
 /**
- *  保存待评价的索引
- *
- *  @param index 索引
- */
-- (void)saveIndex:(NSString *)index;
-
-/**
- *  获取索引
- */
-- (void)getIndex;
-
-/**
  *  保存用户密码
  *
  *  @param password 用户密码
@@ -55,7 +43,7 @@
 - (NSString*)getUserName;     //获取用户名
 - (NSString*)getUserPhoneNum; //获取用户手机号码
 - (NSString*)getToken;        //获取用户登录令牌
-- (NSString*)getUserIcon;     //获取用户头像
+//- (NSString*)getUserIcon;     //获取用户头像
 - (NSString*)getPassword;     //获取用户密码
 
 - (void)logout;               //退出登录
