@@ -8,6 +8,7 @@
 #import "MineLoginViewController.h"
 #import "MineTableViewController.h"
 #import "MyOrderWaitJudgeViewController.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 #import "Config.h"
 @interface MineTableViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *headimage;
@@ -73,6 +74,10 @@
     if (KToken) {
         self.teacherName.text = [[Config Instance] getUserName];
         self.headimage.hidden = NO;
+        self.headimage.layer.cornerRadius = 35;
+        self.headimage.layer.masksToBounds = YES;
+        NSString * imageurl = [[Config Instance] getIcon];
+        [self.headimage sd_setImageWithURL:[NSURL URLWithString:imageurl] placeholderImage:[UIImage imageNamed:@"defaulticon"]];
         self.teachername.hidden = NO;
         self.messagebtn.hidden = NO;
         self.goldTeacherImageView.hidden = NO;
@@ -142,7 +147,11 @@
 //收藏的店铺
 - (void)collectionShopAct
 {
+    if(!KToken){
+        [self LoginAct];
+    }else{
    [self performSegueWithIdentifier:@"mycollectionSegue" sender:nil];
+    }
 }
 
 //我是商家
@@ -238,7 +247,7 @@
 {
     if (!KToken) {
         [self LoginActCell];
-    }
+    }else{
     if(indexPath.section == 2){
         if(indexPath.row==0){
         [self performSegueWithIdentifier:@"modifyinfoSegue" sender:nil];
@@ -251,7 +260,8 @@
             
         }
     }else if (indexPath.section == 3){
-        
+        [self performSegueWithIdentifier:@"settingSegue" sender:nil];
+    }
     }
 }
 

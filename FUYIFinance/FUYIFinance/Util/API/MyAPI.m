@@ -583,7 +583,14 @@
                 NSMutableArray * waitJudgeModelArray = [[MineWaitJudgeModel alloc] buildWithData:data];
                 result(YES,info,waitJudgeModelArray);
             }
+        }else{
+            if([status isEqualToString:@"-1"]){
+                result(NO,@"-1",nil);
+            }else{
+                result(NO,info,nil);
+            }
         }
+
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         errorResult(error);
     }];
@@ -638,14 +645,73 @@
         }else{
             if([status isEqualToString:@"-1"]){
                 result(NO,@"-1",nil);
+            }else{
+                result(NO,info,nil);
             }
         }
+
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         errorResult(error);
     }];
 }
 
 
+- (void)cancelOrderWithOrdernum:(NSString *)ordernum
+                         result:(StateBlock)result
+                    errorResult:(ErrorBlock)errorResult
+{
+    NSDictionary * parameters = @{@"token":KToken,
+                                  @"ordernum":ordernum};
+[self.manager POST:@"reorder" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+    NSString * status = responseObject[@"status"];
+    NSString * info = responseObject[@"info"];
+    if([status isEqualToString:@"1"]){
+        result(YES,info);
+    }else{
+        result(NO,info);
+    }
+} failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+    errorResult(error);
+}];
+    
+}
+
+- (void)LoginOutWithResult:(StateBlock)result
+               errorResult:(ErrorBlock)errorResult
+{
+    NSDictionary * parameter = @{@"token":KToken};
+    [self.manager POST:@"userexit" parameters:parameter success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * status = responseObject[@"status"];
+        NSString * info = responseObject[@"info"];
+        if([status isEqualToString:@"1"]){
+            result(YES,info);
+        }else{
+            result(NO,info);
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+    }];
+}
+
+- (void)uploadImage:(NSData *)imageData
+             result:(StateBlock)result
+        errorResult:(ErrorBlock)errorResult
+{
+    NSDictionary * parameters = @{@"token":KToken,
+                                  @"image":imageData};
+    [self.manager POST:@"nos_uploadimage" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * status = responseObject[@"status"];
+        if([status isEqualToString:@"1"]){
+            NSDictionary * data = responseObject[@"data"];
+            NSString * imageUrl = data[@"image"];
+            result(YES,imageUrl);
+        }else{
+            
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+    }];
+}
 
 
 

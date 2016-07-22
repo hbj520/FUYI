@@ -75,6 +75,10 @@
 {
     NSString * pagestr = [NSString stringWithFormat:@"%ld",page];
     [[MyAPI sharedAPI] requestAllOrderDataWithParameters:pagestr result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
+        if([msg isEqualToString:@"-1"]){
+            [self logOut];
+        }
+
         if(success){
             for(AllOderModel * model in arrays){
                 if([model.state isEqualToString:@"0"]){
@@ -89,19 +93,40 @@
             [_tableView.mj_header endRefreshing];
             [_tableView.mj_footer endRefreshing];
         }else{
-            if([msg isEqualToString:@"-1"]){
-                [self logOut];
-                [_tableView.mj_header endRefreshing];
-                [_tableView.mj_footer endRefreshing];
-            }
-            [_tableView.mj_header endRefreshing];
-            [_tableView.mj_footer endRefreshing];
+          
         }
-            
+        [_tableView.mj_header endRefreshing];
+        [_tableView.mj_footer endRefreshing];
+        
     } errorResult:^(NSError *enginerError) {
         [_tableView.mj_header endRefreshing];
         [_tableView.mj_footer endRefreshing];
     }];
+    
+    /**
+     *    if([msg isEqualToString:@"-1"]){
+     [self logOut];
+     }
+     if(success){
+     [dataSource addObjectsFromArray:arrays];
+     [_tableView reloadData];
+     }else{
+     
+     }
+     [_tableView.mj_header endRefreshing];
+     [_tableView.mj_footer endRefreshing];
+     
+     } errorResult:^(NSError *enginerError) {
+     [_tableView.mj_header endRefreshing];
+     [_tableView.mj_footer endRefreshing];
+     }];
+     
+
+     *
+     *  @param NSInteger <#NSInteger description#>
+     *
+     *  @return <#return value description#>
+     */
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

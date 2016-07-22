@@ -678,11 +678,72 @@
                         <segue destination="m0W-t0-KYc" kind="push" identifier="waitjudgeSegue" id="OZx-tK-xJd"/>
                         <segue destination="TZI-V7-Jqa" kind="push" identifier="noticeSegue" id="2JG-jj-fn7"/>
                         <segue destination="kl9-Ne-o1C" kind="push" identifier="modifyinfoSegue" id="wOj-XJ-nss"/>
+                        <segue destination="JdM-1q-Gjh" kind="push" identifier="settingSegue" id="dqh-en-jn6"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r1Q-BL-DkO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-4682" y="-161"/>
+        </scene>
+        <!--设置-->
+        <scene sceneID="tEC-a8-Svx">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="JdM-1q-Gjh" customClass="SettingViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CvC-Hm-UNU"/>
+                        <viewControllerLayoutGuide type="bottom" id="JOd-Oj-qQO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zg0-6q-1CW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="duS-WQ-oDA">
+                                <rect key="frame" x="0.0" y="64" width="320" height="459"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="JdM-1q-Gjh" id="eXc-xH-F54"/>
+                                    <outlet property="delegate" destination="JdM-1q-Gjh" id="Z7R-0Q-UwQ"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Za6-uX-V1z">
+                                <rect key="frame" x="0.0" y="523" width="320" height="45"/>
+                                <color key="backgroundColor" red="0.90980392156862744" green="0.23108416814712385" blue="0.24229832872746412" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="退出当前账户">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="logout:" destination="JdM-1q-Gjh" eventType="touchUpInside" id="UbB-fR-3mS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="duS-WQ-oDA" firstAttribute="leading" secondItem="zg0-6q-1CW" secondAttribute="leading" id="Aeh-g4-q9e"/>
+                            <constraint firstItem="duS-WQ-oDA" firstAttribute="top" secondItem="CvC-Hm-UNU" secondAttribute="bottom" id="DXf-wY-kcj"/>
+                            <constraint firstItem="Za6-uX-V1z" firstAttribute="top" secondItem="duS-WQ-oDA" secondAttribute="bottom" id="HWM-P1-qQI"/>
+                            <constraint firstAttribute="trailing" secondItem="Za6-uX-V1z" secondAttribute="trailing" id="Lhs-Fs-uZl"/>
+                            <constraint firstItem="Za6-uX-V1z" firstAttribute="leading" secondItem="zg0-6q-1CW" secondAttribute="leading" id="RoI-qG-me1"/>
+                            <constraint firstAttribute="trailing" secondItem="duS-WQ-oDA" secondAttribute="trailing" id="Xyw-OX-X9s"/>
+                            <constraint firstItem="JOd-Oj-qQO" firstAttribute="top" secondItem="Za6-uX-V1z" secondAttribute="bottom" id="cPJ-zd-6z8"/>
+                            <constraint firstItem="JOd-Oj-qQO" firstAttribute="top" secondItem="duS-WQ-oDA" secondAttribute="bottom" constant="45" id="wpu-p3-keH"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="设置" id="yAx-y6-QJ4">
+                        <barButtonItem key="leftBarButtonItem" image="back" id="1kH-Nm-LMK">
+                            <color key="tintColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="back:" destination="JdM-1q-Gjh" id="CWc-gf-JJa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="tableView" destination="duS-WQ-oDA" id="Wau-Cr-fE5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DGM-zb-AZc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-454" y="2282"/>
         </scene>
         <!--修改资料-->
         <scene sceneID="euG-Uo-7HG">
@@ -898,6 +959,33 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection id="dMg-v1-Rrm">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="45" id="Wtp-Pe-qgw">
+                                        <rect key="frame" x="0.0" y="454" width="320" height="45"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wtp-Pe-qgw" id="X6o-3W-Jl0">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Djd-xQ-5JE">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                                    <color key="backgroundColor" red="0.8784313725490196" green="0.13725490196078433" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <state key="normal" title="确定">
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Djd-xQ-5JE" secondAttribute="trailing" id="EDT-94-G3e"/>
+                                                <constraint firstItem="Djd-xQ-5JE" firstAttribute="leading" secondItem="X6o-3W-Jl0" secondAttribute="leading" id="JWe-Kl-g9F"/>
+                                                <constraint firstAttribute="bottom" secondItem="Djd-xQ-5JE" secondAttribute="bottom" id="Qo1-9h-ty3"/>
+                                                <constraint firstItem="Djd-xQ-5JE" firstAttribute="top" secondItem="X6o-3W-Jl0" secondAttribute="top" id="ZQw-vx-cZz"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="kl9-Ne-o1C" id="a7a-9F-XKj"/>
@@ -916,6 +1004,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="headImage" destination="DbO-qD-xN6" id="f9X-8f-ab5"/>
                         <outlet property="nickName" destination="hYP-cH-Xrr" id="8TD-3w-O0A"/>
                         <outlet property="sexlabel" destination="XNW-cT-Iu0" id="1d6-f4-5rB"/>
                         <segue destination="8g2-C5-nuZ" kind="push" identifier="nicknameSegue" id="DP1-wU-S0k"/>

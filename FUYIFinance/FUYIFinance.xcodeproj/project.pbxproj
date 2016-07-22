@@ -163,6 +163,7 @@
 		CCC2F2301D40E4AA000FC256 /* IJKDemoHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = AB45FC431D409529008E6FBA /* IJKDemoHistory.m */; };
 		CCEEFC0C1D37400B0001C7AA /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEEFC0B1D37400B0001C7AA /* UserInfoModel.m */; };
 		CCEEFC121D37613A0001C7AA /* MineNoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEEFC111D37613A0001C7AA /* MineNoticeViewController.m */; };
+		CCF079871D41F08B000CCC91 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCF079861D41F08B000CCC91 /* SettingViewController.m */; };
 		D114DC571D24EEC50001CE21 /* Brand.m in Sources */ = {isa = PBXBuildFile; fileRef = D114DC541D24EEC50001CE21 /* Brand.m */; };
 		D114DC581D24EEC50001CE21 /* Good.m in Sources */ = {isa = PBXBuildFile; fileRef = D114DC561D24EEC50001CE21 /* Good.m */; };
 		D15BA3841D235E5700904DEF /* shopCar.json in Resources */ = {isa = PBXBuildFile; fileRef = D15BA3831D235E5700904DEF /* shopCar.json */; };
@@ -520,6 +521,8 @@
 		CCEEFC0B1D37400B0001C7AA /* UserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoModel.m; sourceTree = "<group>"; };
 		CCEEFC101D37613A0001C7AA /* MineNoticeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineNoticeViewController.h; sourceTree = "<group>"; };
 		CCEEFC111D37613A0001C7AA /* MineNoticeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineNoticeViewController.m; sourceTree = "<group>"; };
+		CCF079851D41F08B000CCC91 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		CCF079861D41F08B000CCC91 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		D114DC531D24EEC50001CE21 /* Brand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Brand.h; sourceTree = "<group>"; };
 		D114DC541D24EEC50001CE21 /* Brand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Brand.m; sourceTree = "<group>"; };
 		D114DC551D24EEC50001CE21 /* Good.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Good.h; sourceTree = "<group>"; };
@@ -987,6 +990,8 @@
 				CC3096EF1D40ACF70025305F /* MineModifyInfoViewController.m */,
 				CC3096F11D40B73E0025305F /* ModfyNickNameViewController.h */,
 				CC3096F21D40B73E0025305F /* ModfyNickNameViewController.m */,
+				CCF079851D41F08B000CCC91 /* SettingViewController.h */,
+				CCF079861D41F08B000CCC91 /* SettingViewController.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -1683,6 +1688,7 @@
 				D1F130511D2E23C200EE1690 /* VideoShopNavigationItem.m in Sources */,
 				D1F1301D1D2B503500EE1690 /* VideoShopViewController.m in Sources */,
 				AB36CE491D1CE72400D0E4C7 /* ThreeCollectionViewCell.m in Sources */,
+				CCF079871D41F08B000CCC91 /* SettingViewController.m in Sources */,
 				D1F1304B1D2CF63300EE1690 /* SelectModel.m in Sources */,
 				D114DC581D24EEC50001CE21 /* Good.m in Sources */,
 				CC6FD60E1D362E0300DA60AB /* MJPropertyType.m in Sources */,

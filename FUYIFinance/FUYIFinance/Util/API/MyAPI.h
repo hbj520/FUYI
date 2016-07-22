@@ -186,6 +186,37 @@ typedef void (^ErrorBlock) (NSError *enginerError);
                                    result:(ArrayBlock)result
                               errorResult:(ErrorBlock)errorResult;
 
+/**
+ *  取消订单
+ *
+ *  @param ordernum    订单号
+ *  @param result      取消订单状态
+ *  @param errorResult 错误信息
+ */
+- (void)cancelOrderWithOrdernum:(NSString *)ordernum
+                         result:(StateBlock)result
+                    errorResult:(ErrorBlock)errorResult;
+
+/**
+ *  退出登录
+ *
+ *  @param result      退出登录状态
+ *  @param errorResult 错误信息
+ */
+- (void)LoginOutWithResult:(StateBlock)result
+               errorResult:(ErrorBlock)errorResult;
+
+/**
+ *  上传图片
+ *
+ *  @param imageData   图片数据
+ *  @param result      上传图片状态
+ *  @param errorResult 错误信息
+ */
+- (void)uploadImage:(NSData *)imageData
+             result:(StateBlock)result
+        errorResult:(ErrorBlock)errorResult;
+
 #pragma mark -讲师团队
 - (void)getTeacherTeamDataWithToken:(NSString*)token
                                page:(NSString*)page

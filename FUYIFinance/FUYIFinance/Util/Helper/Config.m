@@ -88,6 +88,13 @@ static Config * instance = nil;
     [settings synchronize];
 }
 
+- (void)saveIcon:(NSString *)icon
+{
+    NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
+    [settings removeObjectForKey:@"icon"];
+    [settings setObject:icon forKey:@"icon"];
+    [settings synchronize];
+}
 
 /**
  *  保存密码
@@ -120,6 +127,12 @@ static Config * instance = nil;
 {
     NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
     return [settings stringForKey:@"password"];
+}
+
+- (NSString *)getIcon
+{
+    NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
+    return [settings stringForKey:@"icon"];
 }
 
 - (NSString*)getToken

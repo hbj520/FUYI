@@ -53,6 +53,7 @@
         [weakself loadData];
         
     }];
+    
     MJRefreshAutoNormalFooter * footerRefresh = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         page++;
         [weakself loadData];
@@ -69,32 +70,22 @@
     
 [[MyAPI sharedAPI] requestWaitjudgeDataWithParameters:pagestr
                                                result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
-    if([msg isEqualToString:@"-1"]){
-        [_tableView.mj_header endRefreshing];
-        [_tableView.mj_footer endRefreshing];
-       
-        [self logOut];
-    }
-    if(success){
-        [dataSource addObjectsFromArray:arrays];
-       
-        [_tableView reloadData];
-        [_tableView.mj_header endRefreshing];
-        [_tableView.mj_footer endRefreshing];
-
-    
-    }else{
-       
-        [_tableView.mj_header endRefreshing];
-        [_tableView.mj_footer endRefreshing];
-
-    }
-} errorResult:^(NSError *enginerError) {
-    
-    [_tableView.mj_header endRefreshing];
-    [_tableView.mj_footer endRefreshing];
-
-}];
+                                                   if([msg isEqualToString:@"-1"]){
+                                                       [self logOut];
+                                                   }
+                                                   if(success){
+                                                       [dataSource addObjectsFromArray:arrays];
+                                                       [_tableView reloadData];
+                                                   }else{
+                                                       
+                                                   }
+                                                   [_tableView.mj_header endRefreshing];
+                                                   [_tableView.mj_footer endRefreshing];
+                                                   
+                                               } errorResult:^(NSError *enginerError) {
+                                                   [_tableView.mj_header endRefreshing];
+                                                   [_tableView.mj_footer endRefreshing];
+                                               }];
     
 }
 
