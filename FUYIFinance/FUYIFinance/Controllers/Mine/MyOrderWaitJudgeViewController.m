@@ -66,30 +66,31 @@
 - (void)loadData
 {
     NSString * pagestr = [NSString stringWithFormat:@"%ld",page];
-    [self showHudInView:self.view hint:@"正在加载中"];
-[[MyAPI sharedAPI] requestWaitjudgeDataWithParameters:pagestr result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
+    
+[[MyAPI sharedAPI] requestWaitjudgeDataWithParameters:pagestr
+                                               result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
     if([msg isEqualToString:@"-1"]){
         [_tableView.mj_header endRefreshing];
         [_tableView.mj_footer endRefreshing];
-        [self hideHud];
+       
         [self logOut];
     }
     if(success){
         [dataSource addObjectsFromArray:arrays];
+       
         [_tableView reloadData];
-        [self hideHud];
         [_tableView.mj_header endRefreshing];
         [_tableView.mj_footer endRefreshing];
 
     
     }else{
-        [self hideHud];
+       
         [_tableView.mj_header endRefreshing];
         [_tableView.mj_footer endRefreshing];
 
     }
 } errorResult:^(NSError *enginerError) {
-    [self hideHud];
+    
     [_tableView.mj_header endRefreshing];
     [_tableView.mj_footer endRefreshing];
 
@@ -129,6 +130,7 @@
     __weak MyOrderWaitJudgeViewController * weakself = self;
     cell.model = model;
     cell.block = ^(NSIndexPath * cellindexpath){
+        cellindexpath = indexPath;
         [weakself clickjudgeBtnWithIndexpath:cellindexpath];
     };
         return cell;
@@ -142,10 +144,17 @@
     
     UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
     ProductJudgeViewController * VC = (ProductJudgeViewController*)[storyboard instantiateViewControllerWithIdentifier:@"productJudge"];
+    VC.deleteblock = ^(NSIndexPath *indexpath){
+        NSInteger index = indexpath.section;
+        [dataSource removeObjectAtIndex:index];
+        [_tableView reloadData];
+        
+    };
     VC.uid = model.goodsid;
     VC.ustyle = model.goodstyle;
-    NSInteger indx = indexpath.section;
-    VC.indx = indx;
+    VC.indexpath = indexpath;
+    VC.index = indexpath.section;
+    NSLog(@"%ld",VC.index);
     [self.navigationController pushViewController:VC animated:YES];
 }
 

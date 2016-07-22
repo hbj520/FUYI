@@ -7,6 +7,7 @@
 //
 
 #import "PersonalWaitPayTableViewCell.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 #import "LabelHelper.h"
 
 @implementation PersonalWaitPayTableViewCell
@@ -26,21 +27,19 @@
   
 }
 
-- (void)addPriceLabel
+- (void)setModel:(MineWaitPayModel *)model
 {
-//    self.translateFeeLabel.text = @"(含运费¥0.00)";
-//    self.translateFeeLabel.textColor = [UIColor blackColor];
-//    self.translateFeeLabel.font = [UIFont systemFontOfSize:11];
-//    self.translateFeeLabel.frame = CGRectMake(self.contentView.frame.size.width - 15 - 81, 134, 81, 21);
-//    [self.contentView addSubview:self.translateFeeLabel];
+    [self.thumbImage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"placeimage"]];
+    NSString * pricelabel = [NSString stringWithFormat:@"¥ %@",model.price];
+    self.price.text = pricelabel;
+    self.totalPrice.attributedText = [[LabelHelper alloc] attributedStringWithString:pricelabel];
+    self.shopname.text = model.shopname;
+    self.titlename.text = model.name;
+    NSString * teachernamelabel = [NSString stringWithFormat:@"讲师:%@",model.teacher];
+    self.teachername.text = teachernamelabel;
     
     
-    UILabel * label2 = [[LabelHelper alloc] buildPriceLabelWithString:@"¥39.00"];
-    label2.frame = CGRectMake(self.contentView.frame.size.width - 15 - 81 - 10, 134, 50, 21);
-    [self.contentView addSubview:label2];
 }
-
-
 
 - (void)addBlock{
     [self.cancelBtn addTarget:self action:@selector(SelectAct:) forControlEvents:UIControlEventTouchUpInside];

@@ -79,6 +79,15 @@ static Config * instance = nil;
 
 }
 
+- (void)saveIndex:(NSString *)index
+{
+    NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
+    [settings removeObjectForKey:@"index"];
+    [settings setObject:index forKey:@"index"];
+    
+    [settings synchronize];
+}
+
 
 /**
  *  保存密码
@@ -118,14 +127,13 @@ static Config * instance = nil;
     NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
     return [settings stringForKey:@"token"];
 }
-
 - (NSString *)getUserPhoneNum
 {
     NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
     return [settings stringForKey:@"phonenum"];
 }
 
-- (void)logOut{
+- (void)logout{
     NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
     [settings removeObjectForKey:@"token"];
     [settings removeObjectForKey:@"icon"];

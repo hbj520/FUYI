@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "MineMyJudgeModel.h"
 @interface MyJudgeTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *thumbimage;
 @property (weak, nonatomic) IBOutlet UILabel *judgelabel;
 @property (weak, nonatomic) IBOutlet UILabel *titlename;
 @property (weak, nonatomic) IBOutlet UILabel *defaultjudge;
 @property (weak, nonatomic) IBOutlet UILabel *timelabel;
-
+@property (nonatomic,strong) MineMyJudgeModel * model;
 @end

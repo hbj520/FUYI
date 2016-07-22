@@ -7,9 +7,11 @@
 //
 
 #import "BaseViewController.h"
-
+typedef void(^DeleteJudgeBlock)(NSIndexPath *);
 @interface ProductJudgeViewController : BaseViewController
 @property (nonatomic,copy) NSString * uid;
 @property (nonatomic,copy) NSString * ustyle;
-@property (nonatomic,assign) NSInteger indx;
+@property (nonatomic,assign) NSIndexPath * indexpath;
+@property (nonatomic,assign) NSInteger index;
+@property (nonatomic,copy) DeleteJudgeBlock deleteblock;
 @end

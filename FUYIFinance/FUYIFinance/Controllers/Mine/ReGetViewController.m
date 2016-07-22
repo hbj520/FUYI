@@ -65,7 +65,8 @@
         return;
     }
     [self setTimeSchedu];
-    [[MyAPI sharedAPI] registerWithParameters:self.phoneNum.text result:^(BOOL sucess, NSString *msg) {
+    [[MyAPI sharedAPI] registerWithParameters:self.phoneNum.text
+                                       result:^(BOOL sucess, NSString *msg) {
         if(sucess){
             [self showHint:@"验证码发送成功，请注意查看短信"];
         }else{

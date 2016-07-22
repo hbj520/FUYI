@@ -7,12 +7,20 @@
 //
 
 #import "MyJudgeTableViewCell.h"
-
+#import <SDWebImage/UIImageView+WebCache.h>
 @implementation MyJudgeTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+}
+
+- (void)setModel:(MineMyJudgeModel *)model
+{
+    self.titlename.text = model.name;
+    self.defaultjudge.text = model.content;
+    [self.thumbimage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"placeimage"]];
+    self.timelabel.text = model.ctime;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

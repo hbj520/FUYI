@@ -475,10 +475,13 @@
 
 #pragma mark -博客
 #pragma mark -个人中心
-- (void)requestCollectionTreasureDataWithParameters:(NSString*)page result:(ArrayBlock)result errorResult:(ErrorBlock)errorResult
+- (void)requestCollectionTreasureDataWithParameters:(NSString*)page
+                                             result:(ArrayBlock)result
+                                        errorResult:(ErrorBlock)errorResult
 {
 
-    NSDictionary * parameters = @{@"token":KToken};
+    NSDictionary * parameters = @{@"token":KToken,
+                                  @"page":page};
     [self.manager POST:@"allcollect" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         NSString * status = responseObject[@"status"];
         NSString * info = responseObject[@"info"];
@@ -505,9 +508,12 @@
     }];
 }
 
-- (void)requestCollectionShopDataWithParameters:(NSString*)page result:(ArrayBlock)result errorResult:(ErrorBlock)errorResult
+- (void)requestCollectionShopDataWithParameters:(NSString*)page
+                                         result:(ArrayBlock)result
+                                    errorResult:(ErrorBlock)errorResult
 {
-    NSDictionary * parameters = @{@"token":KToken,@"page":page};
+    NSDictionary * parameters = @{@"token":KToken,
+                                  @"page":page};
     [self.manager POST:@"allstore" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         NSString * status = responseObject[@"status"];
         NSString * info = responseObject[@"info"];
@@ -535,9 +541,12 @@
     
 }
 
-- (void)requestMyJudgeDataWithParameters:(NSString *)page result:(ArrayBlock)result errorResult:(ErrorBlock)errorResult
+- (void)requestMyJudgeDataWithParameters:(NSString *)page
+                                  result:(ArrayBlock)result
+                             errorResult:(ErrorBlock)errorResult
 {
-    NSDictionary * parameters = @{@"token":KToken,@"page":page};
+    NSDictionary * parameters = @{@"token":KToken,
+                                  @"page":page};
     [self.manager POST:@"alleva" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         NSString * status = responseObject[@"status"];
         NSString * info = responseObject[@"info"];
@@ -565,9 +574,12 @@
     }];
 }
 
-- (void)requestWaitpayDataWithParameters:(NSString *)page result:(ArrayBlock)result errorResult:(ErrorBlock)errorResult
+- (void)requestWaitpayDataWithParameters:(NSString *)page
+                                  result:(ArrayBlock)result
+                             errorResult:(ErrorBlock)errorResult
 {
-    NSDictionary * parameters = @{@"token":KToken,@"page":page};
+    NSDictionary * parameters = @{@"token":KToken,
+                                  @"page":page};
     [self.manager POST:@"pendpay" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         NSString * status = responseObject[@"status"];
         NSString * info = responseObject[@"info"];
@@ -580,7 +592,11 @@
                 result(YES,info,WaitPayModelArray);
             }
         }else{
+            if([status isEqualToString:@"-1"]){
+                result(NO,@"-1",nil);
+            }else{
             result(NO,info,nil);
+            }
         }
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         errorResult(error);
@@ -591,7 +607,8 @@
                                     result:(ArrayBlock)result
                                errorResult:(ErrorBlock)errorResult
 {
-    NSDictionary * parameters = @{@"page":page,@"token":KToken};
+    NSDictionary * parameters = @{@"page":page,
+                                  @"token":KToken};
     [self.manager POST:@"reva" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         NSString * status = responseObject[@"status"];
         NSString * info = responseObject[@"info"];
@@ -613,13 +630,19 @@
     
 }
 
-- (void)uploadUserJudgeWithParameters:(NSString *)score Anonymous:(NSString *)anonymous Content:(NSString *)content Goodstyle:(NSString *)goodstyle Goodsid:(NSString *)goodsid result:(StateBlock)result errorResult:(ErrorBlock)errorResult
+- (void)uploadUserJudgeWithParameters:(NSString *)score
+                            Anonymous:(NSString *)anonymous
+                              Content:(NSString *)content
+                            Goodstyle:(NSString *)goodstyle
+                              Goodsid:(NSString *)goodsid
+                               result:(StateBlock)result
+                          errorResult:(ErrorBlock)errorResult
 {
     NSDictionary * parameters = @{@"token":KToken,
                                   @"score":score,
                                   @"anonymous":anonymous,
                                   @"content":content,
-                                  @"goodstyle":goodstyle,
+                                  @"goodstype":goodstyle,
                                   @"goodsid":goodsid};
     [self.manager POST:@"replygood" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         NSString * status = responseObject[@"status"];

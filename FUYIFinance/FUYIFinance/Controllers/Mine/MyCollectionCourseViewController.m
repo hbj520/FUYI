@@ -31,6 +31,7 @@
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 100) style:UITableViewStylePlain];
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    dataSource = [NSMutableArray array];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [_tableView registerNib:[UINib nibWithNibName:@"MyCollectionTableViewCell" bundle:nil] forCellReuseIdentifier:@"MyCollectionId"];
@@ -65,20 +66,28 @@
 {
     [self showHudInView:self.view hint:@"正在加载中"];
     NSString * pagestr = [NSString stringWithFormat:@"%ld",page];
-    [[MyAPI sharedAPI] requestCollectionTreasureDataWithParameters:pagestr result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
-        dataSource = [NSMutableArray array];
+    [[MyAPI sharedAPI] requestCollectionTreasureDataWithParameters:pagestr
+                                                            result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
+
         if(success){
-            dataSource = arrays;
+          
+            for(MineCollectionTreasureModel * model in arrays){
+                [dataSource addObject:model];
+            }
+            
             [self hideHud];
             [_tableView reloadData];
             [_tableView.mj_header endRefreshing];
             [_tableView.mj_footer endRefreshing];
 
         }else{
+            [self hideHud];
             [_tableView.mj_header endRefreshing];
             [_tableView.mj_footer endRefreshing];
-
-            [self logOut];
+            if([msg isEqualToString:@"-1"]){
+                [self logOut];
+            }
+           
         }
     } errorResult:^(NSError *enginerError) {
         [self hideHud];
