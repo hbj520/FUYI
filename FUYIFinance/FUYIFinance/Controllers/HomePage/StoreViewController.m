@@ -8,8 +8,9 @@
 
 #import "StoreViewController.h"
 
-@interface StoreViewController ()
+@interface StoreViewController ()<UITableViewDelegate,UITableViewDataSource>
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
 
 @implementation StoreViewController
@@ -17,6 +18,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self creatUI];
+    
+    
+}
+
+- (void)creatUI{
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    
 }
 
 - (void)didReceiveMemoryWarning {

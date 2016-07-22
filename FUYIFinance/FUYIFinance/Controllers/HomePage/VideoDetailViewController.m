@@ -42,7 +42,7 @@
     [self creatUI];
       _cnt = 0;
     
-    [self judgeCollectSelected];//判断第一次进来的按钮状态
+    [self judgeCollectSelected];//判断第一次进来的收藏按钮状态
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -58,12 +58,10 @@
     }else{
         self.collectBtn.selected = YES;
     }
-    
-    
 }
 
 -(void)creatUI{
-    self.navigationItem.hidesBackButton = YES;
+   // self.navigationItem.hidesBackButton = YES;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"VideoDetailFirstTableViewCell" bundle:nil] forCellReuseIdentifier:@"detailFirstReuseID"];
@@ -100,7 +98,6 @@
 }
 
 - (void)addBottomTapGesAndButton{
-
     [self.collectBtn setBackgroundImage:[UIImage imageNamed:@"VD_star"] forState:UIControlStateNormal];
     [self.collectBtn setBackgroundImage:[UIImage imageNamed:@"VD_red_Star.jpg"] forState:UIControlStateSelected];
     
@@ -149,9 +146,6 @@
     } errorResult:^(NSError *enginerError) {
         
     }];
-    
-
-   
 }
 
 - (void)groupAnimation
@@ -295,7 +289,7 @@
 }
 //店铺
 - (void)shopClick:(UIGestureRecognizer *)ges{
-    
+    [self performSegueWithIdentifier:@"GoStoreSegue" sender:nil];
 }
 
 //客服

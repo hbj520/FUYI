@@ -170,6 +170,8 @@
 		D15BA38E1D237E3300904DEF /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D15BA38D1D237E3300904DEF /* HeaderView.xib */; };
 		D15BA3941D23906600904DEF /* CustomBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = D15BA3931D23906600904DEF /* CustomBtn.m */; };
 		D16E04021D40BAF30038297A /* StoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D16E04011D40BAF30038297A /* StoreViewController.m */; };
+		D16E04071D41CC440038297A /* StoreHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D16E04051D41CC440038297A /* StoreHeaderTableViewCell.m */; };
+		D16E04081D41CC440038297A /* StoreHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D16E04061D41CC440038297A /* StoreHeaderTableViewCell.xib */; };
 		D1C49AFE1D2246A4003C17DA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1C49AFD1D2246A4003C17DA /* libPods.a */; };
 		D1C49B051D224DB6003C17DA /* ShopCarNavigationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C49B041D224DB6003C17DA /* ShopCarNavigationItem.m */; };
 		D1C49B071D224DE8003C17DA /* ShopCarNavigationItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1C49B061D224DE8003C17DA /* ShopCarNavigationItem.xib */; };
@@ -528,6 +530,9 @@
 		D15BA3931D23906600904DEF /* CustomBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomBtn.m; sourceTree = "<group>"; };
 		D16E04001D40BAF30038297A /* StoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreViewController.h; sourceTree = "<group>"; };
 		D16E04011D40BAF30038297A /* StoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreViewController.m; sourceTree = "<group>"; };
+		D16E04041D41CC440038297A /* StoreHeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreHeaderTableViewCell.h; sourceTree = "<group>"; };
+		D16E04051D41CC440038297A /* StoreHeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreHeaderTableViewCell.m; sourceTree = "<group>"; };
+		D16E04061D41CC440038297A /* StoreHeaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoreHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		D1C49AFD1D2246A4003C17DA /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPods.a; sourceTree = "<group>"; };
 		D1C49B031D224DB6003C17DA /* ShopCarNavigationItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopCarNavigationItem.h; sourceTree = "<group>"; };
 		D1C49B041D224DB6003C17DA /* ShopCarNavigationItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopCarNavigationItem.m; sourceTree = "<group>"; };
@@ -1095,6 +1100,9 @@
 				D1F130121D2A4E5A00EE1690 /* VideoDetailThirdtTableViewCell.xib */,
 				D1F130151D2A5B3B00EE1690 /* VideoDetailHeader.h */,
 				D1F130161D2A5B3B00EE1690 /* VideoDetailHeader.m */,
+				D16E04041D41CC440038297A /* StoreHeaderTableViewCell.h */,
+				D16E04051D41CC440038297A /* StoreHeaderTableViewCell.m */,
+				D16E04061D41CC440038297A /* StoreHeaderTableViewCell.xib */,
 				D1F130211D2B80DB00EE1690 /* ConInfoTableViewCell.h */,
 				D1F130221D2B80DB00EE1690 /* ConInfoTableViewCell.m */,
 				D1F130231D2B80DB00EE1690 /* ConInfoTableViewCell.xib */,
@@ -1543,6 +1551,7 @@
 				CC42E2871D24F6A10008A8D7 /* LoveManageTableViewCell.xib in Resources */,
 				CC6FD5E21D36047500DA60AB /* area.plist in Resources */,
 				ABF5DE501D0FA7FC007CE1AB /* ShopCar.storyboard in Resources */,
+				D16E04081D41CC440038297A /* StoreHeaderTableViewCell.xib in Resources */,
 				CC593CC11D2A02070077B096 /* MyShopDetailTableViewCell.xib in Resources */,
 				ABEACD441D2B7C0900574259 /* VideoShopTableViewCell.xib in Resources */,
 				D1F130861D38AD0000EE1690 /* FooterView.xib in Resources */,
@@ -1732,6 +1741,7 @@
 				CC42E27F1D24F1690008A8D7 /* MyCollectionShopTableViewCell.m in Sources */,
 				CCEEFC121D37613A0001C7AA /* MineNoticeViewController.m in Sources */,
 				AB36CE2D1D1B710400D0E4C7 /* TAAbstractDotView.m in Sources */,
+				D16E04071D41CC440038297A /* StoreHeaderTableViewCell.m in Sources */,
 				CC6BD0771D2F496900659C96 /* Config.m in Sources */,
 				CC4F372F1D2DEFEC00312F11 /* MineWaitPayModel.m in Sources */,
 				AB45FC3E1D409500008E6FBA /* LGDRTMPViewController.m in Sources */,

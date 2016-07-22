@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ShopTopTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *StoreHotLab;
 
 @end

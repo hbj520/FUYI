@@ -310,12 +310,18 @@
         }
     
         if ([state isEqualToString:@"1"]) {
-            NSArray *newStoreArray = responseObject[@"data"];
-            NSLog(@"%@+++++++",newStoreArray);
+            NSArray *newArray = responseObject[@"data"];
+            
+            for (NSDictionary *dic in newArray) {
+                 NSArray *keyArrays = [dic allKeys];
+                
+            }
+         
+           // NSLog(@"%@+++++++newArrayys);
           //  NSArray *newGoodArray
             Good *model = [[Good alloc]init];
-            NSArray *shopCarArray = [model buildWithData:newStoreArray];
-            return result(YES,info,shopCarArray);
+           // NSArray *shopCarArray = [model buildWithData:newArray];
+         //   return result(YES,info,shopCarArray);
         }else{
             return result(NO,info,nil);
         }
