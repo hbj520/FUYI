@@ -11,6 +11,7 @@
 #import "VideoDetailViewController.h"
 #import "ShopCarViewController.h"
 #import "ConfirmOrderViewController.h"
+#import "StoreViewController.h"
 
 //view
 #import "VideoDetailFirstTableViewCell.h"
@@ -355,8 +356,11 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    ConfirmOrderViewController *confirmVC = segue.destinationViewController;
-    confirmVC.model = sender;
+    if ([segue.identifier isEqualToString:@"ConfirmOrderSegue"]) {
+        ConfirmOrderViewController *confirmVC = segue.destinationViewController;
+        confirmVC.model = sender;
+    }
+
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{

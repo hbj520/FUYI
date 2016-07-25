@@ -16,6 +16,7 @@
 #import "ShopCarViewController.h"
 
 #import "Good.h"
+#import "TeacherStoreModel.h"
 
 #import "MyAPI.h"
 #import "LabelHelper.h"
@@ -38,9 +39,9 @@
 @property(nonatomic,assign)BOOL isAllSelected;
 
 
-//保存商品、商标
+//保存商品、商家
 @property(nonatomic,retain)NSMutableArray * goodArray;
-@property(nonatomic,retain)NSMutableArray * brandArray;
+@property(nonatomic,retain)NSMutableArray * storeArray;
 
 
 
@@ -59,6 +60,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     _goodArray = [NSMutableArray array];
+    _storeArray = [NSMutableArray array];
+    _isSelected = [NSMutableArray array];
+    _headIsSelected = [NSMutableArray array];
     if (KToken) {
         [self creatUI];
         self.isAllSelected = YES;
@@ -76,6 +80,9 @@
         _page = 1;
         if (_goodArray.count > 0) {
             [_goodArray removeAllObjects];
+        }
+        if (_storeArray.count > 0) {
+            [_storeArray removeAllObjects];
         }
         [weakself loadData];
     }];
@@ -96,8 +103,11 @@
             [self logOut];
         }
         if (success) {
-            [_goodArray addObjectsFromArray:arrays];
+            [_storeArray addObjectsFromArray:arrays[0]];
+            [_goodArray addObjectsFromArray:arrays[1]];
             [self.tableView reloadData];
+            
+             [self creatData];
         }
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
@@ -107,16 +117,36 @@
         [self.tableView.mj_footer endRefreshing];
     }];
     //创建数据
-    [self creatData];
+   
 }
 
 -(void)creatData
 {   //测试数据源
-    NSMutableArray * array0 = [[NSMutableArray alloc]initWithObjects:@"1",@"1", nil];
-    NSMutableArray * array1 = [[NSMutableArray alloc]initWithObjects:@"1",@"1", nil];
-    NSMutableArray * array2 = [[NSMutableArray alloc]initWithObjects:@"1",@"1", nil];
-    self.isSelected = [[NSMutableArray alloc]initWithObjects:array0,array1,array2,nil];
-    self.headIsSelected = [[NSMutableArray alloc]initWithObjects:@"1",@"1",@"1", nil];
+//    NSMutableArray * array0 = [[NSMutableArray alloc]initWithObjects:@"1",@"1", nil];
+//    NSMutableArray * array1 = [[NSMutableArray alloc]initWithObjects:@"1",@"1", nil];
+//    NSMutableArray * array2 = [[NSMutableArray alloc]initWithObjects:@"1",@"1", nil];
+//    self.isSelected = [[NSMutableArray alloc]initWithObjects:array0,array1,array2,nil];
+//    self.headIsSelected = [[NSMutableArray alloc]initWithObjects:@"1",@"1",@"1", nil];
+    
+    //NSMutableArray * array0 = [[NSMutableArray alloc]init];
+
+    for (TeacherStoreModel *teacherModel in _storeArray) {
+        [_headIsSelected addObject:@"1"];
+    }
+    
+    for (int i = 0; i < _goodArray.count; i++) {
+        NSArray *array = _goodArray[i];
+        NSMutableArray *goodA = [[NSMutableArray alloc]init];
+       
+        for (Good *goodModel in array) {
+            [goodA addObject:@"1"];
+        }
+        
+        [_isSelected addObject:goodA];
+   // NSLog(@"666666%@6666666",_isSelected);
+    }
+    
+    
 }
 
 -(void)creatUI
@@ -136,12 +166,14 @@
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return self.isSelected.count;
+    return self.storeArray.count;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.isSelected[section] count];
+    //NSArray *goodArr = _goodArray[section]
+    
+    return [self.goodArray[section] count];
 }
 
 
@@ -157,6 +189,12 @@
     [cell.selectBtn addTarget:self action:@selector(cellSelectBtn:) forControlEvents:UIControlEventTouchUpInside];
     //默认1
     cell.selectBtn.selected = [self.isSelected[indexPath.section][indexPath.row]boolValue];
+    
+        Good *goodMod = _goodArray[indexPath.section][indexPath.row];
+        [cell.goodImage sd_setImageWithURL:[NSURL URLWithString:goodMod.goodImage] placeholderImage:[UIImage imageNamed:@"shopcar_defual"]];
+        //cell.goodCounts.text = [NSString stringWithFormat:@"x%@",goodMod.orderNum];
+        cell.goodPrice.attributedText = [[LabelHelper alloc]attributedFontStringWithString:[NSString stringWithFormat:@"¥ %@",goodMod.goodPrice] firstFont:13 secFont:17 thirdFont:14];
+        cell.goodContent.text = goodMod.goodName;
    
     return cell;
 
@@ -171,7 +209,7 @@
     
     headerView.selectBtn.tag = section;
     [headerView.selectBtn addTarget:self action:@selector(headButton:) forControlEvents:UIControlEventTouchUpInside];
-    //默认1
+    //默认按钮选中
     headerView.selectBtn.selected = [self.headIsSelected[section] boolValue];
     
     headerView.deleteBtn.tag = section;
@@ -180,6 +218,10 @@
     //设置header颜色
     headerView.backgroundView = [[UIImageView alloc]init];
     headerView.backgroundView.backgroundColor = [UIColor whiteColor];
+    
+    TeacherStoreModel *TeacherModel = [_storeArray objectAtIndex:section];
+    headerView.videoClassLab.text = [NSString stringWithFormat:@"%@的视频课堂",TeacherModel.teacherName];
+    
     
     return headerView;
 }

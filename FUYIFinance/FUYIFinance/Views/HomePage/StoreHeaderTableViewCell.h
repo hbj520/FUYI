@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface StoreHeaderTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *teacherImage;
+@property (weak, nonatomic) IBOutlet UILabel *teacherNameLab;
+@property (weak, nonatomic) IBOutlet UIImageView *teacherTypeImage;
+@property (weak, nonatomic) IBOutlet UIImageView *bgImage;
+@property (weak, nonatomic) IBOutlet UILabel *collectCountLab;
 
 @end

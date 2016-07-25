@@ -21,6 +21,7 @@
 #import "TeacherModel.h"
 
 #import "Good.h"
+#import "TeacherStoreModel.h"
 
 //mine models
 #import "MineCollectionTreasureModel.h"
@@ -308,20 +309,23 @@
         if ([state isEqualToString:@"-1"]) {
             return result(NO,info,nil);
         }
-    
+        if ([state isEqualToString:@"0"]) {
+            return result(NO,info,nil);
+        }
         if ([state isEqualToString:@"1"]) {
             NSArray *newArray = responseObject[@"data"];
             
-            for (NSDictionary *dic in newArray) {
-                 NSArray *keyArrays = [dic allKeys];
-                
+            TeacherStoreModel *model = [[TeacherStoreModel alloc]init];
+            NSArray *teacherArray = [model buildWithArray:newArray];//老师》区头数组
+            
+            NSMutableArray *allGoodArray = [NSMutableArray array];
+            for (TeacherStoreModel *model in teacherArray) {
+                NSArray *goodArr = model.goodsInfo;
+                Good *goodModel = [[Good alloc]init];
+                NSArray *goodArray = [goodModel buildWithGoodData:goodArr];//每个区对应的商品数组
+                [allGoodArray addObject:goodArray];//商品总数组
             }
-         
-           // NSLog(@"%@+++++++newArrayys);
-          //  NSArray *newGoodArray
-            Good *model = [[Good alloc]init];
-           // NSArray *shopCarArray = [model buildWithData:newArray];
-         //   return result(YES,info,shopCarArray);
+             return result(YES,info,@[teacherArray,allGoodArray]);
         }else{
             return result(NO,info,nil);
         }
@@ -329,10 +333,6 @@
         errorResult(error);
     }];
 }
-
-
-
-
 
 
 #pragma mark -加入购物车

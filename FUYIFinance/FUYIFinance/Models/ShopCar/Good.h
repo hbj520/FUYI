@@ -15,7 +15,7 @@
 @property (nonatomic,strong) NSString *goodPrice;
 @property (nonatomic,strong) NSString *goodName;
 @property (nonatomic,strong) NSString *goodImage;
-@property (nonatomic,strong) NSString *teacherName;
+@property (nonatomic,strong) NSString *orderNum;
 @property (nonatomic,strong) NSString *type;
 
 /**
@@ -36,8 +36,8 @@
                goodPrice:(NSString*)goodPrice
                 goodName:(NSString*)goodName
                goodImage:(NSString*)goodImage
-             teacherName:(NSString*)teacherName
+                orderNum:(NSString*)orderNum
                     type:(NSString*)type;
 
-- (NSArray *)buildWithData:(NSArray *)data;
+- (NSArray *)buildWithGoodData:(NSArray *)data;
 @end

@@ -11,4 +11,5 @@
 @interface VideoDetailThirdtTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UITextView *videoContentText;
 
+
 @end
