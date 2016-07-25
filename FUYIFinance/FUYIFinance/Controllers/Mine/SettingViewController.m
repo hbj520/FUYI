@@ -7,7 +7,9 @@
 //
 
 #import "SettingViewController.h"
+#import "MineTableViewController.h"
 #import "MyAPI.h"
+#import "Config.h"
 #import "UIViewController+HUD.h"
 @interface SettingViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -162,8 +164,10 @@
     [[MyAPI sharedAPI]LoginOutWithResult:^(BOOL sucess, NSString *msg) {
         if(sucess){
             [self showHint:msg];
-           // [self logOut];
+            [[Config Instance] logout];
             [self hideHud];
+           [self.navigationController popViewControllerAnimated:YES];
+            self.navigationController.navigationBarHidden = YES;
         }else{
             [self showHint:msg];
             [self hideHud];

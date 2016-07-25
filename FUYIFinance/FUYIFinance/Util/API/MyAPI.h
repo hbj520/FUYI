@@ -31,6 +31,8 @@ typedef void (^ErrorBlock) (NSError *enginerError);
                    errorResult:(ErrorBlock)errorResult;
 
 
+
+
 /**
  *  注册
  *
@@ -48,7 +50,33 @@ typedef void (^ErrorBlock) (NSError *enginerError);
                         result:(StateBlock)result
                    errorResult:(ErrorBlock)errorResult;
 
-   
+/**
+ *  忘记密码发送短信验证码
+ *
+ *  @param phoneNum    忘记密码的手机号码
+ *  @param result      正常返回结果
+ *  @param errorResult 返回出错
+ */
+- (void)sendYZMWithParameters:(NSString *)phoneNum
+                       result:(StateBlock)result
+                  errorResult:(ErrorBlock)errorResult;
+
+/**
+ *  忘记密码
+ *
+ *  @param phonenum    忘记密码的手机号码
+ *  @param yzm         验证码
+ *  @param password    密码
+ *  @param repassword  确认密码
+ *  @param result      正常返回结果
+ *  @param errorResult 返回出错
+ */
+- (void)forgetPasswordWithPhonenum:(NSString *)phonenum
+                               YZM:(NSString *)yzm
+                          Password:(NSString *)password
+                        Repassword:(NSString *)repassword
+                            result:(StateBlock)result
+                       errorResult:(ErrorBlock)errorResult;
    
 /**
  *  登录
@@ -216,6 +244,7 @@ typedef void (^ErrorBlock) (NSError *enginerError);
 - (void)uploadImage:(NSData *)imageData
              result:(StateBlock)result
         errorResult:(ErrorBlock)errorResult;
+
 
 #pragma mark -讲师团队
 - (void)getTeacherTeamDataWithToken:(NSString*)token

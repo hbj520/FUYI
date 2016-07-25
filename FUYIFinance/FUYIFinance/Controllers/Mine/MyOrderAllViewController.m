@@ -7,6 +7,7 @@
 //
 
 #import "MyOrderAllViewController.h"
+#import "UIViewController+HUD.h"
 #import "PersonalWaitPayTableViewCell.h"
 #import "PersonalWaitJudgeTableViewCell.h"
 #import "MyJudgeTableViewCell.h"
@@ -16,13 +17,14 @@
 #import "LabelHelper.h"
 #import "MyAPI.h"
 
-@interface MyOrderAllViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface MyOrderAllViewController ()<UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate>
 {
     UITableView * _tableView;
     NSMutableArray * waitjudgeArray;
     NSMutableArray * waitpayArray;
     NSMutableArray * isjudgeArray;
     NSInteger page;
+    NSInteger index;
 }
 @end
 
@@ -152,6 +154,9 @@
 {
     if(indexPath.section == 0){
         PersonalWaitPayTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MyOrderId" forIndexPath:indexPath];
+        cell.cancelBtn.tag = 10 + indexPath.row;
+        cell.sureBtn.tag = indexPath.row;
+        [cell.cancelBtn addTarget:self action:@selector(CancelOrdernum:) forControlEvents:UIControlEventTouchUpInside];
         AllOderModel * model = [[AllOderModel alloc] init];
         model = waitpayArray[indexPath.row];
         [cell.thumbImage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"placeimage"]];
@@ -203,6 +208,33 @@
     }
 }
 
+- (void)CancelOrdernum:(UIButton *)sender
+{
+    UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"确认删除订单？" message:@"删除之后可以从电脑端订单回收站恢复" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认", nil];
+    [alertView show];
+    index = sender.tag;
+ 
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 1){
+        MineWaitPayModel * model = [[MineWaitPayModel alloc] init];
+        model = waitpayArray[index - 10];
+//        [[MyAPI sharedAPI] cancelOrderWithOrdernum:model.ordernum result:^(BOOL sucess, NSString *msg) {
+//            if (sucess) {
+//                [self showHint:msg];
+//                [_tableView reloadData];
+//            }else{
+//                [self showHint:msg];
+//            }
+//            
+//        } errorResult:^(NSError *enginerError) {
+//            
+//        }];
+        
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

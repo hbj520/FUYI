@@ -708,6 +708,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Za6-uX-V1z">
                                 <rect key="frame" x="0.0" y="523" width="320" height="45"/>
                                 <color key="backgroundColor" red="0.90980392156862744" green="0.23108416814712385" blue="0.24229832872746412" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="3Pi-ZP-aiH"/>
+                                </constraints>
                                 <state key="normal" title="退出当前账户">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -718,14 +721,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="duS-WQ-oDA" firstAttribute="leading" secondItem="zg0-6q-1CW" secondAttribute="leading" id="Aeh-g4-q9e"/>
-                            <constraint firstItem="duS-WQ-oDA" firstAttribute="top" secondItem="CvC-Hm-UNU" secondAttribute="bottom" id="DXf-wY-kcj"/>
-                            <constraint firstItem="Za6-uX-V1z" firstAttribute="top" secondItem="duS-WQ-oDA" secondAttribute="bottom" id="HWM-P1-qQI"/>
-                            <constraint firstAttribute="trailing" secondItem="Za6-uX-V1z" secondAttribute="trailing" id="Lhs-Fs-uZl"/>
-                            <constraint firstItem="Za6-uX-V1z" firstAttribute="leading" secondItem="zg0-6q-1CW" secondAttribute="leading" id="RoI-qG-me1"/>
-                            <constraint firstAttribute="trailing" secondItem="duS-WQ-oDA" secondAttribute="trailing" id="Xyw-OX-X9s"/>
-                            <constraint firstItem="JOd-Oj-qQO" firstAttribute="top" secondItem="Za6-uX-V1z" secondAttribute="bottom" id="cPJ-zd-6z8"/>
-                            <constraint firstItem="JOd-Oj-qQO" firstAttribute="top" secondItem="duS-WQ-oDA" secondAttribute="bottom" constant="45" id="wpu-p3-keH"/>
+                            <constraint firstAttribute="trailing" secondItem="duS-WQ-oDA" secondAttribute="trailing" id="2bN-kh-KJg"/>
+                            <constraint firstItem="duS-WQ-oDA" firstAttribute="leading" secondItem="zg0-6q-1CW" secondAttribute="leading" id="3zp-Sl-MeN"/>
+                            <constraint firstItem="Za6-uX-V1z" firstAttribute="top" secondItem="duS-WQ-oDA" secondAttribute="bottom" id="7VZ-4j-tEm"/>
+                            <constraint firstItem="duS-WQ-oDA" firstAttribute="top" secondItem="CvC-Hm-UNU" secondAttribute="bottom" id="ESR-Qw-mdK"/>
+                            <constraint firstItem="Za6-uX-V1z" firstAttribute="leading" secondItem="zg0-6q-1CW" secondAttribute="leading" id="Xnj-Sw-0Qb"/>
+                            <constraint firstItem="JOd-Oj-qQO" firstAttribute="top" secondItem="Za6-uX-V1z" secondAttribute="bottom" id="bAt-Ma-lXG"/>
+                            <constraint firstAttribute="trailing" secondItem="Za6-uX-V1z" secondAttribute="trailing" id="vx5-4R-gaR"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="设置" id="yAx-y6-QJ4">
