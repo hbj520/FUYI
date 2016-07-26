@@ -30,6 +30,7 @@
 @interface ShopCarViewController ()<UITableViewDelegate,UITableViewDataSource>{
     
     NSInteger _page;
+    UIImageView *_noGoodView;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -44,8 +45,6 @@
 @property(nonatomic,retain)NSMutableArray * goodArray;
 @property(nonatomic,retain)NSMutableArray * storeArray;
 
-
-
 @end
 
 @implementation ShopCarViewController
@@ -55,14 +54,13 @@
     [super viewWillAppear:animated];
     self.tabBarController.tabBar.hidden = NO;
     
-    if (_goodArray.count>0 ||_storeArray.count>0) {
-        [_goodArray removeAllObjects];
-        [_storeArray removeAllObjects];
-        [_isSelected removeAllObjects];
-        [_headIsSelected removeAllObjects];
-         [self loadData];
-    }
-   
+    [_goodArray removeAllObjects];
+    [_storeArray removeAllObjects];
+    [_isSelected removeAllObjects];
+    [_headIsSelected removeAllObjects];
+    // _noGoodView.hidden = YES;
+    [self loadData];
+    
 }
 
 - (void)viewDidLoad {
@@ -72,14 +70,19 @@
     _storeArray = [[NSMutableArray alloc]init];
     _isSelected = [[NSMutableArray alloc]init];
     _headIsSelected = [[NSMutableArray alloc]init];
+    
+//    _noGoodView = [[UIImageView alloc]initWithFrame:self.view.frame];
+//    _noGoodView.image = [UIImage imageNamed:@"noGood"];
+//    
+//   [self.tableView addSubview:_noGoodView];
+
     if (KToken) {
         [self creatUI];
         self.isAllSelected = YES;
         //加载数据源
         _page = 1;
         [self loadData];
-       [self addRefresh];
-        
+        [self addRefresh];
     }
 }
 
@@ -89,16 +92,15 @@
         _page = 1;
         if (_goodArray.count > 0) {
             [_goodArray removeAllObjects];
+            [_isSelected removeAllObjects];
+            
         }
         if (_storeArray.count > 0) {
             [_storeArray removeAllObjects];
+            [_headIsSelected removeAllObjects];
         }
         [weakself loadData];
     }];
-//    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-//        _page++;
-//        [weakself loadData];
-//    }];
 }
 
 -(void)loadData
@@ -107,36 +109,31 @@
     [[MyAPI sharedAPI] getShopCarDataWithToken:KToken
                                           page:nowPage
                                         result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
-        
-        if ([msg isEqualToString:@"err token"]) {
-            [self logOut];
-        }
-        if (success) {
-            [_storeArray addObjectsFromArray:arrays[0]];
-            [_goodArray addObjectsFromArray:arrays[1]];
-            [self.tableView reloadData];
-            
-             [self creatData];
-        }
-        [self.tableView.mj_header endRefreshing];
-        //[self.tableView.mj_footer endRefreshing];
-        
-    } errorResult:^(NSError *enginerError) {
-        [self.tableView.mj_header endRefreshing];
-        //[self.tableView.mj_footer endRefreshing];
-    }];
-    //创建数据
-   
+                                            
+                                            if ([msg isEqualToString:@"err token"]) {
+                                                [self logOut];
+                                            }
+                                            if (success) {
+                                                
+                                                [_goodArray removeAllObjects];
+                                                [_storeArray removeAllObjects];
+                                                [_storeArray addObjectsFromArray:arrays[0]];
+                                                [_goodArray addObjectsFromArray:arrays[1]];
+                                                
+                                                
+                                                [self.tableView reloadData];
+                                                
+                                                [self creatData];//添加是否勾选数据
+                                            }
+                                            [self.tableView.mj_header endRefreshing];
+                                            
+                                        } errorResult:^(NSError *enginerError) {
+                                            [self.tableView.mj_header endRefreshing];
+                                        }];
 }
 
 -(void)creatData
-{   //测试数据源
-//    NSMutableArray * array0 = [[NSMutableArray alloc]initWithObjects:@"1",@"1", nil];
-//    NSMutableArray * array1 = [[NSMutableArray alloc]initWithObjects:@"1",@"1", nil];
-//    NSMutableArray * array2 = [[NSMutableArray alloc]initWithObjects:@"1",@"1", nil];
-//    self.isSelected = [[NSMutableArray alloc]initWithObjects:array0,array1,array2,nil];
-//    self.headIsSelected = [[NSMutableArray alloc]initWithObjects:@"1",@"1",@"1", nil];
-
+{
     for (TeacherStoreModel *teacherModel in _storeArray) {
         [_headIsSelected addObject:@"1"];
     }
@@ -144,7 +141,7 @@
     for (int i = 0; i < _goodArray.count; i++) {
         NSArray *array = _goodArray[i];
         NSMutableArray *goodA = [[NSMutableArray alloc]init];
-       
+        
         for (Good *goodModel in array) {
             [goodA addObject:@"1"];
         }
@@ -223,6 +220,20 @@
     return headerView;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 36;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
+    return 95;
+}
+-(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 10)];
+    view.backgroundColor = RGBACOLOR(235, 235, 235, 1);
+    return view;
+}
+
 #pragma mark --privateMethod
 //cell单选按钮
 - (void)cellSelectBtn:(CustomBtn*)button
@@ -252,24 +263,26 @@
         head.selectBtn.selected = YES;
         
     }
-    NSInteger c = 0;
-    NSInteger d = 0;
-    for (NSString *seleceStr in self.headIsSelected) {
-        if ([seleceStr isEqualToString:@"0"]) {
-            c++;
-        }else{
-            d++;
-        }
-    }
     
-    if (d == self.headIsSelected.count) {
-        ShopCarBottomView* view1 = (ShopCarBottomView*)[self.view viewWithTag:100];
-        view1.chooseAllBtn.selected = YES;
-        
-    }if (c > 0){
-        ShopCarBottomView* view1 = (ShopCarBottomView*)[self.view viewWithTag:100];
-        view1.chooseAllBtn.selected = NO;
-    }
+    [self allSelectedBtn];
+//    NSInteger c = 0;
+//    NSInteger d = 0;
+//    for (NSString *seleceStr in self.headIsSelected) {
+//        if ([seleceStr isEqualToString:@"0"]) {
+//            c++;
+//        }else{
+//            d++;
+//        }
+//    }
+//    
+//    if (d == self.headIsSelected.count) {
+//        ShopCarBottomView* view1 = (ShopCarBottomView*)[self.view viewWithTag:100];
+//        view1.chooseAllBtn.selected = YES;
+//        
+//    }if (c > 0){
+//        ShopCarBottomView* view1 = (ShopCarBottomView*)[self.view viewWithTag:100];
+//        view1.chooseAllBtn.selected = NO;
+//    }
 }
 
 //区头局部全选按钮
@@ -297,28 +310,28 @@
             [is1 addObject:@"0"];
         }
     }
-    
+    [self allSelectedBtn];
     [self.isSelected removeObjectAtIndex:button.tag];
     [self.isSelected insertObject:is1 atIndex:button.tag];
-
-    NSInteger c = 0;
-    NSInteger d = 0;
-    for (NSString *seleceStr in self.headIsSelected) {
-        if ([seleceStr isEqualToString:@"0"]) {
-            c++;
-        }else{
-            d++;
-        }
-    }
-    
-    if (d == self.headIsSelected.count) {
-        ShopCarBottomView* view1 = (ShopCarBottomView*)[self.view viewWithTag:100];
-        view1.chooseAllBtn.selected = YES;
-        
-    }if (c > 0){
-        ShopCarBottomView* view1 = (ShopCarBottomView*)[self.view viewWithTag:100];
-        view1.chooseAllBtn.selected = NO;
-    }
+//
+//    NSInteger c = 0;
+//    NSInteger d = 0;
+//    for (NSString *seleceStr in self.headIsSelected) {
+//        if ([seleceStr isEqualToString:@"0"]) {
+//            c++;
+//        }else{
+//            d++;
+//        }
+//    }
+//    
+//    if (d == self.headIsSelected.count) {
+//        ShopCarBottomView* view1 = (ShopCarBottomView*)[self.view viewWithTag:100];
+//        view1.chooseAllBtn.selected = YES;
+//        
+//    }if (c > 0){
+//        ShopCarBottomView* view1 = (ShopCarBottomView*)[self.view viewWithTag:100];
+//        view1.chooseAllBtn.selected = NO;
+//    }
 }
 
 //局部删除
@@ -329,49 +342,31 @@
     for (Good *headGood in goodArr) {
         [orderArr addObject:headGood.orderNum];
     }
+    NSString *OrderStr = [orderArr componentsJoinedByString:@","];
     
-//    [MyAPI sharedAPI] deleteVideoFromShopCarWithToken:KToken orderNum:<#(NSString *)#> result:^(BOOL sucess, NSString *msg) {
-//        
-//    } errorResult:^(NSError *enginerError) {
-//        
-//    }];
-    
-    
-    [self.headIsSelected removeObjectAtIndex:button.tag];
-    [self.isSelected removeObjectAtIndex:button.tag];
-    
-    //确保全选按钮跟着删除后局部全选按钮变动
-    NSInteger SecR = 0;
-    for (NSString *restStr in self.headIsSelected) {
-            if ([restStr isEqualToString:@"1"]) {
-                SecR ++;
-            }
-    }if (SecR == self.headIsSelected.count ) {
-        ShopCarBottomView* view1 = (ShopCarBottomView*)[self.view viewWithTag:100];
-        view1.chooseAllBtn.selected = YES;
-    }
-    
-    if (self.headIsSelected.count == 0) {
-        ShopCarBottomView* view1 = (ShopCarBottomView*)[self.view viewWithTag:100];
-        view1.chooseAllBtn.selected = NO;
-    }
-    
-    [self.tableView reloadData];
+    [[MyAPI sharedAPI] deleteVideoFromShopCarWithToken:KToken
+                                              orderNum:OrderStr
+                                                result:^(BOOL sucess, NSString *msg) {
+                                                    if ([msg isEqualToString:@"登录超时"]) {
+                                                        [self logOut];
+                                                    }
+                                                    if (sucess) {
+                                                        [self.headIsSelected removeObjectAtIndex:button.tag];
+                                                        [self.isSelected removeObjectAtIndex:button.tag];
+                                                        [self.storeArray removeObjectAtIndex:button.tag];
+                                                        [self.goodArray removeObjectAtIndex:button.tag];
+                                                        
+                                                        [self allSelectedBtn];//全选按钮状态
+                                                        
+                                                        [self.tableView reloadData];
+                                                        [self showPopup:msg];
+                                                    }
+                                                } errorResult:^(NSError *enginerError) {
+                                                    
+                                                }];
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 36;
-}
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
-    return 95;
-}
--(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
-{
-    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 10)];
-    view.backgroundColor = RGBACOLOR(235, 235, 235, 1);
-    return view;
-}
+
 
 //底部结算条
 -(void)addBottomView
@@ -390,6 +385,33 @@
     
     [self.view addSubview:bottomView];
 }
+
+#pragma mark - 刷新底部金额
+//- (void)reloadAllPrice
+//{
+//    self.price = 0;
+//    
+//    for (int i = 0; i < _goodArray.count; i++) {
+//        
+//        NSMutableArray * array1 = _goodArray[i];
+//        NSMutableArray * array2 = _isSelected[i];
+//        
+//        
+//        for (int a = 0; a < array1.count; a++) {
+//            
+//            NSString * selectstr = array2[a];
+//            if ([selectstr boolValue]) {
+//                Good * goods = array1[a];
+//                self.price = self.price + [goods.goodPrice integerValue];
+//                
+//            }
+//        }
+//    }
+//    
+//    NSLog(@"------------总价为%ld-------------",(long)self.price);
+//    
+//    
+//}
 
 //全选按钮
 - (void)chooseAllBtnClick:(UIButton*)button
@@ -434,7 +456,6 @@
 //导航栏
 -(void)addCustomerNavigationItem
 {
-    
     ShopCarNavigationItem *navItem = [[[NSBundle mainBundle]loadNibNamed:@"ShopCarNavigationItem" owner:self options:nil]lastObject];
     navItem.backgroundColor = RGBACOLOR(244,244,244,1);
     navItem.frame = CGRectMake(0, 0,ScreenWidth, 64);
@@ -464,85 +485,51 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"确定要删除该商品?删除后无法恢复!" preferredStyle:1];
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-     
-            
-           //  NSLog(@"剩下的数组%@",_goodArray[3][0]);
-            
-        //    [self.goodArray re]
             
             Good *deleGood = _goodArray[indexPath.section][indexPath.row];
-            [[MyAPI sharedAPI] deleteVideoFromShopCarWithToken:KToken orderNum:deleGood.orderNum result:^(BOOL sucess, NSString *msg) {
-                if ([msg isEqualToString:@"登录超时"]) {
-                    [self logOut];
-                }
-                if (sucess) {
-                    [self.isSelected[indexPath.section] removeObjectAtIndex:indexPath.row];
-                    //   [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-                    [self.goodArray[indexPath.section] removeObjectAtIndex:indexPath.row];
-                    
-                    //判断如果某区行数被删光，删除所在区
-                    if ([self.goodArray[indexPath.section] count] == 0) {
-                        
-                        [self.goodArray removeObjectAtIndex:indexPath.section];
-                        [self.storeArray removeObjectAtIndex:indexPath.section];
-                        [self.isSelected removeObjectAtIndex:indexPath.section];
-                        [self.headIsSelected removeObjectAtIndex:indexPath.section];
-                        //                NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:indexPath.section];
-                        //                [tableView deleteSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
-                        [self.tableView reloadData];
-                    }else{
-                        //如果没有被删光，遍历剩下的行是否全选
-                        NSInteger y = 0;
-                        for (NSString *strr in self.isSelected[indexPath.section]) {
-                            if ([strr isEqualToString:@"1"]) {
-                                y++;
-                            }
-                            //如果全选，给所在区选定状态改为@“1”
-                        }if (y == [self.isSelected[indexPath.section] count]) {
-                            
-                            self.headIsSelected[indexPath.section] = @"1";
-                        }
-                        [self.tableView reloadData];
-                    }
-                    
-                    [self.tableView reloadData];
-                    
-                    [self showPopup:msg];
-                }else{
-                    [self showPopup:msg];
-                }
+            [[MyAPI sharedAPI] deleteVideoFromShopCarWithToken:KToken
+                                                      orderNum:deleGood.orderNum
+                                                        result:^(BOOL sucess, NSString *msg) {
+                                                            if ([msg isEqualToString:@"登录超时"]) {
+                                                                [self logOut];
+                                                            }
+                                                            if (sucess) {
+                                                                [self.isSelected[indexPath.section] removeObjectAtIndex:indexPath.row];
+                                                                [self.goodArray[indexPath.section] removeObjectAtIndex:indexPath.row];
+                                                                
+                                                                //判断如果某区行数被删光，删除所在区
+                                                                if ([self.goodArray[indexPath.section] count] == 0) {
+                                                                    
+                                                                    [self.goodArray removeObjectAtIndex:indexPath.section];
+                                                                    [self.storeArray removeObjectAtIndex:indexPath.section];
+                                                                    [self.isSelected removeObjectAtIndex:indexPath.section];
+                                                                    [self.headIsSelected removeObjectAtIndex:indexPath.section];
                 
-            } errorResult:^(NSError *enginerError) {
-                
-            }];
-            
-            //遍历区是否局部全选
-            NSInteger c = 0;
-            NSInteger d = 0;
-            for (NSString *seleceStr in self.headIsSelected) {
-                if ([seleceStr isEqualToString:@"0"]) {
-                    c++;
-                }else{
-                    d++;
-                }
-            }
-            //如果局部全选，设置全选状态
-            if (d == self.headIsSelected.count) {
-                ShopCarBottomView* view1 = (ShopCarBottomView*)[self.view viewWithTag:100];
-                view1.chooseAllBtn.selected = YES;
-                
-            }if (c > 0){
-                ShopCarBottomView* view1 = (ShopCarBottomView*)[self.view viewWithTag:100];
-                view1.chooseAllBtn.selected = NO;
-            }
-            
-            [self.tableView reloadData];
-            
-            //区被删光 把全选置为NO
-            if (self.headIsSelected.count == 0||self.isSelected.count == 0) {
-                ShopCarBottomView* view1 = (ShopCarBottomView*)[self.view viewWithTag:100];
-                view1.chooseAllBtn.selected = NO;
-            }
+                                                                    [self.tableView reloadData];
+                                                                }else{
+                                                                    //如果没有被删光，遍历剩下的行是否全选
+                                                                    NSInteger y = 0;
+                                                                    for (NSString *strr in self.isSelected[indexPath.section]) {
+                                                                        if ([strr isEqualToString:@"1"]) {
+                                                                            y++;
+                                                                        }
+                                                                        //如果全选，给所在区选定状态改为@“1”
+                                                                    }if (y == [self.isSelected[indexPath.section] count]) {
+                                                                        
+                                                                        self.headIsSelected[indexPath.section] = @"1";
+                                                                    }
+                                                                    [self.tableView reloadData];
+                                                                }
+                                                                
+                                                                [self allSelectedBtn];//判断结算条是否全选
+                                                                [self.tableView reloadData];
+                                                                [self showPopup:msg];
+                                                            }else{
+                                                                [self showPopup:msg];
+                                                            }
+                                                        } errorResult:^(NSError *enginerError) {
+                                                            
+                                                        }];
         }];
         
         UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
@@ -552,6 +539,36 @@
         [self.tableView reloadData];
     }
     
+}
+
+//判断全选按钮状态
+- (void)allSelectedBtn{
+    NSInteger c = 0;
+    NSInteger d = 0;
+    for (NSString *seleceStr in self.headIsSelected) {
+        if ([seleceStr isEqualToString:@"0"]) {
+            c++;
+        }else{
+            d++;
+        }
+    }
+    //如果局部全选，设置全选状态
+    if (d == self.headIsSelected.count) {
+        ShopCarBottomView* view1 = (ShopCarBottomView*)[self.view viewWithTag:100];
+        view1.chooseAllBtn.selected = YES;
+        
+    }if (c > 0){
+        ShopCarBottomView* view1 = (ShopCarBottomView*)[self.view viewWithTag:100];
+        view1.chooseAllBtn.selected = NO;
+    }
+    [self.tableView reloadData];
+    
+    //区被删光 把全选置为NO
+    if (self.headIsSelected.count == 0||self.isSelected.count == 0) {
+        ShopCarBottomView* view1 = (ShopCarBottomView*)[self.view viewWithTag:100];
+        view1.chooseAllBtn.selected = NO;
+        [self.tableView addSubview:_noGoodView];
+    }
 }
 
 - (void)showPopup:(NSString *)popupWithText
