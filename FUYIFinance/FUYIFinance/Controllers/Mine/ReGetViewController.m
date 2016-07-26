@@ -65,15 +65,14 @@
         return;
     }
     [self setTimeSchedu];
-    [[MyAPI sharedAPI] registerWithParameters:self.phoneNum.text
-                                       result:^(BOOL sucess, NSString *msg) {
+    [[MyAPI sharedAPI] sendYZMWithParameters:self.phoneNum.text result:^(BOOL sucess, NSString *msg) {
         if(sucess){
-            [self showHint:@"验证码发送成功，请注意查看短信"];
+            [self showHint:@"发送验证码成功"];
         }else{
-            [self showHint:@"验证码发送失败"];
+            [self showHint:msg];
         }
     } errorResult:^(NSError *enginerError) {
-        [self showHint:@"验证码发送出错"];
+        [self showHint:@"发送验证码失败"];
     }];
 }
 
@@ -85,15 +84,22 @@
         return;
     }
     
-    if(!self.passwordNum.text.length<6||self.confirmpasswordNum.text.length<6){
-        [self showHint:@"密码长度不符合要求"];
-        return;
-    }
+  
     if(![self.passwordNum.text isEqualToString:self.confirmpasswordNum.text]){
         [self showHint:@"输入密码不同"];
         return;
     }
-   
+    NSString * passwordnum = [Tools loginPasswordSecurityLock:self.passwordNum.text];
+    NSString * repasswordnum = [Tools loginPasswordSecurityLock:self.confirmpasswordNum.text];
+   [[MyAPI sharedAPI] forgetPasswordWithPhonenum:self.phoneNum.text YZM:self.yzmNum.text Password:passwordnum Repassword:repasswordnum result:^(BOOL sucess, NSString *msg) {
+       if(sucess){
+           [self showHint:msg];
+       }else{
+           [self showHint:msg];
+       }
+   } errorResult:^(NSError *enginerError) {
+       
+   }];
     
 }
 

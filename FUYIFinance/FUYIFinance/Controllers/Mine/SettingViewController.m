@@ -12,9 +12,11 @@
 #import "Config.h"
 #import "UIViewController+HUD.h"
 @interface SettingViewController ()<UITableViewDelegate,UITableViewDataSource>
+{
+    UIButton * logoutBtn;
+}
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
 @end
 
 @implementation SettingViewController
@@ -22,13 +24,36 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
 }
+
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self ConfigUI];
     self.navigationController.navigationBarHidden = NO;
     
+}
+
+#pragma mark - PrivateMethod
+- (void)ConfigUI
+{
+   // logoutBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, ScreenHeight-45, ScreenWidth, 45)];
+    logoutBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    logoutBtn.frame = CGRectMake(0, ScreenHeight - 45, ScreenWidth, 45);
+    logoutBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    logoutBtn.backgroundColor = [UIColor colorWithRed:217/255.0 green:29/255.0 blue:21/255.0 alpha:1];
+    [logoutBtn addTarget:self action:@selector(logout:) forControlEvents:UIControlEventTouchUpInside];
+    UILabel * name = [[UILabel alloc] initWithFrame:CGRectMake(ScreenWidth/2 - 88, ScreenHeight - 33, 88 * 2, 20)];
+    name.backgroundColor = [UIColor colorWithRed:217/255.0 green:29/255.0 blue:21/255.0 alpha:1];
+    name.textColor = [UIColor whiteColor];
+    name.text = @"退出登录";
+    name.textAlignment = NSTextAlignmentCenter;
+    name.font = [UIFont systemFontOfSize:15];
+    [self.view addSubview:logoutBtn];
+    [self.view addSubview:name];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -38,7 +63,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 6;
+    return 5;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -90,8 +115,14 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(12, 17, 60, 20)];
         label.font = [UIFont systemFontOfSize:15];
-        label.text = @"所在地";
+        label.text = @"qq";
         [cell.contentView addSubview:label];
+        UILabel * descLabel = [[UILabel alloc] initWithFrame:CGRectMake(12 + 30 + 20, 17, 120, 20)];
+        descLabel.textAlignment = NSTextAlignmentLeft;
+        descLabel.textColor = [UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1];
+        descLabel.font = [UIFont systemFontOfSize:15];
+        descLabel.text = @"232323323";
+        [cell.contentView addSubview:descLabel];
         UIImageView * arrowView = [[UIImageView alloc] initWithFrame:CGRectMake(ScreenWidth - 8 - 13, 18, 8, 14)];
         arrowView.image = [UIImage imageNamed:@"rightarrow"];
         [cell.contentView addSubview:arrowView];
@@ -103,36 +134,20 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(12, 17, 80, 20)];
         label.font = [UIFont systemFontOfSize:15];
-        label.text = @"我的地址";
+        label.text = @"email";
         [cell.contentView addSubview:label];
-        UILabel * detaillabel = [[UILabel alloc] initWithFrame:CGRectMake(12 + 80 + 20,17, ScreenWidth - 27 - 12 - 80 - 20, 20)];
+        UILabel * detaillabel = [[UILabel alloc] initWithFrame:CGRectMake(12 + 30 + 20,17, 200, 20)];
+        detaillabel.textAlignment = NSTextAlignmentLeft;
         detaillabel.textColor = [UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1];
         detaillabel.font = [UIFont systemFontOfSize:15];
-        detaillabel.text = @"安徽省合肥市瑶海区三里街汽贸城A区";
+        detaillabel.text = @"232323223@qq.com";
         [cell.contentView addSubview:detaillabel];
         UIImageView * arrorView = [[UIImageView alloc] initWithFrame:CGRectMake(ScreenWidth - 8 - 13, 18,8, 14)];
         arrorView.image = [UIImage imageNamed:@"rightarrow"];
         [cell.contentView addSubview:arrorView];
         return cell;
         
-    }else if (indexPath.row == 5){
-        UITableViewCell * cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell6"];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(12, 17, 80, 20)];
-        label.font = [UIFont systemFontOfSize:15];
-        label.text = @"个人说明";
-        [cell.contentView addSubview:label];
-        UILabel * infoLabel = [[UILabel alloc] initWithFrame:CGRectMake(ScreenWidth - 8 - 13 - 120, 17, 120, 20)];
-        infoLabel.textColor = [UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1];
-        infoLabel.font = [UIFont systemFontOfSize:15];
-        infoLabel.text = @"原油分析，股票分析";
-        [cell.contentView addSubview:infoLabel];
-        UIImageView * arrowView = [[UIImageView alloc] initWithFrame:CGRectMake(ScreenWidth - 8 - 13,18, 8,14)];
-        arrowView.image = [UIImage imageNamed:@"rightarrow"];
-        [cell.contentView addSubview:arrowView];
-        return cell;
-    }
-    return nil;
+    }    return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -159,7 +174,7 @@
     
 }
 
-- (IBAction)logout:(id)sender {
+- (void)logout:(id)sender {
     [self showHudInView:self.view hint:@"正在退出登录"];
     [[MyAPI sharedAPI]LoginOutWithResult:^(BOOL sucess, NSString *msg) {
         if(sucess){

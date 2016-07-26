@@ -141,7 +141,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
     if(section == 0){
-    return 6;
+    return 5;
     }else{
         return 1;
     }
@@ -153,7 +153,7 @@
         return 15;
     }
     else{
-        return 200;
+        return 260;
         }
 }
 
