@@ -48,9 +48,9 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    financeSelectData = [NSMutableArray array];
-    classSelectData = [NSMutableArray array];
-    storeArray = [NSMutableArray array];
+    financeSelectData = [[NSMutableArray alloc]init];
+    classSelectData = [[NSMutableArray alloc]init];
+    storeArray = [[NSMutableArray alloc]init];
     // Do any additional setup after loading the view.
     [self creatUI];
     

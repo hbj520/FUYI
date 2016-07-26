@@ -38,7 +38,7 @@
     // Do any additional setup after loading the view.
     [self creatUI];
     _saveModel = [[TeacherTeamModel alloc]init];
-    TeacherTeamArr = [NSMutableArray array];
+    TeacherTeamArr = [[NSMutableArray alloc]init];
     _page = 1;
     [self loadDataWithToken:KToken page:_page];
     [self addRefresh];

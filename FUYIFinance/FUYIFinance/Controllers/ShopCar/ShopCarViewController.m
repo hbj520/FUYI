@@ -31,6 +31,8 @@
     
     NSInteger _page;
     UIImageView *_noGoodView;
+    
+    NSInteger price;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -58,6 +60,7 @@
     [_storeArray removeAllObjects];
     [_isSelected removeAllObjects];
     [_headIsSelected removeAllObjects];
+    //self.isAllSelected = YES;
     // _noGoodView.hidden = YES;
     [self loadData];
     
@@ -80,7 +83,6 @@
         [self creatUI];
         self.isAllSelected = YES;
         //加载数据源
-        _page = 1;
         [self loadData];
         [self addRefresh];
     }
@@ -89,7 +91,7 @@
 - (void)addRefresh{
     __weak ShopCarViewController *weakself = self;
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        _page = 1;
+       // _page = 1;
         if (_goodArray.count > 0) {
             [_goodArray removeAllObjects];
             [_isSelected removeAllObjects];
@@ -105,6 +107,7 @@
 
 -(void)loadData
 {
+   _page = 1;
     NSString *nowPage = [NSString stringWithFormat:@"%ld",(long)_page];
     [[MyAPI sharedAPI] getShopCarDataWithToken:KToken
                                           page:nowPage
@@ -147,6 +150,8 @@
         }
         [_isSelected addObject:goodA];
     }
+    
+    [self allSelectedBtn];//判断全选
 }
 
 -(void)creatUI
@@ -265,6 +270,7 @@
     }
     
     [self allSelectedBtn];
+    [self reloadAllPrice];
 //    NSInteger c = 0;
 //    NSInteger d = 0;
 //    for (NSString *seleceStr in self.headIsSelected) {
@@ -313,6 +319,9 @@
     [self allSelectedBtn];
     [self.isSelected removeObjectAtIndex:button.tag];
     [self.isSelected insertObject:is1 atIndex:button.tag];
+    
+    [self reloadAllPrice];
+    
 //
 //    NSInteger c = 0;
 //    NSInteger d = 0;
@@ -387,31 +396,28 @@
 }
 
 #pragma mark - 刷新底部金额
-//- (void)reloadAllPrice
-//{
-//    self.price = 0;
-//    
-//    for (int i = 0; i < _goodArray.count; i++) {
-//        
-//        NSMutableArray * array1 = _goodArray[i];
-//        NSMutableArray * array2 = _isSelected[i];
-//        
-//        
-//        for (int a = 0; a < array1.count; a++) {
-//            
-//            NSString * selectstr = array2[a];
-//            if ([selectstr boolValue]) {
-//                Good * goods = array1[a];
-//                self.price = self.price + [goods.goodPrice integerValue];
-//                
-//            }
-//        }
-//    }
-//    
-//    NSLog(@"------------总价为%ld-------------",(long)self.price);
-//    
-//    
-//}
+- (void)reloadAllPrice
+{
+    price = 0;
+    
+    for (int i = 0; i < _goodArray.count; i++) {
+        
+        NSMutableArray * array1 = _goodArray[i];
+        NSMutableArray * array2 = _isSelected[i];
+        
+        for (int a = 0; a < array1.count; a++) {
+            
+            NSString * selectstr = array2[a];
+            if ([selectstr boolValue]) {
+                Good * goods = array1[a];
+                price = price + [goods.goodPrice integerValue];
+                
+            }
+        }
+    }
+    NSLog(@"------------总价为%ld-------------",(long)price);
+}
+
 
 //全选按钮
 - (void)chooseAllBtnClick:(UIButton*)button
@@ -445,6 +451,8 @@
     
 }
     [self.tableView reloadData];
+    
+    [self reloadAllPrice];
 }
 
 //去结算
@@ -538,7 +546,6 @@
         [self presentViewController:alert animated:YES completion:nil];
         [self.tableView reloadData];
     }
-    
 }
 
 //判断全选按钮状态
@@ -567,9 +574,12 @@
     if (self.headIsSelected.count == 0||self.isSelected.count == 0) {
         ShopCarBottomView* view1 = (ShopCarBottomView*)[self.view viewWithTag:100];
         view1.chooseAllBtn.selected = NO;
-        [self.tableView addSubview:_noGoodView];
+        //[self.tableView addSubview:_noGoodView];
     }
 }
+
+
+
 
 - (void)showPopup:(NSString *)popupWithText
 {
