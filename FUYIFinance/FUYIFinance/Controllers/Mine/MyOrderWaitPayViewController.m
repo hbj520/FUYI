@@ -8,6 +8,7 @@
 
 #import "MyOrderWaitPayViewController.h"
 #import "PersonalWaitPayTableViewCell.h"
+#import "UIViewController+HUD.h"
 #import <MJRefresh/MJRefresh.h>
 #import "PayView.h"
 #import "MineWaitPayModel.h"
@@ -43,11 +44,19 @@
 
     [self addRefresh];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshtableview) name:@"refreshView" object:nil];
+    
     [self loadData];
     
     [self creatHidePayView];
+    
+    
 }
 
+- (void)refreshtableview
+{
+    [self loadData];
+}
 
 - (void)addRefresh
 {
@@ -61,12 +70,13 @@
         [weakself loadData];
         
     }];
-    MJRefreshAutoNormalFooter * footerRefresh = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+    _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         page++;
         [weakself loadData];
     }];
-    footerRefresh.automaticallyRefresh = NO;
-    _tableView.mj_footer = footerRefresh;
+   
+    //footerRefresh.automaticallyRefresh = NO;
+  
 }
 
 //加载数据
@@ -75,22 +85,18 @@
     NSString * pagestr = [NSString stringWithFormat:@"%ld",page];
     [[MyAPI sharedAPI] requestWaitpayDataWithParameters:pagestr
                                                  result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
+        if([msg isEqualToString:@"-1"]){
+                                        [self logOut];
+                                        }
         if(success){
             [_dataSource addObjectsFromArray:arrays];
             [_tableView reloadData];
-            [_tableView.mj_header endRefreshing];
-            [_tableView.mj_footer endRefreshing];
+        }else{
+            
         }
-        else{
-            if([msg isEqualToString:@"-1"]){
-            [self logOut];
-            }else{
                 [_tableView.mj_header endRefreshing];
                 [_tableView.mj_footer endRefreshing];
-            }
             
-            
-        }
     } errorResult:^(NSError *enginerError) {
         [_tableView.mj_header endRefreshing];
         [_tableView.mj_footer endRefreshing];
@@ -174,8 +180,20 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if(buttonIndex == 1){
-        [_dataSource removeObjectAtIndex:index - 10];
-        [_tableView reloadData];
+        MineWaitPayModel * model = [[MineWaitPayModel alloc] init];
+        model = _dataSource[index - 10];
+[[MyAPI sharedAPI] cancelOrderWithOrdernum:model.ordernum result:^(BOOL sucess, NSString *msg) {
+    if (sucess) {
+        [self showHint:msg];
+          [_tableView reloadData];
+    }else{
+        [self showHint:msg]; 
+    }
+    
+} errorResult:^(NSError *enginerError) {
+    
+}];
+      
     }
 }
 

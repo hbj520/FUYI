@@ -31,6 +31,8 @@ typedef void (^ErrorBlock) (NSError *enginerError);
                    errorResult:(ErrorBlock)errorResult;
 
 
+
+
 /**
  *  注册
  *
@@ -48,7 +50,33 @@ typedef void (^ErrorBlock) (NSError *enginerError);
                         result:(StateBlock)result
                    errorResult:(ErrorBlock)errorResult;
 
-   
+/**
+ *  忘记密码发送短信验证码
+ *
+ *  @param phoneNum    忘记密码的手机号码
+ *  @param result      正常返回结果
+ *  @param errorResult 返回出错
+ */
+- (void)sendYZMWithParameters:(NSString *)phoneNum
+                       result:(StateBlock)result
+                  errorResult:(ErrorBlock)errorResult;
+
+/**
+ *  忘记密码
+ *
+ *  @param phonenum    忘记密码的手机号码
+ *  @param yzm         验证码
+ *  @param password    密码
+ *  @param repassword  确认密码
+ *  @param result      正常返回结果
+ *  @param errorResult 返回出错
+ */
+- (void)forgetPasswordWithPhonenum:(NSString *)phonenum
+                               YZM:(NSString *)yzm
+                          Password:(NSString *)password
+                        Repassword:(NSString *)repassword
+                            result:(StateBlock)result
+                       errorResult:(ErrorBlock)errorResult;
    
 /**
  *  登录
@@ -178,12 +206,57 @@ typedef void (^ErrorBlock) (NSError *enginerError);
  *  @param errorResult 错误信息
  */
 - (void)uploadUserJudgeWithParameters:(NSString*)score
+                             OrderNum:(NSString*)ordernum
                             Anonymous:(NSString*)anonymous
                               Content:(NSString*)content
                             Goodstyle:(NSString*)goodstyle
                               Goodsid:(NSString*)goodsid
                                result:(StateBlock)result
                           errorResult:(ErrorBlock)errorResult;
+
+/**
+ *  全部的订单
+ *
+ *  @param page        页数
+ *  @param result      模型数组
+ *  @param errorResult 错误信息
+ */
+- (void)requestAllOrderDataWithParameters:(NSString *)page
+                                   result:(ArrayBlock)result
+                              errorResult:(ErrorBlock)errorResult;
+
+/**
+ *  取消订单
+ *
+ *  @param ordernum    订单号
+ *  @param result      取消订单状态
+ *  @param errorResult 错误信息
+ */
+- (void)cancelOrderWithOrdernum:(NSString *)ordernum
+                         result:(StateBlock)result
+                    errorResult:(ErrorBlock)errorResult;
+
+/**
+ *  退出登录
+ *
+ *  @param result      退出登录状态
+ *  @param errorResult 错误信息
+ */
+- (void)LoginOutWithResult:(StateBlock)result
+               errorResult:(ErrorBlock)errorResult;
+
+/**
+ *  上传图片
+ *
+ *  @param imageData   图片数据
+ *  @param result      上传图片状态
+ *  @param errorResult 错误信息
+ */
+- (void)uploadImage:(NSData *)imageData
+             result:(StateBlock)result
+        errorResult:(ErrorBlock)errorResult;
+
+
 #pragma mark -讲师团队
 - (void)getTeacherTeamDataWithToken:(NSString*)token
                                page:(NSString*)page

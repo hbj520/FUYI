@@ -1,52 +1,55 @@
 //
-//  MineWaitJudgeModel.h
+//  AllOderModel.h
 //  FUYIFinance
 //
-//  Created by 张哲 on 16/7/19.
+//  Created by 张哲 on 16/7/21.
 //  Copyright © 2016年 youyou. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface MineWaitJudgeModel : NSObject
+@interface AllOderModel : NSObject
 @property (nonatomic,copy)NSString * ctime;
-@property (nonatomic,copy)NSString * ordernum;
 @property (nonatomic,copy)NSString * goodsid;
-@property (nonatomic,copy)NSString * goodstyle;
+@property (nonatomic,copy)NSString * goodstype;
+@property (nonatomic,copy)NSString * state;
 @property (nonatomic,copy)NSString * price;
 @property (nonatomic,copy)NSString * image;
 @property (nonatomic,copy)NSString * name;
 @property (nonatomic,copy)NSString * teacher;
 @property (nonatomic,copy)NSString * shopname;
+
 /**
+ *  重写构造模型方法
  *
- *
- *  @param ctime    时间
- *  @param goodsid  商品Id
- *  @param price    价格
- *  @param image    图片
- *  @param name     名称
- *  @param teacher  老师名称
- *  @param shopname 店铺名称
+ *  @param ctime     时间
+ *  @param goodsid   商品编号
+ *  @param goodstype 商品类型
+ *  @param state     商品状态
+ *  @param price     商品价格
+ *  @param image     商品图片
+ *  @param name      商品名称
+ *  @param teacher   老师名称
+ *  @param shopname  商店名称
  *
  *  @return 模型
  */
 - (id)initWithCtime:(NSString *)ctime
-           OrderNum:(NSString *)ordernum
             Goodsid:(NSString *)goodsid
-          Goodstyle:(NSString *)goodstyle
+          Goodstype:(NSString *)goodstype
+              State:(NSString *)state
               Price:(NSString *)price
               Image:(NSString *)image
                Name:(NSString *)name
             Teacher:(NSString *)teacher
            Shopname:(NSString *)shopname;
+
 /**
  *  返回模型数组
  *
- *  @param data 数据
- *
  *  @return 模型数组
  */
-- (NSMutableArray *)buildWithData:(NSArray*)data;
+- (NSMutableArray *)buildWithData:(NSArray *)data;
+
 
 @end

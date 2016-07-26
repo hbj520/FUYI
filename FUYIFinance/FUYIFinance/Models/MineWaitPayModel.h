@@ -12,6 +12,7 @@
 
 @property (nonatomic,copy)NSString * ctime;
 @property (nonatomic,copy)NSString * price;
+@property (nonatomic,copy)NSString * ordernum;
 @property (nonatomic,copy)NSString * image;
 @property (nonatomic,copy)NSString * name;
 @property (nonatomic,copy)NSString * teacher;
@@ -29,7 +30,7 @@
  *
  *  @return 待付款订单模型
  */
-- (id)initWithCtime:(NSString*)ctime Price:(NSString*)price Image:(NSString*)image Name:(NSString*)name Teacher:(NSString*)teacher ShopName:(NSString*)shopname;
+- (id)initWithCtime:(NSString*)ctime Price:(NSString*)price Image:(NSString*)image Name:(NSString*)name Teacher:(NSString*)teacher ShopName:(NSString*)shopname Ordernum:(NSString *)ordernum;
 /**
  *  根据后台数据返回模型数组
  *

@@ -32,6 +32,12 @@
             username:(NSString *)username;
 
 /**
+ *  保存图片
+ *
+ *  @param icon 图片
+ */
+- (void)saveIcon:(NSString *)icon;
+/**
  *  保存用户密码
  *
  *  @param password 用户密码
@@ -45,7 +51,7 @@
 - (NSString*)getToken;        //获取用户登录令牌
 //- (NSString*)getUserIcon;     //获取用户头像
 - (NSString*)getPassword;     //获取用户密码
-
+- (NSString *)getIcon;               //获取图片
 - (void)logout;               //退出登录
 
 @end

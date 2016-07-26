@@ -1,30 +1,30 @@
 //
-//  MineWaitJudgeModel.m
+//  AllOderModel.m
 //  FUYIFinance
 //
-//  Created by 张哲 on 16/7/19.
+//  Created by 张哲 on 16/7/21.
 //  Copyright © 2016年 youyou. All rights reserved.
 //
 
-#import "MineWaitJudgeModel.h"
+#import "AllOderModel.h"
 
-@implementation MineWaitJudgeModel
+@implementation AllOderModel
 
 - (id)initWithCtime:(NSString *)ctime
-           OrderNum:(NSString *)ordernum
             Goodsid:(NSString *)goodsid
-          Goodstyle:(NSString *)goodstyle
+          Goodstype:(NSString *)goodstype
+              State:(NSString *)state
               Price:(NSString *)price
               Image:(NSString *)image
                Name:(NSString *)name
             Teacher:(NSString *)teacher
            Shopname:(NSString *)shopname
 {
-    MineWaitJudgeModel * model = [[MineWaitJudgeModel alloc] init];
+    AllOderModel * model = [[AllOderModel alloc] init];
     model.ctime = ctime;
-    model.ordernum = ordernum;
     model.goodsid = goodsid;
-    model.goodstyle = goodstyle;
+    model.goodstype = goodstype;
+    model.state = state;
     model.price = price;
     model.image = image;
     model.name = name;
@@ -35,21 +35,22 @@
 
 - (NSMutableArray *)buildWithData:(NSArray *)data
 {
-    NSMutableArray * waitjudgeArray = [NSMutableArray array];
+    NSMutableArray * allorderArray = [NSMutableArray array];
     for(NSDictionary * dict in data){
         NSString * ctime = dict[@"ctime"];
-        NSString * ordernum = dict[@"ordernum"];
         NSString * goodsid = dict[@"goodsid"];
-        NSString * goodstyle = dict[@"goodstype"];
+        NSString * goodstype = dict[@"goodstype"];
+        NSString * state = dict[@"state"];
         NSString * price = dict[@"price"];
         NSString * image = dict[@"image"];
         NSString * name = dict[@"name"];
         NSString * teacher = dict[@"teacher"];
         NSString * shopname = dict[@"shopname"];
-        MineWaitJudgeModel * model = [[MineWaitJudgeModel alloc] initWithCtime:ctime OrderNum:ordernum Goodsid:goodsid Goodstyle:goodstyle Price:price Image:image Name:name Teacher:teacher Shopname:shopname];
-        [waitjudgeArray addObject:model];
+        AllOderModel * model = [[AllOderModel alloc] initWithCtime:ctime Goodsid:goodsid Goodstype:goodstype State:state Price:price Image:image Name:name Teacher:teacher Shopname:shopname];
+        [allorderArray addObject:model];
     }
-    return waitjudgeArray;
+    return allorderArray;
+    
 }
 
 @end

@@ -93,6 +93,8 @@
 */
 #pragma mark-PrivateMethod
 - (void)loginSucessAct{
+    NSNotification * notification = [NSNotification notificationWithName:@"refreshView" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotification:notification];
     [self dismissModalViewControllerAnimated:YES];
 }
 - (IBAction)backBtn:(id)sender {
@@ -131,6 +133,7 @@
 
 //注册账号
 - (IBAction)registerBtn:(id)sender {
+    
 }
 
 @end
