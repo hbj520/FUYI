@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -15,9 +15,9 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TeacherTeam_headImage" translatesAutoresizingMaskIntoConstraints="NO" id="ahU-xt-KUr">
-                        <rect key="frame" x="6" y="6" width="58" height="53"/>
+                        <rect key="frame" x="6" y="6" width="53" height="53"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="58" id="3iN-EV-JSk"/>
+                            <constraint firstAttribute="width" constant="53" id="3iN-EV-JSk"/>
                             <constraint firstAttribute="height" constant="53" id="zPd-o4-1y7"/>
                         </constraints>
                         <variation key="default">
@@ -27,7 +27,7 @@
                         </variation>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="李老师" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xar-61-IYA">
-                        <rect key="frame" x="69" y="15" width="60" height="17"/>
+                        <rect key="frame" x="64" y="15" width="60" height="17"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="17" id="q3R-Bc-TbL"/>
                             <constraint firstAttribute="width" constant="60" id="uoE-bL-WCg"/>
@@ -37,7 +37,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="艺术是天生的，技术是学习的" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="73R-eQ-tSY">
-                        <rect key="frame" x="69" y="37" width="150" height="11"/>
+                        <rect key="frame" x="64" y="37" width="150" height="11"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="150" id="4et-qt-Mi5"/>
                             <constraint firstAttribute="height" constant="11" id="dDK-ZW-dfq"/>

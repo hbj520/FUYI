@@ -27,7 +27,6 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
 {
     NSMutableArray *financeSelectData;
     NSMutableArray *classSelectData;
-    
     NSMutableArray *storeArray;
     
     NSString *typeId;
@@ -36,7 +35,6 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
     NSString *key;
     
     UIButton* _shadowBtn;
-    
 }
 @property (nonatomic,copy) NSString *saveId;
 @property (nonatomic, weak) DOPDropDownMenu *menu;
@@ -72,6 +70,7 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
 {
     [super viewWillDisappear:animated];
     self.navigationController.navigationBar.hidden = YES;
+    _shadowBtn.hidden = YES;
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -91,11 +90,17 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
         if (storeArray.count > 0) {
             [storeArray removeAllObjects];
         }
-        [weakself loadDataWithTypeSelectId:typeId labelSelectId:labelId pageNum:_page keyWord:key];
+        [weakself loadDataWithTypeSelectId:typeId
+                             labelSelectId:labelId
+                                   pageNum:_page
+                                   keyWord:key];
     }];
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         _page++;
-        [weakself loadDataWithTypeSelectId:typeId labelSelectId:labelId pageNum:_page keyWord:key];
+        [weakself loadDataWithTypeSelectId:typeId
+                             labelSelectId:labelId
+                                   pageNum:_page
+                                   keyWord:key];
     }];
 }
 
@@ -116,13 +121,19 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
     //搜索
     navItem.searchResultBlock = ^(NSString *resutText){
    
-        [self loadDataWithTypeSelectId:typeId labelSelectId:labelId pageNum:_page keyWord:resutText];
+        [self loadDataWithTypeSelectId:typeId
+                         labelSelectId:labelId
+                               pageNum:_page
+                               keyWord:resutText];
         _shadowBtn.hidden = YES;
          [Tools hideKeyBoard];
     };
     navItem.searchBtnBlock = ^(NSString *resultTest){
       
-        [self loadDataWithTypeSelectId:typeId labelSelectId:labelId pageNum:_page keyWord:resultTest];
+        [self loadDataWithTypeSelectId:typeId
+                         labelSelectId:labelId
+                               pageNum:_page
+                               keyWord:resultTest];
         _shadowBtn.hidden = YES;
         [Tools hideKeyBoard];
     };
@@ -271,7 +282,10 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
             SelectModel *model = classSelectData[indexPath.row-1];
             labelId = model.selectId;
             _page = 1;
-            [self loadDataWithTypeSelectId:typeId labelSelectId:labelId pageNum:_page keyWord:key];
+            [self loadDataWithTypeSelectId:typeId
+                             labelSelectId:labelId
+                                   pageNum:_page
+                                   keyWord:key];
         }
     }
 }
@@ -317,9 +331,7 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
     detailVC.model = sender;
 }
 
-
 #pragma mark - UIVew
-
 
 - (IBAction)back:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];

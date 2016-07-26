@@ -11,19 +11,26 @@
 #import "ShopCarBottomView.h"
 #import "ShopCarTableViewCell.h"
 #import "HeaderView.h"
-
 #import "CustomBtn.h"
 
 #import "ShopCarViewController.h"
 
 #import "Good.h"
-#import "Brand.h"
+#import "TeacherStoreModel.h"
 
+#import "MyAPI.h"
+#import "LabelHelper.h"
+#import <MJRefresh.h>
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "LPPopup.h"
 //static NSString *videoHeader = @"videoHeaderReuseId";
 
 
 
-@interface ShopCarViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface ShopCarViewController ()<UITableViewDelegate,UITableViewDataSource>{
+    
+    NSInteger _page;
+}
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -33,9 +40,9 @@
 @property(nonatomic,assign)BOOL isAllSelected;
 
 
-//保存商品、商标
+//保存商品、商家
 @property(nonatomic,retain)NSMutableArray * goodArray;
-@property(nonatomic,retain)NSMutableArray * brandArray;
+@property(nonatomic,retain)NSMutableArray * storeArray;
 
 
 
@@ -47,33 +54,102 @@
 {
     [super viewWillAppear:animated];
     self.tabBarController.tabBar.hidden = NO;
-
+    
+    if (_goodArray.count>0 ||_storeArray.count>0) {
+        [_goodArray removeAllObjects];
+        [_storeArray removeAllObjects];
+        [_isSelected removeAllObjects];
+        [_headIsSelected removeAllObjects];
+         [self loadData];
+    }
+   
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    _goodArray = [[NSMutableArray alloc]init];
+    _storeArray = [[NSMutableArray alloc]init];
+    _isSelected = [[NSMutableArray alloc]init];
+    _headIsSelected = [[NSMutableArray alloc]init];
     if (KToken) {
         [self creatUI];
         self.isAllSelected = YES;
         //加载数据源
+        _page = 1;
         [self loadData];
+       [self addRefresh];
+        
     }
+}
+
+- (void)addRefresh{
+    __weak ShopCarViewController *weakself = self;
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        _page = 1;
+        if (_goodArray.count > 0) {
+            [_goodArray removeAllObjects];
+        }
+        if (_storeArray.count > 0) {
+            [_storeArray removeAllObjects];
+        }
+        [weakself loadData];
+    }];
+//    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+//        _page++;
+//        [weakself loadData];
+//    }];
 }
 
 -(void)loadData
 {
+    NSString *nowPage = [NSString stringWithFormat:@"%ld",(long)_page];
+    [[MyAPI sharedAPI] getShopCarDataWithToken:KToken
+                                          page:nowPage
+                                        result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
+        
+        if ([msg isEqualToString:@"err token"]) {
+            [self logOut];
+        }
+        if (success) {
+            [_storeArray addObjectsFromArray:arrays[0]];
+            [_goodArray addObjectsFromArray:arrays[1]];
+            [self.tableView reloadData];
+            
+             [self creatData];
+        }
+        [self.tableView.mj_header endRefreshing];
+        //[self.tableView.mj_footer endRefreshing];
+        
+    } errorResult:^(NSError *enginerError) {
+        [self.tableView.mj_header endRefreshing];
+        //[self.tableView.mj_footer endRefreshing];
+    }];
     //创建数据
-    [self creatData];
+   
 }
 
 -(void)creatData
 {   //测试数据源
-    NSMutableArray * array0 = [[NSMutableArray alloc]initWithObjects:@"1",@"1", nil];
-    NSMutableArray * array1 = [[NSMutableArray alloc]initWithObjects:@"1",@"1", nil];
-    NSMutableArray * array2 = [[NSMutableArray alloc]initWithObjects:@"1",@"1", nil];
-    self.isSelected = [[NSMutableArray alloc]initWithObjects:array0,array1,array2,nil];
-    self.headIsSelected = [[NSMutableArray alloc]initWithObjects:@"1",@"1",@"1", nil];
+//    NSMutableArray * array0 = [[NSMutableArray alloc]initWithObjects:@"1",@"1", nil];
+//    NSMutableArray * array1 = [[NSMutableArray alloc]initWithObjects:@"1",@"1", nil];
+//    NSMutableArray * array2 = [[NSMutableArray alloc]initWithObjects:@"1",@"1", nil];
+//    self.isSelected = [[NSMutableArray alloc]initWithObjects:array0,array1,array2,nil];
+//    self.headIsSelected = [[NSMutableArray alloc]initWithObjects:@"1",@"1",@"1", nil];
+
+    for (TeacherStoreModel *teacherModel in _storeArray) {
+        [_headIsSelected addObject:@"1"];
+    }
+    
+    for (int i = 0; i < _goodArray.count; i++) {
+        NSArray *array = _goodArray[i];
+        NSMutableArray *goodA = [[NSMutableArray alloc]init];
+       
+        for (Good *goodModel in array) {
+            [goodA addObject:@"1"];
+        }
+        [_isSelected addObject:goodA];
+    }
 }
 
 -(void)creatUI
@@ -91,17 +167,16 @@
     [self addBottomView];
 }
 
+#pragma mark - UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return self.isSelected.count;
+    return self.storeArray.count;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.isSelected[section] count];
+    return [self.goodArray[section] count];
 }
-
-
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -114,9 +189,13 @@
     [cell.selectBtn addTarget:self action:@selector(cellSelectBtn:) forControlEvents:UIControlEventTouchUpInside];
     //默认1
     cell.selectBtn.selected = [self.isSelected[indexPath.section][indexPath.row]boolValue];
+    
+        Good *goodMod = _goodArray[indexPath.section][indexPath.row];
+        [cell.goodImage sd_setImageWithURL:[NSURL URLWithString:goodMod.goodImage] placeholderImage:[UIImage imageNamed:@"shopcar_defual"]];
+        cell.goodPrice.attributedText = [[LabelHelper alloc]attributedFontStringWithString:[NSString stringWithFormat:@"¥ %@",goodMod.goodPrice] firstFont:13 secFont:17 thirdFont:14];
+        cell.goodContent.text = goodMod.goodName;
    
     return cell;
-
 }
 
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -128,7 +207,7 @@
     
     headerView.selectBtn.tag = section;
     [headerView.selectBtn addTarget:self action:@selector(headButton:) forControlEvents:UIControlEventTouchUpInside];
-    //默认1
+    //默认按钮选中
     headerView.selectBtn.selected = [self.headIsSelected[section] boolValue];
     
     headerView.deleteBtn.tag = section;
@@ -138,14 +217,11 @@
     headerView.backgroundView = [[UIImageView alloc]init];
     headerView.backgroundView.backgroundColor = [UIColor whiteColor];
     
+    TeacherStoreModel *TeacherModel = [_storeArray objectAtIndex:section];
+    headerView.videoClassLab.text = [NSString stringWithFormat:@"%@的视频课堂",TeacherModel.teacherName];
+
     return headerView;
 }
-
-//- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section{
-//    view.contentView.backgroundColor = [UIColor blackColor];
-//}
-
-
 
 #pragma mark --privateMethod
 //cell单选按钮
@@ -245,9 +321,22 @@
     }
 }
 
-//删除
+//局部删除
 - (void)deleteButton:(CustomBtn*)button
 {
+    NSArray *goodArr = [_goodArray objectAtIndex:button.tag];
+    NSMutableArray *orderArr = [[NSMutableArray alloc]init];
+    for (Good *headGood in goodArr) {
+        [orderArr addObject:headGood.orderNum];
+    }
+    
+//    [MyAPI sharedAPI] deleteVideoFromShopCarWithToken:KToken orderNum:<#(NSString *)#> result:^(BOOL sucess, NSString *msg) {
+//        
+//    } errorResult:^(NSError *enginerError) {
+//        
+//    }];
+    
+    
     [self.headIsSelected removeObjectAtIndex:button.tag];
     [self.isSelected removeObjectAtIndex:button.tag];
     
@@ -375,31 +464,57 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"确定要删除该商品?删除后无法恢复!" preferredStyle:1];
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+     
             
-            [self.isSelected[indexPath.section] removeObjectAtIndex:indexPath.row];
-         //   [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+           //  NSLog(@"剩下的数组%@",_goodArray[3][0]);
             
-            //判断如果某区行数被删光，删除所在区
-            if ([self.isSelected[indexPath.section] count] == 0) {
-                [self.isSelected removeObjectAtIndex:indexPath.section];
-                [self.headIsSelected removeObjectAtIndex:indexPath.section];
-//                NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:indexPath.section];
-//                [tableView deleteSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
-                [self.tableView reloadData];
-            }else{
-                //如果没有被删光，遍历剩下的行是否全选
-                NSInteger y = 0;
-                for (NSString *strr in self.isSelected[indexPath.section]) {
-                    if ([strr isEqualToString:@"1"]) {
-                        y++;
-                    }
-                    //如果全选，给所在区选定状态改为@“1”
-                }if (y == [self.isSelected[indexPath.section] count]) {
-                    
-                    self.headIsSelected[indexPath.section] = @"1";
+        //    [self.goodArray re]
+            
+            Good *deleGood = _goodArray[indexPath.section][indexPath.row];
+            [[MyAPI sharedAPI] deleteVideoFromShopCarWithToken:KToken orderNum:deleGood.orderNum result:^(BOOL sucess, NSString *msg) {
+                if ([msg isEqualToString:@"登录超时"]) {
+                    [self logOut];
                 }
-                [self.tableView reloadData];
-            }
+                if (sucess) {
+                    [self.isSelected[indexPath.section] removeObjectAtIndex:indexPath.row];
+                    //   [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                    [self.goodArray[indexPath.section] removeObjectAtIndex:indexPath.row];
+                    
+                    //判断如果某区行数被删光，删除所在区
+                    if ([self.goodArray[indexPath.section] count] == 0) {
+                        
+                        [self.goodArray removeObjectAtIndex:indexPath.section];
+                        [self.storeArray removeObjectAtIndex:indexPath.section];
+                        [self.isSelected removeObjectAtIndex:indexPath.section];
+                        [self.headIsSelected removeObjectAtIndex:indexPath.section];
+                        //                NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:indexPath.section];
+                        //                [tableView deleteSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
+                        [self.tableView reloadData];
+                    }else{
+                        //如果没有被删光，遍历剩下的行是否全选
+                        NSInteger y = 0;
+                        for (NSString *strr in self.isSelected[indexPath.section]) {
+                            if ([strr isEqualToString:@"1"]) {
+                                y++;
+                            }
+                            //如果全选，给所在区选定状态改为@“1”
+                        }if (y == [self.isSelected[indexPath.section] count]) {
+                            
+                            self.headIsSelected[indexPath.section] = @"1";
+                        }
+                        [self.tableView reloadData];
+                    }
+                    
+                    [self.tableView reloadData];
+                    
+                    [self showPopup:msg];
+                }else{
+                    [self showPopup:msg];
+                }
+                
+            } errorResult:^(NSError *enginerError) {
+                
+            }];
             
             //遍历区是否局部全选
             NSInteger c = 0;
@@ -439,6 +554,14 @@
     
 }
 
+- (void)showPopup:(NSString *)popupWithText
+{
+    LPPopup *popup = [LPPopup popupWithText:popupWithText];
+    [popup showInView:self.view
+        centerAtPoint:self.view.center
+             duration:kLPPopupDefaultWaitDuration
+           completion:nil];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

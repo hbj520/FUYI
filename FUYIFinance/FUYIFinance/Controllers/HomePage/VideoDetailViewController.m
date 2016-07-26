@@ -11,6 +11,7 @@
 #import "VideoDetailViewController.h"
 #import "ShopCarViewController.h"
 #import "ConfirmOrderViewController.h"
+#import "StoreViewController.h"
 
 //view
 #import "VideoDetailFirstTableViewCell.h"
@@ -42,7 +43,7 @@
     [self creatUI];
       _cnt = 0;
     
-    [self judgeCollectSelected];//判断第一次进来的按钮状态
+    [self judgeCollectSelected];//判断第一次进来的收藏按钮状态
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -58,12 +59,10 @@
     }else{
         self.collectBtn.selected = YES;
     }
-    
-    
 }
 
 -(void)creatUI{
-    self.navigationItem.hidesBackButton = YES;
+   // self.navigationItem.hidesBackButton = YES;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"VideoDetailFirstTableViewCell" bundle:nil] forCellReuseIdentifier:@"detailFirstReuseID"];
@@ -79,7 +78,7 @@
     _numLab.layer.borderColor = [[UIColor whiteColor]CGColor];
     [self.view addSubview:_numLab];
     
-    if (_cnt == 0) {
+    if (_cnt >= 0) {
         _numLab.hidden = YES;
     }
     
@@ -100,7 +99,6 @@
 }
 
 - (void)addBottomTapGesAndButton{
-
     [self.collectBtn setBackgroundImage:[UIImage imageNamed:@"VD_star"] forState:UIControlStateNormal];
     [self.collectBtn setBackgroundImage:[UIImage imageNamed:@"VD_red_Star.jpg"] forState:UIControlStateSelected];
     
@@ -128,30 +126,31 @@
         layer.borderColor = (__bridge CGColorRef _Nullable)([UIColor whiteColor]);
         [self.view.layer addSublayer:layer];
     }
-     [self groupAnimation];//加入购物车动画
-    [[MyAPI sharedAPI]addGoodIntoShopCarWithToken:KToken
-                                          goodsId:_model.videoId
-                                             type:_model.videoType
-                                            money:_model.videoPrice
-                                           result:^(BOOL sucess, NSString *msg) {
-                                               
-                                               if ([msg isEqualToString:@"登录超时"]) {
-                                                   [self logOut];
-                                               }
-        
-        if (sucess) {
-             //[self groupAnimation];//加入购物车动画
-            [self showPopup:@"加入购物车成功!"];
-        }else{
-            [self showPopup:@"加入购物车失败!"];
-        }
-        
-    } errorResult:^(NSError *enginerError) {
-        
-    }];
     
-
-   
+    if ([_model.cart isEqualToString:@"0"]) {
+         [self groupAnimation];//加入购物车动画
+        [[MyAPI sharedAPI]addGoodIntoShopCarWithToken:KToken
+                                              goodsId:_model.videoId
+                                                 type:_model.videoType
+                                                money:_model.videoPrice
+                                               result:^(BOOL sucess, NSString *msg) {
+                                                   
+                                                   if ([msg isEqualToString:@"登录超时"]) {
+                                                       [self logOut];
+                                                   }
+                                                   if (sucess) {
+                                                       [self showPopup:msg];
+                                                   }else{
+                                                       [self showPopup:msg];
+                                                   }
+                                                   
+                                               } errorResult:^(NSError *enginerError) {
+                                                   
+                                               }];
+        _model.cart = @"1";
+    }else{
+        [self showPopup:@"购物车已存在！"];
+    }
 }
 
 - (void)groupAnimation
@@ -202,8 +201,8 @@
         [layer removeFromSuperlayer];
         layer = nil;
         _cnt++;
-        if (_cnt) {
-            _numLab.hidden = NO;
+        if (_cnt >= 0) {
+            _numLab.hidden = YES;
         }
         
         CATransition *animation = [CATransition animation];
@@ -237,19 +236,13 @@
 - (IBAction)collectClick:(UIButton*)button {
     
     //if ([_model.videoCollect isEqualToString:@"0"]) {
-        
     if (button.selected == NO) {
-        
-        NSLog(@"%@+++++++++++++++++++",_model.videoCollect);
-        
         button.selected = !button.selected;
         if (KToken) {
             [self postCollection];
         }else{
             [self logOut];
         }
-       
-        
     }else{
         button.selected = !button.selected;
         if (KToken) {
@@ -267,10 +260,10 @@
                                                 result:^(BOOL sucess, NSString *msg) {
                                                     if (sucess) {
                                                         
-                                                        [self showPopup:@"取消收藏"];
+                                                        [self showPopup:msg];
                                                         _model.videoCollect = @"0";
                                                     }else{
-                                                        [self showPopup:@"取消失败"];
+                                                        [self showPopup:msg];
                                                         
                                                     }
                                                 } errorResult:^(NSError *enginerError) {
@@ -301,7 +294,7 @@
 }
 //店铺
 - (void)shopClick:(UIGestureRecognizer *)ges{
-    
+    [self performSegueWithIdentifier:@"GoStoreSegue" sender:nil];
 }
 
 //客服
@@ -343,7 +336,6 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
-    
 }
 
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
@@ -357,20 +349,22 @@
       [head0 sd_setImageWithURL:[NSURL URLWithString:_model.videoImage]placeholderImage:[UIImage imageNamed:@"VD_class_demo"]];
         return head0;
     }
-    
 }
+
 - (IBAction)back:(id)sender {
      [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)buyNow:(id)sender {
    [self performSegueWithIdentifier:@"ConfirmOrderSegue" sender:self.model];
-    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    ConfirmOrderViewController *confirmVC = segue.destinationViewController;
-    confirmVC.model = sender;
+    if ([segue.identifier isEqualToString:@"ConfirmOrderSegue"]) {
+        ConfirmOrderViewController *confirmVC = segue.destinationViewController;
+        confirmVC.model = sender;
+    }
+
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -399,7 +393,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 #pragma mark - Navigation
 

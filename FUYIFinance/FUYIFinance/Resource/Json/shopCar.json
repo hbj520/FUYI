@@ -1,0 +1,72 @@
+"data":{
+"teachers":[
+    
+            "teacher":{
+            "teacherName":"李笑笑",
+            "teacherid":"96"
+            "goods":[
+                     "good"{
+                     "goodTitle":"新能源标题1",
+                     "goodprice":"65.25",
+                     "goodid":"568"
+                     },
+                     
+                     "good"{
+                     "goodTitle":"新能源标题2",
+                     "goodprice":"65",
+                     "goodid":"569"
+                     },
+                     "good"{
+                     "goodTitle":"新能源标题3",
+                     "goodprice":"23",
+                     "goodid":"562"
+                     }
+            ]
+            },
+            "teacher":{
+            "teacherName":"张局长",
+            "teacherid":"65"
+            "goods":[
+                     "good"{
+                     "goodTitle":"好吃商品标题1",
+                     "goodprice":"58",
+                     "goodid":"58"
+                     },
+                     "good"{
+                     "goodTitle":"好吃商品标题2",
+                     "goodprice":"65",
+                     "goodid":"5689"
+                     },
+                     "good"{
+                     "goodTitle":"好吃商品标题3",
+                     "goodprice":"889",
+                     "goodid":"144"
+                     }
+                     ]
+            },
+            "teacher":{
+            "teacherName":"李运来",
+            "teacherid":"88"
+            "goods":[
+                     "good"{
+                     "goodTitle":"好玩商品标题1",
+                     "goodprice":"65.25",
+                     "goodid":"55"
+                     },
+                     "good"{
+                     "goodTitle":"好玩商品标题2",
+                     "goodprice":"66",
+                     "goodid":"569"
+                     },
+                     "good"{
+                     "goodTitle":"好玩商品标题3",
+                     "goodprice":"33",
+                     "goodid":"562"
+                     }
+                     ]
+            }
+    
+    
+    ]
+    
+}
