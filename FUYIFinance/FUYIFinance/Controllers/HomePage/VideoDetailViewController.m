@@ -126,27 +126,31 @@
         layer.borderColor = (__bridge CGColorRef _Nullable)([UIColor whiteColor]);
         [self.view.layer addSublayer:layer];
     }
-     [self groupAnimation];//加入购物车动画
-    [[MyAPI sharedAPI]addGoodIntoShopCarWithToken:KToken
-                                          goodsId:_model.videoId
-                                             type:_model.videoType
-                                            money:_model.videoPrice
-                                           result:^(BOOL sucess, NSString *msg) {
-                                               
-                                               if ([msg isEqualToString:@"登录超时"]) {
-                                                   [self logOut];
-                                               }
-        
-        if (sucess) {
-             //[self groupAnimation];//加入购物车动画
-            [self showPopup:msg];
-        }else{
-            [self showPopup:msg];
-        }
-        
-    } errorResult:^(NSError *enginerError) {
-        
-    }];
+    
+    if ([_model.cart isEqualToString:@"0"]) {
+         [self groupAnimation];//加入购物车动画
+        [[MyAPI sharedAPI]addGoodIntoShopCarWithToken:KToken
+                                              goodsId:_model.videoId
+                                                 type:_model.videoType
+                                                money:_model.videoPrice
+                                               result:^(BOOL sucess, NSString *msg) {
+                                                   
+                                                   if ([msg isEqualToString:@"登录超时"]) {
+                                                       [self logOut];
+                                                   }
+                                                   if (sucess) {
+                                                       [self showPopup:msg];
+                                                   }else{
+                                                       [self showPopup:msg];
+                                                   }
+                                                   
+                                               } errorResult:^(NSError *enginerError) {
+                                                   
+                                               }];
+        _model.cart = @"1";
+    }else{
+        [self showPopup:@"购物车已存在！"];
+    }
 }
 
 - (void)groupAnimation

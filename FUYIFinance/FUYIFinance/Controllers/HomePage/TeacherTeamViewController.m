@@ -90,9 +90,7 @@
            [self logOut];
        }
        if (success) {
-           if (TeacherTeamArr.count > 0) {
-                [TeacherTeamArr removeAllObjects];
-           }
+
            [TeacherTeamArr addObjectsFromArray:arrays];
            [self.tableView reloadData];
        }
@@ -103,8 +101,6 @@
        [self.tableView.mj_header endRefreshing];
        [self.tableView.mj_footer endRefreshing];
    }];
-
-    
 }
 
 - (void)creatUI{
@@ -116,7 +112,6 @@
     searchField.borderStyle = UITextBorderStyleNone;
     searchField.backgroundColor = RGBACOLOR(235, 235, 235, 1);
     searchField.layer.cornerRadius = 10;
-
 }
 
 - (void)addCustomerNavgationItem{

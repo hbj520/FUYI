@@ -22,6 +22,7 @@
 #import "LabelHelper.h"
 #import <MJRefresh.h>
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "LPPopup.h"
 //static NSString *videoHeader = @"videoHeaderReuseId";
 
 
@@ -53,23 +54,31 @@
 {
     [super viewWillAppear:animated];
     self.tabBarController.tabBar.hidden = NO;
-
+    
+    if (_goodArray.count>0 ||_storeArray.count>0) {
+        [_goodArray removeAllObjects];
+        [_storeArray removeAllObjects];
+        [_isSelected removeAllObjects];
+        [_headIsSelected removeAllObjects];
+         [self loadData];
+    }
+   
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _goodArray = [NSMutableArray array];
-    _storeArray = [NSMutableArray array];
-    _isSelected = [NSMutableArray array];
-    _headIsSelected = [NSMutableArray array];
+    _goodArray = [[NSMutableArray alloc]init];
+    _storeArray = [[NSMutableArray alloc]init];
+    _isSelected = [[NSMutableArray alloc]init];
+    _headIsSelected = [[NSMutableArray alloc]init];
     if (KToken) {
         [self creatUI];
         self.isAllSelected = YES;
         //加载数据源
         _page = 1;
         [self loadData];
-        [self addRefresh];
+       [self addRefresh];
         
     }
 }
@@ -86,10 +95,10 @@
         }
         [weakself loadData];
     }];
-    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-        _page++;
-        [weakself loadData];
-    }];
+//    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+//        _page++;
+//        [weakself loadData];
+//    }];
 }
 
 -(void)loadData
@@ -110,11 +119,11 @@
              [self creatData];
         }
         [self.tableView.mj_header endRefreshing];
-        [self.tableView.mj_footer endRefreshing];
+        //[self.tableView.mj_footer endRefreshing];
         
     } errorResult:^(NSError *enginerError) {
         [self.tableView.mj_header endRefreshing];
-        [self.tableView.mj_footer endRefreshing];
+        //[self.tableView.mj_footer endRefreshing];
     }];
     //创建数据
    
@@ -127,8 +136,6 @@
 //    NSMutableArray * array2 = [[NSMutableArray alloc]initWithObjects:@"1",@"1", nil];
 //    self.isSelected = [[NSMutableArray alloc]initWithObjects:array0,array1,array2,nil];
 //    self.headIsSelected = [[NSMutableArray alloc]initWithObjects:@"1",@"1",@"1", nil];
-    
-    //NSMutableArray * array0 = [[NSMutableArray alloc]init];
 
     for (TeacherStoreModel *teacherModel in _storeArray) {
         [_headIsSelected addObject:@"1"];
@@ -141,12 +148,8 @@
         for (Good *goodModel in array) {
             [goodA addObject:@"1"];
         }
-        
         [_isSelected addObject:goodA];
-   // NSLog(@"666666%@6666666",_isSelected);
     }
-    
-    
 }
 
 -(void)creatUI
@@ -164,6 +167,7 @@
     [self addBottomView];
 }
 
+#pragma mark - UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return self.storeArray.count;
@@ -171,12 +175,8 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    //NSArray *goodArr = _goodArray[section]
-    
     return [self.goodArray[section] count];
 }
-
-
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -192,12 +192,10 @@
     
         Good *goodMod = _goodArray[indexPath.section][indexPath.row];
         [cell.goodImage sd_setImageWithURL:[NSURL URLWithString:goodMod.goodImage] placeholderImage:[UIImage imageNamed:@"shopcar_defual"]];
-        //cell.goodCounts.text = [NSString stringWithFormat:@"x%@",goodMod.orderNum];
         cell.goodPrice.attributedText = [[LabelHelper alloc]attributedFontStringWithString:[NSString stringWithFormat:@"¥ %@",goodMod.goodPrice] firstFont:13 secFont:17 thirdFont:14];
         cell.goodContent.text = goodMod.goodName;
    
     return cell;
-
 }
 
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -221,16 +219,9 @@
     
     TeacherStoreModel *TeacherModel = [_storeArray objectAtIndex:section];
     headerView.videoClassLab.text = [NSString stringWithFormat:@"%@的视频课堂",TeacherModel.teacherName];
-    
-    
+
     return headerView;
 }
-
-//- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section{
-//    view.contentView.backgroundColor = [UIColor blackColor];
-//}
-
-
 
 #pragma mark --privateMethod
 //cell单选按钮
@@ -330,9 +321,22 @@
     }
 }
 
-//删除
+//局部删除
 - (void)deleteButton:(CustomBtn*)button
 {
+    NSArray *goodArr = [_goodArray objectAtIndex:button.tag];
+    NSMutableArray *orderArr = [[NSMutableArray alloc]init];
+    for (Good *headGood in goodArr) {
+        [orderArr addObject:headGood.orderNum];
+    }
+    
+//    [MyAPI sharedAPI] deleteVideoFromShopCarWithToken:KToken orderNum:<#(NSString *)#> result:^(BOOL sucess, NSString *msg) {
+//        
+//    } errorResult:^(NSError *enginerError) {
+//        
+//    }];
+    
+    
     [self.headIsSelected removeObjectAtIndex:button.tag];
     [self.isSelected removeObjectAtIndex:button.tag];
     
@@ -460,31 +464,57 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"确定要删除该商品?删除后无法恢复!" preferredStyle:1];
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+     
             
-            [self.isSelected[indexPath.section] removeObjectAtIndex:indexPath.row];
-         //   [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+           //  NSLog(@"剩下的数组%@",_goodArray[3][0]);
             
-            //判断如果某区行数被删光，删除所在区
-            if ([self.isSelected[indexPath.section] count] == 0) {
-                [self.isSelected removeObjectAtIndex:indexPath.section];
-                [self.headIsSelected removeObjectAtIndex:indexPath.section];
-//                NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:indexPath.section];
-//                [tableView deleteSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
-                [self.tableView reloadData];
-            }else{
-                //如果没有被删光，遍历剩下的行是否全选
-                NSInteger y = 0;
-                for (NSString *strr in self.isSelected[indexPath.section]) {
-                    if ([strr isEqualToString:@"1"]) {
-                        y++;
-                    }
-                    //如果全选，给所在区选定状态改为@“1”
-                }if (y == [self.isSelected[indexPath.section] count]) {
-                    
-                    self.headIsSelected[indexPath.section] = @"1";
+        //    [self.goodArray re]
+            
+            Good *deleGood = _goodArray[indexPath.section][indexPath.row];
+            [[MyAPI sharedAPI] deleteVideoFromShopCarWithToken:KToken orderNum:deleGood.orderNum result:^(BOOL sucess, NSString *msg) {
+                if ([msg isEqualToString:@"登录超时"]) {
+                    [self logOut];
                 }
-                [self.tableView reloadData];
-            }
+                if (sucess) {
+                    [self.isSelected[indexPath.section] removeObjectAtIndex:indexPath.row];
+                    //   [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                    [self.goodArray[indexPath.section] removeObjectAtIndex:indexPath.row];
+                    
+                    //判断如果某区行数被删光，删除所在区
+                    if ([self.goodArray[indexPath.section] count] == 0) {
+                        
+                        [self.goodArray removeObjectAtIndex:indexPath.section];
+                        [self.storeArray removeObjectAtIndex:indexPath.section];
+                        [self.isSelected removeObjectAtIndex:indexPath.section];
+                        [self.headIsSelected removeObjectAtIndex:indexPath.section];
+                        //                NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:indexPath.section];
+                        //                [tableView deleteSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
+                        [self.tableView reloadData];
+                    }else{
+                        //如果没有被删光，遍历剩下的行是否全选
+                        NSInteger y = 0;
+                        for (NSString *strr in self.isSelected[indexPath.section]) {
+                            if ([strr isEqualToString:@"1"]) {
+                                y++;
+                            }
+                            //如果全选，给所在区选定状态改为@“1”
+                        }if (y == [self.isSelected[indexPath.section] count]) {
+                            
+                            self.headIsSelected[indexPath.section] = @"1";
+                        }
+                        [self.tableView reloadData];
+                    }
+                    
+                    [self.tableView reloadData];
+                    
+                    [self showPopup:msg];
+                }else{
+                    [self showPopup:msg];
+                }
+                
+            } errorResult:^(NSError *enginerError) {
+                
+            }];
             
             //遍历区是否局部全选
             NSInteger c = 0;
@@ -524,6 +554,14 @@
     
 }
 
+- (void)showPopup:(NSString *)popupWithText
+{
+    LPPopup *popup = [LPPopup popupWithText:popupWithText];
+    [popup showInView:self.view
+        centerAtPoint:self.view.center
+             duration:kLPPopupDefaultWaitDuration
+           completion:nil];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

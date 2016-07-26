@@ -334,6 +334,34 @@
     }];
 }
 
+#pragma mark -删除购物车商品
+- (void)deleteVideoFromShopCarWithToken:(NSString*)token
+                               orderNum:(NSString*)orderNum
+                                 result:(StateBlock)result
+                            errorResult:(ErrorBlock)errorRusult{
+    NSDictionary *parameters = @{
+                                 @"token":KToken,
+                                 @"ordernum":orderNum
+                                 };
+    [self.manager POST:@"re_cart" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString *state = responseObject[@"status"];
+        NSString *information = responseObject[@"info"];
+        
+        if ([state isEqualToString:@"-1"]) {
+            result(NO,@"登录超时");
+        }
+        if([state isEqualToString:@"1"]){
+            result(YES,information);
+        }else{
+            result(NO,information);
+        }
+        
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        
+    }];
+    
+    
+}
 
 #pragma mark -加入购物车
 - (void)addGoodIntoShopCarWithToken:(NSString*)token

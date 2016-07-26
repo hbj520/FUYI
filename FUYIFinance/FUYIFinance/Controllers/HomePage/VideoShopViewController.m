@@ -70,6 +70,7 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
 {
     [super viewWillDisappear:animated];
     self.navigationController.navigationBar.hidden = YES;
+    _shadowBtn.hidden = YES;
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];

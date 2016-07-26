@@ -18,7 +18,8 @@
         videodescription:(NSString *)videodescription
                teacherId:(NSString *)teacherId
                videoType:(NSString *)videoType
-            videoCollect:(NSString*)videoCollect{
+            videoCollect:(NSString*)videoCollect
+                    cart:(NSString*)cart{
     StoreDataModel *model = [[StoreDataModel alloc]init];
     model.videoId = videoId;
     model.videoName = videoName;
@@ -30,6 +31,7 @@
     model.teacherId = teacherId;
     model.videoType = videoType;
     model.videoCollect = videoCollect;
+    model.cart = cart;
     return model;
 }
 
@@ -49,6 +51,8 @@
         NSString *videoType = [NSString stringWithFormat:@"%ld",Type.integerValue];
         NSNumber *collect = dic[@"collect"];
         NSString *videoCollect = [NSString stringWithFormat:@"%ld",collect.integerValue];
+        NSNumber *videoCart = dic[@"cart"];
+        NSString *cart = [NSString stringWithFormat:@"%ld",(long)videoCart.integerValue];
         
         StoreDataModel *model = [[StoreDataModel alloc]initWithParameters:videoId
                                                                 videoName:videoName
@@ -59,7 +63,8 @@
                                                          videodescription:videodescription
                                                                 teacherId:teacherId
                                                                 videoType:videoType
-                                                             videoCollect:videoCollect];
+                                                             videoCollect:videoCollect
+                                                                     cart:cart];
         [modelArr addObject:model];
     }
     
