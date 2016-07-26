@@ -12,15 +12,19 @@
 #import "ChangeHeadView.h"
 #import "KGModal.h"
 #import "Config.h"
+#import "MyAPI.h"
 
 @interface MineModifyInfoViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIActionSheetDelegate>
 {
     UIImagePickerController * _picker;
+    NSString * imageUrl;
 }
 @property (weak, nonatomic) IBOutlet UILabel *sexlabel;
 @property (weak, nonatomic) IBOutlet UILabel *nickName;
 @property (weak, nonatomic) IBOutlet UIImageView *headImage;
+@property (weak, nonatomic) IBOutlet UITextField *qqnum;
 
+@property (weak, nonatomic) IBOutlet UITextField *emailnum;
 @end
 
 @implementation MineModifyInfoViewController
@@ -29,6 +33,7 @@
     [super viewDidLoad];
     [self initPickView];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeNickname:) name:@"returnnick" object:nil];
+    imageUrl = [[Config Instance] getIcon];
     self.headImage.layer.cornerRadius = 24;
     self.headImage.layer.masksToBounds = YES;
     
@@ -38,7 +43,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
-
+#pragma mark - PrivateMethod
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -47,6 +52,22 @@
         [self.headImage sd_setImageWithURL:[NSURL URLWithString:imageurl] placeholderImage:[UIImage imageNamed:@"defaulticon"]];
     }
     self.navigationController.navigationBarHidden = NO;
+}
+
+- (void)addGesture
+{
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesturedDetected:)]; // 手势类型随你喜欢。
+    
+    self.tableView.userInteractionEnabled = YES;
+    [self.tableView addGestureRecognizer:tapGesture];
+}
+
+- (void)tapGesturedDetected:(UITapGestureRecognizer *)recognizer
+
+{
+    [self.qqnum resignFirstResponder];
+    [self.emailnum resignFirstResponder];
+    
 }
 
 - (void)changeNickname:(NSNotification *)nick
@@ -106,6 +127,7 @@
     [self showHudInView:self.view hint:@"上传图片中"];
     [[MyAPI sharedAPI] uploadImage:data result:^(BOOL sucess, NSString *msg) {
         if(sucess){
+            imageUrl = msg;
             [self.headImage sd_setImageWithURL:[NSURL URLWithString:msg] placeholderImage:[UIImage imageNamed:@"defaulticon"]];
             [[Config Instance] saveIcon:msg];
             [self hideHud];
@@ -121,6 +143,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+
 #pragma mark-UIActionSheetDelegate
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
@@ -134,14 +158,13 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
+
     return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
     if(section == 0){
-    return 5;
+    return 6;
     }else{
         return 1;
     }
@@ -153,7 +176,7 @@
         return 15;
     }
     else{
-        return 260;
+        return 1;
         }
 }
 
@@ -170,9 +193,31 @@
         
     }else if (indexPath.row == 4){
         
-    }else{
+    }else if (indexPath.row == 5){
+        [self.qqnum resignFirstResponder];
+        [self.emailnum resignFirstResponder];
+    }
+    else{
         
     }
+}
+- (IBAction)commit:(id)sender {
+    [[MyAPI sharedAPI] PersonalInfoModifyWithParameters:self.nickName.text
+                                               imgThumb:imageUrl
+                                                  qqNum:self.qqnum.text
+                                                    Sex:self.sexlabel.text
+                                               emailNum:self.emailnum.text
+                                                 result:^(BOOL sucess, NSString *msg) {
+                                                     if(sucess){
+                                                         [self showHint:@"上传成功"];
+                                                     }else{
+                                                         
+                                                     }
+        
+    } errorResult:^(NSError *enginerError) {
+        
+    }];
+    
 }
 
 - (IBAction)back:(id)sender {
