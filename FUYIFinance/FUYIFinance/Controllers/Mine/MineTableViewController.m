@@ -93,13 +93,18 @@
         self.welcomeLabel.hidden = NO;
         self.loginBtn.hidden = NO;
     }
+    if(!KToken){
+        self.badgeLabel3.hidden = YES;
+    }else{
     //待评价按钮的自定义badge标签
+        self.badgeLabel3.hidden = NO;
     self.badgeLabel3.layer.cornerRadius = 8;
     self.badgeLabel3.layer.masksToBounds = YES;
+    self.badgeLabel3.text = [[Config Instance] getWaitJudgeCount];
     if([self.badgeLabel3.text isEqualToString:@"0"]){
         self.badgeLabel3.hidden = YES;
     }
-    
+    }
     //待付款按钮添加响应事件
     UITapGestureRecognizer *tap  = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(prepareAct:)];
     [self.preparPay addGestureRecognizer:tap];

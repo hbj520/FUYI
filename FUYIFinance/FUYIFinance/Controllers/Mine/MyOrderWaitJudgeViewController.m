@@ -12,6 +12,7 @@
 #import "UIViewController+HUD.h"
 #import <MJRefresh/MJRefresh.h>
 #import "MyAPI.h"
+#import "Config.h"
 #import "MineWaitJudgeModel.h"
 
 @interface MyOrderWaitJudgeViewController ()<UITableViewDataSource,UITableViewDelegate>
@@ -39,6 +40,7 @@
     [self addRefresh];
     dataSource = [NSMutableArray array];
     [self loadData];
+    
 }
 
 - (void)addRefresh
@@ -75,6 +77,7 @@
                                                    }
                                                    if(success){
                                                        [dataSource addObjectsFromArray:arrays];
+                                                       [[Config Instance] saveWaitJudgeCount:[NSString stringWithFormat:@"%ld",dataSource.count]];
                                                        [_tableView reloadData];
                                                    }else{
                                                        

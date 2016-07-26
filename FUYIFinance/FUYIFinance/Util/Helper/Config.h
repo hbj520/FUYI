@@ -31,6 +31,12 @@
                token:(NSString *)token
             username:(NSString *)username;
 
+//保存待评价未读数
+- (void)saveWaitJudgeCount:(NSString *)count;
+
+//获得待评价未读数
+- (NSString *)getWaitJudgeCount;
+
 /**
  *  保存图片
  *
