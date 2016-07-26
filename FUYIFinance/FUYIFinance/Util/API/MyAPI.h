@@ -245,6 +245,25 @@ typedef void (^ErrorBlock) (NSError *enginerError);
              result:(StateBlock)result
         errorResult:(ErrorBlock)errorResult;
 
+/**
+ *  修改个人资料
+ *
+ *  @param username    用户名
+ *  @param imgthumb    用户头像
+ *  @param qqnum       用户qq号
+ *  @param sex         用户性别
+ *  @param emailnum    用户邮箱号码
+ *  @param result      返回结果
+ *  @param errorResult 错误信息
+ */
+- (void)PersonalInfoModifyWithParameters:(NSString *)username
+                                imgThumb:(NSString *)imgthumb
+                                   qqNum:(NSString *)qqnum
+                                     Sex:(NSString *)sex
+                                emailNum:(NSString *)emailnum
+                                  result:(StateBlock)result
+                             errorResult:(ErrorBlock)errorResult;
+
 
 #pragma mark -讲师团队
 - (void)getTeacherTeamDataWithToken:(NSString*)token

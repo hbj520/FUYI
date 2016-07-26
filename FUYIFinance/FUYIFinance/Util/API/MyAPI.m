@@ -82,6 +82,51 @@
     }];
 }
 
+- (void)sendYZMWithParameters:(NSString *)phoneNum
+                       result:(StateBlock)result
+                  errorResult:(ErrorBlock)errorResult
+{
+    NSDictionary *parameters = @{
+                                 @"phone":phoneNum
+                                 };
+[self.manager POST:@"nos_sendzhyzm" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+    NSString * status = responseObject[@"status"];
+    NSString * info = responseObject[@"info"];
+    if([status isEqualToString:@"1"]){
+        result(YES,info);
+    }else{
+        result(NO,info);
+    }
+} failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+    errorResult(error);
+}];
+    
+}
+
+- (void)forgetPasswordWithPhonenum:(NSString *)phonenum
+                               YZM:(NSString *)yzm
+                          Password:(NSString *)password
+                        Repassword:(NSString *)repassword
+                            result:(StateBlock)result
+                       errorResult:(ErrorBlock)errorResult;
+{
+    NSDictionary * parameters = @{@"phone":phonenum,
+                                  @"yzm":yzm,
+                                  @"passwd":password,
+                                  @"repasswd":repassword};
+    [self.manager POST:@"nos_getpwd" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * status = responseObject[@"status"];
+        NSString * info = responseObject[@"info"];
+        if([status isEqualToString:@"1"]){
+            result(YES,info);
+        }else{
+            result(NO,info);
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+    }];
+    
+}
 /**
  *  注册
  *
@@ -619,6 +664,32 @@
             result(YES,information);
         }else{
             result(NO,information);
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+    }];
+}
+
+- (void)PersonalInfoModifyWithParameters:(NSString *)username
+                                imgThumb:(NSString *)imgthumb
+                                   qqNum:(NSString *)qqnum
+                                     Sex:(NSString *)sex
+                                emailNum:(NSString *)emailnum
+                                  result:(StateBlock)result
+                             errorResult:(ErrorBlock)errorResult
+{
+    NSDictionary * parameters = @{@"token":KToken,
+                                  @"username":username,
+                                  @"qq":qqnum,
+                                  @"sex":sex,
+                                  @"email":emailnum};
+    [self.manager POST:@"changeinfo" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * status = responseObject[@"status"];
+        NSString * info = responseObject[@"info"];
+        if([status isEqualToString:@"1"]){
+            result(YES,info);
+        }else{
+            result(NO,info);
         }
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         errorResult(error);
