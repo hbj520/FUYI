@@ -134,6 +134,23 @@
     
 }
 
+- (IBAction)setting:(id)sender {
+    if (!KToken) {
+        [self LoginActCell];
+    }else{
+    [self performSegueWithIdentifier:@"settingSegue" sender:nil];
+    }
+}
+
+- (IBAction)message:(id)sender {
+    if(!KToken){
+        self.messagebtn.enabled = NO;
+       
+    }else{
+        self.messagebtn.enabled = YES;
+        [self performSegueWithIdentifier:@"noticeSegue" sender:nil];
+    }
+}
 
 //待付款
 - (void)prepareAct:(UIGestureRecognizer *)ges{
@@ -252,7 +269,7 @@
         if(indexPath.row==0){
         [self performSegueWithIdentifier:@"modifyinfoSegue" sender:nil];
         }else if (indexPath.row==1){
-            
+        [self performSegueWithIdentifier:@"modifypwdSegue" sender:nil];
         }else if (indexPath.row==2){
             
         }else if (indexPath.row==3){
