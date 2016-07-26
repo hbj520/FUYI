@@ -114,6 +114,9 @@
                                                 [self logOut];
                                             }
                                             if (success) {
+                                                
+                                                [_goodArray removeAllObjects];
+                                                [_storeArray removeAllObjects];
                                                 [_storeArray addObjectsFromArray:arrays[0]];
                                                 [_goodArray addObjectsFromArray:arrays[1]];
                                                 
