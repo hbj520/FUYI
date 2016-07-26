@@ -48,7 +48,7 @@
     }
     self.navigationController.navigationBarHidden = NO;
 }
-
+#pragma mark - PrivateMethod
 - (void)changeNickname:(NSNotification *)nick
 {
     self.nickName.text = nick.userInfo[@"nickname"];
@@ -134,12 +134,10 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
     return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
     if(section == 0){
     return 5;
     }else{
@@ -179,7 +177,9 @@
     self.navigationController.navigationBarHidden = YES;
     [self.navigationController popViewControllerAnimated:YES];
 }
-
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"returnnick" object:nil];
+}
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
