@@ -39,8 +39,15 @@
     _tableView.delegate = self;
     [_tableView registerNib:[UINib nibWithNibName:@"MyJudgeTableViewCell" bundle:nil] forCellReuseIdentifier:@"MyJudgeId"];
     [self.view addSubview:_tableView];
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshtableview) name:@"refreshView" object:nil];
     [self loadData];
     [self addRefresh];
+    
+}
+
+- (void)refreshtableview
+{
+    [self loadData];
 }
 
 - (void)addRefresh
