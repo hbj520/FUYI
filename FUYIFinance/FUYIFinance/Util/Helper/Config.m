@@ -88,6 +88,34 @@ static Config * instance = nil;
     [settings synchronize];
 }
 
+- (void)saveWaitPayCount:(NSString *)count
+{
+    NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
+    [settings removeObjectForKey:@"waitpaycount"];
+    [settings setObject:count forKey:@"waitpaycount"];
+    [settings synchronize];
+}
+
+- (NSString *)getWaitPayCount
+{
+    NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
+    return [settings stringForKey:@"waitpaycount"];
+}
+
+- (void)saveWaitJudgeCount:(NSString *)count
+{
+    NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
+    [settings removeObjectForKey:@"judgecount"];
+    [settings setObject:count forKey:@"judgecount"];
+    [settings synchronize];
+}
+
+- (NSString *)getWaitJudgeCount
+{
+    NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
+    return [settings stringForKey:@"judgecount"];
+}
+
 - (void)saveIcon:(NSString *)icon
 {
     NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
