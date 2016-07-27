@@ -7,8 +7,10 @@
 //
 
 #import "MyCollectionCourseViewController.h"
+#import "VideoDetailViewController.h"
 #import "MyCollectionTableViewCell.h"
 #import "MineCollectionTreasureModel.h"
+#import "StoreDataModel.h"
 #import "UIViewController+HUD.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <MJRefresh/MJRefresh.h>
@@ -137,6 +139,20 @@
     NSString * price = [NSString stringWithFormat:@"%@",pricelabel];
     cell.pricelabel.text = price;
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    MineCollectionTreasureModel * model =[[MineCollectionTreasureModel alloc] init];
+    model = dataSource[indexPath.section];
+    StoreDataModel * model1 = [[StoreDataModel alloc] initWithParameters:model.goodsid
+                                                               videoName:model.name
+                                                             teacherName:model.teacher videoImage:model.image videoPrice:model.price sellNum:model.num videodescription:model.about teacherId:model.tid videoType:model.type videoCollect:model.collection cart:model.cart];
+    UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"HomePage" bundle:nil];
+    
+    VideoDetailViewController * vc =[storyboard instantiateViewControllerWithIdentifier:@"VideoShopStoryBoardID"];
+    vc.model = model1;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

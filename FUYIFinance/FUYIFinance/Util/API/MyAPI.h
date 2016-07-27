@@ -245,6 +245,20 @@ typedef void (^ErrorBlock) (NSError *enginerError);
 - (void)LoginOutWithResult:(StateBlock)result
                errorResult:(ErrorBlock)errorResult;
 
+
+/**
+ *  修改密码
+ *
+ *  @param oldPassword 旧密码
+ *  @param newPassword 新密码
+ *  @param result      返回结果
+ *  @param errorResult 错误信息
+ */
+- (void)reSetPasswordWithOldPassword:(NSString *)oldPassword
+                         newPassword:(NSString *)newPassword
+                              Result:(StateBlock)result
+                         errorResult:(ErrorBlock)errorResult;
+
 /**
  *  上传图片
  *

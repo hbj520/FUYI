@@ -8,6 +8,8 @@
 
 #import "ManageTreasureTableViewController.h"
 #import "BBBadgeBarButtonItem.h"
+#import <MJRefresh/MJRefresh.h>
+
 @interface ManageTreasureTableViewController ()<UITextViewDelegate,UITextFieldDelegate>
 
 {
@@ -37,7 +39,22 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self addRefresh];
 }
+
+- (void)addRefresh
+{
+    __weak ManageTreasureTableViewController * weakself = self;
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        
+    }];
+    MJRefreshAutoNormalFooter * footerRefresh = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        
+    }];
+    footerRefresh.automaticallyRefresh = NO;
+   self.tableView.mj_footer = footerRefresh;
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -104,7 +121,7 @@
 //自定制导航栏信息按钮的事件响应方法
 - (void)clickBtn1
 {
-    
+    [self.tableView.mj_header beginRefreshing];
 }
 
 - (void)textViewDidBeginEditing:(UITextView *)textView

@@ -176,14 +176,15 @@
 
 - (void)logout:(id)sender {
     [self showHudInView:self.view hint:@"正在退出登录"];
+    
     [[MyAPI sharedAPI]LoginOutWithResult:^(BOOL sucess, NSString *msg) {
         if(sucess){
             [self showHint:msg];
             [[Config Instance] logout];
             [self hideHud];
-           [self.navigationController popViewControllerAnimated:YES];
+            [self.navigationController popViewControllerAnimated:YES];
             self.navigationController.navigationBarHidden = YES;
-        }else{
+                   }else{
             [self showHint:msg];
             [self hideHud];
         }

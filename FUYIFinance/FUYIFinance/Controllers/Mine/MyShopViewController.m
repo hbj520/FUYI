@@ -12,6 +12,7 @@
 #import "ShopTopTableViewCell.h"
 #import "FourBtnTableViewCell.h"
 #import "MyShopDetailTableViewCell.h"
+#import <MJRefresh/MJRefresh.h>
 #import "BBBadgeBarButtonItem.h"
 
 @interface MyShopViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -39,7 +40,21 @@
     [_tableView registerNib:[UINib nibWithNibName:@"FourBtnTableViewCell" bundle:nil] forCellReuseIdentifier:@"cellID3"];
     [_tableView registerNib:[UINib nibWithNibName:@"MyShopDetailTableViewCell" bundle:nil] forCellReuseIdentifier:@"cellID4"];
     [self.view addSubview:_tableView];
-    
+    [self addRefresh];
+}
+
+#pragma mark - PrivateMethod
+- (void)addRefresh
+{
+    __weak MyShopViewController * weakself = self;
+    _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        
+    }];
+    MJRefreshAutoNormalFooter * footerRefresh = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        
+    }];
+    footerRefresh.automaticallyRefresh = NO;
+    _tableView.mj_footer = footerRefresh;
 }
 
 //添加自定制导航栏按钮
@@ -79,7 +94,7 @@
 
 - (void)btnclick1:(id)sender
 {
-    
+    [_tableView.mj_header beginRefreshing];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

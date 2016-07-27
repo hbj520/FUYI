@@ -9,7 +9,7 @@
 #import "TreasureManageViewController.h"
 #import "BBBadgeBarButtonItem.h"
 #import "LoveManageTableViewCell.h"
-
+#import <MJRefresh/MJRefresh.h>
 @interface TreasureManageViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     UITableView * _tableView;
@@ -31,6 +31,7 @@
     _tableView.dataSource = self;
     [_tableView registerNib:[UINib nibWithNibName:@"LoveManageTableViewCell" bundle:nil] forCellReuseIdentifier:@"TreasureId"];
     [self.view addSubview:_tableView];
+    [self addRefresh];
     
 }
 
@@ -44,6 +45,19 @@
         self.navigationItem.title = @"订单管理";
     }
     
+}
+
+- (void)addRefresh
+{
+    __weak TreasureManageViewController * weakself = self;
+    _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        
+    }];
+    MJRefreshAutoNormalFooter * footerRefresh = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        
+    }];
+    footerRefresh.automaticallyRefresh = NO;
+    _tableView.mj_footer = footerRefresh;
 }
 
 - (void)addChatBtn{
@@ -83,7 +97,7 @@
 //点击环状
 - (void)clickBtn1
 {
-    
+    [_tableView.mj_header beginRefreshing];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

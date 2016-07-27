@@ -130,6 +130,9 @@
     [self.myOrder addGestureRecognizer:tapMyorder];
     
 }
+- (IBAction)accountManage:(id)sender {
+     [self performSegueWithIdentifier:@"modifypwdSegue" sender:nil];
+}
 
 //显示未操作数
 - (void)addBadgeLabel

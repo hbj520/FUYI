@@ -119,7 +119,7 @@
             [self.headImage setImage:[UIImage imageNamed:@"defaulticon"]];
         }
     } errorResult:^(NSError *enginerError) {
-        
+       
     }];
 }
 - (void)didReceiveMemoryWarning {
@@ -163,6 +163,22 @@
         }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.section == 0){
+        if(indexPath.row == 0){
+            return 64;
+        }else if(indexPath.row == 5) {
+            return ScreenHeight - 400;
+        }else{
+            return 54;
+        }
+    }else if (indexPath.section == 1){
+        return 44;
+    }
+    return 1;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(indexPath.row == 0){
@@ -194,7 +210,7 @@
                                                      if(sucess){
                                                          [self showHint:@"上传成功"];
                                                      }else{
-                                                         
+                                                         [self showHint:msg];
                                                      }
         
     } errorResult:^(NSError *enginerError) {
