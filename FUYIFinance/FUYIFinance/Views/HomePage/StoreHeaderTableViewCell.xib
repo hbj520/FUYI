@@ -88,6 +88,7 @@
             <connections>
                 <outlet property="bgImage" destination="v6G-YG-RO3" id="6Mp-1e-egg"/>
                 <outlet property="collectCountLab" destination="ZaW-9U-miO" id="Uyf-On-G5H"/>
+                <outlet property="collectStoreBtn" destination="drw-cv-Mpo" id="u9E-u6-pg2"/>
                 <outlet property="teacherImage" destination="din-cH-dye" id="lwX-Sw-rQZ"/>
                 <outlet property="teacherNameLab" destination="svX-bE-jaJ" id="WNg-70-RRM"/>
                 <outlet property="teacherTypeImage" destination="cin-wJ-2cH" id="O4P-Ve-2Uf"/>

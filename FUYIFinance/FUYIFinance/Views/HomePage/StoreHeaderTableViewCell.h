@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *teacherTypeImage;
 @property (weak, nonatomic) IBOutlet UIImageView *bgImage;
 @property (weak, nonatomic) IBOutlet UILabel *collectCountLab;
+@property (weak, nonatomic) IBOutlet UIButton *collectStoreBtn;
 
 @end

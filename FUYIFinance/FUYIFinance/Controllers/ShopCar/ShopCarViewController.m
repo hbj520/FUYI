@@ -62,8 +62,18 @@
     [_headIsSelected removeAllObjects];
     //self.isAllSelected = YES;
     // _noGoodView.hidden = YES;
-    [self loadData];
-    [self getGoodAllCounts];
+    
+    if (KToken) {
+        [self creatUI];
+        // self.TopConstraintLayout.constant = 0;
+        [self addRefresh];
+        [self loadData];
+        [self getGoodAllCounts];
+    }else{
+        [self logOut];
+    }
+    
+  
     
 }
 
@@ -82,6 +92,7 @@
 
     if (KToken) {
         [self creatUI];
+         self.TopConstraintLayout.constant = 44;
         self.isAllSelected = YES;
         //加载数据源
         [self loadData];
@@ -127,7 +138,7 @@
                                                 [_storeArray addObjectsFromArray:arrays[0]];
                                                 [_goodArray addObjectsFromArray:arrays[1]];
                                                 
-                                                
+                                                [self getGoodAllCounts];
                                                 [self.tableView reloadData];
                                                 
                                                 [self creatData];//添加是否勾选数据
@@ -168,7 +179,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"ShopCarTableViewCell" bundle:nil] forCellReuseIdentifier:@"shopCarCellReuseID"];
     self.tableView.rowHeight = 127;
     
-    self.TopConstraintLayout.constant = 44;
+   
     //导航栏
     [self addCustomerNavigationItem];
     //底部结算View
@@ -379,10 +390,15 @@
     bottomView.chooseAllBtn.selected = self.isAllSelected;
     [bottomView.goPay addTarget:self action:@selector(goPayClick:) forControlEvents:UIControlEventTouchUpInside];
     
+    //[self reloadAllPrice];
+    
+   //  bottomView.allGoodPrices.text = [NSString stringWithFormat:@"%ld",(long)price];
     [self.view addSubview:bottomView];
     
-   // [self reloadAllPrice];
-   // bottomView.allGoodPrices.text = [NSString stringWithFormat:@"%ld",(long)price];
+  
+  
+    
+   // NSLog(@"6666666666666+%@66666666666666",bottomView.allGoodPrices.text);
 }
 
 //价格汇总方法
@@ -400,12 +416,10 @@
             if ([selectstr boolValue]) {
                 Good * goods = array1[a];
                 price = price + [goods.goodPrice integerValue];
-                
             }
         }
     }
     NSLog(@"------------总价为%ld-------------",(long)price);
-    
 }
 
 //全选按钮
@@ -469,22 +483,29 @@
     navItem.messageBlock = ^(){
         
     };
+    
+    navItem.goodCountLab.text = [NSString stringWithFormat:@"(%ld)",(long)goodCounts];
     [self.view addSubview:navItem];
     
  
     
-    navItem.goodCountLab.text = [NSString stringWithFormat:@"(%ld)",(long)goodCounts];
+  
     
 }
 
 //购物车商品总数
 - (void)getGoodAllCounts{
     
-    //goodCounts = 0;
+    goodCounts = 0;
     
-    for (NSArray *arr in _isSelected) {
+    for (NSArray *arr in _goodArray) {
         goodCounts = goodCounts + arr.count;
     }
+    NSLog(@"商品数量+++++++%ld+++++++",(long)goodCounts);
+    
+    ShopCarNavigationItem *navItem = [[[NSBundle mainBundle]loadNibNamed:@"ShopCarNavigationItem" owner:self options:nil]lastObject];
+    navItem.goodCountLab.text = [NSString stringWithFormat:@"(%ld)",(long)goodCounts];
+    NSLog(@"+++++++++++++++++++%@++++++++++++++++",navItem.goodCountLab.text);
     
 }
 

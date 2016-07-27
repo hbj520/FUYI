@@ -59,6 +59,9 @@
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
             StoreHeaderTableViewCell *cell = [[[NSBundle mainBundle]loadNibNamed:@"StoreHeaderTableViewCell" owner:self options:nil]lastObject];
+            
+           // cell.collectStoreBtn
+            
             return cell;
         }if (indexPath.row == 1) {
             ShopTopTableViewCell *cell = [[[NSBundle mainBundle]loadNibNamed:@"ShopTopTableViewCell" owner:self options:nil]lastObject];
