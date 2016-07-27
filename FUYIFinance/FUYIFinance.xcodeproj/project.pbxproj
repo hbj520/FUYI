@@ -77,8 +77,7 @@
 		ABF5DE501D0FA7FC007CE1AB /* ShopCar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABF5DE4F1D0FA7FC007CE1AB /* ShopCar.storyboard */; };
 		ABF5DE521D0FA803007CE1AB /* Mine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABF5DE511D0FA803007CE1AB /* Mine.storyboard */; };
 		ABF5DE571D0FD930007CE1AB /* HomeTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF5DE561D0FD930007CE1AB /* HomeTabbarViewController.m */; };
-		CC0443651D47097F0024773A /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0443641D47097F0024773A /* SettingViewController.m */; };
-		CC0443681D4739D80024773A /* ModifyPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0443671D4739D80024773A /* ModifyPwdViewController.m */; };
+		ABFF9ABA1D475FE20023FF39 /* ModifyPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFF9AB91D475FE20023FF39 /* ModifyPwdViewController.m */; };
 		CC26F0DA1D261CAB003964A1 /* ProductJudgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC26F0D91D261CAB003964A1 /* ProductJudgeViewController.m */; };
 		CC26F0E11D264C61003964A1 /* PublishTreasureTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC26F0E01D264C61003964A1 /* PublishTreasureTableViewController.m */; };
 		CC3096ED1D406DC10025305F /* AllOderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3096EC1D406DC10025305F /* AllOderModel.m */; };
@@ -371,10 +370,8 @@
 		ABF5DE511D0FA803007CE1AB /* Mine.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Mine.storyboard; sourceTree = "<group>"; };
 		ABF5DE551D0FD930007CE1AB /* HomeTabbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTabbarViewController.h; sourceTree = "<group>"; };
 		ABF5DE561D0FD930007CE1AB /* HomeTabbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTabbarViewController.m; sourceTree = "<group>"; };
-		CC0443631D47097F0024773A /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
-		CC0443641D47097F0024773A /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
-		CC0443661D4739D80024773A /* ModifyPwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyPwdViewController.h; sourceTree = "<group>"; };
-		CC0443671D4739D80024773A /* ModifyPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPwdViewController.m; sourceTree = "<group>"; };
+		ABFF9AB81D475FE20023FF39 /* ModifyPwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyPwdViewController.h; sourceTree = "<group>"; };
+		ABFF9AB91D475FE20023FF39 /* ModifyPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPwdViewController.m; sourceTree = "<group>"; };
 		CC26F0D81D261CAB003964A1 /* ProductJudgeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductJudgeViewController.h; sourceTree = "<group>"; };
 		CC26F0D91D261CAB003964A1 /* ProductJudgeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductJudgeViewController.m; sourceTree = "<group>"; };
 		CC26F0DF1D264C61003964A1 /* PublishTreasureTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishTreasureTableViewController.h; sourceTree = "<group>"; };
@@ -956,6 +953,8 @@
 		ABF5DE371D0FA4B1007CE1AB /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				ABFF9AB81D475FE20023FF39 /* ModifyPwdViewController.h */,
+				ABFF9AB91D475FE20023FF39 /* ModifyPwdViewController.m */,
 				AB767D491D4743AA00C87D09 /* SettingViewController.h */,
 				AB767D4A1D4743AA00C87D09 /* SettingViewController.m */,
 				CC42E2701D24F13D0008A8D7 /* MyCollectionCourseViewController.h */,
@@ -1722,7 +1721,7 @@
 				D1F1302A1D2B817200EE1690 /* VideoInfoTableViewCell.m in Sources */,
 				D15BA3941D23906600904DEF /* CustomBtn.m in Sources */,
 				AB36CE2F1D1B710400D0E4C7 /* TADotView.m in Sources */,
-				CC0443681D4739D80024773A /* ModifyPwdViewController.m in Sources */,
+				ABFF9ABA1D475FE20023FF39 /* ModifyPwdViewController.m in Sources */,
 				AB02D4AC1D2228F800AED400 /* ShopCarViewController.m in Sources */,
 				CC26F0E11D264C61003964A1 /* PublishTreasureTableViewController.m in Sources */,
 				D1DE3AE41D225A99003473AF /* ShopCarBottomView.m in Sources */,
