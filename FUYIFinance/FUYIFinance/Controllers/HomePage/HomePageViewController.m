@@ -99,7 +99,7 @@ static NSString *investReuseId = @"investReuseId";
     [[MyAPI sharedAPI] homePageWithResult:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
         if (success) {
             [bannerData addObjectsFromArray: arrays[0]];
-            [noticeData addObjectsFromArray: arrays[1]];
+            [self setUpNoticeData:arrays[1]];
             [inverstData addObjectsFromArray:arrays[2]];
             //添加滚动视图pageview
             [self addPageControl];
@@ -113,6 +113,11 @@ static NSString *investReuseId = @"investReuseId";
         [self.tableView.mj_header endRefreshing];
 
     }];
+}
+- (void)setUpNoticeData:(NSArray *)noticeData{
+    for (HomePageNoticeModel *model in noticeData) {
+        
+    }
 }
 - (void)createUI{
     self.tableView.delegate = self;
