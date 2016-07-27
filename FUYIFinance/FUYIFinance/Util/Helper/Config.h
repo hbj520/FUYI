@@ -31,6 +31,12 @@
                token:(NSString *)token
             username:(NSString *)username;
 
+//保存待付款未读数
+- (void)saveWaitPayCount:(NSString *)count;
+
+//获得待付款未读数
+- (NSString *)getWaitPayCount;
+
 //保存待评价未读数
 - (void)saveWaitJudgeCount:(NSString *)count;
 

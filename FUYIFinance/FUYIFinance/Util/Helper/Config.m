@@ -88,6 +88,20 @@ static Config * instance = nil;
     [settings synchronize];
 }
 
+- (void)saveWaitPayCount:(NSString *)count
+{
+    NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
+    [settings removeObjectForKey:@"waitpaycount"];
+    [settings setObject:count forKey:@"waitpaycount"];
+    [settings synchronize];
+}
+
+- (NSString *)getWaitPayCount
+{
+    NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
+    return [settings stringForKey:@"waitpaycount"];
+}
+
 - (void)saveWaitJudgeCount:(NSString *)count
 {
     NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];

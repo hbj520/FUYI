@@ -15,6 +15,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <MJRefresh/MJRefresh.h>
 #import "LabelHelper.h"
+#import "PayView.h"
 #import "MyAPI.h"
 
 @interface MyOrderAllViewController ()<UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate>
@@ -25,6 +26,8 @@
     NSMutableArray * isjudgeArray;
     NSInteger page;
     NSInteger index;
+    PayView* _payView;
+    UIButton* _shadowBtn;
 }
 @end
 
@@ -48,6 +51,7 @@
     page = 1;
     [self loadData];
     [self addRefresh];
+    [self creatHidePayView];
 }
 
 - (void)addRefresh
@@ -72,6 +76,14 @@
     _tableView.mj_footer = footerRefresh;
 }
 
+-(void)creatHidePayView{
+    
+    _payView = [[[NSBundle mainBundle]loadNibNamed:@"PayView" owner:self options:nil]lastObject];;
+    _payView.titleLab.text = @"付款详情";
+    _payView.frame = CGRectMake(0, ScreenHeight, ScreenWidth, ScreenHeight * 0.65);
+    [_payView.downBtn addTarget:self action:@selector(down) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_payView];
+}
 
 - (void)loadData
 {
@@ -156,6 +168,7 @@
         PersonalWaitPayTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MyOrderId" forIndexPath:indexPath];
         cell.cancelBtn.tag = 10 + indexPath.row;
         cell.sureBtn.tag = indexPath.row;
+        [cell.sureBtn addTarget:self action:@selector(PayOrder:) forControlEvents:UIControlEventTouchUpInside];
         [cell.cancelBtn addTarget:self action:@selector(CancelOrdernum:) forControlEvents:UIControlEventTouchUpInside];
         AllOderModel * model = [[AllOderModel alloc] init];
         model = waitpayArray[indexPath.row];
@@ -215,6 +228,34 @@
     index = sender.tag;
  
 }
+
+- (void)PayOrder:(UIButton *)sender
+{
+    _shadowBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
+    _shadowBtn.backgroundColor = [UIColor blackColor];
+    [_shadowBtn addTarget:self action:@selector(down) forControlEvents:UIControlEventTouchUpInside];
+    _shadowBtn.alpha = 0.5;
+    [self.view addSubview:_shadowBtn];
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:1.0];
+    _payView.frame = CGRectMake(0, ScreenHeight*0.35- 100, ScreenWidth, ScreenHeight * 0.65);
+    _shadowBtn.frame = CGRectMake(0, -ScreenHeight * 0.65- 100, ScreenWidth, ScreenHeight);
+    
+    [UIView commitAnimations];
+    
+
+}
+
+//确认付款落下
+-(void)down{
+    _shadowBtn.hidden = YES;
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:1.0];
+    _payView.frame = CGRectMake(0, ScreenHeight, ScreenWidth, ScreenHeight * 0.65);
+    [UIView commitAnimations];
+}
+
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {

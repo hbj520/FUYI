@@ -12,6 +12,7 @@
 #import <MJRefresh/MJRefresh.h>
 #import "PayView.h"
 #import "MineWaitPayModel.h"
+#import "Config.h"
 #import "MyAPI.h"
 @interface MyOrderWaitPayViewController ()<UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate>
 {
@@ -90,6 +91,7 @@
                                         }
         if(success){
             [_dataSource addObjectsFromArray:arrays];
+            [[Config Instance] saveWaitPayCount:[NSString stringWithFormat:@"%ld",_dataSource.count]];
             [_tableView reloadData];
         }else{
             

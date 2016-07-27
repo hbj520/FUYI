@@ -30,7 +30,9 @@
 @property (weak, nonatomic) IBOutlet UIView *prepareForgood;   //待收货
 @property (weak, nonatomic) IBOutlet UIView *prepareForjudge;   //待评价
 @property (weak, nonatomic) IBOutlet UIView *myOrder;    //我的订单
-@property (weak, nonatomic) IBOutlet UILabel *badgeLabel3;//待评价按钮上面的自定义badge标签
+@property (weak, nonatomic) IBOutlet UILabel *waitjudgecount;//待评价按钮上面的自定义badge标签
+@property (weak, nonatomic) IBOutlet UILabel *waitpaycountlabel;
+
 @property (weak, nonatomic) IBOutlet UILabel *teacherName;
 
 @end
@@ -93,18 +95,8 @@
         self.welcomeLabel.hidden = NO;
         self.loginBtn.hidden = NO;
     }
-    if(!KToken){
-        self.badgeLabel3.hidden = YES;
-    }else{
-    //待评价按钮的自定义badge标签
-        self.badgeLabel3.hidden = NO;
-    self.badgeLabel3.layer.cornerRadius = 8;
-    self.badgeLabel3.layer.masksToBounds = YES;
-    self.badgeLabel3.text = [[Config Instance] getWaitJudgeCount];
-    if([self.badgeLabel3.text isEqualToString:@"0"]){
-        self.badgeLabel3.hidden = YES;
-    }
-    }
+    
+    [self addBadgeLabel];
     //待付款按钮添加响应事件
     UITapGestureRecognizer *tap  = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(prepareAct:)];
     [self.preparPay addGestureRecognizer:tap];
@@ -137,6 +129,39 @@
     UITapGestureRecognizer * tapMyorder = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(MyorderAct)];
     [self.myOrder addGestureRecognizer:tapMyorder];
     
+}
+
+//显示未操作数
+- (void)addBadgeLabel
+{
+    if(!KToken){
+        self.waitpaycountlabel.hidden = YES;
+        self.waitjudgecount.hidden = YES;
+        
+    }else{
+        //待评价按钮的自定义badge标签
+        self.waitpaycountlabel.hidden = NO;
+        self.waitjudgecount.hidden = NO;
+        self.waitpaycountlabel.layer.cornerRadius = 6;
+        self.waitpaycountlabel.layer.masksToBounds = YES;
+        self.waitpaycountlabel.text = [[Config Instance] getWaitPayCount];
+        if(self.waitpaycountlabel.text.length<=0){
+            self.waitpaycountlabel.hidden = YES;
+        }
+        if([self.waitpaycountlabel.text isEqualToString:@"0"]){
+            self.waitpaycountlabel.hidden = YES;
+        }
+        self.waitjudgecount.layer.cornerRadius = 6;
+        self.waitjudgecount.layer.masksToBounds = YES;
+        self.waitjudgecount.text = [[Config Instance] getWaitJudgeCount];
+        if(self.waitjudgecount.text.length<=0){
+            self.waitjudgecount.hidden = YES;
+        }
+        if([self.waitjudgecount.text isEqualToString:@"0"]){
+            self.waitjudgecount.hidden = YES;
+        }
+    }
+
 }
 
 - (IBAction)setting:(id)sender {
