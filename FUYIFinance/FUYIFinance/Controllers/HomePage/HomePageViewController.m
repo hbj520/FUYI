@@ -182,7 +182,6 @@ static NSString *investReuseId = @"investReuseId";
             headerCell.financeBlock = ^{//金融学院
                 
             };
-            // headerCell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
             return headerCell;
 
         }else{

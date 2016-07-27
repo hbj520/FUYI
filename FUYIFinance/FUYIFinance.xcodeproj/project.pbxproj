@@ -57,6 +57,7 @@
 		AB708F991D0543BE007D0B4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB708F971D0543BE007D0B4D /* LaunchScreen.storyboard */; };
 		AB708FA41D0543BE007D0B4D /* FUYIFinanceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB708FA31D0543BE007D0B4D /* FUYIFinanceTests.m */; };
 		AB708FAF1D0543BE007D0B4D /* FUYIFinanceUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB708FAE1D0543BE007D0B4D /* FUYIFinanceUITests.m */; };
+		AB767D4B1D4743AA00C87D09 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB767D4A1D4743AA00C87D09 /* SettingViewController.m */; };
 		ABEACD431D2B7C0900574259 /* VideoShopTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ABEACD411D2B7C0900574259 /* VideoShopTableViewCell.m */; };
 		ABEACD441D2B7C0900574259 /* VideoShopTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABEACD421D2B7C0900574259 /* VideoShopTableViewCell.xib */; };
 		ABEACD5C1D2B87DE00574259 /* Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = ABEACD4B1D2B87DE00574259 /* Tools.m */; };
@@ -334,6 +335,8 @@
 		AB708FAA1D0543BE007D0B4D /* FUYIFinanceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FUYIFinanceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB708FAE1D0543BE007D0B4D /* FUYIFinanceUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FUYIFinanceUITests.m; sourceTree = "<group>"; };
 		AB708FB01D0543BE007D0B4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB767D491D4743AA00C87D09 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		AB767D4A1D4743AA00C87D09 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		ABEACD401D2B7C0900574259 /* VideoShopTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoShopTableViewCell.h; sourceTree = "<group>"; };
 		ABEACD411D2B7C0900574259 /* VideoShopTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoShopTableViewCell.m; sourceTree = "<group>"; };
 		ABEACD421D2B7C0900574259 /* VideoShopTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoShopTableViewCell.xib; sourceTree = "<group>"; };
@@ -953,8 +956,8 @@
 		ABF5DE371D0FA4B1007CE1AB /* Mine */ = {
 			isa = PBXGroup;
 			children = (
-				CC0443631D47097F0024773A /* SettingViewController.h */,
-				CC0443641D47097F0024773A /* SettingViewController.m */,
+				AB767D491D4743AA00C87D09 /* SettingViewController.h */,
+				AB767D4A1D4743AA00C87D09 /* SettingViewController.m */,
 				CC42E2701D24F13D0008A8D7 /* MyCollectionCourseViewController.h */,
 				CC42E2711D24F13D0008A8D7 /* MyCollectionCourseViewController.m */,
 				CC42E2721D24F13D0008A8D7 /* MyCollectionShopViewController.h */,
@@ -1005,8 +1008,6 @@
 				CC3096EF1D40ACF70025305F /* MineModifyInfoViewController.m */,
 				CC3096F11D40B73E0025305F /* ModfyNickNameViewController.h */,
 				CC3096F21D40B73E0025305F /* ModfyNickNameViewController.m */,
-				CC0443661D4739D80024773A /* ModifyPwdViewController.h */,
-				CC0443671D4739D80024773A /* ModifyPwdViewController.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -1746,7 +1747,7 @@
 				ABF5DE571D0FD930007CE1AB /* HomeTabbarViewController.m in Sources */,
 				ABEACD601D2B87DE00574259 /* NSString+MD5.m in Sources */,
 				CC6FD5F31D362DAB00DA60AB /* ZoneModel.m in Sources */,
-				CC0443651D47097F0024773A /* SettingViewController.m in Sources */,
+				AB767D4B1D4743AA00C87D09 /* SettingViewController.m in Sources */,
 				ABEACD6B1D2C942800574259 /* HomepageBannerModel.m in Sources */,
 				AB708F8E1D0543BE007D0B4D /* AppDelegate.m in Sources */,
 				D1F130391D2B9A8700EE1690 /* NoticeTableViewCell.m in Sources */,

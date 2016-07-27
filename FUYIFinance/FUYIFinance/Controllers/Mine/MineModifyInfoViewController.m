@@ -53,23 +53,7 @@
     }
     self.navigationController.navigationBarHidden = NO;
 }
-
-- (void)addGesture
-{
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesturedDetected:)]; // 手势类型随你喜欢。
-    
-    self.tableView.userInteractionEnabled = YES;
-    [self.tableView addGestureRecognizer:tapGesture];
-}
-
-- (void)tapGesturedDetected:(UITapGestureRecognizer *)recognizer
-
-{
-    [self.qqnum resignFirstResponder];
-    [self.emailnum resignFirstResponder];
-    
-}
-
+#pragma mark - PrivateMethod
 - (void)changeNickname:(NSNotification *)nick
 {
     self.nickName.text = nick.userInfo[@"nickname"];
@@ -158,7 +142,6 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
     return 2;
 }
 
@@ -224,7 +207,9 @@
     self.navigationController.navigationBarHidden = YES;
     [self.navigationController popViewControllerAnimated:YES];
 }
-
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"returnnick" object:nil];
+}
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
