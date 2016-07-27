@@ -21,10 +21,10 @@
             </objects>
             <point key="canvasLocation" x="-34.133333333333333" y="405.17333333333335"/>
         </scene>
-        <!--View Controller-->
+        <!--Customer View Controller-->
         <scene sceneID="gPT-0A-hhD">
             <objects>
-                <viewController id="laN-8H-6h6" sceneMemberID="viewController">
+                <viewController id="laN-8H-6h6" customClass="CustomerViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZCw-WQ-pLf"/>
                         <viewControllerLayoutGuide type="bottom" id="tAi-Ty-dtx"/>
