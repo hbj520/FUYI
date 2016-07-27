@@ -17,5 +17,6 @@ typedef void (^BackBlock) ();
 
 @property (weak, nonatomic) IBOutlet UIButton *backBtn;
 @property (nonatomic,copy) BackBlock backBlock;
+@property (weak, nonatomic) IBOutlet UILabel *goodCountLab;
 
 @end

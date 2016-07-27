@@ -31,7 +31,7 @@
     
     NSInteger _page;
     UIImageView *_noGoodView;
-    
+    NSInteger goodCounts;
     NSInteger price;
 }
 
@@ -63,6 +63,7 @@
     //self.isAllSelected = YES;
     // _noGoodView.hidden = YES;
     [self loadData];
+    [self getGoodAllCounts];
     
 }
 
@@ -85,6 +86,9 @@
         //加载数据源
         [self loadData];
         [self addRefresh];
+        [self getGoodAllCounts];
+    }else{
+        [self logOut];
     }
 }
 
@@ -151,6 +155,8 @@
         [_isSelected addObject:goodA];
     }
     
+
+    [self reloadAllPrice];//刚进界面计算商品价格
     [self allSelectedBtn];//判断全选
 }
 
@@ -186,17 +192,17 @@
     
     [cell.selectBtn setBackgroundImage:[UIImage imageNamed:@"shopCar2.jpg"] forState:UIControlStateNormal];
     [cell.selectBtn setBackgroundImage:[UIImage imageNamed:@"shopCar21.jpg"] forState:UIControlStateSelected];
-   
+    
     cell.selectBtn.index = indexPath;
     [cell.selectBtn addTarget:self action:@selector(cellSelectBtn:) forControlEvents:UIControlEventTouchUpInside];
     //默认1
     cell.selectBtn.selected = [self.isSelected[indexPath.section][indexPath.row]boolValue];
     
-        Good *goodMod = _goodArray[indexPath.section][indexPath.row];
-        [cell.goodImage sd_setImageWithURL:[NSURL URLWithString:goodMod.goodImage] placeholderImage:[UIImage imageNamed:@"shopcar_defual"]];
-        cell.goodPrice.attributedText = [[LabelHelper alloc]attributedFontStringWithString:[NSString stringWithFormat:@"¥ %@",goodMod.goodPrice] firstFont:13 secFont:17 thirdFont:14];
-        cell.goodContent.text = goodMod.goodName;
-   
+    Good *goodMod = _goodArray[indexPath.section][indexPath.row];
+    [cell.goodImage sd_setImageWithURL:[NSURL URLWithString:goodMod.goodImage] placeholderImage:[UIImage imageNamed:@"shopcar_defual"]];
+    cell.goodPrice.attributedText = [[LabelHelper alloc]attributedFontStringWithString:[NSString stringWithFormat:@"¥ %@",goodMod.goodPrice] firstFont:13 secFont:17 thirdFont:14];
+    cell.goodContent.text = goodMod.goodName;
+    
     return cell;
 }
 
@@ -268,27 +274,8 @@
         head.selectBtn.selected = YES;
         
     }
-    
-    [self allSelectedBtn];
-    [self reloadAllPrice];
-//    NSInteger c = 0;
-//    NSInteger d = 0;
-//    for (NSString *seleceStr in self.headIsSelected) {
-//        if ([seleceStr isEqualToString:@"0"]) {
-//            c++;
-//        }else{
-//            d++;
-//        }
-//    }
-//    
-//    if (d == self.headIsSelected.count) {
-//        ShopCarBottomView* view1 = (ShopCarBottomView*)[self.view viewWithTag:100];
-//        view1.chooseAllBtn.selected = YES;
-//        
-//    }if (c > 0){
-//        ShopCarBottomView* view1 = (ShopCarBottomView*)[self.view viewWithTag:100];
-//        view1.chooseAllBtn.selected = NO;
-//    }
+    [self allSelectedBtn];//判断全选按钮
+    [self reloadAllPrice];//刷新汇总价格
 }
 
 //区头局部全选按钮
@@ -365,17 +352,17 @@
                                                         [self.storeArray removeObjectAtIndex:button.tag];
                                                         [self.goodArray removeObjectAtIndex:button.tag];
                                                         
+                                                        [self getGoodAllCounts];
                                                         [self allSelectedBtn];//全选按钮状态
                                                         
                                                         [self.tableView reloadData];
+                                                        [self reloadAllPrice];
                                                         [self showPopup:msg];
                                                     }
                                                 } errorResult:^(NSError *enginerError) {
                                                     
                                                 }];
 }
-
-
 
 //底部结算条
 -(void)addBottomView
@@ -393,13 +380,15 @@
     [bottomView.goPay addTarget:self action:@selector(goPayClick:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:bottomView];
+    
+   // [self reloadAllPrice];
+   // bottomView.allGoodPrices.text = [NSString stringWithFormat:@"%ld",(long)price];
 }
 
-#pragma mark - 刷新底部金额
+//价格汇总方法
 - (void)reloadAllPrice
 {
     price = 0;
-    
     for (int i = 0; i < _goodArray.count; i++) {
         
         NSMutableArray * array1 = _goodArray[i];
@@ -416,8 +405,8 @@
         }
     }
     NSLog(@"------------总价为%ld-------------",(long)price);
+    
 }
-
 
 //全选按钮
 - (void)chooseAllBtnClick:(UIButton*)button
@@ -476,14 +465,30 @@
         [self.navigationController popViewControllerAnimated:YES];
     };
     
-    
     //消息按钮
     navItem.messageBlock = ^(){
         
     };
     [self.view addSubview:navItem];
+    
+ 
+    
+    navItem.goodCountLab.text = [NSString stringWithFormat:@"(%ld)",(long)goodCounts];
+    
 }
 
+//购物车商品总数
+- (void)getGoodAllCounts{
+    
+    //goodCounts = 0;
+    
+    for (NSArray *arr in _isSelected) {
+        goodCounts = goodCounts + arr.count;
+    }
+    
+}
+
+//删除单个商品
 -(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
     return @"删除";
 }
@@ -528,9 +533,12 @@
                                                                     }
                                                                     [self.tableView reloadData];
                                                                 }
-                                                                
+                                                                [self reloadAllPrice];
                                                                 [self allSelectedBtn];//判断结算条是否全选
                                                                 [self.tableView reloadData];
+                                                                
+                                                                [self getGoodAllCounts];
+                                                                
                                                                 [self showPopup:msg];
                                                             }else{
                                                                 [self showPopup:msg];
