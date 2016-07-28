@@ -187,7 +187,7 @@
     }
     buyCell.countText.text = [NSString stringWithFormat:@"%d",a];
     
-    NSLog(@"商品数量显示%@",buyCell.countText.text);
+  //  NSLog(@"商品数量显示%@",buyCell.countText.text);
     
     self.allPriceLab.attributedText = [[LabelHelper alloc]attributedFontStringWithString:[NSString stringWithFormat:@"¥ %.2f",[_model.videoPrice floatValue] * [buyCell.countText.text floatValue]] firstFont:14 secFont:18 thirdFont:18];
 }

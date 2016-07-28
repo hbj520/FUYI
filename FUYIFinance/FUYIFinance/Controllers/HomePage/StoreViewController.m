@@ -60,7 +60,9 @@
         if (indexPath.row == 0) {
             StoreHeaderTableViewCell *cell = [[[NSBundle mainBundle]loadNibNamed:@"StoreHeaderTableViewCell" owner:self options:nil]lastObject];
             
-           // cell.collectStoreBtn
+            [cell.collectStoreBtn setBackgroundImage:[UIImage imageNamed:@"colloectStoreCancel"] forState:UIControlStateNormal];
+            [cell.collectStoreBtn setBackgroundImage:[UIImage imageNamed:@"colloectStore"] forState:UIControlStateSelected];
+            [cell.collectStoreBtn addTarget:self action:@selector(collectStoreClick:) forControlEvents:UIControlEventTouchUpInside];
             
             return cell;
         }if (indexPath.row == 1) {
@@ -100,6 +102,12 @@
         view.backgroundColor = RGBACOLOR(245, 244, 245, 1);
         return view;
     }
+}
+
+- (void)collectStoreClick:(UIButton*)button{
+    button.selected = !button.selected;
+    
+    
 }
 
 - (IBAction)back:(id)sender {

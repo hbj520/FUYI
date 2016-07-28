@@ -32,7 +32,10 @@
     NSInteger _page;
     UIImageView *_noGoodView;
     NSInteger goodCounts;
-    NSInteger price;
+    float price;
+    
+    ShopCarBottomView *_bottomView;
+    ShopCarNavigationItem *_navItem;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -60,7 +63,7 @@
     [_storeArray removeAllObjects];
     [_isSelected removeAllObjects];
     [_headIsSelected removeAllObjects];
-    //self.isAllSelected = YES;
+    self.isAllSelected = YES;
     // _noGoodView.hidden = YES;
     
     if (KToken) {
@@ -70,7 +73,7 @@
         [self loadData];
         [self getGoodAllCounts];
     }else{
-        [self logOut];
+        //[self logOut];
     }
     
   
@@ -319,7 +322,7 @@
     [self.isSelected insertObject:is1 atIndex:button.tag];
     
     [self reloadAllPrice];
-    
+
 //
 //    NSInteger c = 0;
 //    NSInteger d = 0;
@@ -362,9 +365,8 @@
                                                         [self.isSelected removeObjectAtIndex:button.tag];
                                                         [self.storeArray removeObjectAtIndex:button.tag];
                                                         [self.goodArray removeObjectAtIndex:button.tag];
-                                                        
-                                                        [self getGoodAllCounts];
                                                         [self allSelectedBtn];//全选按钮状态
+                                                        [self getGoodAllCounts];
                                                         
                                                         [self.tableView reloadData];
                                                         [self reloadAllPrice];
@@ -378,27 +380,19 @@
 //底部结算条
 -(void)addBottomView
 {
-    ShopCarBottomView *bottomView = [[[NSBundle mainBundle]loadNibNamed:@"ShopCarBottomView" owner:self options:nil]lastObject];
-    bottomView.tag =100;
-    bottomView.frame = CGRectMake(0, ScreenHeight-88,ScreenWidth, 44);
+    _bottomView = [[[NSBundle mainBundle]loadNibNamed:@"ShopCarBottomView" owner:self options:nil]lastObject];
+    _bottomView.tag =100;
+    _bottomView.frame = CGRectMake(0, ScreenHeight-88,ScreenWidth, 44);
     
-    [bottomView.chooseAllBtn setBackgroundImage:[UIImage imageNamed:@"shopCar2.jpg"] forState:UIControlStateNormal];
-    [bottomView.chooseAllBtn setBackgroundImage:[UIImage imageNamed:@"shopCar21.jpg"] forState:UIControlStateSelected];
-    [bottomView.chooseAllBtn addTarget:self action:@selector(chooseAllBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [_bottomView.chooseAllBtn setBackgroundImage:[UIImage imageNamed:@"shopCar2.jpg"] forState:UIControlStateNormal];
+    [_bottomView.chooseAllBtn setBackgroundImage:[UIImage imageNamed:@"shopCar21.jpg"] forState:UIControlStateSelected];
+    [_bottomView.chooseAllBtn addTarget:self action:@selector(chooseAllBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     
     self.isAllSelected = YES;
-    bottomView.chooseAllBtn.selected = self.isAllSelected;
-    [bottomView.goPay addTarget:self action:@selector(goPayClick:) forControlEvents:UIControlEventTouchUpInside];
+    _bottomView.chooseAllBtn.selected = self.isAllSelected;
+    [_bottomView.goPay addTarget:self action:@selector(goPayClick:) forControlEvents:UIControlEventTouchUpInside];
     
-    //[self reloadAllPrice];
-    
-   //  bottomView.allGoodPrices.text = [NSString stringWithFormat:@"%ld",(long)price];
-    [self.view addSubview:bottomView];
-    
-  
-  
-    
-   // NSLog(@"6666666666666+%@66666666666666",bottomView.allGoodPrices.text);
+    [self.view addSubview:_bottomView];
 }
 
 //价格汇总方法
@@ -415,11 +409,15 @@
             NSString * selectstr = array2[a];
             if ([selectstr boolValue]) {
                 Good * goods = array1[a];
-                price = price + [goods.goodPrice integerValue];
+                price = price + [goods.goodPrice floatValue];
             }
         }
     }
-    NSLog(@"------------总价为%ld-------------",(long)price);
+    _bottomView.allGoodPrices.attributedText = [[LabelHelper alloc]attributedFontStringWithString:
+                                                [NSString stringWithFormat:@"¥ %.2f",price]
+                                                                                        firstFont:11
+                                                                                          secFont:15
+                                                                                        thirdFont:15];
 }
 
 //全选按钮
@@ -451,7 +449,6 @@
         for (int i = 0; i<headSelectedNum; i++) {
             [self.headIsSelected addObject:@"0"];
     }
-    
 }
     [self.tableView reloadData];
     
@@ -467,29 +464,23 @@
 //导航栏
 -(void)addCustomerNavigationItem
 {
-    ShopCarNavigationItem *navItem = [[[NSBundle mainBundle]loadNibNamed:@"ShopCarNavigationItem" owner:self options:nil]lastObject];
-    navItem.backgroundColor = RGBACOLOR(244,244,244,1);
-    navItem.frame = CGRectMake(0, 0,ScreenWidth, 64);
+    _navItem = [[[NSBundle mainBundle]loadNibNamed:@"ShopCarNavigationItem" owner:self options:nil]lastObject];
+    _navItem.backgroundColor = RGBACOLOR(244,244,244,1);
+    _navItem.frame = CGRectMake(0, 0,ScreenWidth, 64);
     
     if (self.isPush) {
-        navItem.backBtn.hidden = NO;
+        _navItem.backBtn.hidden = NO;
     }
     
-    navItem.backBlock = ^(){
+    _navItem.backBlock = ^(){
         [self.navigationController popViewControllerAnimated:YES];
     };
     
     //消息按钮
-    navItem.messageBlock = ^(){
+    _navItem.messageBlock = ^(){
         
     };
-    
-    navItem.goodCountLab.text = [NSString stringWithFormat:@"(%ld)",(long)goodCounts];
-    [self.view addSubview:navItem];
-    
- 
-    
-  
+    [self.view addSubview:_navItem];
     
 }
 
@@ -501,12 +492,8 @@
     for (NSArray *arr in _goodArray) {
         goodCounts = goodCounts + arr.count;
     }
-    NSLog(@"商品数量+++++++%ld+++++++",(long)goodCounts);
-    
-    ShopCarNavigationItem *navItem = [[[NSBundle mainBundle]loadNibNamed:@"ShopCarNavigationItem" owner:self options:nil]lastObject];
-    navItem.goodCountLab.text = [NSString stringWithFormat:@"(%ld)",(long)goodCounts];
-    NSLog(@"+++++++++++++++++++%@++++++++++++++++",navItem.goodCountLab.text);
-    
+
+    _navItem.goodCountLab.text = [NSString stringWithFormat:@"(%ld)",(long)goodCounts];
 }
 
 //删除单个商品
@@ -590,25 +577,18 @@
     }
     //如果局部全选，设置全选状态
     if (d == self.headIsSelected.count) {
-        ShopCarBottomView* view1 = (ShopCarBottomView*)[self.view viewWithTag:100];
-        view1.chooseAllBtn.selected = YES;
+        _bottomView.chooseAllBtn.selected = YES;
         
     }if (c > 0){
-        ShopCarBottomView* view1 = (ShopCarBottomView*)[self.view viewWithTag:100];
-        view1.chooseAllBtn.selected = NO;
+        _bottomView.chooseAllBtn.selected = NO;
     }
     [self.tableView reloadData];
     
     //区被删光 把全选置为NO
-    if (self.headIsSelected.count == 0||self.isSelected.count == 0) {
-        ShopCarBottomView* view1 = (ShopCarBottomView*)[self.view viewWithTag:100];
-        view1.chooseAllBtn.selected = NO;
-        //[self.tableView addSubview:_noGoodView];
+    if (self.headIsSelected.count == 0||self.storeArray.count == 0) {
+        _bottomView.chooseAllBtn.selected = NO;
     }
 }
-
-
-
 
 - (void)showPopup:(NSString *)popupWithText
 {
