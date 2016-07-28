@@ -40,6 +40,7 @@
     [self addRefresh];
     dataSource = [NSMutableArray array];
     [self loadData];
+     [[Config Instance] saveWaitJudgeCount:@"0"];
     
 }
 
