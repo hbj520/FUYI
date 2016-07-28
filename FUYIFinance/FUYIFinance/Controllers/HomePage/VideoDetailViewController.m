@@ -118,11 +118,12 @@
     {
         button.enabled = NO;
         layer = [CALayer layer];
-        layer.contents = (__bridge id)head0.image.CGImage;
+        layer.contents = (__bridge id)head0.image.CGImage;//动画用图片
         layer.contentsGravity = kCAGravityResizeAspectFill;
         layer.bounds = CGRectMake(0, 0, 50, 50);
         layer.masksToBounds = YES;
-        //layer.position = CGPointMake(50, 150);
+        
+        layer.position = CGPointMake(-100, -100);//位置
         layer.borderColor = (__bridge CGColorRef _Nullable)([UIColor whiteColor]);
         [self.view.layer addSublayer:layer];
     }
@@ -149,6 +150,7 @@
                                                }];
         _model.cart = @"1";
     }else{
+        
         [self showPopup:@"购物车已存在！"];
     }
 }

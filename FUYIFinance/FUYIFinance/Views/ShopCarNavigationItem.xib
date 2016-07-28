@@ -12,8 +12,8 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="购物车(12)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tC2-TG-yuz">
-                    <rect key="frame" x="148" y="32" width="80" height="20"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="购物车" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tC2-TG-yuz">
+                    <rect key="frame" x="153" y="32" width="51" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="Q7R-I6-rnm"/>
                     </constraints>
@@ -53,17 +53,29 @@
                         </mask>
                     </variation>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BCC-SZ-mUG">
+                    <rect key="frame" x="204" y="33" width="29" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="29" id="8E4-8r-oz9"/>
+                        <constraint firstAttribute="height" constant="21" id="GEZ-nW-DvR"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.30980392156862746" green="0.30980392156862746" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="tC2-TG-yuz" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="0oX-RF-4AC"/>
+                <constraint firstItem="BCC-SZ-mUG" firstAttribute="leading" secondItem="tC2-TG-yuz" secondAttribute="trailing" id="1NS-gl-Vpa"/>
+                <constraint firstAttribute="bottom" secondItem="BCC-SZ-mUG" secondAttribute="bottom" constant="10" id="3Rp-6j-9Yr"/>
                 <constraint firstItem="hby-ha-hAS" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="1.2" id="3mE-DY-aXK"/>
                 <constraint firstItem="tC2-TG-yuz" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="1.2" id="BDG-I4-ddc"/>
                 <constraint firstItem="hby-ha-hAS" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" multiplier="1.8" id="FXb-NX-SfP"/>
                 <constraint firstAttribute="trailing" secondItem="hby-ha-hAS" secondAttribute="trailing" constant="13" id="Mg4-pg-oei"/>
                 <constraint firstItem="j0A-pF-Jet" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="13" id="SoO-5U-aLm"/>
                 <constraint firstAttribute="bottom" secondItem="tC2-TG-yuz" secondAttribute="bottom" constant="12" id="VoH-Jp-4LC"/>
-                <constraint firstItem="tC2-TG-yuz" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="his-o9-FvM"/>
+                <constraint firstItem="tC2-TG-yuz" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" multiplier="0.95" id="his-o9-FvM"/>
                 <constraint firstAttribute="bottom" secondItem="j0A-pF-Jet" secondAttribute="bottom" constant="12" id="oal-Ax-qu1"/>
                 <constraint firstAttribute="bottom" secondItem="hby-ha-hAS" secondAttribute="bottom" constant="12" id="zc4-kf-SYo"/>
             </constraints>
@@ -78,6 +90,7 @@
             </variation>
             <connections>
                 <outlet property="backBtn" destination="j0A-pF-Jet" id="AQV-J6-dxI"/>
+                <outlet property="goodCountLab" destination="BCC-SZ-mUG" id="ZKA-6y-QIK"/>
                 <outlet property="messageBtn" destination="hby-ha-hAS" id="gTM-RB-4TW"/>
             </connections>
             <point key="canvasLocation" x="296.5" y="266"/>
