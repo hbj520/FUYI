@@ -85,6 +85,12 @@
 		CC35F6671D2C9A9800EF3B4B /* LabelHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CC35F6661D2C9A9800EF3B4B /* LabelHelper.m */; };
 		CC35F66A1D2CCB3000EF3B4B /* PriceLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC35F6691D2CCB3000EF3B4B /* PriceLabel.m */; };
 		CC35F66E1D2CDCBA00EF3B4B /* MineCollectionTreasureModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC35F66D1D2CDCBA00EF3B4B /* MineCollectionTreasureModel.m */; };
+		CC4096A51D49959800084D1A /* IJKMoviePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4096A31D49959800084D1A /* IJKMoviePlayerViewController.m */; };
+		CC4096A61D49959800084D1A /* IJKMoviePlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC4096A41D49959800084D1A /* IJKMoviePlayerViewController.xib */; };
+		CC4096A81D49963300084D1A /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4096A71D49963300084D1A /* IJKMediaFramework.framework */; };
+		CC4096AA1D49978600084D1A /* my_video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CC4096A91D49978600084D1A /* my_video.mp4 */; };
+		CC4096AD1D49992600084D1A /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4096AC1D49992600084D1A /* SettingViewController.m */; };
+		CC4096B01D49A21000084D1A /* PersonalUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4096AF1D49A21000084D1A /* PersonalUserInfo.m */; };
 		CC42E26A1D24F0800008A8D7 /* MyJudgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC42E2691D24F0800008A8D7 /* MyJudgeViewController.m */; };
 		CC42E26E1D24F0A90008A8D7 /* MyJudgeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC42E26C1D24F0A90008A8D7 /* MyJudgeTableViewCell.m */; };
 		CC42E26F1D24F0A90008A8D7 /* MyJudgeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC42E26D1D24F0A90008A8D7 /* MyJudgeTableViewCell.xib */; };
@@ -383,6 +389,15 @@
 		CC35F6691D2CCB3000EF3B4B /* PriceLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceLabel.m; sourceTree = "<group>"; };
 		CC35F66C1D2CDCBA00EF3B4B /* MineCollectionTreasureModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineCollectionTreasureModel.h; sourceTree = "<group>"; };
 		CC35F66D1D2CDCBA00EF3B4B /* MineCollectionTreasureModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineCollectionTreasureModel.m; sourceTree = "<group>"; };
+		CC4096A21D49959800084D1A /* IJKMoviePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IJKMoviePlayerViewController.h; sourceTree = "<group>"; };
+		CC4096A31D49959800084D1A /* IJKMoviePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IJKMoviePlayerViewController.m; sourceTree = "<group>"; };
+		CC4096A41D49959800084D1A /* IJKMoviePlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IJKMoviePlayerViewController.xib; sourceTree = "<group>"; };
+		CC4096A71D49963300084D1A /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
+		CC4096A91D49978600084D1A /* my_video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = my_video.mp4; sourceTree = "<group>"; };
+		CC4096AB1D49992600084D1A /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		CC4096AC1D49992600084D1A /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		CC4096AE1D49A21000084D1A /* PersonalUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalUserInfo.h; sourceTree = "<group>"; };
+		CC4096AF1D49A21000084D1A /* PersonalUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalUserInfo.m; sourceTree = "<group>"; };
 		CC42E2681D24F0800008A8D7 /* MyJudgeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyJudgeViewController.h; sourceTree = "<group>"; };
 		CC42E2691D24F0800008A8D7 /* MyJudgeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyJudgeViewController.m; sourceTree = "<group>"; };
 		CC42E26B1D24F0A90008A8D7 /* MyJudgeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyJudgeTableViewCell.h; sourceTree = "<group>"; };
@@ -633,7 +648,7 @@
 				AB0A59361D3F711B0002D638 /* VideoToolbox.framework in Frameworks */,
 				AB0A59341D3F71120002D638 /* UIKit.framework in Frameworks */,
 				AB0A59321D3F710B0002D638 /* QuartzCore.framework in Frameworks */,
-				ABFF9B191D487FEF0023FF39 /* IJKMediaFramework.framework in Frameworks */,
+				CC4096A81D49963300084D1A /* IJKMediaFramework.framework in Frameworks */,
 				AB0A59301D3F71020002D638 /* OpenGLES.framework in Frameworks */,
 				AB0A592E1D3F70F20002D638 /* MobileCoreServices.framework in Frameworks */,
 				AB0A592C1D3F70E80002D638 /* MediaPlayer.framework in Frameworks */,
@@ -680,7 +695,7 @@
 		0785EFAD9D8BC2ECCBC0C903 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				ABFF9B181D487FEF0023FF39 /* IJKMediaFramework.framework */,
+				CC4096A71D49963300084D1A /* IJKMediaFramework.framework */,
 				AB0A59351D3F711B0002D638 /* VideoToolbox.framework */,
 				AB0A59331D3F71120002D638 /* UIKit.framework */,
 				AB0A59311D3F710B0002D638 /* QuartzCore.framework */,
@@ -703,15 +718,15 @@
 		AB0A59371D3F77830002D638 /* VideoViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				CC4096A21D49959800084D1A /* IJKMoviePlayerViewController.h */,
+				CC4096A31D49959800084D1A /* IJKMoviePlayerViewController.m */,
+				CC4096A41D49959800084D1A /* IJKMoviePlayerViewController.xib */,
 				AB45FC421D409529008E6FBA /* IJKDemoHistory.h */,
 				AB45FC431D409529008E6FBA /* IJKDemoHistory.m */,
 				AB45FC341D409500008E6FBA /* IJKMediaControl.h */,
 				AB45FC351D409500008E6FBA /* IJKMediaControl.m */,
 				AB45FC391D409500008E6FBA /* LGDRTMPViewController.h */,
 				AB45FC3A1D409500008E6FBA /* LGDRTMPViewController.m */,
-				ABFF9B291D4884530023FF39 /* IJKMoviePlayerViewController.h */,
-				ABFF9B2A1D4884540023FF39 /* IJKMoviePlayerViewController.m */,
-				ABFF9B2B1D4884540023FF39 /* IJKMoviePlayerViewController.xib */,
 			);
 			path = VideoViewControllers;
 			sourceTree = "<group>";
@@ -944,10 +959,10 @@
 		ABF5DE371D0FA4B1007CE1AB /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				CC4096AB1D49992600084D1A /* SettingViewController.h */,
+				CC4096AC1D49992600084D1A /* SettingViewController.m */,
 				CC01B67C1D48476D00BC5323 /* ModifyPwdViewController.h */,
 				CC01B67D1D48476D00BC5323 /* ModifyPwdViewController.m */,
-				AB767D491D4743AA00C87D09 /* SettingViewController.h */,
-				AB767D4A1D4743AA00C87D09 /* SettingViewController.m */,
 				CC42E2701D24F13D0008A8D7 /* MyCollectionCourseViewController.h */,
 				CC42E2711D24F13D0008A8D7 /* MyCollectionCourseViewController.m */,
 				CC42E2721D24F13D0008A8D7 /* MyCollectionShopViewController.h */,
@@ -1021,7 +1036,7 @@
 		ABF5DE3F1D0FA4B1007CE1AB /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				ABFF9B211D48814F0023FF39 /* my_video.mp4 */,
+				CC4096A91D49978600084D1A /* my_video.mp4 */,
 				CC6FD5E01D36046000DA60AB /* Plist */,
 				ABF5DE471D0FA51D007CE1AB /* Json */,
 				ABF5DE481D0FA51D007CE1AB /* StoryBord */,
@@ -1190,8 +1205,6 @@
 		ABFF9B1D1D4880BE0023FF39 /* CustomerServiceControllers */ = {
 			isa = PBXGroup;
 			children = (
-				ABFF9B1E1D4880D40023FF39 /* CustomerViewController.h */,
-				ABFF9B1F1D4880D40023FF39 /* CustomerViewController.m */,
 			);
 			path = CustomerServiceControllers;
 			sourceTree = "<group>";
@@ -1232,6 +1245,8 @@
 				CCEEFC0B1D37400B0001C7AA /* UserInfoModel.m */,
 				CC3096EB1D406DC10025305F /* AllOderModel.h */,
 				CC3096EC1D406DC10025305F /* AllOderModel.m */,
+				CC4096AE1D49A21000084D1A /* PersonalUserInfo.h */,
+				CC4096AF1D49A21000084D1A /* PersonalUserInfo.m */,
 			);
 			name = Mine;
 			sourceTree = "<group>";
@@ -1546,12 +1561,12 @@
 				CC593CB21D29F1520077B096 /* MyShopHeaderTableViewCell.xib in Resources */,
 				D1F130051D2A3E7A00EE1690 /* HomePage.storyboard in Resources */,
 				CC593CB71D29F67A0077B096 /* ShopTopTableViewCell.xib in Resources */,
-				ABFF9B2D1D4884540023FF39 /* IJKMoviePlayerViewController.xib in Resources */,
 				D15BA3841D235E5700904DEF /* shopCar.json in Resources */,
 				D1F1300A1D2A4E0C00EE1690 /* VideoDetailFirstTableViewCell.xib in Resources */,
 				AB708F991D0543BE007D0B4D /* LaunchScreen.storyboard in Resources */,
 				D1F130741D3796C800EE1690 /* TeacherTeamTableViewCell.xib in Resources */,
 				AB36CDC21D128D1900D0E4C7 /* HomePageNavgationItem.xib in Resources */,
+				CC4096AA1D49978600084D1A /* my_video.mp4 in Resources */,
 				D15BA38E1D237E3300904DEF /* HeaderView.xib in Resources */,
 				CC593CBC1D29FCC30077B096 /* FourBtnTableViewCell.xib in Resources */,
 				D1F1306F1D3790A700EE1690 /* TeacherTeamNavigationItem.xib in Resources */,
@@ -1564,6 +1579,7 @@
 				D1F1300F1D2A4E3100EE1690 /* VideoDetailSecTableViewCell.xib in Resources */,
 				AB36CE3D1D1B88A600D0E4C7 /* HomePageHotNewTableViewCell.xib in Resources */,
 				D1F130251D2B80DB00EE1690 /* ConInfoTableViewCell.xib in Resources */,
+				CC4096A61D49959800084D1A /* IJKMoviePlayerViewController.xib in Resources */,
 				D1C49B071D224DE8003C17DA /* ShopCarNavigationItem.xib in Resources */,
 				D1F130811D388AE300EE1690 /* TeacherPersonalInfoTableViewCell.xib in Resources */,
 				CC42E2871D24F6A10008A8D7 /* LoveManageTableViewCell.xib in Resources */,
@@ -1575,7 +1591,6 @@
 				D1F130861D38AD0000EE1690 /* FooterView.xib in Resources */,
 				D1F1307C1D388AA000EE1690 /* TeacherPersonalTableViewCell.xib in Resources */,
 				D1F130351D2B96AC00EE1690 /* DeliverMethodTableViewCell.xib in Resources */,
-				ABFF9B221D48814F0023FF39 /* my_video.mp4 in Resources */,
 				AB708F941D0543BE007D0B4D /* Main.storyboard in Resources */,
 				CC95F1A91D338C3E009F559D /* ChangeHeadView.xib in Resources */,
 				ABF5DE521D0FA803007CE1AB /* Mine.storyboard in Resources */,
@@ -1704,6 +1719,7 @@
 				D1F12FFA1D2A04CE00EE1690 /* VideoStoreTableViewCell.m in Sources */,
 				CC6FD60F1D362E0300DA60AB /* NSObject+MJClass.m in Sources */,
 				CC6FD60C1D362E0300DA60AB /* MJProperty.m in Sources */,
+				CC4096B01D49A21000084D1A /* PersonalUserInfo.m in Sources */,
 				CC72D0371D226AD000945BCF /* MyOrderAllViewController.m in Sources */,
 				CC72D03D1D226AF700945BCF /* MyOrderWaitGoodViewController.m in Sources */,
 				CC6FD6101D362E0300DA60AB /* NSObject+MJCoding.m in Sources */,
@@ -1719,12 +1735,12 @@
 				D15BA3941D23906600904DEF /* CustomBtn.m in Sources */,
 				AB36CE2F1D1B710400D0E4C7 /* TADotView.m in Sources */,
 				AB02D4AC1D2228F800AED400 /* ShopCarViewController.m in Sources */,
+				CC4096A51D49959800084D1A /* IJKMoviePlayerViewController.m in Sources */,
 				CC26F0E11D264C61003964A1 /* PublishTreasureTableViewController.m in Sources */,
 				D1DE3AE41D225A99003473AF /* ShopCarBottomView.m in Sources */,
 				AB36CE311D1B710400D0E4C7 /* SDCollectionViewCell.m in Sources */,
 				AB36CE4B1D1CE72400D0E4C7 /* ThreeTableViewCell.m in Sources */,
 				AB36CE3C1D1B88A600D0E4C7 /* HomePageHotNewTableViewCell.m in Sources */,
-				ABFF9B2C1D4884540023FF39 /* IJKMoviePlayerViewController.m in Sources */,
 				AB36CDBA1D1283AD00D0E4C7 /* HomePageViewController.m in Sources */,
 				ABEACD5D1D2B87DE00574259 /* GTMBase64.m in Sources */,
 				D1F130131D2A4E5A00EE1690 /* VideoDetailThirdtTableViewCell.m in Sources */,
@@ -1752,6 +1768,7 @@
 				D1F1305C1D2E3F7000EE1690 /* StoreDataModel.m in Sources */,
 				AB36CE301D1B710400D0E4C7 /* TAPageControl.m in Sources */,
 				CC322E1F1D3E2A890054D3D8 /* MineWaitJudgeModel.m in Sources */,
+				CC4096AD1D49992600084D1A /* SettingViewController.m in Sources */,
 				CC6FD6241D36423800DA60AB /* MyAddressTextTableViewCell.m in Sources */,
 				CC42E26E1D24F0A90008A8D7 /* MyJudgeTableViewCell.m in Sources */,
 				CC6FD61F1D36409600DA60AB /* MyAddressChoiceTableViewCell.m in Sources */,
@@ -1799,7 +1816,6 @@
 				D15BA3881D237CE200904DEF /* ShopCarTableViewCell.m in Sources */,
 				AB708F8B1D0543BE007D0B4D /* main.m in Sources */,
 				CC72D0331D226A5C00945BCF /* YSLContainerViewController.m in Sources */,
-				ABFF9B201D4880D40023FF39 /* CustomerViewController.m in Sources */,
 				D1F130171D2A5B3B00EE1690 /* VideoDetailHeader.m in Sources */,
 				CC35F6671D2C9A9800EF3B4B /* LabelHelper.m in Sources */,
 				CC7E9AEE1D387FC000DB1BE9 /* MyOrderSecondWaitPayViewController.m in Sources */,

@@ -36,7 +36,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 100) style:UITableViewStylePlain];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight) style:UITableViewStylePlain];
     _tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -59,10 +59,15 @@
     __weak MyOrderAllViewController * weakself = self;
     _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         
-        page = 1;
-        if(waitjudgeArray.count>0||waitpayArray.count>0||isjudgeArray.count>0){
-            [waitpayArray removeAllObjects];
+        page = 0;
+       
+        if(waitjudgeArray.count>0){
             [waitjudgeArray removeAllObjects];
+        }
+        if(waitpayArray.count>0){
+            [waitpayArray removeAllObjects];
+        }
+        if(isjudgeArray.count>0){
             [isjudgeArray removeAllObjects];
         }
         [weakself loadData];

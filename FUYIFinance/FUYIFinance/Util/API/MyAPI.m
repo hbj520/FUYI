@@ -31,6 +31,7 @@
 #import "MineWaitJudgeModel.h"
 #import "UserInfoModel.h"
 #import "AllOderModel.h"
+#import "PersonalUserInfo.h"
 @interface MyAPI ()
 @property (nonatomic, strong) AFHTTPRequestOperationManager *manager;
 
@@ -756,6 +757,7 @@
 {
     NSDictionary * parameters = @{@"token":KToken,
                                   @"username":username,
+                                  @"imgthumb":imgthumb,
                                   @"qq":qqnum,
                                   @"sex":sex,
                                   @"email":emailnum};
@@ -766,6 +768,26 @@
             result(YES,info);
         }else{
             result(NO,info);
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+        
+    }];
+}
+
+- (void)PersonalDetailInfoWith:(ModelBlock)result
+                   errorResult:(ErrorBlock)errorResult
+{
+    NSDictionary * parameter = @{@"token":KToken};
+    [self.manager POST:@"information" parameters:parameter success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * status = responseObject[@"status"];
+        NSString * info = responseObject[@"info"];
+        if([status isEqualToString:@"1"]){
+            NSDictionary * data= responseObject[@"data"];
+            PersonalUserInfo * model = [[PersonalUserInfo alloc] buildWithData:data];
+            result(YES,info,model);
+        }else{
+            result(NO,info,nil);
         }
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         errorResult(error);

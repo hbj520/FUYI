@@ -289,6 +289,14 @@ typedef void (^ErrorBlock) (NSError *enginerError);
                                   result:(StateBlock)result
                              errorResult:(ErrorBlock)errorResult;
 
+/**
+ *  个人资料
+ *
+ *  @param result      个人资料模型
+ *  @param errorResult 错误信息
+ */
+- (void)PersonalDetailInfoWith:(ModelBlock)result
+                   errorResult:(ErrorBlock)errorResult;
 
 #pragma mark -讲师团队
 - (void)getTeacherTeamDataWithToken:(NSString*)token
