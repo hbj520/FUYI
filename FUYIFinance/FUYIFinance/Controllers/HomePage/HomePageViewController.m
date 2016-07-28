@@ -7,6 +7,8 @@
 //
 
 #import "HomePageViewController.h"
+#import "IJKMoviePlayerViewController.h"
+
 #import "SDCycleScrollView.h"
 #import <MJRefresh.h>
 
@@ -52,7 +54,7 @@ static NSString *investReuseId = @"investReuseId";
     inverstData = [NSMutableArray array];
     noticeData = [NSMutableArray array];
     bannerData = [NSMutableArray array];
-    [self addTap];
+  //  [self addTap];
     [self addRefresh];
     [self loadData];
     [self createUI];
@@ -248,8 +250,16 @@ static NSString *investReuseId = @"investReuseId";
 #pragma mark -SDCycleScrollViewDelegate
 //点击头部滚动视图
 -(void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
-
+    //本地视频
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"my_video" ofType:@"mp4"];
+    BOOL isfile = [[NSFileManager defaultManager] fileExistsAtPath:path];
+    if (isfile) {
+        [IJKVideoViewController presentFromViewController:self withTitle:@"正在播放：。。。" URL:[NSURL fileURLWithPath:path] completion:^{
+            NSLog(@"播放器初始化完成！");
+        }];
+    }
 }
+
 /*
 #pragma mark - Navigation
 

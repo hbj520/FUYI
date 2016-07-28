@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		09C633776A4A8F751566863B /* libPods-FUYIFinance.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91082FC8046B117F37C12298 /* libPods-FUYIFinance.a */; };
 		AB02D4AC1D2228F800AED400 /* ShopCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB02D4AB1D2228F700AED400 /* ShopCarViewController.m */; };
-		AB0A591C1D3F70560002D638 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB0A591B1D3F70560002D638 /* IJKMediaFramework.framework */; };
 		AB0A591E1D3F70970002D638 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AB0A591D1D3F70970002D638 /* libz.tbd */; };
 		AB0A59201D3F70A80002D638 /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AB0A591F1D3F70A80002D638 /* libbz2.tbd */; };
 		AB0A59221D3F70B70002D638 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB0A59211D3F70B70002D638 /* AudioToolbox.framework */; };
@@ -46,7 +45,6 @@
 		AB36CE4A1D1CE72400D0E4C7 /* ThreeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB36CE461D1CE72400D0E4C7 /* ThreeCollectionViewCell.xib */; };
 		AB36CE4B1D1CE72400D0E4C7 /* ThreeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36CE481D1CE72400D0E4C7 /* ThreeTableViewCell.m */; };
 		AB45FC3B1D409500008E6FBA /* IJKMediaControl.m in Sources */ = {isa = PBXBuildFile; fileRef = AB45FC351D409500008E6FBA /* IJKMediaControl.m */; };
-		AB45FC3C1D409500008E6FBA /* IJKMoviePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB45FC371D409500008E6FBA /* IJKMoviePlayerViewController.m */; };
 		AB45FC3E1D409500008E6FBA /* LGDRTMPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB45FC3A1D409500008E6FBA /* LGDRTMPViewController.m */; };
 		AB45FC441D409529008E6FBA /* Barcode.m in Sources */ = {isa = PBXBuildFile; fileRef = AB45FC401D409529008E6FBA /* Barcode.m */; };
 		AB708F8B1D0543BE007D0B4D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AB708F8A1D0543BE007D0B4D /* main.m */; };
@@ -77,6 +75,11 @@
 		ABF5DE521D0FA803007CE1AB /* Mine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABF5DE511D0FA803007CE1AB /* Mine.storyboard */; };
 		ABF5DE571D0FD930007CE1AB /* HomeTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF5DE561D0FD930007CE1AB /* HomeTabbarViewController.m */; };
 		ABFF9ABA1D475FE20023FF39 /* ModifyPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFF9AB91D475FE20023FF39 /* ModifyPwdViewController.m */; };
+		ABFF9B191D487FEF0023FF39 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFF9B181D487FEF0023FF39 /* IJKMediaFramework.framework */; };
+		ABFF9B201D4880D40023FF39 /* CustomerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFF9B1F1D4880D40023FF39 /* CustomerViewController.m */; };
+		ABFF9B221D48814F0023FF39 /* my_video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = ABFF9B211D48814F0023FF39 /* my_video.mp4 */; };
+		ABFF9B2C1D4884540023FF39 /* IJKMoviePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFF9B2A1D4884540023FF39 /* IJKMoviePlayerViewController.m */; };
+		ABFF9B2D1D4884540023FF39 /* IJKMoviePlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABFF9B2B1D4884540023FF39 /* IJKMoviePlayerViewController.xib */; };
 		CC26F0DA1D261CAB003964A1 /* ProductJudgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC26F0D91D261CAB003964A1 /* ProductJudgeViewController.m */; };
 		CC26F0E11D264C61003964A1 /* PublishTreasureTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC26F0E01D264C61003964A1 /* PublishTreasureTableViewController.m */; };
 		CC3096ED1D406DC10025305F /* AllOderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3096EC1D406DC10025305F /* AllOderModel.m */; };
@@ -251,7 +254,6 @@
 		91082FC8046B117F37C12298 /* libPods-FUYIFinance.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FUYIFinance.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB02D4AA1D2228F700AED400 /* ShopCarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopCarViewController.h; sourceTree = "<group>"; };
 		AB02D4AB1D2228F700AED400 /* ShopCarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopCarViewController.m; sourceTree = "<group>"; };
-		AB0A591B1D3F70560002D638 /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
 		AB0A591D1D3F70970002D638 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		AB0A591F1D3F70A80002D638 /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = usr/lib/libbz2.tbd; sourceTree = SDKROOT; };
 		AB0A59211D3F70B70002D638 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -309,16 +311,13 @@
 		AB36CE481D1CE72400D0E4C7 /* ThreeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreeTableViewCell.m; sourceTree = "<group>"; };
 		AB45FC341D409500008E6FBA /* IJKMediaControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IJKMediaControl.h; sourceTree = "<group>"; };
 		AB45FC351D409500008E6FBA /* IJKMediaControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IJKMediaControl.m; sourceTree = "<group>"; };
-		AB45FC361D409500008E6FBA /* IJKMoviePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IJKMoviePlayerViewController.h; sourceTree = "<group>"; };
-		AB45FC371D409500008E6FBA /* IJKMoviePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IJKMoviePlayerViewController.m; sourceTree = "<group>"; };
-		AB45FC381D409500008E6FBA /* IJKMoviePlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IJKMoviePlayerViewController.xib; sourceTree = "<group>"; };
 		AB45FC391D409500008E6FBA /* LGDRTMPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGDRTMPViewController.h; sourceTree = "<group>"; };
 		AB45FC3A1D409500008E6FBA /* LGDRTMPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGDRTMPViewController.m; sourceTree = "<group>"; };
 		AB45FC3F1D409529008E6FBA /* Barcode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Barcode.h; sourceTree = "<group>"; };
 		AB45FC401D409529008E6FBA /* Barcode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Barcode.m; sourceTree = "<group>"; };
 		AB45FC411D409529008E6FBA /* IJKCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IJKCommon.h; sourceTree = "<group>"; };
-		AB45FC421D409529008E6FBA /* IJKDemoHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IJKDemoHistory.h; sourceTree = "<group>"; };
-		AB45FC431D409529008E6FBA /* IJKDemoHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IJKDemoHistory.m; sourceTree = "<group>"; };
+		AB45FC421D409529008E6FBA /* IJKDemoHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IJKDemoHistory.h; path = ../../Util/Helper/IJKDemoHistory.h; sourceTree = "<group>"; };
+		AB45FC431D409529008E6FBA /* IJKDemoHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IJKDemoHistory.m; path = ../../Util/Helper/IJKDemoHistory.m; sourceTree = "<group>"; };
 		AB708F861D0543BE007D0B4D /* FUYIFinance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FUYIFinance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB708F8A1D0543BE007D0B4D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AB708F8C1D0543BE007D0B4D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = FUYIFinance/AppDelegate.h; sourceTree = SOURCE_ROOT; };
@@ -371,6 +370,13 @@
 		ABF5DE561D0FD930007CE1AB /* HomeTabbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTabbarViewController.m; sourceTree = "<group>"; };
 		ABFF9AB81D475FE20023FF39 /* ModifyPwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyPwdViewController.h; sourceTree = "<group>"; };
 		ABFF9AB91D475FE20023FF39 /* ModifyPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPwdViewController.m; sourceTree = "<group>"; };
+		ABFF9B181D487FEF0023FF39 /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
+		ABFF9B1E1D4880D40023FF39 /* CustomerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerViewController.h; sourceTree = "<group>"; };
+		ABFF9B1F1D4880D40023FF39 /* CustomerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerViewController.m; sourceTree = "<group>"; };
+		ABFF9B211D48814F0023FF39 /* my_video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = my_video.mp4; sourceTree = "<group>"; };
+		ABFF9B291D4884530023FF39 /* IJKMoviePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IJKMoviePlayerViewController.h; sourceTree = "<group>"; };
+		ABFF9B2A1D4884540023FF39 /* IJKMoviePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IJKMoviePlayerViewController.m; sourceTree = "<group>"; };
+		ABFF9B2B1D4884540023FF39 /* IJKMoviePlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IJKMoviePlayerViewController.xib; sourceTree = "<group>"; };
 		CC26F0D81D261CAB003964A1 /* ProductJudgeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductJudgeViewController.h; sourceTree = "<group>"; };
 		CC26F0D91D261CAB003964A1 /* ProductJudgeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductJudgeViewController.m; sourceTree = "<group>"; };
 		CC26F0DF1D264C61003964A1 /* PublishTreasureTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishTreasureTableViewController.h; sourceTree = "<group>"; };
@@ -645,6 +651,7 @@
 				AB0A59361D3F711B0002D638 /* VideoToolbox.framework in Frameworks */,
 				AB0A59341D3F71120002D638 /* UIKit.framework in Frameworks */,
 				AB0A59321D3F710B0002D638 /* QuartzCore.framework in Frameworks */,
+				ABFF9B191D487FEF0023FF39 /* IJKMediaFramework.framework in Frameworks */,
 				AB0A59301D3F71020002D638 /* OpenGLES.framework in Frameworks */,
 				AB0A592E1D3F70F20002D638 /* MobileCoreServices.framework in Frameworks */,
 				AB0A592C1D3F70E80002D638 /* MediaPlayer.framework in Frameworks */,
@@ -655,7 +662,6 @@
 				AB0A59221D3F70B70002D638 /* AudioToolbox.framework in Frameworks */,
 				AB0A59201D3F70A80002D638 /* libbz2.tbd in Frameworks */,
 				AB0A591E1D3F70970002D638 /* libz.tbd in Frameworks */,
-				AB0A591C1D3F70560002D638 /* IJKMediaFramework.framework in Frameworks */,
 				09C633776A4A8F751566863B /* libPods-FUYIFinance.a in Frameworks */,
 				D1C49AFE1D2246A4003C17DA /* libPods.a in Frameworks */,
 			);
@@ -692,6 +698,7 @@
 		0785EFAD9D8BC2ECCBC0C903 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ABFF9B181D487FEF0023FF39 /* IJKMediaFramework.framework */,
 				AB0A59351D3F711B0002D638 /* VideoToolbox.framework */,
 				AB0A59331D3F71120002D638 /* UIKit.framework */,
 				AB0A59311D3F710B0002D638 /* QuartzCore.framework */,
@@ -705,7 +712,6 @@
 				AB0A59211D3F70B70002D638 /* AudioToolbox.framework */,
 				AB0A591F1D3F70A80002D638 /* libbz2.tbd */,
 				AB0A591D1D3F70970002D638 /* libz.tbd */,
-				AB0A591B1D3F70560002D638 /* IJKMediaFramework.framework */,
 				D1C49AFD1D2246A4003C17DA /* libPods.a */,
 				91082FC8046B117F37C12298 /* libPods-FUYIFinance.a */,
 			);
@@ -715,13 +721,15 @@
 		AB0A59371D3F77830002D638 /* VideoViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				AB45FC421D409529008E6FBA /* IJKDemoHistory.h */,
+				AB45FC431D409529008E6FBA /* IJKDemoHistory.m */,
 				AB45FC341D409500008E6FBA /* IJKMediaControl.h */,
 				AB45FC351D409500008E6FBA /* IJKMediaControl.m */,
-				AB45FC361D409500008E6FBA /* IJKMoviePlayerViewController.h */,
-				AB45FC371D409500008E6FBA /* IJKMoviePlayerViewController.m */,
-				AB45FC381D409500008E6FBA /* IJKMoviePlayerViewController.xib */,
 				AB45FC391D409500008E6FBA /* LGDRTMPViewController.h */,
 				AB45FC3A1D409500008E6FBA /* LGDRTMPViewController.m */,
+				ABFF9B291D4884530023FF39 /* IJKMoviePlayerViewController.h */,
+				ABFF9B2A1D4884540023FF39 /* IJKMoviePlayerViewController.m */,
+				ABFF9B2B1D4884540023FF39 /* IJKMoviePlayerViewController.xib */,
 			);
 			path = VideoViewControllers;
 			sourceTree = "<group>";
@@ -841,8 +849,6 @@
 				AB45FC3F1D409529008E6FBA /* Barcode.h */,
 				AB45FC401D409529008E6FBA /* Barcode.m */,
 				AB45FC411D409529008E6FBA /* IJKCommon.h */,
-				AB45FC421D409529008E6FBA /* IJKDemoHistory.h */,
-				AB45FC431D409529008E6FBA /* IJKDemoHistory.m */,
 				ABEACD4A1D2B87DE00574259 /* Tools.h */,
 				ABEACD4B1D2B87DE00574259 /* Tools.m */,
 				CC35F6651D2C9A9800EF3B4B /* LabelHelper.h */,
@@ -923,8 +929,8 @@
 		ABF5DE341D0FA4B1007CE1AB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				ABFF9B1D1D4880BE0023FF39 /* CustomerServiceControllers */,
 				AB0A59371D3F77830002D638 /* VideoViewControllers */,
-				D114DC521D24EEAC0001CE21 /* CustomerService */,
 				AB36CDB41D1274E900D0E4C7 /* BaseViewControllers */,
 				ABF5DE541D0FAFBE007CE1AB /* HomeTabbarController */,
 				ABF5DE361D0FA4B1007CE1AB /* HomePage */,
@@ -1035,6 +1041,7 @@
 		ABF5DE3F1D0FA4B1007CE1AB /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				ABFF9B211D48814F0023FF39 /* my_video.mp4 */,
 				CC6FD5E01D36046000DA60AB /* Plist */,
 				ABF5DE471D0FA51D007CE1AB /* Json */,
 				ABF5DE481D0FA51D007CE1AB /* StoryBord */,
@@ -1198,6 +1205,15 @@
 				AB36CE181D1A9A1700D0E4C7 /* GuideViewController.m */,
 			);
 			path = HomeTabbarController;
+			sourceTree = "<group>";
+		};
+		ABFF9B1D1D4880BE0023FF39 /* CustomerServiceControllers */ = {
+			isa = PBXGroup;
+			children = (
+				ABFF9B1E1D4880D40023FF39 /* CustomerViewController.h */,
+				ABFF9B1F1D4880D40023FF39 /* CustomerViewController.m */,
+			);
+			path = CustomerServiceControllers;
 			sourceTree = "<group>";
 		};
 		CC26F0DB1D263C2F003964A1 /* Others */ = {
@@ -1404,13 +1420,6 @@
 			path = ShopCar;
 			sourceTree = "<group>";
 		};
-		D114DC521D24EEAC0001CE21 /* CustomerService */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CustomerService;
-			sourceTree = "<group>";
-		};
 		D1C49B021D224D7F003C17DA /* ShopCar */ = {
 			isa = PBXGroup;
 			children = (
@@ -1557,6 +1566,7 @@
 				CC593CB21D29F1520077B096 /* MyShopHeaderTableViewCell.xib in Resources */,
 				D1F130051D2A3E7A00EE1690 /* HomePage.storyboard in Resources */,
 				CC593CB71D29F67A0077B096 /* ShopTopTableViewCell.xib in Resources */,
+				ABFF9B2D1D4884540023FF39 /* IJKMoviePlayerViewController.xib in Resources */,
 				D15BA3841D235E5700904DEF /* shopCar.json in Resources */,
 				D1F1300A1D2A4E0C00EE1690 /* VideoDetailFirstTableViewCell.xib in Resources */,
 				AB708F991D0543BE007D0B4D /* LaunchScreen.storyboard in Resources */,
@@ -1585,6 +1595,7 @@
 				D1F130861D38AD0000EE1690 /* FooterView.xib in Resources */,
 				D1F1307C1D388AA000EE1690 /* TeacherPersonalTableViewCell.xib in Resources */,
 				D1F130351D2B96AC00EE1690 /* DeliverMethodTableViewCell.xib in Resources */,
+				ABFF9B221D48814F0023FF39 /* my_video.mp4 in Resources */,
 				AB708F941D0543BE007D0B4D /* Main.storyboard in Resources */,
 				CC95F1A91D338C3E009F559D /* ChangeHeadView.xib in Resources */,
 				ABF5DE521D0FA803007CE1AB /* Mine.storyboard in Resources */,
@@ -1732,9 +1743,9 @@
 				CC26F0E11D264C61003964A1 /* PublishTreasureTableViewController.m in Sources */,
 				D1DE3AE41D225A99003473AF /* ShopCarBottomView.m in Sources */,
 				AB36CE311D1B710400D0E4C7 /* SDCollectionViewCell.m in Sources */,
-				AB45FC3C1D409500008E6FBA /* IJKMoviePlayerViewController.m in Sources */,
 				AB36CE4B1D1CE72400D0E4C7 /* ThreeTableViewCell.m in Sources */,
 				AB36CE3C1D1B88A600D0E4C7 /* HomePageHotNewTableViewCell.m in Sources */,
+				ABFF9B2C1D4884540023FF39 /* IJKMoviePlayerViewController.m in Sources */,
 				AB36CDBA1D1283AD00D0E4C7 /* HomePageViewController.m in Sources */,
 				ABEACD5D1D2B87DE00574259 /* GTMBase64.m in Sources */,
 				D1F130131D2A4E5A00EE1690 /* VideoDetailThirdtTableViewCell.m in Sources */,
@@ -1810,6 +1821,7 @@
 				D15BA3881D237CE200904DEF /* ShopCarTableViewCell.m in Sources */,
 				AB708F8B1D0543BE007D0B4D /* main.m in Sources */,
 				CC72D0331D226A5C00945BCF /* YSLContainerViewController.m in Sources */,
+				ABFF9B201D4880D40023FF39 /* CustomerViewController.m in Sources */,
 				D1F130171D2A5B3B00EE1690 /* VideoDetailHeader.m in Sources */,
 				CC35F6671D2C9A9800EF3B4B /* LabelHelper.m in Sources */,
 				CC7E9AEE1D387FC000DB1BE9 /* MyOrderSecondWaitPayViewController.m in Sources */,

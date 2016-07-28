@@ -16,7 +16,7 @@
 
 #import "IJKMoviePlayerViewController.h"
 #import "IJKMediaControl.h"
-#import "IJKCommon.h"
+//#import "IJKCommon.h"
 #import "IJKDemoHistory.h"
 
 @implementation IJKVideoViewController
@@ -73,6 +73,7 @@
     // [IJKFFMoviePlayerController checkIfPlayerVersionMatch:YES major:1 minor:0 micro:0];
 
     IJKFFOptions *options = [IJKFFOptions optionsByDefault];
+    [options setFormatOptionValue:@"ijktcphook" forKey:@"http-tcp-hook"];
 
     self.player = [[IJKFFMoviePlayerController alloc] initWithContentURL:self.url withOptions:options];
     self.player.view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
@@ -80,11 +81,19 @@
     self.player.scalingMode = IJKMPMovieScalingModeAspectFit;
     self.player.shouldAutoplay = YES;
 
+    IJKFFMoviePlayerController *ffp = self.player;
+    ffp.httpOpenDelegate = self;
+
     self.view.autoresizesSubviews = YES;
     [self.view addSubview:self.player.view];
     [self.view addSubview:self.mediaControl];
 
     self.mediaControl.delegatePlayer = self.player;
+}
+
+- (BOOL)willOpenUrl:(IJKMediaUrlOpenData*) urlOpenData
+{
+    return YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -108,7 +117,7 @@
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
-    return UIInterfaceOrientationMaskLandscape;
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 - (void)didReceiveMemoryWarning
@@ -129,18 +138,10 @@
     [self.mediaControl hide];
 }
 
-- (IBAction)onClickDone:(id)sender
+- (IBAction)onClickBack:(id)sender
 {
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (IBAction)onClickHUD:(UIBarButtonItem *)sender
-{
-    if ([self.player isKindOfClass:[IJKFFMoviePlayerController class]]) {
-        IJKFFMoviePlayerController *player = self.player;
-        player.shouldShowHudView = !player.shouldShowHudView;
-        
-        sender.title = (player.shouldShowHudView ? @"HUD On" : @"HUD Off");
+    if (self.presentingViewController) {
+        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
     }
 }
 
