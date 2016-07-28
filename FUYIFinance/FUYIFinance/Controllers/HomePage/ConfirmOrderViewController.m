@@ -57,7 +57,6 @@
 }
 //弹出视图
 -(void)creatHidePayView{
-
      _payView = [[[NSBundle mainBundle]loadNibNamed:@"PayView" owner:self options:nil]lastObject];
     _payView.frame = CGRectMake(0, ScreenHeight, ScreenWidth, ScreenHeight*0.65);
     [_payView.downBtn addTarget:self action:@selector(down) forControlEvents:UIControlEventTouchUpInside];

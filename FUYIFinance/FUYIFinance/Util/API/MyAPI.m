@@ -292,7 +292,7 @@
                                  @"tid":teacherId,
                                  @"page":page
                                  };
-    [self.manager POST:@"teacherStore" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+    [self.manager POST:@"nos_teacherStore" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         NSString *status = responseObject[@"status"];
         NSString *info = responseObject[@"info"];
         if ([status isEqualToString:@"1"]) {
