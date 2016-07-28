@@ -7,7 +7,9 @@
 //
 
 #import "BaseViewController.h"
-
+@class StoreDataModel;
 @interface StoreViewController : BaseViewController
+
+@property (nonatomic,strong)StoreDataModel *model;
 
 @end

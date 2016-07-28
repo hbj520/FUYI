@@ -65,14 +65,24 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
                            keyWord:key];
     [self addRefresh];//刷新
     [self keyBoardChange];//键盘
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(refresh:)
+                                                 name:@"refreshStoreList"
+                                               object:nil];
+    
 }
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     self.navigationController.navigationBar.hidden = YES;
     _shadowBtn.hidden = YES;
+    
 }
 - (void)viewWillAppear:(BOOL)animated{
+    
+
+    
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = YES;
     self.tabBarController.tabBar.hidden = NO;
@@ -82,6 +92,23 @@ static NSString *videoShopReuseId = @"videoShopReuseId";
     // Dispose of any resources that can be recreated.
 }
 #pragma   mark -PrivateMethod
+
+
+- (void)refresh:(NSNotification*)sender{
+    
+    [self loadDataWithTypeSelectId:typeId
+                     labelSelectId:labelId
+                           pageNum:_page
+                           keyWord:key];
+    
+}
+
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+
+
 - (void)addRefresh{
     //添加刷新
     __weak VideoShopViewController *weakself = self;

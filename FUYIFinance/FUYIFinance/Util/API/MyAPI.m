@@ -19,6 +19,8 @@
 #import "StoreDataModel.h"
 #import "TeacherTeamModel.h"
 #import "TeacherModel.h"
+#import "TeacherStoreHeaderModel.h"
+
 
 #import "Good.h"
 #import "TeacherStoreModel.h"
@@ -279,6 +281,39 @@
     }];
     
 }
+
+#pragma mark -讲师店铺
+- (void)getTeacherStoreDataWithTeacherId:(NSString*)teacherId
+                                page:(NSString*)page
+                              result:(ArrayBlock)result
+                         errorResult:(ErrorBlock)errorResult{
+    
+    NSDictionary *parameters = @{
+                                 @"tid":teacherId,
+                                 @"page":page
+                                 };
+    [self.manager POST:@"teacherStore" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString *status = responseObject[@"status"];
+        NSString *info = responseObject[@"info"];
+        if ([status isEqualToString:@"1"]) {
+            NSDictionary *dic = responseObject[@"data"];
+            TeacherStoreHeaderModel *model = [[TeacherStoreHeaderModel alloc]init];
+            TeacherStoreHeaderModel *headModel = [model buildWithData:dic];
+            StoreDataModel *storeModel = [[StoreDataModel alloc]init];
+            NSArray *TeacherStoreArr = [storeModel buildWithData:headModel.videoArray];
+            
+            return result(YES,info,@[headModel,TeacherStoreArr]);
+        }else{
+            return result(NO,info,nil);
+        }
+        
+        
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+    }];
+    
+}
+
 
 #pragma mark -收藏商品
 - (void)collectGoodsWithToken:(NSString*)token

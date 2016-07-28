@@ -166,6 +166,7 @@
 		CCEEFC121D37613A0001C7AA /* MineNoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEEFC111D37613A0001C7AA /* MineNoticeViewController.m */; };
 		D114DC581D24EEC50001CE21 /* Good.m in Sources */ = {isa = PBXBuildFile; fileRef = D114DC561D24EEC50001CE21 /* Good.m */; };
 		D1189C201D4868C9001209B9 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1189C1F1D4868C9001209B9 /* SettingViewController.m */; };
+		D1189C231D49A1D1001209B9 /* TeacherStoreHeaderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D1189C221D49A1D1001209B9 /* TeacherStoreHeaderModel.m */; };
 		D15BA3841D235E5700904DEF /* shopCar.json in Resources */ = {isa = PBXBuildFile; fileRef = D15BA3831D235E5700904DEF /* shopCar.json */; };
 		D15BA3881D237CE200904DEF /* ShopCarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D15BA3861D237CE200904DEF /* ShopCarTableViewCell.m */; };
 		D15BA3891D237CE200904DEF /* ShopCarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D15BA3871D237CE200904DEF /* ShopCarTableViewCell.xib */; };
@@ -531,6 +532,8 @@
 		D114DC561D24EEC50001CE21 /* Good.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Good.m; sourceTree = "<group>"; };
 		D1189C1E1D4868C9001209B9 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		D1189C1F1D4868C9001209B9 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		D1189C211D49A1D1001209B9 /* TeacherStoreHeaderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherStoreHeaderModel.h; sourceTree = "<group>"; };
+		D1189C221D49A1D1001209B9 /* TeacherStoreHeaderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherStoreHeaderModel.m; sourceTree = "<group>"; };
 		D15BA3831D235E5700904DEF /* shopCar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = shopCar.json; sourceTree = "<group>"; };
 		D15BA3851D237CE200904DEF /* ShopCarTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopCarTableViewCell.h; sourceTree = "<group>"; };
 		D15BA3861D237CE200904DEF /* ShopCarTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopCarTableViewCell.m; sourceTree = "<group>"; };
@@ -902,6 +905,8 @@
 				D1F1305B1D2E3F7000EE1690 /* StoreDataModel.m */,
 				D1F7C9821D3CD1FA00872EB6 /* TeacherTeamModel.h */,
 				D1F7C9831D3CD1FA00872EB6 /* TeacherTeamModel.m */,
+				D1189C211D49A1D1001209B9 /* TeacherStoreHeaderModel.h */,
+				D1189C221D49A1D1001209B9 /* TeacherStoreHeaderModel.m */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -1663,6 +1668,7 @@
 				AB36CE2E1D1B710400D0E4C7 /* TAAnimatedDotView.m in Sources */,
 				CC593CCD1D2A69500077B096 /* ShopNameViewController.m in Sources */,
 				D16E04021D40BAF30038297A /* StoreViewController.m in Sources */,
+				D1189C231D49A1D1001209B9 /* TeacherStoreHeaderModel.m in Sources */,
 				CC593CC71D2A45770077B096 /* TreasureJudgeStarView.m in Sources */,
 				ABEACD431D2B7C0900574259 /* VideoShopTableViewCell.m in Sources */,
 				AB708F911D0543BE007D0B4D /* ViewController.m in Sources */,

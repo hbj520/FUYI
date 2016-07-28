@@ -299,7 +299,7 @@
 }
 //店铺
 - (void)shopClick:(UIGestureRecognizer *)ges{
-    [self performSegueWithIdentifier:@"GoStoreSegue" sender:nil];
+    [self performSegueWithIdentifier:@"GoStoreSegue" sender:self.model];
 }
 
 //客服
@@ -360,6 +360,7 @@
      [self.navigationController popViewControllerAnimated:YES];
 }
 
+//立即下单
 - (IBAction)buyNow:(id)sender {
    [self performSegueWithIdentifier:@"ConfirmOrderSegue" sender:self.model];
 }
@@ -368,6 +369,10 @@
     if ([segue.identifier isEqualToString:@"ConfirmOrderSegue"]) {
         ConfirmOrderViewController *confirmVC = segue.destinationViewController;
         confirmVC.model = sender;
+    }
+    if ([segue.identifier isEqualToString:@"GoStoreSegue"]) {
+        StoreViewController *storeVC = segue.destinationViewController;
+        storeVC.model = sender;
     }
 
 }

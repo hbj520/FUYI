@@ -13,9 +13,20 @@
 #import "ShopTopTableViewCell.h"
 #import "MyShopDetailTableViewCell.h"
 
-@interface StoreViewController ()<UITableViewDelegate,UITableViewDataSource>
+#import "MyAPI.h"
 
+#import "TeacherStoreHeaderModel.h"
+
+@interface StoreViewController ()<UITableViewDelegate,UITableViewDataSource>
+{
+    NSInteger _page;
+    
+}
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property(nonatomic,retain)NSMutableArray * VideoArr;
+@property(nonatomic,copy)TeacherStoreHeaderModel * teacherMod;
+
 @end
 
 @implementation StoreViewController
@@ -24,12 +35,33 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    _VideoArr = [[NSMutableArray alloc]init];
+    _teacherMod = [[TeacherStoreHeaderModel alloc]init];
+    
+    
+    _page = 1;
     [self creatUI];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = NO;
+}
+
+- (void)loadData{
+    
+    NSString *nowPage = [NSString stringWithFormat:@"%ld",(long)_page];
+    
+    [[MyAPI sharedAPI] getTeacherTeamDataWithToken:KToken page:nowPage result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
+        if (success) {
+            [_VideoArr addObjectsFromArray:arrays[1]];
+            _teacherMod = arrays[0];
+        }
+        
+        
+    } errorResult:^(NSError *enginerError) {
+        
+    }];
 }
 
 - (void)creatUI{

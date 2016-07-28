@@ -30,9 +30,9 @@
 @interface ShopCarViewController ()<UITableViewDelegate,UITableViewDataSource>{
     
     NSInteger _page;
-    UIImageView *_noGoodView;
-    NSInteger goodCounts;
-    float price;
+    UIImageView *_noGoodView;//空购物车图
+    NSInteger goodCounts;//汇总数量
+    float price;//汇总价格
     
     ShopCarBottomView *_bottomView;
     ShopCarNavigationItem *_navItem;
@@ -72,6 +72,7 @@
         [self addRefresh];
         [self loadData];
         [self getGoodAllCounts];
+        
     }else{
         //[self logOut];
     }
@@ -141,6 +142,7 @@
                                                 [_storeArray addObjectsFromArray:arrays[0]];
                                                 [_goodArray addObjectsFromArray:arrays[1]];
                                                 
+                                                [self allSelectedBtn];//全选按钮状态
                                                 [self getGoodAllCounts];
                                                 [self.tableView reloadData];
                                                 
@@ -361,6 +363,9 @@
                                                         [self logOut];
                                                     }
                                                     if (sucess) {
+                                                        
+                                                          [[NSNotificationCenter defaultCenter]postNotificationName:@"refreshStoreList" object:self userInfo:nil];
+                                                        
                                                         [self.headIsSelected removeObjectAtIndex:button.tag];
                                                         [self.isSelected removeObjectAtIndex:button.tag];
                                                         [self.storeArray removeObjectAtIndex:button.tag];
@@ -518,6 +523,8 @@
                                                                 [self.isSelected[indexPath.section] removeObjectAtIndex:indexPath.row];
                                                                 [self.goodArray[indexPath.section] removeObjectAtIndex:indexPath.row];
                                                                 
+                                                                [[NSNotificationCenter defaultCenter]postNotificationName:@"refreshStoreList" object:self userInfo:nil];
+                                                                
                                                                 //判断如果某区行数被删光，删除所在区
                                                                 if ([self.goodArray[indexPath.section] count] == 0) {
                                                                     
@@ -584,9 +591,15 @@
     }
     [self.tableView reloadData];
     
-    //区被删光 把全选置为NO
-    if (self.headIsSelected.count == 0||self.storeArray.count == 0) {
+    //区被删光 把全选置为NO 无商品图片
+    if (self.goodArray.count == 0||self.storeArray.count == 0) {
         _bottomView.chooseAllBtn.selected = NO;
+        _noGoodView = [[UIImageView alloc]initWithFrame:self.view.frame];
+        _noGoodView.image = [UIImage imageNamed:@"noGood"];
+        
+        [self.tableView addSubview:_noGoodView];
+    }else{
+        [_noGoodView removeFromSuperview];
     }
 }
 
