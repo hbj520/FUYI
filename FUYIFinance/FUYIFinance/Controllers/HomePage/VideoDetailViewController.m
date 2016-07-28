@@ -114,44 +114,45 @@
 //加入购物车
 - (void)addShopCarClick:(UIButton*)button{
     
-    if (!layer)
-    {
-        button.enabled = NO;
-        layer = [CALayer layer];
-        layer.contents = (__bridge id)head0.image.CGImage;//动画用图片
-        layer.contentsGravity = kCAGravityResizeAspectFill;
-        layer.bounds = CGRectMake(0, 0, 50, 50);
-        layer.masksToBounds = YES;
+    if (KToken) {
         
-        layer.position = CGPointMake(-100, -100);//位置
-        layer.borderColor = (__bridge CGColorRef _Nullable)([UIColor whiteColor]);
-        [self.view.layer addSublayer:layer];
-    }
-    
-    if ([_model.cart isEqualToString:@"0"]) {
-         [self groupAnimation];//加入购物车动画
-        [[MyAPI sharedAPI]addGoodIntoShopCarWithToken:KToken
-                                              goodsId:_model.videoId
-                                                 type:_model.videoType
-                                                money:_model.videoPrice
-                                               result:^(BOOL sucess, NSString *msg) {
-                                                   
-                                                   if ([msg isEqualToString:@"登录超时"]) {
-                                                       [self logOut];
-                                                   }
-                                                   if (sucess) {
-                                                       [self showPopup:msg];
-                                                   }else{
-                                                       [self showPopup:msg];
-                                                   }
-                                                   
-                                               } errorResult:^(NSError *enginerError) {
-                                                   
-                                               }];
-        _model.cart = @"1";
+        if (!layer)
+        {
+            button.enabled = NO;
+            layer = [CALayer layer];
+            layer.contents = (__bridge id)head0.image.CGImage;//动画用图片
+            layer.contentsGravity = kCAGravityResizeAspectFill;
+            layer.bounds = CGRectMake(0, 0, 50, 50);
+            layer.masksToBounds = YES;
+            
+            layer.position = CGPointMake(-100, -100);//位置
+            layer.borderColor = (__bridge CGColorRef _Nullable)([UIColor whiteColor]);
+            [self.view.layer addSublayer:layer];
+        }
+        
+        if ([_model.cart isEqualToString:@"0"]) {
+            [self groupAnimation];//加入购物车动画
+            [[MyAPI sharedAPI]addGoodIntoShopCarWithToken:KToken
+                                                  goodsId:_model.videoId
+                                                     type:_model.videoType
+                                                    money:_model.videoPrice
+                                                   result:^(BOOL sucess, NSString *msg) {
+                                                       
+                                                       if (sucess) {
+                                                           [self showPopup:msg];
+                                                       }else{
+                                                           [self showPopup:msg];
+                                                       }
+                                                       
+                                                   } errorResult:^(NSError *enginerError) {
+                                                       
+                                                   }];
+            _model.cart = @"1";
+        }else{
+            [self showPopup:@"购物车已存在！"];
+        }
     }else{
-        
-        [self showPopup:@"购物车已存在！"];
+        [self logOut];
     }
 }
 
@@ -239,15 +240,17 @@
     
     //if ([_model.videoCollect isEqualToString:@"0"]) {
     if (button.selected == NO) {
-        button.selected = !button.selected;
+       
         if (KToken) {
+             button.selected = !button.selected;
             [self postCollection];
         }else{
             [self logOut];
         }
     }else{
-        button.selected = !button.selected;
+        
         if (KToken) {
+            button.selected = !button.selected;
             [self cancelCollection];
         }else{
             [self logOut];
@@ -296,7 +299,7 @@
 }
 //店铺
 - (void)shopClick:(UIGestureRecognizer *)ges{
-    [self performSegueWithIdentifier:@"GoStoreSegue" sender:nil];
+    [self performSegueWithIdentifier:@"GoStoreSegue" sender:self.model];
 }
 
 //客服
@@ -358,6 +361,7 @@
     self.navigationController.navigationBarHidden = NO;
 }
 
+//立即下单
 - (IBAction)buyNow:(id)sender {
    [self performSegueWithIdentifier:@"ConfirmOrderSegue" sender:self.model];
 }
@@ -366,6 +370,10 @@
     if ([segue.identifier isEqualToString:@"ConfirmOrderSegue"]) {
         ConfirmOrderViewController *confirmVC = segue.destinationViewController;
         confirmVC.model = sender;
+    }
+    if ([segue.identifier isEqualToString:@"GoStoreSegue"]) {
+        StoreViewController *storeVC = segue.destinationViewController;
+        storeVC.model = sender;
     }
 
 }

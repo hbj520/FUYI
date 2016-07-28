@@ -109,6 +109,12 @@ typedef void (^ErrorBlock) (NSError *enginerError);
                      result:(ArrayBlock)result
                 errorResult:(ErrorBlock)errorResult;
 
+#pragma mark -讲师店铺
+- (void)getTeacherStoreDataWithTeacherId:(NSString*)teacherId
+                                    page:(NSString*)page
+                                  result:(ArrayBlock)result
+                             errorResult:(ErrorBlock)errorResult;
+
 #pragma mark -收藏商品
 - (void)collectGoodsWithToken:(NSString*)token
                       goodsId:(NSString*)goodsId

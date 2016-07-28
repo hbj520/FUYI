@@ -57,7 +57,6 @@
 }
 //弹出视图
 -(void)creatHidePayView{
-
      _payView = [[[NSBundle mainBundle]loadNibNamed:@"PayView" owner:self options:nil]lastObject];
     _payView.frame = CGRectMake(0, ScreenHeight, ScreenWidth, ScreenHeight*0.65);
     [_payView.downBtn addTarget:self action:@selector(down) forControlEvents:UIControlEventTouchUpInside];
@@ -187,7 +186,7 @@
     }
     buyCell.countText.text = [NSString stringWithFormat:@"%d",a];
     
-    NSLog(@"商品数量显示%@",buyCell.countText.text);
+  //  NSLog(@"商品数量显示%@",buyCell.countText.text);
     
     self.allPriceLab.attributedText = [[LabelHelper alloc]attributedFontStringWithString:[NSString stringWithFormat:@"¥ %.2f",[_model.videoPrice floatValue] * [buyCell.countText.text floatValue]] firstFont:14 secFont:18 thirdFont:18];
 }

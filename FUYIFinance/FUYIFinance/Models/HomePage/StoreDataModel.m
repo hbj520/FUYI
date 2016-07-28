@@ -67,7 +67,6 @@
                                                                      cart:cart];
         [modelArr addObject:model];
     }
-    
     return modelArr;
 }
 

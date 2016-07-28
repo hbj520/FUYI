@@ -84,23 +84,29 @@
 - (void)loadDataWithToken:(NSString*)token page:(NSInteger)page{
     
     NSString *nowPage = [NSString stringWithFormat:@"%ld",(long)_page];
-   [[MyAPI sharedAPI] getTeacherTeamDataWithToken:KToken page:nowPage result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
-       
-       if ([msg isEqualToString:@"err token"]) {
-           [self logOut];
-       }
-       if (success) {
-
-           [TeacherTeamArr addObjectsFromArray:arrays];
-           [self.tableView reloadData];
-       }
-       [self.tableView.mj_header endRefreshing];
-       [self.tableView.mj_footer endRefreshing];
-   } errorResult:^(NSError *enginerError) {
     
-       [self.tableView.mj_header endRefreshing];
-       [self.tableView.mj_footer endRefreshing];
-   }];
+    if (KToken) {
+        [[MyAPI sharedAPI] getTeacherTeamDataWithToken:KToken page:nowPage result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
+            
+            //       if ([msg isEqualToString:@"err token"]) {
+            //           [self logOut];
+            //       }
+            if (success) {
+                
+                [TeacherTeamArr addObjectsFromArray:arrays];
+                [self.tableView reloadData];
+            }
+            [self.tableView.mj_header endRefreshing];
+            [self.tableView.mj_footer endRefreshing];
+        } errorResult:^(NSError *enginerError) {
+            
+            [self.tableView.mj_header endRefreshing];
+            [self.tableView.mj_footer endRefreshing];
+        }];
+
+    }else{
+        [self logOut];
+    }
 }
 
 - (void)creatUI{
