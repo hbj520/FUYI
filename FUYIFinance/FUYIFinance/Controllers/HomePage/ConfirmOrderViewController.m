@@ -100,6 +100,7 @@
             return cell;
         }if (indexPath.row == 1) {
             BuyCountTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"buyerCountCellReuseID" forIndexPath:indexPath];
+            
             [cell.plusBtn addTarget:self action:@selector(changeCount:) forControlEvents:UIControlEventTouchUpInside];
             [cell.minusBtn addTarget:self action:@selector(changeCount:) forControlEvents:UIControlEventTouchUpInside];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -167,6 +168,7 @@
     }
 }
 
+/*
 //数量
 - (void)changeCount:(UIButton*)button{
     NSLog(@"加减");
@@ -187,10 +189,11 @@
     buyCell.countText.text = [NSString stringWithFormat:@"%d",a];
     
   //  NSLog(@"商品数量显示%@",buyCell.countText.text);
-    
+   // 商品数量计算价格
     self.allPriceLab.attributedText = [[LabelHelper alloc]attributedFontStringWithString:[NSString stringWithFormat:@"¥ %.2f",[_model.videoPrice floatValue] * [buyCell.countText.text floatValue]] firstFont:14 secFont:18 thirdFont:18];
+    
 }
-
+*/
 
 //确认付款弹出
 - (IBAction)buyNow:(id)sender {
