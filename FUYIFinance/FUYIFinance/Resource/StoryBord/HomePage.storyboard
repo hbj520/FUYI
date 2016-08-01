@@ -386,17 +386,17 @@
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vdx-in-me4">
-                                <rect key="frame" x="10" y="10" width="35" height="35"/>
+                                <rect key="frame" x="10" y="10" width="45" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="35" id="8mQ-qN-Zfl"/>
-                                    <constraint firstAttribute="height" constant="35" id="NvG-0C-YgT"/>
+                                    <constraint firstAttribute="width" constant="45" id="8mQ-qN-Zfl"/>
+                                    <constraint firstAttribute="height" constant="45" id="NvG-0C-YgT"/>
                                 </constraints>
                                 <state key="normal" title="back" image="back_shadow"/>
                                 <connections>
                                     <action selector="back:" destination="ofR-57-tJm" eventType="touchUpInside" id="AEq-xa-wrr"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wjr-cn-Tf5">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wjr-cn-Tf5">
                                 <rect key="frame" x="237" y="10" width="35" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="35" id="CGZ-t5-quU"/>

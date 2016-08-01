@@ -117,10 +117,12 @@
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
             StoreHeaderTableViewCell *cell = [[[NSBundle mainBundle]loadNibNamed:@"StoreHeaderTableViewCell" owner:self options:nil]lastObject];
-            
+            /*  收藏店铺
             [cell.collectStoreBtn setBackgroundImage:[UIImage imageNamed:@"colloectStoreCancel"] forState:UIControlStateNormal];
             [cell.collectStoreBtn setBackgroundImage:[UIImage imageNamed:@"colloectStore"] forState:UIControlStateSelected];
             [cell.collectStoreBtn addTarget:self action:@selector(collectStoreClick:) forControlEvents:UIControlEventTouchUpInside];
+             */
+             
             cell.teacherNameLab.text = _teacherMod.teacherName;
             cell.collectCountLab.text = [NSString stringWithFormat:@"收藏数：%@",_teacherMod.storeCollectNum];
             [cell.teacherImage sd_setImageWithURL:[NSURL URLWithString:_teacherMod.teacherImage] placeholderImage:[UIImage imageNamed:@"person_headicon"]];
@@ -174,11 +176,12 @@
     }
 }
 
+/* 收藏店铺点击
 - (void)collectStoreClick:(UIButton*)button{
     button.selected = !button.selected;
     
 }
-
+*/
 - (IBAction)back:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
