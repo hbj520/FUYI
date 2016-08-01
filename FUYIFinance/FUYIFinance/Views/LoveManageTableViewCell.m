@@ -7,7 +7,7 @@
 //
 
 #import "LoveManageTableViewCell.h"
-
+#import <SDWebImage/UIImageView+WebCache.h>
 @implementation LoveManageTableViewCell
 
 - (void)awakeFromNib {
@@ -17,6 +17,16 @@
     self.deleteBtn.layer.cornerRadius = 3;
     self.modifyBtn.layer.borderWidth = 1;
     self.modifyBtn.layer.borderColor = [UIColor groupTableViewBackgroundColor].CGColor;
+    
+}
+
+- (void)setModel:(ManageTreasureModel *)model
+{
+    [self.thumbimage sd_setImageWithURL:[NSURL URLWithString:model.thumbimg] placeholderImage:[UIImage imageNamed:@"placeimage"]];
+    self.titlelabel.text = model.title;
+    self.pricelabel.text = [NSString stringWithFormat:@"¥%@",model.price];
+    self.uploadtime.text = model.time;
+    self.sellcount.text = [NSString stringWithFormat:@"已售%@",model.num];
     
 }
 

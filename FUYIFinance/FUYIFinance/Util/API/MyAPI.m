@@ -34,6 +34,10 @@
 #import "UserInfoModel.h"
 #import "AllOderModel.h"
 #import "PersonalUserInfo.h"
+#import "TeacherShopModel.h"
+#import "TeacherInfo.h"
+#import "ManageTreasureModel.h"
+
 @interface MyAPI ()
 @property (nonatomic, strong) AFHTTPRequestOperationManager *manager;
 
@@ -821,6 +825,73 @@
             NSDictionary * data= responseObject[@"data"];
             PersonalUserInfo * model = [[PersonalUserInfo alloc] buildWithData:data];
             result(YES,info,model);
+        }else{
+            result(NO,info,nil);
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+    }];
+}
+
+- (void)RequestTeacherPersonalShopDataWithPage:(NSString *)page
+                                        result:(ArrayBlock)result
+                                   errorResult:(ErrorBlock)errorResult
+{
+    NSDictionary * parameters = @{@"token":KToken,
+                                  @"page":page};
+    [self.manager POST:@"teacherStore" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * status = responseObject[@"status"];
+        NSString * info = responseObject[@"info"];
+        if([status isEqualToString:@"1"]){
+            NSDictionary * data= responseObject[@"data"];
+            NSString * userid =data[@"userid"];
+            NSString * username = data[@"username"];
+            NSString * name = data[@"name"];
+            NSString * imgthumb = data[@"imgthumb"];
+            NSString * backing = data[@"backing"];
+            NSNumber * hits = data[@"hits"];
+            NSString * hitsStr= [NSString stringWithFormat:@"%ld",hits.integerValue];
+            NSNumber * ordermoney = data[@"ordermoney"];
+            NSString * ordermoneyStr= [NSString stringWithFormat:@"%ld",ordermoney.integerValue];
+            NSNumber * orders = data[@"orders"];
+            NSString * orderStr = [NSString stringWithFormat:@"%ld",orders.integerValue];
+            NSString * blogId = data[@"blogId"];
+            NSString * blogTitle = data[@"blogTitle"];
+            TeacherInfo * teacherinfo = [[TeacherInfo alloc] init];
+            teacherinfo.userid = userid;
+            teacherinfo.username = username;
+            teacherinfo.name = name;
+            teacherinfo.imgthumb = imgthumb;
+            teacherinfo.backimg = backing;
+            teacherinfo.hits = hitsStr;
+            teacherinfo.ordermoney = ordermoneyStr;
+            teacherinfo.orders = orderStr;
+            teacherinfo.blogId = blogId;
+            teacherinfo.blogTitle = blogTitle;
+            NSArray * videodata = data[@"video"];
+           NSMutableArray * array1 = [[TeacherShopModel alloc] buildWithData:videodata];
+            result(YES,info,@[teacherinfo,array1]);
+            
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        
+    }];
+}
+
+- (void)RequestManageTreasureDataWithPage:(NSString *)page
+                                   result:(ArrayBlock)result
+                              errorResult:(ErrorBlock)errorResult
+{
+    NSDictionary * parameters = @{@"token":KToken,
+                                  @"page":page};
+    [self.manager POST:@"videoManage" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * status = responseObject[@"status"];
+        NSString * info = responseObject[@"info"];
+        if([status isEqualToString:@"1"]){
+        NSDictionary * data= responseObject[@"data"];
+        NSArray * video = data[@"video"];
+        NSMutableArray * videoData = [[ManageTreasureModel alloc] buildWithData:video];
+        result(YES,info,videoData);
         }else{
             result(NO,info,nil);
         }

@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TeacherShopModel.h"
 
 @interface MyShopDetailTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *thumbimage;
-@property (weak, nonatomic) IBOutlet UILabel *titlename;
-@property (weak, nonatomic) IBOutlet UILabel *teachername;
+@property (weak, nonatomic) IBOutlet UILabel *title;
+@property (weak, nonatomic) IBOutlet UILabel *teacherName;
+@property (weak, nonatomic) IBOutlet UILabel *price;
 @property (weak, nonatomic) IBOutlet UILabel *paycount;
-
+@property (nonatomic,strong) TeacherShopModel * model;
 @end

@@ -2180,7 +2180,7 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RtO-R9-ibV" customClass="TreasureJudgeStarView">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RtO-R9-ibV" customClass="starView">
                                         <rect key="frame" x="92" y="41" width="136" height="18"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -2326,7 +2326,7 @@
                     <connections>
                         <outlet property="label1" destination="fng-dH-EB3" id="TZ4-IX-wz3"/>
                         <outlet property="label2" destination="HX3-jb-9Es" id="4vG-ka-9MS"/>
-                        <outlet property="starView" destination="RtO-R9-ibV" id="UkR-xr-di2"/>
+                        <outlet property="starView" destination="RtO-R9-ibV" id="7gF-ca-f2W"/>
                         <outlet property="surebtn" destination="ywO-CZ-FKR" id="KZt-UI-smp"/>
                         <outlet property="textView" destination="U6k-UC-RrN" id="VC2-xy-lo6"/>
                     </connections>

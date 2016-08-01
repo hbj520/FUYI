@@ -72,6 +72,9 @@
     loginVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     [self.navigationController presentModalViewController:loginVC animated:YES];
 }
+
+//创建界面
+
 - (void)CreateUI{
     if (KToken) {
         self.teacherName.text = [[Config Instance] getUserName];
@@ -181,6 +184,7 @@
        
     }else{
         self.messagebtn.enabled = YES;
+        
         [self performSegueWithIdentifier:@"noticeSegue" sender:nil];
     }
 }

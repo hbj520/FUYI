@@ -215,6 +215,7 @@
             <connections>
                 <outlet property="headicon" destination="arh-S7-ZQd" id="kjB-xs-sw8"/>
                 <outlet property="ordercount" destination="Pgz-iJ-KTV" id="wlv-sy-mhv"/>
+                <outlet property="teacherName" destination="e6X-oV-lpO" id="0o0-fJ-ITP"/>
                 <outlet property="totoalcount" destination="6IR-FC-cBg" id="LZw-Ad-Dy4"/>
                 <outlet property="vivstcount" destination="FhI-fc-rIe" id="gR2-lQ-GJw"/>
             </connections>

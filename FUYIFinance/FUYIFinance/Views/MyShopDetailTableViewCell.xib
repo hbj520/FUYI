@@ -44,8 +44,8 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="anF-1F-86r">
                         <rect key="frame" x="108" y="69" width="10" height="17"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="10" id="3Oo-BD-KcA"/>
-                            <constraint firstAttribute="height" constant="17" id="Hh8-r0-QjH"/>
+                            <constraint firstAttribute="width" constant="10" id="W1m-Ol-UBf"/>
+                            <constraint firstAttribute="height" constant="17" id="bp1-hs-k2W"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.88235294117647056" green="0.29803921568627451" blue="0.29411764705882354" alpha="1" colorSpace="calibratedRGB"/>
@@ -68,8 +68,8 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7人付款" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FJh-iX-KpO">
                         <rect key="frame" x="167" y="69" width="50" height="17"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="50" id="hWq-lu-bxO"/>
-                            <constraint firstAttribute="height" constant="17" id="msR-oM-tmo"/>
+                            <constraint firstAttribute="width" constant="50" id="4Ji-EZ-5jn"/>
+                            <constraint firstAttribute="height" constant="17" id="aeH-Oj-GQ6"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -78,8 +78,8 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="39.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VWd-qc-PcB">
                         <rect key="frame" x="119" y="66" width="38" height="22"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="38" id="LpR-9J-CYX"/>
-                            <constraint firstAttribute="height" constant="22" id="k5C-RY-NJE"/>
+                            <constraint firstAttribute="width" constant="38" id="Ipi-ld-tNF"/>
+                            <constraint firstAttribute="height" constant="22" id="r3g-r2-XNv"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.86274509803921573" green="0.0" blue="0.054901960784313725" alpha="1" colorSpace="calibratedRGB"/>
@@ -89,27 +89,29 @@
                 <constraints>
                     <constraint firstItem="2oc-3s-8pt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="108" id="2nZ-n5-vs8"/>
                     <constraint firstItem="ghm-I7-A48" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="6cx-yC-EdC"/>
-                    <constraint firstItem="VWd-qc-PcB" firstAttribute="top" secondItem="u0h-y1-C2M" secondAttribute="bottom" constant="3" id="8ML-I5-U4h"/>
                     <constraint firstItem="30k-Cr-lpd" firstAttribute="leading" secondItem="ghm-I7-A48" secondAttribute="trailing" constant="12" id="ALT-DO-FZD"/>
                     <constraint firstItem="u0h-y1-C2M" firstAttribute="top" secondItem="30k-Cr-lpd" secondAttribute="bottom" constant="8" id="Frj-L2-hM2"/>
+                    <constraint firstItem="anF-1F-86r" firstAttribute="leading" secondItem="ghm-I7-A48" secondAttribute="trailing" constant="12" id="IaI-xt-biD"/>
+                    <constraint firstItem="FJh-iX-KpO" firstAttribute="leading" secondItem="VWd-qc-PcB" secondAttribute="trailing" constant="10" id="JEl-Uz-dIq"/>
                     <constraint firstAttribute="trailing" secondItem="QmY-aK-PnS" secondAttribute="trailing" constant="8" id="JkL-3G-vjz"/>
-                    <constraint firstItem="FJh-iX-KpO" firstAttribute="top" secondItem="u0h-y1-C2M" secondAttribute="bottom" constant="6" id="P1b-Ob-7Tv"/>
                     <constraint firstItem="ghm-I7-A48" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="RSB-HK-JJJ"/>
-                    <constraint firstItem="VWd-qc-PcB" firstAttribute="leading" secondItem="ghm-I7-A48" secondAttribute="trailing" constant="12" id="W54-W3-LNP"/>
+                    <constraint firstItem="VWd-qc-PcB" firstAttribute="top" secondItem="u0h-y1-C2M" secondAttribute="bottom" constant="3" id="ZuT-99-yk7"/>
                     <constraint firstAttribute="bottom" secondItem="2oc-3s-8pt" secondAttribute="bottom" constant="2" id="bGe-XM-ba3"/>
                     <constraint firstItem="2oc-3s-8pt" firstAttribute="top" secondItem="QmY-aK-PnS" secondAttribute="bottom" constant="8" id="eiB-qr-rqu"/>
+                    <constraint firstItem="FJh-iX-KpO" firstAttribute="top" secondItem="u0h-y1-C2M" secondAttribute="bottom" constant="6" id="g9S-3i-giG"/>
+                    <constraint firstItem="anF-1F-86r" firstAttribute="top" secondItem="u0h-y1-C2M" secondAttribute="bottom" constant="6" id="nb7-YA-UVm"/>
                     <constraint firstAttribute="trailing" secondItem="2oc-3s-8pt" secondAttribute="trailing" id="nbr-60-R3e"/>
+                    <constraint firstItem="VWd-qc-PcB" firstAttribute="leading" secondItem="anF-1F-86r" secondAttribute="trailing" constant="1" id="o8b-tX-Xjl"/>
                     <constraint firstItem="30k-Cr-lpd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="qnD-7c-0qB"/>
                     <constraint firstItem="u0h-y1-C2M" firstAttribute="leading" secondItem="ghm-I7-A48" secondAttribute="trailing" constant="12" id="trj-WE-mZf"/>
-                    <constraint firstItem="FJh-iX-KpO" firstAttribute="leading" secondItem="VWd-qc-PcB" secondAttribute="trailing" constant="10" id="zUl-xh-mpP"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="paycount" destination="FJh-iX-KpO" id="1OD-kq-iC8"/>
-                <outlet property="priceLabel" destination="VWd-qc-PcB" id="ZWT-UJ-wa7"/>
-                <outlet property="teachername" destination="u0h-y1-C2M" id="Xc4-uL-Gfa"/>
-                <outlet property="thumbimage" destination="ghm-I7-A48" id="wbD-U0-Ulp"/>
-                <outlet property="titlename" destination="30k-Cr-lpd" id="p97-e8-qMG"/>
+                <outlet property="paycount" destination="FJh-iX-KpO" id="Joh-dZ-GOj"/>
+                <outlet property="price" destination="VWd-qc-PcB" id="RZ0-Cf-R7R"/>
+                <outlet property="teacherName" destination="u0h-y1-C2M" id="aat-bB-DAw"/>
+                <outlet property="thumbimage" destination="ghm-I7-A48" id="RqL-US-od4"/>
+                <outlet property="title" destination="30k-Cr-lpd" id="tuj-Ph-JOE"/>
             </connections>
         </tableViewCell>
     </objects>

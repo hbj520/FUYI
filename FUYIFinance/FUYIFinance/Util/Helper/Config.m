@@ -63,6 +63,14 @@ static Config * instance = nil;
     [settings synchronize];
 }
 
+- (void)saveUsername:(NSString *)username
+{
+    NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
+    [settings removeObjectForKey:@"username"];
+    [settings setObject:username forKey:@"username"];
+    [settings synchronize];
+}
+
 - (void)saveImgthumb:(NSString *)imgthumb token:(NSString *)token username:(NSString *)username
 {
     NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];

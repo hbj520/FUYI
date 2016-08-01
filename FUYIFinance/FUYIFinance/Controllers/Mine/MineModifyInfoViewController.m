@@ -138,12 +138,14 @@
     UIImage * image = info[UIImagePickerControllerOriginalImage];
   
     NSData * data = UIImageJPEGRepresentation(image, 0.1);
+  
     [self showHudInView:self.view hint:@"上传图片中"];
     [[MyAPI sharedAPI] uploadImage:data result:^(BOOL sucess, NSString *msg) {
         if(sucess){
             imageUrl = msg;
             [self.headImage sd_setImageWithURL:[NSURL URLWithString:msg] placeholderImage:[UIImage imageNamed:@"defaulticon"]];
             [[Config Instance] saveIcon:msg];
+            
             [self hideHud];
         }else{
             [self.headImage setImage:[UIImage imageNamed:@"defaulticon"]];
@@ -238,8 +240,9 @@
                                                emailNum:self.emailnum.text
                                                  result:^(BOOL sucess, NSString *msg) {
                                                      if(sucess){
+                                                         [[Config Instance] saveUsername:self.nickName.text];
                                                          [self showHint:@"上传成功"];
-                                                         
+                                                       
                                                      }else{
                                                          [self showHint:msg];
                                                      }

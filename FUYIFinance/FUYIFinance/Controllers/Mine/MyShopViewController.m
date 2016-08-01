@@ -14,10 +14,16 @@
 #import "MyShopDetailTableViewCell.h"
 #import <MJRefresh/MJRefresh.h>
 #import "BBBadgeBarButtonItem.h"
-
+#import "TeacherInfo.h"
+#import "TeacherShopModel.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "MyAPI.h"
+#import "LabelHelper.h"
 @interface MyShopViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     UITableView * _tableView;
+    NSMutableArray * dataSource;
+    TeacherInfo * teacherinfo;
     BBBadgeBarButtonItem * _chatBtn;         //自定制导航栏按钮
     BBBadgeBarButtonItem * _chatBtn1;        //自定制导航栏按钮
 
@@ -40,7 +46,9 @@
     [_tableView registerNib:[UINib nibWithNibName:@"FourBtnTableViewCell" bundle:nil] forCellReuseIdentifier:@"cellID3"];
     [_tableView registerNib:[UINib nibWithNibName:@"MyShopDetailTableViewCell" bundle:nil] forCellReuseIdentifier:@"cellID4"];
     [self.view addSubview:_tableView];
+    dataSource = [NSMutableArray array];
     [self addRefresh];
+    [self loadData];
 }
 
 #pragma mark - PrivateMethod
@@ -48,15 +56,29 @@
 {
     __weak MyShopViewController * weakself = self;
     _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        
+        [weakself loadData];
     }];
     MJRefreshAutoNormalFooter * footerRefresh = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-        
+        [weakself loadData];
     }];
     footerRefresh.automaticallyRefresh = NO;
     _tableView.mj_footer = footerRefresh;
 }
 
+
+- (void)loadData
+{
+    [[MyAPI sharedAPI] RequestTeacherPersonalShopDataWithPage:@"0" result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
+        teacherinfo = arrays[0];
+        dataSource = arrays[1];
+        [_tableView reloadData];
+        [_tableView.mj_header endRefreshing];
+        [_tableView.mj_footer endRefreshing];
+    } errorResult:^(NSError *enginerError) {
+        [_tableView.mj_header endRefreshing];
+        [_tableView.mj_footer endRefreshing];
+    }];
+}
 //添加自定制导航栏按钮
 - (void)addChatBtn{
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -112,7 +134,7 @@
     }else if (section==2){
         return 1;
     }else{
-        return 3;
+        return dataSource.count;
     }
 }
 
@@ -146,6 +168,10 @@
 {
     if (indexPath.section==0) {
         MyShopHeaderTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cellID1" forIndexPath:indexPath];
+        cell.teacherName.text = teacherinfo.username;
+        cell.totoalcount.text = teacherinfo.ordermoney;
+        cell.vivstcount.text = teacherinfo.hits;
+        cell.ordercount.text = teacherinfo.orders;
         return cell;
     }else if (indexPath.section==1){
         ShopTopTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cellID2" forIndexPath:indexPath];
@@ -174,6 +200,9 @@
         return cell;
     }else{
         MyShopDetailTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cellID4" forIndexPath:indexPath];
+        TeacherShopModel * model = [[TeacherShopModel alloc] init];
+        model = dataSource[indexPath.row];
+        cell.model = model;
         return cell;
     }
 }
@@ -236,6 +265,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     TreasureManageViewController * vc = [[TreasureManageViewController alloc] init];
     vc.isGoodsSetting = sender;
+  
 }
 
 

@@ -31,6 +31,9 @@
                token:(NSString *)token
             username:(NSString *)username;
 
+//保存用户名
+- (void)saveUsername:(NSString *)username;
+
 //保存待付款未读数
 - (void)saveWaitPayCount:(NSString *)count;
 

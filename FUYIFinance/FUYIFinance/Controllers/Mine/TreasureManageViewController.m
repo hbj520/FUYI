@@ -10,12 +10,16 @@
 #import "BBBadgeBarButtonItem.h"
 #import "LoveManageTableViewCell.h"
 #import <MJRefresh/MJRefresh.h>
+#import "ManageTreasureModel.h"
+#import "MyAPI.h"
 @interface TreasureManageViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     UITableView * _tableView;
     NSIndexPath * indexpath;
     BBBadgeBarButtonItem * _chatBtn;  //自定义的导航栏按钮
     BBBadgeBarButtonItem * _chatBtn1; //自定义的导航栏按钮
+    NSMutableArray * dataSource;
+    NSInteger page;
 }
 @end
 
@@ -25,6 +29,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self addChatBtn];
+    page = 1;
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
     _tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     _tableView.delegate = self;
@@ -32,6 +37,8 @@
     [_tableView registerNib:[UINib nibWithNibName:@"LoveManageTableViewCell" bundle:nil] forCellReuseIdentifier:@"TreasureId"];
     [self.view addSubview:_tableView];
     [self addRefresh];
+    dataSource = [NSMutableArray array];
+    [self loadData];
     
 }
 
@@ -42,19 +49,37 @@
     if(self.isGoodsSetting){
         self.navigationItem.title = @"宝贝管理";
     }else{
-        self.navigationItem.title = @"订单管理";
+        self.navigationItem.title = @"宝贝管理";
     }
     
+}
+
+- (void)loadData
+{
+    NSString * pageStr = [NSString stringWithFormat:@"%ld",page];
+    [[MyAPI sharedAPI] RequestManageTreasureDataWithPage:pageStr result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
+        if(success){
+            dataSource = arrays;
+            [_tableView reloadData];
+        }
+        [_tableView.mj_header endRefreshing];
+        [_tableView.mj_footer endRefreshing];
+    } errorResult:^(NSError *enginerError) {
+        [_tableView.mj_header endRefreshing];
+        [_tableView.mj_footer endRefreshing];
+    }];
 }
 
 - (void)addRefresh
 {
     __weak TreasureManageViewController * weakself = self;
     _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        
+        page = 1;
+        [weakself loadData];
     }];
     MJRefreshAutoNormalFooter * footerRefresh = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-        
+        page++;
+        [weakself loadData];
     }];
     footerRefresh.automaticallyRefresh = NO;
     _tableView.mj_footer = footerRefresh;
@@ -102,7 +127,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 4;
+    return dataSource.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -129,7 +154,8 @@
     
     cell.deleteBtn.tag = 100 + indexPath.section;
     [cell.deleteBtn addTarget:self action:@selector(clickdeleteBtn:) forControlEvents:UIControlEventTouchUpInside];
-    
+    ManageTreasureModel * model = [[ManageTreasureModel alloc] init];
+    model = dataSource[indexPath.section];
     return cell;
 }
 

@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *totoalcount;
 @property (weak, nonatomic) IBOutlet UILabel *vivstcount;
 @property (weak, nonatomic) IBOutlet UILabel *ordercount;
+@property (weak, nonatomic) IBOutlet UILabel *teacherName;
 
 @end

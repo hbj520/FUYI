@@ -304,6 +304,28 @@ typedef void (^ErrorBlock) (NSError *enginerError);
 - (void)PersonalDetailInfoWith:(ModelBlock)result
                    errorResult:(ErrorBlock)errorResult;
 
+/**
+ *  我的店铺
+ *
+ *  @param page        页数
+ *  @param result      模型数组
+ *  @param errorResult 错误信息
+ */
+- (void)RequestTeacherPersonalShopDataWithPage:(NSString *)page
+                                        result:(ArrayBlock)result
+                                   errorResult:(ErrorBlock)errorResult;
+/**
+ *
+ *宝贝管理
+ *  @param page        页数
+ *  @param result      模型数组
+ *  @param errorResult 错误信息
+ */
+- (void)RequestManageTreasureDataWithPage:(NSString *)page
+                                   result:(ArrayBlock)result
+                              errorResult:(ErrorBlock)errorResult;
+
+
 #pragma mark -讲师团队
 - (void)getTeacherTeamDataWithToken:(NSString*)token
                                page:(NSString*)page
