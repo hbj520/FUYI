@@ -277,6 +277,17 @@ typedef void (^ErrorBlock) (NSError *enginerError);
         errorResult:(ErrorBlock)errorResult;
 
 /**
+ *  更换背景图片
+ *
+ *  @param image       图片地址
+ *  @param result      上传图片状态
+ *  @param errorResult 错误信息
+ */
+- (void)changeMyShopBackImgWithImage:(NSString *)image
+                              result:(StateBlock)result
+                         errorResult:(ErrorBlock)errorResult;
+
+/**
  *  修改个人资料
  *
  *  @param username    用户名

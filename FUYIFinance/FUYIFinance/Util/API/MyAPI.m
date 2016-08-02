@@ -185,6 +185,12 @@
             NSDictionary * data = responseObject[@"data"];
             UserInfoModel * userinfo = [[UserInfoModel alloc] buildWithDatas:data];
             [[Config Instance] saveImgthumb:userinfo.imgthumb token:userinfo.token username:userinfo.username];
+            NSString * isTeacher = data[@"isteacher"];
+            if([isTeacher isEqualToString:@"1"]){
+                NSString * backimg = data[@"backimg"];
+                [[Config Instance] saveBackImg:backimg];
+            }
+            [[Config Instance] saveIsteacher:isTeacher];
             result(YES,information);
         }else{
             result(NO,information);
@@ -1009,6 +1015,23 @@
     }];
 }
 
-
+- (void)changeMyShopBackImgWithImage:(NSString *)image
+                              result:(StateBlock)result
+                         errorResult:(ErrorBlock)errorResult
+{
+    NSDictionary * parameters = @{@"token":KToken,
+                                  @"backimg":image};
+    [self.manager POST:@"modBackimg" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * status = responseObject[@"status"];
+        NSString * info = responseObject[@"info"];
+        if([status isEqualToString:@"1"]){
+            result(YES,info);
+        }else{
+            result(NO,info);
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+    }];
+}
 
 @end

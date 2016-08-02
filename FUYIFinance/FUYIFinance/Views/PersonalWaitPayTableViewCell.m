@@ -20,11 +20,7 @@
     self.cancelBtn.layer.borderWidth =  0.5;
     self.cancelBtn.layer.cornerRadius = 3;
     self.sureBtn.layer.cornerRadius = 3;
-    self.totalPrice.attributedText = [[LabelHelper alloc] attributedStringWithString:@"¥39.00"];
     
-   // [self addPriceLabel];
-    
-  
 }
 
 - (void)setModel:(MineWaitPayModel *)model
@@ -32,11 +28,11 @@
     [self.thumbImage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"placeimage"]];
     NSString * pricelabel = [NSString stringWithFormat:@"¥ %@",model.price];
     self.price.text = pricelabel;
-    self.totalPrice.attributedText = [[LabelHelper alloc] attributedStringWithString:pricelabel];
+   self.totalPrice.attributedText = [[LabelHelper alloc] attributedStringWithString:pricelabel];
     self.shopname.text = model.shopname;
     self.titlename.text = model.name;
     NSString * teachernamelabel = [NSString stringWithFormat:@"讲师:%@",model.teacher];
-    self.teachername.text = teachernamelabel;
+   self.teachername.text = teachernamelabel;
     
     
 }

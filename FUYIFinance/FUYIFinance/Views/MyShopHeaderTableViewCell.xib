@@ -213,6 +213,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="backImg" destination="2AY-FC-YjG" id="c3z-oU-SrY"/>
                 <outlet property="headicon" destination="arh-S7-ZQd" id="kjB-xs-sw8"/>
                 <outlet property="ordercount" destination="Pgz-iJ-KTV" id="wlv-sy-mhv"/>
                 <outlet property="teacherName" destination="e6X-oV-lpO" id="0o0-fJ-ITP"/>

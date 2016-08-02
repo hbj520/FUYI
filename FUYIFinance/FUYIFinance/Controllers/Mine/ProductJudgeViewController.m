@@ -8,8 +8,8 @@
 
 #import "ProductJudgeViewController.h"
 #import "UIViewController+HUD.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 #import "starView.h"
-
 #import "MyAPI.h"
 
 @interface ProductJudgeViewController ()<UITextViewDelegate>
@@ -24,6 +24,7 @@
   //星级评价视图
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 
+@property (weak, nonatomic) IBOutlet UIImageView *thumbImg;
 @property (weak, nonatomic) IBOutlet UIButton *surebtn;                //确定按钮
 
 @end
@@ -39,7 +40,9 @@
     self.surebtn.layer.cornerRadius = 3;
     self.surebtn.clipsToBounds = YES;
  //   self.surebtn.enabled = NO;
+    [self.thumbImg sd_setImageWithURL:[NSURL URLWithString:self.image] placeholderImage:[UIImage imageNamed:@"placeimage"]];
     //给星级评价视图添加手势
+    [self.starView configWithStarLevel:0];
     UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(renewStar:)];
     [self.starView addGestureRecognizer:tapGesture];
     self.textView.delegate = self;

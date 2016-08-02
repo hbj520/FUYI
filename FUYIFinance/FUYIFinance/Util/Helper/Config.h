@@ -31,6 +31,8 @@
                token:(NSString *)token
             username:(NSString *)username;
 
+//保存是否是讲师
+- (void)saveIsteacher:(NSString *)teacher;
 //保存用户名
 - (void)saveUsername:(NSString *)username;
 
@@ -52,6 +54,14 @@
  *  @param icon 图片
  */
 - (void)saveIcon:(NSString *)icon;
+
+/**
+ *
+ *
+ *  @param backimage 背景图片
+ */
+- (void)saveBackImg:(NSString *)backimage;
+
 /**
  *  保存用户密码
  *
@@ -60,13 +70,15 @@
 
 - (void)saveUserPassword:(NSString*)password;
 
-- (NSString*)getUserId;       //获取用户id
-- (NSString*)getUserName;     //获取用户名
-- (NSString*)getUserPhoneNum; //获取用户手机号码
-- (NSString*)getToken;        //获取用户登录令牌
+- (NSString *)getUserId;       //获取用户id
+- (NSString *)getUserName;     //获取用户名
+- (NSString *)getUserPhoneNum; //获取用户手机号码
+- (NSString *)getisteacher;         //获取是否是讲师
+- (NSString *)getToken;        //获取用户登录令牌
 //- (NSString*)getUserIcon;     //获取用户头像
-- (NSString*)getPassword;     //获取用户密码
-- (NSString *)getIcon;               //获取图片
+- (NSString *)getPassword;     //获取用户密码
+- (NSString *)getIcon;          //获取图片
+- (NSString *)getBackImage;    //获取背景图片
 - (void)logout;               //退出登录
 
 @end

@@ -7,6 +7,7 @@
 //
 #import "MineLoginViewController.h"
 #import "MineTableViewController.h"
+#import "UIViewController+HUD.h"
 #import "MyOrderWaitJudgeViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "Config.h"
@@ -41,9 +42,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
-    
-    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -53,7 +51,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self CreateUI];
-     self.navigationController.navigationBar.hidden = YES;
+   // self.navigationController.navigationBar.hidden = YES;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -201,11 +199,7 @@
 //收藏的店铺
 - (void)collectionShopAct
 {
-    if(!KToken){
-        [self LoginAct];
-    }else{
-   [self performSegueWithIdentifier:@"mycollectionSegue" sender:nil];
-    }
+    [self showHint:@"正在建设中"];
 }
 
 //我是商家
@@ -278,9 +272,9 @@
     }else if (section==1){
         return 1;
     }else if (section==2){
-        return 4;
+        return 5;
     }else{
-        return 1;
+        return 2;
     }
 }
 
@@ -308,13 +302,19 @@
         }else if (indexPath.row==1){
         [self performSegueWithIdentifier:@"modifypwdSegue" sender:nil];
         }else if (indexPath.row==2){
-            
-        }else if (indexPath.row==3){
             [self performSegueWithIdentifier:@"noticeSegue" sender:nil];
+        }else if (indexPath.row == 3){
+            [self performSegueWithIdentifier:@"mycollectionSegue" sender:nil];
+        }else{
+            [self performSegueWithIdentifier:@"myjudgeSegue" sender:nil];
+        }
+
+    }else if (indexPath.section == 3){
+        if(indexPath.row == 0){
+        [self performSegueWithIdentifier:@"settingSegue" sender:nil];
+        }else{
             
         }
-    }else if (indexPath.section == 3){
-        [self performSegueWithIdentifier:@"settingSegue" sender:nil];
     }
     }
 }
@@ -373,7 +373,7 @@
 }
 */
 
-- (IBAction)loginBtn:(id)sender {
+- (IBAction)loginBtn:(id)sender {   
     [self LoginAct];
 }
 @end
