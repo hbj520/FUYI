@@ -174,6 +174,9 @@
 		CCEEFC121D37613A0001C7AA /* MineNoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEEFC111D37613A0001C7AA /* MineNoticeViewController.m */; };
 		D114DC581D24EEC50001CE21 /* Good.m in Sources */ = {isa = PBXBuildFile; fileRef = D114DC561D24EEC50001CE21 /* Good.m */; };
 		D1189C231D49A1D1001209B9 /* TeacherStoreHeaderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D1189C221D49A1D1001209B9 /* TeacherStoreHeaderModel.m */; };
+		D1189C261D4F40EE001209B9 /* Collection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1189C251D4F40EE001209B9 /* Collection.storyboard */; };
+		D1189C281D4F411B001209B9 /* Blog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1189C271D4F411B001209B9 /* Blog.storyboard */; };
+		D1189C2C1D4F4694001209B9 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1189C2B1D4F4694001209B9 /* CollectionViewController.m */; };
 		D15BA3841D235E5700904DEF /* shopCar.json in Resources */ = {isa = PBXBuildFile; fileRef = D15BA3831D235E5700904DEF /* shopCar.json */; };
 		D15BA3881D237CE200904DEF /* ShopCarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D15BA3861D237CE200904DEF /* ShopCarTableViewCell.m */; };
 		D15BA3891D237CE200904DEF /* ShopCarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D15BA3871D237CE200904DEF /* ShopCarTableViewCell.xib */; };
@@ -552,6 +555,10 @@
 		D114DC561D24EEC50001CE21 /* Good.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Good.m; sourceTree = "<group>"; };
 		D1189C211D49A1D1001209B9 /* TeacherStoreHeaderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherStoreHeaderModel.h; sourceTree = "<group>"; };
 		D1189C221D49A1D1001209B9 /* TeacherStoreHeaderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherStoreHeaderModel.m; sourceTree = "<group>"; };
+		D1189C251D4F40EE001209B9 /* Collection.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Collection.storyboard; sourceTree = "<group>"; };
+		D1189C271D4F411B001209B9 /* Blog.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Blog.storyboard; sourceTree = "<group>"; };
+		D1189C2A1D4F4694001209B9 /* CollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
+		D1189C2B1D4F4694001209B9 /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
 		D15BA3831D235E5700904DEF /* shopCar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = shopCar.json; sourceTree = "<group>"; };
 		D15BA3851D237CE200904DEF /* ShopCarTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopCarTableViewCell.h; sourceTree = "<group>"; };
 		D15BA3861D237CE200904DEF /* ShopCarTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopCarTableViewCell.m; sourceTree = "<group>"; };
@@ -941,6 +948,7 @@
 		ABF5DE341D0FA4B1007CE1AB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D1189C291D4F465D001209B9 /* CollectionViewController */,
 				ABFF9B1D1D4880BE0023FF39 /* CustomerServiceControllers */,
 				AB0A59371D3F77830002D638 /* VideoViewControllers */,
 				AB36CDB41D1274E900D0E4C7 /* BaseViewControllers */,
@@ -1204,6 +1212,8 @@
 				ABF5DE4F1D0FA7FC007CE1AB /* ShopCar.storyboard */,
 				ABF5DE511D0FA803007CE1AB /* Mine.storyboard */,
 				AB708F971D0543BE007D0B4D /* LaunchScreen.storyboard */,
+				D1189C251D4F40EE001209B9 /* Collection.storyboard */,
+				D1189C271D4F411B001209B9 /* Blog.storyboard */,
 			);
 			path = StoryBord;
 			sourceTree = "<group>";
@@ -1440,6 +1450,15 @@
 			path = ShopCar;
 			sourceTree = "<group>";
 		};
+		D1189C291D4F465D001209B9 /* CollectionViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D1189C2A1D4F4694001209B9 /* CollectionViewController.h */,
+				D1189C2B1D4F4694001209B9 /* CollectionViewController.m */,
+			);
+			name = CollectionViewController;
+			sourceTree = "<group>";
+		};
 		D1C49B021D224D7F003C17DA /* ShopCar */ = {
 			isa = PBXGroup;
 			children = (
@@ -1531,7 +1550,6 @@
 				TargetAttributes = {
 					AB708F851D0543BE007D0B4D = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = WFNRTA53Q5;
 					};
 					AB708F9E1D0543BE007D0B4D = {
 						CreatedOnToolsVersion = 7.3;
@@ -1587,6 +1605,7 @@
 				D1F130051D2A3E7A00EE1690 /* HomePage.storyboard in Resources */,
 				CC593CB71D29F67A0077B096 /* ShopTopTableViewCell.xib in Resources */,
 				D15BA3841D235E5700904DEF /* shopCar.json in Resources */,
+				D1189C281D4F411B001209B9 /* Blog.storyboard in Resources */,
 				D1F1300A1D2A4E0C00EE1690 /* VideoDetailFirstTableViewCell.xib in Resources */,
 				AB708F991D0543BE007D0B4D /* LaunchScreen.storyboard in Resources */,
 				D1F130741D3796C800EE1690 /* TeacherTeamTableViewCell.xib in Resources */,
@@ -1603,6 +1622,7 @@
 				D1F130421D2C9CAA00EE1690 /* PayView.xib in Resources */,
 				D1F1300F1D2A4E3100EE1690 /* VideoDetailSecTableViewCell.xib in Resources */,
 				AB36CE3D1D1B88A600D0E4C7 /* HomePageHotNewTableViewCell.xib in Resources */,
+				D1189C261D4F40EE001209B9 /* Collection.storyboard in Resources */,
 				D1F130251D2B80DB00EE1690 /* ConInfoTableViewCell.xib in Resources */,
 				CC4096A61D49959800084D1A /* IJKMoviePlayerViewController.xib in Resources */,
 				D1C49B071D224DE8003C17DA /* ShopCarNavigationItem.xib in Resources */,
@@ -1760,6 +1780,7 @@
 				CC593CAD1D29EFF30077B096 /* MyShopViewController.m in Sources */,
 				D1F130201D2B642A00EE1690 /* ConfirmOrderViewController.m in Sources */,
 				D1F1302A1D2B817200EE1690 /* VideoInfoTableViewCell.m in Sources */,
+				D1189C2C1D4F4694001209B9 /* CollectionViewController.m in Sources */,
 				D15BA3941D23906600904DEF /* CustomBtn.m in Sources */,
 				AB36CE2F1D1B710400D0E4C7 /* TADotView.m in Sources */,
 				AB02D4AC1D2228F800AED400 /* ShopCarViewController.m in Sources */,

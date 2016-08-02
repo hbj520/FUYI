@@ -70,6 +70,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"VideoDetailThirdtTableViewCell" bundle:nil] forCellReuseIdentifier:@"detailThirdReuseID"];
     [self addBottomTapGesAndButton];//添加底部点击事件
     
+    /*
     //右上角数字label
     _numLab.textAlignment = NSTextAlignmentCenter;
     _numLab.layer.cornerRadius = CGRectGetHeight(_numLab.bounds)/2;
@@ -87,7 +88,9 @@
     [_path moveToPoint:CGPointMake(ScreenWidth*0.6, ScreenHeight * 0.9)];
     [_path addQuadCurveToPoint:CGPointMake(ScreenWidth-68, 10)
                   controlPoint:CGPointMake(50, 200)];
+     */
 }
+/*
 //进购物车界面
 - (IBAction)pushToShopCar:(id)sender {
     UIStoryboard *storyBord = [UIStoryboard storyboardWithName:@"ShopCar" bundle:[NSBundle mainBundle]];
@@ -97,12 +100,12 @@
 //    [self performSegueWithIdentifier:@"PushToShopCarSegue" sender:[NSNumber numberWithBool:YES]];
     //self.tabBarController.selectedIndex = 2;
 }
-
+*/
 - (void)addBottomTapGesAndButton{
     [self.collectBtn setBackgroundImage:[UIImage imageNamed:@"VD_star"] forState:UIControlStateNormal];
     [self.collectBtn setBackgroundImage:[UIImage imageNamed:@"VD_red_Star.jpg"] forState:UIControlStateSelected];
     
-    [self.addShopCarBtn addTarget:self action:@selector(addShopCarClick:) forControlEvents:UIControlEventTouchUpInside];
+    //[self.addShopCarBtn addTarget:self action:@selector(addShopCarClick:) forControlEvents:UIControlEventTouchUpInside];
     
     UITapGestureRecognizer *tapShopGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(shopClick:)];
     [self.shopView addGestureRecognizer:tapShopGes];
@@ -111,6 +114,7 @@
     [self.serviceView addGestureRecognizer:tapServiceGes];
 }
 
+/*
 //加入购物车
 - (void)addShopCarClick:(UIButton*)button{
     
@@ -224,6 +228,8 @@
     }
 }
 
+ */
+ 
 #pragma mark - creatLPPopup
 
 - (void)showPopup:(NSString *)popupWithText
@@ -302,10 +308,7 @@
     [self performSegueWithIdentifier:@"GoStoreSegue" sender:self.model];
 }
 
-//客服
-- (void)serviceClick:(UIGestureRecognizer *)ges{
-    
-}
+
 
 #pragma mark - UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

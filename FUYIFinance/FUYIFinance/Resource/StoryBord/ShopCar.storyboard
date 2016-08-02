@@ -22,10 +22,10 @@
             </objects>
             <point key="canvasLocation" x="-96" y="191"/>
         </scene>
-        <!--Shop Car View Controller-->
+        <!--View Controller-->
         <scene sceneID="R3r-oN-w89">
             <objects>
-                <viewController storyboardIdentifier="ShopCarStorybordId" id="ZQV-tI-Yyx" customClass="ShopCarViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ShopCarStorybordId" id="ZQV-tI-Yyx" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eCU-ci-N0I"/>
                         <viewControllerLayoutGuide type="bottom" id="MWv-F5-GbH"/>

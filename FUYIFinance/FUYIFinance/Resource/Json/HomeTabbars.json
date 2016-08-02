@@ -8,16 +8,16 @@
      "storybordId":"homePageSB"
      },
      {
-     "image":"customerServicetab",
-     "select_image":"customerServicetab",
-     "title":"客服",
-     "storybordId":"customerServiceSB"
+     "image":"blog",
+     "select_image":"blog",
+     "title":"博客",
+     "storybordId":"blogSB"
      },
      {
-     "image":"shopCartab",
-     "select_image":"shopCartab",
-     "title":"购物车",
-     "storybordId":"shopCarSB"
+     "image":"collection",
+     "select_image":"collection",
+     "title":"收藏",
+     "storybordId":"collectionSB"
      },
      {
      "image":"personaltab",
