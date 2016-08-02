@@ -79,7 +79,7 @@
     if (section == 0) {
         return 1;
     }else{
-        return 4;
+        return 3;
     }
 }
 
@@ -98,14 +98,14 @@
             
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
+   //购买数目cell     }if (indexPath.row == 1) {
+//            BuyCountTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"buyerCountCellReuseID" forIndexPath:indexPath];
+//            
+//            [cell.plusBtn addTarget:self action:@selector(changeCount:) forControlEvents:UIControlEventTouchUpInside];
+//            [cell.minusBtn addTarget:self action:@selector(changeCount:) forControlEvents:UIControlEventTouchUpInside];
+//            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//            return cell;
         }if (indexPath.row == 1) {
-            BuyCountTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"buyerCountCellReuseID" forIndexPath:indexPath];
-            
-            [cell.plusBtn addTarget:self action:@selector(changeCount:) forControlEvents:UIControlEventTouchUpInside];
-            [cell.minusBtn addTarget:self action:@selector(changeCount:) forControlEvents:UIControlEventTouchUpInside];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            return cell;
-        }if (indexPath.row == 2) {
             NoticeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"noticeCellReuseID" forIndexPath:indexPath];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
@@ -158,7 +158,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
-        return 160;
+        return 3;
     }else{
         if (indexPath.row == 0) {
             return 130;

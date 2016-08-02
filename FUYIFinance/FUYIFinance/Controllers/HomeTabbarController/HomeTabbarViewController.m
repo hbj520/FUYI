@@ -15,8 +15,8 @@
     NSMutableArray *menusVCs;//tabbars的控制器
 }
 @property (nonatomic,strong) UIStoryboard *homePageSB;
-@property (nonatomic,strong) UIStoryboard *customerServiceSB;
-@property (nonatomic,strong) UIStoryboard *shopCarSB;
+@property (nonatomic,strong) UIStoryboard *blogSB;
+@property (nonatomic,strong) UIStoryboard *collectionSB;
 @property (nonatomic,strong) UIStoryboard *mineSB;
 @end
 
@@ -27,17 +27,17 @@
     }
     return _homePageSB;
 }
-- (UIStoryboard *)customerServiceSB{
-    if (!_customerServiceSB) {
-        _customerServiceSB = [UIStoryboard storyboardWithName:@"CustomerService" bundle:[NSBundle mainBundle]];
+- (UIStoryboard *)blogSB{
+    if (!_blogSB) {
+        _blogSB = [UIStoryboard storyboardWithName:@"Blog" bundle:[NSBundle mainBundle]];
     }
-    return _customerServiceSB;
+    return _blogSB;
 }
-- (UIStoryboard *)shopCarSB{
-    if (!_shopCarSB) {
-        _shopCarSB = [UIStoryboard storyboardWithName:@"ShopCar" bundle:[NSBundle mainBundle]];
+- (UIStoryboard *)collectionSB{
+    if (!_collectionSB) {
+        _collectionSB = [UIStoryboard storyboardWithName:@"Collection" bundle:[NSBundle mainBundle]];
     }
-   return _shopCarSB;
+   return _collectionSB;
 }
 - (UIStoryboard *)mineSB{
     if (!_mineSB) {
@@ -79,7 +79,7 @@
 #pragma mark - TabbarDelegate
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
     
-    if ([item.title isEqualToString:@"购物车"]) {
+    if ([item.title isEqualToString:@"收藏"]) {
         if (!KToken) {
             [self LoginAct];
         }
