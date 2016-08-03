@@ -912,6 +912,49 @@
     }];
 }
 
+- (void)EditTreasureWithTreausreId:(NSString *)treasureid
+                              Name:(NSString *)name
+                             About:(NSString *)about
+                             Price:(NSString *)price
+                          ThumbImg:(NSString *)thumbimg
+                            result:(StateBlock)result
+                       errorResult:(ErrorBlock)errorResult
+{
+    NSDictionary * parameters = @{@"token":KToken,
+                                  @"id":treasureid,
+                                  @"name":name,
+                                  @"about":about,
+                                  @"price":price,
+                                  @"thumbimg":thumbimg};
+    
+[self.manager POST:@"teacherEditVideo" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+    NSString * status = responseObject[@"status"];
+    NSString * info = responseObject[@"info"];
+    if([status isEqualToString:@"1"]){
+        result(YES,info);
+    }else{
+        result(NO,info);
+    }
+} failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+    errorResult(error);
+}];
+    
+}
+
+- (void)DeleteTreasureWithTreasureid:(NSString *)treasureid
+                              result:(StateBlock)result
+                         errorResult:(ErrorBlock)errorResult
+{
+    NSDictionary * parameters = @{@"token":KToken,
+                                  @"id":treasureid};
+    [self.manager POST:@"teacherDelVideo" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * status = responseObject[@"status"];
+        NSString * info = responseObject[@"info"];
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        
+    }];
+}
+
 - (void)requestAllOrderDataWithParameters:(NSString *)page
                                    result:(ArrayBlock)result
                               errorResult:(ErrorBlock)errorResult
