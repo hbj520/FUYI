@@ -87,7 +87,6 @@
 		CC35F66E1D2CDCBA00EF3B4B /* MineCollectionTreasureModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC35F66D1D2CDCBA00EF3B4B /* MineCollectionTreasureModel.m */; };
 		CC4096A51D49959800084D1A /* IJKMoviePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4096A31D49959800084D1A /* IJKMoviePlayerViewController.m */; };
 		CC4096A61D49959800084D1A /* IJKMoviePlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC4096A41D49959800084D1A /* IJKMoviePlayerViewController.xib */; };
-		CC4096A81D49963300084D1A /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4096A71D49963300084D1A /* IJKMediaFramework.framework */; };
 		CC4096AD1D49992600084D1A /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4096AC1D49992600084D1A /* SettingViewController.m */; };
 		CC4096B01D49A21000084D1A /* PersonalUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4096AF1D49A21000084D1A /* PersonalUserInfo.m */; };
 		CC4096B31D4A0C8700084D1A /* TeacherShopModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4096B21D4A0C8700084D1A /* TeacherShopModel.m */; };
@@ -399,7 +398,6 @@
 		CC4096A21D49959800084D1A /* IJKMoviePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IJKMoviePlayerViewController.h; sourceTree = "<group>"; };
 		CC4096A31D49959800084D1A /* IJKMoviePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IJKMoviePlayerViewController.m; sourceTree = "<group>"; };
 		CC4096A41D49959800084D1A /* IJKMoviePlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IJKMoviePlayerViewController.xib; sourceTree = "<group>"; };
-		CC4096A71D49963300084D1A /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
 		CC4096AB1D49992600084D1A /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		CC4096AC1D49992600084D1A /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		CC4096AE1D49A21000084D1A /* PersonalUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalUserInfo.h; sourceTree = "<group>"; };
@@ -668,7 +666,6 @@
 				AB0A59361D3F711B0002D638 /* VideoToolbox.framework in Frameworks */,
 				AB0A59341D3F71120002D638 /* UIKit.framework in Frameworks */,
 				AB0A59321D3F710B0002D638 /* QuartzCore.framework in Frameworks */,
-				CC4096A81D49963300084D1A /* IJKMediaFramework.framework in Frameworks */,
 				AB0A59301D3F71020002D638 /* OpenGLES.framework in Frameworks */,
 				AB0A592E1D3F70F20002D638 /* MobileCoreServices.framework in Frameworks */,
 				AB0A592C1D3F70E80002D638 /* MediaPlayer.framework in Frameworks */,
@@ -715,7 +712,6 @@
 		0785EFAD9D8BC2ECCBC0C903 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CC4096A71D49963300084D1A /* IJKMediaFramework.framework */,
 				AB0A59351D3F711B0002D638 /* VideoToolbox.framework */,
 				AB0A59331D3F71120002D638 /* UIKit.framework */,
 				AB0A59311D3F710B0002D638 /* QuartzCore.framework */,
@@ -1490,6 +1486,7 @@
 				AB708F841D0543BE007D0B4D /* Resources */,
 				2D5F3A3F8E85A6B9AA6C1BBD /* 📦 Embed Pods Frameworks */,
 				84EF5DA7F428315A8499869B /* 📦 Copy Pods Resources */,
+				CC078D8BE7ABE02AA481C372 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1685,6 +1682,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FUYIFinance/Pods-FUYIFinance-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CC078D8BE7ABE02AA481C372 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FUYIFinance/Pods-FUYIFinance-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F8E1F81CE42301BF48D5B299 /* 📦 Check Pods Manifest.lock */ = {
