@@ -23,6 +23,9 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *thumbimg;
 
+
+
+
 @end
 
 @implementation ManageTreasureTableViewController
