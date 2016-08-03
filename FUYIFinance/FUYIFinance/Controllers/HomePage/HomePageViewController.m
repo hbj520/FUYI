@@ -156,10 +156,10 @@ static NSString *investReuseId = @"investReuseId";
 }
 #pragma mark - UITableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 2;
+    return 3;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if (section == 0) {
+    if (section == 1) {
         return 2;
     }
     return 1;
@@ -167,6 +167,12 @@ static NSString *investReuseId = @"investReuseId";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell ;
     if (indexPath.section == 0) {
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"reusedId"];
+        }
+        return cell;
+        
+    }else if (indexPath.section == 1){
         if (indexPath.row == 0) {
             HomepageHeaderTableViewCell *headerCell = [tableView dequeueReusableCellWithIdentifier:headerCellReuseId];
             if (headerCell == nil) {
@@ -190,7 +196,7 @@ static NSString *investReuseId = @"investReuseId";
                 
             };
             return headerCell;
-
+            
         }else{
             HomePageHotNewTableViewCell *newTableViewCell = [tableView dequeueReusableCellWithIdentifier:hotCellReuseId];
             if (newTableViewCell == nil) {
@@ -199,14 +205,13 @@ static NSString *investReuseId = @"investReuseId";
             [newTableViewCell configWithData:noticeData];
             return newTableViewCell;
         }
-
-    }else if (indexPath.section == 1){
+    }else if (indexPath.section == 2){
         InvestCollectionViewTableViewCell *investTableViewCell = [tableView dequeueReusableCellWithIdentifier:investReuseId];
         if (investTableViewCell == nil) {
             investTableViewCell = [[InvestCollectionViewTableViewCell alloc]
-                                                            initWithStyle:UITableViewCellStyleDefault
-                                                            reuseIdentifier:investReuseId];
-
+                                   initWithStyle:UITableViewCellStyleDefault
+                                   reuseIdentifier:investReuseId];
+            
         }
         if (inverstData.count > 1) {
             [investTableViewCell createUIWithData:inverstData];
@@ -230,22 +235,22 @@ static NSString *investReuseId = @"investReuseId";
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if (section == 0) {
         return 170;
-    }else{
-        return 10;
+    }else if (section == 1){
+        return 0.1;
     }
     return 10;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 0) {
+    if (indexPath.section == 1) {
         if (indexPath.row == 0) {
             return 90;
         }else if (indexPath.row == 1){
             return 68;
         }
-    }else if (indexPath.section == 1){
+    }else if (indexPath.section == 2){
         return 205;
     }
-    return 1;
+    return 0.1;
 }
 #pragma mark -SDCycleScrollViewDelegate
 //点击头部滚动视图
