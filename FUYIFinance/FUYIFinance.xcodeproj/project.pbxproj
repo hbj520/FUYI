@@ -85,6 +85,7 @@
 		CC35F6671D2C9A9800EF3B4B /* LabelHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CC35F6661D2C9A9800EF3B4B /* LabelHelper.m */; };
 		CC35F66A1D2CCB3000EF3B4B /* PriceLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC35F6691D2CCB3000EF3B4B /* PriceLabel.m */; };
 		CC35F66E1D2CDCBA00EF3B4B /* MineCollectionTreasureModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC35F66D1D2CDCBA00EF3B4B /* MineCollectionTreasureModel.m */; };
+		CC3C62D91D51BF2C00CD62AC /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC3C62D81D51BF2C00CD62AC /* IJKMediaFramework.framework */; };
 		CC4096A51D49959800084D1A /* IJKMoviePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4096A31D49959800084D1A /* IJKMoviePlayerViewController.m */; };
 		CC4096A61D49959800084D1A /* IJKMoviePlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC4096A41D49959800084D1A /* IJKMoviePlayerViewController.xib */; };
 		CC4096AD1D49992600084D1A /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4096AC1D49992600084D1A /* SettingViewController.m */; };
@@ -395,6 +396,7 @@
 		CC35F6691D2CCB3000EF3B4B /* PriceLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceLabel.m; sourceTree = "<group>"; };
 		CC35F66C1D2CDCBA00EF3B4B /* MineCollectionTreasureModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineCollectionTreasureModel.h; sourceTree = "<group>"; };
 		CC35F66D1D2CDCBA00EF3B4B /* MineCollectionTreasureModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineCollectionTreasureModel.m; sourceTree = "<group>"; };
+		CC3C62D81D51BF2C00CD62AC /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
 		CC4096A21D49959800084D1A /* IJKMoviePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IJKMoviePlayerViewController.h; sourceTree = "<group>"; };
 		CC4096A31D49959800084D1A /* IJKMoviePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IJKMoviePlayerViewController.m; sourceTree = "<group>"; };
 		CC4096A41D49959800084D1A /* IJKMoviePlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IJKMoviePlayerViewController.xib; sourceTree = "<group>"; };
@@ -666,6 +668,7 @@
 				AB0A59361D3F711B0002D638 /* VideoToolbox.framework in Frameworks */,
 				AB0A59341D3F71120002D638 /* UIKit.framework in Frameworks */,
 				AB0A59321D3F710B0002D638 /* QuartzCore.framework in Frameworks */,
+				CC3C62D91D51BF2C00CD62AC /* IJKMediaFramework.framework in Frameworks */,
 				AB0A59301D3F71020002D638 /* OpenGLES.framework in Frameworks */,
 				AB0A592E1D3F70F20002D638 /* MobileCoreServices.framework in Frameworks */,
 				AB0A592C1D3F70E80002D638 /* MediaPlayer.framework in Frameworks */,
@@ -712,6 +715,7 @@
 		0785EFAD9D8BC2ECCBC0C903 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CC3C62D81D51BF2C00CD62AC /* IJKMediaFramework.framework */,
 				AB0A59351D3F711B0002D638 /* VideoToolbox.framework */,
 				AB0A59331D3F71120002D638 /* UIKit.framework */,
 				AB0A59311D3F710B0002D638 /* QuartzCore.framework */,
