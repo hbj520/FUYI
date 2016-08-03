@@ -226,7 +226,7 @@
     }else if (indexPath.section==2){
         FourBtnTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cellID3" forIndexPath:indexPath];
         __weak MyShopViewController * weakself = self;
-        
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
         cell.publishBlock = ^(){
             [weakself publishTreasure];      //进入发送宝贝界面
@@ -246,13 +246,9 @@
         
         return cell;
     }else if(indexPath.section == 3){
-//        MyShopDetailTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cellID4" forIndexPath:indexPath];
-//        TeacherShopModel * model = [[TeacherShopModel alloc] init];
-//        model = dataSource[indexPath.row];
-//        cell.model = model;
-//        return cell;
         if(indexPath.row == 0){
             UITableViewCell * cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"modifyId"];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
             UIImageView * iconImg = [[UIImageView alloc] initWithFrame:CGRectMake(30, 11, 25, 25)];
             iconImg.image = [UIImage imageNamed:@"personal_modify"];
             [cell.contentView addSubview:iconImg];
@@ -274,6 +270,8 @@
             descLabel.textColor = [UIColor blackColor];
             descLabel.text = @"账户与安全";
             [cell.contentView addSubview:descLabel];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
             return cell;
 
         }else{
@@ -287,6 +285,8 @@
             descLabel.textColor = [UIColor blackColor];
             descLabel.text = @"消息中心";
             [cell.contentView addSubview:descLabel];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
             return cell;
 
         }
@@ -302,6 +302,8 @@
                 descLabel.textColor = [UIColor blackColor];
                 descLabel.text = @"设置";
                 [cell.contentView addSubview:descLabel];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
                 return cell;
                 
             }else{
@@ -315,6 +317,8 @@
                 descLabel.textColor = [UIColor blackColor];
                 descLabel.text = @"关于我们";
                 [cell.contentView addSubview:descLabel];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
                 return cell;
                 
             }

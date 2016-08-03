@@ -22,6 +22,7 @@
 		AB0A59321D3F710B0002D638 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB0A59311D3F710B0002D638 /* QuartzCore.framework */; };
 		AB0A59341D3F71120002D638 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB0A59331D3F71120002D638 /* UIKit.framework */; };
 		AB0A59361D3F711B0002D638 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB0A59351D3F711B0002D638 /* VideoToolbox.framework */; };
+		AB1763B51D51BC4D001A84E8 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB1763B41D51BC4D001A84E8 /* IJKMediaFramework.framework */; };
 		AB36CDB71D12773400D0E4C7 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36CDB61D12773400D0E4C7 /* BaseViewController.m */; };
 		AB36CDBA1D1283AD00D0E4C7 /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36CDB91D1283AD00D0E4C7 /* HomePageViewController.m */; };
 		AB36CDC01D128CF900D0E4C7 /* HomePageNavgationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36CDBF1D128CF900D0E4C7 /* HomePageNavgationItem.m */; };
@@ -272,6 +273,7 @@
 		AB0A59311D3F710B0002D638 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		AB0A59331D3F71120002D638 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AB0A59351D3F711B0002D638 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		AB1763B41D51BC4D001A84E8 /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
 		AB36CDB51D12773400D0E4C7 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		AB36CDB61D12773400D0E4C7 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		AB36CDB81D1283AD00D0E4C7 /* HomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageViewController.h; sourceTree = "<group>"; };
@@ -666,6 +668,7 @@
 				AB0A59361D3F711B0002D638 /* VideoToolbox.framework in Frameworks */,
 				AB0A59341D3F71120002D638 /* UIKit.framework in Frameworks */,
 				AB0A59321D3F710B0002D638 /* QuartzCore.framework in Frameworks */,
+				AB1763B51D51BC4D001A84E8 /* IJKMediaFramework.framework in Frameworks */,
 				AB0A59301D3F71020002D638 /* OpenGLES.framework in Frameworks */,
 				AB0A592E1D3F70F20002D638 /* MobileCoreServices.framework in Frameworks */,
 				AB0A592C1D3F70E80002D638 /* MediaPlayer.framework in Frameworks */,
@@ -712,6 +715,7 @@
 		0785EFAD9D8BC2ECCBC0C903 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AB1763B41D51BC4D001A84E8 /* IJKMediaFramework.framework */,
 				AB0A59351D3F711B0002D638 /* VideoToolbox.framework */,
 				AB0A59331D3F71120002D638 /* UIKit.framework */,
 				AB0A59311D3F710B0002D638 /* QuartzCore.framework */,
