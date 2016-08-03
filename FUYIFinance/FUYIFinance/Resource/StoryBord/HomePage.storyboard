@@ -469,7 +469,7 @@
         <!--确认订单-->
         <scene sceneID="OII-ib-KyF">
             <objects>
-                <viewController id="hbb-vY-MFL" customClass="ConfirmOrderViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="confirmstoryboardId" id="hbb-vY-MFL" customClass="ConfirmOrderViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zSF-BX-LNN"/>
                         <viewControllerLayoutGuide type="bottom" id="e1g-jM-L1e"/>

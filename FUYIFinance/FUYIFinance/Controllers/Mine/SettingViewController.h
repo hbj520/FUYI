@@ -10,4 +10,6 @@
 
 @interface SettingViewController : BaseViewController
 
+@property (nonatomic,copy)NSString * mortal;
+
 @end

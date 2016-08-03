@@ -7,11 +7,13 @@
 //
 
 #import "MyOrderWaitPayViewController.h"
+#import "ConfirmOrderViewController.h"
 #import "PersonalWaitPayTableViewCell.h"
 #import "UIViewController+HUD.h"
 #import <MJRefresh/MJRefresh.h>
 #import "PayView.h"
 #import "MineWaitPayModel.h"
+#import "StoreDataModel.h"
 #import "Config.h"
 #import "MyAPI.h"
 @interface MyOrderWaitPayViewController ()<UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate>
@@ -153,6 +155,22 @@
     model = _dataSource[indexPath.section];
     cell.model = model;
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    MineWaitPayModel * model = [[MineWaitPayModel alloc] init];
+    model = _dataSource[indexPath.section];
+    StoreDataModel * model1 = [[StoreDataModel alloc] init];
+    model1.videoName = model.name;
+    model1.videoImage = model.image;
+    model1.videoPrice = model.price;
+    UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"HomePage" bundle:nil];
+    
+    ConfirmOrderViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"confirmstoryboardId"];
+    vc.model = model1;
+    [self.navigationController pushViewController:vc animated:YES];
+    
 }
 
 //点击取消订单

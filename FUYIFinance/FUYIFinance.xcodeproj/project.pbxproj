@@ -88,7 +88,6 @@
 		CC4096A51D49959800084D1A /* IJKMoviePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4096A31D49959800084D1A /* IJKMoviePlayerViewController.m */; };
 		CC4096A61D49959800084D1A /* IJKMoviePlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC4096A41D49959800084D1A /* IJKMoviePlayerViewController.xib */; };
 		CC4096A81D49963300084D1A /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4096A71D49963300084D1A /* IJKMediaFramework.framework */; };
-		CC4096AA1D49978600084D1A /* my_video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CC4096A91D49978600084D1A /* my_video.mp4 */; };
 		CC4096AD1D49992600084D1A /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4096AC1D49992600084D1A /* SettingViewController.m */; };
 		CC4096B01D49A21000084D1A /* PersonalUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4096AF1D49A21000084D1A /* PersonalUserInfo.m */; };
 		CC4096B31D4A0C8700084D1A /* TeacherShopModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4096B21D4A0C8700084D1A /* TeacherShopModel.m */; };
@@ -401,7 +400,6 @@
 		CC4096A31D49959800084D1A /* IJKMoviePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IJKMoviePlayerViewController.m; sourceTree = "<group>"; };
 		CC4096A41D49959800084D1A /* IJKMoviePlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IJKMoviePlayerViewController.xib; sourceTree = "<group>"; };
 		CC4096A71D49963300084D1A /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
-		CC4096A91D49978600084D1A /* my_video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = my_video.mp4; sourceTree = "<group>"; };
 		CC4096AB1D49992600084D1A /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		CC4096AC1D49992600084D1A /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		CC4096AE1D49A21000084D1A /* PersonalUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalUserInfo.h; sourceTree = "<group>"; };
@@ -1061,7 +1059,6 @@
 		ABF5DE3F1D0FA4B1007CE1AB /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				CC4096A91D49978600084D1A /* my_video.mp4 */,
 				CC6FD5E01D36046000DA60AB /* Plist */,
 				ABF5DE471D0FA51D007CE1AB /* Json */,
 				ABF5DE481D0FA51D007CE1AB /* StoryBord */,
@@ -1550,6 +1547,7 @@
 				TargetAttributes = {
 					AB708F851D0543BE007D0B4D = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 3L5Q37H6H3;
 					};
 					AB708F9E1D0543BE007D0B4D = {
 						CreatedOnToolsVersion = 7.3;
@@ -1610,7 +1608,6 @@
 				AB708F991D0543BE007D0B4D /* LaunchScreen.storyboard in Resources */,
 				D1F130741D3796C800EE1690 /* TeacherTeamTableViewCell.xib in Resources */,
 				AB36CDC21D128D1900D0E4C7 /* HomePageNavgationItem.xib in Resources */,
-				CC4096AA1D49978600084D1A /* my_video.mp4 in Resources */,
 				D15BA38E1D237E3300904DEF /* HeaderView.xib in Resources */,
 				CC593CBC1D29FCC30077B096 /* FourBtnTableViewCell.xib in Resources */,
 				D1F1306F1D3790A700EE1690 /* TeacherTeamNavigationItem.xib in Resources */,
@@ -2030,7 +2027,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.youyou2.FUYIFinance;
+				PRODUCT_BUNDLE_IDENTIFIER = com.youyou.FUYIFinance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -2056,7 +2053,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.youyou2.FUYIFinance;
+				PRODUCT_BUNDLE_IDENTIFIER = com.youyou.FUYIFinance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

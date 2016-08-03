@@ -156,6 +156,7 @@
     [cell.deleteBtn addTarget:self action:@selector(clickdeleteBtn:) forControlEvents:UIControlEventTouchUpInside];
     ManageTreasureModel * model = [[ManageTreasureModel alloc] init];
     model = dataSource[indexPath.section];
+    cell.model = model;
     return cell;
 }
 
@@ -163,7 +164,10 @@
 - (void)clickmodifyBtn:(UIButton*)sender
 {
     //跳转到编辑宝贝
-    [self performSegueWithIdentifier:@"modifySegue" sender:nil];
+    NSInteger index = sender.tag;
+    ManageTreasureModel * model = dataSource[index];
+    
+    [self performSegueWithIdentifier:@"modifySegue" sender:model.price];
 }
 
 //点击删除宝贝按钮

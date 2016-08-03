@@ -223,6 +223,9 @@
             [self.navigationController popViewControllerAnimated:YES];
             self.navigationController.navigationBarHidden = YES;
                    }else{
+            [self.navigationController popViewControllerAnimated:YES];
+            self.navigationController.navigationBarHidden = YES;
+
             [self showHint:msg];
             [self hideHud];
         }
@@ -234,7 +237,11 @@
 
 - (IBAction)back:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+    if([self.mortal isEqualToString:@"isTeacher"]){
+        self.navigationController.navigationBarHidden = NO;
+    }else{
     self.navigationController.navigationBarHidden = YES;
+    }
 }
 
 - (void)didReceiveMemoryWarning {

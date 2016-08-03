@@ -215,6 +215,7 @@ static Config * instance = nil;
     [settings removeObjectForKey:@"token"];
     [settings removeObjectForKey:@"icon"];
     [settings removeObjectForKey:@"username"];
+    [settings removeObjectForKey:@"isteacher"];
     
 }
 

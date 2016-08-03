@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ManageTreasureTableViewController : UITableViewController
-
+@property (nonatomic,copy)NSString * price;
 @end

@@ -8,6 +8,7 @@
 
 #import "MyShopViewController.h"
 #import "TreasureManageViewController.h"
+#import "SettingViewController.h"
 #import "MyShopHeaderTableViewCell.h"
 #import "ShopTopTableViewCell.h"
 #import "FourBtnTableViewCell.h"
@@ -38,16 +39,31 @@
 @end
 
 @implementation MyShopViewController
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
 
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     //添加自定制导航栏按钮
+        [self createUI];
+    self.navigationController.navigationBarHidden = NO;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh:) name:@"refreshView" object:nil];
+}
+
+- (void)refresh:(id)userinfo
+{
+    [_tableView reloadData];
+}
+
+#pragma mark - PrivateMethod
+- (void)createUI{
     [self addChatBtn];
     [self initPickView];
     imageUrl = [[Config Instance] getBackImage];
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
-      _tableView.delegate = self;
+    _tableView.delegate = self;
     _tableView.dataSource = self;
     [_tableView registerNib:[UINib nibWithNibName:@"MyShopHeaderTableViewCell" bundle:nil] forCellReuseIdentifier:@"cellID1"];
     [_tableView registerNib:[UINib nibWithNibName:@"ShopTopTableViewCell" bundle:nil] forCellReuseIdentifier:@"cellID2"];
@@ -55,12 +71,9 @@
     [_tableView registerNib:[UINib nibWithNibName:@"MyShopDetailTableViewCell" bundle:nil] forCellReuseIdentifier:@"cellID4"];
     [self.view addSubview:_tableView];
     dataSource = [NSMutableArray array];
-    [self addRefresh];
+   // [self addRefresh];
     [self loadData];
 }
-
-
-#pragma mark - PrivateMethod
 - (void)addRefresh
 {
     __weak MyShopViewController * weakself = self;
@@ -125,7 +138,7 @@
 
 - (void)btnclick1:(id)sender
 {
-    [_tableView.mj_header beginRefreshing];
+   // [_tableView.mj_header beginRefreshing];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -184,6 +197,22 @@
         cell.totoalcount.text = teacherinfo.ordermoney;
         cell.vivstcount.text = teacherinfo.hits;
         cell.ordercount.text = teacherinfo.orders;
+        if(KToken){
+            cell.headicon.hidden = NO;
+            cell.teacherName.hidden = NO;
+            cell.personlabel.hidden = NO;
+            cell.backImg.hidden = NO;
+            cell.loginBtn.hidden = YES;
+            
+        }else{
+            cell.headicon.hidden = YES;
+            cell.teacherName.hidden = YES;
+            cell.personlabel.hidden = YES;
+            cell.backImg.hidden = YES;
+            cell.loginBtn.hidden = NO;
+
+        }
+        [cell.loginBtn addTarget:self action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
         UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(choseImage)];
         cell.backImg.userInteractionEnabled = YES;
         [cell.backImg addGestureRecognizer:tap];
@@ -294,6 +323,11 @@
     return nil;
 }
 
+- (void)login
+{
+    [self logOut];
+}
+
 - (void)choseImage
 {
     [self showModalView];
@@ -350,6 +384,9 @@
     
     [self showHudInView:self.view hint:@"上传图片中"];
     [[MyAPI sharedAPI] uploadImage:data result:^(BOOL sucess, NSString *msg) {
+        if ([msg isEqualToString:@"登录超时"]) {
+            [self logOut];
+        }
         if(sucess){
             [_tableView reloadData];
             imageUrl = msg;
@@ -371,6 +408,24 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
+    if(indexPath.section == 3){
+        if(indexPath.row == 0){
+            if(!KToken){
+                [self logOut];
+            }else{
+            [self performSegueWithIdentifier:@"MyShopModifyInfoSegue" sender:nil];
+            }
+        }
+    }
+    if(indexPath.section == 4){
+        if(indexPath.row == 0){
+            if(!KToken){
+                [self logOut];
+            }else{
+            [self performSegueWithIdentifier:@"settingSegue" sender:@"isTeacher"];
+            }
+        }
+    }
 }
 
 //发布宝贝
@@ -382,7 +437,9 @@
 //宝贝管理
 - (void)treasureManage
 {
-    
+    if(!KToken){
+        [self logOut];
+    }
     [self performSegueWithIdentifier:@"treasureSegue" sender:[NSNumber numberWithBool:YES]];
 }
 
@@ -400,16 +457,16 @@
 
 
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = NO;
-}
+//- (void)viewWillAppear:(BOOL)animated
+//{
+//    [super viewWillAppear:animated];
+//    self.navigationController.navigationBarHidden = NO;
+//}
 
 //退回到上级界面
 - (IBAction)back:(id)sender {
    
-    self.navigationController.navigationBarHidden = YES;
+   // self.navigationController.navigationBarHidden = YES;
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -424,9 +481,14 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"treasureSegue"]){
     TreasureManageViewController * vc = [[TreasureManageViewController alloc] init];
     vc.isGoodsSetting = sender;
-  
+    }else if ([segue.identifier isEqualToString:@"shopsettingSegue"]){
+        SettingViewController * setVC = [[SettingViewController alloc] init];
+        setVC.mortal = @"isTeacher";
+    }
+    
 }
 
 

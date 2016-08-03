@@ -98,7 +98,7 @@
 - (void)loginSucessAct{
     //@{@"isTech":[NSNumber numberWithBool:self.isTeacher]}
    // NSNotification * notification = [NSNotification notificationWithName:@"refreshView" object:nil];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshView" object:nil userInfo:@{@"isTech":[NSNumber numberWithBool:self.isTeacher]}];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshView" object:nil userInfo:@{@"isTech":[NSNumber numberWithBool:self.isTeacher],@"refresh":@"yes"}];
    [self dismissModalViewControllerAnimated:YES];
     [self.tabBarController setSelectedIndex:3];
 }
@@ -120,9 +120,6 @@
             [self showHint:@"登陆成功!"];
             NSString * IsTeacherOrNot = [[Config Instance] getisteacher];
             if([IsTeacherOrNot isEqualToString:@"1"]){
-//                UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
-//                MyShopViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"ShopID"];
-//                [self.navigationController pushViewController:vc animated:YES];
                 self.isTeacher = YES;
             }else{
                 self.isTeacher = NO;

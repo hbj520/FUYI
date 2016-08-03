@@ -843,7 +843,13 @@
                                         result:(ArrayBlock)result
                                    errorResult:(ErrorBlock)errorResult
 {
-    NSDictionary * parameters = @{@"token":KToken,
+    NSString *mtoken;
+    if (KToken) {
+        mtoken = KToken;
+    }else{
+        mtoken = @"";
+    }
+    NSDictionary * parameters = @{@"token":mtoken,
                                   @"page":page};
     [self.manager POST:@"teacherStore" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         NSString * status = responseObject[@"status"];

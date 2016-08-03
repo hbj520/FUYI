@@ -18,7 +18,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Md-5x-VXf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2AY-FC-YjG">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2AY-FC-YjG">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="cU4-Dl-ggM"/>
@@ -28,14 +28,14 @@
                                 <rect key="frame" x="217" y="89" width="70" height="39"/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person_headicon" translatesAutoresizingMaskIntoConstraints="NO" id="arh-S7-ZQd">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person_headicon" translatesAutoresizingMaskIntoConstraints="NO" id="arh-S7-ZQd">
                                 <rect key="frame" x="13" y="18" width="52" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="WbT-RD-h5g"/>
                                     <constraint firstAttribute="width" constant="52" id="lE3-4I-xcM"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="李小刚" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6X-oV-lpO">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="李小刚" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6X-oV-lpO">
                                 <rect key="frame" x="73" y="22" width="55" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="55" id="Cqu-EZ-Dgj"/>
@@ -45,22 +45,36 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="personal_teacher" translatesAutoresizingMaskIntoConstraints="NO" id="Jlf-tL-Q1g">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="personal_teacher" translatesAutoresizingMaskIntoConstraints="NO" id="Jlf-tL-Q1g">
                                 <rect key="frame" x="70" y="43" width="52" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="2tf-HB-TfE"/>
                                     <constraint firstAttribute="width" constant="52" id="9RT-1O-XKY"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gkm-R6-m1B">
+                                <rect key="frame" x="119" y="25" width="83" height="30"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="83" id="2Ee-Kv-UZB"/>
+                                    <constraint firstAttribute="height" constant="30" id="Dck-bP-5Ob"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="登录/注册">
+                                    <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.86274509803921573" green="0.082352941176470587" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="2AY-FC-YjG" secondAttribute="trailing" id="1q3-Jv-axA"/>
+                            <constraint firstItem="Gkm-R6-m1B" firstAttribute="centerY" secondItem="6Md-5x-VXf" secondAttribute="centerY" id="D72-6O-wi2"/>
                             <constraint firstItem="e6X-oV-lpO" firstAttribute="leading" secondItem="arh-S7-ZQd" secondAttribute="trailing" constant="8" id="Exl-Hm-kR2"/>
                             <constraint firstItem="arh-S7-ZQd" firstAttribute="top" secondItem="6Md-5x-VXf" secondAttribute="top" constant="18" id="Jae-Oy-4Am"/>
                             <constraint firstItem="2AY-FC-YjG" firstAttribute="leading" secondItem="6Md-5x-VXf" secondAttribute="leading" id="RQO-Q7-4Zn"/>
                             <constraint firstItem="e6X-oV-lpO" firstAttribute="top" secondItem="6Md-5x-VXf" secondAttribute="top" constant="22" id="cFu-F9-DdX"/>
                             <constraint firstItem="arh-S7-ZQd" firstAttribute="leading" secondItem="6Md-5x-VXf" secondAttribute="leading" constant="13" id="ccr-yz-wC8"/>
+                            <constraint firstItem="Gkm-R6-m1B" firstAttribute="centerX" secondItem="6Md-5x-VXf" secondAttribute="centerX" id="cw2-dc-33q"/>
                             <constraint firstItem="Jlf-tL-Q1g" firstAttribute="top" secondItem="6Md-5x-VXf" secondAttribute="top" constant="43" id="l3c-tS-sdd"/>
                             <constraint firstItem="2AY-FC-YjG" firstAttribute="top" secondItem="6Md-5x-VXf" secondAttribute="top" id="qkk-9W-Zm2"/>
                             <constraint firstItem="Jlf-tL-Q1g" firstAttribute="leading" secondItem="arh-S7-ZQd" secondAttribute="trailing" constant="5" id="uKH-Lz-mKK"/>
@@ -215,7 +229,9 @@
             <connections>
                 <outlet property="backImg" destination="2AY-FC-YjG" id="c3z-oU-SrY"/>
                 <outlet property="headicon" destination="arh-S7-ZQd" id="kjB-xs-sw8"/>
+                <outlet property="loginBtn" destination="Gkm-R6-m1B" id="amM-Eo-TQn"/>
                 <outlet property="ordercount" destination="Pgz-iJ-KTV" id="wlv-sy-mhv"/>
+                <outlet property="personlabel" destination="Jlf-tL-Q1g" id="zBW-dR-Xgy"/>
                 <outlet property="teacherName" destination="e6X-oV-lpO" id="0o0-fJ-ITP"/>
                 <outlet property="totoalcount" destination="6IR-FC-cBg" id="LZw-Ad-Dy4"/>
                 <outlet property="vivstcount" destination="FhI-fc-rIe" id="gR2-lQ-GJw"/>

@@ -71,7 +71,19 @@
         UIStoryboard *sb = func(self,selector);
         UIViewController *vc = [sb instantiateInitialViewController];
         if ([dic[@"title"] isEqualToString:@"个人中心"]) {
-           
+            UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
+            NSString * IsTeacherOrNot = [[Config Instance] getisteacher];
+            if ([IsTeacherOrNot isEqualToString:@"1"] || !IsTeacherOrNot) {
+                MyShopViewController *myshopVC = [storybord instantiateViewControllerWithIdentifier:@"teacherStorybordId"];
+                UINavigationController *nav = (UINavigationController *)vc;
+                UINavigationController *navVc = [nav initWithRootViewController:myshopVC];
+                nav = navVc;
+            }else{
+                MineTableViewController *mineVC = [storybord instantiateViewControllerWithIdentifier:@"indivatualStorybordId"];
+                UINavigationController *nav = (UINavigationController *)vc;
+                UINavigationController *navVc = [nav initWithRootViewController:mineVC];
+                nav = navVc;
+            }
         }
         vc.tabBarItem = tabbarItem;
         [menusVCs addObject:vc];
@@ -91,21 +103,7 @@
             [self LoginAct];
         }
     }
-    if ([item.title isEqualToString:@"个人中心"]) {
-      UINavigationController *vc = (UINavigationController *)self.viewControllers[3];
-        UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
-        if (self.isteacher) {
-            MyShopViewController *myshopVC = [storybord instantiateViewControllerWithIdentifier:@"teacherStorybordId"];
-            UINavigationController *nav = (UINavigationController *)vc;
-            UINavigationController *navVc = [nav initWithRootViewController:myshopVC];
-            nav = navVc;
-        }else{
-            MineTableViewController *mineVC = [storybord instantiateViewControllerWithIdentifier:@"indivatualStorybordId"];
-            UINavigationController *nav = (UINavigationController *)vc;
-            UINavigationController *navVc = [nav initWithRootViewController:mineVC];
-            nav = navVc;
-        }
-    }
+   
 }
 
 #pragma mark - PrivateMethod
@@ -118,6 +116,20 @@
 - (void)RecieveNoticeAct:(NSNotification *)noti{
     NSNumber *isTech = noti.userInfo[@"isTech"];
     self.isteacher = isTech.boolValue;
+        UINavigationController *vc = (UINavigationController *)self.viewControllers[3];
+    [vc.viewControllers[0] removeFromParentViewController];
+        UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
+        if (self.isteacher) {
+            MyShopViewController *myshopVC = [storybord instantiateViewControllerWithIdentifier:@"teacherStorybordId"];
+            UINavigationController *nav = (UINavigationController *)vc;
+            UINavigationController *navVc = [nav initWithRootViewController:myshopVC];
+            nav = navVc;
+        }else{
+            MineTableViewController *mineVC = [storybord instantiateViewControllerWithIdentifier:@"indivatualStorybordId"];
+            UINavigationController *nav = (UINavigationController *)vc;
+            UINavigationController *navVc = [nav initWithRootViewController:mineVC];
+            nav = navVc;
+        }
 }
 - (void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"refreshView" object:nil];

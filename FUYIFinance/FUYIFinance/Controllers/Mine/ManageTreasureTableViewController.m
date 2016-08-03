@@ -8,6 +8,7 @@
 
 #import "ManageTreasureTableViewController.h"
 #import "BBBadgeBarButtonItem.h"
+#import "ManageTreasureModel.h"
 #import <MJRefresh/MJRefresh.h>
 
 @interface ManageTreasureTableViewController ()<UITextViewDelegate,UITextFieldDelegate>
