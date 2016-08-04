@@ -127,6 +127,8 @@
 		ABF5DE521D0FA803007CE1AB /* Mine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABF5DE511D0FA803007CE1AB /* Mine.storyboard */; };
 		ABF5DE571D0FD930007CE1AB /* HomeTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF5DE561D0FD930007CE1AB /* HomeTabbarViewController.m */; };
 		ABF9F0F01D531F03004E1523 /* IJKHistoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF9F0EF1D531F03004E1523 /* IJKHistoryItem.m */; };
+		ABF9F0F51D53215E004E1523 /* CLAdCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF9F0F21D53215E004E1523 /* CLAdCollectionCell.m */; };
+		ABF9F0F61D53215E004E1523 /* CLHomeHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF9F0F41D53215E004E1523 /* CLHomeHeader.m */; };
 		B2DFC5349D2E0949052440B1 /* Pods_FUYIFinance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A79AB59CF3FDAE6F28A191D /* Pods_FUYIFinance.framework */; };
 		CC01B67E1D48476D00BC5323 /* ModifyPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC01B67D1D48476D00BC5323 /* ModifyPwdViewController.m */; };
 		CC26F0DA1D261CAB003964A1 /* ProductJudgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC26F0D91D261CAB003964A1 /* ProductJudgeViewController.m */; };
@@ -495,6 +497,10 @@
 		ABF5DE561D0FD930007CE1AB /* HomeTabbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTabbarViewController.m; sourceTree = "<group>"; };
 		ABF9F0EE1D531F03004E1523 /* IJKHistoryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IJKHistoryItem.h; sourceTree = "<group>"; };
 		ABF9F0EF1D531F03004E1523 /* IJKHistoryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IJKHistoryItem.m; sourceTree = "<group>"; };
+		ABF9F0F11D53215E004E1523 /* CLAdCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLAdCollectionCell.h; sourceTree = "<group>"; };
+		ABF9F0F21D53215E004E1523 /* CLAdCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLAdCollectionCell.m; sourceTree = "<group>"; };
+		ABF9F0F31D53215E004E1523 /* CLHomeHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLHomeHeader.h; sourceTree = "<group>"; };
+		ABF9F0F41D53215E004E1523 /* CLHomeHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLHomeHeader.m; sourceTree = "<group>"; };
 		CC01B67C1D48476D00BC5323 /* ModifyPwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyPwdViewController.h; sourceTree = "<group>"; };
 		CC01B67D1D48476D00BC5323 /* ModifyPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPwdViewController.m; sourceTree = "<group>"; };
 		CC26F0D81D261CAB003964A1 /* ProductJudgeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductJudgeViewController.h; sourceTree = "<group>"; };
@@ -1349,6 +1355,10 @@
 		ABF5DE441D0FA4B1007CE1AB /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				ABF9F0F11D53215E004E1523 /* CLAdCollectionCell.h */,
+				ABF9F0F21D53215E004E1523 /* CLAdCollectionCell.m */,
+				ABF9F0F31D53215E004E1523 /* CLHomeHeader.h */,
+				ABF9F0F41D53215E004E1523 /* CLHomeHeader.m */,
 				AB36CE441D1CE72400D0E4C7 /* ThreeCollectionViewCell.h */,
 				AB36CE451D1CE72400D0E4C7 /* ThreeCollectionViewCell.m */,
 				AB36CE461D1CE72400D0E4C7 /* ThreeCollectionViewCell.xib */,
@@ -2083,6 +2093,7 @@
 				AB1764DF1D520B7F001A84E8 /* GLonlineVideoPlayView.m in Sources */,
 				CC6FD60E1D362E0300DA60AB /* MJPropertyType.m in Sources */,
 				AB36CE331D1B710400D0E4C7 /* UIView+SDExtension.m in Sources */,
+				ABF9F0F51D53215E004E1523 /* CLAdCollectionCell.m in Sources */,
 				CC26F0DA1D261CAB003964A1 /* ProductJudgeViewController.m in Sources */,
 				AB1764D01D52088A001A84E8 /* View+MASAdditions.m in Sources */,
 				ABEACD5C1D2B87DE00574259 /* Tools.m in Sources */,
@@ -2135,6 +2146,7 @@
 				CC6FD6161D362F6B00DA60AB /* MineMyAddressViewController.m in Sources */,
 				CC322E1C1D3E24190054D3D8 /* TeacherModel.m in Sources */,
 				ABF5DE571D0FD930007CE1AB /* HomeTabbarViewController.m in Sources */,
+				ABF9F0F61D53215E004E1523 /* CLHomeHeader.m in Sources */,
 				ABEACD601D2B87DE00574259 /* NSString+MD5.m in Sources */,
 				CC6FD5F31D362DAB00DA60AB /* ZoneModel.m in Sources */,
 				ABEACD6B1D2C942800574259 /* HomepageBannerModel.m in Sources */,

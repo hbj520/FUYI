@@ -8,9 +8,11 @@
 
 #import "HomePageHotNewTableViewCell.h"
 #import "homePageNoticeModel.h"
+#import "CLHomeHeader.h"
 @interface HomePageHotNewTableViewCell()
 @property (weak, nonatomic) IBOutlet UILabel *newestNotice;
 @property (weak, nonatomic) IBOutlet UILabel *fantasticNotice;
+@property (strong, nonatomic)  CLHomeHeader *clhomeheaderView;
 
 @end
 @implementation HomePageHotNewTableViewCell
@@ -26,15 +28,12 @@
     // Configure the view for the selected state
 }
 - (void)configWithData:(NSArray *)data{
+    
     if (data.count > 0) {
-        for (NSInteger i = 0; i < data.count; i++) {
-            HomePageNoticeModel *model = [data objectAtIndex:i];
-            if (i == 0) {
-                self.newestNotice.text = model.noticeTitle;
-            }else if (i == 1){
-                self.fantasticNotice.text = model.noticeTitle;
-            }
-        }
+        self.clhomeheaderView =[[CLHomeHeader alloc] initWithFrame:CGRectMake(0, 1,ScreenWidth, 68)];
+        self.clhomeheaderView.newses = data;
+        [self addSubview:self.clhomeheaderView];
+
     }
 }
 @end
