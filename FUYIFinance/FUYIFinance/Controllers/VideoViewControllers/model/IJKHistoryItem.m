@@ -53,7 +53,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _list = [[NSKeyedUnarchiver unarchiveObjectWithFile:[self dbfilePath]] copy];
+        _list = [NSKeyedUnarchiver unarchiveObjectWithFile:[self dbfilePath]];
         if (nil == _list)
             _list = [NSMutableArray array];
     }
@@ -64,7 +64,7 @@
     NSString *libraryPath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSAllDomainsMask, YES) firstObject];
     libraryPath = [libraryPath stringByAppendingPathComponent:@"ijkhistory.plist"];
     
-    return libraryPath ;
+    return libraryPath;
 }
 
 - (NSArray *)list {
@@ -91,7 +91,7 @@
         [_list removeObjectAtIndex:findIdx];
     }
     
-    //[_list insertObject:item atIndex:0];
+    [_list insertObject:item atIndex:0];
     
     [NSKeyedArchiver archiveRootObject:_list toFile:[self dbfilePath]];
 }
