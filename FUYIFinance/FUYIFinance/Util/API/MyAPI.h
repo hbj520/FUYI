@@ -336,6 +336,36 @@ typedef void (^ErrorBlock) (NSError *enginerError);
                                    result:(ArrayBlock)result
                               errorResult:(ErrorBlock)errorResult;
 
+/**
+ *  编辑宝贝
+ *
+ *  @param treasureid  宝贝编号
+ *  @param name        商品名称
+ *  @param about       商品简介
+ *  @param price       商品价格
+ *  @param thumbimg    商品图片
+ *  @param result      返回状态
+ *  @param errorResult 错误信息
+ */
+- (void)EditTreasureWithTreausreId:(NSString *)treasureid
+                              Name:(NSString *)name
+                             About:(NSString *)about
+                             Price:(NSString *)price
+                          ThumbImg:(NSString *)thumbimg
+                            result:(StateBlock)result
+                       errorResult:(ErrorBlock)errorResult;
+
+/**
+ *  删除宝贝
+ *
+ *  @param treasureid  商品编号
+ *  @param result      返回状态
+ *  @param errorResult 错误信息
+ */
+- (void)DeleteTreasureWithTreasureid:(NSString *)treasureid
+                              result:(StateBlock)result
+                         errorResult:(ErrorBlock)errorResult;
+
 
 #pragma mark -讲师团队
 - (void)getTeacherTeamDataWithToken:(NSString*)token

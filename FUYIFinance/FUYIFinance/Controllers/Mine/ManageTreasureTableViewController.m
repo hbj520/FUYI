@@ -10,7 +10,7 @@
 #import "BBBadgeBarButtonItem.h"
 #import "ManageTreasureModel.h"
 #import <MJRefresh/MJRefresh.h>
-
+#import "MyAPI.h"
 @interface ManageTreasureTableViewController ()<UITextViewDelegate,UITextFieldDelegate>
 
 {
@@ -20,7 +20,11 @@
 @property (weak, nonatomic) IBOutlet UITextView *textView;       //编辑宝贝的描述视图
 @property (weak, nonatomic) IBOutlet UILabel *descLabel;         //提示标签
 @property (weak, nonatomic) IBOutlet UITextField *PriceField;    //价格
-@property (weak, nonatomic) IBOutlet UITextField *TranslateFee;  //运费
+
+@property (weak, nonatomic) IBOutlet UIImageView *thumbimg;
+
+
+
 
 @end
 
@@ -31,10 +35,11 @@
     [self addChatBtn];     //添加自定制导航栏按钮
     self.textView.delegate = self;
     self.PriceField.delegate = self;
-    self.TranslateFee.delegate = self;
     if(self.textView.text.length>0){
         self.descLabel.hidden = YES;
     }
+    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(choseImg)];
+    [self.thumbimg addGestureRecognizer:tap];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -69,20 +74,13 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    if(textField == self.PriceField){
+ 
         NSString * price = self.PriceField.text;
         NSArray * stringArray = [price componentsSeparatedByString:@"¥"];
         NSString * priceStr = [stringArray lastObject];
         NSString * priceLabel = [NSString stringWithFormat:@"¥%@",priceStr];
         self.PriceField.text = priceLabel;
-    }else if (textField == self.TranslateFee){
-        NSString * translate = self.TranslateFee.text;
-        NSArray * stringArray = [translate componentsSeparatedByString:@"¥"];
-        NSString * translateStr = [stringArray lastObject];
-        NSString * TranslateFeeLabel = [NSString stringWithFormat:@"¥%@",translateStr];
-        self.TranslateFee.text = TranslateFeeLabel;
-    }
-}
+  }
 
 //添加自定制导航栏按钮
 - (void)addChatBtn{
@@ -144,12 +142,12 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
+
     return 4;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
+
     if(section==0){
         return 2;
     }else if (section==1){
@@ -179,7 +177,7 @@
     if(indexPath.section==0||indexPath.section==2){
         [self.textView endEditing:YES];
         [self.PriceField endEditing:YES];
-        [self.TranslateFee endEditing:YES];
+       
     }
 }
 
