@@ -254,7 +254,7 @@
 }
 
 - (IBAction)back:(id)sender {
-    self.navigationController.navigationBarHidden = YES;
+  //  self.navigationController.navigationBarHidden = YES;
     [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)dealloc{

@@ -7,7 +7,9 @@
 //
 
 #import "TreasureManageViewController.h"
+#import "ManageTreasureTableViewController.h"
 #import "BBBadgeBarButtonItem.h"
+#import "UIViewController+HUD.h"
 #import "LoveManageTableViewCell.h"
 #import <MJRefresh/MJRefresh.h>
 #import "ManageTreasureModel.h"
@@ -166,15 +168,24 @@
     //跳转到编辑宝贝
     NSInteger index = sender.tag;
     ManageTreasureModel * model = dataSource[index];
-    
-    [self performSegueWithIdentifier:@"modifySegue" sender:model.price];
+    NSArray * arr = @[model.goodsid,model.price];
+    [self performSegueWithIdentifier:@"modifySegue" sender:arr];
 }
 
 //点击删除宝贝按钮
 - (void)clickdeleteBtn:(UIButton*)sender
 {
+    NSInteger index = sender.tag - 100;
+    ManageTreasureModel * model = dataSource[index];
     
- 
+    [[MyAPI sharedAPI] DeleteTreasureWithTreasureid:model.goodsid result:^(BOOL sucess, NSString *msg) {
+        if(sucess){
+            [self showHint:@"删除成功"];
+            [self loadData];
+        }
+    } errorResult:^(NSError *enginerError) {
+        
+    }];
     
 }
 
@@ -196,14 +207,14 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    ManageTreasureTableViewController * vc = [[ManageTreasureTableViewController alloc] init];
+    vc.array = sender;
 }
-*/
+
 
 @end

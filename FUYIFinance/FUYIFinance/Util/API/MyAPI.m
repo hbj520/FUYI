@@ -37,7 +37,7 @@
 #import "TeacherShopModel.h"
 #import "TeacherInfo.h"
 #import "ManageTreasureModel.h"
-
+#import "OrderManageModel.h"
 @interface MyAPI ()
 @property (nonatomic, strong) AFHTTPRequestOperationManager *manager;
 
@@ -954,6 +954,25 @@
             result(YES,info);
         }else{
             result(NO,info);
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+    }];
+}
+
+- (void)requestOrderManageRequestWithResult:(ArrayBlock)result
+                                errorResult:(ErrorBlock)errorResult
+{
+    NSDictionary * parameter = @{@"token":KToken};
+    [self.manager POST:@"teacherOrderManage" parameters:parameter success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * status = responseObject[@"status"];
+        NSString * info = responseObject[@"info"];
+        if([status isEqualToString:@"1"]){
+            NSArray * data = responseObject[@"data"];
+            NSMutableArray * array = [[OrderManageModel alloc] buildWithData:data];
+            result(YES,info,array);
+        }else{
+            result(NO,info,nil);
         }
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         errorResult(error);
