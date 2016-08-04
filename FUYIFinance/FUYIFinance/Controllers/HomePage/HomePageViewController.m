@@ -257,7 +257,7 @@ static NSString *investReuseId = @"investReuseId";
 -(void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
     IJKMoviePlayerViewController *playerVC = [IJKMoviePlayerViewController InitVideoViewFromViewController:self withTitle:@"GLTest" URL:[NSURL URLWithString:@"http://krtv.qiniudn.com/150522nextapp"] isLiveVideo:YES isOnlineVideo:NO isFullScreen:NO completion:nil];
     [self addChildViewController:playerVC];
-    [self.view addSubview:playerVC.view];
+    [_headerView addSubview:playerVC.view];
     /** 判断直播是否开启,并执行退出 */
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         //        [playerVC GoBack];

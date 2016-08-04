@@ -34,7 +34,7 @@
 @implementation IJKMoviePlayerViewController
 
 #define UIScreen16_9 CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width , [UIScreen mainScreen].bounds.size.width * 9 / 16)
-
+#define SuperViewRect CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width ,  self.view.superview.bounds.size.height)
 - (void)dealloc
 {
     NSLog(@"IJKMoviePlayerViewController- -播放器销毁了");
@@ -110,7 +110,8 @@
         //网络视频
         self.player = [[IJKAVMoviePlayerController alloc] initWithContentURL:self.url];
     }
-    [self addTestView];
+   
+   // [self addTestView];
 //    self.playView.autoresizingMask = UIViewAutoresizingNone;
 //    self.player.view.autoresizingMask = UIViewAutoresizingNone;
     
@@ -168,7 +169,7 @@
     if (self.isFullScreen) {
         
     }else{
-        self.view.frame = UIScreen16_9;
+        self.view.frame = SuperViewRect;
     }
     
     /** 设置子控件约束 */

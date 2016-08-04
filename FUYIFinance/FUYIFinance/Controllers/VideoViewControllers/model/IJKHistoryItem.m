@@ -91,7 +91,7 @@
         [_list removeObjectAtIndex:findIdx];
     }
     
-    [_list insertObject:item atIndex:0];
+    //[_list insertObject:item atIndex:0];
     
     [NSKeyedArchiver archiveRootObject:_list toFile:[self dbfilePath]];
 }
