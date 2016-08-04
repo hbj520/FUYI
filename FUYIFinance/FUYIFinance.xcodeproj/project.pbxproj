@@ -139,6 +139,10 @@
 		CC35F6671D2C9A9800EF3B4B /* LabelHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CC35F6661D2C9A9800EF3B4B /* LabelHelper.m */; };
 		CC35F66A1D2CCB3000EF3B4B /* PriceLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC35F6691D2CCB3000EF3B4B /* PriceLabel.m */; };
 		CC35F66E1D2CDCBA00EF3B4B /* MineCollectionTreasureModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC35F66D1D2CDCBA00EF3B4B /* MineCollectionTreasureModel.m */; };
+		CC3C62D91D51BF2C00CD62AC /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC3C62D81D51BF2C00CD62AC /* IJKMediaFramework.framework */; };
+		CC3C62DC1D51E68300CD62AC /* OrderManageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3C62DB1D51E68300CD62AC /* OrderManageViewController.m */; };
+		CC4096A51D49959800084D1A /* IJKMoviePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4096A31D49959800084D1A /* IJKMoviePlayerViewController.m */; };
+		CC4096A61D49959800084D1A /* IJKMoviePlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC4096A41D49959800084D1A /* IJKMoviePlayerViewController.xib */; };
 		CC4096AD1D49992600084D1A /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4096AC1D49992600084D1A /* SettingViewController.m */; };
 		CC4096B01D49A21000084D1A /* PersonalUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4096AF1D49A21000084D1A /* PersonalUserInfo.m */; };
 		CC4096B31D4A0C8700084D1A /* TeacherShopModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4096B21D4A0C8700084D1A /* TeacherShopModel.m */; };
@@ -221,6 +225,7 @@
 		CC95F1A91D338C3E009F559D /* ChangeHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC95F1A81D338C3E009F559D /* ChangeHeadView.xib */; };
 		CCEEFC0C1D37400B0001C7AA /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEEFC0B1D37400B0001C7AA /* UserInfoModel.m */; };
 		CCEEFC121D37613A0001C7AA /* MineNoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEEFC111D37613A0001C7AA /* MineNoticeViewController.m */; };
+		CCFD50CC1D52DB390022EA9D /* OrderManageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFD50CB1D52DB390022EA9D /* OrderManageModel.m */; };
 		D114DC581D24EEC50001CE21 /* Good.m in Sources */ = {isa = PBXBuildFile; fileRef = D114DC561D24EEC50001CE21 /* Good.m */; };
 		D1189C231D49A1D1001209B9 /* TeacherStoreHeaderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D1189C221D49A1D1001209B9 /* TeacherStoreHeaderModel.m */; };
 		D1189C261D4F40EE001209B9 /* Collection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1189C251D4F40EE001209B9 /* Collection.storyboard */; };
@@ -515,6 +520,12 @@
 		CC35F6691D2CCB3000EF3B4B /* PriceLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceLabel.m; sourceTree = "<group>"; };
 		CC35F66C1D2CDCBA00EF3B4B /* MineCollectionTreasureModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineCollectionTreasureModel.h; sourceTree = "<group>"; };
 		CC35F66D1D2CDCBA00EF3B4B /* MineCollectionTreasureModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineCollectionTreasureModel.m; sourceTree = "<group>"; };
+		CC3C62D81D51BF2C00CD62AC /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
+		CC3C62DA1D51E68300CD62AC /* OrderManageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderManageViewController.h; sourceTree = "<group>"; };
+		CC3C62DB1D51E68300CD62AC /* OrderManageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderManageViewController.m; sourceTree = "<group>"; };
+		CC4096A21D49959800084D1A /* IJKMoviePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IJKMoviePlayerViewController.h; sourceTree = "<group>"; };
+		CC4096A31D49959800084D1A /* IJKMoviePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IJKMoviePlayerViewController.m; sourceTree = "<group>"; };
+		CC4096A41D49959800084D1A /* IJKMoviePlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IJKMoviePlayerViewController.xib; sourceTree = "<group>"; };
 		CC4096AB1D49992600084D1A /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		CC4096AC1D49992600084D1A /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		CC4096AE1D49A21000084D1A /* PersonalUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalUserInfo.h; sourceTree = "<group>"; };
@@ -664,6 +675,8 @@
 		CCEEFC0B1D37400B0001C7AA /* UserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoModel.m; sourceTree = "<group>"; };
 		CCEEFC101D37613A0001C7AA /* MineNoticeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineNoticeViewController.h; sourceTree = "<group>"; };
 		CCEEFC111D37613A0001C7AA /* MineNoticeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineNoticeViewController.m; sourceTree = "<group>"; };
+		CCFD50CA1D52DB390022EA9D /* OrderManageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderManageModel.h; sourceTree = "<group>"; };
+		CCFD50CB1D52DB390022EA9D /* OrderManageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderManageModel.m; sourceTree = "<group>"; };
 		D114DC551D24EEC50001CE21 /* Good.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Good.h; sourceTree = "<group>"; };
 		D114DC561D24EEC50001CE21 /* Good.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Good.m; sourceTree = "<group>"; };
 		D1189C211D49A1D1001209B9 /* TeacherStoreHeaderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherStoreHeaderModel.h; sourceTree = "<group>"; };
@@ -1236,6 +1249,8 @@
 				CC72D03F1D226B1100945BCF /* MyOrderWaitJudgeViewController.m */,
 				CC57E0F31D25157500B00AA8 /* TreasureManageViewController.h */,
 				CC57E0F41D25157500B00AA8 /* TreasureManageViewController.m */,
+				CC3C62DA1D51E68300CD62AC /* OrderManageViewController.h */,
+				CC3C62DB1D51E68300CD62AC /* OrderManageViewController.m */,
 				CC57E0F91D2520BB00B00AA8 /* ManageTreasureTableViewController.h */,
 				CC57E0FA1D2520BB00B00AA8 /* ManageTreasureTableViewController.m */,
 				CC26F0D81D261CAB003964A1 /* ProductJudgeViewController.h */,
@@ -1507,6 +1522,8 @@
 				CC4096B51D4A151A00084D1A /* TeacherInfo.m */,
 				CC4096B71D4A16D800084D1A /* ManageTreasureModel.h */,
 				CC4096B81D4A16D800084D1A /* ManageTreasureModel.m */,
+				CCFD50CA1D52DB390022EA9D /* OrderManageModel.h */,
+				CCFD50CB1D52DB390022EA9D /* OrderManageModel.m */,
 			);
 			name = Mine;
 			sourceTree = "<group>";
@@ -2063,6 +2080,7 @@
 				CC3096ED1D406DC10025305F /* AllOderModel.m in Sources */,
 				D1C49B051D224DB6003C17DA /* ShopCarNavigationItem.m in Sources */,
 				D1F1300E1D2A4E3100EE1690 /* VideoDetailSecTableViewCell.m in Sources */,
+				CCFD50CC1D52DB390022EA9D /* OrderManageModel.m in Sources */,
 				D1F1306D1D37907D00EE1690 /* TeacherTeamNavigationItem.m in Sources */,
 				D1F130401D2C9C9A00EE1690 /* PayView.m in Sources */,
 				D1F130511D2E23C200EE1690 /* VideoShopNavigationItem.m in Sources */,
@@ -2184,6 +2202,7 @@
 				AB36CE2C1D1B710400D0E4C7 /* NSData+SDDataCache.m in Sources */,
 				AB1764CC1D52088A001A84E8 /* MASViewAttribute.m in Sources */,
 				AB36CE191D1A9A1700D0E4C7 /* GuideViewController.m in Sources */,
+				CC3C62DC1D51E68300CD62AC /* OrderManageViewController.m in Sources */,
 				CC4F37391D2E58BF00312F11 /* MineRegisterViewController.m in Sources */,
 				CC4F37361D2E07C700312F11 /* UIViewController+HUD.m in Sources */,
 				D15BA3881D237CE200904DEF /* ShopCarTableViewCell.m in Sources */,

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class ManageTreasureModel;
 @interface ManageTreasureTableViewController : UITableViewController
-@property (nonatomic,copy)NSString * price;
+@property (nonatomic,copy)NSArray * array;
 @end

@@ -193,6 +193,8 @@
 {
     if (indexPath.section==0) {
         MyShopHeaderTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cellID1" forIndexPath:indexPath];
+        NSString * headimageUrl = [[Config Instance] getIcon];
+        [cell.headicon sd_setImageWithURL:[NSURL URLWithString:headimageUrl] placeholderImage:[UIImage imageNamed:@"placeimage"]];
         cell.teacherName.text = teacherinfo.username;
         cell.totoalcount.text = teacherinfo.ordermoney;
         cell.vivstcount.text = teacherinfo.hits;
@@ -419,6 +421,10 @@
             }else{
             [self performSegueWithIdentifier:@"MyShopModifyInfoSegue" sender:nil];
             }
+        }else if (indexPath.row == 1){
+            [self performSegueWithIdentifier:@"teachercountSegue" sender:nil];
+        }else{
+            [self performSegueWithIdentifier:@"teachermessageSegue" sender:nil];
         }
     }
     if(indexPath.section == 4){
@@ -443,14 +449,19 @@
 {
     if(!KToken){
         [self logOut];
-    }
+    }else{
     [self performSegueWithIdentifier:@"treasureSegue" sender:[NSNumber numberWithBool:YES]];
-}
+    }
+    }
 
 //订单管理
 - (void)orderManage
 {
-    [self performSegueWithIdentifier:@"treasureSegue" sender:[NSNumber numberWithBool:NO]];
+    if(!KToken){
+        [self logOut];
+    }else{
+    [self performSegueWithIdentifier:@"ordermanageSegue" sender:[NSNumber numberWithBool:NO]];
+    }
 }
 
 //店铺设置

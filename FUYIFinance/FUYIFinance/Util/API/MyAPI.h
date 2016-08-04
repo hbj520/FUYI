@@ -366,7 +366,14 @@ typedef void (^ErrorBlock) (NSError *enginerError);
                               result:(StateBlock)result
                          errorResult:(ErrorBlock)errorResult;
 
-
+/**
+ *  订单管理
+ *
+ *  @param result      模型数组
+ *  @param errorResult 错误信息
+ */
+- (void)requestOrderManageRequestWithResult:(ArrayBlock)result
+                                errorResult:(ErrorBlock)errorResult;
 #pragma mark -讲师团队
 - (void)getTeacherTeamDataWithToken:(NSString*)token
                                page:(NSString*)page
