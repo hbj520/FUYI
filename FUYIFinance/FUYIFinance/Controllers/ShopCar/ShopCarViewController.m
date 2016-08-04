@@ -20,7 +20,7 @@
 
 #import "MyAPI.h"
 #import "LabelHelper.h"
-#import <MJRefresh.h>
+#import "MJRefresh.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "LPPopup.h"
 //static NSString *videoHeader = @"videoHeaderReuseId";

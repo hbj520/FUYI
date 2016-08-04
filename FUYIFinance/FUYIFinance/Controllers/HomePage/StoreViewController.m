@@ -14,7 +14,7 @@
 #import "MyShopDetailTableViewCell.h"
 
 #import "MyAPI.h"
-#import <MJRefresh.h>
+#import "MJRefresh.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "LabelHelper.h"
 

@@ -1,26 +1,21 @@
-/*
- * Copyright (C) 2015 Gdier
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+//
+//  IJKHistory.m
+//  pack_ijkplayer
+//
+//  Created by mac on 16/5/18.
+//  Copyright © 2016年 mac. All rights reserved.
+//
 
-#import "IJKDemoHistory.h"
+#import "IJKHistoryItem.h"
 
-@implementation IJKDemoHistoryItem
+@implementation IJKHistoryItem
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
     [aCoder encodeObject:self.url forKey:@"url"];
     [aCoder encodeObject:self.title forKey:@"title"];
+    [aCoder encodeObject:self.title forKey:@"isLiveVideo"];
+    [aCoder encodeObject:self.title forKey:@"isFullScreen"];
+    
 }
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
@@ -28,25 +23,28 @@
     if (self) {
         self.title = [coder decodeObjectForKey:@"title"];
         self.url = [coder decodeObjectForKey:@"url"];
+        self.url = [coder decodeObjectForKey:@"isLiveVideo"];
+        self.url = [coder decodeObjectForKey:@"isFullScreen"];
     }
     return self;
 }
 
 @end
 
-@interface IJKDemoHistory ()
+
+@interface IJKHistory ()
 
 @end
 
-@implementation IJKDemoHistory {
+@implementation IJKHistory {
     NSMutableArray *_list;
 }
 
 + (instancetype)instance {
-    static IJKDemoHistory *s_obj = nil;
+    static IJKHistory *s_obj = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        s_obj = [[IJKDemoHistory alloc] init];
+        s_obj = [[IJKHistory alloc] init];
     });
     
     return s_obj;
@@ -55,7 +53,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _list = [NSKeyedUnarchiver unarchiveObjectWithFile:[self dbfilePath]];
+        _list = [[NSKeyedUnarchiver unarchiveObjectWithFile:[self dbfilePath]] copy];
         if (nil == _list)
             _list = [NSMutableArray array];
     }
@@ -66,7 +64,7 @@
     NSString *libraryPath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSAllDomainsMask, YES) firstObject];
     libraryPath = [libraryPath stringByAppendingPathComponent:@"ijkhistory.plist"];
     
-    return libraryPath;
+    return libraryPath ;
 }
 
 - (NSArray *)list {
@@ -79,10 +77,10 @@
     [NSKeyedArchiver archiveRootObject:_list toFile:[self dbfilePath]];
 }
 
-- (void)add:(IJKDemoHistoryItem *)item {
+- (void)add:(IJKHistoryItem *)item {
     __block NSUInteger findIdx = NSNotFound;
     
-    [_list enumerateObjectsUsingBlock:^(IJKDemoHistoryItem *enumItem, NSUInteger idx, BOOL *stop) {
+    [_list enumerateObjectsUsingBlock:^(IJKHistoryItem *enumItem, NSUInteger idx, BOOL *stop) {
         if ([enumItem.url isEqual:item.url]) {
             findIdx = idx;
             *stop = YES;

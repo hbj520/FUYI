@@ -10,7 +10,7 @@
 #import "IJKMoviePlayerViewController.h"
 
 #import "SDCycleScrollView.h"
-#import <MJRefresh.h>
+#import "MJRefresh.h"
 
 //views
 #import "HomePageNavgationItem.h"
@@ -255,14 +255,13 @@ static NSString *investReuseId = @"investReuseId";
 #pragma mark -SDCycleScrollViewDelegate
 //点击头部滚动视图
 -(void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
-    //本地视频
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"my_video" ofType:@"mp4"];
-    BOOL isfile = [[NSFileManager defaultManager] fileExistsAtPath:path];
-    if (isfile) {
-        [IJKVideoViewController presentFromViewController:self withTitle:@"正在播放：。。。" URL:[NSURL fileURLWithPath:path] completion:^{
-            NSLog(@"播放器初始化完成！");
-        }];
-    }
+    IJKMoviePlayerViewController *playerVC = [IJKMoviePlayerViewController InitVideoViewFromViewController:self withTitle:@"GLTest" URL:[NSURL URLWithString:@"http://krtv.qiniudn.com/150522nextapp"] isLiveVideo:YES isOnlineVideo:NO isFullScreen:NO completion:nil];
+    [self addChildViewController:playerVC];
+    [self.view addSubview:playerVC.view];
+    /** 判断直播是否开启,并执行退出 */
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        //        [playerVC GoBack];
+    });
 }
 
 /*
