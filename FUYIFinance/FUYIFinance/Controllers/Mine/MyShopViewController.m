@@ -47,7 +47,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     //添加自定制导航栏按钮
-        [self createUI];
+    [self createUI];
     self.navigationController.navigationBarHidden = NO;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh:) name:@"refreshView" object:nil];
 }
@@ -165,7 +165,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section==0) {
-        return 135;
+        return 178;
     }else if (indexPath.section==1){
         return 40;
     }else if (indexPath.section==2){
@@ -193,25 +193,26 @@
 {
     if (indexPath.section==0) {
         MyShopHeaderTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cellID1" forIndexPath:indexPath];
-        NSString * headimageUrl = [[Config Instance] getIcon];
-        [cell.headicon sd_setImageWithURL:[NSURL URLWithString:headimageUrl] placeholderImage:[UIImage imageNamed:@"placeimage"]];
-        cell.teacherName.text = teacherinfo.username;
-        cell.totoalcount.text = teacherinfo.ordermoney;
-        cell.vivstcount.text = teacherinfo.hits;
-        cell.ordercount.text = teacherinfo.orders;
+
         if(KToken){
-            cell.headicon.hidden = NO;
-            cell.teacherName.hidden = NO;
-            cell.personlabel.hidden = NO;
-            cell.backImg.hidden = NO;
-            cell.loginBtn.hidden = YES;
+            //cell.headicon.hidden = NO;
+           // cell.teacherName.hidden = NO;
+            //cell.personlabel.hidden = NO;
+            //cell.backImg.hidden = NO;
+            //cell.loginBtn.hidden = YES;
+            NSString * headimageUrl = [[Config Instance] getIcon];
+            [cell.headicon sd_setImageWithURL:[NSURL URLWithString:headimageUrl] placeholderImage:[UIImage imageNamed:@"placeimage"]];
+            cell.teacherName.text = teacherinfo.username;
+            cell.totoalcount.text = teacherinfo.ordermoney;
+            cell.vivstcount.text = teacherinfo.hits;
+            cell.ordercount.text = teacherinfo.orders;
             
         }else{
-            cell.headicon.hidden = YES;
-            cell.teacherName.hidden = YES;
-            cell.personlabel.hidden = YES;
-            cell.backImg.hidden = YES;
-            cell.loginBtn.hidden = NO;
+            //cell.headicon.hidden = YES;
+            //cell.teacherName.hidden = YES;
+            //cell.personlabel.hidden = YES;
+           // cell.backImg.hidden = YES;
+            //cell.loginBtn.hidden = NO;
 
         }
         [cell.loginBtn addTarget:self action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
@@ -422,9 +423,17 @@
             [self performSegueWithIdentifier:@"MyShopModifyInfoSegue" sender:nil];
             }
         }else if (indexPath.row == 1){
-            [self performSegueWithIdentifier:@"teachercountSegue" sender:nil];
+            if(!KToken){
+                [self logOut];
+            }else{
+                [self performSegueWithIdentifier:@"teachercountSegue" sender:nil];
+            }
         }else{
-            [self performSegueWithIdentifier:@"teachermessageSegue" sender:nil];
+            if(!KToken){
+                [self logOut];
+            }else{
+                [self performSegueWithIdentifier:@"teachermessageSegue" sender:nil];
+            }
         }
     }
     if(indexPath.section == 4){
@@ -467,7 +476,11 @@
 //店铺设置
 - (void)shopManage
 {
+    if(!KToken){
+        [self logOut];
+    }else{
     [self performSegueWithIdentifier:@"shopsettingSegue" sender:nil];
+    }
 }
 
 

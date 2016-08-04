@@ -81,20 +81,20 @@
         self.headimage.layer.masksToBounds = YES;
         NSString * imageurl = [[Config Instance] getIcon];
         [self.headimage sd_setImageWithURL:[NSURL URLWithString:imageurl] placeholderImage:[UIImage imageNamed:@"defaulticon"]];
-        self.teachername.hidden = NO;
-        self.messagebtn.hidden = NO;
-        self.goldTeacherImageView.hidden = NO;
-        self.accountbtn.hidden = NO;
-        self.welcomeLabel.hidden = YES;
-        self.loginBtn.hidden = YES;
+//        self.teachername.hidden = NO;
+//        self.messagebtn.hidden = NO;
+//        self.goldTeacherImageView.hidden = NO;
+//        self.accountbtn.hidden = NO;
+//        self.welcomeLabel.hidden = YES;
+//        self.loginBtn.hidden = YES;
     }else{
-        self.headimage.hidden = YES;
-        self.teachername.hidden = YES;
-        self.messagebtn.hidden = YES;
-        self.goldTeacherImageView.hidden = YES;
-        self.accountbtn.hidden = YES;
-        self.welcomeLabel.hidden = NO;
-        self.loginBtn.hidden = NO;
+//        self.headimage.hidden = YES;
+//        self.teachername.hidden = YES;
+//        self.messagebtn.hidden = YES;
+//        self.goldTeacherImageView.hidden = YES;
+//        self.accountbtn.hidden = YES;
+//        self.welcomeLabel.hidden = NO;
+//        self.loginBtn.hidden = NO;
     }
     
     [self addBadgeLabel];

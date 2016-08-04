@@ -73,7 +73,7 @@
         if ([dic[@"title"] isEqualToString:@"个人中心"]) {
             UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
             NSString * IsTeacherOrNot = [[Config Instance] getisteacher];
-            if ([IsTeacherOrNot isEqualToString:@"1"] || !IsTeacherOrNot) {
+            if ([IsTeacherOrNot isEqualToString:@"1"] ) {
                 MyShopViewController *myshopVC = [storybord instantiateViewControllerWithIdentifier:@"teacherStorybordId"];
                 UINavigationController *nav = (UINavigationController *)vc;
                 UINavigationController *navVc = [nav initWithRootViewController:myshopVC];

@@ -32,6 +32,12 @@
     if (data.count > 0) {
         self.clhomeheaderView =[[CLHomeHeader alloc] initWithFrame:CGRectMake(0, 1,ScreenWidth, 68)];
         self.clhomeheaderView.newses = data;
+        self.clhomeheaderView.cliclCelllable1 = ^(){
+            
+        };
+        self.clhomeheaderView.cliclCelllable2 = ^(){
+            
+        };
         [self addSubview:self.clhomeheaderView];
 
     }
