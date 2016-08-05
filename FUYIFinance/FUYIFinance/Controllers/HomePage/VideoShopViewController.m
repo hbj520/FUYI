@@ -18,7 +18,7 @@
 #import "StoreDataModel.h"
 
 #import "LabelHelper.h"
-#import <MJRefresh.h>
+#import "MJRefresh.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
 static NSString *videoShopReuseId = @"videoShopReuseId";

@@ -40,6 +40,7 @@
     [self addRefresh];
     dataSource = [NSMutableArray array];
     [self loadData];
+     [[Config Instance] saveWaitJudgeCount:@"0"];
     
 }
 
@@ -145,6 +146,7 @@
         
     };
     VC.uid = model.goodsid;
+    VC.image = model.image;
     VC.ustyle = model.goodstyle;
     VC.ordernum = model.ordernum;
     VC.indexpath = indexpath;

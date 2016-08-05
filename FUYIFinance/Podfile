@@ -14,5 +14,12 @@ pod 'JDStatusBarNotification'
 pod 'FMDB'
 pod 'TPKeyboardAvoiding', '~> 1.2.10'
 
+use_frameworks!
+
+# Pods for pack_ijkplayer
+
+
+pod 'ReactiveCocoa', '~> 4.1.0'
+
 end
 

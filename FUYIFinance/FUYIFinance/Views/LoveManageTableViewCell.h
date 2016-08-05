@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ManageTreasureModel.h"
 @interface LoveManageTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *thumbimage;
 @property (weak, nonatomic) IBOutlet UILabel *titlelabel;
@@ -16,5 +16,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *sellcount;
 @property (weak, nonatomic) IBOutlet UIButton *modifyBtn;
 @property (weak, nonatomic) IBOutlet UIButton *deleteBtn;
-
+@property (nonatomic,strong)ManageTreasureModel * model;
 @end

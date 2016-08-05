@@ -8,7 +8,8 @@
 
 #import "ProductJudgeViewController.h"
 #import "UIViewController+HUD.h"
-#import "TreasureJudgeStarView.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "starView.h"
 #import "MyAPI.h"
 
 @interface ProductJudgeViewController ()<UITextViewDelegate>
@@ -19,9 +20,11 @@
 }
 @property (weak, nonatomic) IBOutlet UILabel *label1;
 @property (weak, nonatomic) IBOutlet UILabel *label2;
-@property (weak, nonatomic) IBOutlet TreasureJudgeStarView *starView;  //星级评价视图
+@property (weak, nonatomic) IBOutlet starView *starView;
+  //星级评价视图
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 
+@property (weak, nonatomic) IBOutlet UIImageView *thumbImg;
 @property (weak, nonatomic) IBOutlet UIButton *surebtn;                //确定按钮
 
 @end
@@ -37,7 +40,9 @@
     self.surebtn.layer.cornerRadius = 3;
     self.surebtn.clipsToBounds = YES;
  //   self.surebtn.enabled = NO;
+    [self.thumbImg sd_setImageWithURL:[NSURL URLWithString:self.image] placeholderImage:[UIImage imageNamed:@"placeimage"]];
     //给星级评价视图添加手势
+    [self.starView configWithStarLevel:0];
     UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(renewStar:)];
     [self.starView addGestureRecognizer:tapGesture];
     self.textView.delegate = self;
@@ -68,10 +73,7 @@
     float scale = pointX/136;
     int starnumber = scale * 5 + 1;
     starNum = [NSString stringWithFormat:@"%d",starnumber];
-    UIImageView * imgStar = (UIImageView*)[self.starView viewWithTag:1];
-    imgStar.clipsToBounds = YES;
-    imgStar.frame = CGRectMake(0, 0, 136 * starnumber/5, 18);
-    
+    [self.starView configWithStarLevel:starnumber];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event

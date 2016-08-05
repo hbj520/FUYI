@@ -63,6 +63,14 @@ static Config * instance = nil;
     [settings synchronize];
 }
 
+- (void)saveUsername:(NSString *)username
+{
+    NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
+    [settings removeObjectForKey:@"username"];
+    [settings setObject:username forKey:@"username"];
+    [settings synchronize];
+}
+
 - (void)saveImgthumb:(NSString *)imgthumb token:(NSString *)token username:(NSString *)username
 {
     NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
@@ -77,6 +85,15 @@ static Config * instance = nil;
     
     [settings synchronize];
 
+}
+
+- (void)saveIsteacher:(NSString *)teacher
+{
+    NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
+    [settings removeObjectForKey:@"isteacher"];
+    [settings setObject:teacher forKey:@"isteacher"];
+    
+    [settings synchronize];
 }
 
 - (void)saveIndex:(NSString *)index
@@ -124,6 +141,13 @@ static Config * instance = nil;
     [settings synchronize];
 }
 
+- (void)saveBackImg:(NSString *)backimage
+{
+    NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
+    [settings removeObjectForKey:@"backimage"];
+    [settings setObject:backimage forKey:@"backimage"];
+    [settings synchronize];
+}
 /**
  *  保存密码
  *
@@ -137,6 +161,12 @@ static Config * instance = nil;
     
     [settings synchronize];
     
+}
+
+- (NSString *)getisteacher
+{
+    NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
+    return [settings stringForKey:@"isteacher"];
 }
 
 - (NSString*)getUserId
@@ -155,6 +185,12 @@ static Config * instance = nil;
 {
     NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
     return [settings stringForKey:@"password"];
+}
+
+- (NSString *)getBackImage
+{
+    NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
+    return [settings stringForKey:@"backimage"];
 }
 
 - (NSString *)getIcon
@@ -179,6 +215,7 @@ static Config * instance = nil;
     [settings removeObjectForKey:@"token"];
     [settings removeObjectForKey:@"icon"];
     [settings removeObjectForKey:@"username"];
+    [settings removeObjectForKey:@"isteacher"];
     
 }
 

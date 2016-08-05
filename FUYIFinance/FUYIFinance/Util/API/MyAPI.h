@@ -251,6 +251,20 @@ typedef void (^ErrorBlock) (NSError *enginerError);
 - (void)LoginOutWithResult:(StateBlock)result
                errorResult:(ErrorBlock)errorResult;
 
+
+/**
+ *  修改密码
+ *
+ *  @param oldPassword 旧密码
+ *  @param newPassword 新密码
+ *  @param result      返回结果
+ *  @param errorResult 错误信息
+ */
+- (void)reSetPasswordWithOldPassword:(NSString *)oldPassword
+                         newPassword:(NSString *)newPassword
+                              Result:(StateBlock)result
+                         errorResult:(ErrorBlock)errorResult;
+
 /**
  *  上传图片
  *
@@ -261,6 +275,17 @@ typedef void (^ErrorBlock) (NSError *enginerError);
 - (void)uploadImage:(NSData *)imageData
              result:(StateBlock)result
         errorResult:(ErrorBlock)errorResult;
+
+/**
+ *  更换背景图片
+ *
+ *  @param image       图片地址
+ *  @param result      上传图片状态
+ *  @param errorResult 错误信息
+ */
+- (void)changeMyShopBackImgWithImage:(NSString *)image
+                              result:(StateBlock)result
+                         errorResult:(ErrorBlock)errorResult;
 
 /**
  *  修改个人资料
@@ -281,7 +306,74 @@ typedef void (^ErrorBlock) (NSError *enginerError);
                                   result:(StateBlock)result
                              errorResult:(ErrorBlock)errorResult;
 
+/**
+ *  个人资料
+ *
+ *  @param result      个人资料模型
+ *  @param errorResult 错误信息
+ */
+- (void)PersonalDetailInfoWith:(ModelBlock)result
+                   errorResult:(ErrorBlock)errorResult;
 
+/**
+ *  我的店铺
+ *
+ *  @param page        页数
+ *  @param result      模型数组
+ *  @param errorResult 错误信息
+ */
+- (void)RequestTeacherPersonalShopDataWithPage:(NSString *)page
+                                        result:(ArrayBlock)result
+                                   errorResult:(ErrorBlock)errorResult;
+/**
+ *
+ *宝贝管理
+ *  @param page        页数
+ *  @param result      模型数组
+ *  @param errorResult 错误信息
+ */
+- (void)RequestManageTreasureDataWithPage:(NSString *)page
+                                   result:(ArrayBlock)result
+                              errorResult:(ErrorBlock)errorResult;
+
+/**
+ *  编辑宝贝
+ *
+ *  @param treasureid  宝贝编号
+ *  @param name        商品名称
+ *  @param about       商品简介
+ *  @param price       商品价格
+ *  @param thumbimg    商品图片
+ *  @param result      返回状态
+ *  @param errorResult 错误信息
+ */
+- (void)EditTreasureWithTreausreId:(NSString *)treasureid
+                              Name:(NSString *)name
+                             About:(NSString *)about
+                             Price:(NSString *)price
+                          ThumbImg:(NSString *)thumbimg
+                            result:(StateBlock)result
+                       errorResult:(ErrorBlock)errorResult;
+
+/**
+ *  删除宝贝
+ *
+ *  @param treasureid  商品编号
+ *  @param result      返回状态
+ *  @param errorResult 错误信息
+ */
+- (void)DeleteTreasureWithTreasureid:(NSString *)treasureid
+                              result:(StateBlock)result
+                         errorResult:(ErrorBlock)errorResult;
+
+/**
+ *  订单管理
+ *
+ *  @param result      模型数组
+ *  @param errorResult 错误信息
+ */
+- (void)requestOrderManageRequestWithResult:(ArrayBlock)result
+                                errorResult:(ErrorBlock)errorResult;
 #pragma mark -讲师团队
 - (void)getTeacherTeamDataWithToken:(NSString*)token
                                page:(NSString*)page

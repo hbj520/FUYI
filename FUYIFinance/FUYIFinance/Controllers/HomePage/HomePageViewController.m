@@ -10,7 +10,7 @@
 #import "IJKMoviePlayerViewController.h"
 
 #import "SDCycleScrollView.h"
-#import <MJRefresh.h>
+#import "MJRefresh.h"
 
 //views
 #import "HomePageNavgationItem.h"
@@ -116,10 +116,8 @@ static NSString *investReuseId = @"investReuseId";
 
     }];
 }
-- (void)setUpNoticeData:(NSArray *)noticeData{
-    for (HomePageNoticeModel *model in noticeData) {
-        
-    }
+- (void)setUpNoticeData:(NSArray *)noticeDatas{
+    [noticeData addObjectsFromArray: @[@[@"第0组第一行",@"第0组第二行"],@[@"第一组第一行",@"第一组第二行"],@[@"第二组第一行",@"第二组第一行"],@[@"第3组第一行",@"第3组第二行"]]];
 }
 - (void)createUI{
     self.tableView.delegate = self;
@@ -156,10 +154,10 @@ static NSString *investReuseId = @"investReuseId";
 }
 #pragma mark - UITableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 2;
+    return 3;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if (section == 0) {
+    if (section == 1) {
         return 2;
     }
     return 1;
@@ -167,6 +165,12 @@ static NSString *investReuseId = @"investReuseId";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell ;
     if (indexPath.section == 0) {
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"reusedId"];
+        }
+        return cell;
+        
+    }else if (indexPath.section == 1){
         if (indexPath.row == 0) {
             HomepageHeaderTableViewCell *headerCell = [tableView dequeueReusableCellWithIdentifier:headerCellReuseId];
             if (headerCell == nil) {
@@ -190,23 +194,23 @@ static NSString *investReuseId = @"investReuseId";
                 
             };
             return headerCell;
-
+            
         }else{
             HomePageHotNewTableViewCell *newTableViewCell = [tableView dequeueReusableCellWithIdentifier:hotCellReuseId];
             if (newTableViewCell == nil) {
                 newTableViewCell = [[[NSBundle mainBundle] loadNibNamed:@"HomePageHotNewTableViewCell" owner:self options:nil] lastObject];
             }
             [newTableViewCell configWithData:noticeData];
+
             return newTableViewCell;
         }
-
-    }else if (indexPath.section == 1){
+    }else if (indexPath.section == 2){
         InvestCollectionViewTableViewCell *investTableViewCell = [tableView dequeueReusableCellWithIdentifier:investReuseId];
         if (investTableViewCell == nil) {
             investTableViewCell = [[InvestCollectionViewTableViewCell alloc]
-                                                            initWithStyle:UITableViewCellStyleDefault
-                                                            reuseIdentifier:investReuseId];
-
+                                   initWithStyle:UITableViewCellStyleDefault
+                                   reuseIdentifier:investReuseId];
+            
         }
         if (inverstData.count > 1) {
             [investTableViewCell createUIWithData:inverstData];
@@ -230,34 +234,33 @@ static NSString *investReuseId = @"investReuseId";
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if (section == 0) {
         return 170;
-    }else{
-        return 10;
+    }else if (section == 1){
+        return 0.1;
     }
     return 10;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 0) {
+    if (indexPath.section == 1) {
         if (indexPath.row == 0) {
             return 90;
         }else if (indexPath.row == 1){
             return 68;
         }
-    }else if (indexPath.section == 1){
+    }else if (indexPath.section == 2){
         return 205;
     }
-    return 1;
+    return 0.1;
 }
 #pragma mark -SDCycleScrollViewDelegate
 //点击头部滚动视图
 -(void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
-    //本地视频
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"my_video" ofType:@"mp4"];
-    BOOL isfile = [[NSFileManager defaultManager] fileExistsAtPath:path];
-    if (isfile) {
-        [IJKVideoViewController presentFromViewController:self withTitle:@"正在播放：。。。" URL:[NSURL fileURLWithPath:path] completion:^{
-            NSLog(@"播放器初始化完成！");
-        }];
-    }
+    IJKMoviePlayerViewController *playerVC = [IJKMoviePlayerViewController InitVideoViewFromViewController:self withTitle:@"GLTest" URL:[NSURL URLWithString:@"http://krtv.qiniudn.com/150522nextapp"] isLiveVideo:YES isOnlineVideo:NO isFullScreen:NO completion:nil];
+    [self addChildViewController:playerVC];
+    [_headerView addSubview:playerVC.view];
+    /** 判断直播是否开启,并执行退出 */
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        //        [playerVC GoBack];
+    });
 }
 
 /*

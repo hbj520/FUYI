@@ -61,6 +61,7 @@
 
 - (NSMutableAttributedString *)attributedStringWithString:(NSString*)string
 {
+    if([string containsString:@"."]){
     NSArray * stringArray = [string componentsSeparatedByString:@"."];
     NSString * numString = stringArray[0];
     NSString * numberString = [numString stringByAppendingString:@"."];
@@ -69,7 +70,13 @@
     NSMutableAttributedString * attributeString = [[NSMutableAttributedString alloc] initWithString:string];
     [attributeString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:13] range:NSMakeRange(0, length)];
     [attributeString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:9] range:NSMakeRange(length,contentlength - length)];
-    return attributeString;
+         return attributeString;
+    }else{
+        NSMutableAttributedString * attributeString = [[NSMutableAttributedString alloc] initWithString:string];
+        [attributeString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:13] range:NSMakeRange(0, string.length)];
+         return attributeString;
+    }
+   
 }
 
 @end

@@ -8,12 +8,20 @@
 
 #import "SettingViewController.h"
 #import "MineTableViewController.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 #import "MyAPI.h"
 #import "Config.h"
+#import "PersonalUserInfo.h"
 #import "UIViewController+HUD.h"
 @interface SettingViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
-    UIButton * logoutBtn;
+    UIButton * logoutBtn;            //退出登录按钮
+    PersonalUserInfo * userinfo;     //个人信息
+    NSString * nickName;             //昵称
+    NSString * sexLabel;             //性别
+    NSString * qqNum;                //qq号
+    NSString * emailNum;             //邮箱号
+    NSString * imgthumb;             //头像
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -29,6 +37,7 @@
 }
 
 
+#pragma mark - PrivateMethod
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -37,10 +46,11 @@
     
 }
 
-#pragma mark - PrivateMethod
+//搭界面
 - (void)ConfigUI
 {
    // logoutBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, ScreenHeight-45, ScreenWidth, 45)];
+    [self loadData];
     logoutBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     logoutBtn.frame = CGRectMake(0, ScreenHeight - 45, ScreenWidth, 45);
     logoutBtn.titleLabel.font = [UIFont systemFontOfSize:15];
@@ -56,6 +66,24 @@
     [self.view addSubview:name];
 }
 
+//加载数据
+- (void)loadData
+{
+    [[MyAPI sharedAPI] PersonalDetailInfoWith:^(BOOL success, NSString *msg, id object) {
+        if(success){
+        userinfo = object;
+        nickName = userinfo.userName;
+        sexLabel = userinfo.sex;
+        qqNum = userinfo.qqNum;
+        emailNum = userinfo.email;
+        imgthumb = userinfo.imgthumb;
+        [self.tableView reloadData];
+        }
+    } errorResult:^(NSError *enginerError) {
+        
+    }];
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -63,7 +91,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return 6;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -79,7 +107,9 @@
         arrowView.image = [UIImage imageNamed:@"rightarrow"];
         [cell.contentView addSubview:arrowView];
         UIImageView * headImage = [[UIImageView alloc] initWithFrame:CGRectMake(ScreenWidth - 8 - 13 - 8 - 48, 8, 48, 48)];
-        headImage.image = [UIImage imageNamed:@"person_headicon"];
+        headImage.layer.cornerRadius = 24;
+        headImage.layer.masksToBounds = YES;
+        [headImage sd_setImageWithURL:[NSURL URLWithString:imgthumb] placeholderImage:[UIImage imageNamed:@"defaulticon"]];
         [cell.contentView addSubview:headImage];
         return cell;
     }else if (indexPath.row == 1){
@@ -92,7 +122,7 @@
         UILabel * nicklabel = [[UILabel alloc] initWithFrame:CGRectMake(12 + 30 + 20, 17, 100, 20)];
         nicklabel.textColor = [UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1];
         nicklabel.font = [UIFont systemFontOfSize:15];
-        nicklabel.text = @"会飞的鱼";
+        nicklabel.text = nickName;
         [cell.contentView addSubview:nicklabel];
         return cell;
         
@@ -106,7 +136,7 @@
         UILabel * sexlabel = [[UILabel alloc] initWithFrame:CGRectMake(12 + 30 + 20, 17, 30, 20)];
         sexlabel.textColor = [UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1];
         sexlabel.font = [UIFont systemFontOfSize:15];
-        sexlabel.text = @"男";
+        sexlabel.text = sexLabel;
         [cell addSubview:sexlabel];
         return cell;
         
@@ -121,7 +151,7 @@
         descLabel.textAlignment = NSTextAlignmentLeft;
         descLabel.textColor = [UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1];
         descLabel.font = [UIFont systemFontOfSize:15];
-        descLabel.text = @"232323323";
+        descLabel.text = qqNum;
         [cell.contentView addSubview:descLabel];
         UIImageView * arrowView = [[UIImageView alloc] initWithFrame:CGRectMake(ScreenWidth - 8 - 13, 18, 8, 14)];
         arrowView.image = [UIImage imageNamed:@"rightarrow"];
@@ -140,14 +170,22 @@
         detaillabel.textAlignment = NSTextAlignmentLeft;
         detaillabel.textColor = [UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1];
         detaillabel.font = [UIFont systemFontOfSize:15];
-        detaillabel.text = @"232323223@qq.com";
+        detaillabel.text = emailNum;
         [cell.contentView addSubview:detaillabel];
         UIImageView * arrorView = [[UIImageView alloc] initWithFrame:CGRectMake(ScreenWidth - 8 - 13, 18,8, 14)];
         arrorView.image = [UIImage imageNamed:@"rightarrow"];
         [cell.contentView addSubview:arrorView];
         return cell;
         
-    }    return nil;
+    }else if (indexPath.row == 5){
+        UITableViewCell * cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"gestureId"];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.textLabel.text = @"手势密码";
+        cell.textLabel.font = [UIFont systemFontOfSize:15];
+        cell.textLabel.textAlignment = NSTextAlignmentLeft;
+        return cell;
+    }
+    return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -176,14 +214,18 @@
 
 - (void)logout:(id)sender {
     [self showHudInView:self.view hint:@"正在退出登录"];
+    
     [[MyAPI sharedAPI]LoginOutWithResult:^(BOOL sucess, NSString *msg) {
         if(sucess){
             [self showHint:msg];
             [[Config Instance] logout];
             [self hideHud];
-           [self.navigationController popViewControllerAnimated:YES];
+            [self.navigationController popViewControllerAnimated:YES];
             self.navigationController.navigationBarHidden = YES;
-        }else{
+                   }else{
+            [self.navigationController popViewControllerAnimated:YES];
+            self.navigationController.navigationBarHidden = YES;
+
             [self showHint:msg];
             [self hideHud];
         }
@@ -195,7 +237,11 @@
 
 - (IBAction)back:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+    if([self.mortal isEqualToString:@"isTeacher"]){
+        self.navigationController.navigationBarHidden = NO;
+    }else{
     self.navigationController.navigationBarHidden = YES;
+    }
 }
 
 - (void)didReceiveMemoryWarning {

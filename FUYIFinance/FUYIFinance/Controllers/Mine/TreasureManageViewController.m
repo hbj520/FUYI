@@ -7,15 +7,21 @@
 //
 
 #import "TreasureManageViewController.h"
+#import "ManageTreasureTableViewController.h"
 #import "BBBadgeBarButtonItem.h"
+#import "UIViewController+HUD.h"
 #import "LoveManageTableViewCell.h"
-
+#import <MJRefresh/MJRefresh.h>
+#import "ManageTreasureModel.h"
+#import "MyAPI.h"
 @interface TreasureManageViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     UITableView * _tableView;
     NSIndexPath * indexpath;
     BBBadgeBarButtonItem * _chatBtn;  //自定义的导航栏按钮
     BBBadgeBarButtonItem * _chatBtn1; //自定义的导航栏按钮
+    NSMutableArray * dataSource;
+    NSInteger page;
 }
 @end
 
@@ -25,12 +31,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self addChatBtn];
+    page = 1;
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
     _tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [_tableView registerNib:[UINib nibWithNibName:@"LoveManageTableViewCell" bundle:nil] forCellReuseIdentifier:@"TreasureId"];
     [self.view addSubview:_tableView];
+    [self addRefresh];
+    dataSource = [NSMutableArray array];
+    [self loadData];
     
 }
 
@@ -41,9 +51,40 @@
     if(self.isGoodsSetting){
         self.navigationItem.title = @"宝贝管理";
     }else{
-        self.navigationItem.title = @"订单管理";
+        self.navigationItem.title = @"宝贝管理";
     }
     
+}
+
+- (void)loadData
+{
+    NSString * pageStr = [NSString stringWithFormat:@"%ld",page];
+    [[MyAPI sharedAPI] RequestManageTreasureDataWithPage:pageStr result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
+        if(success){
+            dataSource = arrays;
+            [_tableView reloadData];
+        }
+        [_tableView.mj_header endRefreshing];
+        [_tableView.mj_footer endRefreshing];
+    } errorResult:^(NSError *enginerError) {
+        [_tableView.mj_header endRefreshing];
+        [_tableView.mj_footer endRefreshing];
+    }];
+}
+
+- (void)addRefresh
+{
+    __weak TreasureManageViewController * weakself = self;
+    _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        page = 1;
+        [weakself loadData];
+    }];
+    MJRefreshAutoNormalFooter * footerRefresh = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        page++;
+        [weakself loadData];
+    }];
+    footerRefresh.automaticallyRefresh = NO;
+    _tableView.mj_footer = footerRefresh;
 }
 
 - (void)addChatBtn{
@@ -83,12 +124,12 @@
 //点击环状
 - (void)clickBtn1
 {
-    
+    [_tableView.mj_header beginRefreshing];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 4;
+    return dataSource.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -115,7 +156,9 @@
     
     cell.deleteBtn.tag = 100 + indexPath.section;
     [cell.deleteBtn addTarget:self action:@selector(clickdeleteBtn:) forControlEvents:UIControlEventTouchUpInside];
-    
+    ManageTreasureModel * model = [[ManageTreasureModel alloc] init];
+    model = dataSource[indexPath.section];
+    cell.model = model;
     return cell;
 }
 
@@ -123,14 +166,26 @@
 - (void)clickmodifyBtn:(UIButton*)sender
 {
     //跳转到编辑宝贝
-    [self performSegueWithIdentifier:@"modifySegue" sender:nil];
+    NSInteger index = sender.tag;
+    ManageTreasureModel * model = dataSource[index];
+    NSArray * arr = @[model.goodsid,model.price];
+    [self performSegueWithIdentifier:@"modifySegue" sender:arr];
 }
 
 //点击删除宝贝按钮
 - (void)clickdeleteBtn:(UIButton*)sender
 {
+    NSInteger index = sender.tag - 100;
+    ManageTreasureModel * model = dataSource[index];
     
- 
+    [[MyAPI sharedAPI] DeleteTreasureWithTreasureid:model.goodsid result:^(BOOL sucess, NSString *msg) {
+        if(sucess){
+            [self showHint:@"删除成功"];
+            [self loadData];
+        }
+    } errorResult:^(NSError *enginerError) {
+        
+    }];
     
 }
 
@@ -152,14 +207,14 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    ManageTreasureTableViewController * vc = [[ManageTreasureTableViewController alloc] init];
+    vc.array = sender;
 }
-*/
+
 
 @end

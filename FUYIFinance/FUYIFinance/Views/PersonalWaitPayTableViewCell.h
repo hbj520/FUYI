@@ -32,6 +32,6 @@ typedef void (^SelectBtnBlock) (NSIndexPath *);
 @property (nonatomic,strong) NSIndexPath *indexPath;
 @property (nonatomic,copy) SelectBtnBlock selectBtnBlock;
 @property (weak, nonatomic) IBOutlet UILabel *countlabel;
-- (void)addPriceLabel;
+
 @property (nonatomic,strong)MineWaitPayModel * model;
 @end

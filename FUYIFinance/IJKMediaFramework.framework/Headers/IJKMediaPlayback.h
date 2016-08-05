@@ -147,45 +147,25 @@ IJK_EXTERN NSString *const IJKMPMoviePlayerVideoDecoderOpenNotification;
 IJK_EXTERN NSString *const IJKMPMoviePlayerFirstVideoFrameRenderedNotification;
 IJK_EXTERN NSString *const IJKMPMoviePlayerFirstAudioFrameRenderedNotification;
 
-IJK_EXTERN NSString *const IJKMPMoviePlayerDidSeekCompleteNotification;
-IJK_EXTERN NSString *const IJKMPMoviePlayerDidSeekCompleteTargetKey;
-IJK_EXTERN NSString *const IJKMPMoviePlayerDidSeekCompleteErrorKey;
-
 @end
 
 #pragma mark IJKMediaUrlOpenDelegate
 
-// Must equal to the defination in ijkavformat/ijkavformat.h
-typedef NS_ENUM(NSInteger, IJKMediaEvent) {
-    // Control Messages
+typedef NS_ENUM(NSInteger, IJKMediaUrlOpenType) {
     IJKMediaUrlOpenEvent_ConcatResolveSegment = 0x10000,
     IJKMediaUrlOpenEvent_TcpOpen = 0x10001,
     IJKMediaUrlOpenEvent_HttpOpen = 0x10002,
     IJKMediaUrlOpenEvent_LiveOpen = 0x10004,
-
-    // Notify Events
-    IJKMediaEvent_WillHttpOpen = 0x12100, // attr: url
-    IJKMediaEvent_DidHttpOpen = 0x12101,  // attr: url, error, http_code
-    IJKMediaEvent_WillHttpSeek = 0x12102, // attr: url, offset
-    IJKMediaEvent_DidHttpSeek = 0x12103,  // attr: url, offset, error, http_code
 };
 
-#define IJKMediaEventAttrKey_url            @"url"
-#define IJKMediaEventAttrKey_host           @"host"
-#define IJKMediaEventAttrKey_error          @"error"
-#define IJKMediaEventAttrKey_time_of_event  @"time_of_event"
-#define IJKMediaEventAttrKey_http_code      @"http_code"
-#define IJKMediaEventAttrKey_offset         @"offset"
-
-// event of IJKMediaUrlOpenEvent_xxx
 @interface IJKMediaUrlOpenData: NSObject
 
 - (id)initWithUrl:(NSString *)url
-            event:(IJKMediaEvent)event
+         openType:(IJKMediaUrlOpenType)openType
      segmentIndex:(int)segmentIndex
      retryCounter:(int)retryCounter;
 
-@property(nonatomic, readonly) IJKMediaEvent event;
+@property(nonatomic, readonly) IJKMediaUrlOpenType openType;
 @property(nonatomic, readonly) int segmentIndex;
 @property(nonatomic, readonly) int retryCounter;
 
@@ -199,11 +179,5 @@ typedef NS_ENUM(NSInteger, IJKMediaEvent) {
 @protocol IJKMediaUrlOpenDelegate <NSObject>
 
 - (void)willOpenUrl:(IJKMediaUrlOpenData*) urlOpenData;
-
-@end
-
-@protocol IJKMediaNativeInvokeDelegate <NSObject>
-
-- (int)invoke:(IJKMediaEvent)event attributes:(NSDictionary *)attributes;
 
 @end

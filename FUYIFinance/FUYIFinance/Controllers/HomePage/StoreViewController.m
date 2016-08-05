@@ -14,7 +14,7 @@
 #import "MyShopDetailTableViewCell.h"
 
 #import "MyAPI.h"
-#import <MJRefresh.h>
+#import "MJRefresh.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "LabelHelper.h"
 
@@ -138,9 +138,9 @@
         MyShopDetailTableViewCell *cell = [[[NSBundle mainBundle]loadNibNamed:@"MyShopDetailTableViewCell" owner:self options:nil]lastObject];
         StoreDataModel *model = [_VideoArr objectAtIndex:indexPath.row];
         [cell.thumbimage sd_setImageWithURL:[NSURL URLWithString:model.videoImage] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
-        cell.teachername.text = [NSString stringWithFormat:@"讲师：%@",model.teacherName];
-        cell.priceLabel.attributedText = [[LabelHelper alloc]attributedFontStringWithString:[NSString stringWithFormat:@"¥ %@",model.videoPrice] firstFont:9 secFont:13 thirdFont:9];
-        cell.titlename.text = model.videoName;
+        cell.teacherName.text = [NSString stringWithFormat:@"讲师：%@",model.teacherName];
+        cell.price.attributedText = [[LabelHelper alloc]attributedFontStringWithString:[NSString stringWithFormat:@"¥ %@",model.videoPrice] firstFont:9 secFont:13 thirdFont:9];
+        cell.title.text = model.videoName;
         cell.paycount.text = [NSString stringWithFormat:@"%@人付款",model.sellNum];
         
         return cell;

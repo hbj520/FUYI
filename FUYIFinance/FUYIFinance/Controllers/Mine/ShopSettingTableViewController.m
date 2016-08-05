@@ -29,6 +29,8 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -55,7 +57,7 @@
     if(section==0){
         return 15;
     }else if(section==1){
-        return 220;
+        return ScreenHeight - 371 - 64;
     }else{
         return 0;
     }

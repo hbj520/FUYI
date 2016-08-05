@@ -17,7 +17,7 @@
 #import "ProvinceModel.h"
 #import "cityModel.h"
 #import "ZoneModel.h"
-#import <AFNetworking.h>
+#import "AFNetworking.h"
 
 @interface MineMyAddressViewController ()<UITableViewDelegate,UITableViewDataSource>
 {

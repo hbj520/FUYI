@@ -10,6 +10,7 @@
 #import "UIViewController+HUD.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "ChangeHeadView.h"
+#import "PersonalUserInfo.h"
 #import "KGModal.h"
 #import "Config.h"
 #import "MyAPI.h"
@@ -18,6 +19,7 @@
 {
     UIImagePickerController * _picker;
     NSString * imageUrl;
+    PersonalUserInfo * userInfo;
 }
 @property (weak, nonatomic) IBOutlet UILabel *sexlabel;
 @property (weak, nonatomic) IBOutlet UILabel *nickName;
@@ -36,6 +38,8 @@
     imageUrl = [[Config Instance] getIcon];
     self.headImage.layer.cornerRadius = 24;
     self.headImage.layer.masksToBounds = YES;
+    self.tableView.showsVerticalScrollIndicator = NO;
+    [self loadData];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -53,17 +57,44 @@
     }
     self.navigationController.navigationBarHidden = NO;
 }
-#pragma mark - PrivateMethod
+
+//改变昵称
 - (void)changeNickname:(NSNotification *)nick
 {
     self.nickName.text = nick.userInfo[@"nickname"];
 }
+
+//加载数据
+- (void)loadData
+{
+    [[MyAPI sharedAPI] PersonalDetailInfoWith:^(BOOL success, NSString *msg, id object) {
+        userInfo = object;
+        [self createUI];
+    } errorResult:^(NSError *enginerError) {
+        
+    }];
+}
+
+//搭接面
+- (void)createUI
+{
+    if(userInfo){
+        self.nickName.text = userInfo.userName;
+        if(userInfo.sex){
+            self.sexlabel.text = userInfo.sex;
+        }
+        self.qqnum.text = userInfo.qqNum;
+        self.emailnum.text = userInfo.email;
+    }
+}
+
 
 - (void)initPickView
 {
     _picker = [[UIImagePickerController alloc] init];
     _picker.delegate = self;
 }
+
 
 - (void)openCamera
 {
@@ -79,7 +110,7 @@
 
 - (void)showModalView
 {
-    // [[KGModal sharedInstance] setTapOutsideToDismiss:NO];
+   
     [[KGModal sharedInstance] setCloseButtonType:KGModalCloseButtonTypeNone];
     [KGModal sharedInstance].modalBackgroundColor = [UIColor whiteColor];
     
@@ -95,8 +126,7 @@
         [self openCamera];
         [[KGModal sharedInstance] hideAnimated:YES];
     };
-    // ModifyHeadView * modifyView = [[[NSBundle mainBundle] loadNibNamed:@"ModifyHeadView" owner:self options:nil] lastObject];
-    // [modifyView createUI];
+  
     
 }
 
@@ -106,20 +136,22 @@
 {
     [picker dismissViewControllerAnimated:YES completion:nil];
     UIImage * image = info[UIImagePickerControllerOriginalImage];
-   // [self showHudInView:self.view hint:@"上传图片..."];
+  
     NSData * data = UIImageJPEGRepresentation(image, 0.1);
+  
     [self showHudInView:self.view hint:@"上传图片中"];
     [[MyAPI sharedAPI] uploadImage:data result:^(BOOL sucess, NSString *msg) {
         if(sucess){
             imageUrl = msg;
             [self.headImage sd_setImageWithURL:[NSURL URLWithString:msg] placeholderImage:[UIImage imageNamed:@"defaulticon"]];
             [[Config Instance] saveIcon:msg];
+            
             [self hideHud];
         }else{
             [self.headImage setImage:[UIImage imageNamed:@"defaulticon"]];
         }
     } errorResult:^(NSError *enginerError) {
-        
+       
     }];
 }
 - (void)didReceiveMemoryWarning {
@@ -163,6 +195,22 @@
         }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.section == 0){
+        if(indexPath.row == 0){
+            return 64;
+        }else if(indexPath.row == 5) {
+            return ScreenHeight - 400;
+        }else{
+            return 54;
+        }
+    }else if (indexPath.section == 1){
+        return 44;
+    }
+    return 1;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(indexPath.row == 0){
@@ -192,9 +240,11 @@
                                                emailNum:self.emailnum.text
                                                  result:^(BOOL sucess, NSString *msg) {
                                                      if(sucess){
+                                                         [[Config Instance] saveUsername:self.nickName.text];
                                                          [self showHint:@"上传成功"];
+                                                       
                                                      }else{
-                                                         
+                                                         [self showHint:msg];
                                                      }
         
     } errorResult:^(NSError *enginerError) {
@@ -204,7 +254,7 @@
 }
 
 - (IBAction)back:(id)sender {
-    self.navigationController.navigationBarHidden = YES;
+  //  self.navigationController.navigationBarHidden = YES;
     [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)dealloc{

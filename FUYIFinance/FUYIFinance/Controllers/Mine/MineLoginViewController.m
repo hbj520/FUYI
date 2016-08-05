@@ -8,6 +8,7 @@
 
 #import "MineLoginViewController.h"
 #import "MineRegisterViewController.h"
+#import "MyShopViewController.h"
 
 #import "UIViewController+HUD.h"
 #import "MyAPI.h"
@@ -30,6 +31,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *toplayout;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *distancewithtoplayout;
 @property (nonatomic,strong) UINavigationController *myNav;
+@property (assign,nonatomic) BOOL isTeacher;
 
 @end
 
@@ -40,7 +42,8 @@
     // Do any additional setup after loading the view.
     self.numberInput.delegate = self;
     self.passwordInput.delegate = self;
-    self.myNav = [[UINavigationController alloc] init];
+   // self.myNav = [[UINavigationController alloc] init];
+    self.navigationController.navigationBarHidden = NO;
     if(self.view.frame.size.height == 480){
         self.toplayout.constant = 30;
     }
@@ -93,9 +96,11 @@
 */
 #pragma mark-PrivateMethod
 - (void)loginSucessAct{
-    NSNotification * notification = [NSNotification notificationWithName:@"refreshView" object:nil];
-    [[NSNotificationCenter defaultCenter] postNotification:notification];
-    [self dismissModalViewControllerAnimated:YES];
+    //@{@"isTech":[NSNumber numberWithBool:self.isTeacher]}
+   // NSNotification * notification = [NSNotification notificationWithName:@"refreshView" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshView" object:nil userInfo:@{@"isTech":[NSNumber numberWithBool:self.isTeacher],@"refresh":@"yes"}];
+   [self dismissModalViewControllerAnimated:YES];
+    [self.tabBarController setSelectedIndex:3];
 }
 - (IBAction)backBtn:(id)sender {
     [self dismissModalViewControllerAnimated:YES];
@@ -113,6 +118,12 @@
                                 result:^(BOOL sucess, NSString *msg) {
         if(sucess){
             [self showHint:@"登陆成功!"];
+            NSString * IsTeacherOrNot = [[Config Instance] getisteacher];
+            if([IsTeacherOrNot isEqualToString:@"1"]){
+                self.isTeacher = YES;
+            }else{
+                self.isTeacher = NO;
+            }
             [self loginSucessAct];
         }else{
             [self showHint:msg];

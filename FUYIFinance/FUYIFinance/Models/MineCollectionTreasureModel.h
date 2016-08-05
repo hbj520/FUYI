@@ -15,7 +15,12 @@
 @property (nonatomic,copy)NSString * price;         //宝贝价格
 @property (nonatomic,copy)NSString * type;          //宝贝类型
 @property (nonatomic,copy)NSString * teacher;       //讲师名称
-
+@property (nonatomic,copy)NSString * num;
+@property (nonatomic,copy)NSString * goodsid;
+@property (nonatomic,copy)NSString * about;
+@property (nonatomic,copy)NSString * cart;
+@property (nonatomic,copy)NSString * collection;
+@property (nonatomic,copy)NSString * tid;
 /**
  *  重写模型的构造方法
  *
@@ -27,7 +32,7 @@
  *
  *  @return        模型
  */
-- (id)initWithName:(NSString*)name Image:(NSString*)image Price:(NSString*)price Type:(NSString*)type Teacher:(NSString*)teacher;
+- (id)initWithName:(NSString*)name Image:(NSString*)image Price:(NSString*)price Type:(NSString*)type Teacher:(NSString*)teacher Num:(NSString *)num Goodsid:(NSString *)goodsid About:(NSString *)about Cart:(NSString *)cart Collect:(NSString *)collection Tid:(NSString *)tid;
 
 /**
  *  根据返回的数据返回模型数组

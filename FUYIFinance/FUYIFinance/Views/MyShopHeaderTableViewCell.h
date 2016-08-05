@@ -13,5 +13,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *totoalcount;
 @property (weak, nonatomic) IBOutlet UILabel *vivstcount;
 @property (weak, nonatomic) IBOutlet UILabel *ordercount;
+@property (weak, nonatomic) IBOutlet UILabel *teacherName;
+@property (weak, nonatomic) IBOutlet UIImageView *backImg;
+@property (weak, nonatomic) IBOutlet UIButton *loginBtn;
+@property (weak, nonatomic) IBOutlet UIImageView *personlabel;
 
 @end

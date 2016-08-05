@@ -7,17 +7,33 @@
 //
 
 #import "ManageTreasureTableViewController.h"
+#import "UIViewController+HUD.h"
 #import "BBBadgeBarButtonItem.h"
-@interface ManageTreasureTableViewController ()<UITextViewDelegate,UITextFieldDelegate>
+#import "ManageTreasureModel.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import <MJRefresh/MJRefresh.h>
+#import "ChangeHeadView.h"
+#import "KGModal.h"
+#import "Config.h"
+#import "MyAPI.h"
+@interface ManageTreasureTableViewController ()<UITextViewDelegate,UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 {
     BBBadgeBarButtonItem * _chatBtn;   //自定制导航栏按钮
     BBBadgeBarButtonItem * _chatBtn1;  //自定制导航栏按钮
+    UIImagePickerController * _picker;
+    NSString * imageUrl;
+    ManageTreasureModel * model;
 }
 @property (weak, nonatomic) IBOutlet UITextView *textView;       //编辑宝贝的描述视图
 @property (weak, nonatomic) IBOutlet UILabel *descLabel;         //提示标签
 @property (weak, nonatomic) IBOutlet UITextField *PriceField;    //价格
-@property (weak, nonatomic) IBOutlet UITextField *TranslateFee;  //运费
+
+@property (weak, nonatomic) IBOutlet UIImageView *thumbimg;
+
+@property (weak, nonatomic) IBOutlet UITextField *namefield;
+
+
 
 @end
 
@@ -25,19 +41,108 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initPickView];
     [self addChatBtn];     //添加自定制导航栏按钮
     self.textView.delegate = self;
     self.PriceField.delegate = self;
-    self.TranslateFee.delegate = self;
+    self.namefield.delegate = self;
     if(self.textView.text.length>0){
         self.descLabel.hidden = YES;
     }
+    self.thumbimg.userInteractionEnabled = YES;
+    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(choseImg)];
+    [self.thumbimg addGestureRecognizer:tap];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self addRefresh];
 }
+
+- (void)choseImg
+{
+    [self showModalView];
+}
+
+- (void)initPickView
+{
+    _picker = [[UIImagePickerController alloc] init];
+    _picker.delegate = self;
+}
+
+
+- (void)openCamera
+{
+    _picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    [self presentViewController:_picker animated:YES completion:nil];
+}
+
+- (void)openPhotoAlbun
+{
+    _picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self presentViewController:_picker animated:YES completion:nil];
+}
+
+- (void)showModalView
+{
+    
+    [[KGModal sharedInstance] setCloseButtonType:KGModalCloseButtonTypeNone];
+    [KGModal sharedInstance].modalBackgroundColor = [UIColor whiteColor];
+    
+    ChangeHeadView * modifyView = [[[NSBundle mainBundle] loadNibNamed:@"ChangeHeadView" owner:self options:nil] lastObject];
+    
+    [[KGModal sharedInstance] showWithContentView:modifyView andAnimated:YES];
+    
+    modifyView.LibraryBlock = ^(){
+        [self openPhotoAlbun];
+        [[KGModal sharedInstance] hideAnimated:YES];
+    };
+    modifyView.TakeBlock = ^(){
+        [self openCamera];
+        [[KGModal sharedInstance] hideAnimated:YES];
+    };
+    
+    
+}
+
+
+#pragma mark-UINavigationControllerDelegate & UIImagePickerControllerDelegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
+{
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    UIImage * image = info[UIImagePickerControllerOriginalImage];
+    
+    NSData * data = UIImageJPEGRepresentation(image, 0.1);
+    
+    [self showHudInView:self.view hint:@"上传图片中"];
+    [[MyAPI sharedAPI] uploadImage:data result:^(BOOL sucess, NSString *msg) {
+        if(sucess){
+            imageUrl = msg;
+             [self.thumbimg sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"placeimage"]];
+            [[Config Instance] saveIcon:msg];
+            
+            [self hideHud];
+        }else{
+                  }
+    } errorResult:^(NSError *enginerError) {
+        
+    }];
+}
+
+- (void)addRefresh
+{
+    __weak ManageTreasureTableViewController * weakself = self;
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        
+    }];
+    MJRefreshAutoNormalFooter * footerRefresh = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        
+    }];
+    footerRefresh.automaticallyRefresh = NO;
+   self.tableView.mj_footer = footerRefresh;
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -51,20 +156,13 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    if(textField == self.PriceField){
+ 
         NSString * price = self.PriceField.text;
         NSArray * stringArray = [price componentsSeparatedByString:@"¥"];
         NSString * priceStr = [stringArray lastObject];
-        NSString * priceLabel = [NSString stringWithFormat:@"¥%@",priceStr];
-        self.PriceField.text = priceLabel;
-    }else if (textField == self.TranslateFee){
-        NSString * translate = self.TranslateFee.text;
-        NSArray * stringArray = [translate componentsSeparatedByString:@"¥"];
-        NSString * translateStr = [stringArray lastObject];
-        NSString * TranslateFeeLabel = [NSString stringWithFormat:@"¥%@",translateStr];
-        self.TranslateFee.text = TranslateFeeLabel;
-    }
-}
+       // NSString * priceLabel = [NSString stringWithFormat:@"¥%@",priceStr];
+        self.PriceField.text = priceStr;
+  }
 
 //添加自定制导航栏按钮
 - (void)addChatBtn{
@@ -104,7 +202,7 @@
 //自定制导航栏信息按钮的事件响应方法
 - (void)clickBtn1
 {
-    
+    [self.tableView.mj_header beginRefreshing];
 }
 
 - (void)textViewDidBeginEditing:(UITextView *)textView
@@ -126,18 +224,18 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
+
     return 4;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
+
     if(section==0){
         return 2;
     }else if (section==1){
         return 1;
     }else if (section==2){
-        return 2;
+        return 1;
     }else{
     return 1;
     }
@@ -161,8 +259,22 @@
     if(indexPath.section==0||indexPath.section==2){
         [self.textView endEditing:YES];
         [self.PriceField endEditing:YES];
-        [self.TranslateFee endEditing:YES];
+       
     }
+}
+- (IBAction)Sure:(id)sender {
+  
+    
+    [[MyAPI sharedAPI] EditTreasureWithTreausreId:@"11" Name:@"3434343" About:self.textView.text Price:self.PriceField.text ThumbImg:imageUrl result:^(BOOL sucess, NSString *msg) {
+        if(sucess){
+            [self showHint:@"修改成功"];
+            
+        }else{
+            
+        }
+    } errorResult:^(NSError *enginerError) {
+        
+    }];
 }
 
 //退回到上级界面

@@ -33,6 +33,11 @@
 #import "MineWaitJudgeModel.h"
 #import "UserInfoModel.h"
 #import "AllOderModel.h"
+#import "PersonalUserInfo.h"
+#import "TeacherShopModel.h"
+#import "TeacherInfo.h"
+#import "ManageTreasureModel.h"
+#import "OrderManageModel.h"
 @interface MyAPI ()
 @property (nonatomic, strong) AFHTTPRequestOperationManager *manager;
 
@@ -180,6 +185,12 @@
             NSDictionary * data = responseObject[@"data"];
             UserInfoModel * userinfo = [[UserInfoModel alloc] buildWithDatas:data];
             [[Config Instance] saveImgthumb:userinfo.imgthumb token:userinfo.token username:userinfo.username];
+            NSString * isTeacher = data[@"isteacher"];
+            if([isTeacher isEqualToString:@"1"]){
+                NSString * backimg = data[@"backimg"];
+                [[Config Instance] saveBackImg:backimg];
+            }
+            [[Config Instance] saveIsteacher:isTeacher];
             result(YES,information);
         }else{
             result(NO,information);
@@ -791,6 +802,7 @@
 {
     NSDictionary * parameters = @{@"token":KToken,
                                   @"username":username,
+                                  @"imgthumb":imgthumb,
                                   @"qq":qqnum,
                                   @"sex":sex,
                                   @"email":emailnum};
@@ -801,6 +813,166 @@
             result(YES,info);
         }else{
             result(NO,info);
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+        
+    }];
+}
+
+- (void)PersonalDetailInfoWith:(ModelBlock)result
+                   errorResult:(ErrorBlock)errorResult
+{
+    NSDictionary * parameter = @{@"token":KToken};
+    [self.manager POST:@"information" parameters:parameter success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * status = responseObject[@"status"];
+        NSString * info = responseObject[@"info"];
+        if([status isEqualToString:@"1"]){
+            NSDictionary * data= responseObject[@"data"];
+            PersonalUserInfo * model = [[PersonalUserInfo alloc] buildWithData:data];
+            result(YES,info,model);
+        }else{
+            result(NO,info,nil);
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+    }];
+}
+
+- (void)RequestTeacherPersonalShopDataWithPage:(NSString *)page
+                                        result:(ArrayBlock)result
+                                   errorResult:(ErrorBlock)errorResult
+{
+    NSString *mtoken;
+    if (KToken) {
+        mtoken = KToken;
+    }else{
+        mtoken = @"";
+    }
+    NSDictionary * parameters = @{@"token":mtoken,
+                                  @"page":page};
+    [self.manager POST:@"teacherStore" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * status = responseObject[@"status"];
+        NSString * info = responseObject[@"info"];
+        if([status isEqualToString:@"1"]){
+            NSDictionary * data= responseObject[@"data"];
+            NSString * userid =data[@"userid"];
+            NSString * username = data[@"username"];
+            NSString * name = data[@"name"];
+            NSString * imgthumb = data[@"imgthumb"];
+            NSString * backing = data[@"backing"];
+            NSNumber * hits = data[@"hits"];
+            NSString * hitsStr= [NSString stringWithFormat:@"%ld",hits.integerValue];
+            NSNumber * ordermoney = data[@"ordermoney"];
+            NSString * ordermoneyStr= [NSString stringWithFormat:@"%ld",ordermoney.integerValue];
+            NSNumber * orders = data[@"orders"];
+            NSString * orderStr = [NSString stringWithFormat:@"%ld",orders.integerValue];
+            NSString * blogId = data[@"blogId"];
+            NSString * blogTitle = data[@"blogTitle"];
+            TeacherInfo * teacherinfo = [[TeacherInfo alloc] init];
+            teacherinfo.userid = userid;
+            teacherinfo.username = username;
+            teacherinfo.name = name;
+            teacherinfo.imgthumb = imgthumb;
+            teacherinfo.backimg = backing;
+            teacherinfo.hits = hitsStr;
+            teacherinfo.ordermoney = ordermoneyStr;
+            teacherinfo.orders = orderStr;
+            teacherinfo.blogId = blogId;
+            teacherinfo.blogTitle = blogTitle;
+            NSArray * videodata = data[@"video"];
+           NSMutableArray * array1 = [[TeacherShopModel alloc] buildWithData:videodata];
+            result(YES,info,@[teacherinfo,array1]);
+            
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        
+    }];
+}
+
+- (void)RequestManageTreasureDataWithPage:(NSString *)page
+                                   result:(ArrayBlock)result
+                              errorResult:(ErrorBlock)errorResult
+{
+    NSDictionary * parameters = @{@"token":KToken,
+                                  @"page":page};
+    [self.manager POST:@"videoManage" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * status = responseObject[@"status"];
+        NSString * info = responseObject[@"info"];
+        if([status isEqualToString:@"1"]){
+        NSDictionary * data= responseObject[@"data"];
+        NSArray * video = data[@"video"];
+        NSMutableArray * videoData = [[ManageTreasureModel alloc] buildWithData:video];
+        result(YES,info,videoData);
+        }else{
+            result(NO,info,nil);
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+    }];
+}
+
+- (void)EditTreasureWithTreausreId:(NSString *)treasureid
+                              Name:(NSString *)name
+                             About:(NSString *)about
+                             Price:(NSString *)price
+                          ThumbImg:(NSString *)thumbimg
+                            result:(StateBlock)result
+                       errorResult:(ErrorBlock)errorResult
+{
+    NSDictionary * parameters = @{@"token":KToken,
+                                  @"id":treasureid,
+                                  @"name":name,
+                                  @"about":about,
+                                  @"price":price,
+                                  @"thumbimg":thumbimg};
+    
+[self.manager POST:@"teacherEditVideo" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+    NSString * status = responseObject[@"status"];
+    NSString * info = responseObject[@"info"];
+    if([status isEqualToString:@"1"]){
+        result(YES,info);
+    }else{
+        result(NO,info);
+    }
+} failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+    errorResult(error);
+}];
+    
+}
+
+- (void)DeleteTreasureWithTreasureid:(NSString *)treasureid
+                              result:(StateBlock)result
+                         errorResult:(ErrorBlock)errorResult
+{
+    NSDictionary * parameters = @{@"token":KToken,
+                                  @"id":treasureid};
+    [self.manager POST:@"teacherDelVideo" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * status = responseObject[@"status"];
+        NSString * info = responseObject[@"info"];
+        if([status isEqualToString:@"1"]){
+            result(YES,info);
+        }else{
+            result(NO,info);
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+    }];
+}
+
+- (void)requestOrderManageRequestWithResult:(ArrayBlock)result
+                                errorResult:(ErrorBlock)errorResult
+{
+    NSDictionary * parameter = @{@"token":KToken};
+    [self.manager POST:@"teacherOrderManage" parameters:parameter success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * status = responseObject[@"status"];
+        NSString * info = responseObject[@"info"];
+        if([status isEqualToString:@"1"]){
+            NSArray * data = responseObject[@"data"];
+            NSMutableArray * array = [[OrderManageModel alloc] buildWithData:data];
+            result(YES,info,array);
+        }else{
+            result(NO,info,nil);
         }
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         errorResult(error);
@@ -875,6 +1047,27 @@
     }];
 }
 
+- (void)reSetPasswordWithOldPassword:(NSString *)oldPassword
+                         newPassword:(NSString *)newPassword
+                              Result:(StateBlock)result
+                         errorResult:(ErrorBlock)errorResult
+{
+    NSDictionary * parameters = @{@"token":KToken,
+                                  @"oldpassword":oldPassword,
+                                  @"newpassword":newPassword};
+    [self.manager POST:@"modipassword" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * status = responseObject[@"status"];
+        NSString * info = responseObject[@"info"];
+        if([status isEqualToString:@"1"]){
+            result(YES,@"修改成功");
+        }else{
+            result(NO,info);
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+    }];
+}
+
 - (void)uploadImage:(NSData *)imageData
              result:(StateBlock)result
         errorResult:(ErrorBlock)errorResult
@@ -895,6 +1088,23 @@
     }];
 }
 
-
+- (void)changeMyShopBackImgWithImage:(NSString *)image
+                              result:(StateBlock)result
+                         errorResult:(ErrorBlock)errorResult
+{
+    NSDictionary * parameters = @{@"token":KToken,
+                                  @"backimg":image};
+    [self.manager POST:@"modBackimg" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * status = responseObject[@"status"];
+        NSString * info = responseObject[@"info"];
+        if([status isEqualToString:@"1"]){
+            result(YES,info);
+        }else{
+            result(NO,info);
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+    }];
+}
 
 @end
