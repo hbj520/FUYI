@@ -23,7 +23,11 @@
 
 static NSString *videoShopReuseId = @"videoShopReuseId";
 
-@interface VideoShopViewController ()<UITableViewDataSource,UITableViewDelegate,DOPDropDownMenuDataSource,DOPDropDownMenuDelegate>
+@interface VideoShopViewController ()<
+UITableViewDataSource,
+UITableViewDelegate,
+DOPDropDownMenuDataSource,
+DOPDropDownMenuDelegate>
 {
     NSMutableArray *financeSelectData;
     NSMutableArray *classSelectData;

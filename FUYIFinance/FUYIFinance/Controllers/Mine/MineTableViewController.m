@@ -98,6 +98,11 @@
     }
     
     [self addBadgeLabel];
+    //添加点击事件
+    [self addTapGes];
+    
+}
+- (void)addTapGes{
     //待付款按钮添加响应事件
     UITapGestureRecognizer *tap  = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(prepareAct:)];
     [self.preparPay addGestureRecognizer:tap];
@@ -132,7 +137,12 @@
     
 }
 - (IBAction)accountManage:(id)sender {
-     [self performSegueWithIdentifier:@"modifypwdSegue" sender:nil];
+    if (!KToken) {
+        [self LoginActCell];
+    }else{
+        [self performSegueWithIdentifier:@"modifypwdSegue" sender:nil];
+ 
+    }
 }
 
 //显示未操作数
@@ -178,10 +188,8 @@
 
 - (IBAction)message:(id)sender {
     if(!KToken){
-        self.messagebtn.enabled = NO;
-       
+        [self LoginActCell];
     }else{
-        self.messagebtn.enabled = YES;
         
         [self performSegueWithIdentifier:@"noticeSegue" sender:nil];
     }
