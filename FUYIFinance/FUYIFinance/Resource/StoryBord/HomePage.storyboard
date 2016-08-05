@@ -392,19 +392,19 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="12G-eA-yCu">
-                                <rect key="frame" x="0.0" y="64" width="320" height="453"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="454"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.76862745099999996" green="0.7725490196" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="VQx-vm-7y4" firstAttribute="top" secondItem="12G-eA-yCu" secondAttribute="bottom" constant="1" id="2OQ-NA-Ctl"/>
-                            <constraint firstAttribute="trailing" secondItem="12G-eA-yCu" secondAttribute="trailing" id="3nM-xr-0KB"/>
-                            <constraint firstItem="12G-eA-yCu" firstAttribute="top" secondItem="zSF-BX-LNN" secondAttribute="bottom" id="4Id-11-8I1"/>
-                            <constraint firstItem="12G-eA-yCu" firstAttribute="leading" secondItem="Ndb-s3-1JV" secondAttribute="leading" id="QHJ-vY-J2l"/>
+                            <constraint firstItem="VQx-vm-7y4" firstAttribute="top" secondItem="12G-eA-yCu" secondAttribute="bottom" id="98B-Np-jmo"/>
+                            <constraint firstItem="12G-eA-yCu" firstAttribute="leading" secondItem="Ndb-s3-1JV" secondAttribute="leading" id="XBZ-q4-sjY"/>
                             <constraint firstItem="VQx-vm-7y4" firstAttribute="leading" secondItem="Ndb-s3-1JV" secondAttribute="leading" id="g00-7P-LK3"/>
+                            <constraint firstAttribute="trailing" secondItem="12G-eA-yCu" secondAttribute="trailing" id="o23-2Q-Sfy"/>
                             <constraint firstAttribute="trailing" secondItem="VQx-vm-7y4" secondAttribute="trailing" id="pdF-ta-IY9"/>
+                            <constraint firstItem="12G-eA-yCu" firstAttribute="top" secondItem="Ndb-s3-1JV" secondAttribute="top" constant="64" id="uYF-zk-g4v"/>
                             <constraint firstItem="e1g-jM-L1e" firstAttribute="top" secondItem="VQx-vm-7y4" secondAttribute="bottom" id="ytr-Ky-Ql9"/>
                         </constraints>
                     </view>
@@ -416,7 +416,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="allPriceLab" destination="pjb-Ug-RgY" id="WkZ-z8-aqF"/>
                         <outlet property="tableView" destination="12G-eA-yCu" id="2zV-MM-Liq"/>
@@ -424,7 +423,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H61-Gt-nkH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="716" y="476"/>
+            <point key="canvasLocation" x="716" y="517"/>
         </scene>
         <!--讲师店铺-->
         <scene sceneID="6eB-LJ-hAH">
@@ -466,7 +465,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fPe-U3-1WM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="716" y="1111"/>
+            <point key="canvasLocation" x="709" y="1172"/>
         </scene>
     </scenes>
     <resources>

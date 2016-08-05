@@ -41,7 +41,10 @@
     [self creatUI];
     a = 1;
 }
-
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    //self.navigationController.navigationBar.hidden = NO;
+}
 - (void)creatUI{
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -62,11 +65,6 @@
     [_payView.downBtn addTarget:self action:@selector(down) forControlEvents:UIControlEventTouchUpInside];
     //[_payView.payWayBtn addTarget:self action:@selector(selectBank) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_payView];
-}
-
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    self.navigationController.navigationBar.hidden = NO;
 }
 
 #pragma mark - UITableViewDelegate
