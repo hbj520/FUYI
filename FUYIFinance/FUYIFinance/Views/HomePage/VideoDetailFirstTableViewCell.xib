@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -71,6 +71,14 @@
                         <color key="textColor" red="0.76862745098039209" green="0.77254901960784317" blue="0.77647058823529413" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xf1-Yi-Cx1">
+                        <rect key="frame" x="324" y="95" width="37" height="37"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="37" id="Axq-ly-kNB"/>
+                            <constraint firstAttribute="height" constant="37" id="MSP-8R-XM0"/>
+                        </constraints>
+                        <state key="normal" image="collection"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="RMw-tX-Jwg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="2hO-GZ-SVu"/>
@@ -80,8 +88,10 @@
                     <constraint firstItem="ivQ-9o-McW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="EJB-Cl-coO"/>
                     <constraint firstItem="Vd2-R6-CE3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="O4y-mo-cWC"/>
                     <constraint firstItem="yD5-Gc-nMc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="UPy-4G-RkY"/>
+                    <constraint firstAttribute="bottom" secondItem="Xf1-Yi-Cx1" secondAttribute="bottom" constant="7" id="bFR-dN-PFC"/>
                     <constraint firstAttribute="bottom" secondItem="fN8-Tu-Lxo" secondAttribute="bottom" constant="10" id="cI7-Wk-nOy"/>
                     <constraint firstItem="taf-Wc-kSX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="14" id="gFa-hZ-vpi"/>
+                    <constraint firstAttribute="trailing" secondItem="Xf1-Yi-Cx1" secondAttribute="trailing" constant="14" id="gay-T1-dao"/>
                     <constraint firstItem="taf-Wc-kSX" firstAttribute="top" secondItem="RMw-tX-Jwg" secondAttribute="bottom" constant="6" id="oEC-rl-RzO"/>
                     <constraint firstItem="fN8-Tu-Lxo" firstAttribute="leading" secondItem="yD5-Gc-nMc" secondAttribute="trailing" constant="26" id="qGv-a4-hfd"/>
                     <constraint firstItem="RMw-tX-Jwg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="sxp-T2-tt5"/>
@@ -89,6 +99,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="authorLab" destination="yD5-Gc-nMc" id="nBf-bp-z5G"/>
+                <outlet property="collectionBtn" destination="Xf1-Yi-Cx1" id="q3o-Vn-NP7"/>
                 <outlet property="detailVideoPriceLab" destination="taf-Wc-kSX" id="XIu-Zs-PLo"/>
                 <outlet property="saleCountsLab" destination="fN8-Tu-Lxo" id="neL-nO-vzx"/>
                 <outlet property="shareBtn" destination="Vd2-R6-CE3" id="aBK-Ie-tH4"/>
@@ -98,6 +109,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="collection" width="29" height="33"/>
         <image name="share_1" width="83" height="99"/>
     </resources>
 </document>
