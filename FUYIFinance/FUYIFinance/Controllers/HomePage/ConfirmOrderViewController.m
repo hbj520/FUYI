@@ -119,6 +119,8 @@
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     if (section == 1) {
         UILabel* videoLab = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 40)];
+      videoLab.backgroundColor = [UIColor whiteColor];
+        
         videoLab.text = @"    高清讲座视频";
         videoLab.font = [UIFont systemFontOfSize:14];
         return videoLab;
