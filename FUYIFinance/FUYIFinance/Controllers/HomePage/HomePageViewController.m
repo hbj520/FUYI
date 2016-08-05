@@ -117,10 +117,7 @@ static NSString *investReuseId = @"investReuseId";
     }];
 }
 - (void)setUpNoticeData:(NSArray *)noticeDatas{
-//    for (HomePageNoticeModel *model in noticeData) {
-//        
-//    }
-    noticeData = @[@[@"第0组第一行",@"第0组第二行"],@[@"第一组第一行",@"第一组第二行"],@[@"第二组第一行",@"第二组第一行"],@[@"第3组第一行",@"第3组第二行"]];
+    [noticeData addObjectsFromArray: @[@[@"第0组第一行",@"第0组第二行"],@[@"第一组第一行",@"第一组第二行"],@[@"第二组第一行",@"第二组第一行"],@[@"第3组第一行",@"第3组第二行"]]];
 }
 - (void)createUI{
     self.tableView.delegate = self;

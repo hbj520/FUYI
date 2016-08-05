@@ -129,6 +129,7 @@
 		ABF9F0F01D531F03004E1523 /* IJKHistoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF9F0EF1D531F03004E1523 /* IJKHistoryItem.m */; };
 		ABF9F0F51D53215E004E1523 /* CLAdCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF9F0F21D53215E004E1523 /* CLAdCollectionCell.m */; };
 		ABF9F0F61D53215E004E1523 /* CLHomeHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF9F0F41D53215E004E1523 /* CLHomeHeader.m */; };
+		ABF9F0F81D541F7E004E1523 /* VideoShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF9F0F71D541F7E004E1523 /* VideoShopViewController.m */; };
 		B2DFC5349D2E0949052440B1 /* Pods_FUYIFinance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A79AB59CF3FDAE6F28A191D /* Pods_FUYIFinance.framework */; };
 		CC01B67E1D48476D00BC5323 /* ModifyPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC01B67D1D48476D00BC5323 /* ModifyPwdViewController.m */; };
 		CC26F0DA1D261CAB003964A1 /* ProductJudgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC26F0D91D261CAB003964A1 /* ProductJudgeViewController.m */; };
@@ -501,6 +502,7 @@
 		ABF9F0F21D53215E004E1523 /* CLAdCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLAdCollectionCell.m; sourceTree = "<group>"; };
 		ABF9F0F31D53215E004E1523 /* CLHomeHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLHomeHeader.h; sourceTree = "<group>"; };
 		ABF9F0F41D53215E004E1523 /* CLHomeHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLHomeHeader.m; sourceTree = "<group>"; };
+		ABF9F0F71D541F7E004E1523 /* VideoShopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoShopViewController.m; sourceTree = "<group>"; };
 		CC01B67C1D48476D00BC5323 /* ModifyPwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyPwdViewController.h; sourceTree = "<group>"; };
 		CC01B67D1D48476D00BC5323 /* ModifyPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPwdViewController.m; sourceTree = "<group>"; };
 		CC26F0D81D261CAB003964A1 /* ProductJudgeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductJudgeViewController.h; sourceTree = "<group>"; };
@@ -1202,6 +1204,7 @@
 			children = (
 				AB36CDB81D1283AD00D0E4C7 /* HomePageViewController.h */,
 				AB36CDB91D1283AD00D0E4C7 /* HomePageViewController.m */,
+				ABF9F0F71D541F7E004E1523 /* VideoShopViewController.m */,
 				D1F1301B1D2B503500EE1690 /* VideoShopViewController.h */,
 				D1F12FFC1D2A2C4800EE1690 /* VideoDetailViewController.h */,
 				D1F12FFD1D2A2C4800EE1690 /* VideoDetailViewController.m */,
@@ -2088,6 +2091,7 @@
 				D1F130401D2C9C9A00EE1690 /* PayView.m in Sources */,
 				D1F130511D2E23C200EE1690 /* VideoShopNavigationItem.m in Sources */,
 				AB36CE491D1CE72400D0E4C7 /* ThreeCollectionViewCell.m in Sources */,
+				ABF9F0F81D541F7E004E1523 /* VideoShopViewController.m in Sources */,
 				D1F1304B1D2CF63300EE1690 /* SelectModel.m in Sources */,
 				D114DC581D24EEC50001CE21 /* Good.m in Sources */,
 				AB1764DF1D520B7F001A84E8 /* GLonlineVideoPlayView.m in Sources */,
