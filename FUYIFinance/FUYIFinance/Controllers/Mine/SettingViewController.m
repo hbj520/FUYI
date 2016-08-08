@@ -102,10 +102,8 @@
         UILabel * desclabel = [[UILabel alloc] initWithFrame:CGRectMake(12, 25, 60, 20)];
         desclabel.font = [UIFont systemFontOfSize:15];
         desclabel.text = @"头像";
+        desclabel.textColor = [UIColor darkGrayColor];
         [cell.contentView addSubview:desclabel];
-        UIImageView * arrowView = [[UIImageView alloc] initWithFrame:CGRectMake(ScreenWidth - 8 - 13, 25, 8, 14)];
-        arrowView.image = [UIImage imageNamed:@"rightarrow"];
-        [cell.contentView addSubview:arrowView];
         UIImageView * headImage = [[UIImageView alloc] initWithFrame:CGRectMake(ScreenWidth - 8 - 13 - 8 - 48, 8, 48, 48)];
         headImage.layer.cornerRadius = 24;
         headImage.layer.masksToBounds = YES;
@@ -115,11 +113,12 @@
     }else if (indexPath.row == 1){
         UITableViewCell * cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell2"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        UILabel * desclabel = [[UILabel alloc] initWithFrame:CGRectMake(12, 17, 30, 20)];
+        UILabel * desclabel = [[UILabel alloc] initWithFrame:CGRectMake(12, 15, 30, 20)];
         desclabel.font = [UIFont systemFontOfSize:15];
         desclabel.text = @"昵称";
         [cell.contentView addSubview:desclabel];
-        UILabel * nicklabel = [[UILabel alloc] initWithFrame:CGRectMake(12 + 30 + 20, 17, 100, 20)];
+        desclabel.textColor = [UIColor darkGrayColor];
+        UILabel * nicklabel = [[UILabel alloc] initWithFrame:CGRectMake(12 + 30 + 20, 15, 100, 20)];
         nicklabel.textColor = [UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1];
         nicklabel.font = [UIFont systemFontOfSize:15];
         nicklabel.text = nickName;
@@ -129,11 +128,12 @@
     }else if (indexPath.row == 2){
         UITableViewCell * cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell3"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        UILabel * desclabel = [[UILabel alloc] initWithFrame:CGRectMake(12, 17, 30, 20)];
+        UILabel * desclabel = [[UILabel alloc] initWithFrame:CGRectMake(12, 15, 30, 20)];
         desclabel.font = [UIFont systemFontOfSize:15];
         desclabel.text = @"性别";
+        desclabel.textColor = [UIColor darkGrayColor];
         [cell addSubview:desclabel];
-        UILabel * sexlabel = [[UILabel alloc] initWithFrame:CGRectMake(12 + 30 + 20, 17, 30, 20)];
+        UILabel * sexlabel = [[UILabel alloc] initWithFrame:CGRectMake(12 + 30 + 20, 15, 30, 20)];
         sexlabel.textColor = [UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1];
         sexlabel.font = [UIFont systemFontOfSize:15];
         sexlabel.text = sexLabel;
@@ -143,46 +143,53 @@
     }else if (indexPath.row == 3){
         UITableViewCell * cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell4"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(12, 17, 60, 20)];
+        UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(12, 15, 60, 20)];
         label.font = [UIFont systemFontOfSize:15];
         label.text = @"qq";
+        label.textColor = [UIColor darkGrayColor];
         [cell.contentView addSubview:label];
-        UILabel * descLabel = [[UILabel alloc] initWithFrame:CGRectMake(12 + 30 + 20, 17, 120, 20)];
+        UILabel * descLabel = [[UILabel alloc] initWithFrame:CGRectMake(12 + 30 + 20, 15, 120, 20)];
         descLabel.textAlignment = NSTextAlignmentLeft;
         descLabel.textColor = [UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1];
         descLabel.font = [UIFont systemFontOfSize:15];
         descLabel.text = qqNum;
         [cell.contentView addSubview:descLabel];
-        UIImageView * arrowView = [[UIImageView alloc] initWithFrame:CGRectMake(ScreenWidth - 8 - 13, 18, 8, 14)];
-        arrowView.image = [UIImage imageNamed:@"rightarrow"];
-        [cell.contentView addSubview:arrowView];
         return cell;
-        
-        
     }else if (indexPath.row == 4){
         UITableViewCell * cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell5"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(12, 17, 80, 20)];
+        UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(12, 15, 80, 20)];
         label.font = [UIFont systemFontOfSize:15];
         label.text = @"email";
+        label.textColor = [UIColor darkGrayColor];
         [cell.contentView addSubview:label];
-        UILabel * detaillabel = [[UILabel alloc] initWithFrame:CGRectMake(12 + 30 + 20,17, 200, 20)];
+        UILabel * detaillabel = [[UILabel alloc] initWithFrame:CGRectMake(12 + 30 + 20,15, 200, 20)];
         detaillabel.textAlignment = NSTextAlignmentLeft;
         detaillabel.textColor = [UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1];
         detaillabel.font = [UIFont systemFontOfSize:15];
         detaillabel.text = emailNum;
         [cell.contentView addSubview:detaillabel];
-        UIImageView * arrorView = [[UIImageView alloc] initWithFrame:CGRectMake(ScreenWidth - 8 - 13, 18,8, 14)];
-        arrorView.image = [UIImage imageNamed:@"rightarrow"];
-        [cell.contentView addSubview:arrorView];
         return cell;
         
     }else if (indexPath.row == 5){
         UITableViewCell * cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"gestureId"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.textLabel.text = @"手势密码";
-        cell.textLabel.font = [UIFont systemFontOfSize:15];
-        cell.textLabel.textAlignment = NSTextAlignmentLeft;
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(12, 15, 80, 20)];
+        label.font = [UIFont systemFontOfSize:15];
+        label.text = @"安全设置";
+        label.textColor = [UIColor darkGrayColor];
+        [cell.contentView addSubview:label];
+        UILabel *isSetGesLockLabel = [[UILabel alloc] initWithFrame:CGRectMake(ScreenWidth - 80, 15, 50, 20)];
+        if (KGesturePsassword) {
+            isSetGesLockLabel.text = @"已设置";
+            isSetGesLockLabel.textColor = [UIColor greenColor];
+        }else{
+            isSetGesLockLabel.text = @"未设置";
+            isSetGesLockLabel.textColor = [UIColor redColor];
+        }
+        isSetGesLockLabel.font = [UIFont systemFontOfSize:15];
+        [cell.contentView addSubview:isSetGesLockLabel];
         return cell;
     }
     return nil;
@@ -209,7 +216,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    if (indexPath.row == 5) {//手势密码
+        [self performSegueWithIdentifier:@"GestureSegue" sender:nil];
+    }
 }
 
 - (void)logout:(id)sender {

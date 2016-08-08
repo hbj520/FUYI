@@ -53,7 +53,7 @@
     
     [self creatHidePayView];
   
-    [[Config Instance] saveWaitPayCount:@"0"];
+//    [[Config Instance] saveWaitPayCount:@"0"];
     
     
 }
@@ -95,7 +95,7 @@
                                         }
         if(success){
             [_dataSource addObjectsFromArray:arrays];
-            [[Config Instance] saveWaitPayCount:[NSString stringWithFormat:@"%ld",_dataSource.count]];
+//            [[Config Instance] saveWaitPayCount:[NSString stringWithFormat:@"%ld",_dataSource.count]];
            
             [_tableView reloadData];
         }else{

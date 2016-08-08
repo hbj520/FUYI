@@ -35,40 +35,10 @@
 - (void)saveIsteacher:(NSString *)teacher;
 //保存用户名
 - (void)saveUsername:(NSString *)username;
-
-//保存待付款未读数
-- (void)saveWaitPayCount:(NSString *)count;
-
-//获得待付款未读数
-- (NSString *)getWaitPayCount;
-
-//保存待评价未读数
-- (void)saveWaitJudgeCount:(NSString *)count;
-
-//获得待评价未读数
-- (NSString *)getWaitJudgeCount;
-
-/**
- *  保存图片
- *
- *  @param icon 图片
- */
 - (void)saveIcon:(NSString *)icon;
-
-/**
- *
- *
- *  @param backimage 背景图片
- */
 - (void)saveBackImg:(NSString *)backimage;
-
-/**
- *  保存用户密码
- *
- *  @param password 用户密码
- */
-
 - (void)saveUserPassword:(NSString*)password;
+- (void)saveGesturePassword:(NSString *)gesturePassword;
 
 - (NSString *)getUserId;       //获取用户id
 - (NSString *)getUserName;     //获取用户名
@@ -79,6 +49,7 @@
 - (NSString *)getPassword;     //获取用户密码
 - (NSString *)getIcon;          //获取图片
 - (NSString *)getBackImage;    //获取背景图片
+- (NSString *)getGesturePassword;//获取手势密码
 - (void)logout;               //退出登录
 
 @end

@@ -72,10 +72,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xf1-Yi-Cx1">
-                        <rect key="frame" x="324" y="95" width="37" height="37"/>
+                        <rect key="frame" x="331" y="98" width="30" height="34"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="37" id="Axq-ly-kNB"/>
-                            <constraint firstAttribute="height" constant="37" id="MSP-8R-XM0"/>
+                            <constraint firstAttribute="width" constant="30" id="Axq-ly-kNB"/>
+                            <constraint firstAttribute="height" constant="34" id="MSP-8R-XM0"/>
                         </constraints>
                         <state key="normal" image="collection"/>
                     </button>

@@ -105,33 +105,7 @@ static Config * instance = nil;
     [settings synchronize];
 }
 
-- (void)saveWaitPayCount:(NSString *)count
-{
-    NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
-    [settings removeObjectForKey:@"waitpaycount"];
-    [settings setObject:count forKey:@"waitpaycount"];
-    [settings synchronize];
-}
 
-- (NSString *)getWaitPayCount
-{
-    NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
-    return [settings stringForKey:@"waitpaycount"];
-}
-
-- (void)saveWaitJudgeCount:(NSString *)count
-{
-    NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
-    [settings removeObjectForKey:@"judgecount"];
-    [settings setObject:count forKey:@"judgecount"];
-    [settings synchronize];
-}
-
-- (NSString *)getWaitJudgeCount
-{
-    NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
-    return [settings stringForKey:@"judgecount"];
-}
 
 - (void)saveIcon:(NSString *)icon
 {
@@ -162,6 +136,12 @@ static Config * instance = nil;
     [settings synchronize];
     
 }
+- (void)saveGesturePassword:(NSString *)gesturePassword{
+    NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
+    [settings removeObjectForKey:@"gesturePassword"];
+    [settings setObject:gesturePassword forKey:@"gesturePassword"];
+    [settings synchronize];
+}
 
 - (NSString *)getisteacher
 {
@@ -191,6 +171,10 @@ static Config * instance = nil;
 {
     NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
     return [settings stringForKey:@"backimage"];
+}
+- (NSString *)getGesturePassword{
+    NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
+    return [settings stringForKey:@"gesturePassword"];
 }
 
 - (NSString *)getIcon

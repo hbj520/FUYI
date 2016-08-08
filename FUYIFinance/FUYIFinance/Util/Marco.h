@@ -28,6 +28,7 @@
 #define KToken [[Config Instance] getToken]
 #define KUserId [[Config Instance] getUserid]
 #define KUserPassword [[Config Instance] getPassword]
+#define KGesturePsassword [[Config Instance] getGesturePassword]
 
 #define BaseUrl @"http://60.173.235.34:9090/fuyi/app/"
 
