@@ -158,7 +158,7 @@
         self.waitjudgecount.hidden = NO;
         self.waitpaycountlabel.layer.cornerRadius = 6;
         self.waitpaycountlabel.layer.masksToBounds = YES;
-        self.waitpaycountlabel.text = [[Config Instance] getWaitPayCount];
+        self.waitpaycountlabel.text = @"0";
         if(self.waitpaycountlabel.text.length<=0){
             self.waitpaycountlabel.hidden = YES;
         }
@@ -167,7 +167,7 @@
         }
         self.waitjudgecount.layer.cornerRadius = 6;
         self.waitjudgecount.layer.masksToBounds = YES;
-        self.waitjudgecount.text = [[Config Instance] getWaitJudgeCount];
+        self.waitjudgecount.text = @"0";
         if(self.waitjudgecount.text.length<=0){
             self.waitjudgecount.hidden = YES;
         }

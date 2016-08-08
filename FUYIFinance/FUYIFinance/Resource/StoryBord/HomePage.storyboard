@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -271,18 +272,10 @@
                                     <constraint firstAttribute="width" constant="45" id="8mQ-qN-Zfl"/>
                                     <constraint firstAttribute="height" constant="45" id="NvG-0C-YgT"/>
                                 </constraints>
-                                <state key="normal" image="back"/>
+                                <state key="normal" image="back_shadow"/>
                                 <connections>
                                     <action selector="back:" destination="ofR-57-tJm" eventType="touchUpInside" id="AEq-xa-wrr"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qTn-9y-MVm">
-                                <rect key="frame" x="281" y="10" width="35" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="QP8-3B-jb4"/>
-                                    <constraint firstAttribute="width" constant="35" id="eLO-2r-O0Z"/>
-                                </constraints>
-                                <state key="normal" image="collection"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -290,15 +283,13 @@
                             <constraint firstItem="Z3N-pl-EFc" firstAttribute="leading" secondItem="STg-D0-VRf" secondAttribute="leading" id="1BH-OP-LMC"/>
                             <constraint firstItem="iBC-vy-bQX" firstAttribute="top" secondItem="Z3N-pl-EFc" secondAttribute="bottom" constant="50" id="BMD-bz-Wmq"/>
                             <constraint firstItem="Z3N-pl-EFc" firstAttribute="top" secondItem="STg-D0-VRf" secondAttribute="top" id="Dh8-iL-5t1"/>
-                            <constraint firstItem="Vdx-in-me4" firstAttribute="top" secondItem="qTn-9y-MVm" secondAttribute="top" id="FDz-nU-GCq"/>
                             <constraint firstItem="iBE-Ic-OgR" firstAttribute="trailing" secondItem="Z3N-pl-EFc" secondAttribute="trailing" id="FW3-hL-exg"/>
                             <constraint firstItem="iBE-Ic-OgR" firstAttribute="bottom" secondItem="iBC-vy-bQX" secondAttribute="top" id="XbF-ql-fFC"/>
                             <constraint firstItem="iBE-Ic-OgR" firstAttribute="top" secondItem="Z3N-pl-EFc" secondAttribute="bottom" constant="1" id="bIA-Dc-WA7"/>
-                            <constraint firstItem="qTn-9y-MVm" firstAttribute="top" secondItem="xc9-AV-dwo" secondAttribute="bottom" constant="-10" id="fCQ-Tt-qAq"/>
                             <constraint firstItem="Vdx-in-me4" firstAttribute="leading" secondItem="STg-D0-VRf" secondAttribute="leading" constant="10" id="iZM-69-DYX"/>
+                            <constraint firstItem="Vdx-in-me4" firstAttribute="top" secondItem="STg-D0-VRf" secondAttribute="topMargin" constant="10" id="k1x-fk-OqJ"/>
                             <constraint firstAttribute="trailing" secondItem="Z3N-pl-EFc" secondAttribute="trailing" id="l8V-Gk-OC5"/>
                             <constraint firstItem="iBE-Ic-OgR" firstAttribute="leading" secondItem="Z3N-pl-EFc" secondAttribute="leading" id="sdh-UA-VNT"/>
-                            <constraint firstAttribute="trailing" secondItem="qTn-9y-MVm" secondAttribute="trailing" constant="4" id="vMF-64-ErV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="utU-qW-CfG"/>
@@ -470,6 +461,6 @@
     </scenes>
     <resources>
         <image name="back" width="12" height="17"/>
-        <image name="collection" width="29" height="33"/>
+        <image name="back_shadow" width="71" height="71"/>
     </resources>
 </document>

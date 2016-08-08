@@ -92,6 +92,10 @@
 		ABF9F0F51D53215E004E1523 /* CLAdCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF9F0F21D53215E004E1523 /* CLAdCollectionCell.m */; };
 		ABF9F0F61D53215E004E1523 /* CLHomeHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF9F0F41D53215E004E1523 /* CLHomeHeader.m */; };
 		ABF9F0F81D541F7E004E1523 /* VideoShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF9F0F71D541F7E004E1523 /* VideoShopViewController.m */; };
+		ABF9F0FB1D546964004E1523 /* GestureLockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF9F0FA1D546964004E1523 /* GestureLockViewController.m */; };
+		ABF9F1031D546C8B004E1523 /* MRGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF9F0FE1D546C8B004E1523 /* MRGesture.m */; };
+		ABF9F1041D546C8B004E1523 /* MRGestureBgView.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF9F1001D546C8B004E1523 /* MRGestureBgView.m */; };
+		ABF9F1051D546C8B004E1523 /* MRGestureView.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF9F1021D546C8B004E1523 /* MRGestureView.m */; };
 		B2DFC5349D2E0949052440B1 /* Pods_FUYIFinance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A79AB59CF3FDAE6F28A191D /* Pods_FUYIFinance.framework */; };
 		CC01B67E1D48476D00BC5323 /* ModifyPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC01B67D1D48476D00BC5323 /* ModifyPwdViewController.m */; };
 		CC26F0DA1D261CAB003964A1 /* ProductJudgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC26F0D91D261CAB003964A1 /* ProductJudgeViewController.m */; };
@@ -465,6 +469,14 @@
 		ABF9F0F31D53215E004E1523 /* CLHomeHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLHomeHeader.h; sourceTree = "<group>"; };
 		ABF9F0F41D53215E004E1523 /* CLHomeHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLHomeHeader.m; sourceTree = "<group>"; };
 		ABF9F0F71D541F7E004E1523 /* VideoShopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoShopViewController.m; sourceTree = "<group>"; };
+		ABF9F0F91D546964004E1523 /* GestureLockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureLockViewController.h; sourceTree = "<group>"; };
+		ABF9F0FA1D546964004E1523 /* GestureLockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureLockViewController.m; sourceTree = "<group>"; };
+		ABF9F0FD1D546C8B004E1523 /* MRGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRGesture.h; sourceTree = "<group>"; };
+		ABF9F0FE1D546C8B004E1523 /* MRGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRGesture.m; sourceTree = "<group>"; };
+		ABF9F0FF1D546C8B004E1523 /* MRGestureBgView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRGestureBgView.h; sourceTree = "<group>"; };
+		ABF9F1001D546C8B004E1523 /* MRGestureBgView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRGestureBgView.m; sourceTree = "<group>"; };
+		ABF9F1011D546C8B004E1523 /* MRGestureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRGestureView.h; sourceTree = "<group>"; };
+		ABF9F1021D546C8B004E1523 /* MRGestureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRGestureView.m; sourceTree = "<group>"; };
 		CC01B67C1D48476D00BC5323 /* ModifyPwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyPwdViewController.h; sourceTree = "<group>"; };
 		CC01B67D1D48476D00BC5323 /* ModifyPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPwdViewController.m; sourceTree = "<group>"; };
 		CC26F0D81D261CAB003964A1 /* ProductJudgeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductJudgeViewController.h; sourceTree = "<group>"; };
@@ -1163,6 +1175,8 @@
 			children = (
 				CC4096AB1D49992600084D1A /* SettingViewController.h */,
 				CC4096AC1D49992600084D1A /* SettingViewController.m */,
+				ABF9F0F91D546964004E1523 /* GestureLockViewController.h */,
+				ABF9F0FA1D546964004E1523 /* GestureLockViewController.m */,
 				CC01B67C1D48476D00BC5323 /* ModifyPwdViewController.h */,
 				CC01B67D1D48476D00BC5323 /* ModifyPwdViewController.m */,
 				CC42E2701D24F13D0008A8D7 /* MyCollectionCourseViewController.h */,
@@ -1263,6 +1277,7 @@
 		ABF5DE411D0FA4B1007CE1AB /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				ABF9F0FC1D546C49004E1523 /* GestureLock */,
 				AB1764AE1D52088A001A84E8 /* Masonry */,
 				CC6FD5F41D362E0300DA60AB /* MJExtension */,
 				CC6FD5E41D3605D900DA60AB /* chdButton */,
@@ -1411,6 +1426,19 @@
 				AB36CE181D1A9A1700D0E4C7 /* GuideViewController.m */,
 			);
 			path = HomeTabbarController;
+			sourceTree = "<group>";
+		};
+		ABF9F0FC1D546C49004E1523 /* GestureLock */ = {
+			isa = PBXGroup;
+			children = (
+				ABF9F0FD1D546C8B004E1523 /* MRGesture.h */,
+				ABF9F0FE1D546C8B004E1523 /* MRGesture.m */,
+				ABF9F0FF1D546C8B004E1523 /* MRGestureBgView.h */,
+				ABF9F1001D546C8B004E1523 /* MRGestureBgView.m */,
+				ABF9F1011D546C8B004E1523 /* MRGestureView.h */,
+				ABF9F1021D546C8B004E1523 /* MRGestureView.m */,
+			);
+			path = GestureLock;
 			sourceTree = "<group>";
 		};
 		ABFF9B1D1D4880BE0023FF39 /* CustomerServiceControllers */ = {
@@ -2050,6 +2078,7 @@
 				D1F130671D35D32300EE1690 /* LPPopup.m in Sources */,
 				CC35F66A1D2CCB3000EF3B4B /* PriceLabel.m in Sources */,
 				AB36CE2E1D1B710400D0E4C7 /* TAAnimatedDotView.m in Sources */,
+				ABF9F1051D546C8B004E1523 /* MRGestureView.m in Sources */,
 				CC593CCD1D2A69500077B096 /* ShopNameViewController.m in Sources */,
 				CC01B67E1D48476D00BC5323 /* ModifyPwdViewController.m in Sources */,
 				D16E04021D40BAF30038297A /* StoreViewController.m in Sources */,
@@ -2108,6 +2137,7 @@
 				D1F12FFA1D2A04CE00EE1690 /* VideoStoreTableViewCell.m in Sources */,
 				CC6FD60F1D362E0300DA60AB /* NSObject+MJClass.m in Sources */,
 				CC6FD60C1D362E0300DA60AB /* MJProperty.m in Sources */,
+				ABF9F1041D546C8B004E1523 /* MRGestureBgView.m in Sources */,
 				AB1764CE1D52088A001A84E8 /* NSArray+MASAdditions.m in Sources */,
 				CC4096B01D49A21000084D1A /* PersonalUserInfo.m in Sources */,
 				CC72D0371D226AD000945BCF /* MyOrderAllViewController.m in Sources */,
@@ -2126,6 +2156,7 @@
 				D1F1302A1D2B817200EE1690 /* VideoInfoTableViewCell.m in Sources */,
 				D1189C2C1D4F4694001209B9 /* CollectionViewController.m in Sources */,
 				D15BA3941D23906600904DEF /* CustomBtn.m in Sources */,
+				ABF9F1031D546C8B004E1523 /* MRGesture.m in Sources */,
 				AB36CE2F1D1B710400D0E4C7 /* TADotView.m in Sources */,
 				AB02D4AC1D2228F800AED400 /* ShopCarViewController.m in Sources */,
 				CC26F0E11D264C61003964A1 /* PublishTreasureTableViewController.m in Sources */,
@@ -2177,6 +2208,7 @@
 				CCEEFC121D37613A0001C7AA /* MineNoticeViewController.m in Sources */,
 				AB36CE2D1D1B710400D0E4C7 /* TAAbstractDotView.m in Sources */,
 				D16E041B1D4200C80038297A /* StoreHeaderTableViewCell.m in Sources */,
+				ABF9F0FB1D546964004E1523 /* GestureLockViewController.m in Sources */,
 				CC6BD0771D2F496900659C96 /* Config.m in Sources */,
 				CC5C78951D4B4276002F50B7 /* starView.m in Sources */,
 				CC4F372F1D2DEFEC00312F11 /* MineWaitPayModel.m in Sources */,

@@ -28,6 +28,7 @@
     NSInteger index;
     PayView* _payView;
     UIButton* _shadowBtn;
+    NSInteger sectionCout;
 }
 @end
 
@@ -102,10 +103,19 @@
             for(AllOderModel * model in arrays){
                 if([model.state isEqualToString:@"0"]){
                     [waitpayArray addObject:model];
+                    if (waitpayArray.count > 0) {
+                        sectionCout++;
+                    }
                 }else if ([model.state isEqualToString:@"1"]){
                     [waitjudgeArray addObject:model];
+                    if (waitjudgeArray.count > 0) {
+                        sectionCout++;
+                    }
                 }else{
                     [isjudgeArray addObject:model];
+                    if (isjudgeArray.count > 0) {
+                        sectionCout++;
+                    }
                 }
             }
             [_tableView reloadData];
@@ -163,7 +173,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 3;
+    return sectionCout;
 }
 
 

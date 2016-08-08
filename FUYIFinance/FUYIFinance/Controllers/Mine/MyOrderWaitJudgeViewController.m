@@ -40,7 +40,7 @@
     [self addRefresh];
     dataSource = [NSMutableArray array];
     [self loadData];
-     [[Config Instance] saveWaitJudgeCount:@"0"];
+    // [[Config Instance] saveWaitJudgeCount:@"0"];
     
 }
 
@@ -78,7 +78,7 @@
                                                    }
                                                    if(success){
                                                        [dataSource addObjectsFromArray:arrays];
-                                                       [[Config Instance] saveWaitJudgeCount:[NSString stringWithFormat:@"%ld",dataSource.count]];
+//                                                       [[Config Instance] saveWaitJudgeCount:[NSString stringWithFormat:@"%ld",dataSource.count]];
                                                        [_tableView reloadData];
                                                    }else{
                                                        
