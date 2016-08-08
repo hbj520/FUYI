@@ -8,15 +8,126 @@
 
 #import "CollectionViewController.h"
 
-@interface CollectionViewController ()
+#import "MyCollectionTableViewCell.h"
+
+#import "MineCollectionTreasureModel.h"
+
+#import "LabelHelper.h"
+#import "MJRefresh.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+
+
+static NSString *collectionId = @"MyCollectionId";
+@interface CollectionViewController ()<UITableViewDelegate,UITableViewDataSource>{
+    NSInteger _page;
+    NSMutableArray *collectGoodArr;
+}
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
 @implementation CollectionViewController
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    collectGoodArr = [[NSMutableArray alloc]init];
+    [self creatUI];
+    _page = 1;
+    
+    [self loadDataWithPage:_page];
+    [self addRefresh];
+
+    self.automaticallyAdjustsScrollViewInsets = NO;
+}
+
+- (void)creatUI{
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    //self.tableView.frame = CGRectMake(0, 0, ScreenWidth-64, ScreenHeight);
+    [self.tableView registerNib:[UINib nibWithNibName:@"MyCollectionTableViewCell" bundle:nil] forCellReuseIdentifier:collectionId];
+    self.tableView.rowHeight = 105;
+    self.tableView.sectionHeaderHeight = 7;
+    self.tableView.sectionFooterHeight = 7;
+}
+
+- (void)addRefresh{
+    __weak CollectionViewController *weakself = self;
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        _page = 1;
+        if (collectGoodArr.count > 0) {
+            [collectGoodArr removeAllObjects];
+        }
+        [weakself loadDataWithPage:_page];
+    }];
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        _page++;
+        [weakself loadDataWithPage:_page];
+    }];
+}
+
+- (void)loadDataWithPage:(NSInteger)page{
+    NSString *nowPage = [NSString stringWithFormat:@"%ld",(long)_page];
+    [[MyAPI sharedAPI] requestCollectionTreasureDataWithParameters:nowPage result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
+        if (success) {
+            [collectGoodArr addObjectsFromArray:arrays];
+            [self.tableView reloadData];
+        }else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView.mj_footer endRefreshingWithNoMoreData];
+            });
+            _page--;
+        }
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
+    } errorResult:^(NSError *enginerError) {
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
+        
+    }];
+}
+
+
+#pragma mark - UITableViewDelegate
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return collectGoodArr.count;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    return 1;
+    
+}
+
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+   MyCollectionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:collectionId forIndexPath:indexPath];
+    
+    MineCollectionTreasureModel *model = [collectGoodArr objectAtIndex:indexPath.section];
+    
+    [cell.thumbimage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
+    cell.titlename.text = model.name;
+    cell.teachername.text = model.teacher;
+    
+    cell.pricelabel.attributedText = [[LabelHelper alloc]attributedFontStringWithString:[NSString stringWithFormat:@"¥ %@",model.price] firstFont:13 secFont:17 thirdFont:14];
+    
+    
+    
+    
+    return cell;
+}
+
+
+- (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)sectio{
+    
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 5)];
+    return view;
 }
 
 - (void)didReceiveMemoryWarning {
