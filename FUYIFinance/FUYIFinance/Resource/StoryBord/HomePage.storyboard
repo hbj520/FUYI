@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="oqS-Uv-Ope">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="oqS-Uv-Ope">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -52,8 +52,8 @@
                     <navigationItem key="navigationItem" id="n0O-HM-bQh"/>
                     <connections>
                         <outlet property="tableView" destination="q4s-3I-iwh" id="dXY-i5-4Q6"/>
-                        <segue destination="els-pr-w1f" kind="push" identifier="VideoStoreSegue" id="GOw-hj-Jjk"/>
                         <segue destination="KZT-YV-hiS" kind="push" identifier="TeacherTeamSegue" id="gJC-TS-PUa"/>
+                        <segue destination="els-pr-w1f" kind="push" identifier="VideoStoreSegue" id="7Fn-d5-dFQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q7p-ay-veM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -160,59 +160,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vRz-fr-BXK">
-                                <rect key="frame" x="0.0" y="64" width="320" height="40"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hvD-O6-g1f">
-                                        <rect key="frame" x="0.0" y="0.0" width="160" height="39"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                        <state key="normal" title="金融品种">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbC-rX-ZrN">
-                                        <rect key="frame" x="160" y="0.0" width="160" height="39"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="课程类型">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="lbC-rX-ZrN" secondAttribute="bottom" constant="1" id="4H8-BX-F7V"/>
-                                    <constraint firstItem="hvD-O6-g1f" firstAttribute="width" secondItem="lbC-rX-ZrN" secondAttribute="width" id="6FD-wL-9ap"/>
-                                    <constraint firstItem="hvD-O6-g1f" firstAttribute="top" secondItem="vRz-fr-BXK" secondAttribute="top" id="AJi-Yt-7mr"/>
-                                    <constraint firstAttribute="bottom" secondItem="hvD-O6-g1f" secondAttribute="bottom" constant="1" id="BwZ-wz-Qxn"/>
-                                    <constraint firstItem="lbC-rX-ZrN" firstAttribute="top" secondItem="vRz-fr-BXK" secondAttribute="top" id="VCb-Xv-h2Z"/>
-                                    <constraint firstItem="lbC-rX-ZrN" firstAttribute="leading" secondItem="hvD-O6-g1f" secondAttribute="trailing" id="ady-hI-QBl"/>
-                                    <constraint firstAttribute="height" constant="40" id="eNy-NB-bIG"/>
-                                    <constraint firstAttribute="trailing" secondItem="lbC-rX-ZrN" secondAttribute="trailing" id="oU1-hJ-r1S"/>
-                                    <constraint firstItem="hvD-O6-g1f" firstAttribute="height" secondItem="lbC-rX-ZrN" secondAttribute="height" id="tNJ-Og-Sdi"/>
-                                    <constraint firstItem="lbC-rX-ZrN" firstAttribute="leading" secondItem="hvD-O6-g1f" secondAttribute="trailing" id="vKK-Ll-DcQ"/>
-                                    <constraint firstItem="hvD-O6-g1f" firstAttribute="leading" secondItem="vRz-fr-BXK" secondAttribute="leading" id="zXw-Dz-yYt"/>
-                                </constraints>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mKd-2u-Kfb">
-                                <rect key="frame" x="0.0" y="148" width="320" height="371"/>
+                                <rect key="frame" x="0.0" y="108" width="320" height="460"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="mKd-2u-Kfb" secondAttribute="trailing" id="5uJ-rb-agS"/>
-                            <constraint firstItem="mKd-2u-Kfb" firstAttribute="top" secondItem="vRz-fr-BXK" secondAttribute="bottom" constant="44" id="8kE-p7-p0L"/>
-                            <constraint firstItem="e3g-Lv-JfO" firstAttribute="top" secondItem="mKd-2u-Kfb" secondAttribute="bottom" id="NCZ-Xe-Vpc"/>
-                            <constraint firstItem="mKd-2u-Kfb" firstAttribute="leading" secondItem="2oj-Kb-xso" secondAttribute="leading" id="XXG-De-iyG"/>
-                            <constraint firstItem="vRz-fr-BXK" firstAttribute="leading" secondItem="2oj-Kb-xso" secondAttribute="leading" id="mpo-tl-xhB"/>
-                            <constraint firstAttribute="trailing" secondItem="vRz-fr-BXK" secondAttribute="trailing" id="odV-wk-egG"/>
-                            <constraint firstItem="vRz-fr-BXK" firstAttribute="top" secondItem="WjV-fJ-BQ8" secondAttribute="bottom" id="x3h-7r-ftr"/>
+                            <constraint firstItem="mKd-2u-Kfb" firstAttribute="top" secondItem="2oj-Kb-xso" secondAttribute="top" constant="108" id="3wx-kc-oUz"/>
+                            <constraint firstItem="mKd-2u-Kfb" firstAttribute="leading" secondItem="2oj-Kb-xso" secondAttribute="leading" id="JTy-c3-Yg1"/>
+                            <constraint firstItem="e3g-Lv-JfO" firstAttribute="top" secondItem="mKd-2u-Kfb" secondAttribute="bottom" id="b3o-9l-hd8"/>
+                            <constraint firstAttribute="trailing" secondItem="mKd-2u-Kfb" secondAttribute="trailing" id="hMg-Ou-jZp"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="muA-hs-pBo">
-                        <nil key="title"/>
-                    </navigationItem>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationItem key="navigationItem" id="muA-hs-pBo"/>
                     <connections>
                         <outlet property="tableView" destination="mKd-2u-Kfb" id="g8v-FQ-OtD"/>
                         <segue destination="ofR-57-tJm" kind="push" identifier="videoDetailSegue" id="e97-6Y-yAC"/>

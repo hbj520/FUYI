@@ -34,28 +34,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JbU-oz-Meu">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="JbU-oz-Meu">
+                                <rect key="frame" x="0.0" y="24" width="320" height="544"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="JbU-oz-Meu" secondAttribute="trailing" id="3we-iS-4kd"/>
                             <constraint firstItem="JbU-oz-Meu" firstAttribute="leading" secondItem="Ch2-Sp-jle" secondAttribute="leading" id="HTZ-N9-Sj1"/>
-                            <constraint firstItem="JbU-oz-Meu" firstAttribute="top" secondItem="cZF-9Q-Oxn" secondAttribute="bottom" id="SjQ-yN-eRT"/>
+                            <constraint firstItem="JbU-oz-Meu" firstAttribute="top" secondItem="cZF-9Q-Oxn" secondAttribute="bottom" constant="-40" id="SjQ-yN-eRT"/>
                             <constraint firstItem="GyC-Nd-v9u" firstAttribute="top" secondItem="JbU-oz-Meu" secondAttribute="bottom" id="mWb-dq-Yhu"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="收藏宝贝" id="g8g-Xl-hFC"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="tableView" destination="JbU-oz-Meu" id="pr8-Zd-frj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fOx-Up-jKv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-107" y="370"/>
+            <point key="canvasLocation" x="-107" y="362"/>
         </scene>
     </scenes>
 </document>

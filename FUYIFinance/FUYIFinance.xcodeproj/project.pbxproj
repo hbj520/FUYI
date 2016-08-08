@@ -1154,8 +1154,8 @@
 			children = (
 				AB36CDB81D1283AD00D0E4C7 /* HomePageViewController.h */,
 				AB36CDB91D1283AD00D0E4C7 /* HomePageViewController.m */,
-				ABF9F0F71D541F7E004E1523 /* VideoShopViewController.m */,
 				D1F1301B1D2B503500EE1690 /* VideoShopViewController.h */,
+				ABF9F0F71D541F7E004E1523 /* VideoShopViewController.m */,
 				D1F12FFC1D2A2C4800EE1690 /* VideoDetailViewController.h */,
 				D1F12FFD1D2A2C4800EE1690 /* VideoDetailViewController.m */,
 				D16E04001D40BAF30038297A /* StoreViewController.h */,
