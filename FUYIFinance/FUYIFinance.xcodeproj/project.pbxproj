@@ -61,6 +61,8 @@
 		AB36CE4A1D1CE72400D0E4C7 /* ThreeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB36CE461D1CE72400D0E4C7 /* ThreeCollectionViewCell.xib */; };
 		AB36CE4B1D1CE72400D0E4C7 /* ThreeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36CE481D1CE72400D0E4C7 /* ThreeTableViewCell.m */; };
 		AB45FC441D409529008E6FBA /* Barcode.m in Sources */ = {isa = PBXBuildFile; fileRef = AB45FC401D409529008E6FBA /* Barcode.m */; };
+		AB4EB7B51D584E7D00F6323E /* GestureUnlockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4EB7B41D584E7D00F6323E /* GestureUnlockViewController.m */; };
+		AB4EB7B81D585F1600F6323E /* GestureHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4EB7B71D585F1600F6323E /* GestureHelper.m */; };
 		AB708F8B1D0543BE007D0B4D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AB708F8A1D0543BE007D0B4D /* main.m */; };
 		AB708F8E1D0543BE007D0B4D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AB708F8D1D0543BE007D0B4D /* AppDelegate.m */; };
 		AB708F911D0543BE007D0B4D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB708F901D0543BE007D0B4D /* ViewController.m */; };
@@ -412,6 +414,10 @@
 		AB45FC3F1D409529008E6FBA /* Barcode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Barcode.h; sourceTree = "<group>"; };
 		AB45FC401D409529008E6FBA /* Barcode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Barcode.m; sourceTree = "<group>"; };
 		AB45FC411D409529008E6FBA /* IJKCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IJKCommon.h; sourceTree = "<group>"; };
+		AB4EB7B31D584E7D00F6323E /* GestureUnlockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureUnlockViewController.h; sourceTree = "<group>"; };
+		AB4EB7B41D584E7D00F6323E /* GestureUnlockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureUnlockViewController.m; sourceTree = "<group>"; };
+		AB4EB7B61D585F1600F6323E /* GestureHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureHelper.h; sourceTree = "<group>"; };
+		AB4EB7B71D585F1600F6323E /* GestureHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureHelper.m; sourceTree = "<group>"; };
 		AB708F861D0543BE007D0B4D /* FUYIFinance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FUYIFinance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB708F8A1D0543BE007D0B4D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AB708F8C1D0543BE007D0B4D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = FUYIFinance/AppDelegate.h; sourceTree = SOURCE_ROOT; };
@@ -1067,6 +1073,8 @@
 				D1F130631D34EE5400EE1690 /* AnimationHelper.m */,
 				D1F130651D35D32300EE1690 /* LPPopup.h */,
 				D1F130661D35D32300EE1690 /* LPPopup.m */,
+				AB4EB7B61D585F1600F6323E /* GestureHelper.h */,
+				AB4EB7B71D585F1600F6323E /* GestureHelper.m */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -1175,6 +1183,8 @@
 			children = (
 				CC4096AB1D49992600084D1A /* SettingViewController.h */,
 				CC4096AC1D49992600084D1A /* SettingViewController.m */,
+				AB4EB7B31D584E7D00F6323E /* GestureUnlockViewController.h */,
+				AB4EB7B41D584E7D00F6323E /* GestureUnlockViewController.m */,
 				ABF9F0F91D546964004E1523 /* GestureLockViewController.h */,
 				ABF9F0FA1D546964004E1523 /* GestureLockViewController.m */,
 				CC01B67C1D48476D00BC5323 /* ModifyPwdViewController.h */,
@@ -2126,6 +2136,7 @@
 				CC6FD60E1D362E0300DA60AB /* MJPropertyType.m in Sources */,
 				AB36CE331D1B710400D0E4C7 /* UIView+SDExtension.m in Sources */,
 				ABF9F0F51D53215E004E1523 /* CLAdCollectionCell.m in Sources */,
+				AB4EB7B51D584E7D00F6323E /* GestureUnlockViewController.m in Sources */,
 				CC26F0DA1D261CAB003964A1 /* ProductJudgeViewController.m in Sources */,
 				AB1764D01D52088A001A84E8 /* View+MASAdditions.m in Sources */,
 				ABEACD5C1D2B87DE00574259 /* Tools.m in Sources */,
@@ -2245,6 +2256,7 @@
 				CC3C62DC1D51E68300CD62AC /* OrderManageViewController.m in Sources */,
 				CC4F37391D2E58BF00312F11 /* MineRegisterViewController.m in Sources */,
 				CC4F37361D2E07C700312F11 /* UIViewController+HUD.m in Sources */,
+				AB4EB7B81D585F1600F6323E /* GestureHelper.m in Sources */,
 				D15BA3881D237CE200904DEF /* ShopCarTableViewCell.m in Sources */,
 				AB708F8B1D0543BE007D0B4D /* main.m in Sources */,
 				CC72D0331D226A5C00945BCF /* YSLContainerViewController.m in Sources */,
