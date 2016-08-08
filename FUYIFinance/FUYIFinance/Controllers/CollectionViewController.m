@@ -10,6 +10,8 @@
 
 @interface CollectionViewController ()
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 @end
 
 @implementation CollectionViewController
@@ -17,6 +19,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
