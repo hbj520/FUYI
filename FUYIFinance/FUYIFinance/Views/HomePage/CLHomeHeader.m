@@ -145,7 +145,9 @@ static NSString *ADID = @"adCell";
 {
     CLAdCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ADID forIndexPath:indexPath];
     cell.backgroundView.backgroundColor = [UIColor whiteColor];
-    cell.contentArray = self.newses[indexPath.row];
+    if (self.newses.count > 0) {
+        cell.contentArray = self.newses[indexPath.row];
+    }
     __weak CLHomeHeader *weakSelf = self;
     cell.clickLable1 = ^{
         weakSelf.cliclCelllable1();
