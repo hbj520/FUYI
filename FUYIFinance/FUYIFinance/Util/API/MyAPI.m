@@ -609,8 +609,13 @@
                                              result:(ArrayBlock)result
                                         errorResult:(ErrorBlock)errorResult
 {
-
-    NSDictionary * parameters = @{@"token":KToken,
+    NSString *token ;
+    if (KToken) {
+        token = KToken;
+    }else{
+        token = @"";
+    }
+    NSDictionary * parameters = @{@"token":token,
                                   @"page":page};
     [self.manager POST:@"allcollect" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         NSString * status = responseObject[@"status"];
