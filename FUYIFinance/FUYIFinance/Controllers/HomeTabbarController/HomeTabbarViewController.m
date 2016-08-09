@@ -89,9 +89,9 @@
         [menusVCs addObject:vc];
     }
     self.viewControllers = menusVCs;
-    if (KGesturePsassword) {
-        [[GestureHelper sharedGesture] showGestureUnlockViewFromNowVC:menusVCs[0]];
-    }
+//    if (KGesturePsassword) {
+//        [[GestureHelper sharedGesture] showGestureUnlockViewFromNowVC:menusVCs[0]];
+//    }
 }
 
 - (void)didReceiveMemoryWarning {

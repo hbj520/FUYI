@@ -142,13 +142,21 @@ static Config * instance = nil;
     [settings setObject:gesturePassword forKey:@"gesturePassword"];
     [settings synchronize];
 }
-
+- (void)saveTeminate{
+    NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
+    [settings removeObjectForKey:@"terminate"];
+    [settings setObject:@"1" forKey:@"terminate"];
+    [settings synchronize];
+}
 - (NSString *)getisteacher
 {
     NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
     return [settings stringForKey:@"isteacher"];
 }
-
+- (NSString *)getTeminate{
+    NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
+    return [settings stringForKey:@"terminate"];
+}
 - (NSString*)getUserId
 {
     NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
@@ -202,5 +210,8 @@ static Config * instance = nil;
     [settings removeObjectForKey:@"isteacher"];
     
 }
-
+- (void)deleteTeminate{
+    NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
+    [settings removeObjectForKey:@"terminate"];
+}
 @end

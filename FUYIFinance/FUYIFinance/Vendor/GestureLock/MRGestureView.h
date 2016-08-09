@@ -15,6 +15,11 @@
 
 /** 手势数据模型 */
 @property(nonatomic, strong)MRGesture *gesture;
+/** 选中按钮 */
+@property(nonatomic, strong)NSMutableArray *selectedBtns;
+@property (nonatomic,assign) BOOL isSetPassWord;//是否为设置密码界面
+@property (nonatomic,assign) BOOL isFirstSet;//
+@property (nonatomic,strong) NSString *firstPassword;
 
 /** 代理 */
 @property(nonatomic, weak)id<MRGestureViewDelegate> delegate;

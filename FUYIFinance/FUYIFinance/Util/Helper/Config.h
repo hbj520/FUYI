@@ -39,17 +39,19 @@
 - (void)saveBackImg:(NSString *)backimage;
 - (void)saveUserPassword:(NSString*)password;
 - (void)saveGesturePassword:(NSString *)gesturePassword;
+- (void)saveTeminate;//结束进程后保存
 
+- (NSString *)getTeminate;//
 - (NSString *)getUserId;       //获取用户id
 - (NSString *)getUserName;     //获取用户名
 - (NSString *)getUserPhoneNum; //获取用户手机号码
 - (NSString *)getisteacher;         //获取是否是讲师
 - (NSString *)getToken;        //获取用户登录令牌
-//- (NSString*)getUserIcon;     //获取用户头像
 - (NSString *)getPassword;     //获取用户密码
 - (NSString *)getIcon;          //获取图片
 - (NSString *)getBackImage;    //获取背景图片
 - (NSString *)getGesturePassword;//获取手势密码
 - (void)logout;               //退出登录
+- (void)deleteTeminate;
 
 @end

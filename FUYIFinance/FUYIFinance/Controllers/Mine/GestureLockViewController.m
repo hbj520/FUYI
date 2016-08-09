@@ -48,13 +48,13 @@
     
     // 添加手势视图
     self.gestureView = [[MRGestureView alloc] init];
-    
+    self.gestureView.isSetPassWord = YES;
+    self.gestureView.isFirstSet = YES;
     self.gestureView.delegate = self;
     
     MRGesture *gesture = [[MRGesture alloc] init];
     
     // 设置密码
-    // gesture.password = @"123";
     
     self.gestureView.gesture = gesture;
     
@@ -80,6 +80,9 @@
         self.firstGesPassword = gesturePassword;
         self.guideLabel.text = @"请再次确认您的手势密码~~";
         self.isFirstSet = NO;
+        self.gestureView.isFirstSet = NO;
+        self.gestureView.firstPassword = gesturePassword;
+        //[self.gestureView.selectedBtns removeAllObjects];
        // self.gestureView.gesture
     }else{
         if ([self.firstGesPassword isEqualToString:gesturePassword]) {
@@ -89,6 +92,7 @@
         }else{
             self.guideLabel.text = @"您的两次密码输入不同，请从新设置";
             self.isFirstSet = YES;
+            //[self.gestureView.selectedBtns removeAllObjects];
         }
     }
     

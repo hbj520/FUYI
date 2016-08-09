@@ -44,7 +44,8 @@
 }
 //是否大于规定时间
 - (BOOL)isTimeOut{
-    return self.durationTime > 10;
+    
+    return self.durationTime > 10 || [[[Config Instance] getTeminate] isEqualToString:@"1"];
 }
 //显示手势解锁界面
 - (void)showGestureUnlockViewFromNowVC:(UIViewController *)NowVC{

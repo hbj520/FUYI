@@ -21,7 +21,6 @@
                                                            [UIColor colorWithRed:90/255.0 green:90/255.0 blue:90/255.0 alpha:100], NSForegroundColorAttributeName, [UIFont systemFontOfSize:15], NSFontAttributeName, nil]];
     self.DataSource = @[@{@"thumbimage":@"",@"title":@"",@"teachername":@"",@"price":@"",@"totoalprice":@""},@{@"thumbimage":@"",@"title":@"",@"teachername":@"",@"price":@"",@"totoalprice":@""}];
     
-    
     [self changeToMain];
     return YES;
 }
@@ -54,6 +53,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {//结束进程
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [[Config Instance] saveTeminate];
 }
 #pragma mark - PrivateMethod
 - (void)changeToMain{
