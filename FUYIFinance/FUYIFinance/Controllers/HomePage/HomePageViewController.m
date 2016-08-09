@@ -254,7 +254,7 @@ static NSString *investReuseId = @"investReuseId";
 #pragma mark -SDCycleScrollViewDelegate
 //点击头部滚动视图
 -(void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
-    IJKMoviePlayerViewController *playerVC = [IJKMoviePlayerViewController InitVideoViewFromViewController:self withTitle:@"GLTest" URL:[NSURL URLWithString:@"http://www.fuyi001.com/video_play.html?videoid=139"] isLiveVideo:YES isOnlineVideo:NO isFullScreen:NO completion:nil];
+    IJKMoviePlayerViewController *playerVC = [IJKMoviePlayerViewController InitVideoViewFromViewController:self withTitle:@"GLTest" URL:[NSURL URLWithString:@"http://krtv.qiniudn.com/150522nextapp"] isLiveVideo:YES isOnlineVideo:NO isFullScreen:NO completion:nil];
     [self addChildViewController:playerVC];
     [_headerView addSubview:playerVC.view];
     /** 判断直播是否开启,并执行退出 */

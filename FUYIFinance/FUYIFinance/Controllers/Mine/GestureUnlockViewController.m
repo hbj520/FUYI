@@ -14,6 +14,8 @@
 /** 背景控件 */
 @property(nonatomic, strong)MRGestureBgView *bgView;
 @property(nonatomic, strong)MRGestureView *gestureView;
+@property(nonatomic, strong) UILabel *guideLabel;//引导提示标题
+
 
 @end
 
@@ -60,11 +62,17 @@
     self.gestureView.frame = CGRectMake(0, 120, self.view.frame.size.width, self.view.frame.size.height);
     
     [self.view addSubview:self.gestureView];
-    
+    //设置引导label
+    self.guideLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 70, ScreenWidth, 30)];
+    self.guideLabel.text = @"您设置了个人信息安全保护";
+    self.guideLabel.textColor = [UIColor whiteColor];
+    self.guideLabel.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:self.guideLabel];
 }
 #pragma mark - <MRGestureViewDelegate>
 - (void)gestureViewUnlockSuccess:(MRGestureView *)gestureView{
     [[GestureHelper sharedGesture] resetData];
+    [[Config Instance] deleteTeminate];
     [self dismissViewControllerAnimated:YES completion:^{
         
     }];

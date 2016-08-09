@@ -11,8 +11,7 @@
 
 @interface MRGestureView ()
 
-/** 选中按钮 */
-@property(nonatomic, strong)NSMutableArray *selectedBtns;
+
 
 /** 当前触摸点 */
 @property(nonatomic, assign)CGPoint curPoint;
@@ -235,7 +234,6 @@
         if([self checkGestureResult]) { // 解锁成功
         
             [[UIColor blueColor] set];
-            
             // 如果实现了解锁成功的代理方法
             if([self.delegate respondsToSelector:@selector(gestureViewUnlockSuccess:)]) {
                 
@@ -244,8 +242,31 @@
             }
             
         }else { // 解锁失败
-            
-            [[UIColor redColor] set];
+            if (!self.isSetPassWord) {
+                [[UIColor redColor] set];
+            }else{
+                if (self.isFirstSet) {
+                     [[UIColor greenColor] set];
+                }else{
+                    // 创建可变字符串
+                    NSMutableString *result = [NSMutableString string];
+                    
+                    // 遍历选中按钮拼接tag
+                    for (UIButton *btn in self.selectedBtns) {
+                        
+                        // 保存连接密码
+                        [result appendFormat:@"%ld", (long)btn.tag];
+                        
+                    }
+                    if ([self.firstPassword isEqualToString:result]) {
+                        [[UIColor greenColor] set];
+                    }else{
+                        [[UIColor redColor] set];
+                        self.isFirstSet = YES;
+                    }
+                }
+               
+            }
         }
         
     }else {
