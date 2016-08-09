@@ -94,7 +94,15 @@
                                         [self logOut];
                                         }
         if(success){
+            if(arrays.count == 0){
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [_tableView.mj_footer endRefreshingWithNoMoreData];
+                });
+                page--;
+
+            }else{
             [_dataSource addObjectsFromArray:arrays];
+            }
 //            [[Config Instance] saveWaitPayCount:[NSString stringWithFormat:@"%ld",_dataSource.count]];
            
             [_tableView reloadData];

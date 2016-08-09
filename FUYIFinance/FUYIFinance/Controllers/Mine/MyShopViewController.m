@@ -41,18 +41,34 @@
 @implementation MyShopViewController
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
 
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     //添加自定制导航栏按钮
+    
     [self createUI];
     self.navigationController.navigationBarHidden = NO;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh:) name:@"refreshView" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeStatus) name:@"changeState" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateImage) name:@"updateImage" object:nil];
 }
 
+
+
 - (void)refresh:(id)userinfo
+{
+    [_tableView reloadData];
+}
+
+- (void)changeStatus
+{
+    [_tableView reloadData];
+}
+
+- (void)updateImage
 {
     [_tableView reloadData];
 }
@@ -80,11 +96,7 @@
     _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [weakself loadData];
     }];
-//    MJRefreshAutoNormalFooter * footerRefresh = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-//        [weakself loadData];
-//    }];
-//    footerRefresh.automaticallyRefresh = NO;
-//    _tableView.mj_footer = footerRefresh;
+
 }
 
 
@@ -195,34 +207,33 @@
         MyShopHeaderTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cellID1" forIndexPath:indexPath];
 
         if(KToken){
-            //cell.headicon.hidden = NO;
-           // cell.teacherName.hidden = NO;
-            //cell.personlabel.hidden = NO;
-            //cell.backImg.hidden = NO;
-            //cell.loginBtn.hidden = YES;
             NSString * headimageUrl = [[Config Instance] getIcon];
             [cell.headicon sd_setImageWithURL:[NSURL URLWithString:headimageUrl] placeholderImage:[UIImage imageNamed:@"placeimage"]];
+            cell.personlabel.hidden = NO;
+            cell.backImg.userInteractionEnabled = YES;
             cell.teacherName.text = teacherinfo.username;
             cell.totoalcount.text = teacherinfo.ordermoney;
             cell.vivstcount.text = teacherinfo.hits;
             cell.ordercount.text = teacherinfo.orders;
-            
-        }else{
-            //cell.headicon.hidden = YES;
-            //cell.teacherName.hidden = YES;
-            //cell.personlabel.hidden = YES;
-           // cell.backImg.hidden = YES;
-            //cell.loginBtn.hidden = NO;
+            UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(choseImage)];
+            cell.backImg.userInteractionEnabled = YES;
+            [cell.backImg addGestureRecognizer:tap];
+            if(imageUrl.length){
+                [cell.backImg sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"placeimage"]];
+            }
 
+        }else{
+            cell.backImg.userInteractionEnabled = NO;
+            cell.headicon.image = [UIImage imageNamed:@"person_headicon"];
+            cell.teacherName.text = @"未登录请登录";
+            cell.personlabel.hidden = YES;
+            cell.backImg.userInteractionEnabled = NO;
+            cell.block = ^(){
+                [self logOut];
+            };
         }
         [cell.loginBtn addTarget:self action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
-        UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(choseImage)];
-        cell.backImg.userInteractionEnabled = YES;
-        [cell.backImg addGestureRecognizer:tap];
-        if(imageUrl.length){
-        [cell.backImg sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"placeimage"]];
-        }
-        return cell;
+                return cell;
     }else if (indexPath.section==1){
         ShopTopTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cellID2" forIndexPath:indexPath];
         return cell;
@@ -414,7 +425,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    if(indexPath.section == 0){
+        if(!KToken){
+        [self logOut];
+        }
+    }
     if(indexPath.section == 3){
         if(indexPath.row == 0){
             if(!KToken){
@@ -426,13 +441,13 @@
             if(!KToken){
                 [self logOut];
             }else{
-                [self performSegueWithIdentifier:@"teachercountSegue" sender:nil];
+                [self performSegueWithIdentifier:@"accountSegue" sender:nil];
             }
         }else{
             if(!KToken){
                 [self logOut];
             }else{
-                [self performSegueWithIdentifier:@"teachermessageSegue" sender:nil];
+            [self performSegueWithIdentifier:@"teachermessageSegue" sender:nil];
             }
         }
     }
@@ -443,6 +458,8 @@
             }else{
             [self performSegueWithIdentifier:@"settingSegue" sender:@"isTeacher"];
             }
+        }else{
+            [self performSegueWithIdentifier:@"aboutSegue" sender:nil];
         }
     }
 }
@@ -483,20 +500,14 @@
     }
 }
 
-
-
-//- (void)viewWillAppear:(BOOL)animated
-//{
-//    [super viewWillAppear:animated];
-//    self.navigationController.navigationBarHidden = NO;
-//}
-
-//退回到上级界面
-- (IBAction)back:(id)sender {
-   
-   // self.navigationController.navigationBarHidden = YES;
-    [self.navigationController popViewControllerAnimated:YES];
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"refreshView" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"changeState" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"updateImage" object:nil];
 }
+
+
 
 
 - (void)didReceiveMemoryWarning {

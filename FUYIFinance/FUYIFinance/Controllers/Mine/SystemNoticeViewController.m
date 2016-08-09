@@ -1,54 +1,51 @@
 //
-//  OrderManageViewController.m
+//  SystemNoticeViewController.m
 //  FUYIFinance
 //
-//  Created by 张哲 on 16/8/3.
+//  Created by 张哲 on 16/8/8.
 //  Copyright © 2016年 youyou. All rights reserved.
 //
 
-#import "OrderManageViewController.h"
-#import "MyShopDetailTableViewCell.h"
-#import "OrderManageModel.h"
+#import "SystemNoticeViewController.h"
+#import "NoticeListTableViewCell.h"
+#import "SystemNoticeModel.h"
 #import "MyAPI.h"
-@interface OrderManageViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface SystemNoticeViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
+    NSInteger page;
     NSMutableArray * dataSource;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 @end
 
-@implementation OrderManageViewController
+@implementation SystemNoticeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    dataSource = [NSMutableArray array];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
     [self createUI];
     [self loadData];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = NO;
-}
 
 - (void)createUI
 {
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    [self.tableView registerNib:[UINib nibWithNibName:@"NoticeListTableViewCell" bundle:nil] forCellReuseIdentifier:@"NoticeId"];
     self.tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    [self.tableView registerNib:[UINib nibWithNibName:@"MyShopDetailTableViewCell" bundle:nil] forCellReuseIdentifier:@"cellID4"];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
 }
 
 - (void)loadData
 {
-    [[MyAPI sharedAPI] requestOrderManageRequestWithResult:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
-        dataSource = arrays;
-        [_tableView reloadData];
-    } errorResult:^(NSError *enginerError) {
+    dataSource = [NSMutableArray array];
+    [[MyAPI sharedAPI] requestSystemNoticeWithResult:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
+        if(success){
+            [dataSource addObjectsFromArray:arrays];
+        }
+        [self.tableView reloadData];
+    } ErrorResult:^(NSError *enginerError) {
         
     }];
 }
@@ -63,31 +60,24 @@
     return dataSource.count;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 95;
-}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString * cellID = @"cellID4";
-    MyShopDetailTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
-    OrderManageModel * model = [[OrderManageModel alloc] init];
+    static NSString * cellId = @"NoticeId";
+    NoticeListTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    SystemNoticeModel * model = [[SystemNoticeModel alloc] init];
     model = dataSource[indexPath.row];
     cell.model = model;
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    return 75;
 }
 
 - (IBAction)back:(id)sender {
-    self.navigationController.navigationBarHidden = NO;
     [self.navigationController popViewControllerAnimated:YES];
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

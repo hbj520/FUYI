@@ -1,37 +1,36 @@
 //
-//  ModifyPwdViewController.m
+//  AccountSaftyViewController.m
 //  FUYIFinance
 //
-//  Created by 张哲 on 16/7/26.
+//  Created by 张哲 on 16/8/8.
 //  Copyright © 2016年 youyou. All rights reserved.
 //
 
-#import "ModifyPwdViewController.h"
+#import "AccountSaftyViewController.h"
 #import "UIViewController+HUD.h"
 #import "Config.h"
 #import "Tools.h"
-@interface ModifyPwdViewController ()
+
+@interface AccountSaftyViewController ()
+
 @property (weak, nonatomic) IBOutlet UIButton *commitBtn;
 @property (weak, nonatomic) IBOutlet UITextField *oldpassword;
 @property (weak, nonatomic) IBOutlet UITextField *newpassword;
 @property (weak, nonatomic) IBOutlet UITextField *comfirmpassword;
-
 @end
 
-@implementation ModifyPwdViewController
+@implementation AccountSaftyViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.commitBtn.layer.cornerRadius = 6;
     self.commitBtn.layer.masksToBounds = YES;
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
     self.navigationController.navigationBarHidden = NO;
 }
 
@@ -40,8 +39,8 @@
     [self.view endEditing:YES];
 }
 
+
 - (IBAction)reviseAction:(id)sender {
-    
     [Tools hideKeyBoard];
     
     if(self.oldpassword.text.length == 0 || self.newpassword.text.length == 0 || self.comfirmpassword.text.length == 0){
@@ -66,7 +65,7 @@
         [[MyAPI sharedAPI] reSetPasswordWithOldPassword:oldSecurityString newPassword:newSecurityString Result:^(BOOL sucess, NSString *msg) {
             if(sucess){
                 [[Config Instance] saveUserPassword:newSecurityString];
-                 [[Config Instance]logout];
+                [[Config Instance]logout];
                 [self showHint:@"修改成功"];
                 [self RebuildlogOut];
             }else{
@@ -79,22 +78,25 @@
     }else{
         [self showHint:@"两次密码输入不一样"];
     }
+
+    
 }
 
-
-- (IBAction)back:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
-    self.navigationController.navigationBarHidden = YES;
-}
 - (void)RebuildlogOut{
     if (KToken) {
         [[Config Instance] logout];
     }
-    UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
-    UINavigationController *mineVC = [storybord instantiateViewControllerWithIdentifier:@"MineStoryBordId"];
-    mineVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+//    UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
+//    UINavigationController *mineVC = [storybord instantiateViewControllerWithIdentifier:@"MineStoryBordId"];
+//    mineVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+//    [self.navigationController presentModalViewController:mineVC animated:YES];
     [self.navigationController popViewControllerAnimated:YES];
 }
+- (IBAction)back:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+    self.navigationController.navigationBarHidden = YES;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

@@ -8,13 +8,23 @@
 
 #import "ShopSettingTableViewController.h"
 #import "UIViewController+HUD.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 #import "ModifyHeadView.h"
 #import "ChangeHeadView.h"
+#import "TeacherShopInfoModel.h"
 #import "KGModal.h"
+#import "MyAPI.h"
 @interface ShopSettingTableViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 {
     UIImagePickerController * _picker;
+    TeacherShopInfoModel * userinfo;
 }
+@property (weak, nonatomic) IBOutlet UIImageView *headicon;
+
+@property (weak, nonatomic) IBOutlet UITextField *shopintroduce;
+
+@property (weak, nonatomic) IBOutlet UILabel *shopname;
+
 @end
 
 @implementation ShopSettingTableViewController
@@ -22,14 +32,38 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initPickView];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeShopName:) name:@"returnShopName" object:nil];
+    [self loadData];
 }
 
+- (void)changeShopName:(NSNotification *)noti
+{
+    self.shopname.text = noti.userInfo[@"shopname"];
+}
 
+- (void)loadData
+{
+    [[MyAPI sharedAPI] requestTeacherShopInfoWithResult:^(BOOL success, NSString *msg, id object) {
+        if(success){
+            userinfo = object;
+            self.shopname.text = userinfo.name;
+            self.shopintroduce.text = userinfo.about;
+            
+            NSString * imageUrl = [[Config Instance] getIcon];
+            [self.headicon sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"placeimage"]];
+        }
+    } ErrorResult:^(NSError *enginerError) {
+        
+    }];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
+    self.headicon.layer.cornerRadius = 24;
+    self.headicon.layer.masksToBounds = YES;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -39,14 +73,14 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
+
     return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
+
     if (section==0) {
-        return 5;
+        return 3;
     }else{
         return 1;
     }
@@ -57,7 +91,7 @@
     if(section==0){
         return 15;
     }else if(section==1){
-        return ScreenHeight - 371 - 64;
+        return ScreenHeight - 371 - 64 + 65 + 63;
     }else{
         return 0;
     }
@@ -72,10 +106,7 @@
         if(indexPath.row == 1){
             [self performSegueWithIdentifier:@"shopnameSegue" sender:nil];
         }
-        if(indexPath.row == 4){
-            [self performSegueWithIdentifier:@"addressSegue" sender:nil];
-        }
-    }
+           }
 }
 
 - (void)showModalView
@@ -126,9 +157,19 @@
     NSData * data = UIImageJPEGRepresentation(image, 0.1);
     
 }
+- (IBAction)commit:(id)sender {
+    [self.shopintroduce endEditing:YES];
+    [[MyAPI sharedAPI] modifyTeacherInfoWithName:self.shopname.text About:self.shopintroduce.text Result:^(BOOL sucess, NSString *msg) {
+        if(sucess){
+            [self showHint:@"修改成功"];
+        }
+    } ErrorResult:^(NSError *enginerError) {
+        
+    }];
+}
 
 - (IBAction)back:(id)sender {
-    
+    self.navigationController.navigationBarHidden = YES;
     [self.navigationController popViewControllerAnimated:YES];
 }
 

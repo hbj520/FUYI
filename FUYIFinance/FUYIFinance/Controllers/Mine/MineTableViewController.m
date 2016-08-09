@@ -62,7 +62,7 @@
     UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
     UINavigationController *loginVC = [storybord instantiateViewControllerWithIdentifier:@"LoginStorybordId"];
     loginVC.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-    [self.navigationController presentModalViewController:loginVC animated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)LoginActCell{
     UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
@@ -88,6 +88,8 @@
 //        self.welcomeLabel.hidden = YES;
 //        self.loginBtn.hidden = YES;
     }else{
+        self.headimage.image = [UIImage imageNamed:@"person_headicon"];
+        self.teachername.text = @"未登录请登录";
 //        self.headimage.hidden = YES;
 //        self.teachername.hidden = YES;
 //        self.messagebtn.hidden = YES;
@@ -321,7 +323,7 @@
         if(indexPath.row == 0){
         [self performSegueWithIdentifier:@"settingSegue" sender:nil];
         }else{
-            
+            [self performSegueWithIdentifier:@"personalaboutSegue" sender:nil];
         }
     }
     }

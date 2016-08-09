@@ -233,6 +233,7 @@
     }
 }
 - (IBAction)commit:(id)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"updateImage" object:nil userInfo:nil];
     [[MyAPI sharedAPI] PersonalInfoModifyWithParameters:self.nickName.text
                                                imgThumb:imageUrl
                                                   qqNum:self.qqnum.text
@@ -254,7 +255,7 @@
 }
 
 - (IBAction)back:(id)sender {
-  //  self.navigationController.navigationBarHidden = YES;
+    self.navigationController.navigationBarHidden = YES;
     [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)dealloc{

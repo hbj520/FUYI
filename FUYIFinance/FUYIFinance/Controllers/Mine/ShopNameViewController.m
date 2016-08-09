@@ -41,6 +41,7 @@
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     [self.view endEditing:YES];
+    self.label1.hidden = YES;
 }
 
 //添加自定制导航栏按钮
@@ -83,6 +84,12 @@
     
 }
 
+- (IBAction)SaveInfo:(id)sender {
+    self.label1.hidden = YES;
+    NSDictionary * dict = [[NSDictionary alloc] initWithObjectsAndKeys:self.textView.text,@"shopname", nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"returnShopName" object:nil userInfo:dict];
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 - (IBAction)back:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
