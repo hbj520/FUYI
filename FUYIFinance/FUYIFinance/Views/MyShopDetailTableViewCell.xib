@@ -86,10 +86,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="通过" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v6p-Rl-GFG">
-                        <rect key="frame" x="242" y="15" width="78" height="18"/>
+                        <rect key="frame" x="242" y="15" width="70" height="18"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="78" id="MnV-mE-PrL"/>
-                            <constraint firstAttribute="height" constant="18" id="m3c-md-Kok"/>
+                            <constraint firstAttribute="width" constant="70" id="GmL-tA-YVk"/>
+                            <constraint firstAttribute="height" constant="18" id="Te5-PP-UqQ"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -101,14 +101,13 @@
                     <constraint firstItem="anF-1F-86r" firstAttribute="centerY" secondItem="VWd-qc-PcB" secondAttribute="centerY" id="6Q7-cD-FyU"/>
                     <constraint firstItem="ghm-I7-A48" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="6cx-yC-EdC"/>
                     <constraint firstItem="u0h-y1-C2M" firstAttribute="top" secondItem="30k-Cr-lpd" secondAttribute="bottom" constant="6" id="86N-iP-LdU"/>
+                    <constraint firstAttribute="trailing" secondItem="v6p-Rl-GFG" secondAttribute="trailing" constant="8" id="9pS-IH-SeR"/>
                     <constraint firstItem="30k-Cr-lpd" firstAttribute="leading" secondItem="ghm-I7-A48" secondAttribute="trailing" constant="12" id="ALT-DO-FZD"/>
                     <constraint firstItem="anF-1F-86r" firstAttribute="baseline" secondItem="FJh-iX-KpO" secondAttribute="baseline" id="Hed-fb-BxN"/>
                     <constraint firstItem="anF-1F-86r" firstAttribute="leading" secondItem="ghm-I7-A48" secondAttribute="trailing" constant="12" id="IaI-xt-biD"/>
                     <constraint firstItem="FJh-iX-KpO" firstAttribute="leading" secondItem="VWd-qc-PcB" secondAttribute="trailing" constant="10" id="JEl-Uz-dIq"/>
                     <constraint firstAttribute="trailing" secondItem="QmY-aK-PnS" secondAttribute="trailing" constant="8" id="JkL-3G-vjz"/>
-                    <constraint firstAttribute="trailing" secondItem="v6p-Rl-GFG" secondAttribute="trailing" id="Mxe-83-qjo"/>
                     <constraint firstItem="ghm-I7-A48" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="RSB-HK-JJJ"/>
-                    <constraint firstItem="v6p-Rl-GFG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="Seo-Y4-0ga"/>
                     <constraint firstAttribute="trailing" secondItem="u0h-y1-C2M" secondAttribute="trailing" constant="15" id="TQc-B6-V3E"/>
                     <constraint firstItem="anF-1F-86r" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="Z0z-v9-Ogp"/>
                     <constraint firstAttribute="bottom" secondItem="2oc-3s-8pt" secondAttribute="bottom" constant="2" id="bGe-XM-ba3"/>
@@ -117,6 +116,7 @@
                     <constraint firstAttribute="trailing" secondItem="2oc-3s-8pt" secondAttribute="trailing" id="nbr-60-R3e"/>
                     <constraint firstItem="VWd-qc-PcB" firstAttribute="leading" secondItem="anF-1F-86r" secondAttribute="trailing" constant="1" id="o8b-tX-Xjl"/>
                     <constraint firstItem="30k-Cr-lpd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="qnD-7c-0qB"/>
+                    <constraint firstItem="v6p-Rl-GFG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="rGs-5I-S21"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

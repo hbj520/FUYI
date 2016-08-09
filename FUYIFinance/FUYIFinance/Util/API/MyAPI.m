@@ -38,6 +38,9 @@
 #import "TeacherInfo.h"
 #import "ManageTreasureModel.h"
 #import "OrderManageModel.h"
+#import "TeacherShopInfoModel.h"
+#import "SystemNoticeModel.h"
+#import "OrderNoticeModel.h"
 @interface MyAPI ()
 @property (nonatomic, strong) AFHTTPRequestOperationManager *manager;
 
@@ -1104,6 +1107,82 @@
         }
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         errorResult(error);
+    }];
+}
+
+- (void)modifyTeacherInfoWithName:(NSString *)name
+                            About:(NSString *)about
+                           Result:(StateBlock)result
+                      ErrorResult:(ErrorBlock)errorResult
+{
+    NSDictionary * parameters = @{@"token":KToken,
+                                  @"name":name,
+                                  @"about":about};
+    [self.manager POST:@"teacherStoreUpdate" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * status = responseObject[@"status"];
+        NSString * info = responseObject[@"info"];
+        if([status isEqualToString:@"1"]){
+            result(YES,info);
+        }else{
+            result(NO,info);
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+    }];
+}
+
+- (void)requestTeacherShopInfoWithResult:(ModelBlock)result
+                             ErrorResult:(ErrorBlock)errorResult
+{
+    NSDictionary * parameter = @{@"token":KToken};
+    [self.manager POST:@"teacherStoreShow" parameters:parameter success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * status = responseObject[@"status"];
+        NSString * info = responseObject[@"info"];
+        NSDictionary * data = responseObject[@"data"];
+        if([status isEqualToString:@"1"]){
+            TeacherShopInfoModel * model = [[TeacherShopInfoModel alloc] buildWithData:data];
+            result(YES,info,model);
+        }else{
+            result(NO,info,nil);
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+    }];
+}
+
+- (void)requestSystemNoticeWithResult:(ArrayBlock)result
+                          ErrorResult:(ErrorBlock)errorResult
+{
+    NSDictionary * parameter = @{@"token":KToken};
+    [self.manager POST:@"userSystemSms" parameters:parameter success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * status = responseObject[@"status"];
+        NSString * info = responseObject[@"info"];
+        NSArray * data= responseObject[@"data"];
+        if([status isEqualToString:@"1"]){
+            NSMutableArray * array = [[SystemNoticeModel alloc] buildWithData:data];
+            result(YES,info,array);
+        }else{
+            result(NO,info,nil);
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+    }];
+}
+
+- (void)requestOrderNoticeWithResult:(ArrayBlock)result
+                         ErrorResult:(ErrorBlock)errorResult
+{
+    NSDictionary * parameter = @{@"token":KToken};
+    [self.manager POST:@"userOrderSms" parameters:parameter success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * status = responseObject[@"status"];
+        NSString * info = responseObject[@"info"];
+        NSString * data = responseObject[@"data"];
+        if([status isEqualToString:@"1"]){
+            NSMutableArray * array = [[OrderNoticeModel alloc] buildWithData:data];
+            result(YES,info,array);
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        
     }];
 }
 

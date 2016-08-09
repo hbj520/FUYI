@@ -1,0 +1,20 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{ padding:0; margin:0; font-family:"Microsoft Yahei"; font-size:14px; line-height:24px; color:#333}
+ul li{ list-style:none}
+
+.wrap{ padding-bottom:30px}
+.wrp{ margin:0 auto; overflow:hidden; padding:0 10px}
+.title{ width:100px; background:#999; float:left; border-radius:6px; margin-top:30px; text-align:center; color:#fff; font-size:16px}
+.content{ width:100%; display:block; float:left}
+.content .p1{ text-indent:2em; margin-top:10px;}
+.content .p2{ margin-top:10px;}
+.p1 .p2{ display:block}
+.title1{ margin-top:15px}
+
+
+
+
+
+

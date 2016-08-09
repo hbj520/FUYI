@@ -9,15 +9,16 @@
 #import "MineNoticeViewController.h"
 
 @interface MineNoticeViewController ()
-
+{
+    BOOL showNav;
+}
 @end
 
 @implementation MineNoticeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
+      // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
@@ -27,7 +28,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = NO;
+        self.navigationController.navigationBarHidden = NO;
 }
 
 
@@ -57,14 +58,19 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(indexPath.row == 0){
-        
+        [self performSegueWithIdentifier:@"systemnoticeSegue" sender:nil];
     }else if (indexPath.row == 1){
-        
+        [self performSegueWithIdentifier:@"ordernoticeSegue" sender:nil];
     }
 }
 
 - (IBAction)back:(id)sender {
-      self.navigationController.navigationBarHidden = YES;
+    
+    if(showNav){
+        self.navigationController.navigationBarHidden = NO;
+    }else{
+         self.navigationController.navigationBarHidden = YES;
+    }
     [self.navigationController popViewControllerAnimated:YES];
     
 }

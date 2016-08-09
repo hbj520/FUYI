@@ -15,6 +15,14 @@
     // Initialization code
     self.headicon.layer.cornerRadius = 26;
     self.headicon.layer.masksToBounds = YES;
+    
+    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(login)];
+    [self.teacherName addGestureRecognizer:tap];
+}
+
+- (void)login
+{
+    self.block();
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

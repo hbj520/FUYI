@@ -225,8 +225,10 @@
 - (void)logout:(id)sender {
     [self showHudInView:self.view hint:@"正在退出登录"];
     
+    
     [[MyAPI sharedAPI]LoginOutWithResult:^(BOOL sucess, NSString *msg) {
         if(sucess){
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"changeState" object:nil userInfo:nil];
             [self showHint:msg];
             [[Config Instance] logout];
             [self hideHud];

@@ -374,6 +374,46 @@ typedef void (^ErrorBlock) (NSError *enginerError);
  */
 - (void)requestOrderManageRequestWithResult:(ArrayBlock)result
                                 errorResult:(ErrorBlock)errorResult;
+/**
+ *  讲师店铺基本信息修改
+ *
+ *  @param name        店铺名称
+ *  @param about       店铺介绍
+ *  @param result      返回状态
+ *  @param errorResult 错误信息
+ */
+- (void)modifyTeacherInfoWithName:(NSString *)name
+                            About:(NSString *)about
+                           Result:(StateBlock)result
+                      ErrorResult:(ErrorBlock)errorResult;
+
+/**
+ *  讲师店铺基本信息
+ *
+ *  @param result      模型
+ *  @param errorResult 错误信息
+ */
+- (void)requestTeacherShopInfoWithResult:(ModelBlock)result
+                             ErrorResult:(ErrorBlock)errorResult;
+
+/**
+ *  系统消息
+ *
+ *  @param result      模型数组
+ *  @param errorResult 错误信息
+ */
+- (void)requestSystemNoticeWithResult:(ArrayBlock)result
+                          ErrorResult:(ErrorBlock)errorResult;
+
+/**
+ *  订单消息
+ *
+ *  @param result      模型数组
+ *  @param errorResult 错误信息
+ */
+- (void)requestOrderNoticeWithResult:(ArrayBlock)result
+                         ErrorResult:(ErrorBlock)errorResult;
+
 #pragma mark -讲师团队
 - (void)getTeacherTeamDataWithToken:(NSString*)token
                                page:(NSString*)page

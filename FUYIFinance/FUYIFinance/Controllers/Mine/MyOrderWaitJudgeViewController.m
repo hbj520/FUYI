@@ -77,7 +77,15 @@
                                                        [self logOut];
                                                    }
                                                    if(success){
+                                                       if(arrays.count == 0){
+                                                           dispatch_async(dispatch_get_main_queue(), ^{
+                                                               [_tableView.mj_footer endRefreshingWithNoMoreData];
+                                                           });
+                                                           page--;
+ 
+                                                       }else{
                                                        [dataSource addObjectsFromArray:arrays];
+                                                       }
 //                                                       [[Config Instance] saveWaitJudgeCount:[NSString stringWithFormat:@"%ld",dataSource.count]];
                                                        [_tableView reloadData];
                                                    }else{

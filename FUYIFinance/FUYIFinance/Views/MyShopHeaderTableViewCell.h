@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void (^loginBlock)();
 @interface MyShopHeaderTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *headicon;
 @property (weak, nonatomic) IBOutlet UILabel *totoalcount;
@@ -17,5 +17,5 @@
 @property (weak, nonatomic) IBOutlet UIImageView *backImg;
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
 @property (weak, nonatomic) IBOutlet UIImageView *personlabel;
-
+@property (nonatomic,copy) loginBlock block;
 @end
