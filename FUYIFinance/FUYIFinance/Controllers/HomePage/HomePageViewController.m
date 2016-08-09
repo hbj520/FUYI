@@ -9,8 +9,10 @@
 #import "HomePageViewController.h"
 #import "IJKMoviePlayerViewController.h"
 
+
 #import "SDCycleScrollView.h"
 #import "MJRefresh.h"
+#import "Masonry.h"
 
 //views
 #import "HomePageNavgationItem.h"
@@ -40,6 +42,7 @@ static NSString *investReuseId = @"investReuseId";
     NSMutableArray *bannerData;//滚动视图数据
     NSMutableArray *inverstData;//投资项目数据
     NSMutableArray *noticeData;//富谊头条数据
+    IJKMoviePlayerViewController *playerVC;
     
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -76,6 +79,7 @@ static NSString *investReuseId = @"investReuseId";
     //添加刷新
     __weak HomePageViewController *weakself = self;
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [playerVC removeFromParentViewController];
         if (bannerData.count > 0) {
             [bannerData removeAllObjects];
         }
@@ -137,6 +141,7 @@ static NSString *investReuseId = @"investReuseId";
         }
     }
     _headerView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0,ScreenWidth,170) imageURLStringsGroup:imageData];
+    
     _headerView.delegate = self;
 }
 - (void)addCustomerNavgationItem{
@@ -151,6 +156,14 @@ static NSString *investReuseId = @"investReuseId";
         
     };
     [self.view addSubview:navItem];
+    [navItem mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@0);
+        make.top.equalTo(@0);
+        make.right.equalTo(@0);
+        //
+        make.height.equalTo(@64);
+        
+    }];
 }
 #pragma mark - UITableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -257,9 +270,16 @@ static NSString *investReuseId = @"investReuseId";
 #pragma mark -SDCycleScrollViewDelegate
 //点击头部滚动视图
 -(void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
-    IJKMoviePlayerViewController *playerVC = [IJKMoviePlayerViewController InitVideoViewFromViewController:self withTitle:@"GLTest" URL:[NSURL URLWithString:@"http://krtv.qiniudn.com/150522nextapp"] isLiveVideo:YES isOnlineVideo:NO isFullScreen:NO completion:nil];
+    UIViewController *videoVC = [[UIViewController alloc] init];
+    playerVC = [IJKMoviePlayerViewController InitVideoViewFromViewController:videoVC withTitle:@"GLTest" URL:[NSURL URLWithString:@"http://krtv.qiniudn.com/150522nextapp"] isLiveVideo:YES isOnlineVideo:NO isFullScreen:NO completion:nil];
     [self addChildViewController:playerVC];
     [_headerView addSubview:playerVC.view];
+    [playerVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@0);
+        make.top.equalTo(@0);
+        make.right.equalTo(@0);
+        make.bottom.equalTo(@0);
+    }];
     /** 判断直播是否开启,并执行退出 */
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         //        [playerVC GoBack];
