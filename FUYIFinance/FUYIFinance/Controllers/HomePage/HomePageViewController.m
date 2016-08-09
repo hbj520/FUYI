@@ -213,8 +213,11 @@ static NSString *investReuseId = @"investReuseId";
             if (newTableViewCell == nil) {
                 newTableViewCell = [[[NSBundle mainBundle] loadNibNamed:@"HomePageHotNewTableViewCell" owner:self options:nil] lastObject];
             }
+            
             [newTableViewCell configWithData:noticeData];
-
+            newTableViewCell.block = ^(){
+            [self performSegueWithIdentifier:@"homepagedetailSegue" sender:nil];
+            };
             return newTableViewCell;
         }
     }else if (indexPath.section == 2){
@@ -229,7 +232,7 @@ static NSString *investReuseId = @"investReuseId";
             [investTableViewCell createUIWithData:inverstData];
         }
         investTableViewCell.tapInvestCellBlock = ^(NSInteger index){
-            
+            [self performSegueWithIdentifier:@"homepagedetailSegue" sender:nil];
         };
         return investTableViewCell;
     }

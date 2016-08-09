@@ -148,6 +148,15 @@ static Config * instance = nil;
     [settings setObject:@"1" forKey:@"terminate"];
     [settings synchronize];
 }
+
+- (void)saveOrderNum:(NSString *)ordernum
+{
+    NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
+    [settings removeObjectForKey:@"ordernum"];
+    [settings setObject:ordernum forKey:@"ordernum"];
+    [settings synchronize];
+}
+
 - (NSString *)getisteacher
 {
     NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
@@ -183,6 +192,12 @@ static Config * instance = nil;
 - (NSString *)getGesturePassword{
     NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
     return [settings stringForKey:@"gesturePassword"];
+}
+
+- (NSString *)getOrderNum
+{
+    NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
+    return [settings stringForKey:@"ordernum"];
 }
 
 - (NSString *)getIcon

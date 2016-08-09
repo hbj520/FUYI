@@ -1191,4 +1191,26 @@
     }];
 }
 
+- (void)getOrderNumWithGoodsid:(NSString *)goodsid
+                         Money:(NSString *)money
+                        Result:(StateBlock)result ErrorResult:(ErrorBlock)errorResult
+{
+    NSDictionary * parameters = @{@"token":KToken,
+                                  @"goodsid":goodsid,
+                                  @"money":money};
+    [self.manager POST:@"readyorder" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * status = responseObject[@"status"];
+        NSString * info = responseObject[@"info"];
+        if([status isEqualToString:@"1"]){
+            NSDictionary * data = responseObject[@"data"];
+            NSString * ordernum = data[@"ordernum"];
+            result(YES,ordernum);
+        }else{
+            result(NO,info);
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+    }];
+}
+
 @end

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void (^clickaction)();
 @interface HomePageHotNewTableViewCell : UITableViewCell
 - (void)configWithData:(NSArray *)data;
+@property (nonatomic,copy)clickaction block;
 @end

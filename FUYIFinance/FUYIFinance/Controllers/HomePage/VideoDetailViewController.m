@@ -18,9 +18,9 @@
 #import "VideoDetailSecTableViewCell.h"
 #import "VideoDetailThirdtTableViewCell.h"
 #import "StoreDataModel.h"
-
 #import "LabelHelper.h"
 #import "LPPopup.h"
+#import "Config.h"
 #import "MyAPI.h"
 
 #import <SDWebImage/UIImageView+WebCache.h>
@@ -233,7 +233,13 @@
 - (IBAction)buyNow:(id)sender {
    [self performSegueWithIdentifier:@"ConfirmOrderSegue" sender:self.model];
     self.navigationController.navigationBarHidden = NO;
-
+    [[MyAPI sharedAPI] getOrderNumWithGoodsid:_model.videoId Money:_model.videoPrice Result:^(BOOL sucess, NSString *msg) {
+        if(sucess){
+            [[Config Instance] saveOrderNum:msg];
+        }
+    } ErrorResult:^(NSError *enginerError) {
+        
+    }];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
