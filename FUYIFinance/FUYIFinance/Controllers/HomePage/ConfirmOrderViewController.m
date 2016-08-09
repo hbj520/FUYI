@@ -24,6 +24,7 @@
 #import "Config.h"
 #import "Tools.h"
 #import "LabelHelper.h"
+#import "MyAPI.h"
 
 @interface ConfirmOrderViewController ()<ZCTradeViewDelegate,UITableViewDataSource,UITableViewDelegate>
 {
@@ -83,7 +84,15 @@
 
 -(NSString *)finish:(NSString *)pwd{
     NSString * SecurityString = [Tools loginPasswordSecurityLock:pwd];
-    NSLog(@"%@",SecurityString);
+    NSString * ordernum = [[Config Instance] getOrderNum];
+    [[MyAPI sharedAPI] payOrderWithOrderNum:ordernum Excode:SecurityString Result:^(BOOL sucess, NSString *msg) {
+        if(sucess){
+            NSLog(@"%@",msg);
+        }
+    } ErrorResult:^(NSError *enginerError) {
+        
+    }];
+   
     return pwd;
 }
 

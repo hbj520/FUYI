@@ -120,14 +120,6 @@
 		CC35F66A1D2CCB3000EF3B4B /* PriceLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC35F6691D2CCB3000EF3B4B /* PriceLabel.m */; };
 		CC35F66E1D2CDCBA00EF3B4B /* MineCollectionTreasureModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC35F66D1D2CDCBA00EF3B4B /* MineCollectionTreasureModel.m */; };
 		CC3C62DC1D51E68300CD62AC /* OrderManageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3C62DB1D51E68300CD62AC /* OrderManageViewController.m */; };
-		CC3E2F8F1D5975C100C06384 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3E2F801D5975C100C06384 /* NSString+Extension.m */; };
-		CC3E2F901D5975C100C06384 /* trade.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CC3E2F821D5975C100C06384 /* trade.bundle */; };
-		CC3E2F911D5975C100C06384 /* UIAlertView+Quick.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3E2F841D5975C100C06384 /* UIAlertView+Quick.m */; };
-		CC3E2F921D5975C100C06384 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3E2F861D5975C100C06384 /* UIView+Extension.m */; };
-		CC3E2F931D5975C100C06384 /* ZCAudioTool.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3E2F881D5975C100C06384 /* ZCAudioTool.m */; };
-		CC3E2F941D5975C100C06384 /* ZCTradeInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3E2F8A1D5975C100C06384 /* ZCTradeInputView.m */; };
-		CC3E2F951D5975C100C06384 /* ZCTradeKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3E2F8C1D5975C100C06384 /* ZCTradeKeyboard.m */; };
-		CC3E2F961D5975C100C06384 /* ZCTradeView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3E2F8E1D5975C100C06384 /* ZCTradeView.m */; };
 		CC3E2F991D59862A00C06384 /* HomePageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3E2F981D59862A00C06384 /* HomePageDetailViewController.m */; };
 		CC4096AD1D49992600084D1A /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4096AC1D49992600084D1A /* SettingViewController.m */; };
 		CC4096B01D49A21000084D1A /* PersonalUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4096AF1D49A21000084D1A /* PersonalUserInfo.m */; };
@@ -211,6 +203,14 @@
 		CC95F1A91D338C3E009F559D /* ChangeHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC95F1A81D338C3E009F559D /* ChangeHeadView.xib */; };
 		CCEEFC0C1D37400B0001C7AA /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEEFC0B1D37400B0001C7AA /* UserInfoModel.m */; };
 		CCEEFC121D37613A0001C7AA /* MineNoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEEFC111D37613A0001C7AA /* MineNoticeViewController.m */; };
+		CCF829B71D59EAB1001D473F /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = CCF829A81D59EAB1001D473F /* NSString+Extension.m */; };
+		CCF829B81D59EAB1001D473F /* trade.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CCF829AA1D59EAB1001D473F /* trade.bundle */; };
+		CCF829B91D59EAB1001D473F /* UIAlertView+Quick.m in Sources */ = {isa = PBXBuildFile; fileRef = CCF829AC1D59EAB1001D473F /* UIAlertView+Quick.m */; };
+		CCF829BA1D59EAB1001D473F /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = CCF829AE1D59EAB1001D473F /* UIView+Extension.m */; };
+		CCF829BB1D59EAB1001D473F /* ZCAudioTool.m in Sources */ = {isa = PBXBuildFile; fileRef = CCF829B01D59EAB1001D473F /* ZCAudioTool.m */; };
+		CCF829BC1D59EAB1001D473F /* ZCTradeInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCF829B21D59EAB1001D473F /* ZCTradeInputView.m */; };
+		CCF829BD1D59EAB1001D473F /* ZCTradeKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = CCF829B41D59EAB1001D473F /* ZCTradeKeyboard.m */; };
+		CCF829BE1D59EAB1001D473F /* ZCTradeView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCF829B61D59EAB1001D473F /* ZCTradeView.m */; };
 		CCFD50CC1D52DB390022EA9D /* OrderManageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFD50CB1D52DB390022EA9D /* OrderManageModel.m */; };
 		D114DC581D24EEC50001CE21 /* Good.m in Sources */ = {isa = PBXBuildFile; fileRef = D114DC561D24EEC50001CE21 /* Good.m */; };
 		D1189C231D49A1D1001209B9 /* TeacherStoreHeaderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D1189C221D49A1D1001209B9 /* TeacherStoreHeaderModel.m */; };
@@ -529,22 +529,6 @@
 		CC35F66D1D2CDCBA00EF3B4B /* MineCollectionTreasureModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineCollectionTreasureModel.m; sourceTree = "<group>"; };
 		CC3C62DA1D51E68300CD62AC /* OrderManageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderManageViewController.h; sourceTree = "<group>"; };
 		CC3C62DB1D51E68300CD62AC /* OrderManageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderManageViewController.m; sourceTree = "<group>"; };
-		CC3E2F7F1D5975C100C06384 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
-		CC3E2F801D5975C100C06384 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
-		CC3E2F811D5975C100C06384 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
-		CC3E2F821D5975C100C06384 /* trade.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = trade.bundle; sourceTree = "<group>"; };
-		CC3E2F831D5975C100C06384 /* UIAlertView+Quick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Quick.h"; sourceTree = "<group>"; };
-		CC3E2F841D5975C100C06384 /* UIAlertView+Quick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Quick.m"; sourceTree = "<group>"; };
-		CC3E2F851D5975C100C06384 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
-		CC3E2F861D5975C100C06384 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
-		CC3E2F871D5975C100C06384 /* ZCAudioTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCAudioTool.h; sourceTree = "<group>"; };
-		CC3E2F881D5975C100C06384 /* ZCAudioTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCAudioTool.m; sourceTree = "<group>"; };
-		CC3E2F891D5975C100C06384 /* ZCTradeInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCTradeInputView.h; sourceTree = "<group>"; };
-		CC3E2F8A1D5975C100C06384 /* ZCTradeInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCTradeInputView.m; sourceTree = "<group>"; };
-		CC3E2F8B1D5975C100C06384 /* ZCTradeKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCTradeKeyboard.h; sourceTree = "<group>"; };
-		CC3E2F8C1D5975C100C06384 /* ZCTradeKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCTradeKeyboard.m; sourceTree = "<group>"; };
-		CC3E2F8D1D5975C100C06384 /* ZCTradeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCTradeView.h; sourceTree = "<group>"; };
-		CC3E2F8E1D5975C100C06384 /* ZCTradeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCTradeView.m; sourceTree = "<group>"; };
 		CC3E2F971D59862A00C06384 /* HomePageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageDetailViewController.h; sourceTree = "<group>"; };
 		CC3E2F981D59862A00C06384 /* HomePageDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageDetailViewController.m; sourceTree = "<group>"; };
 		CC4096AB1D49992600084D1A /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
@@ -696,6 +680,22 @@
 		CCEEFC0B1D37400B0001C7AA /* UserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoModel.m; sourceTree = "<group>"; };
 		CCEEFC101D37613A0001C7AA /* MineNoticeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineNoticeViewController.h; sourceTree = "<group>"; };
 		CCEEFC111D37613A0001C7AA /* MineNoticeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineNoticeViewController.m; sourceTree = "<group>"; };
+		CCF829A71D59EAB1001D473F /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
+		CCF829A81D59EAB1001D473F /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
+		CCF829A91D59EAB1001D473F /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		CCF829AA1D59EAB1001D473F /* trade.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = trade.bundle; sourceTree = "<group>"; };
+		CCF829AB1D59EAB1001D473F /* UIAlertView+Quick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Quick.h"; sourceTree = "<group>"; };
+		CCF829AC1D59EAB1001D473F /* UIAlertView+Quick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Quick.m"; sourceTree = "<group>"; };
+		CCF829AD1D59EAB1001D473F /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		CCF829AE1D59EAB1001D473F /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		CCF829AF1D59EAB1001D473F /* ZCAudioTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCAudioTool.h; sourceTree = "<group>"; };
+		CCF829B01D59EAB1001D473F /* ZCAudioTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCAudioTool.m; sourceTree = "<group>"; };
+		CCF829B11D59EAB1001D473F /* ZCTradeInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCTradeInputView.h; sourceTree = "<group>"; };
+		CCF829B21D59EAB1001D473F /* ZCTradeInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCTradeInputView.m; sourceTree = "<group>"; };
+		CCF829B31D59EAB1001D473F /* ZCTradeKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCTradeKeyboard.h; sourceTree = "<group>"; };
+		CCF829B41D59EAB1001D473F /* ZCTradeKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCTradeKeyboard.m; sourceTree = "<group>"; };
+		CCF829B51D59EAB1001D473F /* ZCTradeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCTradeView.h; sourceTree = "<group>"; };
+		CCF829B61D59EAB1001D473F /* ZCTradeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCTradeView.m; sourceTree = "<group>"; };
 		CCFD50CA1D52DB390022EA9D /* OrderManageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderManageModel.h; sourceTree = "<group>"; };
 		CCFD50CB1D52DB390022EA9D /* OrderManageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderManageModel.m; sourceTree = "<group>"; };
 		D114DC551D24EEC50001CE21 /* Good.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Good.h; sourceTree = "<group>"; };
@@ -1028,7 +1028,6 @@
 				ABF5DE3F1D0FA4B1007CE1AB /* Resource */,
 				ABF5DE401D0FA4B1007CE1AB /* Util */,
 				ABF5DE411D0FA4B1007CE1AB /* Vendor */,
-				D114DC4D1D24EE4A0001CE21 /* Models */,
 				ABF5DE421D0FA4B1007CE1AB /* Views */,
 				AB708F8F1D0543BE007D0B4D /* ViewController.h */,
 				AB708F901D0543BE007D0B4D /* ViewController.m */,
@@ -1307,7 +1306,7 @@
 		ABF5DE411D0FA4B1007CE1AB /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
-				CC3E2F7E1D5975C100C06384 /* ZCTradeView */,
+				CCF829A61D59EAB1001D473F /* ZCTradeView */,
 				ABF9F0FC1D546C49004E1523 /* GestureLock */,
 				CC6FD5F41D362E0300DA60AB /* MJExtension */,
 				CC6FD5E41D3605D900DA60AB /* chdButton */,
@@ -1323,6 +1322,7 @@
 		ABF5DE421D0FA4B1007CE1AB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D114DC4D1D24EE4A0001CE21 /* Models */,
 				CC72D0281D22636100945BCF /* Mine */,
 				ABF5DE431D0FA4B1007CE1AB /* CustomerService */,
 				ABF5DE441D0FA4B1007CE1AB /* HomePage */,
@@ -1559,29 +1559,6 @@
 			name = Mine;
 			sourceTree = "<group>";
 		};
-		CC3E2F7E1D5975C100C06384 /* ZCTradeView */ = {
-			isa = PBXGroup;
-			children = (
-				CC3E2F7F1D5975C100C06384 /* NSString+Extension.h */,
-				CC3E2F801D5975C100C06384 /* NSString+Extension.m */,
-				CC3E2F811D5975C100C06384 /* Singleton.h */,
-				CC3E2F821D5975C100C06384 /* trade.bundle */,
-				CC3E2F831D5975C100C06384 /* UIAlertView+Quick.h */,
-				CC3E2F841D5975C100C06384 /* UIAlertView+Quick.m */,
-				CC3E2F851D5975C100C06384 /* UIView+Extension.h */,
-				CC3E2F861D5975C100C06384 /* UIView+Extension.m */,
-				CC3E2F871D5975C100C06384 /* ZCAudioTool.h */,
-				CC3E2F881D5975C100C06384 /* ZCAudioTool.m */,
-				CC3E2F891D5975C100C06384 /* ZCTradeInputView.h */,
-				CC3E2F8A1D5975C100C06384 /* ZCTradeInputView.m */,
-				CC3E2F8B1D5975C100C06384 /* ZCTradeKeyboard.h */,
-				CC3E2F8C1D5975C100C06384 /* ZCTradeKeyboard.m */,
-				CC3E2F8D1D5975C100C06384 /* ZCTradeView.h */,
-				CC3E2F8E1D5975C100C06384 /* ZCTradeView.m */,
-			);
-			path = ZCTradeView;
-			sourceTree = "<group>";
-		};
 		CC4F37331D2E07B500312F11 /* category */ = {
 			isa = PBXGroup;
 			children = (
@@ -1723,6 +1700,29 @@
 			name = KGModal;
 			sourceTree = "<group>";
 		};
+		CCF829A61D59EAB1001D473F /* ZCTradeView */ = {
+			isa = PBXGroup;
+			children = (
+				CCF829A71D59EAB1001D473F /* NSString+Extension.h */,
+				CCF829A81D59EAB1001D473F /* NSString+Extension.m */,
+				CCF829A91D59EAB1001D473F /* Singleton.h */,
+				CCF829AA1D59EAB1001D473F /* trade.bundle */,
+				CCF829AB1D59EAB1001D473F /* UIAlertView+Quick.h */,
+				CCF829AC1D59EAB1001D473F /* UIAlertView+Quick.m */,
+				CCF829AD1D59EAB1001D473F /* UIView+Extension.h */,
+				CCF829AE1D59EAB1001D473F /* UIView+Extension.m */,
+				CCF829AF1D59EAB1001D473F /* ZCAudioTool.h */,
+				CCF829B01D59EAB1001D473F /* ZCAudioTool.m */,
+				CCF829B11D59EAB1001D473F /* ZCTradeInputView.h */,
+				CCF829B21D59EAB1001D473F /* ZCTradeInputView.m */,
+				CCF829B31D59EAB1001D473F /* ZCTradeKeyboard.h */,
+				CCF829B41D59EAB1001D473F /* ZCTradeKeyboard.m */,
+				CCF829B51D59EAB1001D473F /* ZCTradeView.h */,
+				CCF829B61D59EAB1001D473F /* ZCTradeView.m */,
+			);
+			path = ZCTradeView;
+			sourceTree = "<group>";
+		};
 		D114DC4D1D24EE4A0001CE21 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -1731,7 +1731,8 @@
 				D114DC4E1D24EE4A0001CE21 /* CustomerService */,
 				D114DC511D24EE4A0001CE21 /* ShopCar */,
 			);
-			path = Models;
+			name = Models;
+			path = ../Models;
 			sourceTree = "<group>";
 		};
 		D114DC4E1D24EE4A0001CE21 /* CustomerService */ = {
@@ -2038,7 +2039,6 @@
 				CC6FD5E21D36047500DA60AB /* area.plist in Resources */,
 				ABF5DE501D0FA7FC007CE1AB /* ShopCar.storyboard in Resources */,
 				D141F81C1D542F6600392D00 /* ani_loading_3@2x.png in Resources */,
-				CC3E2F901D5975C100C06384 /* trade.bundle in Resources */,
 				CC0022791D589EEA00132483 /* MFC5EF2.tmp in Resources */,
 				D141F81D1D542F6600392D00 /* ani_loading_4@2x.png in Resources */,
 				CC00224E1D588CED00132483 /* Mine.storyboard in Resources */,
@@ -2054,6 +2054,7 @@
 				CC00227A1D589EEA00132483 /* MFC6E8D.tmp in Resources */,
 				CC95F1A91D338C3E009F559D /* ChangeHeadView.xib in Resources */,
 				D141F8261D542F6600392D00 /* icmpv_play_light@2x.png in Resources */,
+				CCF829B81D59EAB1001D473F /* trade.bundle in Resources */,
 				CC6FD6251D36423800DA60AB /* MyAddressTextTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2176,7 +2177,6 @@
 				D1F130671D35D32300EE1690 /* LPPopup.m in Sources */,
 				CC35F66A1D2CCB3000EF3B4B /* PriceLabel.m in Sources */,
 				AB36CE2E1D1B710400D0E4C7 /* TAAnimatedDotView.m in Sources */,
-				CC3E2F921D5975C100C06384 /* UIView+Extension.m in Sources */,
 				ABF9F1051D546C8B004E1523 /* MRGestureView.m in Sources */,
 				CC593CCD1D2A69500077B096 /* ShopNameViewController.m in Sources */,
 				CC01B67E1D48476D00BC5323 /* ModifyPwdViewController.m in Sources */,
@@ -2185,6 +2185,7 @@
 				D1189C231D49A1D1001209B9 /* TeacherStoreHeaderModel.m in Sources */,
 				CC593CC71D2A45770077B096 /* TreasureJudgeStarView.m in Sources */,
 				ABEACD431D2B7C0900574259 /* VideoShopTableViewCell.m in Sources */,
+				CCF829BA1D59EAB1001D473F /* UIView+Extension.m in Sources */,
 				AB708F911D0543BE007D0B4D /* ViewController.m in Sources */,
 				AB36CE371D1B818300D0E4C7 /* HomepageHeaderTableViewCell.m in Sources */,
 				ABEACD671D2B881400574259 /* MyAPI.m in Sources */,
@@ -2204,7 +2205,6 @@
 				CC6FD5F01D362D7E00DA60AB /* cityModel.m in Sources */,
 				ABEACD631D2B87DE00574259 /* StringEncryption.m in Sources */,
 				D1F12FFE1D2A2C4800EE1690 /* VideoDetailViewController.m in Sources */,
-				CC3E2F8F1D5975C100C06384 /* NSString+Extension.m in Sources */,
 				AB36CDB71D12773400D0E4C7 /* BaseViewController.m in Sources */,
 				CC6BD07A1D2FA72900659C96 /* ReGetViewController.m in Sources */,
 				ABEACD5E1D2B87DE00574259 /* NSData+AES.m in Sources */,
@@ -2228,6 +2228,7 @@
 				CC26F0DA1D261CAB003964A1 /* ProductJudgeViewController.m in Sources */,
 				ABEACD5C1D2B87DE00574259 /* Tools.m in Sources */,
 				CC42E2761D24F13D0008A8D7 /* MyCollectionCourseViewController.m in Sources */,
+				CCF829BC1D59EAB1001D473F /* ZCTradeInputView.m in Sources */,
 				CC0022561D58911D00132483 /* OrderInfoViewController.m in Sources */,
 				AB36CDC01D128CF900D0E4C7 /* HomePageNavgationItem.m in Sources */,
 				CC4096B91D4A16D800084D1A /* ManageTreasureModel.m in Sources */,
@@ -2236,11 +2237,12 @@
 				CC72D02C1D2263CF00945BCF /* PersonalWaitPayTableViewCell.m in Sources */,
 				D1F12FFA1D2A04CE00EE1690 /* VideoStoreTableViewCell.m in Sources */,
 				CC6FD60F1D362E0300DA60AB /* NSObject+MJClass.m in Sources */,
-				CC3E2F911D5975C100C06384 /* UIAlertView+Quick.m in Sources */,
 				CC6FD60C1D362E0300DA60AB /* MJProperty.m in Sources */,
 				ABF9F1041D546C8B004E1523 /* MRGestureBgView.m in Sources */,
 				CC4096B01D49A21000084D1A /* PersonalUserInfo.m in Sources */,
+				CCF829BE1D59EAB1001D473F /* ZCTradeView.m in Sources */,
 				CC72D0371D226AD000945BCF /* MyOrderAllViewController.m in Sources */,
+				CCF829BD1D59EAB1001D473F /* ZCTradeKeyboard.m in Sources */,
 				CC72D03D1D226AF700945BCF /* MyOrderWaitGoodViewController.m in Sources */,
 				CC6FD6101D362E0300DA60AB /* NSObject+MJCoding.m in Sources */,
 				D1F130801D388AE300EE1690 /* TeacherPersonalInfoTableViewCell.m in Sources */,
@@ -2250,11 +2252,10 @@
 				CC0022851D58B58500132483 /* OrderNoticeModel.m in Sources */,
 				CC6FD6111D362E0300DA60AB /* NSObject+MJKeyValue.m in Sources */,
 				CC42E26A1D24F0800008A8D7 /* MyJudgeViewController.m in Sources */,
+				CCF829B91D59EAB1001D473F /* UIAlertView+Quick.m in Sources */,
 				CC593CAD1D29EFF30077B096 /* MyShopViewController.m in Sources */,
 				CC0022821D58AE3E00132483 /* SystemNoticeModel.m in Sources */,
 				ABF9F0F01D531F03004E1523 /* IJKHistoryItem.m in Sources */,
-				AB1764CD1D52088A001A84E8 /* MASViewConstraint.m in Sources */,
-				CC3E2F961D5975C100C06384 /* ZCTradeView.m in Sources */,
 				D1F130201D2B642A00EE1690 /* ConfirmOrderViewController.m in Sources */,
 				D1F1302A1D2B817200EE1690 /* VideoInfoTableViewCell.m in Sources */,
 				D1189C2C1D4F4694001209B9 /* CollectionViewController.m in Sources */,
@@ -2276,10 +2277,10 @@
 				CC4F37321D2DFEFF00312F11 /* MineLoginViewController.m in Sources */,
 				D1F1306A1D378D0A00EE1690 /* TeacherTeamViewController.m in Sources */,
 				CC72D0271D22620000945BCF /* MyOrderViewController.m in Sources */,
+				CCF829BB1D59EAB1001D473F /* ZCAudioTool.m in Sources */,
 				CC3E2F991D59862A00C06384 /* HomePageDetailViewController.m in Sources */,
 				CC0022441D58736900132483 /* TeacherShopInfoModel.m in Sources */,
 				D1F130241D2B80DB00EE1690 /* ConInfoTableViewCell.m in Sources */,
-				CC3E2F951D5975C100C06384 /* ZCTradeKeyboard.m in Sources */,
 				CCEEFC0C1D37400B0001C7AA /* UserInfoModel.m in Sources */,
 				D15BA38C1D237E2400904DEF /* HeaderView.m in Sources */,
 				CC593CC01D2A02070077B096 /* MyShopDetailTableViewCell.m in Sources */,
@@ -2287,6 +2288,7 @@
 				CC6FD6161D362F6B00DA60AB /* MineMyAddressViewController.m in Sources */,
 				CC322E1C1D3E24190054D3D8 /* TeacherModel.m in Sources */,
 				ABF5DE571D0FD930007CE1AB /* HomeTabbarViewController.m in Sources */,
+				CCF829B71D59EAB1001D473F /* NSString+Extension.m in Sources */,
 				ABF9F0F61D53215E004E1523 /* CLHomeHeader.m in Sources */,
 				ABEACD601D2B87DE00574259 /* NSString+MD5.m in Sources */,
 				CC6FD5F31D362DAB00DA60AB /* ZoneModel.m in Sources */,
@@ -2308,7 +2310,6 @@
 				CC42E26E1D24F0A90008A8D7 /* MyJudgeTableViewCell.m in Sources */,
 				CC6FD61F1D36409600DA60AB /* MyAddressChoiceTableViewCell.m in Sources */,
 				D1F130771D387BB700EE1690 /* TeacherPersonalViewController.m in Sources */,
-				CC3E2F941D5975C100C06384 /* ZCTradeInputView.m in Sources */,
 				D1F7C9841D3CD1FA00872EB6 /* TeacherTeamModel.m in Sources */,
 				CC6FD60B1D362E0300DA60AB /* MJFoundation.m in Sources */,
 				AB45FC441D409529008E6FBA /* Barcode.m in Sources */,
@@ -2320,7 +2321,6 @@
 				D16E041B1D4200C80038297A /* StoreHeaderTableViewCell.m in Sources */,
 				ABF9F0FB1D546964004E1523 /* GestureLockViewController.m in Sources */,
 				CC6BD0771D2F496900659C96 /* Config.m in Sources */,
-				CC3E2F931D5975C100C06384 /* ZCAudioTool.m in Sources */,
 				CC5C78951D4B4276002F50B7 /* starView.m in Sources */,
 				CC4F372F1D2DEFEC00312F11 /* MineWaitPayModel.m in Sources */,
 				CC42E2811D24F1690008A8D7 /* MyCollectionTableViewCell.m in Sources */,

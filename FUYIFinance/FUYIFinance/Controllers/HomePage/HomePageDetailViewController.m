@@ -18,7 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    NSURLRequest * request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString: @"http://www.baidu.com"]];
+    NSURLRequest * request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString: @"http://www.fuyi001.com"]];
+
     [self.webView loadRequest:request];
 }
 
