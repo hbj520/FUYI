@@ -11,8 +11,6 @@
 
 @interface MRGestureView ()
 
-
-
 /** 当前触摸点 */
 @property(nonatomic, assign)CGPoint curPoint;
 

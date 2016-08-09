@@ -90,7 +90,7 @@
             [[Config Instance] saveGesturePassword:gesturePassword];
             [self.navigationController popViewControllerAnimated:YES];
         }else{
-            self.guideLabel.text = @"您的两次密码输入不同，请从新设置";
+            self.guideLabel.text = @"您的两次密码输入不同，请重新设置";
             self.isFirstSet = YES;
             //[self.gestureView.selectedBtns removeAllObjects];
         }
