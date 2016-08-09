@@ -414,6 +414,19 @@ typedef void (^ErrorBlock) (NSError *enginerError);
 - (void)requestOrderNoticeWithResult:(ArrayBlock)result
                          ErrorResult:(ErrorBlock)errorResult;
 
+/**
+ *  获取订单号
+ *
+ *  @param goodsid     商品编号
+ *  @param money       价格
+ *  @param result      订单号
+ *  @param errorResult 错误信息
+ */
+- (void)getOrderNumWithGoodsid:(NSString *)goodsid
+                         Money:(NSString *)money
+                        Result:(StateBlock)result
+                   ErrorResult:(ErrorBlock)errorResult;
+
 #pragma mark -讲师团队
 - (void)getTeacherTeamDataWithToken:(NSString*)token
                                page:(NSString*)page

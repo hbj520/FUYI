@@ -21,6 +21,8 @@
 #import "ConfirmOrderViewController.h"
 
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "Config.h"
+#import "Tools.h"
 #import "LabelHelper.h"
 
 @interface ConfirmOrderViewController ()<ZCTradeViewDelegate,UITableViewDataSource,UITableViewDelegate>
@@ -80,7 +82,8 @@
 }
 
 -(NSString *)finish:(NSString *)pwd{
-    NSLog(@"%@",pwd);
+    NSString * SecurityString = [Tools loginPasswordSecurityLock:pwd];
+    NSLog(@"%@",SecurityString);
     return pwd;
 }
 

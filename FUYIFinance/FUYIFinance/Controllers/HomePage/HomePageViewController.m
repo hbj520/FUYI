@@ -202,7 +202,9 @@ static NSString *investReuseId = @"investReuseId";
             }
             
             [newTableViewCell configWithData:noticeData];
-
+            newTableViewCell.block = ^(){
+            [self performSegueWithIdentifier:@"homepagedetailSegue" sender:nil];
+            };
             return newTableViewCell;
         }
     }else if (indexPath.section == 2){

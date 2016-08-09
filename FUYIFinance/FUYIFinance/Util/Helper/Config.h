@@ -40,7 +40,7 @@
 - (void)saveUserPassword:(NSString*)password;
 - (void)saveGesturePassword:(NSString *)gesturePassword;
 - (void)saveTeminate;//结束进程后保存
-
+- (void)saveOrderNum:(NSString *)ordernum;//保存订单号
 - (NSString *)getTeminate;//
 - (NSString *)getUserId;       //获取用户id
 - (NSString *)getUserName;     //获取用户名
@@ -51,6 +51,7 @@
 - (NSString *)getIcon;          //获取图片
 - (NSString *)getBackImage;    //获取背景图片
 - (NSString *)getGesturePassword;//获取手势密码
+- (NSString *)getOrderNum; //获取订单号
 - (void)logout;               //退出登录
 - (void)deleteTeminate;
 
