@@ -75,6 +75,8 @@ DOPDropDownMenuDelegate>
                                                  name:@"refreshStoreList"
                                                object:nil];
     
+     self.automaticallyAdjustsScrollViewInsets = NO;
+    
 }
 - (void)viewWillDisappear:(BOOL)animated
 {
@@ -226,9 +228,15 @@ DOPDropDownMenuDelegate>
                                    keyWord:keyWord
                                     result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
                                         if (success) {
-                                            [storeArray addObjectsFromArray:arrays];
-                                            
+                                         
+                                                [storeArray addObjectsFromArray:arrays];
+                                         
                                             [self.tableView reloadData];
+                                        }else{
+                                            dispatch_async(dispatch_get_main_queue(), ^{
+                                                [self.tableView.mj_footer endRefreshingWithNoMoreData];
+                                            });
+                                            _page--;
                                         }
                                         [self.tableView.mj_header endRefreshing];
                                         [self.tableView.mj_footer endRefreshing];

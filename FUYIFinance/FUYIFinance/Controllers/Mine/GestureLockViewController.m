@@ -17,7 +17,8 @@
 /** 手势解锁控件 */
 - (IBAction)backBtn:(id)sender;
 @property(nonatomic, strong)MRGestureView *gestureView;
-@property (nonatomic,strong) NSString *firstGesPassword;//
+@property (nonatomic,strong) NSString *firstGesPassword;//设置手势密码第一次密码记录
+@property (nonatomic,assign) BOOL isFirstSet;
 @property(nonatomic, strong) UILabel *guideLabel;//引导提示标题
 @end
 
@@ -27,7 +28,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationController.navigationItem.hidesBackButton = YES;
-    
+    self.isFirstSet = YES;
     // 初始化
     [self setupGesture];
 }
@@ -53,13 +54,19 @@
     MRGesture *gesture = [[MRGesture alloc] init];
     
     // 设置密码
-    gesture.password = @"123";
+    // gesture.password = @"123";
     
     self.gestureView.gesture = gesture;
     
     self.gestureView.frame = CGRectMake(0, 120, self.view.frame.size.width, self.view.frame.size.height);
     
     [self.view addSubview:self.gestureView];
+    //设置引导label
+    self.guideLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 70, ScreenWidth, 30)];
+    self.guideLabel.text = @"请设置手势密码~~";
+    self.guideLabel.textColor = [UIColor whiteColor];
+    self.guideLabel.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:self.guideLabel];
     
 }
 
@@ -69,7 +76,21 @@
     
 }
 - (void)gestureDidFinished:(NSString *)gesturePassword{
-    
+    if (self.isFirstSet) {
+        self.firstGesPassword = gesturePassword;
+        self.guideLabel.text = @"请再次确认您的手势密码~~";
+        self.isFirstSet = NO;
+       // self.gestureView.gesture
+    }else{
+        if ([self.firstGesPassword isEqualToString:gesturePassword]) {
+            //保存手势密码
+            [[Config Instance] saveGesturePassword:gesturePassword];
+            [self.navigationController popViewControllerAnimated:YES];
+        }else{
+            self.guideLabel.text = @"您的两次密码输入不同，请从新设置";
+            self.isFirstSet = YES;
+        }
+    }
     
 }
 - (void)didReceiveMemoryWarning {
