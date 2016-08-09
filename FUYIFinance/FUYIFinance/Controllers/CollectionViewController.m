@@ -44,7 +44,7 @@ static NSString *collectionId = @"MyCollectionId";
     [self loadDataWithPage:_page];
     [self addRefresh];
 
-    self.automaticallyAdjustsScrollViewInsets = NO;
+  self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 - (void)creatUI{
@@ -53,8 +53,8 @@ static NSString *collectionId = @"MyCollectionId";
     //self.tableView.frame = CGRectMake(0, 0, ScreenWidth-64, ScreenHeight);
     [self.tableView registerNib:[UINib nibWithNibName:@"MyCollectionTableViewCell" bundle:nil] forCellReuseIdentifier:collectionId];
     self.tableView.rowHeight = 105;
-    self.tableView.sectionHeaderHeight = 7;
-    self.tableView.sectionFooterHeight = 7;
+    self.tableView.sectionHeaderHeight = 14;
+    self.tableView.sectionFooterHeight = 0;
 }
 
 - (void)addRefresh{
@@ -116,18 +116,14 @@ static NSString *collectionId = @"MyCollectionId";
     cell.teachername.text = model.teacher;
     
     cell.pricelabel.attributedText = [[LabelHelper alloc]attributedFontStringWithString:[NSString stringWithFormat:@"¥ %@",model.price] firstFont:13 secFont:17 thirdFont:14];
-    
-    
-    
-    
+
     return cell;
 }
 
 
 - (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)sectio{
     
-    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 5)];
-    return view;
+    return nil;
 }
 
 - (void)didReceiveMemoryWarning {
