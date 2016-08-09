@@ -233,7 +233,7 @@
 - (IBAction)buyNow:(id)sender {
    [self performSegueWithIdentifier:@"ConfirmOrderSegue" sender:self.model];
     self.navigationController.navigationBarHidden = NO;
-
+   
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

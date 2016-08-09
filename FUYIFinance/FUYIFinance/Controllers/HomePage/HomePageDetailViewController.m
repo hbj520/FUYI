@@ -1,37 +1,34 @@
 //
-//  AboutViewController.m
+//  HomePageDetailViewController.m
 //  FUYIFinance
 //
-//  Created by 张哲 on 16/8/8.
+//  Created by 张哲 on 16/8/9.
 //  Copyright © 2016年 youyou. All rights reserved.
 //
 
-#import "AboutViewController.h"
+#import "HomePageDetailViewController.h"
 
-@interface AboutViewController ()
+@interface HomePageDetailViewController ()
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 @end
 
-@implementation AboutViewController
+@implementation HomePageDetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    NSString * filePath = [[NSBundle mainBundle] pathForResource:@"index" ofType:@"html"];
-    NSString * htmlString = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
-    [self.webView loadHTMLString:htmlString baseURL:[NSURL URLWithString:filePath]];
-    
+    NSURLRequest * request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString: @"http://www.baidu.com"]];
+    [self.webView loadRequest:request];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = NO;
+    self.navigationController.navigationBar.hidden = NO;
 }
 
 - (IBAction)back:(id)sender {
-    self.navigationController.navigationBarHidden = YES;
     [self.navigationController popViewControllerAnimated:YES];
 }
 

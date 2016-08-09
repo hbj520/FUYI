@@ -39,8 +39,9 @@
     [_tableView registerNib:[UINib nibWithNibName:@"MyCollectionTableViewCell" bundle:nil] forCellReuseIdentifier:@"MyCollectionId"];
     [self.view addSubview:_tableView];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshtableview) name:@"refreshView" object:nil];
+     [self loadData];
     [self addRefresh];
-    [self loadData];
+   
 }
 
 - (void)refreshtableview

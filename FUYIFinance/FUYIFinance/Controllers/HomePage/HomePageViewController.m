@@ -200,6 +200,7 @@ static NSString *investReuseId = @"investReuseId";
             if (newTableViewCell == nil) {
                 newTableViewCell = [[[NSBundle mainBundle] loadNibNamed:@"HomePageHotNewTableViewCell" owner:self options:nil] lastObject];
             }
+            
             [newTableViewCell configWithData:noticeData];
 
             return newTableViewCell;
@@ -216,7 +217,7 @@ static NSString *investReuseId = @"investReuseId";
             [investTableViewCell createUIWithData:inverstData];
         }
         investTableViewCell.tapInvestCellBlock = ^(NSInteger index){
-            
+            [self performSegueWithIdentifier:@"homepagedetailSegue" sender:nil];
         };
         return investTableViewCell;
     }

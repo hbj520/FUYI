@@ -15,7 +15,7 @@
 #import "DeliverMethodTableViewCell.h"
 #import "NoticeTableViewCell.h"
 #import "PayView.h"
-
+#import "ZCTradeView.h"
 #import "StoreDataModel.h"
 
 #import "ConfirmOrderViewController.h"
@@ -23,10 +23,11 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "LabelHelper.h"
 
-@interface ConfirmOrderViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface ConfirmOrderViewController ()<ZCTradeViewDelegate,UITableViewDataSource,UITableViewDelegate>
 {
     PayView* _payView;
     UIButton* _shadowBtn;
+    ZCTradeView * _tradeView;
     int a;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -53,6 +54,8 @@
         [self.tableView registerNib:[UINib nibWithNibName:@"BuyCountTableViewCell" bundle:nil] forCellReuseIdentifier:@"buyerCountCellReuseID"];
         [self.tableView registerNib:[UINib nibWithNibName:@"DeliverMethodTableViewCell" bundle:nil] forCellReuseIdentifier:@"deliMethodCellReuseID"];
         [self.tableView registerNib:[UINib nibWithNibName:@"NoticeTableViewCell" bundle:nil] forCellReuseIdentifier:@"noticeCellReuseID"];
+    _tradeView = [[ZCTradeView alloc] init];
+    _tradeView.delegate = self;
     [self creatHidePayView];//弹出视图
 
     self.allPriceLab.attributedText = [[LabelHelper alloc]attributedFontStringWithString:[NSString stringWithFormat:@"¥ %@",_model.videoPrice] firstFont:14 secFont:18 thirdFont:18];//商品数为1时的价格
@@ -63,8 +66,22 @@
      _payView = [[[NSBundle mainBundle]loadNibNamed:@"PayView" owner:self options:nil]lastObject];
     _payView.frame = CGRectMake(0, ScreenHeight, ScreenWidth, ScreenHeight*0.65);
     [_payView.downBtn addTarget:self action:@selector(down) forControlEvents:UIControlEventTouchUpInside];
+    [_payView.payBtn addTarget:self action:@selector(payaction) forControlEvents:UIControlEventTouchUpInside];
+    
     //[_payView.payWayBtn addTarget:self action:@selector(selectBank) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_payView];
+}
+
+- (void)payaction
+{
+  
+    [_tradeView show];
+    
+}
+
+-(NSString *)finish:(NSString *)pwd{
+    NSLog(@"%@",pwd);
+    return pwd;
 }
 
 #pragma mark - UITableViewDelegate

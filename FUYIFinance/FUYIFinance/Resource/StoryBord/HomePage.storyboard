@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="oqS-Uv-Ope">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="oqS-Uv-Ope">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -38,7 +38,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="q4s-3I-iwh">
                                 <rect key="frame" x="0.0" y="44" width="320" height="524"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="sectionIndexBackgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="sectionIndexBackgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -54,6 +54,7 @@
                         <outlet property="tableView" destination="q4s-3I-iwh" id="dXY-i5-4Q6"/>
                         <segue destination="KZT-YV-hiS" kind="push" identifier="TeacherTeamSegue" id="gJC-TS-PUa"/>
                         <segue destination="els-pr-w1f" kind="push" identifier="VideoStoreSegue" id="7Fn-d5-dFQ"/>
+                        <segue destination="CEU-gD-dD1" kind="push" identifier="homepagedetailSegue" id="dar-hG-24C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q7p-ay-veM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -128,7 +129,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="qY8-mO-crU">
                                 <rect key="frame" x="0.0" y="84" width="320" height="484"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                             </tableView>
                         </subviews>
                         <constraints>
@@ -147,6 +148,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="499-dh-4aW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="269" y="106"/>
+        </scene>
+        <!--首页详情-->
+        <scene sceneID="tID-G7-dPI">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="CEU-gD-dD1" customClass="HomePageDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="J6G-oA-11o"/>
+                        <viewControllerLayoutGuide type="bottom" id="G7u-Qg-utf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="98p-oK-SQp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wa7-Wx-bgm">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wa7-Wx-bgm" firstAttribute="leading" secondItem="98p-oK-SQp" secondAttribute="leading" id="Spb-p6-1vX"/>
+                            <constraint firstItem="G7u-Qg-utf" firstAttribute="top" secondItem="wa7-Wx-bgm" secondAttribute="bottom" id="t61-Pf-M34"/>
+                            <constraint firstAttribute="trailing" secondItem="wa7-Wx-bgm" secondAttribute="trailing" id="w30-eF-qNo"/>
+                            <constraint firstItem="wa7-Wx-bgm" firstAttribute="top" secondItem="J6G-oA-11o" secondAttribute="bottom" id="xZE-m0-3gm"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="首页详情" id="3Oi-EV-tqb">
+                        <barButtonItem key="leftBarButtonItem" image="back" id="Qwc-rs-72P">
+                            <color key="tintColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="back:" destination="CEU-gD-dD1" id="a0O-Qa-vjJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="webView" destination="wa7-Wx-bgm" id="ueA-ma-0ON"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="run-ml-PAZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-161" y="1641"/>
         </scene>
         <!--Video Shop View Controller-->
         <scene sceneID="haZ-6V-zu0">
@@ -225,7 +267,7 @@
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Z3N-pl-EFc">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="518"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vdx-in-me4">
                                 <rect key="frame" x="10" y="10" width="45" height="45"/>
@@ -311,7 +353,7 @@
                                             <constraint firstAttribute="height" constant="1" id="8za-oI-jzF"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="合计：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4au-e0-XJF">
