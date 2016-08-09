@@ -216,6 +216,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     if (indexPath.row == 5) {//手势密码
         [self performSegueWithIdentifier:@"GestureSegue" sender:nil];
     }

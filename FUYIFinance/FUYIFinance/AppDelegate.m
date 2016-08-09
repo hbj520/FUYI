@@ -44,8 +44,6 @@
     if (KGesturePsassword){
         if (![[GestureHelper sharedGesture] isTimeOut]) {
             [[GestureHelper sharedGesture] endTime];
-        }else{
-            [[GestureHelper sharedGesture] showGestureUnlockViewFromNowVC:self.window.rootViewController];
         }
     }
 }

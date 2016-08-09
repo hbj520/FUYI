@@ -182,7 +182,16 @@
     if (!KToken) {
         [self LoginActCell];
     }else{
-    [self performSegueWithIdentifier:@"settingSegue" sender:nil];
+        if (KGesturePsassword) {
+            if ([[GestureHelper sharedGesture] isTimeOut]) {
+                [self gestureAct];
+            }else{
+            [self performSegueWithIdentifier:@"settingSegue" sender:nil];
+            }
+        }else{
+            [self performSegueWithIdentifier:@"settingSegue" sender:nil];
+  
+        }
     }
 }
 
@@ -190,8 +199,16 @@
     if(!KToken){
         [self LoginActCell];
     }else{
-        
-        [self performSegueWithIdentifier:@"noticeSegue" sender:nil];
+        if (KGesturePsassword) {
+            if ([[GestureHelper sharedGesture] isTimeOut]) {
+                [self gestureAct];
+            }else{
+                [self performSegueWithIdentifier:@"noticeSegue" sender:nil];
+            }
+        }else{
+            [self performSegueWithIdentifier:@"noticeSegue" sender:nil];
+            
+        }
     }
 }
 
@@ -200,7 +217,16 @@
     if (!KToken) {
         [self LoginAct];
     }else{
-        [self performSegueWithIdentifier:@"waitpaySegue" sender:nil];
+        if (KGesturePsassword) {
+            if ([[GestureHelper sharedGesture] isTimeOut]) {
+                [self gestureAct];
+            }else{
+                [self performSegueWithIdentifier:@"waitpaySegue" sender:nil];
+            }
+        }else{
+            [self performSegueWithIdentifier:@"waitpaySegue" sender:nil];
+            
+        }
     }
 }
 
@@ -217,7 +243,16 @@
     if (!KToken) {
         [self LoginAct];
     }else{
-        [self performSegueWithIdentifier:@"myshopSegue" sender:nil];
+        if (KGesturePsassword) {
+            if ([[GestureHelper sharedGesture] isTimeOut]) {
+                [self gestureAct];
+            }else{
+                [self performSegueWithIdentifier:@"myshopSegue" sender:nil];
+            }
+        }else{
+            [self performSegueWithIdentifier:@"myshopSegue" sender:nil];
+            
+        }
     }
 }
 
@@ -227,7 +262,16 @@
     if (!KToken) {
         [self LoginAct];
     }else{
-        [self performSegueWithIdentifier:@"myjudgeSegue" sender:nil];
+        if (KGesturePsassword) {
+            if ([[GestureHelper sharedGesture] isTimeOut]) {
+                [self gestureAct];
+            }else{
+                [self performSegueWithIdentifier:@"myjudgeSegue" sender:nil];
+            }
+        }else{
+            [self performSegueWithIdentifier:@"myjudgeSegue" sender:nil];
+            
+        }
     }
 }
 
@@ -237,7 +281,16 @@
     if (!KToken) {
         [self LoginAct];
     }else{
-        [self performSegueWithIdentifier:@"mycollectionSegue" sender:nil];
+        if (KGesturePsassword) {
+            if ([[GestureHelper sharedGesture] isTimeOut]) {
+                [self gestureAct];
+            }else{
+                [self performSegueWithIdentifier:@"mycollectionSegue" sender:nil];
+            }
+        }else{
+            [self performSegueWithIdentifier:@"mycollectionSegue" sender:nil];
+            
+        }
     }
 }
 
@@ -253,7 +306,16 @@
     if (!KToken) {
         [self LoginAct];
     }else{
-        [self performSegueWithIdentifier:@"waitjudgeSegue" sender:nil];
+        if (KGesturePsassword) {
+            if ([[GestureHelper sharedGesture] isTimeOut]) {
+                [self gestureAct];
+            }else{
+                [self performSegueWithIdentifier:@"waitjudgeSegue" sender:nil];
+            }
+        }else{
+            [self performSegueWithIdentifier:@"waitjudgeSegue" sender:nil];
+            
+        }
     }
 }
 
@@ -263,7 +325,16 @@
     if (!KToken) {
         [self LoginAct];
     }else{
-        [self performSegueWithIdentifier:@"myorderSegue" sender:nil];
+        if (KGesturePsassword) {
+            if ([[GestureHelper sharedGesture] isTimeOut]) {
+                [self gestureAct];
+            }else{
+                [self performSegueWithIdentifier:@"myorderSegue" sender:nil];
+            }
+        }else{
+            [self performSegueWithIdentifier:@"myorderSegue" sender:nil];
+            
+        }
     }
 }
 
@@ -301,14 +372,30 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+
     if (!KToken) {
         [self LoginActCell];
     }else{
+        if (KGesturePsassword) {
+            if ([[GestureHelper sharedGesture] isTimeOut]) {
+                [self gestureAct];
+            }else{
+                [self selectCellActWithIndexPath:indexPath];
+            }
+        }else{
+            [self selectCellActWithIndexPath:indexPath];
+        }
+        }
+}
+- (void)gestureAct{
+    [[GestureHelper sharedGesture] showGestureUnlockViewFromNowVC:self.navigationController];
+}
+- (void)selectCellActWithIndexPath:(NSIndexPath *)indexPath{
     if(indexPath.section == 2){
         if(indexPath.row==0){
-        [self performSegueWithIdentifier:@"modifyinfoSegue" sender:nil];
+            [self performSegueWithIdentifier:@"modifyinfoSegue" sender:nil];
         }else if (indexPath.row==1){
-        [self performSegueWithIdentifier:@"modifypwdSegue" sender:nil];
+            [self performSegueWithIdentifier:@"modifypwdSegue" sender:nil];
         }else if (indexPath.row==2){
             [self performSegueWithIdentifier:@"noticeSegue" sender:nil];
         }else if (indexPath.row == 3){
@@ -316,17 +403,15 @@
         }else{
             [self performSegueWithIdentifier:@"myjudgeSegue" sender:nil];
         }
-
+        
     }else if (indexPath.section == 3){
         if(indexPath.row == 0){
-        [self performSegueWithIdentifier:@"settingSegue" sender:nil];
+            [self performSegueWithIdentifier:@"settingSegue" sender:nil];
         }else{
             
         }
     }
-    }
 }
-
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];

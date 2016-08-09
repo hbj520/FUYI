@@ -18,7 +18,7 @@
 - (id)init{
     self = [super init];
     if (self) {
-        [self configTime];
+        
     }
     return self;
 }
@@ -30,13 +30,13 @@
     });
     return helper;
 }
-- (void)configTime{
-    timer = [NSTimer scheduledTimerWithTimeInterval:1. target:self selector:@selector(timeAct:) userInfo:nil repeats:YES];
-    self.durationTime = 0;
-}
+
 //开始计时
 - (void)startTime{
+    timer = [NSTimer scheduledTimerWithTimeInterval:1. target:self selector:@selector(timeAct:) userInfo:nil repeats:YES];
     [timer fire];
+     self.durationTime = 0;
+     BOOL IsValid2 = [timer isValid];
 }
 //结束计时
 - (void)endTime{
@@ -44,7 +44,6 @@
 }
 //是否大于规定时间
 - (BOOL)isTimeOut{
-    
     return self.durationTime > 10;
 }
 //显示手势解锁界面
