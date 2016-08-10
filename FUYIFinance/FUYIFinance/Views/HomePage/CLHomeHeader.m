@@ -125,10 +125,14 @@ static NSString *ADID = @"adCell";
         nextSection++;
     }
     NSIndexPath *nextIndexPath = [NSIndexPath indexPathForItem:nextItem inSection:nextSection];
-    
+    //NSLog(@"********section %ld,row %ld*********",nextIndexPath.section,nextIndexPath.row);
     // 3.通过动画滚动到下一个位置
-    [self.collectionView scrollToItemAtIndexPath:nextIndexPath atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
-}
+    if (nextIndexPath.row < self.newses.count) {
+        [self.collectionView scrollToItemAtIndexPath:nextIndexPath atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
+    }else{
+        //NSLog(@"fuking .....");
+    }
+   }
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section

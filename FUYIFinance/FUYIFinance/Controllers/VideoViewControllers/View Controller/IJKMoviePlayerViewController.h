@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <IJKMediaFramework/IJKMediaFramework.h>
+typedef void (^TapFullScreenBolck)(BOOL);
 @class GLVideoPlayView;
 
 @interface IJKMoviePlayerViewController : UIViewController
@@ -15,6 +16,7 @@
 @property(atomic,strong) NSURL *url;
 
 @property(atomic, retain) id<IJKMediaPlayback> player;
+@property (nonatomic,strong)TapFullScreenBolck fullScreenBlock;
 
 - (instancetype)initWithURL:(NSURL *)url isLiveVideo:(BOOL)isLiveVideo isOnlineVideo:(BOOL)isOnlineVideo isFullScreen:(BOOL)isFullScreen;
 

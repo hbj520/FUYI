@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="oqS-Uv-Ope">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="oqS-Uv-Ope">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -52,6 +52,7 @@
                     <navigationItem key="navigationItem" id="n0O-HM-bQh"/>
                     <connections>
                         <outlet property="tableView" destination="q4s-3I-iwh" id="dXY-i5-4Q6"/>
+                        <outlet property="topConstraintLayOut" destination="v2w-G4-Jv7" id="mSP-b3-jxh"/>
                         <segue destination="KZT-YV-hiS" kind="push" identifier="TeacherTeamSegue" id="gJC-TS-PUa"/>
                         <segue destination="els-pr-w1f" kind="push" identifier="VideoStoreSegue" id="7Fn-d5-dFQ"/>
                         <segue destination="CEU-gD-dD1" kind="push" identifier="homepagedetailSegue" id="dar-hG-24C"/>

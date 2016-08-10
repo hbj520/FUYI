@@ -288,11 +288,13 @@
 
 #pragma mark - 强制屏幕旋转
 - (IBAction)fullScreenAndScale:(UIButton *)btn {
-    
+    btn.selected;
     if (btn.selected) {
         self.isFullScreen = NO;
         btn.selected = NO;
-        
+        if (self.fullScreenBlock) {
+            self.fullScreenBlock(NO);
+        }
         /** 16 : 9 */
         if ([[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)]) {
             SEL selector             = NSSelectorFromString(@"setOrientation:");
@@ -308,7 +310,9 @@
     }else{
         self.isFullScreen = YES;
         btn.selected = YES;
-        
+        if (self.fullScreenBlock) {
+            self.fullScreenBlock(YES);
+        }
          /** 全屏 */
         if ([[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)]) {
             SEL selector             = NSSelectorFromString(@"setOrientation:");
@@ -329,6 +333,7 @@
     [self toolsShowOrHidden];
     
     if (size.width > size.height) {
+
         [self.view mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(@0);
             make.top.equalTo(@0);
@@ -337,11 +342,12 @@
         }];
 //        self.player.playbackRate = 2;
     }else {
+      
         [self.view mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(@0);
             make.top.equalTo(@0);
             make.width.equalTo(@(size.width));
-            make.height.equalTo(@(size.width *(9.0 / 16.0)));
+            make.height.equalTo(@(self.view.superview.bounds.size.height));
         }];
 //        self.player.playbackRate = 0.4;
     }
