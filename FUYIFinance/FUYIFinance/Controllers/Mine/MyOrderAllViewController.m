@@ -28,6 +28,7 @@
     NSMutableArray * isjudgeArray;
     NSInteger page;
     NSInteger index;
+    
     NSString * _ordernum;
     PayView* _payView;
     ZCTradeView * _tradeView;
@@ -109,21 +110,23 @@
             for(AllOderModel * model in arrays){
                 if([model.state isEqualToString:@"0"]){
                     [waitpayArray addObject:model];
-                    if (waitpayArray.count > 0) {
-                        sectionCout++;
-                    }
+                   
                 }else if ([model.state isEqualToString:@"1"]){
                     [waitjudgeArray addObject:model];
-                    if (waitjudgeArray.count > 0) {
-                        sectionCout++;
-                    }
-                }else{
+                                   }else{
                     [isjudgeArray addObject:model];
-                    if (isjudgeArray.count > 0) {
-                        sectionCout++;
-                    }
-                }
+                                   }
             }
+            if (waitpayArray.count > 0) {
+                sectionCout++;
+            }
+            if (waitjudgeArray.count > 0) {
+                sectionCout++;
+            }
+            if (isjudgeArray.count > 0) {
+                sectionCout++;
+            }
+
             [_tableView reloadData];
             [_tableView.mj_header endRefreshing];
             [_tableView.mj_footer endRefreshing];
@@ -138,31 +141,7 @@
         [_tableView.mj_footer endRefreshing];
     }];
     
-    /**
-     *    if([msg isEqualToString:@"-1"]){
-     [self logOut];
-     }
-     if(success){
-     [dataSource addObjectsFromArray:arrays];
-     [_tableView reloadData];
-     }else{
-     
-     }
-     [_tableView.mj_header endRefreshing];
-     [_tableView.mj_footer endRefreshing];
-     
-     } errorResult:^(NSError *enginerError) {
-     [_tableView.mj_header endRefreshing];
-     [_tableView.mj_footer endRefreshing];
-     }];
-     
-
-     *
-     *  @param NSInteger <#NSInteger description#>
-     *
-     *  @return <#return value description#>
-     */
-}
+  }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {

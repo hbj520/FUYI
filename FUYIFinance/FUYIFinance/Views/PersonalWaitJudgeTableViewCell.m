@@ -35,7 +35,7 @@
    // self.teacherName.text = model.teacher;
     self.shopname.text = model.shopname;
     self.totalPrice.text = pricelabel;
-    [self.thumbImage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@""]];
+    [self.thumbImage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"placeimage"]];
     
 }
 
