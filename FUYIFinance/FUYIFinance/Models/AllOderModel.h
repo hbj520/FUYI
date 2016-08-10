@@ -18,7 +18,7 @@
 @property (nonatomic,copy)NSString * name;
 @property (nonatomic,copy)NSString * teacher;
 @property (nonatomic,copy)NSString * shopname;
-
+@property (nonatomic,copy)NSString * ordernum;
 /**
  *  重写构造模型方法
  *
@@ -42,7 +42,8 @@
               Image:(NSString *)image
                Name:(NSString *)name
             Teacher:(NSString *)teacher
-           Shopname:(NSString *)shopname;
+           Shopname:(NSString *)shopname
+           Ordernum:(NSString *)ordernum;
 
 /**
  *  返回模型数组

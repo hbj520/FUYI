@@ -12,7 +12,7 @@
 #import "ShopCarViewController.h"
 #import "ConfirmOrderViewController.h"
 #import "StoreViewController.h"
-
+#import "UIViewController+HUD.h"
 //view
 #import "VideoDetailFirstTableViewCell.h"
 #import "VideoDetailSecTableViewCell.h"
@@ -227,15 +227,23 @@
 - (IBAction)back:(id)sender {
      [self.navigationController popViewControllerAnimated:YES];
     self.navigationController.navigationBarHidden = NO;
+    self.tabBarController.tabBar.hidden = NO;
 }
 
 //立即下单
 - (IBAction)buyNow:(id)sender {
-   [self performSegueWithIdentifier:@"ConfirmOrderSegue" sender:self.model];
-    self.navigationController.navigationBarHidden = NO;
+  
+  
     [[MyAPI sharedAPI] getOrderNumWithGoodsid:_model.videoId Money:_model.videoPrice Result:^(BOOL sucess, NSString *msg) {
         if(sucess){
             [[Config Instance] saveOrderNum:msg];
+              self.navigationController.navigationBarHidden = NO;
+             [self performSegueWithIdentifier:@"ConfirmOrderSegue" sender:self.model];
+       
+        }else if([msg isEqualToString:@"0"]){
+            [self showHint:@"请不要重复购买!"];
+        }else{
+            return ;
         }
     } ErrorResult:^(NSError *enginerError) {
         

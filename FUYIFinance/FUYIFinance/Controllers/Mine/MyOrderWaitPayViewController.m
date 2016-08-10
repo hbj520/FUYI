@@ -12,18 +12,23 @@
 #import "UIViewController+HUD.h"
 #import <MJRefresh/MJRefresh.h>
 #import "PayView.h"
+#import "ZCTradeView.h"
 #import "MineWaitPayModel.h"
 #import "StoreDataModel.h"
 #import "Config.h"
+#import "Tools.h"
 #import "MyAPI.h"
-@interface MyOrderWaitPayViewController ()<UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate>
+@interface MyOrderWaitPayViewController ()<ZCTradeViewDelegate,UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate>
 {
     UITableView * _tableView;
     NSMutableArray * _dataSource; //待付款的数据
     PayView* _payView;
     UIButton* _shadowBtn;
     NSInteger  index;
+    NSInteger index1;
     NSInteger page;
+    ZCTradeView * _tradeView;
+    NSString * _ordernum;
 }
 @end
 
@@ -50,6 +55,10 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshtableview) name:@"refreshView" object:nil];
     
     [self loadData];
+    
+    _tradeView = [[ZCTradeView alloc] init];
+    
+    _tradeView.delegate = self;
     
     [self creatHidePayView];
   
@@ -94,18 +103,13 @@
                                         [self logOut];
                                         }
         if(success){
-            if(arrays.count == 0){
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [_tableView.mj_footer endRefreshingWithNoMoreData];
-                });
-                page--;
-
-            }else{
+           {
             [_dataSource addObjectsFromArray:arrays];
+            [_tableView reloadData];
             }
 //            [[Config Instance] saveWaitPayCount:[NSString stringWithFormat:@"%ld",_dataSource.count]];
            
-            [_tableView reloadData];
+           
         }else{
             
         }
@@ -125,7 +129,34 @@
     _payView.titleLab.text = @"付款详情";
     _payView.frame = CGRectMake(0, ScreenHeight, ScreenWidth, ScreenHeight * 0.65);
     [_payView.downBtn addTarget:self action:@selector(down) forControlEvents:UIControlEventTouchUpInside];
+    [_payView.payBtn addTarget:self action:@selector(payaction) forControlEvents:UIControlEventTouchUpInside];
+    
     [self.view addSubview:_payView];
+}
+
+- (void)payaction
+{
+    [_tradeView show];
+}
+
+- (NSString *)finish:(NSString *)pwd
+{
+    NSString * SecurityString = [Tools loginPasswordSecurityLock:pwd];
+    if(_ordernum.length&&KToken.length){
+    [[MyAPI sharedAPI] payOrderWithOrderNum:_ordernum Excode:SecurityString Result:^(BOOL sucess, NSString *msg) {
+        if(sucess){
+            [self showHint:@"付款成功"];
+                if(_dataSource.count){
+            [_dataSource removeObjectAtIndex:index1];
+            [_tableView reloadData];
+            }
+        }
+    } ErrorResult:^(NSError *enginerError) {
+        
+    }];
+    }
+    return pwd;
+
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -193,6 +224,7 @@
 //点击确定付款
 - (void)clickSureBtn:(UIButton*)sender
 {
+    index1 = sender.tag;
     _shadowBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
     _shadowBtn.backgroundColor = [UIColor blackColor];
     [_shadowBtn addTarget:self action:@selector(down) forControlEvents:UIControlEventTouchUpInside];
@@ -200,8 +232,13 @@
     [self.view addSubview:_shadowBtn];
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:1.0];
+    MineWaitPayModel * model = [[MineWaitPayModel alloc] init];
+    model = _dataSource[sender.tag];
+    _payView.lastPriceLab.text = model.price;
+    _ordernum = model.ordernum;
     _payView.frame = CGRectMake(0, ScreenHeight*0.35, ScreenWidth, ScreenHeight * 0.65);
     _shadowBtn.frame = CGRectMake(0, -ScreenHeight * 0.65, ScreenWidth, ScreenHeight);
+  
     
     [UIView commitAnimations];
 
@@ -216,7 +253,8 @@
 [[MyAPI sharedAPI] cancelOrderWithOrdernum:model.ordernum result:^(BOOL sucess, NSString *msg) {
     if (sucess) {
         [self showHint:msg];
-          [_tableView reloadData];
+        [_dataSource removeObjectAtIndex:index-10];
+        [_tableView reloadData];
     }else{
         [self showHint:msg]; 
     }

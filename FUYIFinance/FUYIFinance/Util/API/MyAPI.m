@@ -719,6 +719,7 @@
         NSString * status = responseObject[@"status"];
         NSString * info = responseObject[@"info"];
         NSArray * data = responseObject[@"data"];
+        
         if([status isEqualToString:@"1"]){
             if([data isEqual:[NSNull null]]){
                 result(YES,info,nil);
@@ -1200,17 +1201,38 @@
                                   @"money":money};
     [self.manager POST:@"readyorder" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         NSString * status = responseObject[@"status"];
-        NSString * info = responseObject[@"info"];
         if([status isEqualToString:@"1"]){
             NSDictionary * data = responseObject[@"data"];
             NSString * ordernum = data[@"ordernum"];
             result(YES,ordernum);
+        }else{
+            result(NO,status);
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+    }];
+}
+
+- (void)payOrderWithOrderNum:(NSString *)ordernum
+                      Excode:(NSString *)excode
+                      Result:(StateBlock)result
+                 ErrorResult:(ErrorBlock)errorResult
+{
+    NSDictionary * parameters = @{@"token":KToken,
+                                  @"ordernum":ordernum,
+                                  @"excode":excode};
+    [self.manager POST:@"orderPay" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * status = responseObject[@"status"];
+        NSString * info = responseObject[@"info"];
+        if([status isEqualToString:@"1"]){
+            result(YES,info);
         }else{
             result(NO,info);
         }
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         errorResult(error);
     }];
+    
 }
 
 @end

@@ -17,13 +17,14 @@
 #import "PayView.h"
 #import "ZCTradeView.h"
 #import "StoreDataModel.h"
-
+#import "UIViewController+HUD.h"
 #import "ConfirmOrderViewController.h"
 
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "Config.h"
 #import "Tools.h"
 #import "LabelHelper.h"
+#import "MyAPI.h"
 
 @interface ConfirmOrderViewController ()<ZCTradeViewDelegate,UITableViewDataSource,UITableViewDelegate>
 {
@@ -83,7 +84,16 @@
 
 -(NSString *)finish:(NSString *)pwd{
     NSString * SecurityString = [Tools loginPasswordSecurityLock:pwd];
-    NSLog(@"%@",SecurityString);
+    NSString * ordernum = [[Config Instance] getOrderNum];
+    if(ordernum.length&&KToken.length){
+    [[MyAPI sharedAPI] payOrderWithOrderNum:ordernum Excode:SecurityString Result:^(BOOL sucess, NSString *msg) {
+        if(sucess){
+            [self showHint:@"付款成功"];
+        }
+    } ErrorResult:^(NSError *enginerError) {
+        
+    }];
+    }
     return pwd;
 }
 

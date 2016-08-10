@@ -427,6 +427,19 @@ typedef void (^ErrorBlock) (NSError *enginerError);
                         Result:(StateBlock)result
                    ErrorResult:(ErrorBlock)errorResult;
 
+/**
+ *  订单支付
+ *
+ *  @param ordernum    订单号
+ *  @param excode      支付密码
+ *  @param result      返回状态
+ *  @param errorResult 错误信息
+ */
+- (void)payOrderWithOrderNum:(NSString *)ordernum
+                      Excode:(NSString *)excode
+                      Result:(StateBlock)result
+                 ErrorResult:(ErrorBlock)errorResult;
+
 #pragma mark -讲师团队
 - (void)getTeacherTeamDataWithToken:(NSString*)token
                                page:(NSString*)page

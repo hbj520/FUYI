@@ -7,11 +7,11 @@
 //
 
 #import "CollectionViewController.h"
-
+#import "VideoDetailViewController.h"
 #import "MyCollectionTableViewCell.h"
 
 #import "MineCollectionTreasureModel.h"
-
+#import "StoreDataModel.h"
 #import "LabelHelper.h"
 #import "MJRefresh.h"
 #import <SDWebImage/UIImageView+WebCache.h>
@@ -118,6 +118,20 @@ static NSString *collectionId = @"MyCollectionId";
     cell.pricelabel.attributedText = [[LabelHelper alloc]attributedFontStringWithString:[NSString stringWithFormat:@"¥ %@",model.price] firstFont:13 secFont:17 thirdFont:14];
 
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    MineCollectionTreasureModel * model =[[MineCollectionTreasureModel alloc] init];
+    model = collectGoodArr[indexPath.section];
+    StoreDataModel * model1 = [[StoreDataModel alloc] initWithParameters:model.goodsid
+                                                               videoName:model.name
+                                                             teacherName:model.teacher videoImage:model.image videoPrice:model.price sellNum:model.num videodescription:model.about teacherId:model.tid videoType:model.type videoCollect:model.collection cart:model.cart];
+    UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"HomePage" bundle:nil];
+    
+    VideoDetailViewController * vc =[storyboard instantiateViewControllerWithIdentifier:@"VideoShopStoryBoardID"];
+    vc.model = model1;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

@@ -37,7 +37,7 @@
 
 - (void)createUI
 {
-    self.tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+   self.tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     [self.tableView registerNib:[UINib nibWithNibName:@"MyShopDetailTableViewCell" bundle:nil] forCellReuseIdentifier:@"cellID4"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     

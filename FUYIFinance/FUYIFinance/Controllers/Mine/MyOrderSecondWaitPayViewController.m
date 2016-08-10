@@ -7,20 +7,29 @@
 //
 
 #import "MyOrderSecondWaitPayViewController.h"
+#import "ConfirmOrderViewController.h"
 #import "PersonalWaitPayTableViewCell.h"
-#import "MineWaitPayModel.h"
-#import "PayView.h"
-#import "MyAPI.h"
+#import "UIViewController+HUD.h"
 #import <MJRefresh/MJRefresh.h>
+#import "PayView.h"
+#import "ZCTradeView.h"
+#import "MineWaitPayModel.h"
+#import "StoreDataModel.h"
+#import "Config.h"
+#import "Tools.h"
+#import "MyAPI.h"
 
-@interface MyOrderSecondWaitPayViewController ()<UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate>
+@interface MyOrderSecondWaitPayViewController ()<ZCTradeViewDelegate,UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate>
 {
     UITableView * _tableView;
     NSMutableArray * _dataSource; //待付款的数据
     PayView* _payView;
     UIButton* _shadowBtn;
     NSInteger index;
+    NSInteger index1;
     NSInteger page;
+    ZCTradeView * _tradeView;
+    NSString * _ordernum;
 }
 
 
@@ -46,6 +55,11 @@
     [self.view addSubview:_tableView];
     [self loadData];
     [self addRefresh];
+    _tradeView = [[ZCTradeView alloc] init];
+    
+    _tradeView.delegate = self;
+    
+
     [self creatHidePayView];
 
 }
@@ -105,8 +119,34 @@
     _payView.titleLab.text = @"付款详情";
     _payView.frame = CGRectMake(0, ScreenHeight, ScreenWidth, ScreenHeight * 0.65);
     [_payView.downBtn addTarget:self action:@selector(down) forControlEvents:UIControlEventTouchUpInside];
+    [_payView.payBtn addTarget:self action:@selector(payaction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_payView];
 }
+
+- (void)payaction
+{
+    [_tradeView show];
+}
+
+- (NSString *)finish:(NSString *)pwd
+{
+    NSString * SecurityString = [Tools loginPasswordSecurityLock:pwd];
+    [[MyAPI sharedAPI] payOrderWithOrderNum:_ordernum Excode:SecurityString Result:^(BOOL sucess, NSString *msg) {
+        if(sucess){
+            [self showHint:@"付款成功"];
+            if(_dataSource.count){
+            [_dataSource removeObjectAtIndex:index1];
+            [_tableView reloadData];
+            }
+        }
+    } ErrorResult:^(NSError *enginerError) {
+        
+    }];
+    
+    return pwd;
+    
+}
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -156,6 +196,7 @@
 //点击确定付款
 - (void)clickSureBtn:(UIButton*)sender
 {
+    index1 = sender.tag;
     _shadowBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
     _shadowBtn.backgroundColor = [UIColor blackColor];
     [_shadowBtn addTarget:self action:@selector(down) forControlEvents:UIControlEventTouchUpInside];
@@ -163,6 +204,10 @@
     [self.view addSubview:_shadowBtn];
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:1.0];
+    MineWaitPayModel * model = [[MineWaitPayModel alloc] init];
+    model = _dataSource[sender.tag];
+    _payView.lastPriceLab.text = model.price;
+    _ordernum = model.ordernum;
     _payView.frame = CGRectMake(0, ScreenHeight*0.35 - 100, ScreenWidth, ScreenHeight * 0.65);
     _shadowBtn.frame = CGRectMake(0, -ScreenHeight * 0.65 - 100, ScreenWidth, ScreenHeight);
     
