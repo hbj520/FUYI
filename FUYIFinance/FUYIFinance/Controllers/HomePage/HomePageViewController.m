@@ -43,9 +43,11 @@ static NSString *investReuseId = @"investReuseId";
     NSMutableArray *inverstData;//投资项目数据
     NSMutableArray *noticeData;//富谊头条数据
     IJKMoviePlayerViewController *playerVC;
+    HomePageNavgationItem *navItem;
     
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraintLayOut;
 
 @end
 
@@ -145,7 +147,7 @@ static NSString *investReuseId = @"investReuseId";
     _headerView.delegate = self;
 }
 - (void)addCustomerNavgationItem{
-    HomePageNavgationItem *navItem = [[[NSBundle mainBundle] loadNibNamed:@"HomePageNavgationItem" owner:self options:nil] lastObject];
+    navItem = [[[NSBundle mainBundle] loadNibNamed:@"HomePageNavgationItem" owner:self options:nil] lastObject];
     navItem.frame = CGRectMake(0, 0,ScreenWidth, 64);
     //点击消息按钮
     navItem.messageBlock = ^(){
@@ -160,7 +162,6 @@ static NSString *investReuseId = @"investReuseId";
         make.left.equalTo(@0);
         make.top.equalTo(@0);
         make.right.equalTo(@0);
-        //
         make.height.equalTo(@64);
         
     }];
@@ -213,7 +214,6 @@ static NSString *investReuseId = @"investReuseId";
             if (newTableViewCell == nil) {
                 newTableViewCell = [[[NSBundle mainBundle] loadNibNamed:@"HomePageHotNewTableViewCell" owner:self options:nil] lastObject];
             }
-            
             [newTableViewCell configWithData:noticeData];
             newTableViewCell.block = ^(){
             [self performSegueWithIdentifier:@"homepagedetailSegue" sender:nil];
@@ -249,6 +249,9 @@ static NSString *investReuseId = @"investReuseId";
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if (section == 0) {
+        if (navItem.hidden) {
+            return ScreenHeight;
+        }
         return 170;
     }else if (section == 1){
         return 0.1;
@@ -270,8 +273,21 @@ static NSString *investReuseId = @"investReuseId";
 #pragma mark -SDCycleScrollViewDelegate
 //点击头部滚动视图
 -(void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
-    UIViewController *videoVC = [[UIViewController alloc] init];
-    playerVC = [IJKMoviePlayerViewController InitVideoViewFromViewController:videoVC withTitle:@"GLTest" URL:[NSURL URLWithString:@"http://krtv.qiniudn.com/150522nextapp"] isLiveVideo:YES isOnlineVideo:NO isFullScreen:NO completion:nil];
+    playerVC = [IJKMoviePlayerViewController InitVideoViewFromViewController:self withTitle:@"GLTest" URL:[NSURL URLWithString:@"http://krtv.qiniudn.com/150522nextapp"] isLiveVideo:YES isOnlineVideo:NO isFullScreen:NO completion:nil];
+    playerVC.fullScreenBlock = ^(BOOL isFullScreen){
+        if (isFullScreen) {
+            navItem.hidden = YES;
+            _headerView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
+            self.topConstraintLayOut.constant = 0;
+            [self setTabBarHidden:YES];
+            [self.tableView reloadData];
+        }else{
+            navItem.hidden = NO;
+            _headerView.frame = CGRectMake(0, 0,ScreenWidth,170);
+            self.topConstraintLayOut.constant = 44;
+            [self setTabBarHidden:NO];
+        }
+    };
     [self addChildViewController:playerVC];
     [_headerView addSubview:playerVC.view];
     [playerVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -285,7 +301,29 @@ static NSString *investReuseId = @"investReuseId";
         //        [playerVC GoBack];
     });
 }
-
+- (void)setTabBarHidden:(BOOL)hidden
+{
+    UIView *tab = self.tabBarController.view;
+    
+    if ([tab.subviews count] < 2) {
+        return;
+    }
+    UIView *view;
+    
+    if ([[tab.subviews objectAtIndex:0] isKindOfClass:[UITabBar class]]) {
+        view = [tab.subviews objectAtIndex:1];
+    } else {
+        view = [tab.subviews objectAtIndex:0];
+    }
+    
+    if (hidden) {
+        view.frame = tab.bounds;
+    } else {
+        view.frame = CGRectMake(tab.bounds.origin.x, tab.bounds.origin.y, tab.bounds.size.width, tab.bounds.size.height);
+    }
+    self.view.frame = view.frame;
+    self.tabBarController.tabBar.hidden = hidden;
+}
 /*
 #pragma mark - Navigation
 
