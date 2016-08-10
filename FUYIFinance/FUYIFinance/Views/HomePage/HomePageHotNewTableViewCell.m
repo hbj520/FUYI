@@ -30,9 +30,10 @@
 }
 - (void)createUI{
     self.clhomeheaderView =[[CLHomeHeader alloc] initWithFrame:CGRectMake(0, 1,ScreenWidth, 68)];
+//    self.clhomeheaderView.newses = @[@[@"",@""],@[@"",@""]];
+
 }
 - (void)configWithData:(NSArray *)data{
-   // NSLog(@"%@",data);
     if (data.count > 0) {
         self.clhomeheaderView.newses = data;
         __weak HomePageHotNewTableViewCell * weakself = self;
@@ -43,7 +44,6 @@
             weakself.block();
         };
         [self addSubview:self.clhomeheaderView];
-
     }
 }
 @end

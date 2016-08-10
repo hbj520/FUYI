@@ -50,9 +50,12 @@ static NSString *ADID = @"adCell";
 {
     [super layoutSubviews];
     // 创建滚动视图
-    [self setupCollectionView];
-    [self addTimer];
-    [self.placehoder removeFromSuperview];
+    if (!self.timer.isValid) {
+        [self setupCollectionView];
+        [self addTimer];
+        [self.placehoder removeFromSuperview];
+    }
+   
 
 }
 
@@ -84,9 +87,10 @@ static NSString *ADID = @"adCell";
  */
 - (void)addTimer
 {
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:2.5 target:self selector:@selector(nextPage) userInfo:nil repeats:YES];
-    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
-    self.timer = timer;
+        NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:2.5 target:self selector:@selector(nextPage) userInfo:nil repeats:YES];
+        [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+        self.timer = timer;
+  
 }
 
 /**
@@ -125,12 +129,12 @@ static NSString *ADID = @"adCell";
         nextSection++;
     }
     NSIndexPath *nextIndexPath = [NSIndexPath indexPathForItem:nextItem inSection:nextSection];
-    //NSLog(@"********section %ld,row %ld*********",nextIndexPath.section,nextIndexPath.row);
+    NSLog(@"********section %ld,row %ld*********",nextIndexPath.section,nextIndexPath.row);
     // 3.通过动画滚动到下一个位置
     if (nextIndexPath.row < self.newses.count) {
         [self.collectionView scrollToItemAtIndexPath:nextIndexPath atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
     }else{
-        //NSLog(@"fuking .....");
+        NSLog(@"fuking .....");
     }
    }
 
