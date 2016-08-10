@@ -25,6 +25,7 @@
     PayView* _payView;
     UIButton* _shadowBtn;
     NSInteger  index;
+    NSInteger index1;
     NSInteger page;
     ZCTradeView * _tradeView;
     NSString * _ordernum;
@@ -141,14 +142,19 @@
 - (NSString *)finish:(NSString *)pwd
 {
     NSString * SecurityString = [Tools loginPasswordSecurityLock:pwd];
+    if(_ordernum.length&&KToken.length){
     [[MyAPI sharedAPI] payOrderWithOrderNum:_ordernum Excode:SecurityString Result:^(BOOL sucess, NSString *msg) {
         if(sucess){
-            NSLog(@"%@",msg);
+            [self showHint:@"付款成功"];
+                if(_dataSource.count){
+            [_dataSource removeObjectAtIndex:index1];
+            [_tableView reloadData];
+            }
         }
     } ErrorResult:^(NSError *enginerError) {
         
     }];
-    
+    }
     return pwd;
 
 }
@@ -218,6 +224,7 @@
 //点击确定付款
 - (void)clickSureBtn:(UIButton*)sender
 {
+    index1 = sender.tag;
     _shadowBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
     _shadowBtn.backgroundColor = [UIColor blackColor];
     [_shadowBtn addTarget:self action:@selector(down) forControlEvents:UIControlEventTouchUpInside];

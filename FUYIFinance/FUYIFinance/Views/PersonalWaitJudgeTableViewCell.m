@@ -32,7 +32,7 @@
     NSString * pricelabel = [NSString stringWithFormat:@"¥%@",model.price];
     self.price.text = pricelabel;
     self.title.text = model.name;
-    self.teacherName.text = model.teacher;
+   // self.teacherName.text = model.teacher;
     self.shopname.text = model.shopname;
     self.totalPrice.text = pricelabel;
     [self.thumbImage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@""]];

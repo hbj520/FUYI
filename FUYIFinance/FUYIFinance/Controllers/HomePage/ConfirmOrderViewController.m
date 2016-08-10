@@ -17,7 +17,7 @@
 #import "PayView.h"
 #import "ZCTradeView.h"
 #import "StoreDataModel.h"
-
+#import "UIViewController+HUD.h"
 #import "ConfirmOrderViewController.h"
 
 #import <SDWebImage/UIImageView+WebCache.h>
@@ -85,14 +85,15 @@
 -(NSString *)finish:(NSString *)pwd{
     NSString * SecurityString = [Tools loginPasswordSecurityLock:pwd];
     NSString * ordernum = [[Config Instance] getOrderNum];
+    if(ordernum.length&&KToken.length){
     [[MyAPI sharedAPI] payOrderWithOrderNum:ordernum Excode:SecurityString Result:^(BOOL sucess, NSString *msg) {
         if(sucess){
-            NSLog(@"%@",msg);
+            [self showHint:@"付款成功"];
         }
     } ErrorResult:^(NSError *enginerError) {
         
     }];
-   
+    }
     return pwd;
 }
 

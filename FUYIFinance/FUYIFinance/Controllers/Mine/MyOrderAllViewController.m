@@ -15,10 +15,12 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <MJRefresh/MJRefresh.h>
 #import "LabelHelper.h"
+#import "Tools.h"
 #import "PayView.h"
+#import "ZCTradeView.h"
 #import "MyAPI.h"
 
-@interface MyOrderAllViewController ()<UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate>
+@interface MyOrderAllViewController ()<ZCTradeViewDelegate,UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate>
 {
     UITableView * _tableView;
     NSMutableArray * waitjudgeArray;
@@ -26,7 +28,9 @@
     NSMutableArray * isjudgeArray;
     NSInteger page;
     NSInteger index;
+    NSString * _ordernum;
     PayView* _payView;
+    ZCTradeView * _tradeView;
     UIButton* _shadowBtn;
     NSInteger sectionCout;
 }
@@ -52,6 +56,8 @@
     page = 1;
     [self loadData];
     [self addRefresh];
+    _tradeView = [[ZCTradeView alloc] init];
+    _tradeView.delegate = self;
     [self creatHidePayView];
 }
 
@@ -253,12 +259,37 @@
     [self.view addSubview:_shadowBtn];
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:1.0];
+    AllOderModel * model = [[AllOderModel alloc] init];
+    model = waitpayArray[sender.tag];
+    _payView.lastPriceLab.text = model.price;
+    _ordernum = model.ordernum;
+    [_payView.payBtn addTarget:sender action:@selector(payaction) forControlEvents:UIControlEventTouchUpInside];
     _payView.frame = CGRectMake(0, ScreenHeight*0.35- 100, ScreenWidth, ScreenHeight * 0.65);
     _shadowBtn.frame = CGRectMake(0, -ScreenHeight * 0.65- 100, ScreenWidth, ScreenHeight);
     
     [UIView commitAnimations];
     
 
+}
+
+- (void)payaction
+{
+    [_tradeView show];
+}
+
+- (NSString *)finish:(NSString *)pwd
+{
+    NSString * SecurityString = [Tools loginPasswordSecurityLock:pwd];
+    [[MyAPI sharedAPI] payOrderWithOrderNum:_ordernum Excode:SecurityString Result:^(BOOL sucess, NSString *msg) {
+        if(sucess){
+            [self showHint:@"付款成功"];
+            [waitpayArray removeObjectAtIndex:index];
+            [_tableView reloadData];
+        }
+    } ErrorResult:^(NSError *enginerError) {
+        
+    }];
+    return nil;
 }
 
 //确认付款落下
@@ -277,17 +308,16 @@
     if(buttonIndex == 1){
         MineWaitPayModel * model = [[MineWaitPayModel alloc] init];
         model = waitpayArray[index - 10];
-//        [[MyAPI sharedAPI] cancelOrderWithOrdernum:model.ordernum result:^(BOOL sucess, NSString *msg) {
-//            if (sucess) {
-//                [self showHint:msg];
-//                [_tableView reloadData];
-//            }else{
-//                [self showHint:msg];
-//            }
-//            
-//        } errorResult:^(NSError *enginerError) {
-//            
-//        }];
+         _ordernum = model.ordernum;
+        [[MyAPI sharedAPI] cancelOrderWithOrdernum:_ordernum result:^(BOOL sucess, NSString *msg) {
+            if(sucess){
+                [self showHint:@"取消订单成功"];
+                [waitpayArray removeObjectAtIndex:index-10];
+                [_tableView reloadData];
+            }
+        } errorResult:^(NSError *enginerError) {
+            
+        }];
         
     }
 }

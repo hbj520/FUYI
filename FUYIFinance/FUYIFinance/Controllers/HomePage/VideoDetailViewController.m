@@ -240,8 +240,10 @@
               self.navigationController.navigationBarHidden = NO;
              [self performSegueWithIdentifier:@"ConfirmOrderSegue" sender:self.model];
        
-        }else{
+        }else if([msg isEqualToString:@"0"]){
             [self showHint:@"请不要重复购买!"];
+        }else{
+            return ;
         }
     } ErrorResult:^(NSError *enginerError) {
         

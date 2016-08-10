@@ -133,9 +133,11 @@
     NSString * SecurityString = [Tools loginPasswordSecurityLock:pwd];
     [[MyAPI sharedAPI] payOrderWithOrderNum:_ordernum Excode:SecurityString Result:^(BOOL sucess, NSString *msg) {
         if(sucess){
-            NSLog(@"%@",msg);
+            [self showHint:@"付款成功"];
+            if(_dataSource.count){
             [_dataSource removeObjectAtIndex:index1];
             [_tableView reloadData];
+            }
         }
     } ErrorResult:^(NSError *enginerError) {
         

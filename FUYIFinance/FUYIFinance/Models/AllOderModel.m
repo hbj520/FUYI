@@ -19,6 +19,7 @@
                Name:(NSString *)name
             Teacher:(NSString *)teacher
            Shopname:(NSString *)shopname
+           Ordernum:(NSString *)ordernum
 {
     AllOderModel * model = [[AllOderModel alloc] init];
     model.ctime = ctime;
@@ -30,6 +31,7 @@
     model.name = name;
     model.teacher = teacher;
     model.shopname = shopname;
+    model.ordernum = ordernum;
     return model;
 }
 
@@ -46,7 +48,8 @@
         NSString * name = dict[@"name"];
         NSString * teacher = dict[@"teacher"];
         NSString * shopname = dict[@"shopname"];
-        AllOderModel * model = [[AllOderModel alloc] initWithCtime:ctime Goodsid:goodsid Goodstype:goodstype State:state Price:price Image:image Name:name Teacher:teacher Shopname:shopname];
+        NSString * ordernum = dict[@"ordernum"];
+        AllOderModel * model = [[AllOderModel alloc] initWithCtime:ctime Goodsid:goodsid Goodstype:goodstype State:state Price:price Image:image Name:name Teacher:teacher Shopname:shopname Ordernum:ordernum];
         [allorderArray addObject:model];
     }
     return allorderArray;
