@@ -75,9 +75,6 @@
 }
 
 - (void)addBottomTapGesAndButton{
-
-    
-    
     UITapGestureRecognizer *tapShopGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(shopClick:)];
     [self.shopView addGestureRecognizer:tapShopGes];
     
@@ -149,7 +146,9 @@
     [self performSegueWithIdentifier:@"GoStoreSegue" sender:self.model];
 }
 
-
+- (void)videoClick:(UIGestureRecognizer *)ges{
+    
+}
 
 #pragma mark - UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -218,12 +217,38 @@
         return head1;
     }else{
         head0 = [[UIImageView alloc]init];
-      // head0.image = [UIImage imageNamed:@"VD_class_demo"];
       [head0 sd_setImageWithURL:[NSURL URLWithString:_model.videoImage]placeholderImage:[UIImage imageNamed:@"VD_class_demo"]];
+        UIImageView *playImageView = [[UIImageView alloc] initWithFrame:CGRectMake(ScreenWidth/2-25, 83, 50, 50)];
+        playImageView.image = [UIImage imageNamed:@"play"];
+        [head0 addSubview:playImageView];
+        UITapGestureRecognizer *tapViedoGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(videoClick:)];
+        [head0 addGestureRecognizer:tapViedoGes];
         return head0;
     }
 }
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if (section == 0) {
+        return 215;
+    }else{
+        return 15;
+    }
+}
 
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 1;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        return 140;
+    }if (indexPath.section == 0 && indexPath.row == 1) {
+        return 40;
+    }else{
+        return 260;
+    }
+}
+
+#pragma mark -PrivateMethod
 - (IBAction)back:(id)sender {
      [self.navigationController popViewControllerAnimated:YES];
     self.navigationController.navigationBarHidden = NO;
@@ -253,7 +278,7 @@
         
     }];
 }
-
+#pragma mark -SegueDelegate
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"ConfirmOrderSegue"]) {
         ConfirmOrderViewController *confirmVC = segue.destinationViewController;
@@ -267,27 +292,6 @@
 
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    if (section == 0) {
-        return 215;
-    }else{
-        return 15;
-    }
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 1;
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 0 && indexPath.row == 0) {
-        return 140;
-    }if (indexPath.section == 0 && indexPath.row == 1) {
-        return 40;
-    }else{
-        return 260;
-    }
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
