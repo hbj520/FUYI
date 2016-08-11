@@ -19,7 +19,10 @@
 #import "Tools.h"
 #import "MyAPI.h"
 
-@interface MyOrderSecondWaitPayViewController ()<ZCTradeViewDelegate,UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate>
+@interface MyOrderSecondWaitPayViewController ()<ZCTradeViewDelegate,
+UITableViewDelegate,
+UITableViewDataSource,
+UIAlertViewDelegate>
 {
     UITableView * _tableView;
     NSMutableArray * _dataSource; //待付款的数据
@@ -28,7 +31,6 @@
     NSInteger index;
     NSInteger index1;
     NSInteger page;
-    ZCTradeView * _tradeView;
     NSString * _ordernum;
 }
 
@@ -55,24 +57,39 @@
     [self.view addSubview:_tableView];
     [self loadData];
     [self addRefresh];
-    _tradeView = [[ZCTradeView alloc] init];
-    
-    _tradeView.delegate = self;
-    
+ //   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(delete:) name:@"deleteact" object:nil];
+    self.tradeView = [[ZCTradeView alloc] init];
+    self.tradeView.delegate = self;
 
     [self creatHidePayView];
 
 }
 
+- (void)delete:(NSNotification *)noti
+{
+    NSString * index = noti.userInfo[@"index"];
+    NSInteger index1 = index.integerValue;
+    [_dataSource removeObjectAtIndex:index1];
+    [_tableView reloadData];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"deleteact" object:nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    
+}
 - (void)addRefresh
 {
     __weak MyOrderSecondWaitPayViewController * weakself = self;
     _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         
         page = 1;
-        if(_dataSource.count>0){
-            [_dataSource removeAllObjects];
-        }
+        
         [weakself loadData];
         
     }];
@@ -91,6 +108,11 @@
     [[MyAPI sharedAPI] requestWaitpayDataWithParameters:pagestr
                                                  result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
         if(success){
+            if(page == 1){
+                if(_dataSource.count>0){
+                    [_dataSource removeAllObjects];
+                }
+            }
             [_dataSource addObjectsFromArray:arrays];
             [_tableView reloadData];
             [_tableView.mj_header endRefreshing];
@@ -125,28 +147,32 @@
 
 - (void)payaction
 {
-    [_tradeView show];
+    [self.tradeView show];
 }
-
-- (NSString *)finish:(NSString *)pwd
-{
+#pragma mark -TradeViewDelegate
+- (NSString *)finish:(NSString *)pwd{
     NSString * SecurityString = [Tools loginPasswordSecurityLock:pwd];
-    [[MyAPI sharedAPI] payOrderWithOrderNum:_ordernum Excode:SecurityString Result:^(BOOL sucess, NSString *msg) {
-        if(sucess){
-            [self showHint:@"付款成功"];
-            if(_dataSource.count){
-            [_dataSource removeObjectAtIndex:index1];
-            [_tableView reloadData];
+    NSString * ordernum = [[Config Instance] getOrderNum];
+    if(_ordernum.length&&KToken.length){
+        [[MyAPI sharedAPI] payOrderWithOrderNum:ordernum Excode:SecurityString Result:^(BOOL sucess, NSString *msg) {
+            if(sucess){
+                [self showHint:msg];
+                if(_dataSource.count&&index1<_dataSource.count){
+                    [_dataSource removeObjectAtIndex:index1];
+                    [_tableView reloadData];
+                    [self down];
+                }
+            }else{
+                [self showHint:msg];
             }
-        }
-    } ErrorResult:^(NSError *enginerError) {
-        
-    }];
-    
-    return pwd;
-    
-}
+            [self loadData];
+        } ErrorResult:^(NSError *enginerError) {
+            
+        }];
+    }
 
+    return nil;
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -179,8 +205,10 @@
     //确定按钮
     cell.sureBtn.tag = indexPath.section;
     [cell.sureBtn addTarget:self action:@selector(clickSureBtn:) forControlEvents:UIControlEventTouchUpInside];
+    if(_dataSource.count>0){
     MineWaitPayModel * model = _dataSource[indexPath.section];
     cell.model = model;
+    }
     return cell;
 }
 
@@ -208,6 +236,7 @@
     model = _dataSource[sender.tag];
     _payView.lastPriceLab.text = model.price;
     _ordernum = model.ordernum;
+    [[Config Instance] saveOrderNum:_ordernum];
     _payView.frame = CGRectMake(0, ScreenHeight*0.35 - 100, ScreenWidth, ScreenHeight * 0.65);
     _shadowBtn.frame = CGRectMake(0, -ScreenHeight * 0.65 - 100, ScreenWidth, ScreenHeight);
     

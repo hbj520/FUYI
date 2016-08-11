@@ -18,7 +18,7 @@
 
 - (void)setModel:(SystemNoticeModel *)model
 {
-    [self.noticeImageView sd_setImageWithURL:[NSURL URLWithString:model.thumb] placeholderImage:[UIImage imageNamed:@"placeimage"]];
+    [self.noticeImageView sd_setImageWithURL:[NSURL URLWithString:model.thumb] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
     self.titleLabel.text = model.title;
     self.timeLabel.text = model.time;
 }

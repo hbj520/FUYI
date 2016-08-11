@@ -70,9 +70,7 @@
     __weak TeacherTeamViewController *weakself = self;
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         _page = 1;
-        if (TeacherTeamArr.count > 0) {
-            [TeacherTeamArr removeAllObjects];
-        }
+                
         [weakself loadDataWithToken:KToken page:_page];
     }];
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
@@ -92,9 +90,18 @@
             //           [self logOut];
             //       }
             if (success) {
-                
+                if(_page == 1){
+                    if (TeacherTeamArr.count > 0) {
+                        [TeacherTeamArr removeAllObjects];
+                    }
+                }
                 [TeacherTeamArr addObjectsFromArray:arrays];
                 [self.tableView reloadData];
+            }else{
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.tableView.mj_footer endRefreshingWithNoMoreData];
+                });
+                _page--;
             }
             [self.tableView.mj_header endRefreshing];
             [self.tableView.mj_footer endRefreshing];

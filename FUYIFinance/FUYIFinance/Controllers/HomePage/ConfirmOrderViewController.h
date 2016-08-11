@@ -12,6 +12,8 @@
 
 @property (nonatomic,strong)StoreDataModel *model;
 
+@property (nonatomic,copy)NSString * ordernum;
+
 @property (weak, nonatomic) IBOutlet UILabel *allPriceLab;
 
 @end

@@ -19,7 +19,7 @@
 {
     self.titlename.text = model.name;
     self.defaultjudge.text = model.content;
-    [self.thumbimage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"placeimage"]];
+    [self.thumbimage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
     self.timelabel.text = model.ctime;
 }
 

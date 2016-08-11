@@ -22,7 +22,7 @@
 
 - (void)setModel:(OrderManageModel *)model
 {
-    [self.thumbimage sd_setImageWithURL:[NSURL URLWithString:model.goodsimg] placeholderImage:[UIImage imageNamed:@"placeimage"]];
+    [self.thumbimage sd_setImageWithURL:[NSURL URLWithString:model.goodsimg] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
     self.title.text = model.appcontent;
     self.orderNum.text = model.ordernum;
     self.price.text = model.money;

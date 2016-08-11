@@ -25,7 +25,7 @@
 
 - (void)setModel:(MineWaitPayModel *)model
 {
-    [self.thumbImage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"placeimage"]];
+    [self.thumbImage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
     NSString * pricelabel = [NSString stringWithFormat:@"¥ %@",model.price];
     self.price.text = pricelabel;
    self.totalPrice.attributedText = [[LabelHelper alloc] attributedStringWithString:pricelabel];

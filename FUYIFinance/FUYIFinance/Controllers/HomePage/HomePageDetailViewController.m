@@ -9,7 +9,9 @@
 #import "HomePageDetailViewController.h"
 
 @interface HomePageDetailViewController ()
-@property (weak, nonatomic) IBOutlet UIWebView *webView;
+{
+    UIWebView * _webView;
+}
 
 @end
 
@@ -19,8 +21,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     NSURLRequest * request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString: @"http://www.fuyi001.com"]];
-
-    [self.webView loadRequest:request];
+    _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
+    [self.view addSubview:_webView];
+    [_webView loadRequest:request];
 }
 
 - (void)viewWillAppear:(BOOL)animated

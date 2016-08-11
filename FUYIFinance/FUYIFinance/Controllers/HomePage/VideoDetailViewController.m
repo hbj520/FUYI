@@ -235,15 +235,19 @@
   
   
     [[MyAPI sharedAPI] getOrderNumWithGoodsid:_model.videoId Money:_model.videoPrice Result:^(BOOL sucess, NSString *msg) {
+        if(!msg){
+            return ;
+        }else{
         if(sucess){
             [[Config Instance] saveOrderNum:msg];
               self.navigationController.navigationBarHidden = NO;
-             [self performSegueWithIdentifier:@"ConfirmOrderSegue" sender:self.model];
+             [self performSegueWithIdentifier:@"ConfirmOrderSegue" sender:@[self.model,msg]];
        
         }else if([msg isEqualToString:@"0"]){
             [self showHint:@"请不要重复购买!"];
         }else{
             return ;
+        }
         }
     } ErrorResult:^(NSError *enginerError) {
         
@@ -253,7 +257,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"ConfirmOrderSegue"]) {
         ConfirmOrderViewController *confirmVC = segue.destinationViewController;
-        confirmVC.model = sender;
+        confirmVC.model = sender[0];
+        confirmVC.ordernum = sender[1];
     }
     if ([segue.identifier isEqualToString:@"GoStoreSegue"]) {
         StoreViewController *storeVC = segue.destinationViewController;

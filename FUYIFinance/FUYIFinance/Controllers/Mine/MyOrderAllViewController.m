@@ -5,8 +5,10 @@
 //  Created by 张哲 on 16/6/28.
 //  Copyright © 2016年 youyou. All rights reserved.
 //
-
+#import <AFNetworking/AFNetworking.h>
+#import <AFNetworking/AFURLResponseSerialization.h>
 #import "MyOrderAllViewController.h"
+#import "ProductJudgeViewController.h"
 #import "UIViewController+HUD.h"
 #import "PersonalWaitPayTableViewCell.h"
 #import "PersonalWaitJudgeTableViewCell.h"
@@ -16,25 +18,32 @@
 #import <MJRefresh/MJRefresh.h>
 #import "LabelHelper.h"
 #import "Tools.h"
+#import "Config.h"
 #import "PayView.h"
 #import "ZCTradeView.h"
 #import "MyAPI.h"
 
-@interface MyOrderAllViewController ()<ZCTradeViewDelegate,UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate>
+@interface MyOrderAllViewController ()<
+ZCTradeViewDelegate,
+UITableViewDelegate,
+UITableViewDataSource,
+UIAlertViewDelegate>
 {
     UITableView * _tableView;
     NSMutableArray * waitjudgeArray;
     NSMutableArray * waitpayArray;
     NSMutableArray * isjudgeArray;
+    NSMutableArray * allData;
     NSInteger page;
     NSInteger index;
-    
+    NSInteger index1;
     NSString * _ordernum;
     PayView* _payView;
-    ZCTradeView * _tradeView;
+ 
     UIButton* _shadowBtn;
-    NSInteger sectionCout;
+    //NSInteger sectionCout;
 }
+@property (nonatomic,strong)AFHTTPRequestOperationManager * manager;
 @end
 
 @implementation MyOrderAllViewController
@@ -42,7 +51,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight) style:UITableViewStylePlain];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 100) style:UITableViewStylePlain];
     _tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -54,11 +63,13 @@
     waitjudgeArray = [NSMutableArray array];
     waitpayArray = [NSMutableArray array];
     isjudgeArray = [NSMutableArray array];
+    allData = [NSMutableArray array];
     page = 1;
     [self loadData];
     [self addRefresh];
-    _tradeView = [[ZCTradeView alloc] init];
-    _tradeView.delegate = self;
+    self.tradeView = [[ZCTradeView alloc] init];
+   
+    self.tradeView.delegate = self;
     [self creatHidePayView];
 }
 
@@ -78,15 +89,18 @@
         if(isjudgeArray.count>0){
             [isjudgeArray removeAllObjects];
         }
+        if (allData.count>0) {
+            [allData removeAllObjects];
+        }
         [weakself loadData];
         
     }];
-    MJRefreshAutoNormalFooter * footerRefresh = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-        page++;
-        [weakself loadData];
-    }];
-    footerRefresh.automaticallyRefresh = NO;
-    _tableView.mj_footer = footerRefresh;
+//    MJRefreshAutoNormalFooter * footerRefresh = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+//        page++;
+//        [weakself loadData];
+//    }];
+//    footerRefresh.automaticallyRefresh = NO;
+//    _tableView.mj_footer = footerRefresh;
 }
 
 -(void)creatHidePayView{
@@ -113,18 +127,21 @@
                    
                 }else if ([model.state isEqualToString:@"1"]){
                     [waitjudgeArray addObject:model];
-                                   }else{
+                }else{
                     [isjudgeArray addObject:model];
                                    }
             }
             if (waitpayArray.count > 0) {
-                sectionCout++;
+                [allData addObject:waitpayArray];
+                //sectionCout++;
             }
             if (waitjudgeArray.count > 0) {
-                sectionCout++;
+                [allData addObject:waitjudgeArray];
+                //sectionCout++;
             }
             if (isjudgeArray.count > 0) {
-                sectionCout++;
+                [allData addObject:isjudgeArray];
+                //sectionCout++;
             }
 
             [_tableView reloadData];
@@ -145,25 +162,200 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if(section == 0){
-        return waitpayArray.count;
-    }else if (section == 1){
-        return waitjudgeArray.count;
-    }else{
-        return isjudgeArray.count;
+    for (NSInteger i = 0; i < allData.count; i ++) {
+        NSArray *arry = allData[i];
+        if (section == i) {
+            return arry.count;
+        }
     }
 
+    return 0;
 }
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return sectionCout;
+    return allData.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    if(allData.count==2){
+        if(waitpayArray.count>0&&waitjudgeArray.count>0){
+            if(indexPath.section == 0){
+                PersonalWaitPayTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MyOrderId" forIndexPath:indexPath];
+                cell.cancelBtn.tag = 10 + indexPath.row;
+                cell.sureBtn.tag = indexPath.row;
+                [cell.sureBtn addTarget:self action:@selector(PayOrder:) forControlEvents:UIControlEventTouchUpInside];
+                [cell.cancelBtn addTarget:self action:@selector(CancelOrdernum:) forControlEvents:UIControlEventTouchUpInside];
+                AllOderModel * model = [[AllOderModel alloc] init];
+                model = waitpayArray[indexPath.row];
+                [cell.thumbImage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
+                if(!model.shopname.length){
+                    cell.shopname.text = @"李小刚的店铺";
+                }else{
+                    cell.shopname.text = model.shopname;
+                }
+                cell.titlename.text = model.name;
+                NSString * pricelabel = [NSString stringWithFormat:@"¥%@",model.price];
+                cell.price.text = pricelabel;
+                NSString * teacherlabel = [NSString stringWithFormat:@"讲师：%@",model.teacher];
+                cell.teachername.text = teacherlabel;
+                cell.totalPrice.attributedText = [[LabelHelper alloc] attributedStringWithString:pricelabel];
+                return cell;
+   
+            }else{
+                PersonalWaitJudgeTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"WaitJudgeId" forIndexPath:indexPath];
+                AllOderModel * model = [[AllOderModel alloc] init];
+                model = waitjudgeArray[indexPath.row];
+                [cell.thumbImage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
+                if(!model.shopname.length){
+                    cell.shopname.text = @"斌神的店铺";
+                }else{
+                    cell.shopname.text = model.shopname;
+                }
+                cell.title.text = model.name;
+                NSString * teacherlabel = [NSString stringWithFormat:@"讲师：%@",model.teacher];
+                cell.teacherName.text = teacherlabel;
+                NSString * pricelabel = [NSString stringWithFormat:@"¥%@",model.price];
+                cell.price.text = pricelabel;
+                cell.totalPrice.attributedText = [[LabelHelper alloc] attributedStringWithString:pricelabel];
+                __weak MyOrderAllViewController * weakself = self;
+                cell.block = ^(NSIndexPath * cellindexpath){
+                    cellindexpath = indexPath;
+                    [weakself clickjudgeBtnWithIndexpath:cellindexpath];
+                };
+                
+                return cell;
+            }
+        }else if(waitpayArray.count>0&&isjudgeArray.count>0){
+            if(indexPath.section == 0){
+                PersonalWaitPayTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MyOrderId" forIndexPath:indexPath];
+                cell.cancelBtn.tag = 10 + indexPath.row;
+                cell.sureBtn.tag = indexPath.row;
+                [cell.sureBtn addTarget:self action:@selector(PayOrder:) forControlEvents:UIControlEventTouchUpInside];
+                [cell.cancelBtn addTarget:self action:@selector(CancelOrdernum:) forControlEvents:UIControlEventTouchUpInside];
+                AllOderModel * model = [[AllOderModel alloc] init];
+                model = waitpayArray[indexPath.row];
+                [cell.thumbImage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
+                if(!model.shopname.length){
+                    cell.shopname.text = @"李小刚的店铺";
+                }else{
+                    cell.shopname.text = model.shopname;
+                }
+                cell.titlename.text = model.name;
+                NSString * pricelabel = [NSString stringWithFormat:@"¥%@",model.price];
+                cell.price.text = pricelabel;
+                NSString * teacherlabel = [NSString stringWithFormat:@"讲师：%@",model.teacher];
+                cell.teachername.text = teacherlabel;
+                cell.totalPrice.attributedText = [[LabelHelper alloc] attributedStringWithString:pricelabel];
+                return cell;
+
+            }else{
+                MyJudgeTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MyJudgeId" forIndexPath:indexPath];
+                AllOderModel * model = [[AllOderModel alloc] init];
+                model = isjudgeArray[indexPath.row];
+                [cell.thumbimage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
+                cell.titlename.text = model.name;
+                cell.timelabel.text = model.ctime;
+                return cell;
+
+            }
+        }else{
+            if(indexPath.section == 0){
+                PersonalWaitJudgeTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"WaitJudgeId" forIndexPath:indexPath];
+                AllOderModel * model = [[AllOderModel alloc] init];
+                model = waitjudgeArray[indexPath.row];
+                [cell.thumbImage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
+                if(!model.shopname.length){
+                    cell.shopname.text = @"斌神的店铺";
+                }else{
+                    cell.shopname.text = model.shopname;
+                }
+                cell.title.text = model.name;
+                NSString * teacherlabel = [NSString stringWithFormat:@"讲师：%@",model.teacher];
+                cell.teacherName.text = teacherlabel;
+                NSString * pricelabel = [NSString stringWithFormat:@"¥%@",model.price];
+                cell.price.text = pricelabel;
+                cell.totalPrice.attributedText = [[LabelHelper alloc] attributedStringWithString:pricelabel];
+                __weak MyOrderAllViewController * weakself = self;
+                cell.block = ^(NSIndexPath * cellindexpath){
+                    cellindexpath = indexPath;
+                    [weakself clickjudgeBtnWithIndexpath:cellindexpath];
+                };
+                
+                return cell;
+ 
+            }else{
+                MyJudgeTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MyJudgeId" forIndexPath:indexPath];
+                AllOderModel * model = [[AllOderModel alloc] init];
+                model = isjudgeArray[indexPath.row];
+                [cell.thumbimage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
+                cell.titlename.text = model.name;
+                cell.timelabel.text = model.ctime;
+                return cell;
+            }
+        }
+    }else if (allData.count == 1){
+        if(waitpayArray.count>0){
+            PersonalWaitPayTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MyOrderId" forIndexPath:indexPath];
+            cell.cancelBtn.tag = 10 + indexPath.row;
+            cell.sureBtn.tag = indexPath.row;
+            [cell.sureBtn addTarget:self action:@selector(PayOrder:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.cancelBtn addTarget:self action:@selector(CancelOrdernum:) forControlEvents:UIControlEventTouchUpInside];
+            AllOderModel * model = [[AllOderModel alloc] init];
+            model = waitpayArray[indexPath.row];
+            [cell.thumbImage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
+            if(!model.shopname.length){
+                cell.shopname.text = @"李小刚的店铺";
+            }else{
+            cell.shopname.text = model.shopname;
+            }
+            cell.titlename.text = model.name;
+            NSString * pricelabel = [NSString stringWithFormat:@"¥%@",model.price];
+            cell.price.text = pricelabel;
+            NSString * teacherlabel = [NSString stringWithFormat:@"讲师：%@",model.teacher];
+            cell.teachername.text = teacherlabel;
+            cell.totalPrice.attributedText = [[LabelHelper alloc] attributedStringWithString:pricelabel];
+            return cell;
+  
+        }else if (waitjudgeArray.count>0){
+            PersonalWaitJudgeTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"WaitJudgeId" forIndexPath:indexPath];
+            AllOderModel * model = [[AllOderModel alloc] init];
+            model = waitjudgeArray[indexPath.row];
+            [cell.thumbImage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
+            if(!model.shopname.length){
+                cell.shopname.text = @"斌神的店铺";
+            }else{
+                cell.shopname.text = model.shopname;
+            }
+            cell.title.text = model.name;
+            NSString * teacherlabel = [NSString stringWithFormat:@"讲师：%@",model.teacher];
+            cell.teacherName.text = teacherlabel;
+            NSString * pricelabel = [NSString stringWithFormat:@"¥%@",model.price];
+            cell.price.text = pricelabel;
+            cell.totalPrice.attributedText = [[LabelHelper alloc] attributedStringWithString:pricelabel];
+            __weak MyOrderAllViewController * weakself = self;
+            cell.block = ^(NSIndexPath * cellindexpath){
+                cellindexpath = indexPath;
+                [weakself clickjudgeBtnWithIndexpath:cellindexpath];
+            };
+            
+            return cell;
+
+        }else{
+            MyJudgeTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MyJudgeId" forIndexPath:indexPath];
+            AllOderModel * model = [[AllOderModel alloc] init];
+            model = isjudgeArray[indexPath.row];
+            [cell.thumbimage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
+            cell.titlename.text = model.name;
+            cell.timelabel.text = model.ctime;
+            return cell;
+        }
+    }else{
+    
     if(indexPath.section == 0){
         PersonalWaitPayTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MyOrderId" forIndexPath:indexPath];
         cell.cancelBtn.tag = 10 + indexPath.row;
@@ -172,7 +364,7 @@
         [cell.cancelBtn addTarget:self action:@selector(CancelOrdernum:) forControlEvents:UIControlEventTouchUpInside];
         AllOderModel * model = [[AllOderModel alloc] init];
         model = waitpayArray[indexPath.row];
-        [cell.thumbImage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"placeimage"]];
+        [cell.thumbImage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
         cell.shopname.text = model.shopname;
         cell.titlename.text = model.name;
         NSString * pricelabel = [NSString stringWithFormat:@"¥%@",model.price];
@@ -185,25 +377,55 @@
         PersonalWaitJudgeTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"WaitJudgeId" forIndexPath:indexPath];
         AllOderModel * model = [[AllOderModel alloc] init];
         model = waitjudgeArray[indexPath.row];
-        [cell.thumbImage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"placeimage"]];
+        [cell.thumbImage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
+        if(!model.shopname.length){
+            cell.shopname.text = @"斌神的店铺";
+        }else{
         cell.shopname.text = model.shopname;
+        }
         cell.title.text = model.name;
         NSString * teacherlabel = [NSString stringWithFormat:@"讲师：%@",model.teacher];
         cell.teacherName.text = teacherlabel;
         NSString * pricelabel = [NSString stringWithFormat:@"¥%@",model.price];
         cell.price.text = pricelabel;
         cell.totalPrice.attributedText = [[LabelHelper alloc] attributedStringWithString:pricelabel];
+        __weak MyOrderAllViewController * weakself = self;
+        cell.block = ^(NSIndexPath * cellindexpath){
+            cellindexpath = indexPath;
+            [weakself clickjudgeBtnWithIndexpath:cellindexpath];
+        };
+
         return cell;
     }else{
         MyJudgeTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MyJudgeId" forIndexPath:indexPath];
         AllOderModel * model = [[AllOderModel alloc] init];
         model = isjudgeArray[indexPath.row];
-        [cell.thumbimage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"placeimage"]];
+        [cell.thumbimage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
         cell.titlename.text = model.name;
         cell.timelabel.text = model.ctime;
         return cell;
     }
-    
+    }
+}
+
+- (void)clickjudgeBtnWithIndexpath:(NSIndexPath*)indexpath
+{
+    AllOderModel * model = [[AllOderModel alloc] init];
+    model = waitjudgeArray[indexpath.row];
+    UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
+    ProductJudgeViewController * VC = (ProductJudgeViewController*)[storyboard instantiateViewControllerWithIdentifier:@"productJudge"];
+    VC.deleteblock = ^(NSIndexPath * indexpath){
+        NSInteger index2 = indexpath.row;
+        [waitjudgeArray removeObjectAtIndex:index2];
+        [_tableView reloadData];
+    };
+    VC.uid = model.goodsid;
+    VC.image = model.image;
+    VC.ustyle = model.goodstype;
+    VC.ordernum = model.ordernum;
+    VC.indexpath = indexpath;
+    VC.index = indexpath.row;
+    [self.navigationController pushViewController:VC animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -213,11 +435,23 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.section == 2){
+    
+//    if(indexPath.section == 2){
+//        return 80;
+//    }
+//    else{
+//    return 217;
+//    }
+    if(allData.count>0){
+    NSArray * array = allData[indexPath.section];
+    AllOderModel * model = array[0];
+    if([model.state isEqualToString:@"2"]){
         return 80;
+    }else{
+       return 217;
     }
-    else{
-    return 217;
+    }else{
+        return 217;
     }
 }
 
@@ -242,10 +476,12 @@
     model = waitpayArray[sender.tag];
     _payView.lastPriceLab.text = model.price;
     _ordernum = model.ordernum;
-    [_payView.payBtn addTarget:sender action:@selector(payaction) forControlEvents:UIControlEventTouchUpInside];
+    index1 = sender.tag;
+    [[Config Instance] saveOrderNum:_ordernum];
+    NSLog(@"ordernum%@",_ordernum);
+    [_payView.payBtn addTarget:self action:@selector(payaction) forControlEvents:UIControlEventTouchUpInside];
     _payView.frame = CGRectMake(0, ScreenHeight*0.35- 100, ScreenWidth, ScreenHeight * 0.65);
     _shadowBtn.frame = CGRectMake(0, -ScreenHeight * 0.65- 100, ScreenWidth, ScreenHeight);
-    
     [UIView commitAnimations];
     
 
@@ -253,22 +489,50 @@
 
 - (void)payaction
 {
-    [_tradeView show];
+    [self.tradeView show];
 }
 
 - (NSString *)finish:(NSString *)pwd
 {
     NSString * SecurityString = [Tools loginPasswordSecurityLock:pwd];
-    [[MyAPI sharedAPI] payOrderWithOrderNum:_ordernum Excode:SecurityString Result:^(BOOL sucess, NSString *msg) {
-        if(sucess){
-            [self showHint:@"付款成功"];
-            [waitpayArray removeObjectAtIndex:index];
+    NSString * ordernum = [[Config Instance] getOrderNum];
+
+//        [[MyAPI sharedAPI] payOrderWithOrderNum:_ordernum Excode:SecurityString Result:^(BOOL sucess, NSString *msg) {
+//        if(sucess){
+//            [self showHint:@"付款成功"];
+//            [waitpayArray removeObjectAtIndex:index];
+//            [_tableView reloadData];
+//        }else{
+//            [self showHint:msg];
+//        }
+//    } ErrorResult:^(NSError *enginerError) {
+//        
+//    }];
+    self.manager = [[AFHTTPRequestOperationManager alloc]initWithBaseURL:[NSURL URLWithString:BaseUrl]] ;
+    self.manager.responseSerializer.acceptableContentTypes =  [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
+    self.manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    NSDictionary * parameters = @{@"token":KToken,@"ordernum":ordernum,@"excode":SecurityString};
+    [self.manager POST:@"orderPay" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * status = responseObject[@"status"];
+        NSString * info = responseObject[@"info"];
+        if([status isEqualToString:@"1"]){
+            [self showHint:info];
+            if(index1>=0&&index1<waitpayArray.count){
+            [waitpayArray removeObjectAtIndex:index1];
             [_tableView reloadData];
+                [self down];
+                NSString * indexStr = [NSString stringWithFormat:@"%ld",index1];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"deleteact" object:nil userInfo:@{@"index":indexStr}];
+            }
+            
+        }else{
+            [self showHint:info];
         }
-    } ErrorResult:^(NSError *enginerError) {
+        [self loadData];
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         
     }];
-    return nil;
+        return nil;
 }
 
 //确认付款落下
@@ -293,6 +557,9 @@
                 [self showHint:@"取消订单成功"];
                 [waitpayArray removeObjectAtIndex:index-10];
                 [_tableView reloadData];
+                NSString * indexStr = [NSString stringWithFormat:@"%ld",index-10];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"deleteact" object:nil userInfo:@{@"index":indexStr}];
+
             }
         } errorResult:^(NSError *enginerError) {
             

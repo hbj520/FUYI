@@ -19,7 +19,7 @@
 #import "StoreDataModel.h"
 #import "UIViewController+HUD.h"
 #import "ConfirmOrderViewController.h"
-
+#import "MyOrderAllViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "Config.h"
 #import "Tools.h"
@@ -34,6 +34,7 @@
     int a;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIView *bottomView;
 
 @end
 
@@ -47,8 +48,17 @@
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
+    self.hidesBottomBarWhenPushed = YES;
+  //  self.bottomView.hidden = NO;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideBottomBar) name:@"hidebottom" object:nil];
     //self.navigationController.navigationBar.hidden = NO;
 }
+- (void)hideBottomBar
+{
+    self.bottomView.hidden = YES;
+}
+
 - (void)creatUI{
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -85,10 +95,17 @@
 -(NSString *)finish:(NSString *)pwd{
     NSString * SecurityString = [Tools loginPasswordSecurityLock:pwd];
     NSString * ordernum = [[Config Instance] getOrderNum];
-    if(ordernum.length&&KToken.length){
+    if(self.ordernum.length > 0&&KToken.length > 0){
     [[MyAPI sharedAPI] payOrderWithOrderNum:ordernum Excode:SecurityString Result:^(BOOL sucess, NSString *msg) {
         if(sucess){
-            [self showHint:@"付款成功"];
+            [self showHint:msg];
+            [self down];
+            UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
+            MyOrderAllViewController * VC = (MyOrderAllViewController *)[storyboard instantiateViewControllerWithIdentifier:@"MyOrderStoryBoardID"];
+            [self.navigationController pushViewController:VC animated:YES];
+
+        }else{
+            [self showHint:msg];
         }
     } ErrorResult:^(NSError *enginerError) {
         
