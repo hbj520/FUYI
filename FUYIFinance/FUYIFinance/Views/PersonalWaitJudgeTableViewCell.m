@@ -32,10 +32,14 @@
     NSString * pricelabel = [NSString stringWithFormat:@"¥%@",model.price];
     self.price.text = pricelabel;
     self.title.text = model.name;
-   // self.teacherName.text = model.teacher;
+    self.teacherName.text = model.teacher;
+    if(!model.shopname.length){
+        self.shopname.text = @"李小刚的店铺";
+    }else{
     self.shopname.text = model.shopname;
+    }
     self.totalPrice.text = pricelabel;
-    [self.thumbImage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@""]];
+    [self.thumbImage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
     
 }
 

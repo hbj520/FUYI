@@ -13,11 +13,12 @@
 #import "MyOrderWaitPayViewController.h"
 #import "MyOrderSecondWaitPayViewController.h"
 #import "MyOrderWaitGoodViewController.h"
-#import "MyOrderWaitJudgeViewController.h"
+#import "MyOrderSecondWaitJudgeViewController.h"
 
 @interface MyOrderViewController ()<YSLContainerViewControllerDelegate>
 {
     BBBadgeBarButtonItem * _chatBtn; //自定义导航栏按钮
+    YSLContainerViewController *containerVC;
 }
 @end
 
@@ -42,13 +43,13 @@
     myOrderWaitGoodVC.title = @"待收货";
     
     //创建待评价界面
-    MyOrderWaitJudgeViewController * myOrderWaitJudgeVC = [[MyOrderWaitJudgeViewController alloc] init];
+   MyOrderSecondWaitJudgeViewController * myOrderWaitJudgeVC = [[MyOrderSecondWaitJudgeViewController alloc] init];
     myOrderWaitJudgeVC.title = @"待评价";
     
     float statusHeight = [[UIApplication sharedApplication] statusBarFrame].size.height;
     float navigationHeight = self.navigationController.navigationBar.frame.size.height;
     
-    YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[myOrderAllVC,myOrderWaitPayVC,myOrderWaitGoodVC,myOrderWaitJudgeVC]
+    containerVC = [[YSLContainerViewController alloc]initWithControllers:@[myOrderAllVC,myOrderWaitPayVC,myOrderWaitGoodVC,myOrderWaitJudgeVC]
                                                                                         topBarHeight:statusHeight + navigationHeight
                                                                                 parentViewController:self];
     containerVC.delegate = self;
@@ -64,9 +65,18 @@
 }
 - (void)containerViewItemIndex:(NSInteger)index currentController:(UIViewController *)controller
 {
-    //    NSLog(@"current Index : %ld",(long)index);
-    //    NSLog(@"current controller : %@",controller);
-    [controller viewWillAppear:YES];
+    if (index == 1) {
+        MyOrderAllViewController * myOrderAllVC = containerVC.childControllers[0];
+        [myOrderAllVC loadData];
+        [myOrderAllVC.tradeView removeFromSuperview];
+    }else if (index == 0){
+         MyOrderSecondWaitPayViewController * myOrderWaitPayVC = containerVC.childControllers[1];
+       
+        [myOrderWaitPayVC.tradeView removeFromSuperview];
+    }else if (index == 3){
+        MyOrderSecondWaitJudgeViewController * myJudgeVC = [[MyOrderSecondWaitJudgeViewController alloc] init];
+        [myJudgeVC loadData];
+    }
 }
 
 //添加自定义导航栏按钮
@@ -95,7 +105,10 @@
 - (IBAction)back:(id)sender {
     self.navigationController.navigationBarHidden = YES;
     [self.navigationController popViewControllerAnimated:YES];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"hidebottom" object:nil userInfo:nil];
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

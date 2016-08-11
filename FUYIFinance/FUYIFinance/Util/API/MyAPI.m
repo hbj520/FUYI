@@ -1218,9 +1218,16 @@
                       Result:(StateBlock)result
                  ErrorResult:(ErrorBlock)errorResult
 {
-    NSDictionary * parameters = @{@"token":KToken,
-                                  @"ordernum":ordernum,
-                                  @"excode":excode};
+    
+    
+//    NSDictionary * parameters = @{@"token":KToken,
+//                                  @"ordernum":ordernum,
+//                                  @"excode":excode};
+    NSDictionary *parameters = @{
+                                 @"token":KToken,
+                                 @"ordernum":ordernum,
+                                 @"excode":excode
+                                 };
     [self.manager POST:@"orderPay" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         NSString * status = responseObject[@"status"];
         NSString * info = responseObject[@"info"];
@@ -1233,6 +1240,28 @@
         errorResult(error);
     }];
     
+}
+
+- (void)payVideoOrderWithOrderNum:(NSString *)ordernum Excode:(NSString *)excode Result:(StateBlock)result ErrorResult:(ErrorBlock)errorResult
+{
+    NSDictionary *parameters = @{
+                                 @"token":KToken,
+                                 @"ordernum":ordernum,
+                                 @"excode":excode
+                                 };
+    [self.manager POST:@"orderPay" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * status = responseObject[@"status"];
+        NSString * info = responseObject[@"info"];
+        if([status isEqualToString:@"1"]){
+            result(YES,info);
+        }else{
+            result(NO,info);
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+    }];
+    
+
 }
 
 @end

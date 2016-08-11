@@ -40,7 +40,8 @@
     self.surebtn.layer.cornerRadius = 3;
     self.surebtn.clipsToBounds = YES;
  //   self.surebtn.enabled = NO;
-    [self.thumbImg sd_setImageWithURL:[NSURL URLWithString:self.image] placeholderImage:[UIImage imageNamed:@"placeimage"]];
+    IsCommit = NO;
+    [self.thumbImg sd_setImageWithURL:[NSURL URLWithString:self.image] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
     //给星级评价视图添加手势
     [self.starView configWithStarLevel:0];
     UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(renewStar:)];
@@ -102,7 +103,10 @@
         if (self.deleteblock) {
             self.deleteblock(self.indexpath);
         }
-        
+        if(self.textView.text.length<=0||[starNum isEqual:[NSNull null]]){
+            [self showHint:@"请补充完整信息"];
+            return;
+        }else{
     [[MyAPI sharedAPI] uploadUserJudgeWithParameters:starNum
                                             OrderNum:self.ordernum
                                            Anonymous:anonymous
@@ -118,6 +122,7 @@
     } errorResult:^(NSError *enginerError) {
         
     }];
+    }
     }
 }
 

@@ -208,7 +208,7 @@
 
         if(KToken){
             NSString * headimageUrl = [[Config Instance] getIcon];
-            [cell.headicon sd_setImageWithURL:[NSURL URLWithString:headimageUrl] placeholderImage:[UIImage imageNamed:@"placeimage"]];
+            [cell.headicon sd_setImageWithURL:[NSURL URLWithString:headimageUrl] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
             cell.personlabel.hidden = NO;
             cell.backImg.userInteractionEnabled = YES;
             cell.teacherName.text = teacherinfo.username;
@@ -219,7 +219,7 @@
             cell.backImg.userInteractionEnabled = YES;
             [cell.backImg addGestureRecognizer:tap];
             if(imageUrl.length){
-                [cell.backImg sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"placeimage"]];
+                [cell.backImg sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
             }
 
         }else{

@@ -7,7 +7,8 @@
 //
 
 #import "BaseViewController.h"
-
+#import "ZCTradeView.h"
 @interface MyOrderSecondWaitPayViewController : BaseViewController
-
+@property (nonatomic,strong)    ZCTradeView * tradeView;
+- (void)loadData;
 @end

@@ -53,7 +53,7 @@
     [self addRefresh];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshtableview) name:@"refreshView" object:nil];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadView) name:@"reload" object:nil];
     [self loadData];
     
     _tradeView = [[ZCTradeView alloc] init];
@@ -68,6 +68,11 @@
 }
 
 - (void)refreshtableview
+{
+    [self loadData];
+}
+
+- (void)reloadView
 {
     [self loadData];
 }
@@ -107,11 +112,14 @@
             [_dataSource addObjectsFromArray:arrays];
             [_tableView reloadData];
             }
-//            [[Config Instance] saveWaitPayCount:[NSString stringWithFormat:@"%ld",_dataSource.count]];
+;
            
            
         }else{
-            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [_tableView.mj_footer endRefreshingWithNoMoreData];
+            });
+            page--;
         }
                 [_tableView.mj_header endRefreshing];
                 [_tableView.mj_footer endRefreshing];
@@ -142,14 +150,19 @@
 - (NSString *)finish:(NSString *)pwd
 {
     NSString * SecurityString = [Tools loginPasswordSecurityLock:pwd];
+    NSString * ordernum = [[Config Instance] getOrderNum];
     if(_ordernum.length&&KToken.length){
-    [[MyAPI sharedAPI] payOrderWithOrderNum:_ordernum Excode:SecurityString Result:^(BOOL sucess, NSString *msg) {
+    [[MyAPI sharedAPI] payOrderWithOrderNum:ordernum Excode:SecurityString Result:^(BOOL sucess, NSString *msg) {
         if(sucess){
-            [self showHint:@"付款成功"];
+            [self showHint:msg];
                 if(_dataSource.count){
-            [_dataSource removeObjectAtIndex:index1];
+            [_dataSource removeObjectAtIndex:index];
+                    [self down];
+                    [self performSegueWithIdentifier:@"MyAllOrderSegue" sender:nil];
             [_tableView reloadData];
             }
+        }else{
+            [self showHint:msg];
         }
     } ErrorResult:^(NSError *enginerError) {
         
@@ -236,6 +249,7 @@
     model = _dataSource[sender.tag];
     _payView.lastPriceLab.text = model.price;
     _ordernum = model.ordernum;
+    [[Config Instance] saveOrderNum:model.ordernum];
     _payView.frame = CGRectMake(0, ScreenHeight*0.35, ScreenWidth, ScreenHeight * 0.65);
     _shadowBtn.frame = CGRectMake(0, -ScreenHeight * 0.65, ScreenWidth, ScreenHeight);
   

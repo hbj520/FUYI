@@ -145,7 +145,7 @@
     MyCollectionTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MyCollectionId" forIndexPath:indexPath];
     MineCollectionTreasureModel * model = [[MineCollectionTreasureModel alloc] init];
     model = dataSource[indexPath.section];
-    [cell.thumbimage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"placeimage"]];
+    [cell.thumbimage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
     cell.titlename.text = model.name;
     NSString * teachername = [NSString stringWithFormat:@"讲师:%@",model.teacher];
     cell.teachername.text = teachername;

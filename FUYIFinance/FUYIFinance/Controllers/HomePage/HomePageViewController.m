@@ -222,6 +222,7 @@ static NSString *investReuseId = @"investReuseId";
         }
     }else if (indexPath.section == 2){
         InvestCollectionViewTableViewCell *investTableViewCell = [tableView dequeueReusableCellWithIdentifier:investReuseId];
+        investTableViewCell.selectionStyle = UITableViewCellSelectionStyleNone;
         if (investTableViewCell == nil) {
             investTableViewCell = [[InvestCollectionViewTableViewCell alloc]
                                    initWithStyle:UITableViewCellStyleDefault

@@ -50,7 +50,7 @@
             self.shopintroduce.text = userinfo.about;
             
             NSString * imageUrl = [[Config Instance] getIcon];
-            [self.headicon sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"placeimage"]];
+            [self.headicon sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
         }
     } ErrorResult:^(NSError *enginerError) {
         

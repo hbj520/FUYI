@@ -22,7 +22,7 @@
 
 - (void)setModel:(ManageTreasureModel *)model
 {
-    [self.thumbimage sd_setImageWithURL:[NSURL URLWithString:model.thumbimg] placeholderImage:[UIImage imageNamed:@"placeimage"]];
+    [self.thumbimage sd_setImageWithURL:[NSURL URLWithString:model.thumbimg] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
     self.titlelabel.text = model.title;
     self.pricelabel.text = [NSString stringWithFormat:@"¥%@",model.price];
     self.uploadtime.text = model.time;
