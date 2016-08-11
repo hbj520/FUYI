@@ -107,6 +107,10 @@
         if([msg isEqualToString:@"-1"]){
                                         [self logOut];
                                         }
+                                                     if([msg isEqualToString:@"0"]){
+                                                         [_dataSource removeAllObjects];
+                                                         [_tableView reloadData];
+                                                     }
         if(success){
            {
             [_dataSource addObjectsFromArray:arrays];

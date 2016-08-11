@@ -451,7 +451,7 @@ UIAlertViewDelegate>
        return 217;
     }
     }else{
-        return 217;
+        return 0;
     }
 }
 
@@ -518,7 +518,7 @@ UIAlertViewDelegate>
         if([status isEqualToString:@"1"]){
             [self showHint:info];
             if(index1>=0&&index1<waitpayArray.count){
-            [waitpayArray removeObjectAtIndex:index1];
+          //  [waitpayArray removeObjectAtIndex:index1];
             [_tableView reloadData];
                 [self down];
                 NSString * indexStr = [NSString stringWithFormat:@"%ld",index1];

@@ -104,6 +104,7 @@ UIAlertViewDelegate>
 
 - (void)loadData
 {
+  
     NSString * pagestr = [NSString stringWithFormat:@"%ld",page];
     [[MyAPI sharedAPI] requestWaitpayDataWithParameters:pagestr
                                                  result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
@@ -117,11 +118,18 @@ UIAlertViewDelegate>
             [_tableView reloadData];
             [_tableView.mj_header endRefreshing];
             [_tableView.mj_footer endRefreshing];
-        }
-        else{
+        }else{
+            
+//                           dispatch_async(dispatch_get_main_queue(), ^{
+//                    [_tableView.mj_footer endRefreshingWithNoMoreData];
+//                });
+//                page--;
             if([msg isEqualToString:@"-1"]){
                 [self logOut];
             }else{
+               
+                [_dataSource removeAllObjects];
+                [_tableView reloadData];
                 [_tableView.mj_header endRefreshing];
                 [_tableView.mj_footer endRefreshing];
             }
@@ -248,9 +256,24 @@ UIAlertViewDelegate>
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if(buttonIndex == 1){
-        [_dataSource removeObjectAtIndex:index - 10];
-        [_tableView reloadData];
+        MineWaitPayModel * model = [[MineWaitPayModel alloc] init];
+        model = _dataSource[index - 10];
+        [[MyAPI sharedAPI] cancelOrderWithOrdernum:model.ordernum result:^(BOOL sucess, NSString *msg) {
+            if (sucess) {
+                [self showHint:msg];
+                [_dataSource removeObjectAtIndex:index-10];
+                [_tableView reloadData];
+            }else{
+                [self showHint:msg];
+            }
+            
+        } errorResult:^(NSError *enginerError) {
+            
+        }];
+        
     }
+
+    
 }
 
 //确认付款落下

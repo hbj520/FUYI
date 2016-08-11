@@ -731,7 +731,7 @@
             if([status isEqualToString:@"-1"]){
                 result(NO,@"-1",nil);
             }else{
-            result(NO,info,nil);
+            result(NO,status,nil);
             }
         }
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
