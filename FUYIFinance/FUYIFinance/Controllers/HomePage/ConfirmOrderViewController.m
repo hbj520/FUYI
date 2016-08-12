@@ -61,6 +61,7 @@
 }
 
 - (void)creatUI{
+    self.view.tag = 10;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
         [self.tableView registerNib:[UINib nibWithNibName:@"ConInfoTableViewCell" bundle:nil] forCellReuseIdentifier:@"confirmInfoCellReuseID"];

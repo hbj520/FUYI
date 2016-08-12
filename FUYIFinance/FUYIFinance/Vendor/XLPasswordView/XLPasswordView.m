@@ -296,7 +296,11 @@
     }
     [UIView animateWithDuration:0.25 animations:^{
         self.backgroundView.alpha = 0.4;
+        if(view.tag==10){
+        self.inputContainerView.xl_y = XLScreenH - self.inputContainerView.xl_height;
+        }else{
         self.inputContainerView.xl_y = XLScreenH - self.inputContainerView.xl_height-100;
+        }
     } completion:^(BOOL finished) {
         
     }];
