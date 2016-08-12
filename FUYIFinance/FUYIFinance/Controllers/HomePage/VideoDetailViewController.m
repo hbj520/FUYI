@@ -12,6 +12,9 @@
 #import "ShopCarViewController.h"
 #import "ConfirmOrderViewController.h"
 #import "StoreViewController.h"
+#import "IJKMoviePlayerViewController.h"
+#import "GLVideoPlayView.h"
+
 #import "UIViewController+HUD.h"
 //view
 #import "VideoDetailFirstTableViewCell.h"
@@ -23,13 +26,17 @@
 #import "Config.h"
 #import "MyAPI.h"
 
+#import "Masonry.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
 @interface VideoDetailViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 - (IBAction)collectionBtn:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *collectionBtn;
+@property (weak, nonatomic) IBOutlet UIButton *backBtn;
+@property (weak, nonatomic) IBOutlet UIView *buyNowBtn;
 @property (nonatomic,strong) UIBezierPath *path;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *buttomLayoutConstraint;
 
 @end
 @implementation VideoDetailViewController
@@ -38,6 +45,7 @@
     //UILabel     *_cntLabel;// 购物车总数量显示文本
     NSInteger    _cnt;// 总数量
     UIImageView *head0;
+    IJKMoviePlayerViewController *playerVC;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -71,6 +79,15 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"VideoDetailSecTableViewCell" bundle:nil] forCellReuseIdentifier:@"detailSecReuseID"];
     [self.tableView registerNib:[UINib nibWithNibName:@"VideoDetailThirdtTableViewCell" bundle:nil] forCellReuseIdentifier:@"detailThirdReuseID"];
     [self addBottomTapGesAndButton];//添加底部点击事件
+    //添加头部视频图片
+    head0 = [[UIImageView alloc]init];
+    [head0 sd_setImageWithURL:[NSURL URLWithString:_model.videoImage]placeholderImage:[UIImage imageNamed:@"VD_class_demo"]];
+    UIImageView *playImageView = [[UIImageView alloc] initWithFrame:CGRectMake(ScreenWidth/2-25, 83, 50, 50)];
+    playImageView.image = [UIImage imageNamed:@"play"];
+    [head0 addSubview:playImageView];
+    UITapGestureRecognizer *tapViedoGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(videoClick:)];
+    head0.userInteractionEnabled = YES;
+    [head0 addGestureRecognizer:tapViedoGes];
     
 }
 
@@ -145,11 +162,53 @@
 - (void)shopClick:(UIGestureRecognizer *)ges{
     [self performSegueWithIdentifier:@"GoStoreSegue" sender:self.model];
 }
-
+//点击播放预览视频
 - (void)videoClick:(UIGestureRecognizer *)ges{
-    
+    UIImageView *videoView = (UIImageView *)ges.view;
+    playerVC = [IJKMoviePlayerViewController InitVideoViewFromViewController:self withTitle:@"GLTest" URL:[NSURL URLWithString:@"http://krtv.qiniudn.com/150522nextapp"] isLiveVideo:YES isOnlineVideo:NO isFullScreen:NO completion:nil];
+    __weak VideoDetailViewController *weakself = self;
+    playerVC.fullScreenBlock = ^(BOOL isFullScreen){
+        if (isFullScreen) {
+            videoView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
+            weakself.buttomLayoutConstraint.constant = 0;
+            weakself.backBtn.hidden = YES;
+            weakself.buyNowBtn.hidden = YES;
+            [weakself.tableView reloadData];
+        }else{
+            videoView.frame = CGRectMake(0, 0,ScreenWidth,215);
+            weakself.buttomLayoutConstraint.constant = 50;
+            weakself.backBtn.hidden = NO;
+            weakself.buyNowBtn.hidden = NO;
+        }
+    };
+    [self addChildViewController:playerVC];
+    [videoView addSubview:playerVC.view];
+    UITapGestureRecognizer *tapViedoGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(video:)];
+    [playerVC.view addGestureRecognizer:tapViedoGes];
+    playerVC.view.userInteractionEnabled = YES;
+    [playerVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@0);
+        make.top.equalTo(@0);
+        make.right.equalTo(@0);
+        make.bottom.equalTo(@0);
+    }];
+    /** 判断直播是否开启,并执行退出 */
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        //        [playerVC GoBack];
+    });
 }
-
+- (void)video:(UIGestureRecognizer *)ges{
+    if (playerVC.playView.isHideTool) {
+        [playerVC.playView showAndFade];
+        [playerVC.playViewFullScreen showAndFade];
+        playerVC.playView.isHideTool = NO;
+    }else{
+        [playerVC.playView hide];
+        [playerVC.playViewFullScreen hide];
+        playerVC.playView.isHideTool = YES;
+    }
+   // NSLog(@"video play taop");
+}
 #pragma mark - UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 2;
@@ -216,18 +275,15 @@
         head1.backgroundColor = RGBACOLOR(234, 235, 236, 1);
         return head1;
     }else{
-        head0 = [[UIImageView alloc]init];
-      [head0 sd_setImageWithURL:[NSURL URLWithString:_model.videoImage]placeholderImage:[UIImage imageNamed:@"VD_class_demo"]];
-        UIImageView *playImageView = [[UIImageView alloc] initWithFrame:CGRectMake(ScreenWidth/2-25, 83, 50, 50)];
-        playImageView.image = [UIImage imageNamed:@"play"];
-        [head0 addSubview:playImageView];
-        UITapGestureRecognizer *tapViedoGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(videoClick:)];
-        [head0 addGestureRecognizer:tapViedoGes];
+       
         return head0;
     }
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if (section == 0) {
+        if (self.backBtn.hidden) {
+            return   ScreenHeight;
+        }
         return 215;
     }else{
         return 15;
@@ -240,6 +296,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0 && indexPath.row == 0) {
+       
         return 140;
     }if (indexPath.section == 0 && indexPath.row == 1) {
         return 40;
@@ -258,7 +315,7 @@
 //立即下单
 - (IBAction)buyNow:(id)sender {
   
-  
+
     [[MyAPI sharedAPI] getOrderNumWithGoodsid:_model.videoId Money:_model.videoPrice Result:^(BOOL sucess, NSString *msg) {
         if(!msg){
             return ;
