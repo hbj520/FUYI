@@ -21,9 +21,11 @@
 #import "Config.h"
 #import "PayView.h"
 #import "ZCTradeView.h"
+#import "XLPasswordView.h"
 #import "MyAPI.h"
 
 @interface MyOrderAllViewController ()<
+XLPasswordViewDelegate,
 ZCTradeViewDelegate,
 UITableViewDelegate,
 UITableViewDataSource,
@@ -67,9 +69,9 @@ UIAlertViewDelegate>
     page = 1;
     [self loadData];
     [self addRefresh];
-    self.tradeView = [[ZCTradeView alloc] init];
-   
-    self.tradeView.delegate = self;
+//    self.tradeView = [[ZCTradeView alloc] init];
+//   
+//    self.tradeView.delegate = self;
     [self creatHidePayView];
 }
 
@@ -451,7 +453,7 @@ UIAlertViewDelegate>
        return 217;
     }
     }else{
-        return 217;
+        return 0;
     }
 }
 
@@ -489,8 +491,93 @@ UIAlertViewDelegate>
 
 - (void)payaction
 {
-    [self.tradeView show];
+//    ZCTradeView * tradeView = [[ZCTradeView alloc] init];
+//    
+//    tradeView.delegate = self;
+//   // [tradeView show];
+//    NSString * SecurityString = [Tools loginPasswordSecurityLock:@"123123"];
+//    NSString * ordernum = [[Config Instance] getOrderNum];
+//
+//    self.manager = [[AFHTTPRequestOperationManager alloc]initWithBaseURL:[NSURL URLWithString:BaseUrl]] ;
+//    self.manager.responseSerializer.acceptableContentTypes =  [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
+//    self.manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+//    NSDictionary * parameters = @{@"token":KToken,@"ordernum":ordernum,@"excode":SecurityString};
+//    [self.manager POST:@"orderPay" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+//        NSString * status = responseObject[@"status"];
+//        NSString * info = responseObject[@"info"];
+//        if([status isEqualToString:@"1"]){
+//            [self showHint:info];
+//            if(index1>=0&&index1<waitpayArray.count){
+//                //  [waitpayArray removeObjectAtIndex:index1];
+//                [_tableView reloadData];
+//                [self down];
+//                NSString * indexStr = [NSString stringWithFormat:@"%ld",index1];
+//                [[NSNotificationCenter defaultCenter] postNotificationName:@"deleteact" object:nil userInfo:@{@"index":indexStr}];
+//            }
+//            
+//        }else{
+//            [self showHint:info];
+//        }
+//        [self loadData];
+//    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+//        
+//    }];
+//
+    //[self.tradeView show];
+    XLPasswordView * passwordView = [XLPasswordView passwordView];
+    passwordView.delegate = self;
+    
+    [passwordView showPasswordInView:self.view];
 }
+
+- (void)passwordView:(XLPasswordView *)passwordView didFinishInput:(NSString *)password
+
+{
+    NSString * SecurityString = [Tools loginPasswordSecurityLock:password];
+    NSString * ordernum = [[Config Instance] getOrderNum];
+    
+    //        [[MyAPI sharedAPI] payOrderWithOrderNum:_ordernum Excode:SecurityString Result:^(BOOL sucess, NSString *msg) {
+    //        if(sucess){
+    //            [self showHint:@"付款成功"];
+    //            [waitpayArray removeObjectAtIndex:index];
+    //            [_tableView reloadData];
+    //        }else{
+    //            [self showHint:msg];
+    //        }
+    //    } ErrorResult:^(NSError *enginerError) {
+    //
+    //    }];
+    self.manager = [[AFHTTPRequestOperationManager alloc]initWithBaseURL:[NSURL URLWithString:BaseUrl]] ;
+    self.manager.responseSerializer.acceptableContentTypes =  [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
+    self.manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    NSDictionary * parameters = @{@"token":KToken,@"ordernum":ordernum,@"excode":SecurityString};
+    [self.manager POST:@"orderPay" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * status = responseObject[@"status"];
+        NSString * info = responseObject[@"info"];
+        if([status isEqualToString:@"1"]){
+            [self showHint:info];
+            if(index1>=0&&index1<waitpayArray.count){
+                //  [waitpayArray removeObjectAtIndex:index1];
+                [_tableView reloadData];
+                [self down];
+                NSString * indexStr = [NSString stringWithFormat:@"%ld",index1];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"deleteact" object:nil userInfo:@{@"index":indexStr}];
+            }
+            
+        }else{
+            [self showHint:info];
+        }
+        [self loadData];
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        
+    }];
+    
+    
+    NSLog(@"例如自动校验密码");
+    
+}
+
+
 
 - (NSString *)finish:(NSString *)pwd
 {
@@ -518,7 +605,7 @@ UIAlertViewDelegate>
         if([status isEqualToString:@"1"]){
             [self showHint:info];
             if(index1>=0&&index1<waitpayArray.count){
-            [waitpayArray removeObjectAtIndex:index1];
+          //  [waitpayArray removeObjectAtIndex:index1];
             [_tableView reloadData];
                 [self down];
                 NSString * indexStr = [NSString stringWithFormat:@"%ld",index1];

@@ -20,13 +20,14 @@
 #import "UIViewController+HUD.h"
 #import "ConfirmOrderViewController.h"
 #import "MyOrderAllViewController.h"
+#import "XLPasswordView.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "Config.h"
 #import "Tools.h"
 #import "LabelHelper.h"
 #import "MyAPI.h"
 
-@interface ConfirmOrderViewController ()<ZCTradeViewDelegate,UITableViewDataSource,UITableViewDelegate>
+@interface ConfirmOrderViewController ()<XLPasswordViewDelegate,ZCTradeViewDelegate,UITableViewDataSource,UITableViewDelegate>
 {
     PayView* _payView;
     UIButton* _shadowBtn;
@@ -60,6 +61,7 @@
 }
 
 - (void)creatUI{
+    self.view.tag = 10;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
         [self.tableView registerNib:[UINib nibWithNibName:@"ConInfoTableViewCell" bundle:nil] forCellReuseIdentifier:@"confirmInfoCellReuseID"];
@@ -87,33 +89,79 @@
 
 - (void)payaction
 {
-  
-    [_tradeView show];
+//    NSString * SecurityString = [Tools loginPasswordSecurityLock:@"123123"];
+//    NSString * ordernum = [[Config Instance] getOrderNum];
+//    if(self.ordernum.length > 0&&KToken.length > 0){
+//        [[MyAPI sharedAPI] payOrderWithOrderNum:ordernum Excode:SecurityString Result:^(BOOL sucess, NSString *msg) {
+//            if(sucess){
+//                [self showHint:msg];
+//                [self down];
+//                UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
+//                MyOrderAllViewController * VC = (MyOrderAllViewController *)[storyboard instantiateViewControllerWithIdentifier:@"MyOrderStoryBoardID"];
+//                [self.navigationController pushViewController:VC animated:YES];
+//                
+//            }else{
+//                [self showHint:msg];
+//            }
+//        } ErrorResult:^(NSError *enginerError) {
+//            
+//        }];
+//    }
+
+   // [_tradeView show];
+    XLPasswordView * passwordView = [XLPasswordView passwordView];
+    passwordView.delegate = self;
+    
+    [passwordView showPasswordInView:self.view];
+
     
 }
 
--(NSString *)finish:(NSString *)pwd{
-    NSString * SecurityString = [Tools loginPasswordSecurityLock:pwd];
-    NSString * ordernum = [[Config Instance] getOrderNum];
-    if(self.ordernum.length > 0&&KToken.length > 0){
-    [[MyAPI sharedAPI] payOrderWithOrderNum:ordernum Excode:SecurityString Result:^(BOOL sucess, NSString *msg) {
-        if(sucess){
-            [self showHint:msg];
-            [self down];
-            UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
-            MyOrderAllViewController * VC = (MyOrderAllViewController *)[storyboard instantiateViewControllerWithIdentifier:@"MyOrderStoryBoardID"];
-            [self.navigationController pushViewController:VC animated:YES];
+- (void)passwordView:(XLPasswordView *)passwordView didFinishInput:(NSString *)password
 
-        }else{
-            [self showHint:msg];
-        }
-    } ErrorResult:^(NSError *enginerError) {
-        
-    }];
-    }
-    return pwd;
+{
+    NSString * SecurityString = [Tools loginPasswordSecurityLock:password];
+    NSString * ordernum = [[Config Instance] getOrderNum];
+            [[MyAPI sharedAPI] payOrderWithOrderNum:ordernum Excode:SecurityString Result:^(BOOL sucess, NSString *msg) {
+                if(sucess){
+                    [self showHint:msg];
+                    [self down];
+                    UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
+                    MyOrderAllViewController * VC = (MyOrderAllViewController *)[storyboard instantiateViewControllerWithIdentifier:@"MyOrderStoryBoardID"];
+                    [self.navigationController pushViewController:VC animated:YES];
+    
+                }else{
+                    [self showHint:msg];
+                }
+            } ErrorResult:^(NSError *enginerError) {
+                
+            }];
 }
 
+
+
+//-(NSString *)finish:(NSString *)pwd{
+//    NSString * SecurityString = [Tools loginPasswordSecurityLock:pwd];
+//    NSString * ordernum = [[Config Instance] getOrderNum];
+//    if(self.ordernum.length > 0&&KToken.length > 0){
+//    [[MyAPI sharedAPI] payOrderWithOrderNum:ordernum Excode:SecurityString Result:^(BOOL sucess, NSString *msg) {
+//        if(sucess){
+//            [self showHint:msg];
+//            [self down];
+//            UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
+//            MyOrderAllViewController * VC = (MyOrderAllViewController *)[storyboard instantiateViewControllerWithIdentifier:@"MyOrderStoryBoardID"];
+//            [self.navigationController pushViewController:VC animated:YES];
+//
+//        }else{
+//            [self showHint:msg];
+//        }
+//    } ErrorResult:^(NSError *enginerError) {
+//        
+//    }];
+//    }
+//    return pwd;
+//}
+//
 #pragma mark - UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
  

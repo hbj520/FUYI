@@ -199,6 +199,17 @@
 		CC95F1581D334163009F559D /* ModifyHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC95F1571D334163009F559D /* ModifyHeadView.xib */; };
 		CC95F1A71D338C28009F559D /* ChangeHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC95F1A61D338C28009F559D /* ChangeHeadView.m */; };
 		CC95F1A91D338C3E009F559D /* ChangeHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC95F1A81D338C3E009F559D /* ChangeHeadView.xib */; };
+		CCBE26431D5C81EB00D9EBDD /* SCNavTabBar.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CCBE263A1D5C81EB00D9EBDD /* SCNavTabBar.bundle */; };
+		CCBE26441D5C81EB00D9EBDD /* SCNavTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBE263D1D5C81EB00D9EBDD /* SCNavTabBarController.m */; };
+		CCBE26451D5C81EB00D9EBDD /* SCNavTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBE26401D5C81EB00D9EBDD /* SCNavTabBar.m */; };
+		CCBE26461D5C81EB00D9EBDD /* SCPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBE26421D5C81EB00D9EBDD /* SCPopView.m */; };
+		CCBE266C1D5CB34900D9EBDD /* UIColor+XLPasswordView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBE26601D5CB34900D9EBDD /* UIColor+XLPasswordView.m */; };
+		CCBE266D1D5CB34900D9EBDD /* UIImage+XLPasswordView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBE26621D5CB34900D9EBDD /* UIImage+XLPasswordView.m */; };
+		CCBE266E1D5CB34900D9EBDD /* UIView+XLPasswordView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBE26641D5CB34900D9EBDD /* UIView+XLPasswordView.m */; };
+		CCBE266F1D5CB34900D9EBDD /* XLPasswordInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBE26661D5CB34900D9EBDD /* XLPasswordInputView.m */; };
+		CCBE26701D5CB34900D9EBDD /* XLPasswordView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CCBE26671D5CB34900D9EBDD /* XLPasswordView.bundle */; };
+		CCBE26711D5CB34900D9EBDD /* XLPasswordView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBE26691D5CB34900D9EBDD /* XLPasswordView.m */; };
+		CCBE26721D5CB34900D9EBDD /* XLRandomKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBE266B1D5CB34900D9EBDD /* XLRandomKeyboard.m */; };
 		CCE906541D5B4EF600674E2B /* YSLContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE906511D5B4EF600674E2B /* YSLContainerViewController.m */; };
 		CCE906551D5B4EF600674E2B /* YSLScrollMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE906531D5B4EF600674E2B /* YSLScrollMenuView.m */; };
 		CCE906581D5B645A00674E2B /* MyOrderSecondWaitJudgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE906571D5B645A00674E2B /* MyOrderSecondWaitJudgeViewController.m */; };
@@ -673,6 +684,27 @@
 		CC95F1A51D338C28009F559D /* ChangeHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeHeadView.h; sourceTree = "<group>"; };
 		CC95F1A61D338C28009F559D /* ChangeHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeHeadView.m; sourceTree = "<group>"; };
 		CC95F1A81D338C3E009F559D /* ChangeHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangeHeadView.xib; sourceTree = "<group>"; };
+		CCBE26391D5C81EB00D9EBDD /* CommonMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonMacro.h; sourceTree = "<group>"; };
+		CCBE263A1D5C81EB00D9EBDD /* SCNavTabBar.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SCNavTabBar.bundle; sourceTree = "<group>"; };
+		CCBE263C1D5C81EB00D9EBDD /* SCNavTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCNavTabBarController.h; sourceTree = "<group>"; };
+		CCBE263D1D5C81EB00D9EBDD /* SCNavTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCNavTabBarController.m; sourceTree = "<group>"; };
+		CCBE263F1D5C81EB00D9EBDD /* SCNavTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCNavTabBar.h; sourceTree = "<group>"; };
+		CCBE26401D5C81EB00D9EBDD /* SCNavTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCNavTabBar.m; sourceTree = "<group>"; };
+		CCBE26411D5C81EB00D9EBDD /* SCPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPopView.h; sourceTree = "<group>"; };
+		CCBE26421D5C81EB00D9EBDD /* SCPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPopView.m; sourceTree = "<group>"; };
+		CCBE265F1D5CB34900D9EBDD /* UIColor+XLPasswordView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+XLPasswordView.h"; sourceTree = "<group>"; };
+		CCBE26601D5CB34900D9EBDD /* UIColor+XLPasswordView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+XLPasswordView.m"; sourceTree = "<group>"; };
+		CCBE26611D5CB34900D9EBDD /* UIImage+XLPasswordView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+XLPasswordView.h"; sourceTree = "<group>"; };
+		CCBE26621D5CB34900D9EBDD /* UIImage+XLPasswordView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+XLPasswordView.m"; sourceTree = "<group>"; };
+		CCBE26631D5CB34900D9EBDD /* UIView+XLPasswordView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XLPasswordView.h"; sourceTree = "<group>"; };
+		CCBE26641D5CB34900D9EBDD /* UIView+XLPasswordView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XLPasswordView.m"; sourceTree = "<group>"; };
+		CCBE26651D5CB34900D9EBDD /* XLPasswordInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLPasswordInputView.h; sourceTree = "<group>"; };
+		CCBE26661D5CB34900D9EBDD /* XLPasswordInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLPasswordInputView.m; sourceTree = "<group>"; };
+		CCBE26671D5CB34900D9EBDD /* XLPasswordView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = XLPasswordView.bundle; sourceTree = "<group>"; };
+		CCBE26681D5CB34900D9EBDD /* XLPasswordView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLPasswordView.h; sourceTree = "<group>"; };
+		CCBE26691D5CB34900D9EBDD /* XLPasswordView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLPasswordView.m; sourceTree = "<group>"; };
+		CCBE266A1D5CB34900D9EBDD /* XLRandomKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLRandomKeyboard.h; sourceTree = "<group>"; };
+		CCBE266B1D5CB34900D9EBDD /* XLRandomKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLRandomKeyboard.m; sourceTree = "<group>"; };
 		CCE906501D5B4EF600674E2B /* YSLContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSLContainerViewController.h; sourceTree = "<group>"; };
 		CCE906511D5B4EF600674E2B /* YSLContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSLContainerViewController.m; sourceTree = "<group>"; };
 		CCE906521D5B4EF600674E2B /* YSLScrollMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSLScrollMenuView.h; sourceTree = "<group>"; };
@@ -1311,6 +1343,8 @@
 		ABF5DE411D0FA4B1007CE1AB /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				CCBE265D1D5CB34900D9EBDD /* XLPasswordView */,
+				CCBE26381D5C81EB00D9EBDD /* SCNavTabBar */,
 				CCE9064F1D5B4EF600674E2B /* YSLContainerViewController */,
 				CCF829A61D59EAB1001D473F /* ZCTradeView */,
 				ABF9F0FC1D546C49004E1523 /* GestureLock */,
@@ -1694,6 +1728,65 @@
 			name = KGModal;
 			sourceTree = "<group>";
 		};
+		CCBE26381D5C81EB00D9EBDD /* SCNavTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				CCBE26391D5C81EB00D9EBDD /* CommonMacro.h */,
+				CCBE263A1D5C81EB00D9EBDD /* SCNavTabBar.bundle */,
+				CCBE263B1D5C81EB00D9EBDD /* ViewControllers */,
+				CCBE263E1D5C81EB00D9EBDD /* Views */,
+			);
+			path = SCNavTabBar;
+			sourceTree = "<group>";
+		};
+		CCBE263B1D5C81EB00D9EBDD /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CCBE263C1D5C81EB00D9EBDD /* SCNavTabBarController.h */,
+				CCBE263D1D5C81EB00D9EBDD /* SCNavTabBarController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		CCBE263E1D5C81EB00D9EBDD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CCBE263F1D5C81EB00D9EBDD /* SCNavTabBar.h */,
+				CCBE26401D5C81EB00D9EBDD /* SCNavTabBar.m */,
+				CCBE26411D5C81EB00D9EBDD /* SCPopView.h */,
+				CCBE26421D5C81EB00D9EBDD /* SCPopView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CCBE265D1D5CB34900D9EBDD /* XLPasswordView */ = {
+			isa = PBXGroup;
+			children = (
+				CCBE265E1D5CB34900D9EBDD /* Category */,
+				CCBE26651D5CB34900D9EBDD /* XLPasswordInputView.h */,
+				CCBE26661D5CB34900D9EBDD /* XLPasswordInputView.m */,
+				CCBE26671D5CB34900D9EBDD /* XLPasswordView.bundle */,
+				CCBE26681D5CB34900D9EBDD /* XLPasswordView.h */,
+				CCBE26691D5CB34900D9EBDD /* XLPasswordView.m */,
+				CCBE266A1D5CB34900D9EBDD /* XLRandomKeyboard.h */,
+				CCBE266B1D5CB34900D9EBDD /* XLRandomKeyboard.m */,
+			);
+			path = XLPasswordView;
+			sourceTree = "<group>";
+		};
+		CCBE265E1D5CB34900D9EBDD /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				CCBE265F1D5CB34900D9EBDD /* UIColor+XLPasswordView.h */,
+				CCBE26601D5CB34900D9EBDD /* UIColor+XLPasswordView.m */,
+				CCBE26611D5CB34900D9EBDD /* UIImage+XLPasswordView.h */,
+				CCBE26621D5CB34900D9EBDD /* UIImage+XLPasswordView.m */,
+				CCBE26631D5CB34900D9EBDD /* UIView+XLPasswordView.h */,
+				CCBE26641D5CB34900D9EBDD /* UIView+XLPasswordView.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		CCE9064F1D5B4EF600674E2B /* YSLContainerViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -2053,6 +2146,8 @@
 				ABEACD441D2B7C0900574259 /* VideoShopTableViewCell.xib in Resources */,
 				D1F130861D38AD0000EE1690 /* FooterView.xib in Resources */,
 				D1F1307C1D388AA000EE1690 /* TeacherPersonalTableViewCell.xib in Resources */,
+				CCBE26431D5C81EB00D9EBDD /* SCNavTabBar.bundle in Resources */,
+				CCBE26701D5CB34900D9EBDD /* XLPasswordView.bundle in Resources */,
 				D1F130351D2B96AC00EE1690 /* DeliverMethodTableViewCell.xib in Resources */,
 				AB708F941D0543BE007D0B4D /* Main.storyboard in Resources */,
 				D141F83D1D542F6600392D00 /* player_window_black@2x.png in Resources */,
@@ -2191,11 +2286,13 @@
 				CC593CC71D2A45770077B096 /* TreasureJudgeStarView.m in Sources */,
 				ABEACD431D2B7C0900574259 /* VideoShopTableViewCell.m in Sources */,
 				CCF829BA1D59EAB1001D473F /* UIView+Extension.m in Sources */,
+				CCBE266C1D5CB34900D9EBDD /* UIColor+XLPasswordView.m in Sources */,
 				AB708F911D0543BE007D0B4D /* ViewController.m in Sources */,
 				AB36CE371D1B818300D0E4C7 /* HomepageHeaderTableViewCell.m in Sources */,
 				ABEACD671D2B881400574259 /* MyAPI.m in Sources */,
 				CC4096B31D4A0C8700084D1A /* TeacherShopModel.m in Sources */,
 				CC6FD6121D362E0300DA60AB /* NSObject+MJProperty.m in Sources */,
+				CCBE26461D5C81EB00D9EBDD /* SCPopView.m in Sources */,
 				ABEACD711D2C945F00574259 /* HomePageInvestModel.m in Sources */,
 				CC6FD60A1D362E0300DA60AB /* MJExtensionConst.m in Sources */,
 				CC72D03A1D226AE300945BCF /* MyOrderWaitPayViewController.m in Sources */,
@@ -2232,6 +2329,7 @@
 				AB4EB7B51D584E7D00F6323E /* GestureUnlockViewController.m in Sources */,
 				CCE906551D5B4EF600674E2B /* YSLScrollMenuView.m in Sources */,
 				CC26F0DA1D261CAB003964A1 /* ProductJudgeViewController.m in Sources */,
+				CCBE266D1D5CB34900D9EBDD /* UIImage+XLPasswordView.m in Sources */,
 				ABEACD5C1D2B87DE00574259 /* Tools.m in Sources */,
 				CC42E2761D24F13D0008A8D7 /* MyCollectionCourseViewController.m in Sources */,
 				CCF829BC1D59EAB1001D473F /* ZCTradeInputView.m in Sources */,
@@ -2267,6 +2365,7 @@
 				D1189C2C1D4F4694001209B9 /* CollectionViewController.m in Sources */,
 				D15BA3941D23906600904DEF /* CustomBtn.m in Sources */,
 				CC0022411D5831DB00132483 /* AccountSaftyViewController.m in Sources */,
+				CCBE266F1D5CB34900D9EBDD /* XLPasswordInputView.m in Sources */,
 				ABF9F1031D546C8B004E1523 /* MRGesture.m in Sources */,
 				AB36CE2F1D1B710400D0E4C7 /* TADotView.m in Sources */,
 				AB02D4AC1D2228F800AED400 /* ShopCarViewController.m in Sources */,
@@ -2299,6 +2398,7 @@
 				ABF9F0F61D53215E004E1523 /* CLHomeHeader.m in Sources */,
 				ABEACD601D2B87DE00574259 /* NSString+MD5.m in Sources */,
 				CC6FD5F31D362DAB00DA60AB /* ZoneModel.m in Sources */,
+				CCBE266E1D5CB34900D9EBDD /* UIView+XLPasswordView.m in Sources */,
 				CC00226B1D589DD700132483 /* AboutViewController.m in Sources */,
 				ABEACD6B1D2C942800574259 /* HomepageBannerModel.m in Sources */,
 				AB708F8E1D0543BE007D0B4D /* AppDelegate.m in Sources */,
@@ -2306,8 +2406,10 @@
 				CC95F14E1D333B76009F559D /* KGModal.m in Sources */,
 				CC42E2781D24F13D0008A8D7 /* MyOrderMyCollectionViewController.m in Sources */,
 				CC4096B61D4A151A00084D1A /* TeacherInfo.m in Sources */,
+				CCBE26711D5CB34900D9EBDD /* XLPasswordView.m in Sources */,
 				CC0022481D58876900132483 /* NoticeListTableViewCell.m in Sources */,
 				CC6FD5E71D36062A00DA60AB /* chdButton.m in Sources */,
+				CCBE26721D5CB34900D9EBDD /* XLRandomKeyboard.m in Sources */,
 				CC6FD60D1D362E0300DA60AB /* MJPropertyKey.m in Sources */,
 				D1F1305C1D2E3F7000EE1690 /* StoreDataModel.m in Sources */,
 				AB36CE301D1B710400D0E4C7 /* TAPageControl.m in Sources */,
@@ -2351,6 +2453,7 @@
 				CC57E0FB1D2520BB00B00AA8 /* ManageTreasureTableViewController.m in Sources */,
 				CC35F66E1D2CDCBA00EF3B4B /* MineCollectionTreasureModel.m in Sources */,
 				CC593CCA1D2A682E0077B096 /* ShopSettingTableViewController.m in Sources */,
+				CCBE26451D5C81EB00D9EBDD /* SCNavTabBar.m in Sources */,
 				CC4F372C1D2DEADC00312F11 /* MineMyJudgeModel.m in Sources */,
 				CC4F37291D2DE5DA00312F11 /* MineCollectionShopModel.m in Sources */,
 				ABEACD6E1D2C944400574259 /* HomePageNoticeModel.m in Sources */,
@@ -2363,6 +2466,7 @@
 				AB4EB7B81D585F1600F6323E /* GestureHelper.m in Sources */,
 				D15BA3881D237CE200904DEF /* ShopCarTableViewCell.m in Sources */,
 				AB708F8B1D0543BE007D0B4D /* main.m in Sources */,
+				CCBE26441D5C81EB00D9EBDD /* SCNavTabBarController.m in Sources */,
 				D1F130171D2A5B3B00EE1690 /* VideoDetailHeader.m in Sources */,
 				CC35F6671D2C9A9800EF3B4B /* LabelHelper.m in Sources */,
 				CC7E9AEE1D387FC000DB1BE9 /* MyOrderSecondWaitPayViewController.m in Sources */,

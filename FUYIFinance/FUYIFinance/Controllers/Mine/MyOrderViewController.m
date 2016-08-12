@@ -7,6 +7,7 @@
 //
 
 #import "MyOrderViewController.h"
+#import "SCNavTabBarController.h"
 #import "BBBadgeBarButtonItem.h"
 #import "YSLContainerViewController.h"
 #import "MyOrderAllViewController.h"
@@ -57,19 +58,19 @@
     containerVC.menuItemTitleColor = [UIColor darkGrayColor];
        
     [self.view addSubview:containerVC.view];
-    
-}
+   }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
 }
 - (void)containerViewItemIndex:(NSInteger)index currentController:(UIViewController *)controller
 {
-    if (index == 1) {
+    if (index == 0) {
         MyOrderAllViewController * myOrderAllVC = containerVC.childControllers[0];
-        [myOrderAllVC loadData];
+       // myOrderAllVC.view.hidden = YES;
+       // [myOrderAllVC loadData];
         [myOrderAllVC.tradeView removeFromSuperview];
-    }else if (index == 0){
+    }else if (index == 1){
          MyOrderSecondWaitPayViewController * myOrderWaitPayVC = containerVC.childControllers[1];
        
         [myOrderWaitPayVC.tradeView removeFromSuperview];
