@@ -314,26 +314,30 @@
 
 //立即下单
 - (IBAction)buyNow:(id)sender {
-  
-
-    [[MyAPI sharedAPI] getOrderNumWithGoodsid:_model.videoId Money:_model.videoPrice Result:^(BOOL sucess, NSString *msg) {
-        if(!msg){
-            return ;
-        }else{
-        if(sucess){
-            [[Config Instance] saveOrderNum:msg];
-              self.navigationController.navigationBarHidden = NO;
-             [self performSegueWithIdentifier:@"ConfirmOrderSegue" sender:@[self.model,msg]];
-       
-        }else if([msg isEqualToString:@"0"]){
-            [self showHint:@"请不要重复购买!"];
-        }else{
-            return ;
-        }
-        }
-    } ErrorResult:^(NSError *enginerError) {
+    if (!KToken) {
+        [self showHint:@"请先登录，再购买"];
+    }else{
         
-    }];
+        [[MyAPI sharedAPI] getOrderNumWithGoodsid:_model.videoId Money:_model.videoPrice Result:^(BOOL sucess, NSString *msg) {
+            if(!msg){
+                return ;
+            }else{
+                if(sucess){
+                    [[Config Instance] saveOrderNum:msg];
+                    self.navigationController.navigationBarHidden = NO;
+                    [self performSegueWithIdentifier:@"ConfirmOrderSegue" sender:@[self.model,msg]];
+                    
+                }else if([msg isEqualToString:@"0"]){
+                    [self showHint:@"请不要重复购买!"];
+                }else{
+                    return ;
+                }
+            }
+        } ErrorResult:^(NSError *enginerError) {
+            
+        }];
+    }
+
 }
 #pragma mark -SegueDelegate
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
