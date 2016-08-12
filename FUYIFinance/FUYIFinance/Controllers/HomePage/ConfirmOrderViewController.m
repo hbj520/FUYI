@@ -32,6 +32,7 @@
     PayView* _payView;
     UIButton* _shadowBtn;
     ZCTradeView * _tradeView;
+    XLPasswordView * passwordview;
     int a;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -44,6 +45,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    passwordview = [XLPasswordView passwordView];
+    passwordview.delegate = self;
+
     [self creatUI];
     a = 1;
 }
@@ -58,6 +62,8 @@
 - (void)hideBottomBar
 {
     self.bottomView.hidden = YES;
+    [passwordview hidePasswordView];
+    
 }
 
 - (void)creatUI{
@@ -109,10 +115,8 @@
 //    }
 
    // [_tradeView show];
-    XLPasswordView * passwordView = [XLPasswordView passwordView];
-    passwordView.delegate = self;
-    
-    [passwordView showPasswordInView:self.view];
+   
+    [passwordview showPasswordInView:self.view];
 
     
 }
