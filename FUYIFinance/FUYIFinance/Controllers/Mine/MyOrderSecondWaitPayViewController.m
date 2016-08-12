@@ -123,7 +123,7 @@ UIAlertViewDelegate>
             [_tableView.mj_footer endRefreshing];
         }else{
             
-            if([msg isEqualToString:@"0"]){
+            if([msg isEqualToString:@"0"]&& page==1){
                 [_dataSource removeAllObjects];
                 [_tableView reloadData];
             }
