@@ -13,13 +13,14 @@
 #import <MJRefresh/MJRefresh.h>
 #import "PayView.h"
 #import "ZCTradeView.h"
+#import "XLPasswordView.h"
 #import "MineWaitPayModel.h"
 #import "StoreDataModel.h"
 #import "Config.h"
 #import "Tools.h"
 #import "MyAPI.h"
 
-@interface MyOrderSecondWaitPayViewController ()<ZCTradeViewDelegate,
+@interface MyOrderSecondWaitPayViewController ()<XLPasswordViewDelegate,ZCTradeViewDelegate,
 UITableViewDelegate,
 UITableViewDataSource,
 UIAlertViewDelegate>
@@ -112,7 +113,9 @@ UIAlertViewDelegate>
             if(page == 1){
                 if(_dataSource.count>0){
                     [_dataSource removeAllObjects];
+                    [_tableView reloadData];
                 }
+              
             }
             [_dataSource addObjectsFromArray:arrays];
             [_tableView reloadData];
@@ -120,6 +123,10 @@ UIAlertViewDelegate>
             [_tableView.mj_footer endRefreshing];
         }else{
             
+            if([msg isEqualToString:@"0"]){
+                [_dataSource removeAllObjects];
+                [_tableView reloadData];
+            }
 //                           dispatch_async(dispatch_get_main_queue(), ^{
 //                    [_tableView.mj_footer endRefreshingWithNoMoreData];
 //                });
@@ -128,8 +135,8 @@ UIAlertViewDelegate>
                 [self logOut];
             }else{
                
-                [_dataSource removeAllObjects];
-                [_tableView reloadData];
+//                [_dataSource removeAllObjects];
+//                [_tableView reloadData];
                 [_tableView.mj_header endRefreshing];
                 [_tableView.mj_footer endRefreshing];
             }
@@ -155,8 +162,67 @@ UIAlertViewDelegate>
 
 - (void)payaction
 {
-    [self.tradeView show];
+    ZCTradeView * tradeView = [[ZCTradeView alloc] init];
+    
+    tradeView.delegate = self;
+   // [tradeView show];
+    XLPasswordView * passwordView = [XLPasswordView passwordView];
+    passwordView.delegate = self;
+    
+    [passwordView showPasswordInView:self.view];
+    
+    //[self.tradeView show];
+//    NSString * SecurityString = [Tools loginPasswordSecurityLock:@"123123"];
+//    NSString * ordernum = [[Config Instance] getOrderNum];
+//    if(_ordernum.length&&KToken.length){
+//        [[MyAPI sharedAPI] payOrderWithOrderNum:ordernum Excode:SecurityString Result:^(BOOL sucess, NSString *msg) {
+//            if(sucess){
+//                [self showHint:msg];
+//                if(_dataSource.count&&index1<_dataSource.count){
+//                    [_dataSource removeObjectAtIndex:index1];
+//                    [_tableView reloadData];
+//                    [self down];
+//                }
+//            }else{
+//                [self showHint:msg];
+//            }
+//            [self loadData];
+//        } ErrorResult:^(NSError *enginerError) {
+//            
+//        }];
+//    }
+
 }
+
+- (void)passwordView:(XLPasswordView *)passwordView didFinishInput:(NSString *)password
+
+{
+    NSString * SecurityString = [Tools loginPasswordSecurityLock:password];
+    NSString * ordernum = [[Config Instance] getOrderNum];
+    if(_ordernum.length&&KToken.length){
+        [[MyAPI sharedAPI] payOrderWithOrderNum:ordernum Excode:SecurityString Result:^(BOOL sucess, NSString *msg) {
+            if(sucess){
+                [self showHint:msg];
+                if(_dataSource.count&&index1<_dataSource.count){
+                    [_dataSource removeObjectAtIndex:index1];
+                    [_tableView reloadData];
+                    [self down];
+                }
+            }else{
+                [self showHint:msg];
+            }
+            [self loadData];
+        } ErrorResult:^(NSError *enginerError) {
+            
+        }];
+    }
+    
+
+    
+    NSLog(@"输入密码位数已满,在这里做一些事情,例如自动校验密码");
+    
+}
+
 #pragma mark -TradeViewDelegate
 - (NSString *)finish:(NSString *)pwd{
     NSString * SecurityString = [Tools loginPasswordSecurityLock:pwd];

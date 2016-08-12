@@ -81,10 +81,7 @@
                                                            //                                                       [[Config Instance] saveWaitJudgeCount:[NSString stringWithFormat:@"%ld",dataSource.count]];
                                                            [_tableView reloadData];
                                                        }else{
-                                                           dispatch_async(dispatch_get_main_queue(), ^{
-                                                               [_tableView.mj_footer endRefreshingWithNoMoreData];
-                                                           });
-                                                           page--;
+                                                           
                                                        }
                                                        [_tableView.mj_header endRefreshing];
                                                        [_tableView.mj_footer endRefreshing];

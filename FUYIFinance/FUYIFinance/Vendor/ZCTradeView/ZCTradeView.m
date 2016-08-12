@@ -187,11 +187,11 @@
 {
     [self hidenKeyboard:^(BOOL finished) {
         self.inputView.hidden = YES;
-        NSMutableArray *nums = [self.inputView valueForKeyPath:@"nums"];
-        [nums removeAllObjects];
-        [self removeFromSuperview];
-        [self.inputView setNeedsDisplay];
-//        [UIAlertView showWithTitle:@"是否退出?" message:nil delegate:self cancelButtonTitle:@"否" otherButtonTitles:@"是", nil];
+//        NSMutableArray *nums = [self.inputView valueForKeyPath:@"nums"];
+//        [nums removeAllObjects];
+//        [self removeFromSuperview];
+//        [self.inputView setNeedsDisplay];
+        [UIAlertView showWithTitle:@"是否退出?" message:nil delegate:self cancelButtonTitle:@"否" otherButtonTitles:@"是", nil];
     }];
 }
 

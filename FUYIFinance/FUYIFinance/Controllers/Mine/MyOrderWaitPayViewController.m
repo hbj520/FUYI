@@ -13,12 +13,13 @@
 #import <MJRefresh/MJRefresh.h>
 #import "PayView.h"
 #import "ZCTradeView.h"
+#import "XLPasswordView.h"
 #import "MineWaitPayModel.h"
 #import "StoreDataModel.h"
 #import "Config.h"
 #import "Tools.h"
 #import "MyAPI.h"
-@interface MyOrderWaitPayViewController ()<ZCTradeViewDelegate,UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate>
+@interface MyOrderWaitPayViewController ()<XLPasswordViewDelegate,ZCTradeViewDelegate,UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate>
 {
     UITableView * _tableView;
     NSMutableArray * _dataSource; //待付款的数据
@@ -27,7 +28,8 @@
     NSInteger  index;
     NSInteger index1;
     NSInteger page;
-    ZCTradeView * _tradeView;
+    //ZCTradeView * _tradeView;
+   
     NSString * _ordernum;
 }
 @end
@@ -37,6 +39,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+   
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
@@ -56,9 +59,9 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadView) name:@"reload" object:nil];
     [self loadData];
     
-    _tradeView = [[ZCTradeView alloc] init];
-    
-    _tradeView.delegate = self;
+//    _tradeView = [[ZCTradeView alloc] init];
+//    
+//    _tradeView.delegate = self;
     
     [self creatHidePayView];
   
@@ -107,11 +110,8 @@
         if([msg isEqualToString:@"-1"]){
                                         [self logOut];
                                         }
-                                                     if([msg isEqualToString:@"0"]){
-                                                         [_dataSource removeAllObjects];
-                                                         [_tableView reloadData];
-                                                     }
-        if(success){
+                                                  
+                                                     if(success){
            {
             [_dataSource addObjectsFromArray:arrays];
             [_tableView reloadData];
@@ -119,11 +119,6 @@
 ;
            
            
-        }else{
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [_tableView.mj_footer endRefreshingWithNoMoreData];
-            });
-            page--;
         }
                 [_tableView.mj_header endRefreshing];
                 [_tableView.mj_footer endRefreshing];
@@ -148,8 +143,66 @@
 
 - (void)payaction
 {
-    [_tradeView show];
+//    ZCTradeView * tradeView = [[ZCTradeView alloc] init];
+//    
+//    tradeView.delegate = self;
+//    NSString * SecurityString = [Tools loginPasswordSecurityLock:@"123123"];
+//    NSString * ordernum = [[Config Instance] getOrderNum];
+//    if(_ordernum.length&&KToken.length){
+//        [[MyAPI sharedAPI] payOrderWithOrderNum:ordernum Excode:SecurityString Result:^(BOOL sucess, NSString *msg) {
+//            if(sucess){
+//                [self showHint:msg];
+//                if(_dataSource.count){
+//                    [_dataSource removeObjectAtIndex:index];
+//                    [self down];
+//                    [self performSegueWithIdentifier:@"MyAllOrderSegue" sender:nil];
+//                    [_tableView reloadData];
+//                }
+//            }else{
+//                [self showHint:msg];
+//            }
+//        } ErrorResult:^(NSError *enginerError) {
+//            
+//        }];
+//    }
+    XLPasswordView * passwordView1 = [XLPasswordView passwordView];
+    passwordView1.delegate = self;
+    
+    [passwordView1 showPasswordInView:self.view];
+    //[tradeView show];
+   // [_tradeView show];
 }
+
+
+
+- (void)passwordView:(XLPasswordView *)passwordView didFinishInput:(NSString *)password
+
+{
+    NSString * SecurityString = [Tools loginPasswordSecurityLock:password];
+    NSString * ordernum = [[Config Instance] getOrderNum];
+    if(_ordernum.length&&KToken.length){
+        [[MyAPI sharedAPI] payOrderWithOrderNum:ordernum Excode:SecurityString Result:^(BOOL sucess, NSString *msg) {
+            if(sucess){
+                [self showHint:msg];
+                if(_dataSource.count&&index1<_dataSource.count){
+                    [_dataSource removeObjectAtIndex:index1];
+                    [_tableView reloadData];
+                    [self down];
+                }
+            }else{
+                [self showHint:msg];
+            }
+            [self loadData];
+        } ErrorResult:^(NSError *enginerError) {
+            
+        }];
+    }
+    
+
+    NSLog(@"例如自动校验密码");
+    
+}
+
 
 - (NSString *)finish:(NSString *)pwd
 {
