@@ -22,7 +22,7 @@
             </objects>
             <point key="canvasLocation" x="-278" y="250"/>
         </scene>
-        <!--Blog View Controller-->
+        <!--博客-->
         <scene sceneID="q1y-Ca-AkV">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="bPT-7I-b8P" customClass="BlogViewController" sceneMemberID="viewController">
@@ -35,7 +35,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="lXE-gB-leG"/>
+                    <navigationItem key="navigationItem" title="博客" id="lXE-gB-leG"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LVt-Qd-kAl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
