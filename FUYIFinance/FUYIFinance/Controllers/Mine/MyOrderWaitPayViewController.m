@@ -187,6 +187,7 @@
                 if(_dataSource.count&&index1<_dataSource.count){
                     [_dataSource removeObjectAtIndex:index1];
                     [_tableView reloadData];
+                    [passwordView hidePasswordView];
                     [self down];
                 }
             }else{

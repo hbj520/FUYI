@@ -7,6 +7,7 @@
 //
 
 #import "HomePageViewController.h"
+#import "HomePageDetailViewController.h"
 #import "IJKMoviePlayerViewController.h"
 
 
@@ -233,7 +234,14 @@ static NSString *investReuseId = @"investReuseId";
             [investTableViewCell createUIWithData:inverstData];
         }
         investTableViewCell.tapInvestCellBlock = ^(NSInteger index){
-            [self performSegueWithIdentifier:@"homepagedetailSegue" sender:nil];
+            if (index -100 == 0) {
+                [self performSegueWithIdentifier:@"homepagedetailSegue" sender:@"http://www.sina.com.cn"];
+            }else{
+                HomePageInvestModel * model = [[HomePageInvestModel alloc] init];
+                model = inverstData[index - 100];
+                [self performSegueWithIdentifier:@"homepagedetailSegue" sender:model.investWebsite];
+            }
+
         };
         return investTableViewCell;
     }
@@ -325,15 +333,19 @@ static NSString *investReuseId = @"investReuseId";
     self.view.frame = view.frame;
     self.tabBarController.tabBar.hidden = hidden;
 }
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
+//In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
+  //   Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if([segue.identifier isEqualToString:@"homepagedetailSegue"]){
+        HomePageDetailViewController * vc = segue.destinationViewController;
+        vc.url = sender;
+    }
 }
-*/
+
 #pragma mark - UIVew
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [Tools hideKeyBoard];

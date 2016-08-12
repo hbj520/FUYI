@@ -12,6 +12,7 @@
 @property (nonatomic,copy) NSString *investId;
 @property (nonatomic,copy) NSString *investName;
 @property (nonatomic,copy) NSString *investImage;
+@property (nonatomic,copy) NSString * investWebsite;
 /**
  *  首页投资模块
  *
@@ -23,6 +24,7 @@
  */
 - (id)initWithParameters:(NSString *)investId
               investName:(NSString *)investName
-             investImage:(NSString *)investImage;
+             investImage:(NSString *)investImage
+           investWebsite:(NSString *)investWebsite;
 - (NSArray *)buildWithData:(NSArray *)data;
 @end

@@ -11,11 +11,13 @@
 @implementation HomePageInvestModel
 - (id)initWithParameters:(NSString *)investId
               investName:(NSString *)investName
-             investImage:(NSString *)investImage{
+             investImage:(NSString *)investImage
+           investWebsite:(NSString *)investWebsite{
     HomePageInvestModel *model = [[HomePageInvestModel alloc] init];
     model.investId = investId;
     model.investName = investName;
     model.investImage = investImage;
+    model.investWebsite = investWebsite;
     return model;
 }
 - (NSArray *)buildWithData:(NSArray *)data{
@@ -24,9 +26,11 @@
         NSString *investId = dic[@"id"];
         NSString *investName = dic[@"name"];
         NSString *investImage = dic[@"image"];
+        NSString * website = dic[@"website"];
         HomePageInvestModel *model = [[HomePageInvestModel alloc] initWithParameters:investId
                                                                           investName:investName
-                                                                         investImage:investImage];
+                                                                         investImage:investImage
+                                                                       investWebsite:website];
         [modelArray addObject:model];
     }
     return modelArray;
