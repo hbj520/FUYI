@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="oqS-Uv-Ope">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="oqS-Uv-Ope">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -238,7 +238,7 @@
                                             <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="buyNow:" destination="ofR-57-tJm" eventType="touchUpInside" id="6QS-dj-vde"/>
+                                            <action selector="buyNow:" destination="ofR-57-tJm" eventType="touchUpInside" id="QgV-ha-Kmd"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -285,6 +285,9 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="backBtn" destination="Vdx-in-me4" id="txr-Wx-jhK"/>
+                        <outlet property="buttomLayoutConstraint" destination="BMD-bz-Wmq" id="axZ-ib-JLZ"/>
+                        <outlet property="buyNowBtn" destination="iBE-Ic-OgR" id="Nci-vA-RhR"/>
                         <outlet property="tableView" destination="Z3N-pl-EFc" id="aOR-mn-Z1W"/>
                         <segue destination="hbb-vY-MFL" kind="push" identifier="ConfirmOrderSegue" id="n6Q-kH-NmQ"/>
                         <segue destination="7FH-Yi-sge" kind="push" identifier="GoStoreSegue" id="5Ls-Or-a2j"/>
