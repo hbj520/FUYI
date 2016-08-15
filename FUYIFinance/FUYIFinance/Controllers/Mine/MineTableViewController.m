@@ -16,24 +16,17 @@
 @property (weak, nonatomic) IBOutlet UILabel *teachername;
 @property (weak, nonatomic) IBOutlet UIButton *messagebtn;
 @property (weak, nonatomic) IBOutlet UIView *preparPay;   //待付款
-@property (weak, nonatomic) IBOutlet UIView *collectionShop;   //收藏的店铺
 @property (weak, nonatomic) IBOutlet UIButton *accountbtn;
 
 @property (weak, nonatomic) IBOutlet UIImageView *goldTeacherImageView;
 @property (weak, nonatomic) IBOutlet UILabel *welcomeLabel;//欢迎label
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;//登录注册按钮
 - (IBAction)loginBtn:(id)sender;//登录注册按钮
-
-@property (weak, nonatomic) IBOutlet UIView *ShopKeeper;   //我是商家
-@property (weak, nonatomic) IBOutlet UIView *MyJudgeMent;  //我的评价
-@property (weak, nonatomic) IBOutlet UIView *FavoriteCollection;   //收藏的宝贝
-
 @property (weak, nonatomic) IBOutlet UIView *prepareForgood;   //待收货
 @property (weak, nonatomic) IBOutlet UIView *prepareForjudge;   //待评价
 @property (weak, nonatomic) IBOutlet UIView *myOrder;    //我的订单
 @property (weak, nonatomic) IBOutlet UILabel *waitjudgecount;//待评价按钮上面的自定义badge标签
 @property (weak, nonatomic) IBOutlet UILabel *waitpaycountlabel;
-
 @property (weak, nonatomic) IBOutlet UILabel *teacherName;
 
 @end
@@ -111,22 +104,6 @@
     //待付款按钮添加响应事件
     UITapGestureRecognizer *tap  = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(prepareAct:)];
     [self.preparPay addGestureRecognizer:tap];
-    
-    //收藏的店铺按钮添加响应事件
-    UITapGestureRecognizer * tapReceive = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(collectionShopAct)];
-    [self.collectionShop addGestureRecognizer:tapReceive];
-    
-    //我是商家按钮添加响应事件
-    UITapGestureRecognizer * tapshop = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(shopKeeperAct)];
-    [self.ShopKeeper addGestureRecognizer:tapshop];
-    
-    //我的评价按钮添加响应事件
-    UITapGestureRecognizer * judgetap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(judgeAct)];
-    [self.MyJudgeMent addGestureRecognizer:judgetap];
-    
-    //收藏的宝贝按钮添加响应事件
-    UITapGestureRecognizer * tapfavoritecollection = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(favoriteCollectionAct)];
-    [self.FavoriteCollection addGestureRecognizer:tapfavoritecollection];
     
     //待收货按钮添加响应事件
     UITapGestureRecognizer * tapPrepareforgood = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(PrePareforgoodAct)];
@@ -220,7 +197,8 @@
 //待付款
 - (void)prepareAct:(UIGestureRecognizer *)ges{
     if (!KToken) {
-        [self LoginAct];
+//        [self LoginAct];
+        [self LoginActCell];
     }else{
         if (KGesturePsassword) {
             if ([[GestureHelper sharedGesture] isTimeOut]) {
@@ -235,11 +213,6 @@
     }
 }
 
-//收藏的店铺
-- (void)collectionShopAct
-{
-    [self showHint:@"正在建设中"];
-}
 
 //我是商家
 - (void)shopKeeperAct
@@ -302,14 +275,26 @@
 //待收货
 - (void)PrePareforgoodAct
 {
-    
+    if(!KToken){
+        [self LoginActCell];
+    }else{
+        if(KGesturePsassword){
+            if([[GestureHelper sharedGesture] isTimeOut]){
+                [self gestureAct];
+            }else{
+                [self performSegueWithIdentifier:@"myjudgeSegue" sender:nil];
+            }
+        }else{
+            [self performSegueWithIdentifier:@"myjudgeSegue" sender:nil];
+        }
+    }
 }
 
 //待评价
 - (void)prepareForjudgeAct
 {
     if (!KToken) {
-        [self LoginAct];
+       [self LoginActCell];
     }else{
         if (KGesturePsassword) {
             if ([[GestureHelper sharedGesture] isTimeOut]) {
@@ -328,7 +313,7 @@
 - (void)MyorderAct
 {
     if (!KToken) {
-        [self LoginAct];
+        [self LoginActCell];
     }else{
         if (KGesturePsassword) {
             if ([[GestureHelper sharedGesture] isTimeOut]) {
@@ -347,15 +332,13 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 4;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if(section==0){
         return 1;
     }else if (section==1){
-        return 1;
-    }else if (section==2){
         return 5;
     }else{
         return 2;
@@ -396,7 +379,7 @@
     [[GestureHelper sharedGesture] showGestureUnlockViewFromNowVC:self.navigationController];
 }
 - (void)selectCellActWithIndexPath:(NSIndexPath *)indexPath{
-    if(indexPath.section == 2){
+    if(indexPath.section == 1){
         if(indexPath.row==0){
             [self performSegueWithIdentifier:@"modifyinfoSegue" sender:nil];
         }else if (indexPath.row==1){
@@ -409,7 +392,7 @@
             [self performSegueWithIdentifier:@"myjudgeSegue" sender:nil];
         }
         
-    }else if (indexPath.section == 3){
+    }else if (indexPath.section == 2){
         if(indexPath.row == 0){
             [self performSegueWithIdentifier:@"settingSegue" sender:nil];
         }else{

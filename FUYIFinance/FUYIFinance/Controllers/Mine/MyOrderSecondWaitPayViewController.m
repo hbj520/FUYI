@@ -105,9 +105,11 @@ UIAlertViewDelegate>
             if([msg isEqualToString:@"-1"]){
                 [self logOut];
             }else{
+                [_tableView.mj_header endRefreshing];
                 [_tableView.mj_footer endRefreshingWithNoMoreData];
             }
-            
+            [_tableView.mj_header endRefreshing];
+            [_tableView.mj_footer endRefreshing];
         }
     } errorResult:^(NSError *enginerError) {
         [_tableView.mj_header endRefreshing];
