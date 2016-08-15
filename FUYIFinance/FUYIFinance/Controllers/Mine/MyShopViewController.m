@@ -219,15 +219,16 @@
             cell.backImg.userInteractionEnabled = YES;
             [cell.backImg addGestureRecognizer:tap];
             if(imageUrl.length){
-                [cell.backImg sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
+                [cell.backImg sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"personal_backImage"]];
             }
 
         }else{
             cell.backImg.userInteractionEnabled = NO;
+            cell.backImg.image = [UIImage imageNamed:@"personal_backImage"];
             cell.headicon.image = [UIImage imageNamed:@"person_headicon"];
             cell.teacherName.text = @"未登录请登录";
             cell.personlabel.hidden = YES;
-            cell.backImg.userInteractionEnabled = NO;
+
             cell.block = ^(){
                 [self logOut];
             };

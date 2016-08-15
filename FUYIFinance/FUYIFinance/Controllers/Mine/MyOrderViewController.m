@@ -49,7 +49,7 @@
     float statusHeight = [[UIApplication sharedApplication] statusBarFrame].size.height;
     float navigationHeight = self.navigationController.navigationBar.frame.size.height;
     
-    containerVC = [[YSLContainerViewController alloc]initWithControllers:@[myOrderAllVC,myOrderWaitPayVC,myOrderWaitGoodVC,myOrderWaitJudgeVC]
+    containerVC = [[YSLContainerViewController alloc]initWithControllers:@[myOrderAllVC,myOrderWaitPayVC,myOrderWaitJudgeVC]
                                                                                         topBarHeight:statusHeight + navigationHeight
                                                                                 parentViewController:self];
     containerVC.delegate = self;
@@ -70,8 +70,8 @@
     }else if (index == 1){
          MyOrderSecondWaitPayViewController * myOrderWaitPayVC = containerVC.childControllers[1];
         [myOrderWaitPayVC loadData];
-    }else if (index == 3){
-        MyOrderSecondWaitJudgeViewController * myOrderWaitJudgeVC = containerVC.childControllers[3];
+    }else if (index == 2){
+        MyOrderSecondWaitJudgeViewController * myOrderWaitJudgeVC = containerVC.childControllers[2];
         [myOrderWaitJudgeVC loadData];
     }
 }

@@ -24,17 +24,19 @@
     _webView.delegate = self;
     [_webView setScalesPageToFit:YES];
     [self.view addSubview:_webView];
-
     NSURLRequest * request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://www.fuyi001.com/blog/blogIndex.html"]];
     [_webView loadRequest:request];
     
 }
 
-- (void)webViewDidFinishLoad:(UIWebView *)webView
+- (void)webViewDidStartLoad:(UIWebView *)webView
 {
-   [_webView setScalesPageToFit:YES];
+    [webView setScalesPageToFit:YES];
 }
 
+- (IBAction)back:(id)sender {
+    [_webView goBack];
+}
 
 
 - (void)didReceiveMemoryWarning {
