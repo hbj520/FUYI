@@ -229,15 +229,14 @@ DOPDropDownMenuDelegate>
                                     result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
                                         if (success) {
                                          
-                                                [storeArray addObjectsFromArray:arrays];
-                                         
-                                            [self.tableView reloadData];
+                                            [storeArray addObjectsFromArray:arrays];
                                         }else{
                                             dispatch_async(dispatch_get_main_queue(), ^{
                                                 [self.tableView.mj_footer endRefreshingWithNoMoreData];
                                             });
                                             _page--;
                                         }
+                                        [self.tableView reloadData];
                                         [self.tableView.mj_header endRefreshing];
                                         [self.tableView.mj_footer endRefreshing];
                                     } errorResult:^(NSError *enginerError) {
