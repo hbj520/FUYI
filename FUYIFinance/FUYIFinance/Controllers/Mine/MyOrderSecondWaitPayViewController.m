@@ -12,7 +12,6 @@
 #import "UIViewController+HUD.h"
 #import <MJRefresh/MJRefresh.h>
 #import "PayView.h"
-#import "ZCTradeView.h"
 #import "XLPasswordView.h"
 #import "MineWaitPayModel.h"
 #import "StoreDataModel.h"
@@ -25,9 +24,9 @@ UITableViewDelegate,
 UITableViewDataSource,
 UIAlertViewDelegate>
 {
-    UITableView * _tableView;
     NSMutableArray * _dataSource; //待付款的数据
     PayView* _payView;
+    XLPasswordView * passwordview;
     UIButton* _shadowBtn;
     NSInteger index;
     NSInteger index1;
@@ -58,31 +57,13 @@ UIAlertViewDelegate>
     [self.view addSubview:_tableView];
     [self loadData];
     [self addRefresh];
- //   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(delete:) name:@"deleteact" object:nil];
-    self.tradeView = [[ZCTradeView alloc] init];
-    self.tradeView.delegate = self;
-
     [self creatHidePayView];
 
 }
 
-- (void)delete:(NSNotification *)noti
-{
-    NSString * index = noti.userInfo[@"index"];
-    NSInteger index1 = index.integerValue;
-    [_dataSource removeObjectAtIndex:index1];
-    [_tableView reloadData];
-}
-
-- (void)dealloc
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"deleteact" object:nil];
-}
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
-    
 }
 - (void)addRefresh
 {
@@ -112,8 +93,7 @@ UIAlertViewDelegate>
         if(success){
             if(page == 1){
                 if(_dataSource.count>0){
-                    [_dataSource removeAllObjects];
-                    [_tableView reloadData];
+                    [_dataSource removeAllObjects];;
                 }
               
             }
@@ -122,25 +102,11 @@ UIAlertViewDelegate>
             [_tableView.mj_header endRefreshing];
             [_tableView.mj_footer endRefreshing];
         }else{
-            
-            if([msg isEqualToString:@"0"]&& page==1){
-                [_dataSource removeAllObjects];
-                [_tableView reloadData];
-            }
-//                           dispatch_async(dispatch_get_main_queue(), ^{
-//                    [_tableView.mj_footer endRefreshingWithNoMoreData];
-//                });
-//                page--;
             if([msg isEqualToString:@"-1"]){
                 [self logOut];
             }else{
-               
-//                [_dataSource removeAllObjects];
-//                [_tableView reloadData];
-                [_tableView.mj_header endRefreshing];
-                [_tableView.mj_footer endRefreshing];
+                [_tableView.mj_footer endRefreshingWithNoMoreData];
             }
-            
             
         }
     } errorResult:^(NSError *enginerError) {
@@ -162,36 +128,10 @@ UIAlertViewDelegate>
 
 - (void)payaction
 {
-    ZCTradeView * tradeView = [[ZCTradeView alloc] init];
-    
-    tradeView.delegate = self;
-   // [tradeView show];
-    XLPasswordView * passwordView = [XLPasswordView passwordView];
-    passwordView.delegate = self;
-    
-    [passwordView showPasswordInView:self.view];
-    
-    //[self.tradeView show];
-//    NSString * SecurityString = [Tools loginPasswordSecurityLock:@"123123"];
-//    NSString * ordernum = [[Config Instance] getOrderNum];
-//    if(_ordernum.length&&KToken.length){
-//        [[MyAPI sharedAPI] payOrderWithOrderNum:ordernum Excode:SecurityString Result:^(BOOL sucess, NSString *msg) {
-//            if(sucess){
-//                [self showHint:msg];
-//                if(_dataSource.count&&index1<_dataSource.count){
-//                    [_dataSource removeObjectAtIndex:index1];
-//                    [_tableView reloadData];
-//                    [self down];
-//                }
-//            }else{
-//                [self showHint:msg];
-//            }
-//            [self loadData];
-//        } ErrorResult:^(NSError *enginerError) {
-//            
-//        }];
-//    }
-
+    passwordview = [XLPasswordView passwordView];
+    passwordview.delegate = self;
+    [passwordview showPasswordInView:self.view];
+ 
 }
 
 - (void)passwordView:(XLPasswordView *)passwordView didFinishInput:(NSString *)password
@@ -206,6 +146,7 @@ UIAlertViewDelegate>
                 if(_dataSource.count&&index1<_dataSource.count){
                     [_dataSource removeObjectAtIndex:index1];
                     [_tableView reloadData];
+                    [passwordView hidePasswordView];
                     [self down];
                 }
             }else{
@@ -223,30 +164,6 @@ UIAlertViewDelegate>
     
 }
 
-#pragma mark -TradeViewDelegate
-- (NSString *)finish:(NSString *)pwd{
-    NSString * SecurityString = [Tools loginPasswordSecurityLock:pwd];
-    NSString * ordernum = [[Config Instance] getOrderNum];
-    if(_ordernum.length&&KToken.length){
-        [[MyAPI sharedAPI] payOrderWithOrderNum:ordernum Excode:SecurityString Result:^(BOOL sucess, NSString *msg) {
-            if(sucess){
-                [self showHint:msg];
-                if(_dataSource.count&&index1<_dataSource.count){
-                    [_dataSource removeObjectAtIndex:index1];
-                    [_tableView reloadData];
-                    [self down];
-                }
-            }else{
-                [self showHint:msg];
-            }
-            [self loadData];
-        } ErrorResult:^(NSError *enginerError) {
-            
-        }];
-    }
-
-    return nil;
-}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -284,6 +201,21 @@ UIAlertViewDelegate>
     cell.model = model;
     }
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    MineWaitPayModel * model = [[MineWaitPayModel alloc] init];
+    model = _dataSource[indexPath.section];
+    StoreDataModel * model1 = [[StoreDataModel alloc] init];
+    model1.videoName = model.name;
+    model1.videoImage = model.image;
+    model1.videoPrice = model.price;
+    UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"HomePage" bundle:nil];
+    
+    ConfirmOrderViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"confirmstoryboardId"];
+    vc.model = model1;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 //点击取消订单

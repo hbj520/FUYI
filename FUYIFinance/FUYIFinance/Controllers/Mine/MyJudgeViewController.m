@@ -7,6 +7,7 @@
 //
 
 #import "MyJudgeViewController.h"
+#import "UIViewController+HUD.h"
 #import "MyJudgeTableViewCell.h"
 #import "BBBadgeBarButtonItem.h"
 #import <MJRefresh/MJRefresh.h>
@@ -56,9 +57,6 @@
     _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         
         page = 1;
-        if(dataSource.count>0){
-            [dataSource removeAllObjects];
-        }
         [weakself loadData];
         
     }];
@@ -75,28 +73,23 @@
 {
     NSString * pagestr = [NSString stringWithFormat:@"%ld",page];
     [[MyAPI sharedAPI] requestMyJudgeDataWithParameters:pagestr result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
-        if([msg isEqualToString:@"-1"]){
-            [self logOut];
-            [_tableView.mj_header endRefreshing];
-            [_tableView.mj_footer endRefreshing];
-        }else{
-            [_tableView.mj_header endRefreshing];
-            [_tableView.mj_footer endRefreshing];
-        }
-
+       
         if(success){
-        dataSource  = arrays;
-        [_tableView reloadData];
+            if(page == 1){
+                if(dataSource.count>0){
+                    [dataSource removeAllObjects];
+                }
+            }
+             [dataSource addObjectsFromArray:arrays];
+            [_tableView reloadData];
             [_tableView.mj_header endRefreshing];
             [_tableView.mj_footer endRefreshing];
         }else{
-           
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [_tableView.mj_footer endRefreshingWithNoMoreData];
-                });
-                page--;
-            [_tableView.mj_header endRefreshing];
-            [_tableView.mj_footer endRefreshing];
+            if([msg isEqualToString:@"-1"]){
+                [self logOut];
+            }else{
+                [_tableView.mj_footer endRefreshingWithNoMoreData];
+            }
         }
            } errorResult:^(NSError *enginerError) {
                [_tableView.mj_header endRefreshing];

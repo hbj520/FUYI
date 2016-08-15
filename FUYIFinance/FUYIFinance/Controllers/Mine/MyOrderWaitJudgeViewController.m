@@ -50,9 +50,7 @@
     _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         
         page = 1;
-        if(dataSource.count>0){
-            [dataSource removeAllObjects];
-        }
+        
         [weakself loadData];
         
     }];
@@ -77,19 +75,24 @@
                                                        [self logOut];
                                                    }
                                                    if(success){
-                                                    
+                                                       if(page == 1){
+                                                           if(dataSource.count>0){
+                                                               [dataSource removeAllObjects];
+                                                           }
+                                                       }
                                                        [dataSource addObjectsFromArray:arrays];
-                                                       
-//                                                       [[Config Instance] saveWaitJudgeCount:[NSString stringWithFormat:@"%ld",dataSource.count]];
                                                        [_tableView reloadData];
+                                                       [_tableView.mj_header endRefreshing];
+                                                       [_tableView.mj_footer endRefreshing];
                                                    }else{
-                                                       dispatch_async(dispatch_get_main_queue(), ^{
+                                                       if([msg isEqualToString:@"-1"]){
+                                                           [self logOut];
+                                                       }else{
+                                                           //[self showHint:msg];
                                                            [_tableView.mj_footer endRefreshingWithNoMoreData];
-                                                       });
-                                                       page--;
+                                                       }
                                                    }
-                                                   [_tableView.mj_header endRefreshing];
-                                                   [_tableView.mj_footer endRefreshing];
+                                                  
                                                    
                                                } errorResult:^(NSError *enginerError) {
                                                    [_tableView.mj_header endRefreshing];

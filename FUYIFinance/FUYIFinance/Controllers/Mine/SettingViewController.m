@@ -69,6 +69,9 @@
 //加载数据
 - (void)loadData
 {
+    if(!KToken){
+        return;
+    }else{
     [[MyAPI sharedAPI] PersonalDetailInfoWith:^(BOOL success, NSString *msg, id object) {
         if(success){
         userinfo = object;
@@ -78,10 +81,16 @@
         emailNum = userinfo.email;
         imgthumb = userinfo.imgthumb;
         [self.tableView reloadData];
+        }else{
+            if([msg isEqualToString:@"-1"]){
+                [self.navigationController popViewControllerAnimated:YES];
+                [self logOut];
+            }
         }
     } errorResult:^(NSError *enginerError) {
         
     }];
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -235,9 +244,9 @@
             [self.navigationController popViewControllerAnimated:YES];
             self.navigationController.navigationBarHidden = YES;
                    }else{
-            [self.navigationController popViewControllerAnimated:YES];
-            self.navigationController.navigationBarHidden = YES;
-
+                       if([msg isEqualToString:@"-1"]){
+                       [self logOut];
+                       }
             [self showHint:msg];
             [self hideHud];
         }

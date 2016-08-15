@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="QaL-7E-fUx">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -45,13 +44,6 @@
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="personal_backImage" translatesAutoresizingMaskIntoConstraints="NO" id="HKT-WK-LRg">
                                                             <rect key="frame" x="0.0" y="0.0" width="320" height="123"/>
-                                                        </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="personal_teacher" translatesAutoresizingMaskIntoConstraints="NO" id="bKD-LI-uei">
-                                                            <rect key="frame" x="83" y="69" width="53" height="18"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="18" id="14Q-ef-cra"/>
-                                                                <constraint firstAttribute="width" constant="53" id="HOi-rc-YuT"/>
-                                                            </constraints>
                                                         </imageView>
                                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi,欢迎来到富谊财经!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFo-PT-NBv">
                                                             <rect key="frame" x="89" y="15" width="143" height="21"/>
@@ -129,6 +121,13 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="70" id="Fib-f8-lPr"/>
                                                                 <constraint firstAttribute="width" constant="70" id="djZ-Dn-xwV"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="personal_teacher" translatesAutoresizingMaskIntoConstraints="NO" id="bKD-LI-uei">
+                                                            <rect key="frame" x="83" y="69" width="53" height="18"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="18" id="14Q-ef-cra"/>
+                                                                <constraint firstAttribute="width" constant="53" id="HOi-rc-YuT"/>
                                                             </constraints>
                                                         </imageView>
                                                     </subviews>
@@ -3479,9 +3478,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lGv-ts-Y22">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="lGv-ts-Y22">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -3520,17 +3519,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="d3D-L6-ECU">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="d3D-L6-ECU">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="zt2-kC-2RN" firstAttribute="top" secondItem="d3D-L6-ECU" secondAttribute="bottom" id="2gk-6O-djx"/>
-                            <constraint firstItem="d3D-L6-ECU" firstAttribute="leading" secondItem="iBb-dJ-B5g" secondAttribute="leading" id="6vD-Jl-DX0"/>
-                            <constraint firstAttribute="trailing" secondItem="d3D-L6-ECU" secondAttribute="trailing" id="OK0-Pw-Azi"/>
-                            <constraint firstItem="d3D-L6-ECU" firstAttribute="top" secondItem="WzP-x0-7R7" secondAttribute="bottom" id="xQQ-Mm-Qy4"/>
+                            <constraint firstItem="d3D-L6-ECU" firstAttribute="top" secondItem="WzP-x0-7R7" secondAttribute="bottom" id="5z7-mF-Gd4"/>
+                            <constraint firstItem="d3D-L6-ECU" firstAttribute="leading" secondItem="iBb-dJ-B5g" secondAttribute="leading" id="Lmh-Vr-ae0"/>
+                            <constraint firstAttribute="trailing" secondItem="d3D-L6-ECU" secondAttribute="trailing" id="bLj-Eh-TD0"/>
+                            <constraint firstItem="zt2-kC-2RN" firstAttribute="top" secondItem="d3D-L6-ECU" secondAttribute="bottom" id="y9p-kR-1My"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="系统消息" id="hVt-DQ-Dvd">
@@ -3703,9 +3702,9 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="gnZ-Xe-nOx"/>
-        <segue reference="2JG-jj-fn7"/>
         <segue reference="dqh-en-jn6"/>
+        <segue reference="2JG-jj-fn7"/>
         <segue reference="wOj-XJ-nss"/>
-        <segue reference="qGy-mc-chm"/>
+        <segue reference="xFS-qr-VxC"/>
     </inferredMetricsTieBreakers>
 </document>

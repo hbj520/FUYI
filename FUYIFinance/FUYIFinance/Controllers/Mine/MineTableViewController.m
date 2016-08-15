@@ -51,7 +51,8 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self CreateUI];
-   // self.navigationController.navigationBar.hidden = YES;
+   self.navigationController.navigationBarHidden = YES;
+    self.tabBarController.tabBar.hidden = NO;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -77,6 +78,7 @@
     if (KToken) {
         self.teacherName.text = [[Config Instance] getUserName];
         self.headimage.hidden = NO;
+        self.goldTeacherImageView.hidden = NO;
         self.headimage.layer.cornerRadius = 35;
         self.headimage.layer.masksToBounds = YES;
         NSString * imageurl = [[Config Instance] getIcon];
@@ -89,6 +91,7 @@
 //        self.loginBtn.hidden = YES;
     }else{
         self.headimage.image = [UIImage imageNamed:@"person_headicon"];
+        self.goldTeacherImageView.hidden = YES;
         self.teachername.text = @"未登录请登录";
 //        self.headimage.hidden = YES;
 //        self.teachername.hidden = YES;

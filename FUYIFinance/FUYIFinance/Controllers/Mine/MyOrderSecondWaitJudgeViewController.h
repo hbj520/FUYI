@@ -10,5 +10,6 @@
 
 @interface MyOrderSecondWaitJudgeViewController : BaseViewController
 @property (nonatomic,assign) NSInteger index;
+@property (nonatomic,strong)UITableView * tableView;
 - (void)loadData;
 @end

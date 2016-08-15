@@ -22,6 +22,7 @@
    // [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.fuyi001.com/blog/blogIndex.html"]];
     _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0,64, ScreenWidth, ScreenHeight-64)];
     _webView.delegate = self;
+    [_webView setScalesPageToFit:YES];
     [self.view addSubview:_webView];
 
     NSURLRequest * request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://www.fuyi001.com/blog/blogIndex.html"]];
@@ -31,9 +32,10 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-  webView.scalesPageToFit = YES;
-    
+   [_webView setScalesPageToFit:YES];
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

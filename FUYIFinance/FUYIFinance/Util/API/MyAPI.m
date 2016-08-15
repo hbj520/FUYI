@@ -686,9 +686,6 @@
         NSString * status = responseObject[@"status"];
         NSString * info = responseObject[@"info"];
         NSArray * data = responseObject[@"data"];
-        if([status isEqualToString:@"-1"]){
-            result(NO,@"-1",nil);
-        }
         if ([status isEqualToString:@"1"]) {
             if ([data isEqual:[NSNull null]]) {
                 result(YES,info,nil);
@@ -749,9 +746,6 @@
         NSString * status = responseObject[@"status"];
         NSString * info = responseObject[@"info"];
         NSArray * data = responseObject[@"data"];
-        if([status isEqualToString:@"-1"]){
-            result(NO,@"-1",nil);
-        }
         if([status isEqualToString:@"1"]){
             if([data isEqual:[NSNull null]]){
                 result(YES,info,nil);
@@ -760,6 +754,7 @@
                 result(YES,info,waitJudgeModelArray);
             }
         }else{
+            
             if([status isEqualToString:@"-1"]){
                 result(NO,@"-1",nil);
             }else{
@@ -841,7 +836,7 @@
             PersonalUserInfo * model = [[PersonalUserInfo alloc] buildWithData:data];
             result(YES,info,model);
         }else{
-            result(NO,info,nil);
+            result(NO,status,nil);
         }
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         errorResult(error);
@@ -1049,7 +1044,7 @@
         if([status isEqualToString:@"1"]){
             result(YES,info);
         }else{
-            result(NO,info);
+            result(NO,status);
         }
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         errorResult(error);
@@ -1070,7 +1065,7 @@
         if([status isEqualToString:@"1"]){
             result(YES,@"修改成功");
         }else{
-            result(NO,info);
+            result(NO,status);
         }
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         errorResult(error);

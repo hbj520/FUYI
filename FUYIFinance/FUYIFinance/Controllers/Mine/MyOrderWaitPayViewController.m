@@ -24,12 +24,11 @@
     UITableView * _tableView;
     NSMutableArray * _dataSource; //待付款的数据
     PayView* _payView;
+    XLPasswordView * passwordview;
     UIButton* _shadowBtn;
     NSInteger  index;
     NSInteger index1;
     NSInteger page;
-    //ZCTradeView * _tradeView;
-   
     NSString * _ordernum;
 }
 @end
@@ -58,17 +57,10 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshtableview) name:@"refreshView" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadView) name:@"reload" object:nil];
     [self loadData];
-    
-//    _tradeView = [[ZCTradeView alloc] init];
-//    
-//    _tradeView.delegate = self;
-    
     [self creatHidePayView];
-  
-//    [[Config Instance] saveWaitPayCount:@"0"];
-    
-    
 }
+
+
 
 - (void)refreshtableview
 {
@@ -86,9 +78,6 @@
     _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         
         page = 1;
-        if(_dataSource.count>0){
-            [_dataSource removeAllObjects];
-        }
         [weakself loadData];
         
     }];
@@ -96,8 +85,6 @@
         page++;
         [weakself loadData];
     }];
-   
-    //footerRefresh.automaticallyRefresh = NO;
   
 }
 
@@ -107,21 +94,21 @@
     NSString * pagestr = [NSString stringWithFormat:@"%ld",page];
     [[MyAPI sharedAPI] requestWaitpayDataWithParameters:pagestr
                                                  result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
-        if([msg isEqualToString:@"-1"]){
-                                        [self logOut];
-                                        }
-                                                  
                                                      if(success){
-           {
-            [_dataSource addObjectsFromArray:arrays];
-            [_tableView reloadData];
-            }
-;
-           
-           
-        }
-                [_tableView.mj_header endRefreshing];
-                [_tableView.mj_footer endRefreshing];
+                                                         if(page == 1){
+                                                             [_dataSource removeAllObjects];
+                                                         }
+                                                         [_dataSource addObjectsFromArray:arrays];
+                                                         [_tableView reloadData];
+                                                         [_tableView.mj_header endRefreshing];
+                                                         [_tableView.mj_footer endRefreshing];
+                                                     }else{
+                                                         if([msg isEqualToString:@"-1"]){
+                                                             [self logOut];
+                                                         }else{
+                                                             [_tableView.mj_footer endRefreshingWithNoMoreData];
+                                                         }
+                                                     }
             
     } errorResult:^(NSError *enginerError) {
         [_tableView.mj_header endRefreshing];
@@ -143,34 +130,9 @@
 
 - (void)payaction
 {
-//    ZCTradeView * tradeView = [[ZCTradeView alloc] init];
-//    
-//    tradeView.delegate = self;
-//    NSString * SecurityString = [Tools loginPasswordSecurityLock:@"123123"];
-//    NSString * ordernum = [[Config Instance] getOrderNum];
-//    if(_ordernum.length&&KToken.length){
-//        [[MyAPI sharedAPI] payOrderWithOrderNum:ordernum Excode:SecurityString Result:^(BOOL sucess, NSString *msg) {
-//            if(sucess){
-//                [self showHint:msg];
-//                if(_dataSource.count){
-//                    [_dataSource removeObjectAtIndex:index];
-//                    [self down];
-//                    [self performSegueWithIdentifier:@"MyAllOrderSegue" sender:nil];
-//                    [_tableView reloadData];
-//                }
-//            }else{
-//                [self showHint:msg];
-//            }
-//        } ErrorResult:^(NSError *enginerError) {
-//            
-//        }];
-//    }
-    XLPasswordView * passwordView1 = [XLPasswordView passwordView];
-    passwordView1.delegate = self;
-    
-    [passwordView1 showPasswordInView:self.view];
-    //[tradeView show];
-   // [_tradeView show];
+    passwordview = [XLPasswordView passwordView];
+    passwordview.delegate = self;
+    [passwordview showPasswordInView:self.view];
 }
 
 

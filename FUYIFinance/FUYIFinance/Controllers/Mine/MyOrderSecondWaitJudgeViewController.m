@@ -16,10 +16,11 @@
 #import "MineWaitJudgeModel.h"
 @interface MyOrderSecondWaitJudgeViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
-    UITableView * _tableView;
+   // UITableView * _tableView;
     NSMutableArray * dataSource;
     NSInteger page;
 }
+
 @end
 
 @implementation MyOrderSecondWaitJudgeViewController
@@ -29,12 +30,12 @@
     // Do any additional setup after loading the view.
     page = 1;
     dataSource = [NSMutableArray array];
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 100) style:UITableViewStylePlain];
-    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    _tableView.delegate = self;
-    _tableView.dataSource = self;
-    _tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    [_tableView registerNib:[UINib nibWithNibName:@"PersonalWaitJudgeTableViewCell" bundle:nil] forCellReuseIdentifier:@"WaitJudgeId"];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 100) style:UITableViewStylePlain];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    [self.tableView registerNib:[UINib nibWithNibName:@"PersonalWaitJudgeTableViewCell" bundle:nil] forCellReuseIdentifier:@"WaitJudgeId"];
     [self.view addSubview:_tableView];
     [self addRefresh];
     dataSource = [NSMutableArray array];
@@ -45,12 +46,10 @@
 - (void)addRefresh
 {
     __weak MyOrderSecondWaitJudgeViewController * weakself = self;
-    _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         
         page = 1;
-        if(dataSource.count>0){
-            [dataSource removeAllObjects];
-        }
+        
         [weakself loadData];
         
     }];
@@ -60,7 +59,7 @@
         [weakself loadData];
     }];
     footerRefresh.automaticallyRefresh = NO;
-    _tableView.mj_footer = footerRefresh;
+    self.tableView.mj_footer = footerRefresh;
 }
 
 
@@ -75,17 +74,23 @@
                                                            [self logOut];
                                                        }
                                                        if(success){
-                                                           
+                                                           if(page == 1){
+                                                               if(dataSource.count>0){
+                                                                   [dataSource removeAllObjects];
+                                                               }
+                                                           }
                                                            [dataSource addObjectsFromArray:arrays];
-                                                           
-                                                           //                                                       [[Config Instance] saveWaitJudgeCount:[NSString stringWithFormat:@"%ld",dataSource.count]];
                                                            [_tableView reloadData];
+                                                           [_tableView.mj_header endRefreshing];
+                                                           [_tableView.mj_footer endRefreshing];
                                                        }else{
-                                                           
+                                                           if([msg isEqualToString:@"-1"]){
+                                                               [self logOut];
+                                                           }else{
+                                                               //[self showHint:msg];
+                                                               [_tableView.mj_footer endRefreshingWithNoMoreData];
+                                                           }
                                                        }
-                                                       [_tableView.mj_header endRefreshing];
-                                                       [_tableView.mj_footer endRefreshing];
-                                                       
                                                    } errorResult:^(NSError *enginerError) {
                                                        [_tableView.mj_header endRefreshing];
                                                        [_tableView.mj_footer endRefreshing];

@@ -8,12 +8,14 @@
 #import <AFNetworking/AFNetworking.h>
 #import <AFNetworking/AFURLResponseSerialization.h>
 #import "MyOrderAllViewController.h"
+#import "ConfirmOrderViewController.h"
 #import "ProductJudgeViewController.h"
 #import "UIViewController+HUD.h"
 #import "PersonalWaitPayTableViewCell.h"
 #import "PersonalWaitJudgeTableViewCell.h"
 #import "MyJudgeTableViewCell.h"
 #import "AllOderModel.h"
+#import "StoreDataModel.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <MJRefresh/MJRefresh.h>
 #import "LabelHelper.h"
@@ -31,7 +33,7 @@ UITableViewDelegate,
 UITableViewDataSource,
 UIAlertViewDelegate>
 {
-    UITableView * _tableView;
+  //  UITableView * _tableView;
     NSMutableArray * waitjudgeArray;
     NSMutableArray * waitpayArray;
     NSMutableArray * isjudgeArray;
@@ -75,34 +77,22 @@ UIAlertViewDelegate>
     [self creatHidePayView];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+
 - (void)addRefresh
 {
     __weak MyOrderAllViewController * weakself = self;
     _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         
-        page = 0;
+        page = 1;
        
-        if(waitjudgeArray.count>0){
-            [waitjudgeArray removeAllObjects];
-        }
-        if(waitpayArray.count>0){
-            [waitpayArray removeAllObjects];
-        }
-        if(isjudgeArray.count>0){
-            [isjudgeArray removeAllObjects];
-        }
-        if (allData.count>0) {
-            [allData removeAllObjects];
-        }
-        [weakself loadData];
+       [weakself loadData];
         
     }];
-//    MJRefreshAutoNormalFooter * footerRefresh = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-//        page++;
-//        [weakself loadData];
-//    }];
-//    footerRefresh.automaticallyRefresh = NO;
-//    _tableView.mj_footer = footerRefresh;
+
 }
 
 -(void)creatHidePayView{
@@ -118,11 +108,21 @@ UIAlertViewDelegate>
 {
     NSString * pagestr = [NSString stringWithFormat:@"%ld",page];
     [[MyAPI sharedAPI] requestAllOrderDataWithParameters:pagestr result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
-        if([msg isEqualToString:@"-1"]){
-            [self logOut];
-        }
-
         if(success){
+            if(page == 1){
+                if(waitjudgeArray.count>0){
+                    [waitjudgeArray removeAllObjects];
+                }
+                if(waitpayArray.count>0){
+                    [waitpayArray removeAllObjects];
+                }
+                if(isjudgeArray.count>0){
+                    [isjudgeArray removeAllObjects];
+                }
+                if (allData.count>0) {
+                    [allData removeAllObjects];
+                }
+            }
             for(AllOderModel * model in arrays){
                 if([model.state isEqualToString:@"0"]){
                     [waitpayArray addObject:model];
@@ -150,10 +150,11 @@ UIAlertViewDelegate>
             [_tableView.mj_header endRefreshing];
             [_tableView.mj_footer endRefreshing];
         }else{
-          
+            if([msg isEqualToString:@"-1"]){
+                [self logOut];
+            }
         }
-        [_tableView.mj_header endRefreshing];
-        [_tableView.mj_footer endRefreshing];
+       
         
     } errorResult:^(NSError *enginerError) {
         [_tableView.mj_header endRefreshing];
@@ -196,7 +197,7 @@ UIAlertViewDelegate>
                 model = waitpayArray[indexPath.row];
                 [cell.thumbImage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
                 if(!model.shopname.length){
-                    cell.shopname.text = @"李小刚的店铺";
+                    cell.shopname.text = @"默认店铺名";
                 }else{
                     cell.shopname.text = model.shopname;
                 }
@@ -243,7 +244,7 @@ UIAlertViewDelegate>
                 model = waitpayArray[indexPath.row];
                 [cell.thumbImage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
                 if(!model.shopname.length){
-                    cell.shopname.text = @"李小刚的店铺";
+                    cell.shopname.text = @"默认店铺名";
                 }else{
                     cell.shopname.text = model.shopname;
                 }
@@ -367,7 +368,11 @@ UIAlertViewDelegate>
         AllOderModel * model = [[AllOderModel alloc] init];
         model = waitpayArray[indexPath.row];
         [cell.thumbImage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
+        if(!model.shopname.length){
+            cell.shopname.text = @"默认店铺名";
+        }else{
         cell.shopname.text = model.shopname;
+        }
         cell.titlename.text = model.name;
         NSString * pricelabel = [NSString stringWithFormat:@"¥%@",model.price];
         cell.price.text = pricelabel;
@@ -410,6 +415,24 @@ UIAlertViewDelegate>
     }
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(waitpayArray.count>0){
+        if(indexPath.section == 0){
+        AllOderModel * model = [[AllOderModel alloc] init];
+        model = waitpayArray[indexPath.row];
+        StoreDataModel * model1 = [[StoreDataModel alloc] init];
+        model1.videoName = model.name;
+        model1.videoImage = model.image;
+        model1.videoPrice = model.price;
+        UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"HomePage" bundle:nil];
+        ConfirmOrderViewController * VC = (ConfirmOrderViewController *)[storyboard instantiateViewControllerWithIdentifier:@"confirmstoryboardId"];
+            VC.model = model1;
+            [self.navigationController pushViewController:VC animated:YES];
+    }
+    }
+}
+
 - (void)clickjudgeBtnWithIndexpath:(NSIndexPath*)indexpath
 {
     AllOderModel * model = [[AllOderModel alloc] init];
@@ -437,13 +460,6 @@ UIAlertViewDelegate>
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-//    if(indexPath.section == 2){
-//        return 80;
-//    }
-//    else{
-//    return 217;
-//    }
     if(allData.count>0){
     NSArray * array = allData[indexPath.section];
     AllOderModel * model = array[0];
@@ -491,39 +507,6 @@ UIAlertViewDelegate>
 
 - (void)payaction
 {
-//    ZCTradeView * tradeView = [[ZCTradeView alloc] init];
-//    
-//    tradeView.delegate = self;
-//   // [tradeView show];
-//    NSString * SecurityString = [Tools loginPasswordSecurityLock:@"123123"];
-//    NSString * ordernum = [[Config Instance] getOrderNum];
-//
-//    self.manager = [[AFHTTPRequestOperationManager alloc]initWithBaseURL:[NSURL URLWithString:BaseUrl]] ;
-//    self.manager.responseSerializer.acceptableContentTypes =  [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
-//    self.manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-//    NSDictionary * parameters = @{@"token":KToken,@"ordernum":ordernum,@"excode":SecurityString};
-//    [self.manager POST:@"orderPay" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-//        NSString * status = responseObject[@"status"];
-//        NSString * info = responseObject[@"info"];
-//        if([status isEqualToString:@"1"]){
-//            [self showHint:info];
-//            if(index1>=0&&index1<waitpayArray.count){
-//                //  [waitpayArray removeObjectAtIndex:index1];
-//                [_tableView reloadData];
-//                [self down];
-//                NSString * indexStr = [NSString stringWithFormat:@"%ld",index1];
-//                [[NSNotificationCenter defaultCenter] postNotificationName:@"deleteact" object:nil userInfo:@{@"index":indexStr}];
-//            }
-//            
-//        }else{
-//            [self showHint:info];
-//        }
-//        [self loadData];
-//    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
-//        
-//    }];
-//
-    //[self.tradeView show];
     XLPasswordView * passwordView = [XLPasswordView passwordView];
     passwordView.delegate = self;
     
@@ -535,18 +518,6 @@ UIAlertViewDelegate>
 {
     NSString * SecurityString = [Tools loginPasswordSecurityLock:password];
     NSString * ordernum = [[Config Instance] getOrderNum];
-    
-    //        [[MyAPI sharedAPI] payOrderWithOrderNum:_ordernum Excode:SecurityString Result:^(BOOL sucess, NSString *msg) {
-    //        if(sucess){
-    //            [self showHint:@"付款成功"];
-    //            [waitpayArray removeObjectAtIndex:index];
-    //            [_tableView reloadData];
-    //        }else{
-    //            [self showHint:msg];
-    //        }
-    //    } ErrorResult:^(NSError *enginerError) {
-    //
-    //    }];
     self.manager = [[AFHTTPRequestOperationManager alloc]initWithBaseURL:[NSURL URLWithString:BaseUrl]] ;
     self.manager.responseSerializer.acceptableContentTypes =  [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
     self.manager.requestSerializer = [AFHTTPRequestSerializer serializer];
@@ -556,18 +527,13 @@ UIAlertViewDelegate>
         NSString * info = responseObject[@"info"];
         if([status isEqualToString:@"1"]){
             [self showHint:info];
-            if(index1>=0&&index1<waitpayArray.count){
-                //  [waitpayArray removeObjectAtIndex:index1];
-                [_tableView reloadData];
-                [self down];
-                NSString * indexStr = [NSString stringWithFormat:@"%ld",index1];
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"deleteact" object:nil userInfo:@{@"index":indexStr}];
-            }
-            
+            [passwordView hidePasswordView];
+            [self down];
+            [_tableView.mj_header beginRefreshing];
         }else{
             [self showHint:info];
         }
-        [self loadData];
+
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         
     }];
@@ -579,48 +545,6 @@ UIAlertViewDelegate>
 
 
 
-- (NSString *)finish:(NSString *)pwd
-{
-    NSString * SecurityString = [Tools loginPasswordSecurityLock:pwd];
-    NSString * ordernum = [[Config Instance] getOrderNum];
-
-//        [[MyAPI sharedAPI] payOrderWithOrderNum:_ordernum Excode:SecurityString Result:^(BOOL sucess, NSString *msg) {
-//        if(sucess){
-//            [self showHint:@"付款成功"];
-//            [waitpayArray removeObjectAtIndex:index];
-//            [_tableView reloadData];
-//        }else{
-//            [self showHint:msg];
-//        }
-//    } ErrorResult:^(NSError *enginerError) {
-//        
-//    }];
-    self.manager = [[AFHTTPRequestOperationManager alloc]initWithBaseURL:[NSURL URLWithString:BaseUrl]] ;
-    self.manager.responseSerializer.acceptableContentTypes =  [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
-    self.manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-    NSDictionary * parameters = @{@"token":KToken,@"ordernum":ordernum,@"excode":SecurityString};
-    [self.manager POST:@"orderPay" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-        NSString * status = responseObject[@"status"];
-        NSString * info = responseObject[@"info"];
-        if([status isEqualToString:@"1"]){
-            [self showHint:info];
-            if(index1>=0&&index1<waitpayArray.count){
-          //  [waitpayArray removeObjectAtIndex:index1];
-            [_tableView reloadData];
-                [self down];
-                NSString * indexStr = [NSString stringWithFormat:@"%ld",index1];
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"deleteact" object:nil userInfo:@{@"index":indexStr}];
-            }
-            
-        }else{
-            [self showHint:info];
-        }
-        [self loadData];
-    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
-        
-    }];
-        return nil;
-}
 
 //确认付款落下
 -(void)down{
@@ -644,9 +568,6 @@ UIAlertViewDelegate>
                 [self showHint:@"取消订单成功"];
                 [waitpayArray removeObjectAtIndex:index-10];
                 [_tableView reloadData];
-                NSString * indexStr = [NSString stringWithFormat:@"%ld",index-10];
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"deleteact" object:nil userInfo:@{@"index":indexStr}];
-
             }
         } errorResult:^(NSError *enginerError) {
             

@@ -15,6 +15,7 @@
 #import "MyOrderSecondWaitPayViewController.h"
 #import "MyOrderWaitGoodViewController.h"
 #import "MyOrderSecondWaitJudgeViewController.h"
+#import <MJRefresh/MJRefresh.h>
 
 @interface MyOrderViewController ()<YSLContainerViewControllerDelegate>
 {
@@ -28,8 +29,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-//    self.navigationController.navigationBar.hidden = NO;
-//    self.navigationController.navigationBar.translucent = NO;
     [self addChatBtn];   //添加自定义导航栏按钮
     //创建全部界面
     MyOrderAllViewController * myOrderAllVC = [[MyOrderAllViewController alloc] init];
@@ -67,16 +66,13 @@
 {
     if (index == 0) {
         MyOrderAllViewController * myOrderAllVC = containerVC.childControllers[0];
-       // myOrderAllVC.view.hidden = YES;
-       // [myOrderAllVC loadData];
-        [myOrderAllVC.tradeView removeFromSuperview];
+        [myOrderAllVC loadData];
     }else if (index == 1){
          MyOrderSecondWaitPayViewController * myOrderWaitPayVC = containerVC.childControllers[1];
-       
-        [myOrderWaitPayVC.tradeView removeFromSuperview];
+        [myOrderWaitPayVC loadData];
     }else if (index == 3){
-        MyOrderSecondWaitJudgeViewController * myJudgeVC = [[MyOrderSecondWaitJudgeViewController alloc] init];
-        [myJudgeVC loadData];
+        MyOrderSecondWaitJudgeViewController * myOrderWaitJudgeVC = containerVC.childControllers[3];
+        [myOrderWaitJudgeVC loadData];
     }
 }
 

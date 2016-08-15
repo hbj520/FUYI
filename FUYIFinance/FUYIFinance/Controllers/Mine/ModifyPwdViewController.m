@@ -70,7 +70,11 @@
                 [self showHint:@"修改成功"];
                 [self RebuildlogOut];
             }else{
+                if([msg isEqualToString:@"-1"]){
+                    [self logOut];
+                }else{
                 [self showHint:@"修改失败"];
+                }
             }
             [self hideHud];
         } errorResult:^(NSError *enginerError) {
