@@ -70,9 +70,7 @@
     
     [[MyAPI sharedAPI] requestWaitjudgeDataWithParameters:pagestr
                                                    result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
-                                                       if([msg isEqualToString:@"-1"]){
-                                                           [self logOut];
-                                                       }
+                                                       
                                                        if(success){
                                                            if(page == 1){
                                                                if(dataSource.count>0){
@@ -88,8 +86,16 @@
                                                                [self logOut];
                                                            }else{
                                                                //[self showHint:msg];
+                                                               if([msg isEqualToString:@"0"]&&page==1){
+                                                                   [dataSource removeAllObjects];
+                                                                   [_tableView reloadData];
+                                                                   [_tableView.mj_header endRefreshing];
+                                                               }else{
+                                                                   
+                                                               [_tableView.mj_header endRefreshing];
                                                                [_tableView.mj_footer endRefreshingWithNoMoreData];
-                                                           }
+                                                               }
+                                                               }
                                                        }
                                                    } errorResult:^(NSError *enginerError) {
                                                        [_tableView.mj_header endRefreshing];

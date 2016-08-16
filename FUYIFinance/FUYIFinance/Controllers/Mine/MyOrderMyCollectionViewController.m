@@ -92,7 +92,11 @@
                                                             result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
                                                                 
                                                                 if(success){
-                                                                    
+                                                                    if(page == 1){
+                                                                        if(dataSource.count>0){
+                                                                            [dataSource removeAllObjects];
+                                                                        }
+                                                                    }
                                                                     for(MineCollectionTreasureModel * model in arrays){
                                                                         [dataSource addObject:model];
                                                                     }
@@ -108,6 +112,10 @@
                                                                     [_tableView.mj_footer endRefreshing];
                                                                     if([msg isEqualToString:@"-1"]){
                                                                         [self logOut];
+                                                                    }else if ([msg isEqualToString:@"0"]){
+                                                                        if(page!=1){
+                                                                            [_tableView.mj_footer endRefreshingWithNoMoreData];
+                                                                        }
                                                                     }
                                                                     
                                                                 }
@@ -161,7 +169,7 @@
     model = dataSource[indexPath.section];
     StoreDataModel * model1 = [[StoreDataModel alloc] initWithParameters:model.goodsid
                                                                videoName:model.name
-                                                             teacherName:model.teacher videoImage:model.image videoPrice:model.price sellNum:model.num videodescription:model.about teacherId:model.tid videoType:model.type videoCollect:model.collection cart:model.cart];
+                                                             teacherName:model.teacher videoImage:model.image videoPrice:model.price sellNum:model.num videodescription:model.about teacherId:model.tid videoType:model.type videoCollect:model.collection cart:model.cart videoUrl:model.videourl];
     UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"HomePage" bundle:nil];
     
     VideoDetailViewController * vc =[storyboard instantiateViewControllerWithIdentifier:@"VideoShopStoryBoardID"];

@@ -71,10 +71,20 @@ UIAlertViewDelegate>
     page = 1;
     [self loadData];
     [self addRefresh];
-//    self.tradeView = [[ZCTradeView alloc] init];
-//   
-//    self.tradeView.delegate = self;
     [self creatHidePayView];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updatePage) name:@"updatepage" object:nil];
+}
+
+//更新页面
+- (void)updatePage
+{
+    [self loadData];
+}
+
+//移除观察者
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"updatepage" object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated

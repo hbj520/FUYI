@@ -634,7 +634,7 @@
             if([status isEqualToString:@"-1"]){
                 result(NO,@"-1",nil);
             }else{
-            result(NO,info,nil);
+            result(NO,status,nil);
             }
         }
         
@@ -758,7 +758,7 @@
             if([status isEqualToString:@"-1"]){
                 result(NO,@"-1",nil);
             }else{
-                result(NO,info,nil);
+                result(NO,status,nil);
             }
         }
 

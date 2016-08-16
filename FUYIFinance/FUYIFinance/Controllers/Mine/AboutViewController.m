@@ -7,7 +7,6 @@
 //
 
 #import "AboutViewController.h"
-
 @interface AboutViewController ()
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 

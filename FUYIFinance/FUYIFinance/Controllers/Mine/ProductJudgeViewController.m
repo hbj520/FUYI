@@ -116,7 +116,7 @@
                                               result:^(BOOL sucess, NSString *msg) {
         if (sucess) {
             [self showHint:@"评价成功"];
-      //     self.deleteblock(self.indexpath);
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"updatepage" object:nil];
             [self.navigationController popViewControllerAnimated:YES];
         }
     } errorResult:^(NSError *enginerError) {

@@ -165,7 +165,8 @@
 //点击播放预览视频
 - (void)videoClick:(UIGestureRecognizer *)ges{
     UIImageView *videoView = (UIImageView *)ges.view;
-    playerVC = [IJKMoviePlayerViewController InitVideoViewFromViewController:self withTitle:@"GLTest" URL:[NSURL URLWithString:@"http://krtv.qiniudn.com/150522nextapp"] isLiveVideo:YES isOnlineVideo:NO isFullScreen:NO completion:nil];
+    NSString * videoUrl = _model.videoUrl;
+    playerVC = [IJKMoviePlayerViewController InitVideoViewFromViewController:self withTitle:@"GLTest" URL:[NSURL URLWithString:videoUrl] isLiveVideo:YES isOnlineVideo:NO isFullScreen:NO completion:nil];
     __weak VideoDetailViewController *weakself = self;
     playerVC.fullScreenBlock = ^(BOOL isFullScreen){
         if (isFullScreen) {
@@ -317,7 +318,11 @@
     if (!KToken) {
         [self showHint:@"请先登录，再购买"];
     }else{
-        
+        NSString * isTeacher = [[Config Instance] getisteacher];
+//        if([isTeacher isEqualToString:@"1"]){
+//            [self showHint:@"讲师不能购买"];
+//            return;
+//        }else{
         [[MyAPI sharedAPI] getOrderNumWithGoodsid:_model.videoId Money:_model.videoPrice Result:^(BOOL sucess, NSString *msg) {
             if(!msg){
                 return ;
@@ -336,8 +341,8 @@
         } ErrorResult:^(NSError *enginerError) {
             
         }];
+  //  }
     }
-
 }
 #pragma mark -SegueDelegate
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

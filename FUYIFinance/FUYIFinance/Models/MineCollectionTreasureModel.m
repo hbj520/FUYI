@@ -10,7 +10,18 @@
 
 @implementation MineCollectionTreasureModel
 
-- (id)initWithName:(NSString *)name Image:(NSString *)image Price:(NSString *)price Type:(NSString *)type Teacher:(NSString *)teacher Num:(NSString *)num Goodsid:(NSString *)goodsid About:(NSString *)about Cart:(NSString *)cart Collect:(NSString *)collection Tid:(NSString *)tid
+- (id)initWithName:(NSString *)name
+             Image:(NSString *)image
+             Price:(NSString *)price
+              Type:(NSString *)type
+           Teacher:(NSString *)teacher
+               Num:(NSString *)num
+           Goodsid:(NSString *)goodsid
+             About:(NSString *)about
+              Cart:(NSString *)cart
+           Collect:(NSString *)collection
+               Tid:(NSString *)tid
+          videoUrl:(NSString *)videourl
 {
     MineCollectionTreasureModel * model = [[MineCollectionTreasureModel alloc] init];
     model.name = name;
@@ -24,6 +35,7 @@
     model.cart = cart;
     model.collection = collection;
     model.tid = tid;
+    model.videourl = videourl;
     return model;
 }
 
@@ -45,7 +57,8 @@
         NSNumber * collect = dict[@"collect"];
         NSString * Collect = [NSString stringWithFormat:@"%ld",collect.integerValue];
         NSString * tid = dict[@"tid"];
-        MineCollectionTreasureModel * model = [[MineCollectionTreasureModel alloc] initWithName:name Image:image Price:price Type:type Teacher:teacher Num:numStr Goodsid:goodsid About:about Cart:Cart Collect:Collect Tid:tid];
+        NSString * videourl = dict[@"videourl"];
+        MineCollectionTreasureModel * model = [[MineCollectionTreasureModel alloc] initWithName:name Image:image Price:price Type:type Teacher:teacher Num:numStr Goodsid:goodsid About:about Cart:Cart Collect:Collect Tid:tid videoUrl:videourl];
         [collectionTreasureArray addObject:model];
     }
     return collectionTreasureArray;

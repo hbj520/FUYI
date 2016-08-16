@@ -71,9 +71,7 @@
     
 [[MyAPI sharedAPI] requestWaitjudgeDataWithParameters:pagestr
                                                result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
-                                                   if([msg isEqualToString:@"-1"]){
-                                                       [self logOut];
-                                                   }
+                                                  
                                                    if(success){
                                                        if(page == 1){
                                                            if(dataSource.count>0){

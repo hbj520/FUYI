@@ -282,7 +282,9 @@ static NSString *investReuseId = @"investReuseId";
 #pragma mark -SDCycleScrollViewDelegate
 //点击头部滚动视图
 -(void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
-    playerVC = [IJKMoviePlayerViewController InitVideoViewFromViewController:self withTitle:@"GLTest" URL:[NSURL URLWithString:@"http://krtv.qiniudn.com/150522nextapp"] isLiveVideo:YES isOnlineVideo:NO isFullScreen:NO completion:nil];
+    HomepageBannerModel * model = [[HomepageBannerModel alloc] init];
+    model = bannerData[index];
+    playerVC = [IJKMoviePlayerViewController InitVideoViewFromViewController:self withTitle:@"GLTest" URL:[NSURL URLWithString:model.bannerLink] isLiveVideo:YES isOnlineVideo:NO isFullScreen:NO completion:nil];
     playerVC.fullScreenBlock = ^(BOOL isFullScreen){
         if (isFullScreen) {
             navItem.hidden = YES;

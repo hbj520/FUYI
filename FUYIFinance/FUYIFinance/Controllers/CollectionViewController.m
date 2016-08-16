@@ -126,7 +126,7 @@ static NSString *collectionId = @"MyCollectionId";
     model = collectGoodArr[indexPath.section];
     StoreDataModel * model1 = [[StoreDataModel alloc] initWithParameters:model.goodsid
                                                                videoName:model.name
-                                                             teacherName:model.teacher videoImage:model.image videoPrice:model.price sellNum:model.num videodescription:model.about teacherId:model.tid videoType:model.type videoCollect:model.collection cart:model.cart];
+                                                             teacherName:model.teacher videoImage:model.image videoPrice:model.price sellNum:model.num videodescription:model.about teacherId:model.tid videoType:model.type videoCollect:model.collection cart:model.cart videoUrl:model.videourl];
     UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"HomePage" bundle:nil];
     
     VideoDetailViewController * vc =[storyboard instantiateViewControllerWithIdentifier:@"VideoShopStoryBoardID"];

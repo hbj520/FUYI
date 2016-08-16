@@ -21,6 +21,7 @@
 @property (nonatomic,copy)NSString * cart;
 @property (nonatomic,copy)NSString * collection;
 @property (nonatomic,copy)NSString * tid;
+@property (nonatomic,copy)NSString * videourl;
 /**
  *  重写模型的构造方法
  *
@@ -32,7 +33,18 @@
  *
  *  @return        模型
  */
-- (id)initWithName:(NSString*)name Image:(NSString*)image Price:(NSString*)price Type:(NSString*)type Teacher:(NSString*)teacher Num:(NSString *)num Goodsid:(NSString *)goodsid About:(NSString *)about Cart:(NSString *)cart Collect:(NSString *)collection Tid:(NSString *)tid;
+- (id)initWithName:(NSString*)name
+             Image:(NSString*)image
+             Price:(NSString*)price
+              Type:(NSString*)type
+           Teacher:(NSString*)teacher
+               Num:(NSString *)num
+           Goodsid:(NSString *)goodsid
+             About:(NSString *)about
+              Cart:(NSString *)cart
+           Collect:(NSString *)collection
+               Tid:(NSString *)tid
+          videoUrl:(NSString *)videourl;
 
 /**
  *  根据返回的数据返回模型数组
