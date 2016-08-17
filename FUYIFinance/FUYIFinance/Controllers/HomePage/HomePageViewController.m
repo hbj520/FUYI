@@ -230,7 +230,7 @@ static NSString *investReuseId = @"investReuseId";
             }
             [newTableViewCell configWithData:noticeData];
             newTableViewCell.block = ^(){
-            [self performSegueWithIdentifier:@"homepagedetailSegue" sender:nil];
+            [self performSegueWithIdentifier:@"homepagedetailSegue" sender:@"www.baidu.com"];
             };
             return newTableViewCell;
         }
@@ -295,8 +295,7 @@ static NSString *investReuseId = @"investReuseId";
 #pragma mark -SDCycleScrollViewDelegate
 //点击头部滚动视图
 -(void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
-    HomepageBannerModel * model = [[HomepageBannerModel alloc] init];
-    model = bannerData[index];
+    HomepageBannerModel * model = bannerData[index];
     playerVC = [IJKMoviePlayerViewController InitVideoViewFromViewController:self withTitle:@"GLTest" URL:[NSURL URLWithString:model.bannerLink] isLiveVideo:YES isOnlineVideo:NO isFullScreen:NO completion:nil];
     playerVC.fullScreenBlock = ^(BOOL isFullScreen){
         if (isFullScreen) {
@@ -364,5 +363,8 @@ static NSString *investReuseId = @"investReuseId";
 #pragma mark - UIVew
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [Tools hideKeyBoard];
+}
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    [Tools hideKeyBoard]; 
 }
 @end
