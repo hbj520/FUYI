@@ -94,6 +94,7 @@
    [[MyAPI sharedAPI] forgetPasswordWithPhonenum:self.phoneNum.text YZM:self.yzmNum.text Password:passwordnum Repassword:repasswordnum result:^(BOOL sucess, NSString *msg) {
        if(sucess){
            [self showHint:msg];
+           [self.navigationController popViewControllerAnimated:YES];
        }else{
            [self showHint:msg];
        }

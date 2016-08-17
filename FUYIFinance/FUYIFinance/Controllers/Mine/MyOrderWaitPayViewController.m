@@ -161,6 +161,7 @@
                 }
             }else{
                 [self showHint:msg];
+                [passwordView hidePasswordView];
             }
             [self loadData];
         } ErrorResult:^(NSError *enginerError) {

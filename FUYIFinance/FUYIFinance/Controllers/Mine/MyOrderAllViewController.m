@@ -539,6 +539,7 @@ UIAlertViewDelegate>
             [_tableView.mj_header beginRefreshing];
         }else{
             [self showHint:info];
+            [passwordView hidePasswordView];
         }
 
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {

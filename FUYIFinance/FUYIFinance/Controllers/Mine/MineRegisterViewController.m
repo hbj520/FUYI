@@ -131,9 +131,10 @@
                                        result:^(BOOL sucess, NSString *msg) {
         if(sucess){
             [self showHint:@"注册成功，请登录"];
+            [self.navigationController popViewControllerAnimated:YES];
             
         }else{
-            [self showHint:@"注册失败"];
+            [self showHint:msg];
         }
     } errorResult:^(NSError *enginerError) {
         
