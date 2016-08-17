@@ -24,7 +24,7 @@
         <!--博客-->
         <scene sceneID="q1y-Ca-AkV">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="bPT-7I-b8P" customClass="BlogViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BlogStoryBoardID" automaticallyAdjustsScrollViewInsets="NO" id="bPT-7I-b8P" customClass="BlogViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fZL-j5-KBF"/>
                         <viewControllerLayoutGuide type="bottom" id="iYB-c0-CJr"/>

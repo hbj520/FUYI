@@ -7,6 +7,7 @@
 //
 
 #import "HomePageViewController.h"
+#import "BlogViewController.h"
 #import "HomePageDetailViewController.h"
 #import "IJKMoviePlayerViewController.h"
 
@@ -108,7 +109,18 @@ static NSString *investReuseId = @"investReuseId";
     [[MyAPI sharedAPI] homePageWithResult:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
         if (success) {
             [bannerData addObjectsFromArray: arrays[0]];
-            [self setUpNoticeData:arrays[1]];
+            NSArray * noticedata = arrays[1];
+            NSMutableArray * titleArray = [NSMutableArray array];
+            for(HomePageNoticeModel * model in noticedata){
+                [titleArray addObject:model.noticeTitle];
+            }
+            NSInteger arrcount = noticedata.count;
+            NSMutableArray * arr2 = [NSMutableArray array];
+            for(NSInteger i = 0;i<arrcount/2;i++){
+                NSArray * arr1 = [titleArray subarrayWithRange:NSMakeRange(i * 2, 2)];
+                [arr2 addObject:arr1];
+            }
+            [noticeData addObjectsFromArray:arr2];
             [inverstData addObjectsFromArray:arrays[2]];
             //添加滚动视图pageview
             [self addPageControl];
@@ -124,6 +136,7 @@ static NSString *investReuseId = @"investReuseId";
     }];
 }
 - (void)setUpNoticeData:(NSArray *)noticeDatas{
+    
     [noticeData addObjectsFromArray: @[@[@"第0组第一行",@"第0组第二行"],@[@"第一组第一行",@"第一组第二行"],@[@"第二组第一行",@"第二组第一行"],@[@"第3组第一行",@"第3组第二行"]]];
 }
 - (void)createUI{
@@ -203,7 +216,7 @@ static NSString *investReuseId = @"investReuseId";
                 [self performSegueWithIdentifier:@"VideoStoreSegue" sender:nil];
             };
             headerCell.blogAreaBlock = ^{//博客专区
-                
+                [self performSegueWithIdentifier:@"blogSegue" sender:nil];
             };
             headerCell.financeBlock = ^{//金融学院
                 

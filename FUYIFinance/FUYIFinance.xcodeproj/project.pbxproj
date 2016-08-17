@@ -120,6 +120,7 @@
 		CC35F66A1D2CCB3000EF3B4B /* PriceLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC35F6691D2CCB3000EF3B4B /* PriceLabel.m */; };
 		CC35F66E1D2CDCBA00EF3B4B /* MineCollectionTreasureModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC35F66D1D2CDCBA00EF3B4B /* MineCollectionTreasureModel.m */; };
 		CC3C62DC1D51E68300CD62AC /* OrderManageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3C62DB1D51E68300CD62AC /* OrderManageViewController.m */; };
+		CC3D39201D6315EE00C3EF3B /* HomePageBlogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3D391F1D6315EE00C3EF3B /* HomePageBlogViewController.m */; };
 		CC3E2F991D59862A00C06384 /* HomePageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3E2F981D59862A00C06384 /* HomePageDetailViewController.m */; };
 		CC4096AD1D49992600084D1A /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4096AC1D49992600084D1A /* SettingViewController.m */; };
 		CC4096B01D49A21000084D1A /* PersonalUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4096AF1D49A21000084D1A /* PersonalUserInfo.m */; };
@@ -542,6 +543,8 @@
 		CC35F66D1D2CDCBA00EF3B4B /* MineCollectionTreasureModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineCollectionTreasureModel.m; sourceTree = "<group>"; };
 		CC3C62DA1D51E68300CD62AC /* OrderManageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderManageViewController.h; sourceTree = "<group>"; };
 		CC3C62DB1D51E68300CD62AC /* OrderManageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderManageViewController.m; sourceTree = "<group>"; };
+		CC3D391E1D6315EE00C3EF3B /* HomePageBlogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageBlogViewController.h; sourceTree = "<group>"; };
+		CC3D391F1D6315EE00C3EF3B /* HomePageBlogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageBlogViewController.m; sourceTree = "<group>"; };
 		CC3E2F971D59862A00C06384 /* HomePageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageDetailViewController.h; sourceTree = "<group>"; };
 		CC3E2F981D59862A00C06384 /* HomePageDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageDetailViewController.m; sourceTree = "<group>"; };
 		CC4096AB1D49992600084D1A /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
@@ -1209,6 +1212,8 @@
 			children = (
 				AB36CDB81D1283AD00D0E4C7 /* HomePageViewController.h */,
 				AB36CDB91D1283AD00D0E4C7 /* HomePageViewController.m */,
+				CC3D391E1D6315EE00C3EF3B /* HomePageBlogViewController.h */,
+				CC3D391F1D6315EE00C3EF3B /* HomePageBlogViewController.m */,
 				CC3E2F971D59862A00C06384 /* HomePageDetailViewController.h */,
 				CC3E2F981D59862A00C06384 /* HomePageDetailViewController.m */,
 				D1F1301B1D2B503500EE1690 /* VideoShopViewController.h */,
@@ -2313,6 +2318,7 @@
 				CC6FD61A1D363E7200DA60AB /* MyAddressFirstTableViewCell.m in Sources */,
 				CC42E2771D24F13D0008A8D7 /* MyCollectionShopViewController.m in Sources */,
 				CC72D0441D227DF500945BCF /* PersonalWaitJudgeTableViewCell.m in Sources */,
+				CC3D39201D6315EE00C3EF3B /* HomePageBlogViewController.m in Sources */,
 				AB36CE431D1BE8FD00D0E4C7 /* InversetScrollView.m in Sources */,
 				D16E04221D4217360038297A /* TeacherStoreModel.m in Sources */,
 				AB1764E01D520B7F001A84E8 /* GLVideoPlayView.m in Sources */,

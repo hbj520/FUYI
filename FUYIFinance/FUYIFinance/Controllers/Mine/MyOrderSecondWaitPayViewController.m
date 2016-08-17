@@ -114,7 +114,7 @@ UIAlertViewDelegate>
                 }
             }
             [_tableView.mj_header endRefreshing];
-            [_tableView.mj_footer endRefreshing];
+           // [_tableView.mj_footer endRefreshing];
         }
     } errorResult:^(NSError *enginerError) {
         [_tableView.mj_header endRefreshing];

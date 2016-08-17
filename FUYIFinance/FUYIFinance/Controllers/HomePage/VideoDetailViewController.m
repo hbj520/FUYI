@@ -52,6 +52,8 @@
     // Do any additional setup after loading the view.
     [self creatUI];
       _cnt = 0;
+   
+    
     
     //[self judgeCollectSelected];//判断第一次进来的收藏按钮状态
 }
@@ -319,17 +321,13 @@
         [self showHint:@"请先登录，再购买"];
     }else{
         NSString * isTeacher = [[Config Instance] getisteacher];
-//        if([isTeacher isEqualToString:@"1"]){
-//            [self showHint:@"讲师不能购买"];
-//            return;
-//        }else{
+
         [[MyAPI sharedAPI] getOrderNumWithGoodsid:_model.videoId Money:_model.videoPrice Result:^(BOOL sucess, NSString *msg) {
             if(!msg){
                 return ;
             }else{
                 if(sucess){
                     [[Config Instance] saveOrderNum:msg];
-                    self.navigationController.navigationBarHidden = NO;
                     [self performSegueWithIdentifier:@"ConfirmOrderSegue" sender:@[self.model,msg]];
                     
                 }else if([msg isEqualToString:@"0"]){
@@ -341,7 +339,7 @@
         } ErrorResult:^(NSError *enginerError) {
             
         }];
-  //  }
+ 
     }
 }
 #pragma mark -SegueDelegate

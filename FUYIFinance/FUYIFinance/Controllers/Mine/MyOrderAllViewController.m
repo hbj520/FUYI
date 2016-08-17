@@ -145,15 +145,12 @@ UIAlertViewDelegate>
             }
             if (waitpayArray.count > 0) {
                 [allData addObject:waitpayArray];
-                //sectionCout++;
             }
             if (waitjudgeArray.count > 0) {
                 [allData addObject:waitjudgeArray];
-                //sectionCout++;
             }
             if (isjudgeArray.count > 0) {
                 [allData addObject:isjudgeArray];
-                //sectionCout++;
             }
 
             [_tableView reloadData];
@@ -163,12 +160,12 @@ UIAlertViewDelegate>
             if([msg isEqualToString:@"-1"]){
                 [self logOut];
             }
+            [_tableView.mj_header endRefreshing];
         }
        
         
     } errorResult:^(NSError *enginerError) {
         [_tableView.mj_header endRefreshing];
-        [_tableView.mj_footer endRefreshing];
     }];
     
   }
@@ -225,7 +222,7 @@ UIAlertViewDelegate>
                 model = waitjudgeArray[indexPath.row];
                 [cell.thumbImage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
                 if(!model.shopname.length){
-                    cell.shopname.text = @"斌神的店铺";
+                    cell.shopname.text = @"李小刚的店铺";
                 }else{
                     cell.shopname.text = model.shopname;
                 }
@@ -283,7 +280,7 @@ UIAlertViewDelegate>
                 model = waitjudgeArray[indexPath.row];
                 [cell.thumbImage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
                 if(!model.shopname.length){
-                    cell.shopname.text = @"斌神的店铺";
+                    cell.shopname.text = @"李小刚的店铺";
                 }else{
                     cell.shopname.text = model.shopname;
                 }
@@ -340,7 +337,7 @@ UIAlertViewDelegate>
             model = waitjudgeArray[indexPath.row];
             [cell.thumbImage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
             if(!model.shopname.length){
-                cell.shopname.text = @"斌神的店铺";
+                cell.shopname.text = @"李小刚的店铺";
             }else{
                 cell.shopname.text = model.shopname;
             }
@@ -396,7 +393,7 @@ UIAlertViewDelegate>
         model = waitjudgeArray[indexPath.row];
         [cell.thumbImage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
         if(!model.shopname.length){
-            cell.shopname.text = @"斌神的店铺";
+            cell.shopname.text = @"李小刚的店铺";
         }else{
         cell.shopname.text = model.shopname;
         }

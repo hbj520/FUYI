@@ -115,6 +115,9 @@
                                                                     }else if ([msg isEqualToString:@"0"]){
                                                                         if(page!=1){
                                                                             [_tableView.mj_footer endRefreshingWithNoMoreData];
+                                                                        }else{
+                                                                            [dataSource removeAllObjects];
+                                                                            [_tableView reloadData];
                                                                         }
                                                                     }
                                                                     

@@ -1,31 +1,31 @@
 //
-//  HomePageDetailViewController.m
+//  HomePageBlogViewController.m
 //  FUYIFinance
 //
-//  Created by 张哲 on 16/8/9.
+//  Created by 张哲 on 16/8/16.
 //  Copyright © 2016年 youyou. All rights reserved.
 //
 
-#import "HomePageDetailViewController.h"
+#import "HomePageBlogViewController.h"
 
-@interface HomePageDetailViewController ()
+@interface HomePageBlogViewController ()<UIWebViewDelegate>
 {
-    UIWebView * _webView;     //网页
+    UIWebView * _webView;
 }
-
 @end
 
-@implementation HomePageDetailViewController
+@implementation HomePageBlogViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    NSURLRequest * request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString: self.url]];
+    NSURLRequest * request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://www.fuyi001.com/blog/blogIndex.html"]];
     _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight-64)];
+    _webView.delegate = self;
+    [_webView setScalesPageToFit:YES];
     [self.view addSubview:_webView];
     [_webView loadRequest:request];
 }
-
 #pragma mark - PrivateMethod
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -33,6 +33,19 @@
     self.navigationController.navigationBar.hidden = NO;
 }
 
+
+#pragma mark - UIWebViewDelegate
+- (void)webViewDidStartLoad:(UIWebView *)webView
+{
+    [_webView setScalesPageToFit:YES];
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    [_webView setScalesPageToFit:YES];
+}
+
+//回退
 - (IBAction)back:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }

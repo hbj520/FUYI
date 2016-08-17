@@ -57,13 +57,11 @@ static NSString *collectionId = @"MyCollectionId";
     self.tableView.sectionFooterHeight = 0;
 }
 
+//添加上下拉刷新
 - (void)addRefresh{
     __weak CollectionViewController *weakself = self;
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         _page = 1;
-        if (collectGoodArr.count > 0) {
-            [collectGoodArr removeAllObjects];
-        }
         [weakself loadDataWithPage:_page];
     }];
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
@@ -72,20 +70,35 @@ static NSString *collectionId = @"MyCollectionId";
     }];
 }
 
+
 - (void)loadDataWithPage:(NSInteger)page{
     NSString *nowPage = [NSString stringWithFormat:@"%ld",(long)_page];
     [[MyAPI sharedAPI] requestCollectionTreasureDataWithParameters:nowPage result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
         if (success) {
+            if(page == 1){
+                if (collectGoodArr.count > 0) {
+                    [collectGoodArr removeAllObjects];
+                }
+            }
             [collectGoodArr addObjectsFromArray:arrays];
             [self.tableView reloadData];
+            [self.tableView.mj_header endRefreshing];
+            [self.tableView.mj_footer endRefreshing];
         }else{
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.tableView.mj_footer endRefreshingWithNoMoreData];
-            });
-            _page--;
+            [self.tableView.mj_header endRefreshing];
+            [self.tableView.mj_footer endRefreshing];
+            if([msg isEqualToString:@"-1"]){
+                [self logOut];
+            }else if([msg isEqualToString:@"0"]){
+                if(_page!=1){
+                    [_tableView.mj_footer endRefreshingWithNoMoreData];
+                }else{
+                    [collectGoodArr removeAllObjects];
+                    [_tableView reloadData];
+                }
+            }
         }
-        [self.tableView.mj_header endRefreshing];
-        [self.tableView.mj_footer endRefreshing];
+       
     } errorResult:^(NSError *enginerError) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
