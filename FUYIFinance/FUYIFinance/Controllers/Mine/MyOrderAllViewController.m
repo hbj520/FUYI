@@ -280,6 +280,7 @@ UIAlertViewDelegate>
                 model = isjudgeArray[indexPath.row];
                 [cell.thumbimage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
                 cell.titlename.text = model.name;
+                cell.defaultjudge.text = model.content;
                 cell.timelabel.text = model.ctime;
                 return cell;
 
@@ -315,6 +316,7 @@ UIAlertViewDelegate>
                 model = isjudgeArray[indexPath.row];
                 [cell.thumbimage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
                 cell.titlename.text = model.name;
+                cell.defaultjudge.text = model.content;
                 cell.timelabel.text = model.ctime;
                 return cell;
             }
@@ -372,6 +374,7 @@ UIAlertViewDelegate>
             model = isjudgeArray[indexPath.row];
             [cell.thumbimage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
             cell.titlename.text = model.name;
+            cell.defaultjudge.text = model.content;
             cell.timelabel.text = model.ctime;
             return cell;
         }
@@ -427,6 +430,7 @@ UIAlertViewDelegate>
         model = isjudgeArray[indexPath.row];
         [cell.thumbimage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
         cell.titlename.text = model.name;
+        cell.defaultjudge.text = model.content;
         cell.timelabel.text = model.ctime;
         return cell;
     }

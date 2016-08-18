@@ -251,7 +251,7 @@
                                                      if(sucess){
                                                          [[Config Instance] saveUsername:self.nickName.text];
                                                          [self showHint:@"上传成功"];
-                                                       
+                                                         [self.navigationController popViewControllerAnimated:YES];
                                                      }else{
                                                          [self showHint:msg];
                                                      }

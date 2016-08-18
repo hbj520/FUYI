@@ -26,6 +26,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *thumbImg;
 @property (weak, nonatomic) IBOutlet UIButton *surebtn;                //确定按钮
+@property (weak, nonatomic) IBOutlet UILabel *numlabel;
 
 @end
 
@@ -65,6 +66,14 @@
     self.label2.hidden = NO;
     }
 }
+
+- (void)textViewDidChange:(UITextView *)textView
+{
+    NSInteger stringcount = textView.text.length;
+    NSString * numlabelstr = [NSString stringWithFormat:@"%ld",stringcount];
+    self.numlabel.text = numlabelstr;
+}
+
 //手势方法的实现
 - (void)renewStar:(UIGestureRecognizer *)sender
 {

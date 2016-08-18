@@ -32,19 +32,31 @@
     // Do any additional setup after loading the view.
     [self addChatBtn];
     page = 1;
+    [self createUI];
+    dataSource = [NSMutableArray array];
+    [self loadData];
+    [self addNotification];
+    
+}
+
+
+- (void)createUI
+{
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
     _tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [_tableView registerNib:[UINib nibWithNibName:@"LoveManageTableViewCell" bundle:nil] forCellReuseIdentifier:@"TreasureId"];
     [self.view addSubview:_tableView];
     [self addRefresh];
-    dataSource = [NSMutableArray array];
-    [self loadData];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadData) name:@"loadTreasureManageView" object:nil];
-    
+ 
 }
 
+- (void)addNotification
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadData) name:@"loadTreasureManageView" object:nil];
+}
 
 - (void)dealloc
 {
@@ -55,12 +67,6 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
-    if(self.isGoodsSetting){
-        self.navigationItem.title = @"宝贝管理";
-    }else{
-        self.navigationItem.title = @"宝贝管理";
-    }
-    
 }
 
 - (void)loadData
@@ -134,6 +140,7 @@
     [_tableView.mj_header beginRefreshing];
 }
 
+#pragma mark-TableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return dataSource.count;
