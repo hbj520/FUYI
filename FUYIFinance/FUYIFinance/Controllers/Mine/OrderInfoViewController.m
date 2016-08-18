@@ -12,7 +12,7 @@
 #import "MyAPI.h"
 @interface OrderInfoViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
-    NSMutableArray * dataSource;
+    NSMutableArray * dataSource;         //数据源
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
@@ -26,6 +26,7 @@
     [self loadData];
     }
 
+//搭设界面
 - (void)createUI
 {
     self.tableView.dataSource = self;
@@ -34,6 +35,7 @@
     self.tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
 }
 
+//加载数据
 - (void)loadData
 {
     dataSource = [NSMutableArray array];
@@ -47,6 +49,7 @@
     }];
 }
 
+#pragma mark-TableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -61,6 +64,7 @@
 {
     static NSString * cellId = @"OrderId";
     OrderNoticeTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     OrderNoticeModel * model = [[OrderNoticeModel alloc] init];
     model = dataSource[indexPath.row];
     cell.model = model;
@@ -77,6 +81,7 @@
     return 0.01f;
 }
 
+//返回
 - (IBAction)back:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }

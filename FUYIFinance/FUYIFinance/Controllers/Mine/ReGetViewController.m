@@ -59,6 +59,8 @@
   //  self.distancewithtoplayout.constant = 0;
 }
 
+
+//发送验证码
 - (IBAction)testCode:(id)sender {
     [Tools hideKeyBoard];
     if(self.phoneNum.text.length<11){
@@ -78,7 +80,7 @@
 }
 
 
-
+//确定按钮
 - (IBAction)sureBtn:(id)sender {
     [Tools hideKeyBoard];
     if(self.passwordNum.text.length==0||self.confirmpasswordNum.text.length==0){

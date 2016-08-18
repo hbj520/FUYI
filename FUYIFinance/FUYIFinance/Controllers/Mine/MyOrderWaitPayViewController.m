@@ -169,9 +169,6 @@
         }];
     }
     
-
-    NSLog(@"例如自动校验密码");
-    
 }
 
 
@@ -284,7 +281,6 @@
     
     [UIView commitAnimations];
 
-    NSLog(@"%ld",(long)sender.tag);
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex

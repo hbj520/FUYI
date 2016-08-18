@@ -85,7 +85,7 @@
     }
 }
 
-
+//发送验证码
 - (IBAction)sendYZm:(id)sender {
     [Tools hideKeyBoard];
     if(self.PhoneNum.text.length < 11){
@@ -149,6 +149,7 @@
     [self.view endEditing:YES];
 }
 
+//返回
 - (IBAction)back:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
