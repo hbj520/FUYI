@@ -22,6 +22,7 @@
 @interface TeacherPersonalViewController ()<UITableViewDataSource,UITableViewDelegate>{
     
     TeacherModel *_newModel;
+    NSString * TeachName;
 }
 
 
@@ -93,11 +94,15 @@
 
     if (indexPath.section == 0) {
         TeacherPersonalTableViewCell *cell = [[[NSBundle mainBundle]loadNibNamed:@"TeacherPersonalTableViewCell" owner:self options:nil]lastObject];
-        cell.teacherName.text = _newModel.teacherName;
+        if([_newModel.teacherName isKindOfClass:[NSNull class]]){
+            cell.teacherName.text = @"";
+        }else{
+            cell.teacherName.text = _newModel.teacherName;
+        }
         [cell.headImage sd_setImageWithURL:[NSURL URLWithString:_model.teacherImage] placeholderImage:[UIImage imageNamed:@"TeacherTeam_headImage"]];
         cell.headImage.layer.cornerRadius = 28;
         cell.headImage.layer.masksToBounds = YES;
-        cell.focusNumLab.text = _newModel.fans;
+       cell.focusNumLab.text = _newModel.fans;
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
@@ -113,7 +118,7 @@
             cell.detailInfoLab.text = [NSString stringWithFormat:@"发表文章： %@",_newModel.title];
         }
            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-       return cell;
+        return cell;
     }
 }
 

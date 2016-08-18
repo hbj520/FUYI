@@ -41,7 +41,14 @@
     [self addRefresh];
     dataSource = [NSMutableArray array];
     [self loadData];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadData) name:@"loadTreasureManageView" object:nil];
     
+}
+
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"loadTreasureManageView" object:nil];
 }
 
 #pragma mark -PRIVATEMETHOD
@@ -168,7 +175,8 @@
     //跳转到编辑宝贝
     NSInteger index = sender.tag;
     ManageTreasureModel * model = dataSource[index];
-    NSArray * arr = @[model.goodsid,model.price];
+    NSString * imageStr = [NSString stringWithFormat:@"http://60.173.235.34:9090/fuyi//%@",model.thumbimg];
+    NSArray * arr = @[model.goodsid,model.price,model.title,imageStr];
     [self performSegueWithIdentifier:@"modifySegue" sender:arr];
 }
 
@@ -212,8 +220,10 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    ManageTreasureTableViewController * vc = [[ManageTreasureTableViewController alloc] init];
-    vc.array = sender;
+    if([segue.identifier isEqualToString:@"modifySegue"]){
+        ManageTreasureTableViewController * vc = segue.destinationViewController;
+        vc.array = sender;
+    }
 }
 
 

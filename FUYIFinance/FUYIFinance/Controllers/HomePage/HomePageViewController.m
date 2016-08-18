@@ -117,6 +117,7 @@ static NSString *investReuseId = @"investReuseId";
             NSInteger arrcount = noticedata.count;
             NSMutableArray * arr2 = [NSMutableArray array];
             for(NSInteger i = 0;i<arrcount/2;i++){
+                //从一个可变数组中分割小数组
                 NSArray * arr1 = [titleArray subarrayWithRange:NSMakeRange(i * 2, 2)];
                 [arr2 addObject:arr1];
             }
@@ -216,6 +217,7 @@ static NSString *investReuseId = @"investReuseId";
                 [self performSegueWithIdentifier:@"VideoStoreSegue" sender:nil];
             };
             headerCell.blogAreaBlock = ^{//博客专区
+                //跳转到博客专区
                 [self performSegueWithIdentifier:@"blogSegue" sender:nil];
             };
             headerCell.financeBlock = ^{//金融学院
@@ -230,7 +232,7 @@ static NSString *investReuseId = @"investReuseId";
             }
             [newTableViewCell configWithData:noticeData];
             newTableViewCell.block = ^(){
-            [self performSegueWithIdentifier:@"homepagedetailSegue" sender:@"www.baidu.com"];
+            [self performSegueWithIdentifier:@"homepagedetailSegue" sender:@"http://www.baidu.com"];
             };
             return newTableViewCell;
         }

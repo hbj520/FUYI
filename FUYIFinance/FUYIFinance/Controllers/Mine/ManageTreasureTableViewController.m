@@ -23,6 +23,8 @@
     BBBadgeBarButtonItem * _chatBtn1;  //自定制导航栏按钮
     UIImagePickerController * _picker;
     NSString * imageUrl;
+    NSString * nameStr;
+    NSString * priceString;
     ManageTreasureModel * model;
 }
 @property (weak, nonatomic) IBOutlet UITextView *textView;       //编辑宝贝的描述视图
@@ -46,6 +48,10 @@
     self.textView.delegate = self;
     self.PriceField.delegate = self;
     self.namefield.delegate = self;
+    self.PriceField.text = self.array[1];
+    self.namefield.text = self.array[2];
+    imageUrl = self.array[3];
+    [self.thumbimg sd_setImageWithURL:[NSURL URLWithString:self.array[3]] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
     if(self.textView.text.length>0){
         self.descLabel.hidden = YES;
     }
@@ -57,7 +63,7 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    [self addRefresh];
+   // [self addRefresh];
 }
 
 - (void)choseImg
@@ -119,7 +125,7 @@
     [[MyAPI sharedAPI] uploadImage:data result:^(BOOL sucess, NSString *msg) {
         if(sucess){
             imageUrl = msg;
-             [self.thumbimg sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
+             [self.thumbimg sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@""]];
             [[Config Instance] saveIcon:msg];
             
             [self hideHud];
@@ -158,9 +164,9 @@
 {
  
         NSString * price = self.PriceField.text;
+        priceString = price;
         NSArray * stringArray = [price componentsSeparatedByString:@"¥"];
         NSString * priceStr = [stringArray lastObject];
-       // NSString * priceLabel = [NSString stringWithFormat:@"¥%@",priceStr];
         self.PriceField.text = priceStr;
   }
 
@@ -262,20 +268,26 @@
        
     }
 }
+
+
+//确定修改
 - (IBAction)Sure:(id)sender {
   
-    
-    [[MyAPI sharedAPI] EditTreasureWithTreausreId:@"11" Name:@"3434343" About:self.textView.text Price:self.PriceField.text ThumbImg:imageUrl result:^(BOOL sucess, NSString *msg) {
+    [Tools hideKeyBoard];
+    [[MyAPI sharedAPI] EditTreasureWithTreausreId:self.array[0] Name:self.namefield.text About:self.textView.text Price:self.PriceField.text ThumbImg:imageUrl result:^(BOOL sucess, NSString *msg) {
         if(sucess){
+            NSLog(@"%@",imageUrl);
             [self showHint:@"修改成功"];
-            
+            [self.navigationController popViewControllerAnimated:YES];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"loadTreasureManageView" object:nil];
         }else{
-            
+            [self showHint:msg];
         }
     } errorResult:^(NSError *enginerError) {
         
     }];
 }
+
 
 //退回到上级界面
 - (IBAction)back:(id)sender {

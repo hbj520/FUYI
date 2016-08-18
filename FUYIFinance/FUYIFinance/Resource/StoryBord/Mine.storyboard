@@ -991,7 +991,7 @@
         <!--订单管理-->
         <scene sceneID="oGE-PM-EOw">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="33Z-NW-RJc" customClass="OrderManageViewController" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="33Z-NW-RJc" customClass="OrderManageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yKs-4i-dey"/>
                         <viewControllerLayoutGuide type="bottom" id="nC1-e0-AvW"/>
@@ -999,19 +999,7 @@
                     <view key="view" contentMode="scaleToFill" id="Z8K-BZ-bV6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oja-fu-Kek">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="oja-fu-Kek" secondAttribute="trailing" id="QOn-q1-sSu"/>
-                            <constraint firstItem="nC1-e0-AvW" firstAttribute="top" secondItem="oja-fu-Kek" secondAttribute="bottom" id="tnn-o5-sfV"/>
-                            <constraint firstItem="oja-fu-Kek" firstAttribute="top" secondItem="yKs-4i-dey" secondAttribute="bottom" id="ulr-lv-ta7"/>
-                            <constraint firstItem="oja-fu-Kek" firstAttribute="leading" secondItem="Z8K-BZ-bV6" secondAttribute="leading" id="zUi-ET-9oA"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="订单管理" id="wgO-97-lwG">
                         <barButtonItem key="leftBarButtonItem" image="back" id="Jv5-gy-q2u">
@@ -1021,9 +1009,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="tableView" destination="oja-fu-Kek" id="odz-z8-sfm"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ktv-oW-wAl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1375,7 +1360,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5z5-dw-mjW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3705" y="-1351"/>
+            <point key="canvasLocation" x="-3929" y="-1415"/>
         </scene>
         <!--消息中心-->
         <scene sceneID="uVF-kl-X1h">
@@ -2423,7 +2408,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ub6-gY-PL8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-6525" y="4934"/>
+            <point key="canvasLocation" x="-6557" y="4870"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SXa-L7-BNk">
@@ -3011,7 +2996,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PDI-j5-ZYg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5668" y="4242"/>
+            <point key="canvasLocation" x="-5698" y="4232"/>
         </scene>
         <!--Treasure Manage View Controller-->
         <scene sceneID="oaR-0B-0sa">
@@ -3061,7 +3046,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="307"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bigimage" translatesAutoresizingMaskIntoConstraints="NO" id="2oM-nr-w97">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2oM-nr-w97">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="250" id="3td-oM-Pp7"/>
@@ -3312,7 +3297,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lO5-vk-T4I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4479" y="-3100"/>
+            <point key="canvasLocation" x="-4526" y="-3068"/>
         </scene>
         <!--订单消息-->
         <scene sceneID="Woe-8q-lTW">
@@ -3400,7 +3385,7 @@
         <!--我的店铺-->
         <scene sceneID="5Hg-6R-Uqj">
             <objects>
-                <viewController storyboardIdentifier="teacherStorybordId" id="pQA-Bx-jRS" customClass="MyShopViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="teacherStorybordId" automaticallyAdjustsScrollViewInsets="NO" id="pQA-Bx-jRS" customClass="MyShopViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uhE-R9-s5a"/>
                         <viewControllerLayoutGuide type="bottom" id="R56-U2-1g1"/>
@@ -3514,11 +3499,10 @@
         <image name="aboutus" width="33" height="43"/>
         <image name="accountregister" width="32" height="32"/>
         <image name="back" width="12" height="17"/>
-        <image name="bigimage" width="750" height="503"/>
         <image name="btndark" width="45" height="45"/>
         <image name="collect" width="40" height="43"/>
         <image name="favorite" width="39" height="43"/>
-        <image name="judged" width="40" height="42"/>
+        <image name="judged" width="44" height="40"/>
         <image name="loadheadImage" width="750" height="343"/>
         <image name="loadname" width="46" height="45"/>
         <image name="loadpassword" width="46" height="45"/>
@@ -3545,10 +3529,10 @@
         <image name="rightArrow" width="25" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gnZ-Xe-nOx"/>
-        <segue reference="dqh-en-jn6"/>
         <segue reference="2JG-jj-fn7"/>
+        <segue reference="dqh-en-jn6"/>
         <segue reference="wOj-XJ-nss"/>
         <segue reference="xFS-qr-VxC"/>
+        <segue reference="gnZ-Xe-nOx"/>
     </inferredMetricsTieBreakers>
 </document>

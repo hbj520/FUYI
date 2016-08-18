@@ -42,6 +42,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = YES;
+    
 
 }
 - (void)viewDidLoad {
@@ -478,6 +479,7 @@
         [self logOut];
     }else{
     [self performSegueWithIdentifier:@"treasureSegue" sender:[NSNumber numberWithBool:YES]];
+    
     }
     }
 
@@ -488,6 +490,8 @@
         [self logOut];
     }else{
     [self performSegueWithIdentifier:@"ordermanageSegue" sender:[NSNumber numberWithBool:NO]];
+        UIView * contentView = [self.tabBarController.view.subviews objectAtIndex:0];
+        contentView.frame = CGRectMake(0,0,ScreenWidth,0);
     }
 }
 

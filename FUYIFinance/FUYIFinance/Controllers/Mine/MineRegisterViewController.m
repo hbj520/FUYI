@@ -87,6 +87,7 @@
 
 
 - (IBAction)sendYZm:(id)sender {
+    [Tools hideKeyBoard];
     if(self.PhoneNum.text.length < 11){
         [self showHint:@"请输入正确的手机号"];
         return;
@@ -111,6 +112,7 @@
     NSString * textcodenum = self.testCode.text;
     NSString * passwordnumber = self.password.text;
     NSString * repasswordnumber = self.repassword.text;
+    [Tools hideKeyBoard];
     if(![self.password.text isEqualToString:self.repassword.text]){
         [self showHint:@"请确认两次密码相同"];
         return;

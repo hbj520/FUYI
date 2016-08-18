@@ -159,6 +159,14 @@ UIAlertViewDelegate>
         }else{
             if([msg isEqualToString:@"-1"]){
                 [self logOut];
+            }else{
+                if([msg isEqualToString:@"0"]){
+                    [waitpayArray removeAllObjects];
+                    [waitjudgeArray removeAllObjects];
+                    [isjudgeArray removeAllObjects];
+                    [allData removeAllObjects];
+                    [_tableView reloadData];
+                }
             }
             [_tableView.mj_header endRefreshing];
         }

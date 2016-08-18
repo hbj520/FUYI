@@ -60,6 +60,7 @@
 }
 
 - (IBAction)testCode:(id)sender {
+    [Tools hideKeyBoard];
     if(self.phoneNum.text.length<11){
         [self showHint:@"请输入正确的手机号"];
         return;
@@ -79,6 +80,7 @@
 
 
 - (IBAction)sureBtn:(id)sender {
+    [Tools hideKeyBoard];
     if(self.passwordNum.text.length==0||self.confirmpasswordNum.text.length==0){
         [self showHint:@"输入不能为空"];
         return;
@@ -135,12 +137,12 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
+
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
+
     return 1;
 }
 

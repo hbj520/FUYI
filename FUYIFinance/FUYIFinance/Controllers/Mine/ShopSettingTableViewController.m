@@ -14,6 +14,7 @@
 #import "TeacherShopInfoModel.h"
 #import "KGModal.h"
 #import "MyAPI.h"
+
 @interface ShopSettingTableViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 {
     UIImagePickerController * _picker;
@@ -101,7 +102,7 @@
 {
     if (indexPath.section == 0) {
         if(indexPath.row == 0){
-            [self showModalView];
+           // [self showModalView];
         }
         if(indexPath.row == 1){
             [self performSegueWithIdentifier:@"shopnameSegue" sender:nil];
@@ -127,8 +128,7 @@
         [self openCamera];
       [[KGModal sharedInstance] hideAnimated:YES];  
     };
-   // ModifyHeadView * modifyView = [[[NSBundle mainBundle] loadNibNamed:@"ModifyHeadView" owner:self options:nil] lastObject];
-   // [modifyView createUI];
+   
        
 }
 - (void)initPickView
@@ -171,6 +171,11 @@
 - (IBAction)back:(id)sender {
     self.navigationController.navigationBarHidden = YES;
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [Tools hideKeyBoard];
 }
 
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key
