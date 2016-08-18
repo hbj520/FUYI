@@ -40,7 +40,7 @@ static NSString *collectionId = @"MyCollectionId";
     collectGoodArr = [[NSMutableArray alloc]init];
     [self creatUI];
     _page = 1;
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadData) name:@"reloadcollect" object:nil];
     [self loadDataWithPage:_page];
     [self addRefresh];
 
@@ -70,6 +70,16 @@ static NSString *collectionId = @"MyCollectionId";
     }];
 }
 
+
+- (void)loadData
+{
+    [_tableView.mj_header beginRefreshing];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"reloadcollect" object:nil];
+}
 
 - (void)loadDataWithPage:(NSInteger)page{
     NSString *nowPage = [NSString stringWithFormat:@"%ld",(long)_page];

@@ -127,7 +127,7 @@
                                                   type:_model.videoType
                                                 result:^(BOOL sucess, NSString *msg) {
                                                     if (sucess) {
-                                                        
+                                                        [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadcollect" object:nil];
                                                         [self showPopup:msg];
                                                         _model.videoCollect = @"0";
                                                     }else{
@@ -150,7 +150,7 @@
                                              [self logOut];
                                          }
                                          if (sucess) {
-                                             
+                                             [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadcollect" object:nil];
                                              [self showPopup:msg];
                                              _model.videoCollect = @"1";
                                          }else{
