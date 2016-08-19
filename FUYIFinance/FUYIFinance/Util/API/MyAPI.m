@@ -153,7 +153,10 @@
  */
 - (void)registerWithParameters:(NSString *)phoneNum Password:(NSString *)password RePassword:(NSString *)repassword YZMNum:(NSString *)yzmnum result:(StateBlock)result errorResult:(ErrorBlock)errorResult
 {
-    NSDictionary * parameters = @{@"phone":phoneNum,@"passwd":password,@"repasswd":repassword,@"yzm":yzmnum};
+    NSDictionary * parameters = @{@"phone":phoneNum,
+                                  @"passwd":password,
+                                  @"repasswd":repassword,
+                                  @"yzm":yzmnum};
     [self.manager POST:@"nos_reg" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         NSString * status = responseObject[@"status"];
         NSString * information = responseObject[@"info"];
@@ -1004,7 +1007,7 @@
             if([status isEqualToString:@"-1"]){
                 result(NO,@"-1",nil);
             }else{
-                result(NO,info,nil);
+                result(NO,status,nil);
             }
         }
 

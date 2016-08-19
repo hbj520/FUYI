@@ -88,6 +88,7 @@
             if([msg isEqualToString:@"-1"]){
                 [self logOut];
             }else{
+                [_tableView.mj_header endRefreshing];
                 [_tableView.mj_footer endRefreshingWithNoMoreData];
             }
         }

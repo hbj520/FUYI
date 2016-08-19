@@ -14,7 +14,7 @@
 {
     NSMutableArray * dataSource;
 }
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property(nonatomic,strong) UITableView * tableView;
 @end
 
 @implementation OrderManageViewController
@@ -23,8 +23,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     dataSource = [NSMutableArray array];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight) style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    [self.view addSubview:self.tableView];
     [self createUI];
     [self loadData];
 }
@@ -37,7 +39,7 @@
 
 - (void)createUI
 {
-   self.tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    self.tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     [self.tableView registerNib:[UINib nibWithNibName:@"MyShopDetailTableViewCell" bundle:nil] forCellReuseIdentifier:@"cellID4"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     

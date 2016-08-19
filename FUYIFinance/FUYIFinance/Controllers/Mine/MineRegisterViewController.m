@@ -85,8 +85,9 @@
     }
 }
 
-
+//发送验证码
 - (IBAction)sendYZm:(id)sender {
+    [Tools hideKeyBoard];
     if(self.PhoneNum.text.length < 11){
         [self showHint:@"请输入正确的手机号"];
         return;
@@ -111,6 +112,7 @@
     NSString * textcodenum = self.testCode.text;
     NSString * passwordnumber = self.password.text;
     NSString * repasswordnumber = self.repassword.text;
+    [Tools hideKeyBoard];
     if(![self.password.text isEqualToString:self.repassword.text]){
         [self showHint:@"请确认两次密码相同"];
         return;
@@ -131,9 +133,10 @@
                                        result:^(BOOL sucess, NSString *msg) {
         if(sucess){
             [self showHint:@"注册成功，请登录"];
+            [self.navigationController popViewControllerAnimated:YES];
             
         }else{
-            [self showHint:@"注册失败"];
+            [self showHint:msg];
         }
     } errorResult:^(NSError *enginerError) {
         
@@ -146,6 +149,7 @@
     [self.view endEditing:YES];
 }
 
+//返回
 - (IBAction)back:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }

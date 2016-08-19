@@ -29,6 +29,7 @@
     [self.view endEditing:YES];
 }
 
+//保存昵称
 - (IBAction)saveNickname:(id)sender {
     NSDictionary * dict = [[NSDictionary alloc] initWithObjectsAndKeys:self.nicknamefield.text,@"nickname" ,nil];
     NSNotification * notification = [NSNotification notificationWithName:@"returnnick" object:nil userInfo:dict];
@@ -36,7 +37,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-
+//返回
 - (IBAction)back:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }

@@ -28,7 +28,7 @@
     [self loadData];
 }
 
-
+//搭设界面
 - (void)createUI
 {
     
@@ -38,6 +38,8 @@
     self.tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
 }
 
+
+//加载数据
 - (void)loadData
 {
     dataSource = [NSMutableArray array];
@@ -51,6 +53,7 @@
     }];
 }
 
+#pragma mark-TableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -65,6 +68,7 @@
 {
     static NSString * cellId = @"NoticeId";
     NoticeListTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     SystemNoticeModel * model = [[SystemNoticeModel alloc] init];
     model = dataSource[indexPath.row];
     cell.model = model;

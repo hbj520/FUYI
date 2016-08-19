@@ -87,6 +87,7 @@
                                                            [self logOut];
                                                        }else{
                                                            //[self showHint:msg];
+                                                           [_tableView.mj_header endRefreshing];
                                                            [_tableView.mj_footer endRefreshingWithNoMoreData];
                                                        }
                                                    }
@@ -157,7 +158,6 @@
     VC.ordernum = model.ordernum;
     VC.indexpath = indexpath;
     VC.index = indexpath.section;
-    NSLog(@"%ld",VC.index);
     [self.navigationController pushViewController:VC animated:YES];
 }
 

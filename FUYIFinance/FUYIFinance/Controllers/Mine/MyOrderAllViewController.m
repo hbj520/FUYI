@@ -92,6 +92,7 @@ UIAlertViewDelegate>
     [super viewWillAppear:animated];
 }
 
+//添加上拉刷新
 - (void)addRefresh
 {
     __weak MyOrderAllViewController * weakself = self;
@@ -159,6 +160,14 @@ UIAlertViewDelegate>
         }else{
             if([msg isEqualToString:@"-1"]){
                 [self logOut];
+            }else{
+                if([msg isEqualToString:@"0"]){
+                    [waitpayArray removeAllObjects];
+                    [waitjudgeArray removeAllObjects];
+                    [isjudgeArray removeAllObjects];
+                    [allData removeAllObjects];
+                    [_tableView reloadData];
+                }
             }
             [_tableView.mj_header endRefreshing];
         }
@@ -170,6 +179,8 @@ UIAlertViewDelegate>
     
   }
 
+
+#pragma mark-TableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     for (NSInteger i = 0; i < allData.count; i ++) {
@@ -269,6 +280,7 @@ UIAlertViewDelegate>
                 model = isjudgeArray[indexPath.row];
                 [cell.thumbimage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
                 cell.titlename.text = model.name;
+                cell.defaultjudge.text = model.content;
                 cell.timelabel.text = model.ctime;
                 return cell;
 
@@ -304,6 +316,7 @@ UIAlertViewDelegate>
                 model = isjudgeArray[indexPath.row];
                 [cell.thumbimage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
                 cell.titlename.text = model.name;
+                cell.defaultjudge.text = model.content;
                 cell.timelabel.text = model.ctime;
                 return cell;
             }
@@ -361,6 +374,7 @@ UIAlertViewDelegate>
             model = isjudgeArray[indexPath.row];
             [cell.thumbimage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
             cell.titlename.text = model.name;
+            cell.defaultjudge.text = model.content;
             cell.timelabel.text = model.ctime;
             return cell;
         }
@@ -416,6 +430,7 @@ UIAlertViewDelegate>
         model = isjudgeArray[indexPath.row];
         [cell.thumbimage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
         cell.titlename.text = model.name;
+        cell.defaultjudge.text = model.content;
         cell.timelabel.text = model.ctime;
         return cell;
     }
@@ -480,6 +495,8 @@ UIAlertViewDelegate>
     }
 }
 
+
+#pragma mark - 取消订单
 - (void)CancelOrdernum:(UIButton *)sender
 {
     UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"确认删除订单？" message:@"删除之后可以从电脑端订单回收站恢复" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认", nil];
@@ -488,6 +505,8 @@ UIAlertViewDelegate>
  
 }
 
+
+#pragma mark - 确认付款
 - (void)PayOrder:(UIButton *)sender
 {
     _shadowBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
@@ -512,6 +531,7 @@ UIAlertViewDelegate>
 
 }
 
+#pragma mark -弹出支付密码键盘
 - (void)payaction
 {
     XLPasswordView * passwordView = [XLPasswordView passwordView];
@@ -519,6 +539,8 @@ UIAlertViewDelegate>
     
     [passwordView showPasswordInView:self.view];
 }
+
+
 
 - (void)passwordView:(XLPasswordView *)passwordView didFinishInput:(NSString *)password
 
@@ -539,15 +561,12 @@ UIAlertViewDelegate>
             [_tableView.mj_header beginRefreshing];
         }else{
             [self showHint:info];
+            [passwordView hidePasswordView];
         }
 
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         
     }];
-    
-    
-    NSLog(@"例如自动校验密码");
-    
 }
 
 
@@ -563,7 +582,7 @@ UIAlertViewDelegate>
     [UIView commitAnimations];
 }
 
-
+//取消订单
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if(buttonIndex == 1){

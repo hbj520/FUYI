@@ -17,16 +17,15 @@
 
 @interface MineModifyInfoViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIActionSheetDelegate>
 {
-    UIImagePickerController * _picker;
-    NSString * imageUrl;
-    PersonalUserInfo * userInfo;
+    UIImagePickerController * _picker;                              //照片选择控制器
+    NSString * imageUrl;                                            //图片网址
+    PersonalUserInfo * userInfo;                                    //个人信息模型
 }
-@property (weak, nonatomic) IBOutlet UILabel *sexlabel;
-@property (weak, nonatomic) IBOutlet UILabel *nickName;
-@property (weak, nonatomic) IBOutlet UIImageView *headImage;
-@property (weak, nonatomic) IBOutlet UITextField *qqnum;
-
-@property (weak, nonatomic) IBOutlet UITextField *emailnum;
+@property (weak, nonatomic) IBOutlet UILabel *sexlabel;             //性别
+@property (weak, nonatomic) IBOutlet UILabel *nickName;             //昵称
+@property (weak, nonatomic) IBOutlet UIImageView *headImage;        //头像
+@property (weak, nonatomic) IBOutlet UITextField *qqnum;            //qq号
+@property (weak, nonatomic) IBOutlet UITextField *emailnum;         //邮箱
 @end
 
 @implementation MineModifyInfoViewController
@@ -94,26 +93,29 @@
     }
 }
 
-
+//初始化照片选择控制器
 - (void)initPickView
 {
     _picker = [[UIImagePickerController alloc] init];
     _picker.delegate = self;
 }
 
-
+//打开手机照相机
 - (void)openCamera
 {
     _picker.sourceType = UIImagePickerControllerSourceTypeCamera;
     [self presentViewController:_picker animated:YES completion:nil];
 }
 
+//打开手机相册
 - (void)openPhotoAlbun
 {
     _picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     [self presentViewController:_picker animated:YES completion:nil];
 }
 
+
+//弹出选择照片视图
 - (void)showModalView
 {
    
@@ -249,7 +251,7 @@
                                                      if(sucess){
                                                          [[Config Instance] saveUsername:self.nickName.text];
                                                          [self showHint:@"上传成功"];
-                                                       
+                                                         [self.navigationController popViewControllerAnimated:YES];
                                                      }else{
                                                          [self showHint:msg];
                                                      }

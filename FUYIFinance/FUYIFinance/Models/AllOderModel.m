@@ -20,6 +20,7 @@
             Teacher:(NSString *)teacher
            Shopname:(NSString *)shopname
            Ordernum:(NSString *)ordernum
+            Content:(NSString *)content
 {
     AllOderModel * model = [[AllOderModel alloc] init];
     model.ctime = ctime;
@@ -32,6 +33,7 @@
     model.teacher = teacher;
     model.shopname = shopname;
     model.ordernum = ordernum;
+    model.content = content;
     return model;
 }
 
@@ -43,13 +45,17 @@
         NSString * goodsid = dict[@"goodsid"];
         NSString * goodstype = dict[@"goodstype"];
         NSString * state = dict[@"state"];
+        NSString * content = @"";
+        if([state isEqualToString:@"2"]){
+            content = dict[@"content"];
+        }
         NSString * price = dict[@"price"];
         NSString * image = dict[@"image"];
         NSString * name = dict[@"name"];
         NSString * teacher = dict[@"teacher"];
         NSString * shopname = dict[@"shopname"];
         NSString * ordernum = dict[@"ordernum"];
-        AllOderModel * model = [[AllOderModel alloc] initWithCtime:ctime Goodsid:goodsid Goodstype:goodstype State:state Price:price Image:image Name:name Teacher:teacher Shopname:shopname Ordernum:ordernum];
+        AllOderModel * model = [[AllOderModel alloc] initWithCtime:ctime Goodsid:goodsid Goodstype:goodstype State:state Price:price Image:image Name:name Teacher:teacher Shopname:shopname Ordernum:ordernum Content:content];
         [allorderArray addObject:model];
     }
     return allorderArray;

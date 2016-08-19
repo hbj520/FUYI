@@ -42,6 +42,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = YES;
+    
 
 }
 - (void)viewDidLoad {
@@ -75,10 +76,10 @@
 
 #pragma mark - PrivateMethod
 - (void)createUI{
-    [self addChatBtn];
     [self initPickView];
     imageUrl = [[Config Instance] getBackImage];
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
+    _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [_tableView registerNib:[UINib nibWithNibName:@"MyShopHeaderTableViewCell" bundle:nil] forCellReuseIdentifier:@"cellID1"];
@@ -87,7 +88,6 @@
     [_tableView registerNib:[UINib nibWithNibName:@"MyShopDetailTableViewCell" bundle:nil] forCellReuseIdentifier:@"cellID4"];
     [self.view addSubview:_tableView];
     dataSource = [NSMutableArray array];
-   // [self addRefresh];
     [self loadData];
 }
 - (void)addRefresh
@@ -113,46 +113,8 @@
         [_tableView.mj_footer endRefreshing];
     }];
 }
-//添加自定制导航栏按钮
-- (void)addChatBtn{
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(0, 0, 31, 27);
-    [btn setImage:[UIImage imageNamed:@"messageBtn"] forState:UIControlStateNormal];
-    [btn addTarget:self action:@selector(chatAct:) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn1.frame = CGRectMake(0, 0,20,20);
-    [btn1 addTarget:self action:@selector(btnclick1:) forControlEvents:UIControlEventTouchUpInside];
-    [btn1 setImage:[UIImage imageNamed:@"barimage"] forState:UIControlStateNormal];
-    
-    _chatBtn = [[BBBadgeBarButtonItem alloc] initWithCustomUIButton:btn];
-    _chatBtn.badgeFont = [UIFont systemFontOfSize:10.0f];
-    _chatBtn.badgeOriginX = 15.5;
-    _chatBtn.badgeOriginY = -2.5;
-    _chatBtn.badgePadding = 2;
-    _chatBtn.badgeValue = @"0";
-    
-    _chatBtn1 = [[BBBadgeBarButtonItem alloc] initWithCustomUIButton:btn1];
-    _chatBtn1.badgeFont = [UIFont systemFontOfSize:10.0f];
-    _chatBtn1.badgeOriginX = 15.5;
-    _chatBtn1.badgeOriginY = -2.5;
-    _chatBtn1.badgePadding = 2;
-    _chatBtn1.badgeValue = @"0";
-    
-    NSMutableArray *arryBtn = [NSMutableArray arrayWithObjects:_chatBtn,_chatBtn1, nil];
-    self.navigationItem.rightBarButtonItems = arryBtn;
-}
 
-//自定制导航栏信息按钮的事件响应方法
-- (void)chatAct:(id)sender{
-    
-}
-
-- (void)btnclick1:(id)sender
-{
-   // [_tableView.mj_header beginRefreshing];
-}
-
+#pragma mark-TableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 5;
@@ -342,6 +304,16 @@
     return nil;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    if(section==0){
+        UIView * view = [[UIView alloc] initWithFrame:CGRectZero];
+        return view;
+    }else{
+        return nil;
+    }
+}
+
 - (void)login
 {
     [self logOut];
@@ -478,6 +450,7 @@
         [self logOut];
     }else{
     [self performSegueWithIdentifier:@"treasureSegue" sender:[NSNumber numberWithBool:YES]];
+    
     }
     }
 
@@ -488,6 +461,8 @@
         [self logOut];
     }else{
     [self performSegueWithIdentifier:@"ordermanageSegue" sender:[NSNumber numberWithBool:NO]];
+        UIView * contentView = [self.tabBarController.view.subviews objectAtIndex:0];
+        contentView.frame = CGRectMake(0,0,ScreenWidth,0);
     }
 }
 
@@ -500,6 +475,7 @@
     [self performSegueWithIdentifier:@"shopsettingSegue" sender:nil];
     }
 }
+
 
 - (void)dealloc
 {

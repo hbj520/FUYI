@@ -32,28 +32,41 @@
     // Do any additional setup after loading the view.
     [self addChatBtn];
     page = 1;
+    [self createUI];
+    dataSource = [NSMutableArray array];
+    [self loadData];
+    [self addNotification];
+    
+}
+
+
+- (void)createUI
+{
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
     _tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [_tableView registerNib:[UINib nibWithNibName:@"LoveManageTableViewCell" bundle:nil] forCellReuseIdentifier:@"TreasureId"];
     [self.view addSubview:_tableView];
     [self addRefresh];
-    dataSource = [NSMutableArray array];
-    [self loadData];
-    
+ 
+}
+
+- (void)addNotification
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadData) name:@"loadTreasureManageView" object:nil];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"loadTreasureManageView" object:nil];
 }
 
 #pragma mark -PRIVATEMETHOD
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
-    if(self.isGoodsSetting){
-        self.navigationItem.title = @"宝贝管理";
-    }else{
-        self.navigationItem.title = @"宝贝管理";
-    }
-    
 }
 
 - (void)loadData
@@ -127,6 +140,7 @@
     [_tableView.mj_header beginRefreshing];
 }
 
+#pragma mark-TableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return dataSource.count;
@@ -168,7 +182,8 @@
     //跳转到编辑宝贝
     NSInteger index = sender.tag;
     ManageTreasureModel * model = dataSource[index];
-    NSArray * arr = @[model.goodsid,model.price];
+    NSString * imageStr = [NSString stringWithFormat:@"http://60.173.235.34:9090/fuyi//%@",model.thumbimg];
+    NSArray * arr = @[model.goodsid,model.price,model.title,imageStr];
     [self performSegueWithIdentifier:@"modifySegue" sender:arr];
 }
 
@@ -212,8 +227,10 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    ManageTreasureTableViewController * vc = [[ManageTreasureTableViewController alloc] init];
-    vc.array = sender;
+    if([segue.identifier isEqualToString:@"modifySegue"]){
+        ManageTreasureTableViewController * vc = segue.destinationViewController;
+        vc.array = sender;
+    }
 }
 
 

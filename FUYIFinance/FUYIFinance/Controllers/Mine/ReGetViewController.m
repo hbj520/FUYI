@@ -59,7 +59,10 @@
   //  self.distancewithtoplayout.constant = 0;
 }
 
+
+//发送验证码
 - (IBAction)testCode:(id)sender {
+    [Tools hideKeyBoard];
     if(self.phoneNum.text.length<11){
         [self showHint:@"请输入正确的手机号"];
         return;
@@ -77,8 +80,9 @@
 }
 
 
-
+//确定按钮
 - (IBAction)sureBtn:(id)sender {
+    [Tools hideKeyBoard];
     if(self.passwordNum.text.length==0||self.confirmpasswordNum.text.length==0){
         [self showHint:@"输入不能为空"];
         return;
@@ -94,6 +98,7 @@
    [[MyAPI sharedAPI] forgetPasswordWithPhonenum:self.phoneNum.text YZM:self.yzmNum.text Password:passwordnum Repassword:repasswordnum result:^(BOOL sucess, NSString *msg) {
        if(sucess){
            [self showHint:msg];
+           [self.navigationController popViewControllerAnimated:YES];
        }else{
            [self showHint:msg];
        }
@@ -134,12 +139,12 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
+
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
+
     return 1;
 }
 

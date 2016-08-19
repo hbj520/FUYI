@@ -130,12 +130,14 @@
                 if(sucess){
                     [self showHint:msg];
                     [self down];
+                    [passwordView hidePasswordView];
                     UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
                     MyOrderAllViewController * VC = (MyOrderAllViewController *)[storyboard instantiateViewControllerWithIdentifier:@"MyOrderStoryBoardID"];
                     [self.navigationController pushViewController:VC animated:YES];
     
                 }else{
                     [self showHint:msg];
+                    [passwordView hidePasswordView];
                 }
             } ErrorResult:^(NSError *enginerError) {
                 

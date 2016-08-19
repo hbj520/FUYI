@@ -635,7 +635,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r1Q-BL-DkO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7587" y="553"/>
+            <point key="canvasLocation" x="-8059" y="861"/>
         </scene>
         <!--修改密码-->
         <scene sceneID="gcV-qA-Yie">
@@ -753,7 +753,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FOH-aV-vsz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-6752" y="-2736"/>
+            <point key="canvasLocation" x="-5414" y="-2380"/>
         </scene>
         <!--关于我们-->
         <scene sceneID="4UW-IF-bRJ">
@@ -794,7 +794,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1KL-jM-vMp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7710" y="-176"/>
+            <point key="canvasLocation" x="-7947" y="-576"/>
         </scene>
         <!--修改密码-->
         <scene sceneID="NjP-xD-g3l">
@@ -986,12 +986,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6oZ-0a-hcr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5454" y="-1431"/>
+            <point key="canvasLocation" x="-5406" y="-1431"/>
         </scene>
         <!--订单管理-->
         <scene sceneID="oGE-PM-EOw">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="33Z-NW-RJc" customClass="OrderManageViewController" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="33Z-NW-RJc" customClass="OrderManageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yKs-4i-dey"/>
                         <viewControllerLayoutGuide type="bottom" id="nC1-e0-AvW"/>
@@ -999,19 +999,7 @@
                     <view key="view" contentMode="scaleToFill" id="Z8K-BZ-bV6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oja-fu-Kek">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="oja-fu-Kek" secondAttribute="trailing" id="QOn-q1-sSu"/>
-                            <constraint firstItem="nC1-e0-AvW" firstAttribute="top" secondItem="oja-fu-Kek" secondAttribute="bottom" id="tnn-o5-sfV"/>
-                            <constraint firstItem="oja-fu-Kek" firstAttribute="top" secondItem="yKs-4i-dey" secondAttribute="bottom" id="ulr-lv-ta7"/>
-                            <constraint firstItem="oja-fu-Kek" firstAttribute="leading" secondItem="Z8K-BZ-bV6" secondAttribute="leading" id="zUi-ET-9oA"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="订单管理" id="wgO-97-lwG">
                         <barButtonItem key="leftBarButtonItem" image="back" id="Jv5-gy-q2u">
@@ -1021,9 +1009,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="tableView" destination="oja-fu-Kek" id="odz-z8-sfm"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ktv-oW-wAl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1375,7 +1360,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5z5-dw-mjW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3705" y="-1351"/>
+            <point key="canvasLocation" x="-3929" y="-1415"/>
         </scene>
         <!--消息中心-->
         <scene sceneID="uVF-kl-X1h">
@@ -1574,7 +1559,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mct-30-GoA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5698" y="1124"/>
+            <point key="canvasLocation" x="-5668" y="1112"/>
         </scene>
         <!--我的订单-->
         <scene sceneID="UCr-rr-wHb">
@@ -1601,7 +1586,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3PF-Ah-sal" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5385" y="2613"/>
+            <point key="canvasLocation" x="-5668" y="2545"/>
         </scene>
         <!--发布宝贝-->
         <scene sceneID="uK1-gj-jaZ">
@@ -1893,7 +1878,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VDQ-Ny-qqx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5414" y="-3805"/>
+            <point key="canvasLocation" x="-5414" y="-3825"/>
         </scene>
         <!--店铺设置-->
         <scene sceneID="Uhw-0k-Cof">
@@ -2126,7 +2111,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gsi-Qz-csD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4473" y="-5145"/>
+            <point key="canvasLocation" x="-4513" y="-5341"/>
         </scene>
         <!--Shop Name View Controller-->
         <scene sceneID="QoA-Vn-7Lr">
@@ -2212,7 +2197,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wv0-Be-WbM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4479" y="-4387"/>
+            <point key="canvasLocation" x="-4513" y="-4599"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rCX-Q0-pr6">
@@ -2415,6 +2400,7 @@
                     <connections>
                         <outlet property="label1" destination="fng-dH-EB3" id="TZ4-IX-wz3"/>
                         <outlet property="label2" destination="HX3-jb-9Es" id="4vG-ka-9MS"/>
+                        <outlet property="numlabel" destination="jVf-vL-awK" id="G6v-lv-ENb"/>
                         <outlet property="starView" destination="RtO-R9-ibV" id="7gF-ca-f2W"/>
                         <outlet property="surebtn" destination="ywO-CZ-FKR" id="KZt-UI-smp"/>
                         <outlet property="textView" destination="U6k-UC-RrN" id="VC2-xy-lo6"/>
@@ -2423,7 +2409,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ub6-gY-PL8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-6525" y="4934"/>
+            <point key="canvasLocation" x="-6557" y="4870"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SXa-L7-BNk">
@@ -3011,7 +2997,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PDI-j5-ZYg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5668" y="4242"/>
+            <point key="canvasLocation" x="-5698" y="4232"/>
         </scene>
         <!--Treasure Manage View Controller-->
         <scene sceneID="oaR-0B-0sa">
@@ -3041,7 +3027,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yZb-Og-HPw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5414" y="-3068"/>
+            <point key="canvasLocation" x="-5414" y="-3092"/>
         </scene>
         <!--编辑宝贝-->
         <scene sceneID="XxT-nN-DKp">
@@ -3061,7 +3047,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="307"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bigimage" translatesAutoresizingMaskIntoConstraints="NO" id="2oM-nr-w97">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2oM-nr-w97">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="250" id="3td-oM-Pp7"/>
@@ -3312,7 +3298,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lO5-vk-T4I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4479" y="-3100"/>
+            <point key="canvasLocation" x="-4513" y="-3092"/>
         </scene>
         <!--订单消息-->
         <scene sceneID="Woe-8q-lTW">
@@ -3353,7 +3339,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JuH-bO-3WE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-6547" y="-734"/>
+            <point key="canvasLocation" x="-6635" y="-610"/>
         </scene>
         <!--系统消息-->
         <scene sceneID="WUF-5K-P62">
@@ -3395,7 +3381,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gPI-6y-ktw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-6082" y="-734"/>
+            <point key="canvasLocation" x="-6130" y="-622"/>
         </scene>
         <!--我的店铺-->
         <scene sceneID="5Hg-6R-Uqj">
@@ -3453,7 +3439,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G7S-gX-4zA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5720" y="1885"/>
+            <point key="canvasLocation" x="-5668" y="1829"/>
         </scene>
         <!--待评价-->
         <scene sceneID="ZuF-TX-Z9V">
@@ -3514,11 +3500,10 @@
         <image name="aboutus" width="33" height="43"/>
         <image name="accountregister" width="32" height="32"/>
         <image name="back" width="12" height="17"/>
-        <image name="bigimage" width="750" height="503"/>
         <image name="btndark" width="45" height="45"/>
         <image name="collect" width="40" height="43"/>
         <image name="favorite" width="39" height="43"/>
-        <image name="judged" width="40" height="42"/>
+        <image name="judged" width="44" height="40"/>
         <image name="loadheadImage" width="750" height="343"/>
         <image name="loadname" width="46" height="45"/>
         <image name="loadpassword" width="46" height="45"/>
@@ -3545,10 +3530,10 @@
         <image name="rightArrow" width="25" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gnZ-Xe-nOx"/>
         <segue reference="dqh-en-jn6"/>
-        <segue reference="2JG-jj-fn7"/>
+        <segue reference="gnZ-Xe-nOx"/>
         <segue reference="wOj-XJ-nss"/>
-        <segue reference="xFS-qr-VxC"/>
+        <segue reference="2JG-jj-fn7"/>
+        <segue reference="qGy-mc-chm"/>
     </inferredMetricsTieBreakers>
 </document>
