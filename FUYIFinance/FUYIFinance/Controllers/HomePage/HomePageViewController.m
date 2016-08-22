@@ -170,7 +170,7 @@ static NSString *investReuseId = @"investReuseId";
     };
     //点击搜索
     navItem.searchResultBlock = ^(NSString *resutText){
-        
+    
     };
     [self.view addSubview:navItem];
     [navItem mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -243,7 +243,6 @@ static NSString *investReuseId = @"investReuseId";
             investTableViewCell = [[InvestCollectionViewTableViewCell alloc]
                                    initWithStyle:UITableViewCellStyleDefault
                                    reuseIdentifier:investReuseId];
-            
         }
         if (inverstData.count > 1) {
             [investTableViewCell createUIWithData:inverstData];

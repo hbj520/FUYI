@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
@@ -46,8 +45,8 @@
                         <color key="textColor" red="0.53725490196078429" green="0.53725490196078429" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pbc-C2-6cV">
-                        <rect key="frame" x="302" y="11" width="25" height="13"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pbc-C2-6cV">
+                        <rect key="frame" x="297" y="11" width="25" height="13"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="13" id="HZY-ec-hln"/>
                             <constraint firstAttribute="width" constant="25" id="I92-mw-1gV"/>
@@ -85,7 +84,7 @@
                     <constraint firstItem="LfR-or-Ucw" firstAttribute="top" secondItem="WIB-ad-aBy" secondAttribute="bottom" constant="5" id="YRB-tm-IKQ"/>
                     <constraint firstItem="Pbc-C2-6cV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="aU2-P6-Wak"/>
                     <constraint firstAttribute="trailing" secondItem="LfR-or-Ucw" secondAttribute="trailing" constant="7" id="dnu-iV-iIy"/>
-                    <constraint firstItem="WIB-ad-aBy" firstAttribute="leading" secondItem="Pbc-C2-6cV" secondAttribute="trailing" constant="-5" id="e2q-7w-FgO"/>
+                    <constraint firstItem="WIB-ad-aBy" firstAttribute="leading" secondItem="Pbc-C2-6cV" secondAttribute="trailing" id="e2q-7w-FgO"/>
                     <constraint firstItem="73R-eQ-tSY" firstAttribute="leading" secondItem="ahU-xt-KUr" secondAttribute="trailing" constant="5" id="ehm-X7-eUf"/>
                     <constraint firstItem="xar-61-IYA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="mBW-2t-wwl"/>
                     <constraint firstItem="ahU-xt-KUr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="6" id="rvG-tk-AqR"/>

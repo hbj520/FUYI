@@ -241,24 +241,29 @@
     }
 }
 - (IBAction)commit:(id)sender {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"updateImage" object:nil userInfo:nil];
-    [[MyAPI sharedAPI] PersonalInfoModifyWithParameters:self.nickName.text
-                                               imgThumb:imageUrl
-                                                  qqNum:self.qqnum.text
-                                                    Sex:self.sexlabel.text
-                                               emailNum:self.emailnum.text
-                                                 result:^(BOOL sucess, NSString *msg) {
-                                                     if(sucess){
-                                                         [[Config Instance] saveUsername:self.nickName.text];
-                                                         [self showHint:@"上传成功"];
-                                                         [self.navigationController popViewControllerAnimated:YES];
-                                                     }else{
-                                                         [self showHint:msg];
-                                                     }
-        
-    } errorResult:^(NSError *enginerError) {
-        
-    }];
+    if (KToken) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"updateImage" object:nil userInfo:nil];
+        [[MyAPI sharedAPI] PersonalInfoModifyWithParameters:self.nickName.text
+                                                   imgThumb:imageUrl
+                                                      qqNum:self.qqnum.text
+                                                        Sex:self.sexlabel.text
+                                                   emailNum:self.emailnum.text
+                                                     result:^(BOOL sucess, NSString *msg) {
+                                                         if(sucess){
+                                                             [[Config Instance] saveUsername:self.nickName.text];
+                                                             [self showHint:@"上传成功"];
+                                                             [self.navigationController popViewControllerAnimated:YES];
+                                                         }else{
+                                                             [self showHint:msg];
+                                                         }
+                                                         
+                                                     } errorResult:^(NSError *enginerError) {
+                                                         
+                                                     }];
+    }else{
+        [self logOut];
+    }
+  
     
 }
 

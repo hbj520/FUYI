@@ -51,13 +51,25 @@
         
         page = 1;
         
-        [weakself loadData];
+        if (KToken) {
+            [weakself loadData];
+        }else{
+            [_tableView.mj_header endRefreshing];
+            [_tableView.mj_footer endRefreshing];
+            [self logOut];
+        }
         
     }];
     
     MJRefreshAutoNormalFooter * footerRefresh = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         page++;
-        [weakself loadData];
+        if (KToken) {
+            [weakself loadData];
+        }else{
+            [_tableView.mj_header endRefreshing];
+            [_tableView.mj_footer endRefreshing];
+            [self logOut];
+        }
     }];
     footerRefresh.automaticallyRefresh = NO;
     _tableView.mj_footer = footerRefresh;
@@ -67,36 +79,37 @@
 
 - (void)loadData
 {
-    NSString * pagestr = [NSString stringWithFormat:@"%ld",page];
-    
-[[MyAPI sharedAPI] requestWaitjudgeDataWithParameters:pagestr
-                                               result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
-                                                  
-                                                   if(success){
-                                                       if(page == 1){
-                                                           if(dataSource.count>0){
-                                                               [dataSource removeAllObjects];
+        NSString * pagestr = [NSString stringWithFormat:@"%ld",page];
+        [[MyAPI sharedAPI] requestWaitjudgeDataWithParameters:pagestr
+                                                       result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
+                                                           
+                                                           if(success){
+                                                               if(page == 1){
+                                                                   if(dataSource.count>0){
+                                                                       [dataSource removeAllObjects];
+                                                                   }
+                                                               }
+                                                               [dataSource addObjectsFromArray:arrays];
+                                                               [_tableView reloadData];
+                                                               [_tableView.mj_header endRefreshing];
+                                                               [_tableView.mj_footer endRefreshing];
+                                                           }else{
+                                                               if([msg isEqualToString:@"-1"]){
+                                                                   [self logOut];
+                                                               }else{
+                                                                   //[self showHint:msg];
+                                                                   [_tableView.mj_header endRefreshing];
+                                                                   [_tableView.mj_footer endRefreshingWithNoMoreData];
+                                                               }
                                                            }
-                                                       }
-                                                       [dataSource addObjectsFromArray:arrays];
-                                                       [_tableView reloadData];
-                                                       [_tableView.mj_header endRefreshing];
-                                                       [_tableView.mj_footer endRefreshing];
-                                                   }else{
-                                                       if([msg isEqualToString:@"-1"]){
-                                                           [self logOut];
-                                                       }else{
-                                                           //[self showHint:msg];
+                                                           
+                                                           
+                                                       } errorResult:^(NSError *enginerError) {
                                                            [_tableView.mj_header endRefreshing];
-                                                           [_tableView.mj_footer endRefreshingWithNoMoreData];
-                                                       }
-                                                   }
-                                                  
-                                                   
-                                               } errorResult:^(NSError *enginerError) {
-                                                   [_tableView.mj_header endRefreshing];
-                                                   [_tableView.mj_footer endRefreshing];
-                                               }];
+                                                           [_tableView.mj_footer endRefreshing];
+                                                       }];
+  
+
     
 }
 

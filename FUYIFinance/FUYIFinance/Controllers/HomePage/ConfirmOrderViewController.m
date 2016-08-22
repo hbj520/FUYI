@@ -70,6 +70,7 @@
     self.view.tag = 10;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    //self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         [self.tableView registerNib:[UINib nibWithNibName:@"ConInfoTableViewCell" bundle:nil] forCellReuseIdentifier:@"confirmInfoCellReuseID"];
         [self.tableView registerNib:[UINib nibWithNibName:@"VideoInfoTableViewCell" bundle:nil] forCellReuseIdentifier:@"videoInfoCellReuseID"];
         [self.tableView registerNib:[UINib nibWithNibName:@"BuyCountTableViewCell" bundle:nil] forCellReuseIdentifier:@"buyerCountCellReuseID"];
@@ -197,13 +198,6 @@
             
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
-   //购买数目cell     }if (indexPath.row == 1) {
-//            BuyCountTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"buyerCountCellReuseID" forIndexPath:indexPath];
-//            
-//            [cell.plusBtn addTarget:self action:@selector(changeCount:) forControlEvents:UIControlEventTouchUpInside];
-//            [cell.minusBtn addTarget:self action:@selector(changeCount:) forControlEvents:UIControlEventTouchUpInside];
-//            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//            return cell;
         }if (indexPath.row == 1) {
             NoticeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"noticeCellReuseID" forIndexPath:indexPath];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;

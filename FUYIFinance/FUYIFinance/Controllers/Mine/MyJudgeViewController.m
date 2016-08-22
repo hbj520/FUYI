@@ -71,31 +71,36 @@
 
 - (void)loadData
 {
-    NSString * pagestr = [NSString stringWithFormat:@"%ld",page];
-    [[MyAPI sharedAPI] requestMyJudgeDataWithParameters:pagestr result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
-       
-        if(success){
-            if(page == 1){
-                if(dataSource.count>0){
-                    [dataSource removeAllObjects];
+    if (KToken) {
+        NSString * pagestr = [NSString stringWithFormat:@"%ld",page];
+        [[MyAPI sharedAPI] requestMyJudgeDataWithParameters:pagestr result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
+            
+            if(success){
+                if(page == 1){
+                    if(dataSource.count>0){
+                        [dataSource removeAllObjects];
+                    }
+                }
+                [dataSource addObjectsFromArray:arrays];
+                [_tableView reloadData];
+                [_tableView.mj_header endRefreshing];
+                [_tableView.mj_footer endRefreshing];
+            }else{
+                if([msg isEqualToString:@"-1"]){
+                    [self logOut];
+                }else{
+                    [_tableView.mj_header endRefreshing];
+                    [_tableView.mj_footer endRefreshingWithNoMoreData];
                 }
             }
-             [dataSource addObjectsFromArray:arrays];
-            [_tableView reloadData];
+        } errorResult:^(NSError *enginerError) {
             [_tableView.mj_header endRefreshing];
             [_tableView.mj_footer endRefreshing];
-        }else{
-            if([msg isEqualToString:@"-1"]){
-                [self logOut];
-            }else{
-                [_tableView.mj_header endRefreshing];
-                [_tableView.mj_footer endRefreshingWithNoMoreData];
-            }
-        }
-           } errorResult:^(NSError *enginerError) {
-               [_tableView.mj_header endRefreshing];
-               [_tableView.mj_footer endRefreshing];
-    }];
+        }];
+    }else{
+        [self logOut];
+    }
+   
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
