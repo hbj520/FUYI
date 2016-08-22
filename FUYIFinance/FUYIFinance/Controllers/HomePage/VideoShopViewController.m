@@ -344,7 +344,7 @@ DOPDropDownMenuDelegate>
     [cell.videoImage sd_setImageWithURL:[NSURL URLWithString:model.videoImage]placeholderImage:[UIImage imageNamed:@"bigimage"]];
     cell.videoTitle.text = model.videoName;
     cell.teacherName.text = [NSString stringWithFormat:@"讲师： %@",model.teacherName];
-    cell.videoPrice.attributedText = [[LabelHelper alloc]attributedFontStringWithString:[NSString stringWithFormat:@"¥ %@",model.videoPrice] firstFont:13 secFont:17 thirdFont:14];
+    cell.videoPrice.attributedText = [[LabelHelper alloc]attributedFontStringWithString:[NSString stringWithFormat:@" %@",model.videoPrice] firstFont:13 secFont:17 thirdFont:14];
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;

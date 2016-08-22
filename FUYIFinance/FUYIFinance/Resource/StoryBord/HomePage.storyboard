@@ -206,7 +206,7 @@
         <!--Video Shop View Controller-->
         <scene sceneID="haZ-6V-zu0">
             <objects>
-                <viewController id="els-pr-w1f" customClass="VideoShopViewController" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="els-pr-w1f" customClass="VideoShopViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WjV-fJ-BQ8"/>
                         <viewControllerLayoutGuide type="bottom" id="e3g-Lv-JfO"/>

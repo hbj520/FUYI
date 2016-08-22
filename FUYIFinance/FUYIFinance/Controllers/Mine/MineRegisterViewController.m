@@ -124,6 +124,7 @@
         [self showHint:@"请输入不少于6位的密码"];
         return;
     }
+    [self showHudInView:self.view hint:@"注册..."];
     NSString * securitypasswordnumber = [Tools loginPasswordSecurityLock:passwordnumber];
     NSString * securityrepasswordnumber = [Tools loginPasswordSecurityLock:repasswordnumber];
     [[MyAPI sharedAPI] registerWithParameters:phonenumber
@@ -138,8 +139,9 @@
         }else{
             [self showHint:msg];
         }
+       [self hideHud];
     } errorResult:^(NSError *enginerError) {
-        
+        [self hideHud];
     }];
     
 }
