@@ -1087,6 +1087,8 @@
         errorResult:(ErrorBlock)errorResult
 {
     NSDictionary * parameters = @{@"token":KToken,
+                                  @"width":@"136",
+                                  @"height":@"86",
                                   @"image":imageData};
     [self.manager POST:@"nos_uploadimage" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         NSString * status = responseObject[@"status"];

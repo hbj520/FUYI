@@ -24,8 +24,20 @@
     _webView.delegate = self;
    [_webView setScalesPageToFit:YES];
     [self.view addSubview:_webView];
+    
     NSURLRequest * request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://www.fuyi001.com/blog/blogIndex.html"]];
-    [_webView loadRequest:request];
+    if(KToken.length == 0){
+        NSURLRequest * request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://60.173.235.34:9090/fuyi/app/nos_blog_tuijian"]];
+        [_webView loadRequest:request];
+    }else{
+        NSURL * url = [NSURL URLWithString:@"http://60.173.235.34:9090/fuyi/app/nos_blog_tuijian"];
+        NSString * body = [NSString stringWithFormat:@"token=%@",KToken];
+        NSMutableURLRequest * request = [[NSMutableURLRequest alloc] initWithURL:url];
+        [request setHTTPMethod:@"POST"];
+        [request setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
+        [_webView loadRequest:request];
+    }
+   // [_webView loadRequest:request];
     
 }
 

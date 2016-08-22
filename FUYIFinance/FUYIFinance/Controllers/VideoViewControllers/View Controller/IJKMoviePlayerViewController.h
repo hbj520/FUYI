@@ -26,6 +26,8 @@ typedef void (^TapFullScreenBolck)(BOOL);
 /** 返回播放器控制器 */
 + (instancetype)InitVideoViewFromViewController:(UIViewController *)viewController withTitle:(NSString *)title URL:(NSURL *)url isLiveVideo:(BOOL)isLiveVideo isOnlineVideo:(BOOL)isOnlineVideo isFullScreen:(BOOL)isFullScreen completion:(void (^)())completion;
 
+
+
 @property (strong, nonatomic) IBOutlet GLVideoPlayView *playView;
 
 @property (strong, nonatomic) IBOutlet GLVideoPlayView *playViewFullScreen;

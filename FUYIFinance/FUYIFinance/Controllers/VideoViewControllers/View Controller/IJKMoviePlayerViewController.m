@@ -29,6 +29,8 @@
 /** 包装player的旋转view */
 @property (nonatomic, weak) UIView *rotationView;
 
+@property (nonatomic,assign)NSInteger endtime;
+
 @end
 
 @implementation IJKMoviePlayerViewController
@@ -142,7 +144,7 @@
     [super viewWillAppear:animated];
     
     if (![self.player isPlaying]) {
-        
+       
         [self installMovieNotificationObservers];
         
         [self.player prepareToPlay];
@@ -158,6 +160,7 @@
          self.playView.delegatePlayer = self.player;
          self.playViewFullScreen.delegatePlayer = self.player;
     }
+  
 }
 
 
@@ -411,8 +414,11 @@
 
 - (IBAction)didSliderValueChanged
 {
+  
     [self.playView continueDragMediaSlider];
     [self.playViewFullScreen continueDragMediaSlider];
+    //self.player
+    
 }
 
 #pragma mark - OnlineVideoPlayView工具条事件处理

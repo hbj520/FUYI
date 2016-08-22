@@ -256,15 +256,17 @@ DOPDropDownMenuDelegate>
 #pragma mark - DOPDropDownMenuDelegate
 - (NSInteger)numberOfColumnsInMenu:(DOPDropDownMenu *)menu
 {
-    return 2;
+    return 3;
 }
 
 - (NSInteger)menu:(DOPDropDownMenu *)menu numberOfRowsInColumn:(NSInteger)column
 {
     if (column == 0) {
         return financeSelectData.count+1;
-    }else {
-        return classSelectData.count+1;
+    }else if(column == 1){
+        return 3;
+    }else{
+        return 3;
     }
 }
 
@@ -278,12 +280,27 @@ DOPDropDownMenuDelegate>
             SelectModel *model = financeSelectData[indexPath.row-1];
             return model.selectName;
         }
-    }else {
+    }else if(indexPath.column == 1){
         if (indexPath.row == 0) {
             return @"课程类型";
         }else{
-            SelectModel *model = classSelectData[indexPath.row-1];
-            return model.selectName;
+//            SelectModel *model = classSelectData[indexPath.row-1];
+//            return model.selectName;
+            if(indexPath.row == 1){
+                return @"免费视频";
+            }else{
+                return @"收费视频";
+            }
+        }
+    }else{
+        if(indexPath.row == 0){
+            return @"综合排行";
+        }else if (indexPath.row == 1){
+            return @"销量";
+        }else if(indexPath.row == 2){
+            return @"点击量";
+        }else{
+            return @"价格";
         }
     }
 }
@@ -306,7 +323,7 @@ DOPDropDownMenuDelegate>
                                    pageNum:_page
                                    keyWord:key];
         }
-    }else{
+    }else if(indexPath.column == 1){
         //NSLog(@"点击了 %ld - %ld 项目",indexPath.column,indexPath.row);
         if (indexPath.row == 0) {
             return;
@@ -321,6 +338,14 @@ DOPDropDownMenuDelegate>
                              labelSelectId:labelId
                                    pageNum:_page
                                    keyWord:key];
+        }
+    }else{
+        if(indexPath.row == 0){
+            
+        }else if (indexPath.row == 1){
+            
+        }else{
+            
         }
     }
 }

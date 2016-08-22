@@ -125,6 +125,7 @@
     [[MyAPI sharedAPI] uploadImage:data result:^(BOOL sucess, NSString *msg) {
         if(sucess){
             imageUrl = msg;
+        
              [self.thumbimg sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@""]];
             [[Config Instance] saveIcon:msg];
             
