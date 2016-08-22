@@ -21,7 +21,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8G1-n4-YwF">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8G1-n4-YwF">
                     <rect key="frame" x="10" y="10" width="20" height="22"/>
                     <state key="normal" image="icnav_back_dark.png"/>
                     <connections>
@@ -338,7 +338,7 @@
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oB1-1c-TH2" userLabel="View: Background" customClass="bilibili_splash_default">
                                     <rect key="frame" x="0.0" y="0.0" width="480" height="29"/>
                                 </imageView>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iYj-jZ-qKH" userLabel="iSshowDanmu">
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iYj-jZ-qKH" userLabel="iSshowDanmu">
                                     <rect key="frame" x="39" y="0.0" width="29" height="29"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
@@ -363,7 +363,7 @@
                                         <action selector="onClickshowDanMu:" destination="-1" eventType="touchUpInside" id="Y7G-cm-f1f"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l3a-Kh-1k4" userLabel="AddDanMu">
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l3a-Kh-1k4" userLabel="AddDanMu">
                                     <rect key="frame" x="5" y="0.0" width="29" height="29"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
@@ -432,7 +432,7 @@
                                         <action selector="fullScreenAndScale:" destination="-1" eventType="touchUpInside" id="uxP-2j-QTh"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4pm-gr-Dmd">
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4pm-gr-Dmd">
                                     <rect key="frame" x="377" y="0.0" width="40" height="29"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
@@ -441,7 +441,7 @@
                                         <action selector="onClickVideoQuality:" destination="-1" eventType="touchUpInside" id="Y6y-0k-YGT"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lWH-mB-egD" userLabel="lockBtn">
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lWH-mB-egD" userLabel="lockBtn">
                                     <rect key="frame" x="418" y="0.0" width="29" height="29"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
@@ -466,7 +466,7 @@
                                         <action selector="onClickLock:" destination="-1" eventType="touchUpInside" id="use-3c-fxM"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N6K-5K-TKh">
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N6K-5K-TKh">
                                     <rect key="frame" x="336" y="0.0" width="40" height="29"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
@@ -528,7 +528,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d2P-uM-ldw" userLabel="topTool">
                             <rect key="frame" x="0.0" y="0.0" width="480" height="48"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1pq-2k-ibq" userLabel="iSshowDanmu">
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1pq-2k-ibq" userLabel="iSshowDanmu">
                                     <rect key="frame" x="394" y="19" width="38" height="29"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
@@ -570,7 +570,7 @@
                                         <action selector="fullScreenAndScale:" destination="-1" eventType="touchUpInside" id="ZMv-lm-VnC"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i4J-uK-jq1" userLabel="iSshowDanmu">
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i4J-uK-jq1" userLabel="iSshowDanmu">
                                     <rect key="frame" x="437" y="19" width="38" height="29"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
@@ -600,7 +600,7 @@
                                         <action selector="onClickshowDanMu:" destination="-1" eventType="touchUpInside" id="5ag-GL-7iU"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eqw-bU-ANG" userLabel="iSshowDanmu">
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eqw-bU-ANG" userLabel="iSshowDanmu">
                                     <rect key="frame" x="351" y="19" width="38" height="29"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
@@ -629,8 +629,8 @@
                                         <action selector="onClickshowDanMu:" destination="-1" eventType="touchUpInside" id="2fU-i9-x3c"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VaJ-7y-Bzk" userLabel="iSshowDanmu">
-                                    <rect key="frame" x="340" y="12" width="31" height="23"/>
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VaJ-7y-Bzk" userLabel="iSshowDanmu">
+                                    <rect key="frame" x="308" y="19" width="38" height="29"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="45" id="1IY-dK-Y39"/>

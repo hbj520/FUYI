@@ -95,6 +95,7 @@
     }
     NSString * passwordnum = [Tools loginPasswordSecurityLock:self.passwordNum.text];
     NSString * repasswordnum = [Tools loginPasswordSecurityLock:self.confirmpasswordNum.text];
+    [self showHudInView:self.view hint:@"修改..."];
    [[MyAPI sharedAPI] forgetPasswordWithPhonenum:self.phoneNum.text YZM:self.yzmNum.text Password:passwordnum Repassword:repasswordnum result:^(BOOL sucess, NSString *msg) {
        if(sucess){
            [self showHint:msg];
@@ -102,8 +103,9 @@
        }else{
            [self showHint:msg];
        }
+       [self hideHud];
    } errorResult:^(NSError *enginerError) {
-       
+       [self hideHud];
    }];
     
 }

@@ -47,7 +47,7 @@
         NSString *videoImage = dic[@"thumbimg"];
         NSString *videoPrice = dic[@"price"];
         NSNumber *Num = dic[@"num"];
-        NSString *sellNum = [NSString stringWithFormat:@"&%ld",Num.integerValue];
+        NSString *sellNum = [NSString stringWithFormat:@"%ld",Num.integerValue];
         NSString *videodescription = dic[@"about"];
         NSString *teacherId = dic[@"tid"];
         NSNumber *Type = dic[@"type"];

@@ -62,6 +62,7 @@ static NSString *investReuseId = @"investReuseId";
     inverstData = [NSMutableArray array];
     noticeData = [NSMutableArray array];
     bannerData = [NSMutableArray array];
+    
   //  [self addTap];
     [self addRefresh];
     [self loadData];
@@ -106,7 +107,7 @@ static NSString *investReuseId = @"investReuseId";
     [Tools hideKeyBoard];
 }
 - (void)loadData{
-    [inverstData addObject:@"finance_planer"];
+    [inverstData addObjectsFromArray:@[@"finance_planer",@"metal_invest",@"foreign_exchange",@"oil_invest",@"gold_invest"]];
     [[MyAPI sharedAPI] homePageWithResult:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
         if (success) {
             [bannerData addObjectsFromArray: arrays[0]];
@@ -123,12 +124,12 @@ static NSString *investReuseId = @"investReuseId";
                 [arr2 addObject:arr1];
             }
             [noticeData addObjectsFromArray:arr2];
-            [inverstData addObjectsFromArray:arrays[2]];
+            //[inverstData addObjectsFromArray:arrays[2]];
             //添加滚动视图pageview
             [self addPageControl];
             [self.tableView reloadData];
         }else{
-            
+
         }
         [self.tableView.mj_header endRefreshing];
     } errorResult:^(NSError *enginerError) {
@@ -171,7 +172,7 @@ static NSString *investReuseId = @"investReuseId";
     };
     //点击搜索
     navItem.searchResultBlock = ^(NSString *resutText){
-        
+    
     };
     [self.view addSubview:navItem];
     [navItem mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -244,19 +245,19 @@ static NSString *investReuseId = @"investReuseId";
             investTableViewCell = [[InvestCollectionViewTableViewCell alloc]
                                    initWithStyle:UITableViewCellStyleDefault
                                    reuseIdentifier:investReuseId];
-            
         }
         if (inverstData.count > 1) {
             [investTableViewCell createUIWithData:inverstData];
         }
         investTableViewCell.tapInvestCellBlock = ^(NSInteger index){
-            if (index -100 == 0) {
-                [self performSegueWithIdentifier:@"homepagedetailSegue" sender:@"http://www.sina.com.cn"];
-            }else{
-                HomePageInvestModel * model = [[HomePageInvestModel alloc] init];
-                model = inverstData[index - 100];
-                [self performSegueWithIdentifier:@"homepagedetailSegue" sender:model.investWebsite];
-            }
+            [self performSegueWithIdentifier:@"VideoStoreSegue" sender:nil];
+//            if (index -100 == 0) {
+//                [self performSegueWithIdentifier:@"homepagedetailSegue" sender:@"http://www.sina.com.cn"];
+//            }else{
+//                HomePageInvestModel * model = [[HomePageInvestModel alloc] init];
+//                model = inverstData[index - 100];
+//                [self performSegueWithIdentifier:@"homepagedetailSegue" sender:@"http://www.baidu.com"];
+//            }
 
         };
         return investTableViewCell;
@@ -299,33 +300,35 @@ static NSString *investReuseId = @"investReuseId";
 //点击头部滚动视图
 -(void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
     HomepageBannerModel * model = bannerData[index];
-    playerVC = [IJKMoviePlayerViewController InitVideoViewFromViewController:self withTitle:@"GLTest" URL:[NSURL URLWithString:model.bannerLink] isLiveVideo:YES isOnlineVideo:NO isFullScreen:NO completion:nil];
-    playerVC.fullScreenBlock = ^(BOOL isFullScreen){
-        if (isFullScreen) {
-            navItem.hidden = YES;
-            _headerView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
-            self.topConstraintLayOut.constant = 0;
-            [self setTabBarHidden:YES];
-            [self.tableView reloadData];
-        }else{
-            navItem.hidden = NO;
-            _headerView.frame = CGRectMake(0, 0,ScreenWidth,170);
-            self.topConstraintLayOut.constant = 44;
-            [self setTabBarHidden:NO];
-        }
-    };
-    [self addChildViewController:playerVC];
-    [_headerView addSubview:playerVC.view];
-    [playerVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(@0);
-        make.top.equalTo(@0);
-        make.right.equalTo(@0);
-        make.bottom.equalTo(@0);
-    }];
-    /** 判断直播是否开启,并执行退出 */
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        //        [playerVC GoBack];
-    });
+    [self performSegueWithIdentifier:@"homepagedetailSegue" sender:model.bannerLink];
+//    HomepageBannerModel * model = bannerData[index];
+//    playerVC = [IJKMoviePlayerViewController InitVideoViewFromViewController:self withTitle:@"GLTest" URL:[NSURL URLWithString:model.bannerLink] isLiveVideo:YES isOnlineVideo:NO isFullScreen:NO completion:nil];
+//    playerVC.fullScreenBlock = ^(BOOL isFullScreen){
+//        if (isFullScreen) {
+//            navItem.hidden = YES;
+//            _headerView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
+//            self.topConstraintLayOut.constant = 0;
+//            [self setTabBarHidden:YES];
+//            [self.tableView reloadData];
+//        }else{
+//            navItem.hidden = NO;
+//            _headerView.frame = CGRectMake(0, 0,ScreenWidth,170);
+//            self.topConstraintLayOut.constant = 44;
+//            [self setTabBarHidden:NO];
+//        }
+//    };
+//    [self addChildViewController:playerVC];
+//    [_headerView addSubview:playerVC.view];
+//    [playerVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(@0);
+//        make.top.equalTo(@0);
+//        make.right.equalTo(@0);
+//        make.bottom.equalTo(@0);
+//    }];
+//    /** 判断直播是否开启,并执行退出 */
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        //        [playerVC GoBack];
+//    });
 }
 - (void)setTabBarHidden:(BOOL)hidden
 {
