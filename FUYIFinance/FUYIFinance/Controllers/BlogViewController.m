@@ -36,15 +36,6 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-//    NSString * clientwidth_str = [webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetWidth"];
-//    float clientwidth = [clientwidth_str floatValue];
-//    webView.frame = CGRectMake(0, 0,clientwidth,self.view.frame.size.height);
-//    CGSize frame = [webView sizeThatFits:webView.frame.size];
-//    NSString * width_str = [webView stringByEvaluatingJavaScriptFromString: @"document.getElementById('webview_content_wrapper').offsetWidth + parseInt(window.getComputedStyle(document.getElementsByTagName('body')[0]).getPropertyValue('margin-left'))  + parseInt(window.getComputedStyle(document.getElementsByTagName('body')[0]).getPropertyValue('margin-right'))"];
-//    float width = [width_str floatValue];
-//    width = width * frame.width/clientwidth;
-//    webView.frame = CGRectMake(0, 0, width, self.view.frame.size.height);
-//    NSLog(@"宽度是%@",clientwidth_str);
     [webView setScalesPageToFit:YES];
 }
 

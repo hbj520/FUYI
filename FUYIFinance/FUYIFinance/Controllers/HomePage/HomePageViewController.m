@@ -7,6 +7,7 @@
 //
 
 #import "HomePageViewController.h"
+#import "UIViewController+HUD.h"
 #import "BlogViewController.h"
 #import "HomePageDetailViewController.h"
 #import "IJKMoviePlayerViewController.h"
@@ -221,7 +222,7 @@ static NSString *investReuseId = @"investReuseId";
                 [self performSegueWithIdentifier:@"blogSegue" sender:nil];
             };
             headerCell.financeBlock = ^{//金融学院
-                
+                [self showHint:@"正在建设中"];
             };
             return headerCell;
             

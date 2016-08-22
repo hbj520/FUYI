@@ -170,6 +170,7 @@
     NSString * videoUrl = _model.videoUrl;
     playerVC = [IJKMoviePlayerViewController InitVideoViewFromViewController:self withTitle:@"GLTest" URL:[NSURL URLWithString:videoUrl] isLiveVideo:YES isOnlineVideo:NO isFullScreen:NO completion:nil];
     __weak VideoDetailViewController *weakself = self;
+   
     playerVC.fullScreenBlock = ^(BOOL isFullScreen){
         if (isFullScreen) {
             videoView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
@@ -186,6 +187,9 @@
     };
     [self addChildViewController:playerVC];
     [videoView addSubview:playerVC.view];
+    if([playerVC.playView.currentTimeLabel.text isEqualToString:@"01:00"]){
+        [playerVC.playView.delegatePlayer pause];
+    }
     UITapGestureRecognizer *tapViedoGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(video:)];
     [playerVC.view addGestureRecognizer:tapViedoGes];
     playerVC.view.userInteractionEnabled = YES;
