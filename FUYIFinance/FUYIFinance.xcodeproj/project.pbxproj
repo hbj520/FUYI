@@ -111,6 +111,9 @@
 		CC01B67E1D48476D00BC5323 /* ModifyPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC01B67D1D48476D00BC5323 /* ModifyPwdViewController.m */; };
 		CC26F0DA1D261CAB003964A1 /* ProductJudgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC26F0D91D261CAB003964A1 /* ProductJudgeViewController.m */; };
 		CC26F0E11D264C61003964A1 /* PublishTreasureTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC26F0E01D264C61003964A1 /* PublishTreasureTableViewController.m */; };
+		CC2AA7E31D6BDE30004EA0BA /* MyOrderFlowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2AA7E21D6BDE30004EA0BA /* MyOrderFlowViewController.m */; };
+		CC2AA7E61D6BDE75004EA0BA /* MyOrderFlowAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2AA7E51D6BDE75004EA0BA /* MyOrderFlowAllViewController.m */; };
+		CC2AA7E91D6BDE8B004EA0BA /* MyOrderFlowWaitPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2AA7E81D6BDE8B004EA0BA /* MyOrderFlowWaitPayViewController.m */; };
 		CC3096ED1D406DC10025305F /* AllOderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3096EC1D406DC10025305F /* AllOderModel.m */; };
 		CC3096F01D40ACF70025305F /* MineModifyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3096EF1D40ACF70025305F /* MineModifyInfoViewController.m */; };
 		CC3096F31D40B73E0025305F /* ModfyNickNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3096F21D40B73E0025305F /* ModfyNickNameViewController.m */; };
@@ -525,6 +528,12 @@
 		CC26F0D91D261CAB003964A1 /* ProductJudgeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductJudgeViewController.m; sourceTree = "<group>"; };
 		CC26F0DF1D264C61003964A1 /* PublishTreasureTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishTreasureTableViewController.h; sourceTree = "<group>"; };
 		CC26F0E01D264C61003964A1 /* PublishTreasureTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishTreasureTableViewController.m; sourceTree = "<group>"; };
+		CC2AA7E11D6BDE30004EA0BA /* MyOrderFlowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderFlowViewController.h; sourceTree = "<group>"; };
+		CC2AA7E21D6BDE30004EA0BA /* MyOrderFlowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderFlowViewController.m; sourceTree = "<group>"; };
+		CC2AA7E41D6BDE75004EA0BA /* MyOrderFlowAllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderFlowAllViewController.h; sourceTree = "<group>"; };
+		CC2AA7E51D6BDE75004EA0BA /* MyOrderFlowAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderFlowAllViewController.m; sourceTree = "<group>"; };
+		CC2AA7E71D6BDE8B004EA0BA /* MyOrderFlowWaitPayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderFlowWaitPayViewController.h; sourceTree = "<group>"; };
+		CC2AA7E81D6BDE8B004EA0BA /* MyOrderFlowWaitPayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderFlowWaitPayViewController.m; sourceTree = "<group>"; };
 		CC3096EB1D406DC10025305F /* AllOderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllOderModel.h; sourceTree = "<group>"; };
 		CC3096EC1D406DC10025305F /* AllOderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllOderModel.m; sourceTree = "<group>"; };
 		CC3096EE1D40ACF70025305F /* MineModifyInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineModifyInfoViewController.h; sourceTree = "<group>"; };
@@ -1275,6 +1284,12 @@
 				CC57E0F41D25157500B00AA8 /* TreasureManageViewController.m */,
 				CC3C62DA1D51E68300CD62AC /* OrderManageViewController.h */,
 				CC3C62DB1D51E68300CD62AC /* OrderManageViewController.m */,
+				CC2AA7E11D6BDE30004EA0BA /* MyOrderFlowViewController.h */,
+				CC2AA7E21D6BDE30004EA0BA /* MyOrderFlowViewController.m */,
+				CC2AA7E41D6BDE75004EA0BA /* MyOrderFlowAllViewController.h */,
+				CC2AA7E51D6BDE75004EA0BA /* MyOrderFlowAllViewController.m */,
+				CC2AA7E71D6BDE8B004EA0BA /* MyOrderFlowWaitPayViewController.h */,
+				CC2AA7E81D6BDE8B004EA0BA /* MyOrderFlowWaitPayViewController.m */,
 				CC57E0F91D2520BB00B00AA8 /* ManageTreasureTableViewController.h */,
 				CC57E0FA1D2520BB00B00AA8 /* ManageTreasureTableViewController.m */,
 				CC26F0D81D261CAB003964A1 /* ProductJudgeViewController.h */,
@@ -2310,6 +2325,7 @@
 				ABEACD671D2B881400574259 /* MyAPI.m in Sources */,
 				CC4096B31D4A0C8700084D1A /* TeacherShopModel.m in Sources */,
 				CC6FD6121D362E0300DA60AB /* NSObject+MJProperty.m in Sources */,
+				CC2AA7E91D6BDE8B004EA0BA /* MyOrderFlowWaitPayViewController.m in Sources */,
 				CCBE26461D5C81EB00D9EBDD /* SCPopView.m in Sources */,
 				ABEACD711D2C945F00574259 /* HomePageInvestModel.m in Sources */,
 				CC6FD60A1D362E0300DA60AB /* MJExtensionConst.m in Sources */,
@@ -2386,6 +2402,7 @@
 				CC0022411D5831DB00132483 /* AccountSaftyViewController.m in Sources */,
 				CCBE266F1D5CB34900D9EBDD /* XLPasswordInputView.m in Sources */,
 				ABF9F1031D546C8B004E1523 /* MRGesture.m in Sources */,
+				CC2AA7E31D6BDE30004EA0BA /* MyOrderFlowViewController.m in Sources */,
 				AB36CE2F1D1B710400D0E4C7 /* TADotView.m in Sources */,
 				AB02D4AC1D2228F800AED400 /* ShopCarViewController.m in Sources */,
 				CC26F0E11D264C61003964A1 /* PublishTreasureTableViewController.m in Sources */,
@@ -2473,6 +2490,7 @@
 				CC57E0FB1D2520BB00B00AA8 /* ManageTreasureTableViewController.m in Sources */,
 				CC35F66E1D2CDCBA00EF3B4B /* MineCollectionTreasureModel.m in Sources */,
 				CC593CCA1D2A682E0077B096 /* ShopSettingTableViewController.m in Sources */,
+				CC2AA7E61D6BDE75004EA0BA /* MyOrderFlowAllViewController.m in Sources */,
 				CCBE26451D5C81EB00D9EBDD /* SCNavTabBar.m in Sources */,
 				CC4F372C1D2DEADC00312F11 /* MineMyJudgeModel.m in Sources */,
 				CC4F37291D2DE5DA00312F11 /* MineCollectionShopModel.m in Sources */,
