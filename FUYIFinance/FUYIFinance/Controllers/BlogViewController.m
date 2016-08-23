@@ -20,7 +20,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
    // [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.fuyi001.com/blog/blogIndex.html"]];
-    _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0,64, ScreenWidth, ScreenHeight-64)];
+    _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0,64, ScreenWidth, ScreenHeight-112)];
     _webView.delegate = self;
    [_webView setScalesPageToFit:YES];
     [self.view addSubview:_webView];
