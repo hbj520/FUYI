@@ -28,6 +28,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *waitjudgecount;//待评价按钮上面的自定义badge标签
 @property (weak, nonatomic) IBOutlet UILabel *waitpaycountlabel;
 @property (weak, nonatomic) IBOutlet UILabel *teacherName;
+@property (weak, nonatomic) IBOutlet UIButton *treasuebtn;
+@property (weak, nonatomic) IBOutlet UIButton *YouBiCount;
+@property (weak, nonatomic) IBOutlet UIButton *GoalCount;
+
 
 @end
 
@@ -76,23 +80,16 @@
         self.headimage.layer.masksToBounds = YES;
         NSString * imageurl = [[Config Instance] getIcon];
         [self.headimage sd_setImageWithURL:[NSURL URLWithString:imageurl] placeholderImage:[UIImage imageNamed:@"defaulticon"]];
-//        self.teachername.hidden = NO;
-//        self.messagebtn.hidden = NO;
-//        self.goldTeacherImageView.hidden = NO;
-//        self.accountbtn.hidden = NO;
-//        self.welcomeLabel.hidden = YES;
-//        self.loginBtn.hidden = YES;
-    }else{
+        self.treasuebtn.hidden = NO;
+        self.YouBiCount.hidden = NO;
+        self.GoalCount.hidden = NO;
+           }else{
         self.headimage.image = [UIImage imageNamed:@"person_headicon"];
         self.goldTeacherImageView.hidden = YES;
         self.teachername.text = @"未登录请登录";
-//        self.headimage.hidden = YES;
-//        self.teachername.hidden = YES;
-//        self.messagebtn.hidden = YES;
-//        self.goldTeacherImageView.hidden = YES;
-//        self.accountbtn.hidden = YES;
-//        self.welcomeLabel.hidden = NO;
-//        self.loginBtn.hidden = NO;
+               self.treasuebtn.hidden = YES;
+               self.YouBiCount.hidden = YES;
+               self.GoalCount.hidden = YES;
     }
     
     [self addBadgeLabel];
@@ -100,6 +97,16 @@
     [self addTapGes];
     
 }
+- (IBAction)clickyoubi:(id)sender {
+    [self performSegueWithIdentifier:@"moneySegue" sender:nil];
+
+}
+
+- (IBAction)topupAccount:(id)sender {
+    [self performSegueWithIdentifier:@"topupSegue" sender:nil];
+}
+
+
 - (void)addTapGes{
     //待付款按钮添加响应事件
     UITapGestureRecognizer *tap  = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(prepareAct:)];
