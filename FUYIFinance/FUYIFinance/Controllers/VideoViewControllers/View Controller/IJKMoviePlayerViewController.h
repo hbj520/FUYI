@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <IJKMediaFramework/IJKMediaFramework.h>
+#import "GLVideoPlayView.h"
 typedef void (^TapFullScreenBolck)(BOOL);
-@class GLVideoPlayView;
+//@class GLVideoPlayView;
 
 @interface IJKMoviePlayerViewController : UIViewController
 

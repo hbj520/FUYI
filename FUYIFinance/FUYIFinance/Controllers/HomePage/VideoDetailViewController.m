@@ -63,7 +63,10 @@
     self.navigationController.navigationBarHidden = YES;
     self.tabBarController.tabBar.hidden = YES;
 }
-
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+   // [playerVC removeFromParentViewController];
+}
 //判断第一次进来的按钮状态
 - (void)judgeCollectSelected{
     if ([_model.videoCollect isEqualToString:@"0"]) {
@@ -170,7 +173,7 @@
     
     UIImageView *videoView = (UIImageView *)ges.view;
     NSString * videoUrl = _model.videoUrl;
-    playerVC = [IJKMoviePlayerViewController InitVideoViewFromViewController:self withTitle:@"GLTest" URL:[NSURL URLWithString:videoUrl] isLiveVideo:YES isOnlineVideo:NO isFullScreen:NO completion:nil];
+    playerVC = [IJKMoviePlayerViewController InitVideoViewFromViewController:self withTitle:@"GLTest" URL:[NSURL URLWithString:@"http://krtv.qiniudn.com/150522nextapp"] isLiveVideo:YES isOnlineVideo:NO isFullScreen:NO completion:nil];
     __weak VideoDetailViewController *weakself = self;
     playerVC.fullScreenBlock = ^(BOOL isFullScreen){
         if (isFullScreen) {
@@ -188,7 +191,8 @@
     };
     [self addChildViewController:playerVC];
     [videoView addSubview:playerVC.view];
-    
+    playerVC.playView.limitTime = 10.f;
+
     UITapGestureRecognizer *tapViedoGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(video:)];
     [playerVC.view addGestureRecognizer:tapViedoGes];
     playerVC.view.userInteractionEnabled = YES;
