@@ -7,6 +7,7 @@
 //
 
 #import "MyOrderWaitJudgeViewController.h"
+#import "MineGoodsJudgeTableViewController.h"
 #import "PersonalWaitJudgeTableViewCell.h"
 #import "ProductJudgeViewController.h"
 #import "UIViewController+HUD.h"
@@ -159,6 +160,8 @@
     
     UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
     ProductJudgeViewController * VC = (ProductJudgeViewController*)[storyboard instantiateViewControllerWithIdentifier:@"productJudge"];
+    MineGoodsJudgeTableViewController * VC1 = (MineGoodsJudgeTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"GoodJudgeStoryBoardID"];
+    
     VC.deleteblock = ^(NSIndexPath *indexpath){
         NSInteger index = indexpath.section;
         [dataSource removeObjectAtIndex:index];
@@ -171,7 +174,7 @@
     VC.ordernum = model.ordernum;
     VC.indexpath = indexpath;
     VC.index = indexpath.section;
-    [self.navigationController pushViewController:VC animated:YES];
+    [self.navigationController pushViewController:VC1 animated:YES];
 }
 
 

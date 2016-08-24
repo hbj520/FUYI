@@ -117,6 +117,7 @@
 		CC2AA7EC1D6BFD65004EA0BA /* MoneyConvertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2AA7EB1D6BFD65004EA0BA /* MoneyConvertViewController.m */; };
 		CC2AA7EF1D6C19A6004EA0BA /* MyMoneyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2AA7EE1D6C19A6004EA0BA /* MyMoneyViewController.m */; };
 		CC2AA7F21D6C2B7B004EA0BA /* TopUpAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2AA7F11D6C2B7B004EA0BA /* TopUpAccountViewController.m */; };
+		CC2AA7F51D6C59B9004EA0BA /* MineGoodsJudgeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2AA7F41D6C59B8004EA0BA /* MineGoodsJudgeTableViewController.m */; };
 		CC3096ED1D406DC10025305F /* AllOderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3096EC1D406DC10025305F /* AllOderModel.m */; };
 		CC3096F01D40ACF70025305F /* MineModifyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3096EF1D40ACF70025305F /* MineModifyInfoViewController.m */; };
 		CC3096F31D40B73E0025305F /* ModfyNickNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3096F21D40B73E0025305F /* ModfyNickNameViewController.m */; };
@@ -543,6 +544,8 @@
 		CC2AA7EE1D6C19A6004EA0BA /* MyMoneyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMoneyViewController.m; sourceTree = "<group>"; };
 		CC2AA7F01D6C2B7B004EA0BA /* TopUpAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopUpAccountViewController.h; sourceTree = "<group>"; };
 		CC2AA7F11D6C2B7B004EA0BA /* TopUpAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopUpAccountViewController.m; sourceTree = "<group>"; };
+		CC2AA7F31D6C59B8004EA0BA /* MineGoodsJudgeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineGoodsJudgeTableViewController.h; sourceTree = "<group>"; };
+		CC2AA7F41D6C59B8004EA0BA /* MineGoodsJudgeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineGoodsJudgeTableViewController.m; sourceTree = "<group>"; };
 		CC3096EB1D406DC10025305F /* AllOderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllOderModel.h; sourceTree = "<group>"; };
 		CC3096EC1D406DC10025305F /* AllOderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllOderModel.m; sourceTree = "<group>"; };
 		CC3096EE1D40ACF70025305F /* MineModifyInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineModifyInfoViewController.h; sourceTree = "<group>"; };
@@ -1335,6 +1338,8 @@
 				CC2AA7EE1D6C19A6004EA0BA /* MyMoneyViewController.m */,
 				CC2AA7F01D6C2B7B004EA0BA /* TopUpAccountViewController.h */,
 				CC2AA7F11D6C2B7B004EA0BA /* TopUpAccountViewController.m */,
+				CC2AA7F31D6C59B8004EA0BA /* MineGoodsJudgeTableViewController.h */,
+				CC2AA7F41D6C59B8004EA0BA /* MineGoodsJudgeTableViewController.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -2340,6 +2345,7 @@
 				ABEACD671D2B881400574259 /* MyAPI.m in Sources */,
 				CC4096B31D4A0C8700084D1A /* TeacherShopModel.m in Sources */,
 				CC6FD6121D362E0300DA60AB /* NSObject+MJProperty.m in Sources */,
+				CC2AA7F51D6C59B9004EA0BA /* MineGoodsJudgeTableViewController.m in Sources */,
 				CC2AA7E91D6BDE8B004EA0BA /* MyOrderFlowWaitPayViewController.m in Sources */,
 				CCBE26461D5C81EB00D9EBDD /* SCPopView.m in Sources */,
 				ABEACD711D2C945F00574259 /* HomePageInvestModel.m in Sources */,

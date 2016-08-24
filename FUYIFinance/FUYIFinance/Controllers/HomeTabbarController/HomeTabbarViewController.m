@@ -105,6 +105,8 @@
         if (!KToken) {
             [self LoginAct];
         }
+    }else if ([item.title isEqualToString:@"博客"]){
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"loadrequest" object:nil];
     }
    
 }

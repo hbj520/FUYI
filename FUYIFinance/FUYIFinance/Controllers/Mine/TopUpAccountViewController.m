@@ -31,6 +31,11 @@
     
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [Tools hideKeyBoard];
+}
+
 - (IBAction)back:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
     self.navigationController.navigationBarHidden = YES;
