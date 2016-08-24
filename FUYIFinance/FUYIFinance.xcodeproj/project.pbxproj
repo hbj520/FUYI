@@ -109,6 +109,7 @@
 		CC0022821D58AE3E00132483 /* SystemNoticeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0022811D58AE3E00132483 /* SystemNoticeModel.m */; };
 		CC0022851D58B58500132483 /* OrderNoticeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0022841D58B58500132483 /* OrderNoticeModel.m */; };
 		CC01B67E1D48476D00BC5323 /* ModifyPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC01B67D1D48476D00BC5323 /* ModifyPwdViewController.m */; };
+		CC20B4C61D6D938600E42303 /* ProtectAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC20B4C51D6D938600E42303 /* ProtectAccountViewController.m */; };
 		CC26F0DA1D261CAB003964A1 /* ProductJudgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC26F0D91D261CAB003964A1 /* ProductJudgeViewController.m */; };
 		CC26F0E11D264C61003964A1 /* PublishTreasureTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC26F0E01D264C61003964A1 /* PublishTreasureTableViewController.m */; };
 		CC2AA7E31D6BDE30004EA0BA /* MyOrderFlowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2AA7E21D6BDE30004EA0BA /* MyOrderFlowViewController.m */; };
@@ -153,6 +154,8 @@
 		CC4F37321D2DFEFF00312F11 /* MineLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4F37311D2DFEFF00312F11 /* MineLoginViewController.m */; };
 		CC4F37361D2E07C700312F11 /* UIViewController+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4F37351D2E07C700312F11 /* UIViewController+HUD.m */; };
 		CC4F37391D2E58BF00312F11 /* MineRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4F37381D2E58BF00312F11 /* MineRegisterViewController.m */; };
+		CC4F4A951D6D65BD00C397ED /* TeachOrderAllTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4F4A931D6D65BD00C397ED /* TeachOrderAllTableViewCell.m */; };
+		CC4F4A961D6D65BD00C397ED /* TeachOrderAllTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC4F4A941D6D65BD00C397ED /* TeachOrderAllTableViewCell.xib */; };
 		CC57E0F51D25157500B00AA8 /* TreasureManageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC57E0F41D25157500B00AA8 /* TreasureManageViewController.m */; };
 		CC57E0FB1D2520BB00B00AA8 /* ManageTreasureTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC57E0FA1D2520BB00B00AA8 /* ManageTreasureTableViewController.m */; };
 		CC593CAD1D29EFF30077B096 /* MyShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC593CAC1D29EFF30077B096 /* MyShopViewController.m */; };
@@ -528,6 +531,8 @@
 		CC0022841D58B58500132483 /* OrderNoticeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderNoticeModel.m; sourceTree = "<group>"; };
 		CC01B67C1D48476D00BC5323 /* ModifyPwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyPwdViewController.h; sourceTree = "<group>"; };
 		CC01B67D1D48476D00BC5323 /* ModifyPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPwdViewController.m; sourceTree = "<group>"; };
+		CC20B4C41D6D938600E42303 /* ProtectAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtectAccountViewController.h; sourceTree = "<group>"; };
+		CC20B4C51D6D938600E42303 /* ProtectAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProtectAccountViewController.m; sourceTree = "<group>"; };
 		CC26F0D81D261CAB003964A1 /* ProductJudgeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductJudgeViewController.h; sourceTree = "<group>"; };
 		CC26F0D91D261CAB003964A1 /* ProductJudgeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductJudgeViewController.m; sourceTree = "<group>"; };
 		CC26F0DF1D264C61003964A1 /* PublishTreasureTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishTreasureTableViewController.h; sourceTree = "<group>"; };
@@ -612,6 +617,9 @@
 		CC4F37351D2E07C700312F11 /* UIViewController+HUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HUD.m"; sourceTree = "<group>"; };
 		CC4F37371D2E58BF00312F11 /* MineRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineRegisterViewController.h; sourceTree = "<group>"; };
 		CC4F37381D2E58BF00312F11 /* MineRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineRegisterViewController.m; sourceTree = "<group>"; };
+		CC4F4A921D6D65BD00C397ED /* TeachOrderAllTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeachOrderAllTableViewCell.h; sourceTree = "<group>"; };
+		CC4F4A931D6D65BD00C397ED /* TeachOrderAllTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeachOrderAllTableViewCell.m; sourceTree = "<group>"; };
+		CC4F4A941D6D65BD00C397ED /* TeachOrderAllTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeachOrderAllTableViewCell.xib; sourceTree = "<group>"; };
 		CC57E0F31D25157500B00AA8 /* TreasureManageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreasureManageViewController.h; sourceTree = "<group>"; };
 		CC57E0F41D25157500B00AA8 /* TreasureManageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreasureManageViewController.m; sourceTree = "<group>"; };
 		CC57E0F91D2520BB00B00AA8 /* ManageTreasureTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageTreasureTableViewController.h; sourceTree = "<group>"; };
@@ -1340,6 +1348,8 @@
 				CC2AA7F11D6C2B7B004EA0BA /* TopUpAccountViewController.m */,
 				CC2AA7F31D6C59B8004EA0BA /* MineGoodsJudgeTableViewController.h */,
 				CC2AA7F41D6C59B8004EA0BA /* MineGoodsJudgeTableViewController.m */,
+				CC20B4C41D6D938600E42303 /* ProtectAccountViewController.h */,
+				CC20B4C51D6D938600E42303 /* ProtectAccountViewController.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -1759,6 +1769,9 @@
 				CC00224F1D588F0100132483 /* OrderNoticeTableViewCell.h */,
 				CC0022501D588F0100132483 /* OrderNoticeTableViewCell.m */,
 				CC0022511D588F0100132483 /* OrderNoticeTableViewCell.xib */,
+				CC4F4A921D6D65BD00C397ED /* TeachOrderAllTableViewCell.h */,
+				CC4F4A931D6D65BD00C397ED /* TeachOrderAllTableViewCell.m */,
+				CC4F4A941D6D65BD00C397ED /* TeachOrderAllTableViewCell.xib */,
 			);
 			name = Mine;
 			sourceTree = "<group>";
@@ -2205,6 +2218,7 @@
 				AB708F941D0543BE007D0B4D /* Main.storyboard in Resources */,
 				D141F83D1D542F6600392D00 /* player_window_black@2x.png in Resources */,
 				CC00227A1D589EEA00132483 /* MFC6E8D.tmp in Resources */,
+				CC4F4A961D6D65BD00C397ED /* TeachOrderAllTableViewCell.xib in Resources */,
 				CC95F1A91D338C3E009F559D /* ChangeHeadView.xib in Resources */,
 				D141F8261D542F6600392D00 /* icmpv_play_light@2x.png in Resources */,
 				CCF829B81D59EAB1001D473F /* trade.bundle in Resources */,
@@ -2396,6 +2410,7 @@
 				CC4096B91D4A16D800084D1A /* ManageTreasureModel.m in Sources */,
 				D1F130481D2CED3600EE1690 /* DOPDropDownMenu.m in Sources */,
 				CC0022521D588F0100132483 /* OrderNoticeTableViewCell.m in Sources */,
+				CC20B4C61D6D938600E42303 /* ProtectAccountViewController.m in Sources */,
 				CC72D02C1D2263CF00945BCF /* PersonalWaitPayTableViewCell.m in Sources */,
 				D1F12FFA1D2A04CE00EE1690 /* VideoStoreTableViewCell.m in Sources */,
 				CC6FD60F1D362E0300DA60AB /* NSObject+MJClass.m in Sources */,
@@ -2506,6 +2521,7 @@
 				CC593CBB1D29FCC30077B096 /* FourBtnTableViewCell.m in Sources */,
 				CC42E2861D24F6A10008A8D7 /* LoveManageTableViewCell.m in Sources */,
 				ABEACD621D2B87DE00574259 /* SecurityUtil.m in Sources */,
+				CC4F4A951D6D65BD00C397ED /* TeachOrderAllTableViewCell.m in Sources */,
 				CC3096F01D40ACF70025305F /* MineModifyInfoViewController.m in Sources */,
 				CC6FD5ED1D362D2600DA60AB /* ProvinceModel.m in Sources */,
 				D1F130731D3796C800EE1690 /* TeacherTeamTableViewCell.m in Sources */,

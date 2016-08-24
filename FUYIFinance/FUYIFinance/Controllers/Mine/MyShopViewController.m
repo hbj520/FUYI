@@ -34,7 +34,7 @@
      UIImagePickerController * _picker;
     BBBadgeBarButtonItem * _chatBtn;         //自定制导航栏按钮
     BBBadgeBarButtonItem * _chatBtn1;        //自定制导航栏按钮
-
+    NSString * teachername;
 }
 @end
 
@@ -174,6 +174,7 @@
             cell.personlabel.hidden = NO;
             cell.backImg.userInteractionEnabled = YES;
             cell.teacherName.text = teacherinfo.username;
+            teachername = teacherinfo.username;
             cell.totoalcount.text = teacherinfo.ordermoney;
             cell.vivstcount.text = teacherinfo.hits;
             cell.ordercount.text = teacherinfo.orders;
@@ -190,7 +191,9 @@
             cell.headicon.image = [UIImage imageNamed:@"person_headicon"];
             cell.teacherName.text = @"未登录请登录";
             cell.personlabel.hidden = YES;
-
+            cell.totoalcount.text = @"";
+            cell.vivstcount.text = @"";
+            cell.ordercount.text = @"";
             cell.block = ^(){
                 [self logOut];
             };
@@ -460,7 +463,9 @@
     if(!KToken){
         [self logOut];
     }else{
-    [self performSegueWithIdentifier:@"ordermanageSegue" sender:[NSNumber numberWithBool:NO]];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"translateteachername" object:nil userInfo:@{@"teachname":teachername}];
+        
+    [self performSegueWithIdentifier:@"ordermanageSegue" sender:teachername];
         UIView * contentView = [self.tabBarController.view.subviews objectAtIndex:0];
         contentView.frame = CGRectMake(0,0,ScreenWidth,0);
     }
@@ -503,6 +508,8 @@
     }else if ([segue.identifier isEqualToString:@"shopsettingSegue"]){
         SettingViewController * setVC = [[SettingViewController alloc] init];
         setVC.mortal = @"isTeacher";
+    }else if ([segue.identifier isEqualToString:@"ordermanageSegue"]){
+        
     }
     
 }

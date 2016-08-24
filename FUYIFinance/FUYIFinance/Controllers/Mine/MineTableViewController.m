@@ -390,7 +390,7 @@
         if(indexPath.row==0){
             [self performSegueWithIdentifier:@"modifyinfoSegue" sender:nil];
         }else if (indexPath.row==1){
-            [self performSegueWithIdentifier:@"modifypwdSegue" sender:nil];
+            [self performSegueWithIdentifier:@"protectaccountSegue" sender:nil];
         }else if (indexPath.row==2){
             [self performSegueWithIdentifier:@"noticeSegue" sender:nil];
         }else if (indexPath.row == 3){

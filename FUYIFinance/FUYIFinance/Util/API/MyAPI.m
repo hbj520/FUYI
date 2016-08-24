@@ -805,6 +805,45 @@
     }];
 }
 
+- (void)GoodsJudgeWithParameters:(NSString *)describe_score
+                    Manner_score:(NSString *)manner_score
+                   Quality_score:(NSString *)quality_score
+                  Rational_score:(NSString *)rational_score
+                   Satisfy_score:(NSString *)satisfy_score
+                        OrderNum:(NSString *)ordernum
+                       Anonymous:(NSString *)anonymous
+                         Content:(NSString *)content
+                       Goodstype:(NSString *)goodstype
+                         Goodsid:(NSString *)goodsid
+                          result:(StateBlock)result
+                     errorResult:(ErrorBlock)errorResult
+{
+    NSDictionary * parameters = @{@"describe_score":describe_score,
+                                  @"token":KToken,
+                                  @"manner_score":manner_score,
+                                  @"quality_score":quality_score,
+                                  @"rational_score":rational_score,
+                                  @"satisfy_score":satisfy_score,
+                                  @"ordernum":ordernum,
+                                  @"anonymous":anonymous,
+                                  @"content":content,
+                                  @"goodstype":goodstype,
+                                  @"goodsid":goodsid};
+    [self.manager POST:@"replygood" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * status = responseObject[@"status"];
+        NSString * info = responseObject[@"info"];
+        if([status isEqualToString:@"1"]){
+            result(YES,info);
+        }else{
+            result(NO,info);
+        }
+        
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+    }];
+    
+}
+
 - (void)PersonalInfoModifyWithParameters:(NSString *)username
                                 imgThumb:(NSString *)imgthumb
                                    qqNum:(NSString *)qqnum
@@ -1191,7 +1230,7 @@
     [self.manager POST:@"userOrderSms" parameters:parameter success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         NSString * status = responseObject[@"status"];
         NSString * info = responseObject[@"info"];
-        NSString * data = responseObject[@"data"];
+        NSArray * data = responseObject[@"data"];
         if([status isEqualToString:@"1"]){
             NSMutableArray * array = [[OrderNoticeModel alloc] buildWithData:data];
             result(YES,info,array);
@@ -1227,11 +1266,6 @@
                       Result:(StateBlock)result
                  ErrorResult:(ErrorBlock)errorResult
 {
-    
-    
-//    NSDictionary * parameters = @{@"token":KToken,
-//                                  @"ordernum":ordernum,
-//                                  @"excode":excode};
     NSDictionary *parameters = @{
                                  @"token":KToken,
                                  @"ordernum":ordernum,
@@ -1249,6 +1283,27 @@
         errorResult(error);
     }];
     
+}
+
+- (void)getOrderFlowDataWithIdentify:(NSString *)identify
+                              Result:(ArrayBlock)result
+                         ErrorResult:(ErrorBlock)errorResult
+{
+    NSDictionary * parameters = @{@"token":KToken,
+                                  @"identify":identify};
+    [self.manager POST:@"teacherOrderManage" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * status = responseObject[@"status"];
+        NSString * info = responseObject[@"info"];
+        NSArray * data = responseObject[@"data"];
+        if([status isEqualToString:@"1"]){
+            NSMutableArray * array = [[OrderManageModel alloc] buildWithData:data];
+            result(YES,info,array);
+        }else{
+            result(NO,info,nil);
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+    }];
 }
 
 - (void)payVideoOrderWithOrderNum:(NSString *)ordernum Excode:(NSString *)excode Result:(StateBlock)result ErrorResult:(ErrorBlock)errorResult

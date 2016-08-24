@@ -26,6 +26,8 @@
     [self createUI];
 }
 
+
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -51,6 +53,15 @@
     
     [self.view addSubview:containerVC.view];
  
+}
+
+- (void)containerViewItemIndex:(NSInteger)index currentController:(UIViewController *)controller
+{
+    if (index == 0) {
+        
+    }else{
+        
+    }
 }
 
 - (IBAction)back:(id)sender {

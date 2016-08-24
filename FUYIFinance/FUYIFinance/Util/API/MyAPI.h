@@ -220,6 +220,19 @@ typedef void (^ErrorBlock) (NSError *enginerError);
                                result:(StateBlock)result
                           errorResult:(ErrorBlock)errorResult;
 
+- (void)GoodsJudgeWithParameters:(NSString *)describe_score
+                    Manner_score:(NSString *)manner_score
+                   Quality_score:(NSString *)quality_score
+                  Rational_score:(NSString *)rational_score
+                   Satisfy_score:(NSString *)satisfy_score
+                        OrderNum:(NSString *)ordernum
+                       Anonymous:(NSString *)anonymous
+                         Content:(NSString *)content
+                       Goodstype:(NSString *)goodstype
+                         Goodsid:(NSString *)goodsid
+                          result:(StateBlock)result
+                     errorResult:(ErrorBlock)errorResult;
+
 /**
  *  全部的订单
  *
@@ -440,7 +453,16 @@ typedef void (^ErrorBlock) (NSError *enginerError);
                       Result:(StateBlock)result
                  ErrorResult:(ErrorBlock)errorResult;
 
-
+/**
+ *  我的订单流水全部
+ *
+ *  @param identify    标识
+ *  @param result      模型数组
+ *  @param errorResult 错误信息
+ */
+- (void)getOrderFlowDataWithIdentify:(NSString *)identify
+                              Result:(ArrayBlock)result
+                         ErrorResult:(ErrorBlock)errorResult;
 
 #pragma mark -讲师团队
 - (void)getTeacherTeamDataWithToken:(NSString*)token

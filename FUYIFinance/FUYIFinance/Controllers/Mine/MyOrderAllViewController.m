@@ -10,6 +10,7 @@
 #import "MyOrderAllViewController.h"
 #import "ConfirmOrderViewController.h"
 #import "ProductJudgeViewController.h"
+#import "MineGoodsJudgeTableViewController.h"
 #import "UIViewController+HUD.h"
 #import "PersonalWaitPayTableViewCell.h"
 #import "PersonalWaitJudgeTableViewCell.h"
@@ -460,20 +461,55 @@ UIAlertViewDelegate>
     AllOderModel * model = [[AllOderModel alloc] init];
     model = waitjudgeArray[indexpath.row];
     UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
-    ProductJudgeViewController * VC = (ProductJudgeViewController*)[storyboard instantiateViewControllerWithIdentifier:@"productJudge"];
-    VC.deleteblock = ^(NSIndexPath * indexpath){
+//    ProductJudgeViewController * VC = (ProductJudgeViewController*)[storyboard instantiateViewControllerWithIdentifier:@"productJudge"];
+//    VC.deleteblock = ^(NSIndexPath * indexpath){
+//        NSInteger index2 = indexpath.row;
+//        [waitjudgeArray removeObjectAtIndex:index2];
+//        [_tableView reloadData];
+//    };
+//    VC.uid = model.goodsid;
+//    VC.image = model.image;
+//    VC.ustyle = model.goodstype;
+//    VC.ordernum = model.ordernum;
+//    VC.indexpath = indexpath;
+//    VC.index = indexpath.row;
+    MineGoodsJudgeTableViewController * VC1 = (MineGoodsJudgeTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"GoodJudgeStoryBoardID"];
+    VC1.uid = model.goodsid;
+    VC1.image = model.image;
+    VC1.ustyle = model.goodstype;
+    VC1.ordernum = model.ordernum;
+    VC1.indexpath = indexpath;
+    VC1.index = indexpath.section;
+    VC1.goodsname = model.name;
+    VC1.goodsprice = model.price;
+    VC1.teachname = model.teacher;
+    VC1.deleteblock = ^(NSIndexPath * indexpath){
         NSInteger index2 = indexpath.row;
         [waitjudgeArray removeObjectAtIndex:index2];
         [_tableView reloadData];
     };
-    VC.uid = model.goodsid;
-    VC.image = model.image;
-    VC.ustyle = model.goodstype;
-    VC.ordernum = model.ordernum;
-    VC.indexpath = indexpath;
-    VC.index = indexpath.row;
-    [self.navigationController pushViewController:VC animated:YES];
-}
+    [self.navigationController pushViewController:VC1 animated:YES];
+    /*
+     UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
+     MineGoodsJudgeTableViewController * VC1 = (MineGoodsJudgeTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"GoodJudgeStoryBoardID"];
+     VC1.uid = model.goodsid;
+     VC1.image = model.image;
+     VC1.ustyle = model.goodstyle;
+     VC1.ordernum = model.ordernum;
+     VC1.indexpath = indexpath;
+     VC1.index = indexpath.section;
+     VC1.goodsname = model.name;
+     VC1.teachname = model.teacher;
+     VC1.goodsprice = model.price;
+     VC1.deleteblock = ^(NSIndexPath * indexpath){
+     NSInteger index = indexpath.section;
+     [dataSource removeObjectAtIndex:index];
+     [_tableView reloadData];
+     };
+     [self.navigationController pushViewController:VC1 animated:YES];
+
+     */
+   }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {

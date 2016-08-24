@@ -7,10 +7,19 @@
 //
 
 #import "MineGoodsJudgeTableViewController.h"
+#import "UIViewController+HUD.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 #import "starView.h"
-@interface MineGoodsJudgeTableViewController ()
+#import "MyAPI.h"
+#import "Config.h"
+@interface MineGoodsJudgeTableViewController ()<UITextViewDelegate>
 {
     NSString * starNum;
+    NSString * starnum1;
+    NSString * starnum2;
+    NSString * starnum3;
+    NSString * starnum4;
+    BOOL IsCommit;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *thumbImg;
 @property (weak, nonatomic) IBOutlet UILabel *name;
@@ -26,6 +35,7 @@
 @property (weak, nonatomic) IBOutlet starView *starView3;
 @property (weak, nonatomic) IBOutlet starView *starView4;
 @property (weak, nonatomic) IBOutlet starView *starView5;
+@property (weak, nonatomic) IBOutlet UIButton *sureBtn;
 
 @end
 
@@ -33,35 +43,155 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self.thumbImg sd_setImageWithURL:[NSURL URLWithString:self.image] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
+    self.name.text = self.goodsname;
+    self.teachername.text = [NSString stringWithFormat:@"讲师：%@",self.teachname];
+    self.price.text = [NSString stringWithFormat:@"¥%@",self.goodsprice];
+    self.textView.delegate = self;
+
     UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(renewStar:)];
-    [self.starView1 configWithStarLevel:3];
-    [self.starView2 configWithStarLevel:3];
-    [self.starView3 configWithStarLevel:3];
-    [self.starView4 configWithStarLevel:3];
-    [self.starView5 configWithStarLevel:3];
+    [self.starView1 configWithStarLevel:0];
+    [self.starView2 configWithStarLevel:0];
+    [self.starView3 configWithStarLevel:0];
+    [self.starView4 configWithStarLevel:0];
+    [self.starView5 configWithStarLevel:0];
     [self.starView1 addGestureRecognizer:tapGesture];
-    [self.starView2 addGestureRecognizer:tapGesture];
-    [self.starView3 addGestureRecognizer:tapGesture];
-    [self.starView4 addGestureRecognizer:tapGesture];
-    [self.starView5 addGestureRecognizer:tapGesture];
     
+    UITapGestureRecognizer * tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(updatestar2:)];
+    [self.starView2 addGestureRecognizer:tap1];
+    
+    UITapGestureRecognizer * tap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(updatestarthree:)];
+    [self.starView3 addGestureRecognizer:tap2];
+    
+    UITapGestureRecognizer * tap3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(updatestarfour:)];
+    [self.starView4 addGestureRecognizer:tap3];
+    
+    UITapGestureRecognizer * tap4 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(updatestarfive:)];
+    [self.starView5 addGestureRecognizer:tap4];
+    
+    self.sureBtn.layer.cornerRadius = 5;
 }
 
 //手势方法的实现
 - (void)renewStar:(UIGestureRecognizer *)sender
 {
-    starView * view = (starView *)sender.view.superview;
-    CGPoint point = [sender locationInView:view];
+    CGPoint point = [sender locationInView:self.starView1];
     CGFloat pointX = point.x;
     
     float scale = pointX/136;
     int starnumber = scale * 5 + 1;
     starNum = [NSString stringWithFormat:@"%d",starnumber];
-    [view configWithStarLevel:starnumber];
+    [self.starView1 configWithStarLevel:starnumber];
+
 }
 
+- (void)updatestar2:(UITapGestureRecognizer *)sender
+{
+    CGPoint point = [sender locationInView:self.starView2];
+    CGFloat pointX = point.x;
+    float scale = pointX/136;
+    int starnumber = scale * 5 + 1;
+    starnum1 = [NSString stringWithFormat:@"%d",starnumber];
+    [self.starView2 configWithStarLevel:starnumber];
+}
 
+- (void)updatestarthree:(UITapGestureRecognizer *)sender
+{
+    CGPoint point = [sender locationInView:self.starView3];
+    CGFloat pointX = point.x;
+    float scale = pointX/136;
+    int starnumber = scale * 5 + 1;
+    starnum2 = [NSString stringWithFormat:@"%d",starnumber];
+    [self.starView3 configWithStarLevel:starnumber];
+}
+
+- (void)updatestarfour:(UITapGestureRecognizer *)sender
+{
+    CGPoint point = [sender locationInView:self.starView4];
+    CGFloat pointX = point.x;
+    float scale = pointX/136;
+    int starnumber = scale * 5 + 1;
+    starnum3 = [NSString stringWithFormat:@"%d",starnumber];
+    [self.starView4 configWithStarLevel:starnumber];
+}
+
+- (void)updatestarfive:(UITapGestureRecognizer *)sender
+{
+    CGPoint point = [sender locationInView:self.starView5];
+    CGFloat pointX = point.x;
+    float scale = pointX/136;
+    int starnumber = scale * 5 + 1;
+    starnum4 = [NSString stringWithFormat:@"%d",starnumber];
+    [self.starView5 configWithStarLevel:starnumber];
+
+}
+
+- (void)textViewDidChange:(UITextView *)textView
+{
+    self.placelabel1.hidden = YES;
+    self.placelabel2.hidden = YES;
+    NSInteger count = textView.text.length;
+    self.stringcountlabel.text = [NSString stringWithFormat:@"%ld",count];
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    if(textView.text.length == 0){
+    self.placelabel1.hidden = NO;
+    self.placelabel2.hidden = NO;
+    }else{
+    self.placelabel1.hidden = YES;
+    self.placelabel2.hidden = YES;
+    }
+}
+
+- (IBAction)Commit:(id)sender {
+    IsCommit = !IsCommit;
+    if(IsCommit){
+        [sender setImage:[UIImage imageNamed:@"btnhighlighted"] forState:UIControlStateNormal];
+        
+    }else{
+        [sender setImage:[UIImage imageNamed:@"btndark"] forState:UIControlStateNormal];
+        
+    }
+
+}
+
+- (IBAction)SureJudge:(id)sender {
+    NSString * anonymous = [NSString stringWithFormat:@"%d",IsCommit];
+    if(!KToken){
+        [self logOut];
+    }else{
+        NSString * anonymous = [NSString stringWithFormat:@"%d",IsCommit];
+        if (self.deleteblock) {
+            self.deleteblock(self.indexpath);
+        }
+
+    [[MyAPI sharedAPI] GoodsJudgeWithParameters:starNum Manner_score:starnum1 Quality_score:starnum2 Rational_score:starnum3 Satisfy_score:starnum4 OrderNum:self.ordernum Anonymous:anonymous Content:self.textView.text Goodstype:self.ustyle Goodsid:self.uid result:^(BOOL sucess, NSString *msg) {
+        if (sucess) {
+            [self showHint:@"评价成功"];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"updatepage" object:nil];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    } errorResult:^(NSError *enginerError) {
+        
+    }];
+    
+}
+}
+
+- (void)logOut
+{
+    if (KToken) {
+        [[Config Instance] logout];
+    }
+    UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
+    UINavigationController *loginVC = [storybord instantiateViewControllerWithIdentifier:@"LoginStorybordId"];
+    loginVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self.navigationController presentModalViewController:loginVC animated:YES];
+}
+    
+    
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -86,7 +216,7 @@
     }else if (section == 1){
         return 1;
     }else{
-        return 2;
+        return 3;
     }
 }
 
