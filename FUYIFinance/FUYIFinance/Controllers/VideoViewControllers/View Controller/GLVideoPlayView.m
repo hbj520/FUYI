@@ -170,6 +170,7 @@ typedef NS_ENUM(NSInteger, PanDirection){
 {
     // duration
     NSTimeInterval duration = self.delegatePlayer.duration;
+    
     NSInteger intDuration = duration + 0.5;
     if (intDuration > 0) {
         self.mediaProgressSlider.maximumValue = duration;
@@ -188,6 +189,12 @@ typedef NS_ENUM(NSInteger, PanDirection){
         position = self.delegatePlayer.currentPlaybackTime;
     }
     NSInteger intPosition = position + 0.5;
+    if (self.limitTime > 0) {
+        if (intPosition > self.limitTime) {
+            self.delegatePlayer.currentPlaybackTime = 10.f;
+            [self.delegatePlayer pause];
+        }
+    }
     if (intDuration > 0) {
         self.mediaProgressSlider.value = position;
     } else {

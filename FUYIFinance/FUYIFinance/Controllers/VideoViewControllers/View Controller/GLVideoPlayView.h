@@ -34,6 +34,7 @@
 
 /** isHideTool */
 @property (nonatomic, assign) BOOL isHideTool;
+@property (nonatomic, assign) float limitTime;
 
 @property(nonatomic,strong) IBOutlet UIView *overlayPanel;
 @property(nonatomic,strong) IBOutlet UIView *topPanel;
