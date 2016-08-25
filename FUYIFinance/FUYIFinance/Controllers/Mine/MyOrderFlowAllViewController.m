@@ -35,6 +35,7 @@
 {
     [[MyAPI sharedAPI] getOrderFlowDataWithIdentify:@"1" Result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
         if(success){
+            
             [dataSource addObjectsFromArray:arrays];
             [_tableView reloadData];
         }
@@ -88,6 +89,9 @@
     [cell.thumbImg sd_setImageWithURL:[NSURL URLWithString:model.goodsimg] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
     cell.name.text = model.goodsname;
     cell.price.text = [NSString stringWithFormat:@"¥%@",model.money];
+    if(self.teachname.length>0){
+        cell.teahname.text = self.teachname;
+    }
     NSMutableAttributedString * str = [[LabelHelper alloc] attributedStringWithString:[NSString stringWithFormat:@"¥%@",model.money]];
     cell.totalprice.attributedText = str;
     cell.dealtime.text = [NSString stringWithFormat:@"交易时间：%@",model.ctime];

@@ -11,9 +11,10 @@
 @interface PayView : UIView
 @property (weak, nonatomic) IBOutlet UIButton *payBtn;
 @property (weak, nonatomic) IBOutlet UIButton *downBtn;
-@property (weak, nonatomic) IBOutlet UILabel *bankLab;
-@property (weak, nonatomic) IBOutlet UIButton *payWayBtn;
+
 @property (weak, nonatomic) IBOutlet UILabel *titleLab;
 @property (weak, nonatomic) IBOutlet UILabel *lastPriceLab;
+@property (weak, nonatomic) IBOutlet UIImageView *videoImg;
+@property (weak, nonatomic) IBOutlet UILabel *videoprice;
 
 @end

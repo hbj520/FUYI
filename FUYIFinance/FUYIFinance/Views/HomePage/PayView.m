@@ -10,12 +10,13 @@
 
 @implementation PayView
 
-/*
+
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
-    // Drawing code
+    self.payBtn.layer.cornerRadius = 3;
+    self.payBtn.layer.masksToBounds = YES;
 }
-*/
+
 
 @end

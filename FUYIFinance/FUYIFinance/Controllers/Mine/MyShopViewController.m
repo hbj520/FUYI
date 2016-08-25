@@ -9,6 +9,7 @@
 #import "MyShopViewController.h"
 #import "TreasureManageViewController.h"
 #import "SettingViewController.h"
+#import "MyOrderFlowViewController.h"
 #import "MyShopHeaderTableViewCell.h"
 #import "ShopTopTableViewCell.h"
 #import "FourBtnTableViewCell.h"
@@ -463,8 +464,6 @@
     if(!KToken){
         [self logOut];
     }else{
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"translateteachername" object:nil userInfo:@{@"teachname":teachername}];
-        
     [self performSegueWithIdentifier:@"ordermanageSegue" sender:teachername];
         UIView * contentView = [self.tabBarController.view.subviews objectAtIndex:0];
         contentView.frame = CGRectMake(0,0,ScreenWidth,0);
@@ -509,7 +508,8 @@
         SettingViewController * setVC = [[SettingViewController alloc] init];
         setVC.mortal = @"isTeacher";
     }else if ([segue.identifier isEqualToString:@"ordermanageSegue"]){
-        
+        MyOrderFlowViewController * vc = segue.destinationViewController;
+        vc.teachername = sender;
     }
     
 }

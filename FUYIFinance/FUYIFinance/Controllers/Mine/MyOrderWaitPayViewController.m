@@ -11,6 +11,7 @@
 #import "PersonalWaitPayTableViewCell.h"
 #import "UIViewController+HUD.h"
 #import <MJRefresh/MJRefresh.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 #import "PayView.h"
 #import "ZCTradeView.h"
 #import "XLPasswordView.h"
@@ -272,7 +273,12 @@
     [UIView setAnimationDuration:1.0];
     MineWaitPayModel * model = [[MineWaitPayModel alloc] init];
     model = _dataSource[sender.tag];
-    _payView.lastPriceLab.text = model.price;
+    _payView.lastPriceLab.text = [NSString stringWithFormat:@"¥%@",model.price];
+    _payView.videoprice.text = [NSString stringWithFormat:@"¥%@",model.price];
+    [_payView.videoImg sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"bigimage"]];
+    _payView.titleLab.text = model.name;
+    _payView.layer.cornerRadius = 3;
+    _payView.layer.masksToBounds = YES;
     _ordernum = model.ordernum;
     [[Config Instance] saveOrderNum:model.ordernum];
     _payView.frame = CGRectMake(0, ScreenHeight*0.35, ScreenWidth, ScreenHeight * 0.65);

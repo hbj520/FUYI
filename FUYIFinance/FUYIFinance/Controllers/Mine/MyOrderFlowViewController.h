@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface MyOrderFlowViewController : BaseViewController
-
+@property (nonatomic,copy)NSString * teachername;
 @end

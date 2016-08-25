@@ -9,5 +9,6 @@
 #import "BaseViewController.h"
 
 @interface MyOrderFlowAllViewController : BaseViewController
-
+@property (nonatomic,copy)NSString * teachname;
+- (void)loadData;
 @end

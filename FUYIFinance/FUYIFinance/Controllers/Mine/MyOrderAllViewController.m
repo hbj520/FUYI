@@ -461,18 +461,6 @@ UIAlertViewDelegate>
     AllOderModel * model = [[AllOderModel alloc] init];
     model = waitjudgeArray[indexpath.row];
     UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
-//    ProductJudgeViewController * VC = (ProductJudgeViewController*)[storyboard instantiateViewControllerWithIdentifier:@"productJudge"];
-//    VC.deleteblock = ^(NSIndexPath * indexpath){
-//        NSInteger index2 = indexpath.row;
-//        [waitjudgeArray removeObjectAtIndex:index2];
-//        [_tableView reloadData];
-//    };
-//    VC.uid = model.goodsid;
-//    VC.image = model.image;
-//    VC.ustyle = model.goodstype;
-//    VC.ordernum = model.ordernum;
-//    VC.indexpath = indexpath;
-//    VC.index = indexpath.row;
     MineGoodsJudgeTableViewController * VC1 = (MineGoodsJudgeTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"GoodJudgeStoryBoardID"];
     VC1.uid = model.goodsid;
     VC1.image = model.image;
@@ -489,27 +477,7 @@ UIAlertViewDelegate>
         [_tableView reloadData];
     };
     [self.navigationController pushViewController:VC1 animated:YES];
-    /*
-     UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
-     MineGoodsJudgeTableViewController * VC1 = (MineGoodsJudgeTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"GoodJudgeStoryBoardID"];
-     VC1.uid = model.goodsid;
-     VC1.image = model.image;
-     VC1.ustyle = model.goodstyle;
-     VC1.ordernum = model.ordernum;
-     VC1.indexpath = indexpath;
-     VC1.index = indexpath.section;
-     VC1.goodsname = model.name;
-     VC1.teachname = model.teacher;
-     VC1.goodsprice = model.price;
-     VC1.deleteblock = ^(NSIndexPath * indexpath){
-     NSInteger index = indexpath.section;
-     [dataSource removeObjectAtIndex:index];
-     [_tableView reloadData];
-     };
-     [self.navigationController pushViewController:VC1 animated:YES];
-
-     */
-   }
+       }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
@@ -554,7 +522,12 @@ UIAlertViewDelegate>
     [UIView setAnimationDuration:1.0];
     AllOderModel * model = [[AllOderModel alloc] init];
     model = waitpayArray[sender.tag];
-    _payView.lastPriceLab.text = model.price;
+    _payView.lastPriceLab.text = [NSString stringWithFormat:@"¥%@",model.price];
+    _payView.videoprice.text = [NSString stringWithFormat:@"¥%@",model.price];
+    [_payView.videoImg sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"bigimage"]];
+    _payView.titleLab.text = model.name;
+    _payView.layer.cornerRadius = 3;
+    _payView.layer.masksToBounds = YES;
     _ordernum = model.ordernum;
     index1 = sender.tag;
     [[Config Instance] saveOrderNum:_ordernum];

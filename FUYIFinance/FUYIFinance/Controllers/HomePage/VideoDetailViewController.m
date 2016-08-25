@@ -13,8 +13,9 @@
 #import "ConfirmOrderViewController.h"
 #import "StoreViewController.h"
 #import "IJKMoviePlayerViewController.h"
+#import "MyOrderAllViewController.h"
 #import "GLVideoPlayView.h"
-
+#import "XLPasswordView.h"
 #import "UIViewController+HUD.h"
 //view
 #import "VideoDetailFirstTableViewCell.h"
@@ -25,11 +26,11 @@
 #import "LPPopup.h"
 #import "Config.h"
 #import "MyAPI.h"
-
+#import "PayView.h"
 #import "Masonry.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
-@interface VideoDetailViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface VideoDetailViewController ()<XLPasswordViewDelegate,UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 - (IBAction)collectionBtn:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *collectionBtn;
@@ -46,10 +47,17 @@
     NSInteger    _cnt;// 总数量
     UIImageView *head0;
     IJKMoviePlayerViewController *playerVC;
+    PayView* _payView;
+    UIButton* _shadowBtn;
+    XLPasswordView * passwordview;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    passwordview = [XLPasswordView passwordView];
+    passwordview.delegate = self;
+    self.view.tag = 10;
+    [self creatHidePayView];
     [self creatUI];
       _cnt = 0;
    
@@ -57,6 +65,60 @@
     
     //[self judgeCollectSelected];//判断第一次进来的收藏按钮状态
 }
+
+//弹出视图
+-(void)creatHidePayView{
+    _payView = [[[NSBundle mainBundle]loadNibNamed:@"PayView" owner:self options:nil]lastObject];
+    _payView.frame = CGRectMake(0, ScreenHeight, ScreenWidth, ScreenHeight*0.65);
+    [_payView.downBtn addTarget:self action:@selector(down) forControlEvents:UIControlEventTouchUpInside];
+    [_payView.payBtn addTarget:self action:@selector(payaction) forControlEvents:UIControlEventTouchUpInside];
+    
+    //[_payView.payWayBtn addTarget:self action:@selector(selectBank) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_payView];
+}
+
+- (void)payaction
+{
+   
+    [passwordview showPasswordInView:self.view];
+
+    
+}
+
+- (void)passwordView:(XLPasswordView *)passwordView didFinishInput:(NSString *)password
+
+{
+    NSString * SecurityString = [Tools loginPasswordSecurityLock:password];
+    NSString * ordernum = [[Config Instance] getOrderNum];
+    [[MyAPI sharedAPI] payOrderWithOrderNum:ordernum Excode:SecurityString Result:^(BOOL sucess, NSString *msg) {
+        if(sucess){
+            [self showHint:msg];
+            [self down];
+            [passwordView hidePasswordView];
+            UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
+            MyOrderAllViewController * VC = (MyOrderAllViewController *)[storyboard instantiateViewControllerWithIdentifier:@"MyOrderStoryBoardID"];
+            [self.navigationController pushViewController:VC animated:YES];
+            
+        }else{
+            [self showHint:msg];
+            [passwordView hidePasswordView];
+        }
+    } ErrorResult:^(NSError *enginerError) {
+        
+    }];
+}
+
+
+//确认付款落下
+-(void)down{
+    _shadowBtn.hidden = YES;
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:1.0];
+    _payView.frame = CGRectMake(0, ScreenHeight, ScreenWidth, ScreenHeight*0.65);
+    [UIView commitAnimations];
+}
+
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -341,10 +403,25 @@
             }else{
                 if(sucess){
                     [[Config Instance] saveOrderNum:msg];
-                    [self performSegueWithIdentifier:@"ConfirmOrderSegue" sender:@[self.model,msg]];
+                    _shadowBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
+                    _shadowBtn.backgroundColor = [UIColor blackColor];
+                    [_shadowBtn addTarget:self action:@selector(down) forControlEvents:UIControlEventTouchUpInside];
+                    _shadowBtn.alpha = 0.5;
+                    [self.view addSubview:_shadowBtn];
                     
+                    [UIView beginAnimations:nil context:nil];
+                    [UIView setAnimationDuration:1.0];
+                    _payView.frame = CGRectMake(0, ScreenHeight*0.35, ScreenWidth, ScreenHeight*0.65);
+                    _payView.lastPriceLab.text = [NSString stringWithFormat:@"¥%@",self.model.videoPrice];
+                    _payView.videoprice.text = [NSString stringWithFormat:@"¥%@",self.model.videoPrice];
+                    [_payView.videoImg sd_setImageWithURL:[NSURL URLWithString:self.model.videoImage] placeholderImage:[UIImage imageNamed:@"bigimage"]];
+                    _payView.titleLab.text = self.model.videoName;
+                    _payView.layer.cornerRadius = 3;
+                    _payView.layer.masksToBounds = YES;
+                    _shadowBtn.frame = CGRectMake(0, -ScreenHeight*0.65, ScreenWidth, ScreenHeight);
+                    [UIView commitAnimations];
                 }else if([msg isEqualToString:@"0"]){
-                    [self showHint:@"请不要重复购买!"];
+                  [self showHint:@"请不要重复购买!"];
                 }else{
                     return ;
                 }
@@ -352,8 +429,7 @@
         } ErrorResult:^(NSError *enginerError) {
             
         }];
- 
-    }
+            }
 }
 #pragma mark -SegueDelegate
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
