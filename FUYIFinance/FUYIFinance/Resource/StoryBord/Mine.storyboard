@@ -627,7 +627,6 @@
                         <segue destination="TZI-V7-Jqa" kind="push" identifier="noticeSegue" id="2JG-jj-fn7"/>
                         <segue destination="kl9-Ne-o1C" kind="push" identifier="modifyinfoSegue" id="wOj-XJ-nss"/>
                         <segue destination="JdM-1q-Gjh" kind="push" identifier="settingSegue" id="dqh-en-jn6"/>
-                        <segue destination="5Vl-G6-gCQ" kind="push" identifier="personalaboutSegue" id="gnZ-Xe-nOx"/>
                         <segue destination="ot5-Xw-3l3" kind="push" identifier="moneySegue" id="dMU-6g-CnA"/>
                         <segue destination="Xyk-R8-uCE" kind="push" identifier="topupSegue" id="qmS-lo-gP3"/>
                         <segue destination="U1F-nE-KVM" kind="push" identifier="protectaccountSegue" id="Y9M-LI-9zs"/>
@@ -794,7 +793,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1KL-jM-vMp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-8706" y="88"/>
+            <point key="canvasLocation" x="-5414" y="-862"/>
         </scene>
         <!--修改密码-->
         <scene sceneID="NjP-xD-g3l">
@@ -956,11 +955,12 @@
                     <connections>
                         <outlet property="tableView" destination="duS-WQ-oDA" id="Wau-Cr-fE5"/>
                         <segue destination="P2t-GU-Cce" kind="push" identifier="GestureSegue" id="uxB-mc-cr6"/>
+                        <segue destination="5Vl-G6-gCQ" kind="push" identifier="aboutusSegue" id="dtx-3a-FE6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DGM-zb-AZc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5961" y="-1583"/>
+            <point key="canvasLocation" x="-6051" y="-1557"/>
         </scene>
         <!--个人信息安全保护-->
         <scene sceneID="vas-hd-uhJ">
@@ -3951,7 +3951,6 @@
                         <segue destination="33Z-NW-RJc" kind="push" identifier="ordermanageSegue" id="liS-vU-OLe"/>
                         <segue destination="TZI-V7-Jqa" kind="push" identifier="teachermessageSegue" id="ASI-aE-fKP"/>
                         <segue destination="gTa-Uz-Ymz" kind="push" identifier="accountSegue" id="4Zb-ci-Vya"/>
-                        <segue destination="5Vl-G6-gCQ" kind="push" identifier="aboutSegue" id="tob-R9-8uZ"/>
                         <segue destination="Xyk-R8-uCE" kind="push" identifier="topupcountSegue" id="Pik-2Q-B1m"/>
                         <segue destination="ot5-Xw-3l3" kind="push" identifier="buyyoubiSegue" id="F9A-1H-7UZ"/>
                         <segue destination="U1F-nE-KVM" kind="push" identifier="protectaccountSegue" id="e2l-01-w1k"/>
@@ -4645,13 +4644,12 @@
         <image name="rightArrow" width="25" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="W84-fu-UkS"/>
-        <segue reference="tob-R9-8uZ"/>
         <segue reference="F9A-1H-7UZ"/>
         <segue reference="e2l-01-w1k"/>
         <segue reference="ASI-aE-fKP"/>
         <segue reference="hRW-0K-DoH"/>
         <segue reference="Pik-2Q-B1m"/>
+        <segue reference="dqh-en-jn6"/>
         <segue reference="qGy-mc-chm"/>
     </inferredMetricsTieBreakers>
 </document>

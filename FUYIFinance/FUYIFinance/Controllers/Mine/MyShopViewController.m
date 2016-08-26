@@ -455,7 +455,7 @@
             [self performSegueWithIdentifier:@"settingSegue" sender:@"isTeacher"];
             }
         }else{
-            [self performSegueWithIdentifier:@"aboutSegue" sender:nil];
+          //  [self performSegueWithIdentifier:@"aboutSegue" sender:nil];
         }
     }
 }

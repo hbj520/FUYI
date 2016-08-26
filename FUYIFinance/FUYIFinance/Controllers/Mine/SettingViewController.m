@@ -99,7 +99,7 @@
 #pragma mark - UITableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 3;
+    return 4;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -236,6 +236,17 @@
         isSetGesLockLabel.font = [UIFont systemFontOfSize:15];
         [cell.contentView addSubview:isSetGesLockLabel];
         return cell;
+    }else if (indexPath.section == 3){
+        UITableViewCell * cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"gestureId"];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(12, 15, 80, 20)];
+        label.font = [UIFont systemFontOfSize:15];
+        label.text = @"关于我们";
+        label.textColor = [UIColor darkGrayColor];
+        [cell.contentView addSubview:label];
+        return cell;
+
     }
     return nil;
 }
@@ -265,6 +276,8 @@
     }
     if (indexPath.section == 2) {//手势密码
         [self performSegueWithIdentifier:@"GestureSegue" sender:nil];
+    }else if (indexPath.section == 3){
+        [self performSegueWithIdentifier:@"aboutusSegue" sender:nil];
     }
 }
 
