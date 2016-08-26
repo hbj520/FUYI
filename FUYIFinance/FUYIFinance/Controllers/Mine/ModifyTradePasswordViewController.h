@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ModifyTradePasswordViewController : UITableViewController
-
+@property(nonatomic,copy)NSString * identify;
 @end

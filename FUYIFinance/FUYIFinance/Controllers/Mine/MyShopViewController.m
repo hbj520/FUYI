@@ -463,7 +463,7 @@
 //发布宝贝
 - (void)publishTreasure
 {
-    [self showHint:@"正在建设中"];
+    [self performSegueWithIdentifier:@"myorderSegue" sender:nil];
 }
 
 //宝贝管理

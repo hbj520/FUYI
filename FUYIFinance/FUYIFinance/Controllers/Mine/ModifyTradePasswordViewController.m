@@ -75,7 +75,11 @@
 }
 
 - (IBAction)back:(id)sender {
+    if([self.identify isEqualToString:@"register"]){
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }else{
     [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 /*
