@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="QaL-7E-fUx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="QaL-7E-fUx">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
@@ -574,7 +574,7 @@
                                                         <constraint firstAttribute="width" constant="25" id="hhL-D3-5ad"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="关于我们" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QWV-cx-yZG">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="意见反馈" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QWV-cx-yZG">
                                                     <rect key="frame" x="66" y="11" width="122" height="26"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="26" id="Blp-aa-72k"/>
@@ -630,11 +630,12 @@
                         <segue destination="ot5-Xw-3l3" kind="push" identifier="moneySegue" id="dMU-6g-CnA"/>
                         <segue destination="Xyk-R8-uCE" kind="push" identifier="topupSegue" id="qmS-lo-gP3"/>
                         <segue destination="U1F-nE-KVM" kind="push" identifier="protectaccountSegue" id="Y9M-LI-9zs"/>
+                        <segue destination="tgW-cG-Eeu" kind="push" identifier="feedbackSegue" id="M2V-nX-QBx"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r1Q-BL-DkO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-11454" y="-684"/>
+            <point key="canvasLocation" x="-12750" y="-508"/>
         </scene>
         <!--修改密码-->
         <scene sceneID="gcV-qA-Yie">
@@ -3959,7 +3960,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D06-M0-lp3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-11192" y="-2276"/>
+            <point key="canvasLocation" x="-11328" y="-2036"/>
         </scene>
         <!--我的收藏-->
         <scene sceneID="hIN-97-uNa">
@@ -4608,6 +4609,68 @@
             </objects>
             <point key="canvasLocation" x="-5430" y="-6008"/>
         </scene>
+        <!--反馈-->
+        <scene sceneID="WeP-dj-afh">
+            <objects>
+                <viewController storyboardIdentifier="FeedBackIdentity" id="tgW-cG-Eeu" customClass="FeedBackViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="w8m-md-axQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="gxt-M4-8Zm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ckJ-5s-YXY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="edittext_bg_pressed" translatesAutoresizingMaskIntoConstraints="NO" id="4He-pG-LBG">
+                                <rect key="frame" x="9" y="72" width="302" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="x6b-BT-6Pf"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9RQ-1D-MRy" customClass="UIPlaceHolderTextView">
+                                <rect key="frame" x="9" y="72" width="302" height="150"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="5gw-cD-ZDQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="9RQ-1D-MRy" secondAttribute="trailing" constant="9" id="D2j-gH-6UC"/>
+                            <constraint firstAttribute="trailing" secondItem="4He-pG-LBG" secondAttribute="trailing" constant="9" id="RqA-Qa-7fe"/>
+                            <constraint firstItem="9RQ-1D-MRy" firstAttribute="top" secondItem="w8m-md-axQ" secondAttribute="bottom" constant="8" id="cx2-24-VBR"/>
+                            <constraint firstItem="4He-pG-LBG" firstAttribute="top" secondItem="w8m-md-axQ" secondAttribute="bottom" constant="8" id="nfn-kQ-e3y"/>
+                            <constraint firstItem="9RQ-1D-MRy" firstAttribute="leading" secondItem="ckJ-5s-YXY" secondAttribute="leading" constant="9" id="nwB-qa-pGR"/>
+                            <constraint firstItem="4He-pG-LBG" firstAttribute="leading" secondItem="ckJ-5s-YXY" secondAttribute="leading" constant="9" id="tCJ-VG-1Sk"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="反馈" id="0TG-fQ-qKn">
+                        <barButtonItem key="leftBarButtonItem" image="back" id="lFq-7a-LWq">
+                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="cancelAction:" destination="tgW-cG-Eeu" id="mM5-Zd-IOj"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="发送" id="e1Y-oD-1Pw">
+                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="commitAction:" destination="tgW-cG-Eeu" id="tal-6e-vsU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="leftItem" destination="lFq-7a-LWq" id="85l-Qc-LDx"/>
+                        <outlet property="textView" destination="9RQ-1D-MRy" id="R1P-bi-fX2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8RV-qJ-iEH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-10900" y="3817"/>
+        </scene>
     </scenes>
     <resources>
         <image name="aboutus" width="33" height="43"/>
@@ -4616,6 +4679,7 @@
         <image name="btndark" width="45" height="45"/>
         <image name="collect" width="40" height="43"/>
         <image name="convert" width="33" height="36"/>
+        <image name="edittext_bg_pressed" width="6" height="7"/>
         <image name="favorite" width="39" height="43"/>
         <image name="judged" width="44" height="40"/>
         <image name="loadheadImage" width="750" height="343"/>
@@ -4644,12 +4708,12 @@
         <image name="rightArrow" width="25" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="F9A-1H-7UZ"/>
-        <segue reference="e2l-01-w1k"/>
-        <segue reference="ASI-aE-fKP"/>
-        <segue reference="hRW-0K-DoH"/>
-        <segue reference="Pik-2Q-B1m"/>
+        <segue reference="qmS-lo-gP3"/>
+        <segue reference="Y9M-LI-9zs"/>
+        <segue reference="2JG-jj-fn7"/>
+        <segue reference="xFS-qr-VxC"/>
         <segue reference="dqh-en-jn6"/>
-        <segue reference="qGy-mc-chm"/>
+        <segue reference="wOj-XJ-nss"/>
+        <segue reference="dMU-6g-CnA"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -403,7 +403,7 @@
         if(indexPath.row == 0){
             [self performSegueWithIdentifier:@"settingSegue" sender:nil];
         }else{
-            //[self performSegueWithIdentifier:@"personalaboutSegue" sender:nil];
+            [self performSegueWithIdentifier:@"feedbackSegue" sender:nil];
         }
     }
 }
