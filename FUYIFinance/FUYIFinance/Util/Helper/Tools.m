@@ -9,6 +9,7 @@
 #import "Tools.h"
 #import "SecurityUtil.h"
 #import "AppDelegate.h"
+#import <AFNetworking/AFNetworking.h>
 
 #import "GuideViewController.h"
 @implementation Tools
@@ -237,5 +238,17 @@
 //        [defaults setObject:currentVersion forKey:key];
 //        [defaults synchronize];
 //    }
+}
++ (BOOL)isWifiEnableWithVC:(UIViewController *)VC{
+    AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
+    if ([manager isReachableViaWiFi]) {
+        return YES;
+    }else if ([manager isReachableViaWWAN]){
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"是否用移动网络播放视频" delegate:VC cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        [alertView show];
+        return NO;
+    }else{
+        return NO;
+    }
 }
 @end

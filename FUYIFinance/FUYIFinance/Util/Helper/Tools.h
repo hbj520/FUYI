@@ -56,5 +56,7 @@
 
 //选择控制器
 + (void)chooseRootController;
+//是否可以wifi播放
++ (BOOL)isWifiEnableWithVC:(UIViewController *)VC;
 
 @end

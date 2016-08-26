@@ -156,7 +156,12 @@ static Config * instance = nil;
     [settings setObject:ordernum forKey:@"ordernum"];
     [settings synchronize];
 }
-
+- (void)saveIsWifi:(NSString *)iswifi{
+    NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
+    [settings removeObjectForKey:@"iswifi"];
+    [settings setObject:iswifi forKey:@"iswifi"];
+    [settings synchronize];
+}
 - (NSString *)getisteacher
 {
     NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
@@ -199,7 +204,10 @@ static Config * instance = nil;
     NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
     return [settings stringForKey:@"ordernum"];
 }
-
+- (NSString *)getIsWifi{
+    NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
+    return [settings stringForKey:@"iswifi"];
+}
 - (NSString *)getIcon
 {
     NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
