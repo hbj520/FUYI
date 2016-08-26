@@ -23,6 +23,19 @@
 - (void)login
 {
     self.block();
+    
+}
+
+- (IBAction)treasure:(id)sender {
+    self.blocktreasure();
+}
+
+- (IBAction)youbi:(id)sender {
+    self.blockyoubi();
+}
+
+- (IBAction)goalbtn:(id)sender {
+    self.blockgoal();
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

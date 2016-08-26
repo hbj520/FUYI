@@ -43,10 +43,8 @@
         NSString * goodsname = dict[@"goodsname"];
         NSString * goodsimg = dict[@"goodsimg"];
         NSString * userid = dict[@"userid"];
-        NSString * address = dict[@"address"];
         NSString * ctime = dict[@"ctime"];
         NSString * state = dict[@"state"];
-        NSString * appraise = dict[@"appraise"];
         NSString * app_content = dict[@"app_content"];
         OrderManageModel * model = [[OrderManageModel alloc] initWithOrderId:orderid Ordernum:ordernum  Money:money Goodsname:goodsname Goodsimg:goodsimg Userid:userid Ctime:ctime State:state  Appcontent:app_content];
         [array addObject:model];

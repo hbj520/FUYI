@@ -40,6 +40,30 @@
                                     <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KNG-6u-nWS">
+                                <rect key="frame" x="133" y="60" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <state key="normal" title="财富:20"/>
+                                <connections>
+                                    <action selector="treasure:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="7iT-Jo-6F7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y9m-on-vdQ">
+                                <rect key="frame" x="183" y="60" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <state key="normal" title="优币:20"/>
+                                <connections>
+                                    <action selector="youbi:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="S6d-FM-JS9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qFg-ha-em6">
+                                <rect key="frame" x="240" y="60" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <state key="normal" title="积分:20"/>
+                                <connections>
+                                    <action selector="goalbtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="SCT-Uc-yte"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="2AY-FC-YjG" secondAttribute="trailing" id="Af7-l4-z8L"/>
@@ -211,13 +235,16 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="backImg" destination="2AY-FC-YjG" id="c3z-oU-SrY"/>
+                <outlet property="goalbtn" destination="qFg-ha-em6" id="TTy-u1-0WJ"/>
                 <outlet property="headicon" destination="arh-S7-ZQd" id="kjB-xs-sw8"/>
                 <outlet property="loginBtn" destination="Gkm-R6-m1B" id="amM-Eo-TQn"/>
                 <outlet property="ordercount" destination="Pgz-iJ-KTV" id="wlv-sy-mhv"/>
                 <outlet property="personlabel" destination="Jlf-tL-Q1g" id="zBW-dR-Xgy"/>
                 <outlet property="teacherName" destination="e6X-oV-lpO" id="0o0-fJ-ITP"/>
                 <outlet property="totoalcount" destination="6IR-FC-cBg" id="LZw-Ad-Dy4"/>
+                <outlet property="treasurebtn" destination="KNG-6u-nWS" id="y2W-FK-fCh"/>
                 <outlet property="vivstcount" destination="FhI-fc-rIe" id="gR2-lQ-GJw"/>
+                <outlet property="youbibtn" destination="y9m-on-vdQ" id="biI-02-3eU"/>
             </connections>
             <point key="canvasLocation" x="526" y="317"/>
         </tableViewCell>

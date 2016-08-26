@@ -15,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *totalprice;
 @property (weak, nonatomic) IBOutlet UILabel *dealtime;
 @property (weak, nonatomic) IBOutlet UILabel *teahname;
+@property (weak, nonatomic) IBOutlet UILabel *allorwaitpaylabel;
 
 @end

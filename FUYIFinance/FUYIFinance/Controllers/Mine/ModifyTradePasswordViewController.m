@@ -1,34 +1,61 @@
 //
-//  ProtectAccountViewController.m
+//  ModifyTradePasswordViewController.m
 //  FUYIFinance
 //
-//  Created by 张哲 on 16/8/24.
+//  Created by 张哲 on 16/8/25.
 //  Copyright © 2016年 youyou. All rights reserved.
 //
 
-#import "ProtectAccountViewController.h"
-
-@interface ProtectAccountViewController ()
+#import "ModifyTradePasswordViewController.h"
+#import "UIViewController+HUD.h"
+#import "Tools.h"
+#import "MyAPI.h"
+@interface ModifyTradePasswordViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *oldtradepassword;   //旧的交易密码
+@property (weak, nonatomic) IBOutlet UITextField *newtradepassword;   //新的交易密码
+@property (weak, nonatomic) IBOutlet UITextField *committradepassword; //确认交易密码
+@property (weak, nonatomic) IBOutlet UITextField *yzmword;    //手机验证码
+@property (weak, nonatomic) IBOutlet UIButton *sendyzmbtn;
+@property (weak, nonatomic) IBOutlet UIButton *surebtn;
 
 @end
 
-@implementation ProtectAccountViewController
+@implementation ModifyTradePasswordViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.surebtn.layer.cornerRadius = 8;
+    self.surebtn.layer.masksToBounds = YES;
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.sendyzmbtn.layer.cornerRadius = 3;
+    self.sendyzmbtn.layer.masksToBounds = YES;
+   
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = NO;
+
+- (IBAction)sendYZM:(id)sender {
+    
 }
+
+
+- (IBAction)sure:(id)sender {
+    [Tools hideKeyBoard];
+    if(self.oldtradepassword.text.length==0){
+        [self showHint:@"交易密码不能为空"];
+    }else if (self.newtradepassword.text.length == 0){
+        [self showHint:@"交易密码不能为空"];
+    }else if (self.committradepassword.text.length == 0){
+        [self showHint:@"交易密码不能为空"];
+    }else if(self.yzmword.text.length == 0){
+        [self showHint:@"验证码输入不能为空"];
+    }
+    NSString * SecurityOldTradeWord = [Tools loginPasswordSecurityLock:self.oldtradepassword.text];
+    NSString * SecurityNewTradeWord = [Tools loginPasswordSecurityLock:self.newtradepassword.text];
+    NSString * SecurityCommitTradeWord = [Tools loginPasswordSecurityLock:self.committradepassword.text];
+    
+    
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -44,30 +71,10 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 2;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 10;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    return 0.01f;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if(indexPath.row == 0){
-        [self performSegueWithIdentifier:@"modifytradeSegue" sender:nil];
-    }else{
-     [self performSegueWithIdentifier:@"modifypwdSegue" sender:nil];
-    }
+    return 1;
 }
 
 - (IBAction)back:(id)sender {
-    self.navigationController.navigationBarHidden = YES;
     [self.navigationController popViewControllerAnimated:YES];
 }
 

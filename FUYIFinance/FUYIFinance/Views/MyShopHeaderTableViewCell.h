@@ -17,5 +17,11 @@ typedef void (^loginBlock)();
 @property (weak, nonatomic) IBOutlet UIImageView *backImg;
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
 @property (weak, nonatomic) IBOutlet UIImageView *personlabel;
+@property (weak, nonatomic) IBOutlet UIButton *treasurebtn;
+@property (weak, nonatomic) IBOutlet UIButton *youbibtn;
+@property (weak, nonatomic) IBOutlet UIButton *goalbtn;
 @property (nonatomic,copy) loginBlock block;
+@property (nonatomic,copy) loginBlock blocktreasure;    //财富
+@property (nonatomic,copy) loginBlock blockyoubi;       //优币
+@property (nonatomic,copy) loginBlock blockgoal;        //积分
 @end

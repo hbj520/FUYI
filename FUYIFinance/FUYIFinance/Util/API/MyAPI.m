@@ -206,6 +206,30 @@
     }];
 }
 
+- (void)ModifyTradePasswordWithExcode:(NSString *)excode
+                             NewXcode:(NSString *)newxcode
+                           ReNewXcode:(NSString *)renewxcode
+                               Result:(StateBlock)result
+                          ErrorResult:(ErrorBlock)errorResult
+{
+    NSDictionary * parameters = @{@"token":KToken,
+                                  @"excode":excode,
+                                  @"newxcode":newxcode,
+                                  @"renewxcode":renewxcode};
+    [self.manager POST:@"changeexcode" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * status = responseObject[@"status"];
+        NSString * info = responseObject[@"info"];
+        if([status isEqualToString:@"1"]){
+            result(YES,info);
+        }else{
+            result(NO,info);
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+    }];
+    
+}
+
 #pragma mark -首页
 - (void)homePageWithResult:(ArrayBlock)result
                errorResult:(ErrorBlock)errorResult{
@@ -1286,11 +1310,13 @@
 }
 
 - (void)getOrderFlowDataWithIdentify:(NSString *)identify
+                                Page:(NSString *)page
                               Result:(ArrayBlock)result
                          ErrorResult:(ErrorBlock)errorResult
 {
     NSDictionary * parameters = @{@"token":KToken,
-                                  @"identify":identify};
+                                  @"identify":identify,
+                                  @"page":page};
     [self.manager POST:@"teacherOrderManage" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         NSString * status = responseObject[@"status"];
         NSString * info = responseObject[@"info"];
@@ -1304,6 +1330,29 @@
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         errorResult(error);
     }];
+}
+
+- (void)getOrderFlowWaitPayDataWithPage:(NSString *)page
+                                 Result:(ArrayBlock)result
+                              ErrorResult:(ErrorBlock)errorResult
+{
+    NSDictionary * parameters = @{@"token":KToken,
+                                  @"page":page,
+                                  @"identify":@"2"};
+    [self.manager POST:@"teacherOrderManage" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * status = responseObject[@"status"];
+        NSString * info = responseObject[@"info"];
+        NSArray * data = responseObject[@"data"];
+        if([status isEqualToString:@"1"]){
+            NSMutableArray * array = [[OrderManageModel alloc] buildWithData:data];
+            result(YES,info,array);
+        }else{
+            result(NO,info,nil);
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+    }];
+    
 }
 
 - (void)payVideoOrderWithOrderNum:(NSString *)ordernum Excode:(NSString *)excode Result:(StateBlock)result ErrorResult:(ErrorBlock)errorResult

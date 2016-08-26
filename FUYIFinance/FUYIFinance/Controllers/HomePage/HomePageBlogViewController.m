@@ -19,12 +19,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    NSURLRequest * request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://www.fuyi001.com/blog/blogIndex.html"]];
     _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight-64)];
     _webView.delegate = self;
     [_webView setScalesPageToFit:YES];
     [self.view addSubview:_webView];
-    [_webView loadRequest:request];
+    if(KToken.length == 0){
+        [self logOut];
+    }else{
+        NSURL * url = [NSURL URLWithString:@"http://60.173.235.34:9090/fuyi/app/nos_blog_tuijian"];
+        NSString * body = [NSString stringWithFormat:@"token=%@",KToken];
+        NSMutableURLRequest * request = [[NSMutableURLRequest alloc] initWithURL:url];
+        [request setHTTPMethod:@"POST"];
+        [request setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
+        [_webView loadRequest:request];
+    }
+
 }
 #pragma mark - PrivateMethod
 - (void)viewWillAppear:(BOOL)animated

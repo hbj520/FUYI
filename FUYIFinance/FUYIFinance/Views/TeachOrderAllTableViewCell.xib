@@ -36,10 +36,10 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="讲师：李天" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6z1-cs-jDw">
-                        <rect key="frame" x="88" y="45" width="72" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="讲师：李天" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6z1-cs-jDw">
+                        <rect key="frame" x="88" y="45" width="180" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="72" id="Fku-32-ZoP"/>
+                            <constraint firstAttribute="width" constant="180" id="Fku-32-ZoP"/>
                             <constraint firstAttribute="height" constant="21" id="w03-7q-qFu"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -155,6 +155,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="allorwaitpaylabel" destination="CJs-Zp-HSH" id="p0L-eG-gpo"/>
                 <outlet property="dealtime" destination="4a4-qP-3Gl" id="J8H-TA-hwA"/>
                 <outlet property="name" destination="bxy-Q7-0mf" id="blB-ZV-R0i"/>
                 <outlet property="price" destination="5gR-Gd-UJe" id="eaz-fk-QSy"/>

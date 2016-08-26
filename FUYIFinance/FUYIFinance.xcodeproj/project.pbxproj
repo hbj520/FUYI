@@ -236,6 +236,7 @@
 		CCF829BD1D59EAB1001D473F /* ZCTradeKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = CCF829B41D59EAB1001D473F /* ZCTradeKeyboard.m */; };
 		CCF829BE1D59EAB1001D473F /* ZCTradeView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCF829B61D59EAB1001D473F /* ZCTradeView.m */; };
 		CCFD50CC1D52DB390022EA9D /* OrderManageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFD50CB1D52DB390022EA9D /* OrderManageModel.m */; };
+		CCFF47C71D6EE27F00737C2E /* ModifyTradePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFF47C61D6EE27F00737C2E /* ModifyTradePasswordViewController.m */; };
 		D114DC581D24EEC50001CE21 /* Good.m in Sources */ = {isa = PBXBuildFile; fileRef = D114DC561D24EEC50001CE21 /* Good.m */; };
 		D1189C231D49A1D1001209B9 /* TeacherStoreHeaderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D1189C221D49A1D1001209B9 /* TeacherStoreHeaderModel.m */; };
 		D1189C261D4F40EE001209B9 /* Collection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1189C251D4F40EE001209B9 /* Collection.storyboard */; };
@@ -768,6 +769,8 @@
 		CCF829B61D59EAB1001D473F /* ZCTradeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCTradeView.m; sourceTree = "<group>"; };
 		CCFD50CA1D52DB390022EA9D /* OrderManageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderManageModel.h; sourceTree = "<group>"; };
 		CCFD50CB1D52DB390022EA9D /* OrderManageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderManageModel.m; sourceTree = "<group>"; };
+		CCFF47C51D6EE27F00737C2E /* ModifyTradePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyTradePasswordViewController.h; sourceTree = "<group>"; };
+		CCFF47C61D6EE27F00737C2E /* ModifyTradePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyTradePasswordViewController.m; sourceTree = "<group>"; };
 		D114DC551D24EEC50001CE21 /* Good.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Good.h; sourceTree = "<group>"; };
 		D114DC561D24EEC50001CE21 /* Good.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Good.m; sourceTree = "<group>"; };
 		D1189C211D49A1D1001209B9 /* TeacherStoreHeaderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherStoreHeaderModel.h; sourceTree = "<group>"; };
@@ -1350,6 +1353,8 @@
 				CC2AA7F41D6C59B8004EA0BA /* MineGoodsJudgeTableViewController.m */,
 				CC20B4C41D6D938600E42303 /* ProtectAccountViewController.h */,
 				CC20B4C51D6D938600E42303 /* ProtectAccountViewController.m */,
+				CCFF47C51D6EE27F00737C2E /* ModifyTradePasswordViewController.h */,
+				CCFF47C61D6EE27F00737C2E /* ModifyTradePasswordViewController.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -2433,6 +2438,7 @@
 				CCF829B91D59EAB1001D473F /* UIAlertView+Quick.m in Sources */,
 				CC593CAD1D29EFF30077B096 /* MyShopViewController.m in Sources */,
 				CC0022821D58AE3E00132483 /* SystemNoticeModel.m in Sources */,
+				CCFF47C71D6EE27F00737C2E /* ModifyTradePasswordViewController.m in Sources */,
 				ABF9F0F01D531F03004E1523 /* IJKHistoryItem.m in Sources */,
 				D1F130201D2B642A00EE1690 /* ConfirmOrderViewController.m in Sources */,
 				D1F1302A1D2B817200EE1690 /* VideoInfoTableViewCell.m in Sources */,

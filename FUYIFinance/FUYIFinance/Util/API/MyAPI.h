@@ -92,6 +92,20 @@ typedef void (^ErrorBlock) (NSError *enginerError);
             errorResult:(ErrorBlock)errorResult;
 
 
+/**
+ *  修改交易密码
+ *
+ *  @param excode      原始交易密码
+ *  @param newxcode    新的交易密码
+ *  @param renewxcode  确认交易密码
+ *  @param result      返回修改结果
+ *  @param errorResult 错误信息
+ */
+- (void)ModifyTradePasswordWithExcode:(NSString *)excode
+                             NewXcode:(NSString *)newxcode
+                           ReNewXcode:(NSString *)renewxcode
+                               Result:(StateBlock)result
+                          ErrorResult:(ErrorBlock)errorResult;
 
 #pragma mark -首页
 - (void)homePageWithResult:(ArrayBlock)result
@@ -461,8 +475,13 @@ typedef void (^ErrorBlock) (NSError *enginerError);
  *  @param errorResult 错误信息
  */
 - (void)getOrderFlowDataWithIdentify:(NSString *)identify
+                                Page:(NSString *)page
                               Result:(ArrayBlock)result
                          ErrorResult:(ErrorBlock)errorResult;
+
+- (void)getOrderFlowWaitPayDataWithPage:(NSString *)page
+                                 Result:(ArrayBlock)result
+                              ErrorResult:(ErrorBlock)errorResult;
 
 #pragma mark -讲师团队
 - (void)getTeacherTeamDataWithToken:(NSString*)token

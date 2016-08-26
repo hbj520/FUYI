@@ -173,6 +173,22 @@
             NSString * headimageUrl = [[Config Instance] getIcon];
             [cell.headicon sd_setImageWithURL:[NSURL URLWithString:headimageUrl] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
             cell.personlabel.hidden = NO;
+            cell.treasurebtn.hidden = NO;
+            cell.youbibtn.hidden = NO;
+            cell.goalbtn.hidden = NO;
+            //跳转到财富充值界面
+            cell.blocktreasure = ^(){
+                [self performSegueWithIdentifier:@"topupcountSegue" sender:nil];
+            };
+            //跳转到优币兑换界面
+            cell.blockyoubi = ^(){
+                [self performSegueWithIdentifier:@"buyyoubiSegue" sender:nil];
+            };
+            //跳转到积分充值界面
+            cell.blockgoal = ^(){
+                
+            };
+            
             cell.backImg.userInteractionEnabled = YES;
             cell.teacherName.text = teacherinfo.username;
             teachername = teacherinfo.username;
@@ -192,6 +208,9 @@
             cell.headicon.image = [UIImage imageNamed:@"person_headicon"];
             cell.teacherName.text = @"未登录请登录";
             cell.personlabel.hidden = YES;
+            cell.treasurebtn.hidden = YES;
+            cell.youbibtn.hidden = YES;
+            cell.goalbtn.hidden = YES;
             cell.totoalcount.text = @"";
             cell.vivstcount.text = @"";
             cell.ordercount.text = @"";
@@ -418,7 +437,7 @@
             if(!KToken){
                 [self logOut];
             }else{
-                [self performSegueWithIdentifier:@"accountSegue" sender:nil];
+                [self performSegueWithIdentifier:@"protectaccountSegue" sender:nil];
             }
         }else{
             if(!KToken){
