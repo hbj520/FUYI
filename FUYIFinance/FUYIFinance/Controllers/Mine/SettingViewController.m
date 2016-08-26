@@ -95,98 +95,117 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 6;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.row == 0){
+    if(indexPath.section == 0){
+//        UITableViewCell * cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell1"];
+//        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//        UILabel * desclabel = [[UILabel alloc] initWithFrame:CGRectMake(12, 25, 60, 20)];
+//        desclabel.font = [UIFont systemFontOfSize:15];
+//        desclabel.text = @"头像";
+//        desclabel.textColor = [UIColor darkGrayColor];
+//        [cell.contentView addSubview:desclabel];
+//        UIImageView * headImage = [[UIImageView alloc] initWithFrame:CGRectMake(ScreenWidth - 8 - 13 - 8 - 48, 8, 48, 48)];
+//        headImage.layer.cornerRadius = 24;
+//        headImage.layer.masksToBounds = YES;
+//        [headImage sd_setImageWithURL:[NSURL URLWithString:imgthumb] placeholderImage:[UIImage imageNamed:@"defaulticon"]];
+//        [cell.contentView addSubview:headImage];
+//        return cell;
         UITableViewCell * cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell1"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        UILabel * desclabel = [[UILabel alloc] initWithFrame:CGRectMake(12, 25, 60, 20)];
+        UILabel * desclabel = [[UILabel alloc] initWithFrame:CGRectMake(12, 15, 100, 20)];
         desclabel.font = [UIFont systemFontOfSize:15];
-        desclabel.text = @"头像";
-        desclabel.textColor = [UIColor darkGrayColor];
+        desclabel.text = @"清除缓存";
         [cell.contentView addSubview:desclabel];
-        UIImageView * headImage = [[UIImageView alloc] initWithFrame:CGRectMake(ScreenWidth - 8 - 13 - 8 - 48, 8, 48, 48)];
-        headImage.layer.cornerRadius = 24;
-        headImage.layer.masksToBounds = YES;
-        [headImage sd_setImageWithURL:[NSURL URLWithString:imgthumb] placeholderImage:[UIImage imageNamed:@"defaulticon"]];
-        [cell.contentView addSubview:headImage];
+        desclabel.textColor = [UIColor darkGrayColor];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//        UILabel * nicklabel = [[UILabel alloc] initWithFrame:CGRectMake(12 + 30 + 20, 15, 100, 20)];
+//        nicklabel.textColor = [UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1];
+//        nicklabel.font = [UIFont systemFontOfSize:15];
+//        nicklabel.text = nickName;
+       // [cell.contentView addSubview:nicklabel];
         return cell;
-    }else if (indexPath.row == 1){
+        
+    }else if (indexPath.section == 1){
         UITableViewCell * cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell2"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        UILabel * desclabel = [[UILabel alloc] initWithFrame:CGRectMake(12, 15, 30, 20)];
+        UILabel * desclabel = [[UILabel alloc] initWithFrame:CGRectMake(12, 15, 100, 20)];
         desclabel.font = [UIFont systemFontOfSize:15];
-        desclabel.text = @"昵称";
+        desclabel.text = @"仅wifi下观看";
         [cell.contentView addSubview:desclabel];
         desclabel.textColor = [UIColor darkGrayColor];
-        UILabel * nicklabel = [[UILabel alloc] initWithFrame:CGRectMake(12 + 30 + 20, 15, 100, 20)];
-        nicklabel.textColor = [UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1];
-        nicklabel.font = [UIFont systemFontOfSize:15];
-        nicklabel.text = nickName;
-        [cell.contentView addSubview:nicklabel];
+        //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        UISwitch *wifiSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(ScreenWidth-60, 15, 50, 20)];
+        [cell.contentView addSubview:wifiSwitch];
+//        UILabel * nicklabel = [[UILabel alloc] initWithFrame:CGRectMake(12 + 30 + 20, 15, 100, 20)];
+//        nicklabel.textColor = [UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1];
+//        nicklabel.font = [UIFont systemFontOfSize:15];
+//        nicklabel.text = nickName;
+//        [cell.contentView addSubview:nicklabel];
         return cell;
-        
-    }else if (indexPath.row == 2){
-        UITableViewCell * cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell3"];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        UILabel * desclabel = [[UILabel alloc] initWithFrame:CGRectMake(12, 15, 30, 20)];
-        desclabel.font = [UIFont systemFontOfSize:15];
-        desclabel.text = @"性别";
-        desclabel.textColor = [UIColor darkGrayColor];
-        [cell addSubview:desclabel];
-        UILabel * sexlabel = [[UILabel alloc] initWithFrame:CGRectMake(12 + 30 + 20, 15, 30, 20)];
-        sexlabel.textColor = [UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1];
-        sexlabel.font = [UIFont systemFontOfSize:15];
-        sexlabel.text = sexLabel;
-        [cell addSubview:sexlabel];
-        return cell;
-        
-    }else if (indexPath.row == 3){
-        UITableViewCell * cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell4"];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(12, 15, 60, 20)];
-        label.font = [UIFont systemFontOfSize:15];
-        label.text = @"qq";
-        label.textColor = [UIColor darkGrayColor];
-        [cell.contentView addSubview:label];
-        UILabel * descLabel = [[UILabel alloc] initWithFrame:CGRectMake(12 + 30 + 20, 15, 120, 20)];
-        descLabel.textAlignment = NSTextAlignmentLeft;
-        descLabel.textColor = [UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1];
-        descLabel.font = [UIFont systemFontOfSize:15];
-        descLabel.text = qqNum;
-        [cell.contentView addSubview:descLabel];
-        return cell;
-    }else if (indexPath.row == 4){
-        UITableViewCell * cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell5"];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(12, 15, 80, 20)];
-        label.font = [UIFont systemFontOfSize:15];
-        label.text = @"email";
-        label.textColor = [UIColor darkGrayColor];
-        [cell.contentView addSubview:label];
-        UILabel * detaillabel = [[UILabel alloc] initWithFrame:CGRectMake(12 + 30 + 20,15, 200, 20)];
-        detaillabel.textAlignment = NSTextAlignmentLeft;
-        detaillabel.textColor = [UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1];
-        detaillabel.font = [UIFont systemFontOfSize:15];
-        detaillabel.text = emailNum;
-        [cell.contentView addSubview:detaillabel];
-        return cell;
-        
-    }else if (indexPath.row == 5){
+    }
+//    }else if (indexPath.row == 2){
+//        UITableViewCell * cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell3"];
+//        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//        UILabel * desclabel = [[UILabel alloc] initWithFrame:CGRectMake(12, 15, 30, 20)];
+//        desclabel.font = [UIFont systemFontOfSize:15];
+//        desclabel.text = @"性别";
+//        desclabel.textColor = [UIColor darkGrayColor];
+//        [cell addSubview:desclabel];
+//        UILabel * sexlabel = [[UILabel alloc] initWithFrame:CGRectMake(12 + 30 + 20, 15, 30, 20)];
+//        sexlabel.textColor = [UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1];
+//        sexlabel.font = [UIFont systemFontOfSize:15];
+//        sexlabel.text = sexLabel;
+//        [cell addSubview:sexlabel];
+//        return cell;
+//        
+//    }else if (indexPath.row == 3){
+//        UITableViewCell * cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell4"];
+//        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//        UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(12, 15, 60, 20)];
+//        label.font = [UIFont systemFontOfSize:15];
+//        label.text = @"qq";
+//        label.textColor = [UIColor darkGrayColor];
+//        [cell.contentView addSubview:label];
+//        UILabel * descLabel = [[UILabel alloc] initWithFrame:CGRectMake(12 + 30 + 20, 15, 120, 20)];
+//        descLabel.textAlignment = NSTextAlignmentLeft;
+//        descLabel.textColor = [UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1];
+//        descLabel.font = [UIFont systemFontOfSize:15];
+//        descLabel.text = qqNum;
+//        [cell.contentView addSubview:descLabel];
+//        return cell;
+//    }else if (indexPath.row == 4){
+//        UITableViewCell * cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell5"];
+//        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//        UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(12, 15, 80, 20)];
+//        label.font = [UIFont systemFontOfSize:15];
+//        label.text = @"email";
+//        label.textColor = [UIColor darkGrayColor];
+//        [cell.contentView addSubview:label];
+//        UILabel * detaillabel = [[UILabel alloc] initWithFrame:CGRectMake(12 + 30 + 20,15, 200, 20)];
+//        detaillabel.textAlignment = NSTextAlignmentLeft;
+//        detaillabel.textColor = [UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1];
+//        detaillabel.font = [UIFont systemFontOfSize:15];
+//        detaillabel.text = emailNum;
+//        [cell.contentView addSubview:detaillabel];
+//        return cell;
+//        
+//    }
+    else if (indexPath.section == 2){
         UITableViewCell * cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"gestureId"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(12, 15, 80, 20)];
         label.font = [UIFont systemFontOfSize:15];
-        label.text = @"安全设置";
+        label.text = @"手势密码";
         label.textColor = [UIColor darkGrayColor];
         [cell.contentView addSubview:label];
         UILabel *isSetGesLockLabel = [[UILabel alloc] initWithFrame:CGRectMake(ScreenWidth - 80, 15, 50, 20)];
@@ -216,25 +235,19 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.row == 0){
-        return 65;
-    }else{
         return 50;
-    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    if (indexPath.row == 5) {//手势密码
+    if (indexPath.section == 2) {//手势密码
         [self performSegueWithIdentifier:@"GestureSegue" sender:nil];
     }
 }
 
 - (void)logout:(id)sender {
     [self showHudInView:self.view hint:@"正在退出登录"];
-    
-    
     [[MyAPI sharedAPI]LoginOutWithResult:^(BOOL sucess, NSString *msg) {
         if(sucess){
             [[NSNotificationCenter defaultCenter] postNotificationName:@"changeState" object:nil userInfo:nil];
