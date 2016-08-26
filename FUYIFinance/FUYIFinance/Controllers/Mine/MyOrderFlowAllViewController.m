@@ -66,6 +66,9 @@
             [_tableView.mj_header endRefreshing];
             [_tableView.mj_footer endRefreshing];
         }
+            [_tableView.mj_header endRefreshing];
+            [_tableView.mj_footer endRefreshing];
+
     } ErrorResult:^(NSError *enginerError) {
         [_tableView.mj_header endRefreshing];
         [_tableView.mj_footer endRefreshing];

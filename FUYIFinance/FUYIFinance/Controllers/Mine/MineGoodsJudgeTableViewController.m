@@ -20,6 +20,7 @@
     NSString * starnum3;
     NSString * starnum4;
     BOOL IsCommit;
+    NSString * anostr;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *thumbImg;
 @property (weak, nonatomic) IBOutlet UILabel *name;
@@ -43,6 +44,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    anostr = @"0";
     [self.thumbImg sd_setImageWithURL:[NSURL URLWithString:self.image] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
     self.name.text = self.goodsname;
     self.teachername.text = [NSString stringWithFormat:@"讲师：%@",self.teachname];
@@ -158,16 +160,17 @@
 }
 
 - (IBAction)SureJudge:(id)sender {
-    NSString * anonymous = [NSString stringWithFormat:@"%d",IsCommit];
     if(!KToken){
         [self logOut];
     }else{
-        NSString * anonymous = [NSString stringWithFormat:@"%d",IsCommit];
+        if(IsCommit){
+            anostr = @"1";
+        }
         if (self.deleteblock) {
             self.deleteblock(self.indexpath);
         }
 
-    [[MyAPI sharedAPI] GoodsJudgeWithParameters:starNum Manner_score:starnum1 Quality_score:starnum2 Rational_score:starnum3 Satisfy_score:starnum4 OrderNum:self.ordernum Anonymous:anonymous Content:self.textView.text Goodstype:self.ustyle Goodsid:self.uid result:^(BOOL sucess, NSString *msg) {
+    [[MyAPI sharedAPI] GoodsJudgeWithParameters:starNum Manner_score:starnum1 Quality_score:starnum2 Rational_score:starnum3 Satisfy_score:starnum4 OrderNum:self.ordernum Anonymous:anostr Content:self.textView.text Goodstype:self.ustyle Goodsid:self.uid result:^(BOOL sucess, NSString *msg) {
         if (sucess) {
             [self showHint:@"评价成功"];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"updatepage" object:nil];

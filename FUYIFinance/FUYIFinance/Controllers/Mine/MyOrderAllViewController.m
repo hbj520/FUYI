@@ -472,9 +472,7 @@ UIAlertViewDelegate>
     VC1.goodsprice = model.price;
     VC1.teachname = model.teacher;
     VC1.deleteblock = ^(NSIndexPath * indexpath){
-        NSInteger index2 = indexpath.row;
-        [waitjudgeArray removeObjectAtIndex:index2];
-        [_tableView reloadData];
+        [self loadData];
     };
     [self.navigationController pushViewController:VC1 animated:YES];
        }
@@ -601,8 +599,9 @@ UIAlertViewDelegate>
         [[MyAPI sharedAPI] cancelOrderWithOrdernum:_ordernum result:^(BOOL sucess, NSString *msg) {
             if(sucess){
                 [self showHint:@"取消订单成功"];
-                [waitpayArray removeObjectAtIndex:index-10];
-                [_tableView reloadData];
+                //[waitpayArray removeObjectAtIndex:index-10];
+                [self loadData];
+                // [_tableView reloadData];
             }
         } errorResult:^(NSError *enginerError) {
             

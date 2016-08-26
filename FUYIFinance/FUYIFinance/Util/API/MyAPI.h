@@ -93,6 +93,15 @@ typedef void (^ErrorBlock) (NSError *enginerError);
 
 
 /**
+ *  发送修改交易密码验证码
+ *
+ *  @param result 发送信息
+ *  @param error  错误信息
+ */
+- (void)sendTradeYZMWithResult:(StateBlock)result
+                   ErrorResult:(ErrorBlock)errorResult;
+
+/**
  *  修改交易密码
  *
  *  @param excode      原始交易密码
@@ -104,6 +113,7 @@ typedef void (^ErrorBlock) (NSError *enginerError);
 - (void)ModifyTradePasswordWithExcode:(NSString *)excode
                              NewXcode:(NSString *)newxcode
                            ReNewXcode:(NSString *)renewxcode
+                                  Yzm:(NSString *)yzm
                                Result:(StateBlock)result
                           ErrorResult:(ErrorBlock)errorResult;
 
@@ -118,6 +128,7 @@ typedef void (^ErrorBlock) (NSError *enginerError);
 - (void)videoStoreWithToken:(NSString*)token
                typeSelectId:(NSString*)typeSelectId
               labelSelectId:(NSString*)labelSelectId
+                       Sort:(NSString *)sort
                        page:(NSString*)page
                     keyWord:(NSString*)keyWord
                      result:(ArrayBlock)result

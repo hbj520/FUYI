@@ -206,16 +206,52 @@
     }];
 }
 
+
+/**
+ *  发送修改交易密码验证码
+ *
+ *  @param result 发送信息
+ *  @param error  错误信息
+ */
+
+- (void)sendTradeYZMWithResult:(StateBlock)result
+                   ErrorResult:(ErrorBlock)errorResult
+{
+    NSDictionary * parameter = @{@"token":KToken};
+    [self.manager POST:@"nos_sendexcodeyzm" parameters:parameter success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * status = responseObject[@"status"];
+        NSString * info = responseObject[@"info"];
+        if([status isEqualToString:@"1"]){
+            result(YES,info);
+        }else{
+            result(NO,info);
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+    }];
+}
+
+/**
+ *  修改交易密码
+ *
+ *  @param excode      原始交易密码
+ *  @param newxcode    新的交易密码
+ *  @param renewxcode  确认交易密码
+ *  @param result      返回修改结果
+ *  @param errorResult 错误信息
+ */
 - (void)ModifyTradePasswordWithExcode:(NSString *)excode
                              NewXcode:(NSString *)newxcode
                            ReNewXcode:(NSString *)renewxcode
+                                  Yzm:(NSString *)yzm
                                Result:(StateBlock)result
                           ErrorResult:(ErrorBlock)errorResult
 {
     NSDictionary * parameters = @{@"token":KToken,
                                   @"excode":excode,
-                                  @"newxcode":newxcode,
-                                  @"renewxcode":renewxcode};
+                                  @"newexcode":newxcode,
+                                  @"renewexcode":renewxcode,
+                                  @"yzm":yzm};
     [self.manager POST:@"changeexcode" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         NSString * status = responseObject[@"status"];
         NSString * info = responseObject[@"info"];
@@ -275,7 +311,9 @@
                 NSArray *selectTypeArray = [[SelectModel alloc]buildWithData:typeArray];
                 NSArray *labelArray = responseObject[@"data"][@"label"];
                 NSArray *selectLabelArray = [[SelectModel alloc]buildWithData:labelArray];
-                return result(YES,info,@[selectTypeArray,selectLabelArray]);
+                NSArray *sortArray = responseObject[@"data"][@"sort"];
+                NSArray *sortKindArray = [[SelectModel alloc]buildWithData:sortArray];
+                return result(YES,info,@[selectTypeArray,selectLabelArray,sortKindArray]);
             }
         }else{
             return result(NO,info,nil);
@@ -291,6 +329,7 @@
 - (void)videoStoreWithToken:(NSString*)token
                typeSelectId:(NSString*)typeSelectId
               labelSelectId:(NSString*)labelSelectId
+                       Sort:(NSString *)sort
                        page:(NSString*)page
                     keyWord:(NSString*)keyWord
                      result:(ArrayBlock)result
@@ -298,7 +337,8 @@
     NSDictionary *parameters = @{
                                  @"token":token,
                                  @"type":typeSelectId,
-                                 @"lael":labelSelectId,
+                                 @"lable":labelSelectId,
+                                 @"sort":sort,
                                  @"page":page,
                                  @"key":keyWord
                                  };

@@ -41,8 +41,6 @@
     [self addRefresh];
     dataSource = [NSMutableArray array];
     [self loadData];
-    // [[Config Instance] saveWaitJudgeCount:@"0"];
-    
 }
 
 - (void)addRefresh
@@ -159,15 +157,7 @@
     MineWaitJudgeModel * model = dataSource[indexpath.section];
     
     UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
-//    ProductJudgeViewController * VC = (ProductJudgeViewController*)[storyboard instantiateViewControllerWithIdentifier:@"productJudge"];
     MineGoodsJudgeTableViewController * VC1 = (MineGoodsJudgeTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"GoodJudgeStoryBoardID"];
-    
-//    VC.deleteblock = ^(NSIndexPath *indexpath){
-//        NSInteger index = indexpath.section;
-//        [dataSource removeObjectAtIndex:index];
-//        [_tableView reloadData];
-//        
-//    };
     VC1.uid = model.goodsid;
     VC1.image = model.image;
     VC1.ustyle = model.goodstyle;
@@ -182,12 +172,7 @@
         [dataSource removeObjectAtIndex:index];
         [_tableView reloadData];
     };
-//    VC.uid = model.goodsid;
-//    VC.image = model.image;
-//    VC.ustyle = model.goodstyle;
-//    VC.ordernum = model.ordernum;
-//    VC.indexpath = indexpath;
-//    VC.index = indexpath.section;
+
     [self.navigationController pushViewController:VC1 animated:YES];
 }
 

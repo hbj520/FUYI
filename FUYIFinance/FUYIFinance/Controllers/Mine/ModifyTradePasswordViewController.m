@@ -8,9 +8,14 @@
 
 #import "ModifyTradePasswordViewController.h"
 #import "UIViewController+HUD.h"
+#import "HexColor.h"
 #import "Tools.h"
 #import "MyAPI.h"
 @interface ModifyTradePasswordViewController ()
+{
+    NSTimer *timer;
+    NSInteger time;
+}
 @property (weak, nonatomic) IBOutlet UITextField *oldtradepassword;   //旧的交易密码
 @property (weak, nonatomic) IBOutlet UITextField *newtradepassword;   //新的交易密码
 @property (weak, nonatomic) IBOutlet UITextField *committradepassword; //确认交易密码
@@ -33,26 +38,74 @@
 }
 
 
+- (void)setTimeSchedu{
+    self.sendyzmbtn.enabled = NO;
+    [self.sendyzmbtn setBackgroundColor:[UIColor lightGrayColor]];
+    [self.sendyzmbtn setTitle:@"60" forState:UIControlStateNormal];
+    timer = [NSTimer scheduledTimerWithTimeInterval:1.f target:self selector:@selector(timeAct:) userInfo:nil repeats:YES];
+    time = 60;
+    [timer fire];
+}
+
+- (void)timeAct:(id)sender{
+    if (time == 0) {
+        [timer invalidate];
+        self.sendyzmbtn.enabled = YES;
+        [self.sendyzmbtn setBackgroundColor:[UIColor colorWithHexString:@"FF5000"]];
+        [self.sendyzmbtn setTitle:@"发送验证码" forState:UIControlStateNormal];
+    }else{
+        time--;
+        [self.sendyzmbtn setTitle:[NSString stringWithFormat:@"%ld",time] forState:UIControlStateNormal];
+        [self.sendyzmbtn setBackgroundColor:[UIColor lightGrayColor]];
+    }
+}
+
+//发送验证码
 - (IBAction)sendYZM:(id)sender {
+     [self setTimeSchedu];
+    [[MyAPI sharedAPI] sendTradeYZMWithResult:^(BOOL sucess, NSString *msg) {
+        if(sucess){
+            [self showHint:@"发送验证码成功"];
+        }else{
+            [self showHint:msg];
+        }
+    } ErrorResult:^(NSError *enginerError) {
+        
+    }];
     
 }
 
-
+//确定修改
 - (IBAction)sure:(id)sender {
     [Tools hideKeyBoard];
-    if(self.oldtradepassword.text.length==0){
-        [self showHint:@"交易密码不能为空"];
-    }else if (self.newtradepassword.text.length == 0){
-        [self showHint:@"交易密码不能为空"];
-    }else if (self.committradepassword.text.length == 0){
-        [self showHint:@"交易密码不能为空"];
-    }else if(self.yzmword.text.length == 0){
-        [self showHint:@"验证码输入不能为空"];
+    if(self.oldtradepassword.text.length == 0||self.newtradepassword.text.length == 0||self.committradepassword.text.length == 0 || self.yzmword.text.length == 0){
+        [self showHint:@"输入不能为空"];
+        return;
+    }
+    if(!(self.oldtradepassword.text.length>=6&&self.oldtradepassword.text.length<=20)){
+        [self showHint:@"输入密码长度不符合要求"];
+        return;
+    }
+    if(!(self.newtradepassword.text.length>=6&&self.newtradepassword.text.length<=20)){
+        [self showHint:@"输入密码长度不符合要求"];
+        return;
+    }
+    if(![self.newtradepassword.text isEqualToString:self.committradepassword.text]){
+        [self showHint:@"两次密码输入不一致"];
+        return;
     }
     NSString * SecurityOldTradeWord = [Tools loginPasswordSecurityLock:self.oldtradepassword.text];
     NSString * SecurityNewTradeWord = [Tools loginPasswordSecurityLock:self.newtradepassword.text];
     NSString * SecurityCommitTradeWord = [Tools loginPasswordSecurityLock:self.committradepassword.text];
-    
+    [[MyAPI sharedAPI] ModifyTradePasswordWithExcode:SecurityOldTradeWord NewXcode:SecurityNewTradeWord ReNewXcode:SecurityCommitTradeWord Yzm:self.yzmword.text Result:^(BOOL sucess, NSString *msg) {
+        if(sucess){
+            [self showHint:@"修改成功"];
+        }else{
+            [self showHint:msg];
+        }
+    } ErrorResult:^(NSError *enginerError) {
+        
+    }];
     
 }
 

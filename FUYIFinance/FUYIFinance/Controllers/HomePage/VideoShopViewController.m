@@ -32,10 +32,11 @@ DOPDropDownMenuDelegate>
     NSMutableArray *financeSelectData;
     NSMutableArray *classSelectData;
     NSMutableArray *storeArray;
-    
+    NSMutableArray *sortArray;
     NSString *typeId;
     NSString *labelId;
     NSInteger _page;
+    NSString * sortId;
     NSString *key;
     
     UIButton* _shadowBtn;
@@ -55,6 +56,7 @@ DOPDropDownMenuDelegate>
     financeSelectData = [[NSMutableArray alloc]init];
     classSelectData = [[NSMutableArray alloc]init];
     storeArray = [[NSMutableArray alloc]init];
+    sortArray = [[NSMutableArray alloc] init];
     // Do any additional setup after loading the view.
     [self creatUI];
     
@@ -62,9 +64,11 @@ DOPDropDownMenuDelegate>
     typeId = @"";
     labelId = @"";
     key = @"";
+    sortId = @"";
     [self loadMenuData];//下拉菜单数据
     [self loadDataWithTypeSelectId:typeId
                      labelSelectId:labelId
+                              Sort:sortId
                            pageNum:_page
                            keyWord:key];
     [self addRefresh];//刷新
@@ -101,6 +105,7 @@ DOPDropDownMenuDelegate>
     
     [self loadDataWithTypeSelectId:typeId
                      labelSelectId:labelId
+                              Sort:sortId
                            pageNum:_page
                            keyWord:key];
     
@@ -122,6 +127,7 @@ DOPDropDownMenuDelegate>
         }
         [weakself loadDataWithTypeSelectId:typeId
                              labelSelectId:labelId
+                                      Sort:sortId
                                    pageNum:_page
                                    keyWord:key];
     }];
@@ -129,6 +135,7 @@ DOPDropDownMenuDelegate>
         _page++;
         [weakself loadDataWithTypeSelectId:typeId
                              labelSelectId:labelId
+                                      Sort:sortId
                                    pageNum:_page
                                    keyWord:key];
     }];
@@ -153,6 +160,7 @@ DOPDropDownMenuDelegate>
    
         [self loadDataWithTypeSelectId:typeId
                          labelSelectId:labelId
+                                  Sort:sortId
                                pageNum:_page
                                keyWord:resutText];
         _shadowBtn.hidden = YES;
@@ -162,6 +170,7 @@ DOPDropDownMenuDelegate>
       
         [self loadDataWithTypeSelectId:typeId
                          labelSelectId:labelId
+                                  Sort:sortId
                                pageNum:_page
                                keyWord:resultTest];
         _shadowBtn.hidden = YES;
@@ -202,6 +211,7 @@ DOPDropDownMenuDelegate>
         if (success) {
             financeSelectData = arrays[0];
             classSelectData = arrays[1];
+            sortArray = arrays[2];
         }
     } errorResult:^(NSError *enginerError) {
         
@@ -211,6 +221,7 @@ DOPDropDownMenuDelegate>
 //根据id刷新商城
 -(void)loadDataWithTypeSelectId:(NSString*)typeSelectId
                   labelSelectId:(NSString*)labelSelectId
+                           Sort:(NSString *)sort
                         pageNum:(NSInteger)pageNum
                         keyWord:(NSString*)keyWord{
     NSString *nowPage = [NSString stringWithFormat:@"%ld",_page];
@@ -221,6 +232,7 @@ DOPDropDownMenuDelegate>
     [[MyAPI sharedAPI] videoStoreWithToken:token
                               typeSelectId:typeSelectId
                              labelSelectId:labelSelectId
+                                      Sort:sort
                                       page:nowPage
                                    keyWord:keyWord
                                     result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
@@ -264,9 +276,9 @@ DOPDropDownMenuDelegate>
     if (column == 0) {
         return financeSelectData.count+1;
     }else if(column == 1){
-        return 3;
+        return classSelectData.count+1;
     }else{
-        return 3;
+        return sortArray.count+1;
     }
 }
 
@@ -284,23 +296,15 @@ DOPDropDownMenuDelegate>
         if (indexPath.row == 0) {
             return @"课程类型";
         }else{
-//            SelectModel *model = classSelectData[indexPath.row-1];
-//            return model.selectName;
-            if(indexPath.row == 1){
-                return @"免费视频";
-            }else{
-                return @"收费视频";
-            }
+            SelectModel * model = classSelectData[indexPath.row-1];
+            return model.selectName;
         }
     }else{
         if(indexPath.row == 0){
             return @"综合排行";
-        }else if (indexPath.row == 1){
-            return @"销量";
-        }else if(indexPath.row == 2){
-            return @"点击量";
         }else{
-            return @"价格";
+            SelectModel * model = sortArray[indexPath.row-1];
+            return model.selectName;
         }
     }
 }
@@ -308,7 +312,6 @@ DOPDropDownMenuDelegate>
 - (void)menu:(DOPDropDownMenu *)menu didSelectRowAtIndexPath:(DOPIndexPath *)indexPath
 {
     if (indexPath.column == 0) {
-        //NSLog(@"点击了 %ld - %ld 项目",indexPath.column,indexPath.row);
         if (indexPath.row == 0) {
             return;
         }else{
@@ -320,11 +323,11 @@ DOPDropDownMenuDelegate>
             _page = 1;
             [self loadDataWithTypeSelectId:typeId
                              labelSelectId:labelId
+                                      Sort:sortId
                                    pageNum:_page
                                    keyWord:key];
         }
     }else if(indexPath.column == 1){
-        //NSLog(@"点击了 %ld - %ld 项目",indexPath.column,indexPath.row);
         if (indexPath.row == 0) {
             return;
         }else{
@@ -336,15 +339,20 @@ DOPDropDownMenuDelegate>
             _page = 1;
             [self loadDataWithTypeSelectId:typeId
                              labelSelectId:labelId
+                                      Sort:sortId
                                    pageNum:_page
                                    keyWord:key];
         }
     }else{
         if(indexPath.row == 0){
-            
-        }else if (indexPath.row == 1){
-            
+            return;
         }else{
+            if(storeArray.count > 0){
+                [storeArray removeAllObjects];
+            }
+            SelectModel *model = sortArray[indexPath.row-1];
+            sortId = model.selectId;
+            _page = 1;
             
         }
     }
