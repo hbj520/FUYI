@@ -29,6 +29,8 @@
 #import "PayView.h"
 #import "Masonry.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <AFNetworking/AFNetworking.h>
+
 
 @interface VideoDetailViewController ()<XLPasswordViewDelegate,UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -50,6 +52,7 @@
     PayView* _payView;
     UIButton* _shadowBtn;
     XLPasswordView * passwordview;
+    UIImageView *videoImageView;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -234,6 +237,48 @@
    // [self performSelector:@selector(preview) withObject:nil afterDelay:10.f];
     
     UIImageView *videoView = (UIImageView *)ges.view;
+    videoImageView = videoView;
+    AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
+    [manager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        switch (status) {
+            case AFNetworkReachabilityStatusUnknown: {
+                NSLog(@"未知网络");
+                break;
+            }
+            case AFNetworkReachabilityStatusNotReachable: {
+                NSLog(@"无网络");
+                [self showHint:@"请检查网络!"];
+                break;
+            }
+            case AFNetworkReachabilityStatusReachableViaWWAN: {
+                NSLog(@"移动网络");
+                if ([[[Config Instance] getIsWifi] isEqualToString:@"0"]) {
+                    [self addVideoViewToView:videoView];
+                    [self showHint:@"土豪,您当前在移动网络下观看视频，请注意流量控制~~"];
+                }else{
+                    [self showAlertView];
+                }
+                break;
+            }
+            case AFNetworkReachabilityStatusReachableViaWiFi: {
+                [self addVideoViewToView:videoView];
+                NSLog(@"WiFi");
+                break;
+            }
+            default: {
+                break;
+            }
+        }
+    }];
+    [manager startMonitoring];
+
+
+}
+- (void)showAlertView{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您将在移动网络下观看视频" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    [alertView show];
+}
+- (void)addVideoViewToView:(UIImageView *)videoView{
     NSString * videoUrl = _model.videoUrl;
     playerVC = [IJKMoviePlayerViewController InitVideoViewFromViewController:self withTitle:@"GLTest" URL:[NSURL URLWithString:@"http://krtv.qiniudn.com/150522nextapp"] isLiveVideo:YES isOnlineVideo:NO isFullScreen:NO completion:nil];
     __weak VideoDetailViewController *weakself = self;
@@ -254,7 +299,9 @@
     [self addChildViewController:playerVC];
     [videoView addSubview:playerVC.view];
     playerVC.playView.limitTime = 10.f;
-
+    
+    //[self addChildViewController:playerVC];
+    
     UITapGestureRecognizer *tapViedoGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(video:)];
     [playerVC.view addGestureRecognizer:tapViedoGes];
     playerVC.view.userInteractionEnabled = YES;
@@ -269,7 +316,6 @@
         //        [playerVC GoBack];
     });
 }
-
 - (void)preview
 {
     [playerVC.player shutdown];
@@ -445,7 +491,15 @@
 
 }
 
+#pragma mark - UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if (buttonIndex == 1) {//确定，返回登录
+        [self addVideoViewToView:videoImageView];
 
+    }
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

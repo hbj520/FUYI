@@ -11,6 +11,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "MyAPI.h"
 #import "Config.h"
+#import "FileHelper.h"
 #import "PersonalUserInfo.h"
 #import "UIViewController+HUD.h"
 @interface SettingViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -92,7 +93,10 @@
     }];
     }
 }
-
+- (void)SwitchAct:(UISwitch *)sender{
+    [[Config Instance] saveIsWifi:[NSString stringWithFormat:@"%d",sender.on]];
+}
+#pragma mark - UITableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 3;
@@ -127,7 +131,14 @@
         [cell.contentView addSubview:desclabel];
         desclabel.textColor = [UIColor darkGrayColor];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-//        UILabel * nicklabel = [[UILabel alloc] initWithFrame:CGRectMake(12 + 30 + 20, 15, 100, 20)];
+        NSString *size =   [FileHelper formatFileSize:[FileHelper getFileSize:[FileHelper getNotePath]]];
+        UILabel * sizelabel = [[UILabel alloc] initWithFrame:CGRectMake(ScreenWidth-140, 15, 100, 20)];
+        sizelabel.font = [UIFont systemFontOfSize:15];
+        sizelabel.textColor = [UIColor darkGrayColor];
+        sizelabel.text = size;
+        sizelabel.textAlignment = UITextAlignmentRight;
+        [cell.contentView addSubview:sizelabel];
+        //        UILabel * nicklabel = [[UILabel alloc] initWithFrame:CGRectMake(12 + 30 + 20, 15, 100, 20)];
 //        nicklabel.textColor = [UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1];
 //        nicklabel.font = [UIFont systemFontOfSize:15];
 //        nicklabel.text = nickName;
@@ -144,6 +155,12 @@
         desclabel.textColor = [UIColor darkGrayColor];
         //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         UISwitch *wifiSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(ScreenWidth-60, 15, 50, 20)];
+        [wifiSwitch addTarget:self action:@selector(SwitchAct:) forControlEvents:UIControlEventValueChanged];
+        if ([[[Config Instance] getIsWifi] isEqualToString:@"0"]) {
+            wifiSwitch.on=NO;
+        }else{
+            wifiSwitch.on=YES;
+        }
         [cell.contentView addSubview:wifiSwitch];
 //        UILabel * nicklabel = [[UILabel alloc] initWithFrame:CGRectMake(12 + 30 + 20, 15, 100, 20)];
 //        nicklabel.textColor = [UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1];
@@ -240,7 +257,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    if (indexPath.section == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"警告" message:@"确定清空缓存数据吗?" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定",nil, nil];
+        alert.tag = 1008;
+        [alert show];
+        
+    }
     if (indexPath.section == 2) {//手势密码
         [self performSegueWithIdentifier:@"GestureSegue" sender:nil];
     }
@@ -277,7 +299,16 @@
     self.navigationController.navigationBarHidden = YES;
     }
 }
-
+#pragma mark - UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (alertView.tag == 1008) {
+        if (buttonIndex == 1) {
+        [[SDImageCache sharedImageCache] clearDisk];
+        [[SDImageCache sharedImageCache] clearMemory];
+        //self.cash.text = @"0.0M";
+        }
+    }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

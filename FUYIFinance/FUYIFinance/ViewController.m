@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import <AFNetworking/AFNetworking.h>
+//#import <AFNetworking/AFNetworking.h>
 @interface ViewController ()
 
 @end
@@ -17,32 +17,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
-    [manager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-        switch (status) {
-            case AFNetworkReachabilityStatusUnknown: {
-                NSLog(@"未知网络");
-                break;
-            }
-            case AFNetworkReachabilityStatusNotReachable: {
-                NSLog(@"无网络");
-                break;
-            }
-            case AFNetworkReachabilityStatusReachableViaWWAN: {
-                NSLog(@"移动网络");
-                break;
-            }
-            case AFNetworkReachabilityStatusReachableViaWiFi: {
-                NSLog(@"AFNetworkReachabilityStatusReachableViaWiFi");
-                break;
-            }
-            default: {
-                break;
-            }
-        }
-    }];
-    [manager isReachableViaWiFi];
-    [manager startMonitoring];
+//    AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
+//    [manager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+//        switch (status) {
+//            case AFNetworkReachabilityStatusUnknown: {
+//                NSLog(@"未知网络");
+//                break;
+//            }
+//            case AFNetworkReachabilityStatusNotReachable: {
+//                NSLog(@"无网络");
+//                break;
+//            }
+//            case AFNetworkReachabilityStatusReachableViaWWAN: {
+//                NSLog(@"移动网络");
+//                break;
+//            }
+//            case AFNetworkReachabilityStatusReachableViaWiFi: {
+//                NSLog(@"AFNetworkReachabilityStatusReachableViaWiFi");
+//                break;
+//            }
+//            default: {
+//                break;
+//            }
+//        }
+//    }];
+//    [manager isReachableViaWiFi];
+//    [manager startMonitoring];
 }
 
 - (void)didReceiveMemoryWarning {

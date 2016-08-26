@@ -51,6 +51,7 @@
 		AB36CE4A1D1CE72400D0E4C7 /* ThreeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB36CE461D1CE72400D0E4C7 /* ThreeCollectionViewCell.xib */; };
 		AB36CE4B1D1CE72400D0E4C7 /* ThreeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36CE481D1CE72400D0E4C7 /* ThreeTableViewCell.m */; };
 		AB45FC441D409529008E6FBA /* Barcode.m in Sources */ = {isa = PBXBuildFile; fileRef = AB45FC401D409529008E6FBA /* Barcode.m */; };
+		AB4CEBB11D702DC700938DB9 /* FileHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4CEBB01D702DC700938DB9 /* FileHelper.m */; };
 		AB4EB7B51D584E7D00F6323E /* GestureUnlockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4EB7B41D584E7D00F6323E /* GestureUnlockViewController.m */; };
 		AB4EB7B81D585F1600F6323E /* GestureHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4EB7B71D585F1600F6323E /* GestureHelper.m */; };
 		AB708F8B1D0543BE007D0B4D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AB708F8A1D0543BE007D0B4D /* main.m */; };
@@ -433,6 +434,8 @@
 		AB45FC3F1D409529008E6FBA /* Barcode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Barcode.h; sourceTree = "<group>"; };
 		AB45FC401D409529008E6FBA /* Barcode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Barcode.m; sourceTree = "<group>"; };
 		AB45FC411D409529008E6FBA /* IJKCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IJKCommon.h; sourceTree = "<group>"; };
+		AB4CEBAF1D702DC700938DB9 /* FileHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHelper.h; sourceTree = "<group>"; };
+		AB4CEBB01D702DC700938DB9 /* FileHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileHelper.m; sourceTree = "<group>"; };
 		AB4EB7B31D584E7D00F6323E /* GestureUnlockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureUnlockViewController.h; sourceTree = "<group>"; };
 		AB4EB7B41D584E7D00F6323E /* GestureUnlockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureUnlockViewController.m; sourceTree = "<group>"; };
 		AB4EB7B61D585F1600F6323E /* GestureHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureHelper.h; sourceTree = "<group>"; };
@@ -1141,6 +1144,8 @@
 		ABEACD491D2B87DE00574259 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				AB4CEBAF1D702DC700938DB9 /* FileHelper.h */,
+				AB4CEBB01D702DC700938DB9 /* FileHelper.m */,
 				AB45FC3F1D409529008E6FBA /* Barcode.h */,
 				AB45FC401D409529008E6FBA /* Barcode.m */,
 				AB45FC411D409529008E6FBA /* IJKCommon.h */,
@@ -2086,7 +2091,7 @@
 				TargetAttributes = {
 					AB708F851D0543BE007D0B4D = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 3L5Q37H6H3;
+						DevelopmentTeam = MGR47JT33V;
 					};
 					AB708F9E1D0543BE007D0B4D = {
 						CreatedOnToolsVersion = 7.3;
@@ -2440,6 +2445,7 @@
 				CC0022821D58AE3E00132483 /* SystemNoticeModel.m in Sources */,
 				CCFF47C71D6EE27F00737C2E /* ModifyTradePasswordViewController.m in Sources */,
 				ABF9F0F01D531F03004E1523 /* IJKHistoryItem.m in Sources */,
+				AB4CEBB11D702DC700938DB9 /* FileHelper.m in Sources */,
 				D1F130201D2B642A00EE1690 /* ConfirmOrderViewController.m in Sources */,
 				D1F1302A1D2B817200EE1690 /* VideoInfoTableViewCell.m in Sources */,
 				D1189C2C1D4F4694001209B9 /* CollectionViewController.m in Sources */,
