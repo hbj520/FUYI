@@ -8,7 +8,8 @@
 
 #import "FeedBackViewController.h"
 #import "UIPlaceHolderTextView.h"
-
+#import "UIViewController+HUD.h"
+#import "MyAPI.h"
 @interface FeedBackViewController ()
 
 
@@ -65,19 +66,15 @@
        // [self showHint:@"请添加反馈内容..."];
         return;
     }
-//    [self showHudInView:self.view hint:@""];
-//    [[MyAPI sharedAPI] feedBack:kUserId
-//                          copid:kCopId
-//                        content:self.textView.text
-//                         result:
-//     ^(BOOL success, NSString *msg) {
-//        [self hideHud];
-//        self.textView.text = @"";
-//        [self showHint:msg];
-//    } errorResult:
-//     ^(NSError *enginerError) {
-//        [self hideHud];
-//        [self showHint:@"数据异常"];;
-//    }];
+    [[MyAPI sharedAPI] FeedbackWithContent:self.textView.text Result:^(BOOL sucess, NSString *msg) {
+        if(sucess){
+            [self showHint:@"反馈成功"];
+        }else{
+            [self showHint:msg];
+        }
+    } ErrorResult:^(NSError *enginerError) {
+        
+    }];
+
 }
 @end

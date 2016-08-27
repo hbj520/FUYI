@@ -117,6 +117,17 @@ typedef void (^ErrorBlock) (NSError *enginerError);
                                Result:(StateBlock)result
                           ErrorResult:(ErrorBlock)errorResult;
 
+/**
+ *  意见反馈
+ *
+ *  @param content 反馈内容
+ *  @param result  反馈结果
+ *  @param error   错误信息
+ */
+- (void)FeedbackWithContent:(NSString *)content
+                     Result:(StateBlock)result
+                ErrorResult:(ErrorBlock)errorResult;
+
 #pragma mark -首页
 - (void)homePageWithResult:(ArrayBlock)result
                errorResult:(ErrorBlock)errorResult;

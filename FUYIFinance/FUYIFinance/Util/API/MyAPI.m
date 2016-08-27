@@ -266,6 +266,32 @@
     
 }
 
+/**
+ *  意见反馈
+ *
+ *  @param content 反馈内容
+ *  @param result  反馈结果
+ *  @param error   错误信息
+ */
+- (void)FeedbackWithContent:(NSString *)content
+                     Result:(StateBlock)result
+                ErrorResult:(ErrorBlock)errorResult
+{
+    NSDictionary * parameters = @{@"token":KToken,
+                                  @"content":content};
+    [self.manager POST:@"feedback" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * status = responseObject[@"status"];
+        NSString * info = responseObject[@"info"];
+        if([status isEqualToString:@"1"]){
+            result(YES,info);
+        }else{
+            result(NO,info);
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+    }];
+}
+
 #pragma mark -首页
 - (void)homePageWithResult:(ArrayBlock)result
                errorResult:(ErrorBlock)errorResult{

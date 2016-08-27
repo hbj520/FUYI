@@ -129,7 +129,7 @@
     if (!KToken) {
         [self LoginActCell];
     }else{
-        [self performSegueWithIdentifier:@"modifypwdSegue" sender:nil];
+        [self performSegueWithIdentifier:@"protectaccountSegue" sender:nil];
  
     }
 }

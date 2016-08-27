@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="QaL-7E-fUx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="QaL-7E-fUx">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
@@ -4612,7 +4612,7 @@
         <!--反馈-->
         <scene sceneID="WeP-dj-afh">
             <objects>
-                <viewController storyboardIdentifier="FeedBackIdentity" id="tgW-cG-Eeu" customClass="FeedBackViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FeedBackIdentity" hidesBottomBarWhenPushed="YES" id="tgW-cG-Eeu" customClass="FeedBackViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="w8m-md-axQ"/>
                         <viewControllerLayoutGuide type="bottom" id="gxt-M4-8Zm"/>
@@ -4709,10 +4709,10 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="qmS-lo-gP3"/>
+        <segue reference="dqh-en-jn6"/>
+        <segue reference="xFS-qr-VxC"/>
         <segue reference="Y9M-LI-9zs"/>
         <segue reference="2JG-jj-fn7"/>
-        <segue reference="xFS-qr-VxC"/>
-        <segue reference="dqh-en-jn6"/>
         <segue reference="wOj-XJ-nss"/>
         <segue reference="dMU-6g-CnA"/>
     </inferredMetricsTieBreakers>

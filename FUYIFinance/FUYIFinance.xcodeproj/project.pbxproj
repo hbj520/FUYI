@@ -53,7 +53,6 @@
 		AB45FC441D409529008E6FBA /* Barcode.m in Sources */ = {isa = PBXBuildFile; fileRef = AB45FC401D409529008E6FBA /* Barcode.m */; };
 		AB4CEBB11D702DC700938DB9 /* FileHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4CEBB01D702DC700938DB9 /* FileHelper.m */; };
 		AB4CEBB41D703B7100938DB9 /* FeedBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4CEBB31D703B7100938DB9 /* FeedBackViewController.m */; };
-		AB4CEBB81D703BC200938DB9 /* UIPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4CEBB61D703BC200938DB9 /* UIPlaceHolderTextView.m */; };
 		AB4EB7B51D584E7D00F6323E /* GestureUnlockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4EB7B41D584E7D00F6323E /* GestureUnlockViewController.m */; };
 		AB4EB7B81D585F1600F6323E /* GestureHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4EB7B71D585F1600F6323E /* GestureHelper.m */; };
 		AB708F8B1D0543BE007D0B4D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AB708F8A1D0543BE007D0B4D /* main.m */; };
@@ -151,6 +150,7 @@
 		CC42E2861D24F6A10008A8D7 /* LoveManageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC42E2841D24F6A10008A8D7 /* LoveManageTableViewCell.m */; };
 		CC42E2871D24F6A10008A8D7 /* LoveManageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC42E2851D24F6A10008A8D7 /* LoveManageTableViewCell.xib */; };
 		CC4A68D51D5D9BC7006CA317 /* BlogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4A68D41D5D9BC7006CA317 /* BlogViewController.m */; };
+		CC4C1B121D70421F00B343A2 /* UIPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4C1B111D70421F00B343A2 /* UIPlaceHolderTextView.m */; };
 		CC4F37291D2DE5DA00312F11 /* MineCollectionShopModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4F37281D2DE5DA00312F11 /* MineCollectionShopModel.m */; };
 		CC4F372C1D2DEADC00312F11 /* MineMyJudgeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4F372B1D2DEADC00312F11 /* MineMyJudgeModel.m */; };
 		CC4F372F1D2DEFEC00312F11 /* MineWaitPayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4F372E1D2DEFEC00312F11 /* MineWaitPayModel.m */; };
@@ -440,8 +440,6 @@
 		AB4CEBB01D702DC700938DB9 /* FileHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileHelper.m; sourceTree = "<group>"; };
 		AB4CEBB21D703B7100938DB9 /* FeedBackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedBackViewController.h; sourceTree = "<group>"; };
 		AB4CEBB31D703B7100938DB9 /* FeedBackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedBackViewController.m; sourceTree = "<group>"; };
-		AB4CEBB51D703BC200938DB9 /* UIPlaceHolderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPlaceHolderTextView.h; sourceTree = "<group>"; };
-		AB4CEBB61D703BC200938DB9 /* UIPlaceHolderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPlaceHolderTextView.m; sourceTree = "<group>"; };
 		AB4EB7B31D584E7D00F6323E /* GestureUnlockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureUnlockViewController.h; sourceTree = "<group>"; };
 		AB4EB7B41D584E7D00F6323E /* GestureUnlockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureUnlockViewController.m; sourceTree = "<group>"; };
 		AB4EB7B61D585F1600F6323E /* GestureHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureHelper.h; sourceTree = "<group>"; };
@@ -615,6 +613,8 @@
 		CC42E2851D24F6A10008A8D7 /* LoveManageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoveManageTableViewCell.xib; sourceTree = "<group>"; };
 		CC4A68D31D5D9BC7006CA317 /* BlogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlogViewController.h; sourceTree = "<group>"; };
 		CC4A68D41D5D9BC7006CA317 /* BlogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlogViewController.m; sourceTree = "<group>"; };
+		CC4C1B101D70421F00B343A2 /* UIPlaceHolderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPlaceHolderTextView.h; sourceTree = "<group>"; };
+		CC4C1B111D70421F00B343A2 /* UIPlaceHolderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPlaceHolderTextView.m; sourceTree = "<group>"; };
 		CC4F37271D2DE5DA00312F11 /* MineCollectionShopModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineCollectionShopModel.h; sourceTree = "<group>"; };
 		CC4F37281D2DE5DA00312F11 /* MineCollectionShopModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineCollectionShopModel.m; sourceTree = "<group>"; };
 		CC4F372A1D2DEADC00312F11 /* MineMyJudgeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineMyJudgeModel.h; sourceTree = "<group>"; };
@@ -1079,16 +1079,6 @@
 			path = PageControl;
 			sourceTree = "<group>";
 		};
-		AB4CEBB71D703BC200938DB9 /* PlaceHolderText */ = {
-			isa = PBXGroup;
-			children = (
-				AB4CEBB51D703BC200938DB9 /* UIPlaceHolderTextView.h */,
-				AB4CEBB61D703BC200938DB9 /* UIPlaceHolderTextView.m */,
-			);
-			name = PlaceHolderText;
-			path = ../../../../../../../Downloads/Work/ebadu/bdsaas/CRM/Vendors/PlaceHolderText;
-			sourceTree = "<group>";
-		};
 		AB708F7D1D0543BE007D0B4D = {
 			isa = PBXGroup;
 			children = (
@@ -1413,7 +1403,7 @@
 		ABF5DE401D0FA4B1007CE1AB /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				AB4CEBB71D703BC200938DB9 /* PlaceHolderText */,
+				CC4C1B0F1D7041DC00B343A2 /* PlaceHolderText */,
 				CC4F37331D2E07B500312F11 /* category */,
 				ABEACD641D2B87FF00574259 /* API */,
 				ABEACD491D2B87DE00574259 /* Helper */,
@@ -1688,6 +1678,15 @@
 				CC4A68D41D5D9BC7006CA317 /* BlogViewController.m */,
 			);
 			name = BlogViewController;
+			sourceTree = "<group>";
+		};
+		CC4C1B0F1D7041DC00B343A2 /* PlaceHolderText */ = {
+			isa = PBXGroup;
+			children = (
+				CC4C1B101D70421F00B343A2 /* UIPlaceHolderTextView.h */,
+				CC4C1B111D70421F00B343A2 /* UIPlaceHolderTextView.m */,
+			);
+			name = PlaceHolderText;
 			sourceTree = "<group>";
 		};
 		CC4F37331D2E07B500312F11 /* category */ = {
@@ -2110,7 +2109,7 @@
 				TargetAttributes = {
 					AB708F851D0543BE007D0B4D = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = MGR47JT33V;
+						DevelopmentTeam = 3L5Q37H6H3;
 					};
 					AB708F9E1D0543BE007D0B4D = {
 						CreatedOnToolsVersion = 7.3;
@@ -2496,7 +2495,7 @@
 				CCEEFC0C1D37400B0001C7AA /* UserInfoModel.m in Sources */,
 				D15BA38C1D237E2400904DEF /* HeaderView.m in Sources */,
 				CC593CC01D2A02070077B096 /* MyShopDetailTableViewCell.m in Sources */,
-				AB4CEBB81D703BC200938DB9 /* UIPlaceHolderTextView.m in Sources */,
+				CC4C1B121D70421F00B343A2 /* UIPlaceHolderTextView.m in Sources */,
 				D1E37F3F1D24A91E00920E17 /* BBBadgeBarButtonItem.m in Sources */,
 				CC6FD6161D362F6B00DA60AB /* MineMyAddressViewController.m in Sources */,
 				CC322E1C1D3E24190054D3D8 /* TeacherModel.m in Sources */,
