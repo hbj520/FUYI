@@ -7,6 +7,7 @@
 //
 
 #import "OrderManageViewController.h"
+#import "UIVIewController+HUD.h"
 #import "MyShopDetailTableViewCell.h"
 #import "OrderManageModel.h"
 #import "MyAPI.h"
@@ -48,8 +49,16 @@
 - (void)loadData
 {
     [[MyAPI sharedAPI] requestOrderManageRequestWithResult:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
+        if(success){
         dataSource = arrays;
         [_tableView reloadData];
+        }else{
+            if([msg isEqualToString:@"-1"]){
+                [self logOut];
+            }else{
+                [self showHint:msg];
+            }
+        }
     } errorResult:^(NSError *enginerError) {
         
     }];

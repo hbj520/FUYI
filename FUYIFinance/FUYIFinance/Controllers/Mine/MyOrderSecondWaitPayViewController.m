@@ -158,7 +158,11 @@ UIAlertViewDelegate>
                     [self down];
                 }
             }else{
+                if([msg isEqualToString:@"-1"]){
+                    [self logOut];
+                }else{
                 [self showHint:msg];
+                }
                 [passwordView hidePasswordView];
             }
             [self loadData];
@@ -276,7 +280,11 @@ UIAlertViewDelegate>
                 [_dataSource removeObjectAtIndex:index-10];
                 [_tableView reloadData];
             }else{
+                if([msg isEqualToString:@"-1"]){
+                    [self logOut];
+                }else{
                 [self showHint:msg];
+                }
             }
             
         } errorResult:^(NSError *enginerError) {

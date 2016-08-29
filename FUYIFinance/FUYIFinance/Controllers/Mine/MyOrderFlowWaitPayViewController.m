@@ -7,6 +7,7 @@
 //
 
 #import "MyOrderFlowWaitPayViewController.h"
+#import "UIViewController+HUD.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <MJRefresh/MJRefresh.h>
 #import "Config.h"
@@ -75,6 +76,12 @@
                                                         [_tableView reloadData];
                                                         [_tableView.mj_header endRefreshing];
                                                         [_tableView.mj_footer endRefreshing];
+                                                    }else{
+                                                        if([msg isEqualToString:@"-1"]){
+                                                            [self logOut];
+                                                        }else{
+                                                            [self showHint:msg];
+                                                        }
                                                     }
                                                     [_tableView.mj_header endRefreshing];
                                                     [_tableView.mj_footer endRefreshing];

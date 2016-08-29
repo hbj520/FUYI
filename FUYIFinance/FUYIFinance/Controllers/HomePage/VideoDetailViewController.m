@@ -103,7 +103,12 @@
             [self.navigationController pushViewController:VC animated:YES];
             
         }else{
+            if([msg isEqualToString:@"-1"]){
+                [self showPopup:@"登录超时"];
+                [self logOut];
+            }else{
             [self showHint:msg];
+            }
             [passwordView hidePasswordView];
         }
     } ErrorResult:^(NSError *enginerError) {
@@ -468,8 +473,10 @@
                     [UIView commitAnimations];
                 }else if([msg isEqualToString:@"0"]){
                   [self showHint:@"请不要重复购买!"];
-                }else{
-                    return ;
+                }else if([msg isEqualToString:@"-1"]){
+                    [self showPopup:@"登录超时"];
+                    [self logOut];
+                   // return ;
                 }
             }
         } ErrorResult:^(NSError *enginerError) {

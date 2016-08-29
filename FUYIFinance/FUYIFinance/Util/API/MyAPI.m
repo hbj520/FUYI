@@ -1101,7 +1101,11 @@
         if([status isEqualToString:@"1"]){
             result(YES,info);
         }else{
+            if([status isEqualToString:@"-1"]){
+                result(NO,status);
+            }else{
             result(NO,info);
+            }
         }
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         errorResult(error);
@@ -1120,7 +1124,11 @@
             NSMutableArray * array = [[OrderManageModel alloc] buildWithData:data];
             result(YES,info,array);
         }else{
+            if([status isEqualToString:@"-1"]){
+                result(NO,status,nil);
+            }else{
             result(NO,info,nil);
+            }
         }
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         errorResult(error);
@@ -1170,7 +1178,11 @@
     if([status isEqualToString:@"1"]){
         result(YES,info);
     }else{
+        if([status isEqualToString:@"-1"]){
+            result(NO,status);
+        }else{
         result(NO,info);
+        }
     }
 } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
     errorResult(error);
@@ -1372,7 +1384,11 @@
         if([status isEqualToString:@"1"]){
             result(YES,info);
         }else{
+            if([status isEqualToString:@"-1"]){
+                result(NO,status);
+            }else{
             result(NO,info);
+            }
         }
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         errorResult(error);
@@ -1396,7 +1412,11 @@
             NSMutableArray * array = [[OrderManageModel alloc] buildWithData:data];
             result(YES,info,array);
         }else{
+            if([status isEqualToString:@"-1"]){
+                result(NO,status,nil);
+            }else{
             result(NO,info,nil);
+            }
         }
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         errorResult(error);
@@ -1418,7 +1438,11 @@
             NSMutableArray * array = [[OrderManageModel alloc] buildWithData:data];
             result(YES,info,array);
         }else{
+            if([status isEqualToString:@"-1"]){
+                result(NO,status,nil);
+            }else{
             result(NO,info,nil);
+            }
         }
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         errorResult(error);

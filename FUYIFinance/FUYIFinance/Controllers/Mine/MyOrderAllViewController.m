@@ -567,7 +567,11 @@ UIAlertViewDelegate>
             [self down];
             [_tableView.mj_header beginRefreshing];
         }else{
+            if([status isEqualToString:@"-1"]){
+                [self logOut];
+            }else{
             [self showHint:info];
+            }
             [passwordView hidePasswordView];
         }
 
@@ -602,6 +606,12 @@ UIAlertViewDelegate>
                 //[waitpayArray removeObjectAtIndex:index-10];
                 [self loadData];
                 // [_tableView reloadData];
+            }else{
+                if([msg isEqualToString:@"-1"]){
+                    [self logOut];
+                }else{
+                    [self showHint:msg];
+                }
             }
         } errorResult:^(NSError *enginerError) {
             
