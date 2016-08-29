@@ -42,6 +42,7 @@
     // Do any additional setup after loading the view.
     self.numberInput.delegate = self;
     self.passwordInput.delegate = self;
+    self.loginBtn.enabled = NO;
    // self.myNav = [[UINavigationController alloc] init];
     self.navigationController.navigationBarHidden = NO;
     if(self.view.frame.size.height == 480){
