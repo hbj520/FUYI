@@ -79,9 +79,13 @@
 {
     CGPoint point = [sender locationInView:self.starView1];
     CGFloat pointX = point.x;
-    
+    int starnumber;
     float scale = pointX/136;
-    int starnumber = scale * 5 + 1;
+    if(scale<0.1){
+        starnumber = 0;
+    }else{
+    starnumber = scale * 5 + 1;
+    }
     starNum = [NSString stringWithFormat:@"%d",starnumber];
     [self.starView1 configWithStarLevel:starnumber];
 
@@ -91,8 +95,13 @@
 {
     CGPoint point = [sender locationInView:self.starView2];
     CGFloat pointX = point.x;
+    int starnumber;
     float scale = pointX/136;
-    int starnumber = scale * 5 + 1;
+    if(scale<0.1){
+        starnumber = 0;
+    }else{
+    starnumber = scale * 5 + 1;
+    }
     starnum1 = [NSString stringWithFormat:@"%d",starnumber];
     [self.starView2 configWithStarLevel:starnumber];
 }
@@ -101,8 +110,13 @@
 {
     CGPoint point = [sender locationInView:self.starView3];
     CGFloat pointX = point.x;
+    int starnumber;
     float scale = pointX/136;
-    int starnumber = scale * 5 + 1;
+    if(scale<0.1){
+        starnumber = 0;
+    }else{
+    starnumber = scale * 5 + 1;
+    }
     starnum2 = [NSString stringWithFormat:@"%d",starnumber];
     [self.starView3 configWithStarLevel:starnumber];
 }
@@ -111,8 +125,13 @@
 {
     CGPoint point = [sender locationInView:self.starView4];
     CGFloat pointX = point.x;
+    int starnumber;
     float scale = pointX/136;
-    int starnumber = scale * 5 + 1;
+    if(scale<0.1){
+        starnumber = 0;
+    }else{
+    starnumber = scale * 5 + 1;
+    }
     starnum3 = [NSString stringWithFormat:@"%d",starnumber];
     [self.starView4 configWithStarLevel:starnumber];
 }
@@ -121,8 +140,13 @@
 {
     CGPoint point = [sender locationInView:self.starView5];
     CGFloat pointX = point.x;
+    int starnumber;
     float scale = pointX/136;
-    int starnumber = scale * 5 + 1;
+    if(scale<0.1){
+        starnumber = 0;
+    }else{
+    starnumber = scale * 5 + 1;
+    }
     starnum4 = [NSString stringWithFormat:@"%d",starnumber];
     [self.starView5 configWithStarLevel:starnumber];
 
@@ -147,6 +171,7 @@
     }
 }
 
+//是否匿名
 - (IBAction)Commit:(id)sender {
     IsCommit = !IsCommit;
     if(IsCommit){

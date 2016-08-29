@@ -1701,7 +1701,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B8e-iT-h5t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-8888" y="1449"/>
+            <point key="canvasLocation" x="-8712" y="1529"/>
         </scene>
         <!--待付款-->
         <scene sceneID="IfD-9q-QQW">
@@ -1758,7 +1758,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3PF-Ah-sal" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-8888" y="2289"/>
+            <point key="canvasLocation" x="-8880" y="2293"/>
         </scene>
         <!--发布宝贝-->
         <scene sceneID="uK1-gj-jaZ">
@@ -2901,7 +2901,7 @@
             </objects>
             <point key="canvasLocation" x="-10959" y="5584"/>
         </scene>
-        <!--Mine Login View Controller-->
+        <!--登录-->
         <scene sceneID="gf4-Jr-GEg">
             <objects>
                 <viewController storyboardIdentifier="MineLoginStorybordId" id="jQW-DR-hMJ" customClass="MineLoginViewController" sceneMemberID="viewController">
@@ -3041,7 +3041,7 @@
                             <constraint firstAttribute="trailing" secondItem="Cjl-mD-aRD" secondAttribute="trailing" constant="31" id="zT6-uB-rfU"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="A04-50-z8Q">
+                    <navigationItem key="navigationItem" title="登录" id="A04-50-z8Q">
                         <barButtonItem key="leftBarButtonItem" image="back" id="aHk-n3-Zw3">
                             <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -3843,7 +3843,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2vq-xW-2Pm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-8689" y="-657"/>
+            <point key="canvasLocation" x="-8949" y="-629"/>
         </scene>
         <!--订单消息-->
         <scene sceneID="Woe-8q-lTW">
@@ -3956,6 +3956,7 @@
                         <segue destination="ot5-Xw-3l3" kind="push" identifier="buyyoubiSegue" id="F9A-1H-7UZ"/>
                         <segue destination="U1F-nE-KVM" kind="push" identifier="protectaccountSegue" id="e2l-01-w1k"/>
                         <segue destination="CAG-HE-Wog" kind="push" identifier="myorderSegue" id="FqM-dG-g9s"/>
+                        <segue destination="tgW-cG-Eeu" kind="push" identifier="feedSegue" id="lAz-8Q-UZw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D06-M0-lp3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -4273,7 +4274,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S7n-9v-hzO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-9347" y="-1388"/>
+            <point key="canvasLocation" x="-9211" y="-1476"/>
         </scene>
         <!--我的优币-->
         <scene sceneID="mrZ-Ma-dak">
@@ -4669,7 +4670,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8RV-qJ-iEH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-10900" y="3817"/>
+            <point key="canvasLocation" x="-9066" y="-2282"/>
         </scene>
     </scenes>
     <resources>
@@ -4708,12 +4709,13 @@
         <image name="rightArrow" width="25" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="qmS-lo-gP3"/>
-        <segue reference="dqh-en-jn6"/>
         <segue reference="xFS-qr-VxC"/>
-        <segue reference="Y9M-LI-9zs"/>
-        <segue reference="2JG-jj-fn7"/>
-        <segue reference="wOj-XJ-nss"/>
-        <segue reference="dMU-6g-CnA"/>
+        <segue reference="F9A-1H-7UZ"/>
+        <segue reference="W84-fu-UkS"/>
+        <segue reference="Pik-2Q-B1m"/>
+        <segue reference="e2l-01-w1k"/>
+        <segue reference="ASI-aE-fKP"/>
+        <segue reference="hRW-0K-DoH"/>
+        <segue reference="lAz-8Q-UZw"/>
     </inferredMetricsTieBreakers>
 </document>

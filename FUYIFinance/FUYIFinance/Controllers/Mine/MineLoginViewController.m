@@ -126,6 +126,7 @@
             }
             [self loginSucessAct];
         }else{
+            
             [self showHint:msg];
         }
        [self hideHud];

@@ -40,6 +40,7 @@
     [self.view endEditing:YES];
 }
 
+//修改密码
 - (IBAction)reviseAction:(id)sender {
     
     [Tools hideKeyBoard];

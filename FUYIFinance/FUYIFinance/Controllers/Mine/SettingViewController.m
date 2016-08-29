@@ -93,6 +93,8 @@
     }];
     }
 }
+
+#pragma mark -是否开启wifi
 - (void)SwitchAct:(UISwitch *)sender{
     [[Config Instance] saveIsWifi:[NSString stringWithFormat:@"%d",sender.on]];
 }
@@ -281,6 +283,7 @@
     }
 }
 
+#pragma mark -登录超时
 - (void)logout:(id)sender {
     [self showHudInView:self.view hint:@"正在退出登录"];
     [[MyAPI sharedAPI]LoginOutWithResult:^(BOOL sucess, NSString *msg) {

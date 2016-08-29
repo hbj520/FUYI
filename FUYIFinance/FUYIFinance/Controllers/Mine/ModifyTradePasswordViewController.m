@@ -20,7 +20,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *newtradepassword;   //新的交易密码
 @property (weak, nonatomic) IBOutlet UITextField *committradepassword; //确认交易密码
 @property (weak, nonatomic) IBOutlet UITextField *yzmword;    //手机验证码
-@property (weak, nonatomic) IBOutlet UIButton *sendyzmbtn;
+@property (weak, nonatomic) IBOutlet UIButton *sendyzmbtn;    //发送验证码按钮
 @property (weak, nonatomic) IBOutlet UIButton *surebtn;
 
 @end
@@ -67,7 +67,9 @@
         if(sucess){
             [self showHint:@"发送验证码成功"];
         }else{
+            time = 0;
             [self showHint:msg];
+            
         }
     } ErrorResult:^(NSError *enginerError) {
         

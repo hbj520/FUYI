@@ -315,7 +315,7 @@
                 descLabel.textAlignment = NSTextAlignmentLeft;
                 descLabel.font = [UIFont systemFontOfSize:14];
                 descLabel.textColor = [UIColor blackColor];
-                descLabel.text = @"关于我们";
+                descLabel.text = @"意见反馈";
                 [cell.contentView addSubview:descLabel];
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
@@ -452,10 +452,10 @@
             if(!KToken){
                 [self logOut];
             }else{
-            [self performSegueWithIdentifier:@"settingSegue" sender:@"isTeacher"];
+                [self performSegueWithIdentifier:@"settingSegue" sender:nil];
             }
         }else{
-          //  [self performSegueWithIdentifier:@"aboutSegue" sender:nil];
+            [self performSegueWithIdentifier:@"feedSegue" sender:nil];
         }
     }
 }
@@ -472,7 +472,7 @@
     if(!KToken){
         [self logOut];
     }else{
-    [self performSegueWithIdentifier:@"treasureSegue" sender:[NSNumber numberWithBool:YES]];
+    [self performSegueWithIdentifier:@"treasureSegue" sender:nil];
     
     }
     }
@@ -483,7 +483,7 @@
     if(!KToken){
         [self logOut];
     }else{
-    [self performSegueWithIdentifier:@"ordermanageSegue" sender:teachername];
+    [self performSegueWithIdentifier:@"ordermanageSegue" sender:nil];
         UIView * contentView = [self.tabBarController.view.subviews objectAtIndex:0];
         contentView.frame = CGRectMake(0,0,ScreenWidth,0);
     }
@@ -520,16 +520,6 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.identifier isEqualToString:@"treasureSegue"]){
-    TreasureManageViewController * vc = [[TreasureManageViewController alloc] init];
-    vc.isGoodsSetting = sender;
-    }else if ([segue.identifier isEqualToString:@"shopsettingSegue"]){
-        SettingViewController * setVC = [[SettingViewController alloc] init];
-        setVC.mortal = @"isTeacher";
-    }else if ([segue.identifier isEqualToString:@"ordermanageSegue"]){
-        MyOrderFlowViewController * vc = segue.destinationViewController;
-        vc.teachername = sender;
-    }
     
 }
 

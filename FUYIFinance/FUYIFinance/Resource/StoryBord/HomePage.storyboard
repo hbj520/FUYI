@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="oqS-Uv-Ope">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="oqS-Uv-Ope">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -65,7 +65,7 @@
         <!--Teacher Team View Controller-->
         <scene sceneID="nBZ-bX-72b">
             <objects>
-                <viewController id="KZT-YV-hiS" customClass="TeacherTeamViewController" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="KZT-YV-hiS" customClass="TeacherTeamViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bPO-wf-qQ8"/>
                         <viewControllerLayoutGuide type="bottom" id="dF1-Wi-fza"/>
@@ -96,11 +96,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="TOY-ps-8ba" firstAttribute="top" secondItem="bPO-wf-qQ8" secondAttribute="bottom" constant="50" id="333-We-OFZ"/>
-                            <constraint firstAttribute="trailing" secondItem="BGM-5a-WOD" secondAttribute="trailing" id="9Ys-m3-B7V"/>
+                            <constraint firstItem="BGM-5a-WOD" firstAttribute="top" secondItem="TOY-ps-8ba" secondAttribute="bottom" constant="5" id="33u-Yn-7FJ"/>
+                            <constraint firstAttribute="trailing" secondItem="BGM-5a-WOD" secondAttribute="trailing" id="OeC-Kf-Sxj"/>
                             <constraint firstAttribute="trailing" secondItem="TOY-ps-8ba" secondAttribute="trailing" constant="9" id="PAy-Mx-hUs"/>
-                            <constraint firstItem="BGM-5a-WOD" firstAttribute="leading" secondItem="NpD-Yl-Mmu" secondAttribute="leading" id="fO6-Wp-esI"/>
-                            <constraint firstItem="dF1-Wi-fza" firstAttribute="top" secondItem="BGM-5a-WOD" secondAttribute="bottom" id="igv-7J-r0K"/>
-                            <constraint firstItem="BGM-5a-WOD" firstAttribute="top" secondItem="TOY-ps-8ba" secondAttribute="bottom" constant="5" id="wyK-7h-Bkx"/>
+                            <constraint firstAttribute="bottom" secondItem="BGM-5a-WOD" secondAttribute="bottom" id="uP4-pp-XXB"/>
+                            <constraint firstItem="BGM-5a-WOD" firstAttribute="leading" secondItem="NpD-Yl-Mmu" secondAttribute="leading" id="w22-Hf-D6h"/>
                             <constraint firstItem="TOY-ps-8ba" firstAttribute="leading" secondItem="NpD-Yl-Mmu" secondAttribute="leading" constant="9" id="xd3-aj-PeS"/>
                         </constraints>
                     </view>
@@ -119,7 +119,7 @@
         <!--Teacher Personal View Controller-->
         <scene sceneID="kWe-5S-3Ju">
             <objects>
-                <viewController id="Y7B-jf-KpX" customClass="TeacherPersonalViewController" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="Y7B-jf-KpX" customClass="TeacherPersonalViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="V7C-jB-6jb"/>
                         <viewControllerLayoutGuide type="bottom" id="pR7-Q9-bU1"/>

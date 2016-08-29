@@ -66,6 +66,7 @@
     }
 }
 
+//返回
 - (IBAction)back:(id)sender {
     self.navigationController.navigationBarHidden = YES;
     [self.navigationController popViewControllerAnimated:YES];

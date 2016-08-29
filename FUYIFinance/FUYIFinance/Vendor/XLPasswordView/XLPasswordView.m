@@ -159,7 +159,7 @@
     UILabel *forgetPasswordLabel = ({
         UILabel *tempLabel = [[UILabel alloc] init];
         tempLabel.backgroundColor = [UIColor clearColor];
-        tempLabel.text = @"忘记密码?";
+      //  tempLabel.text = @"忘记密码?";
         tempLabel.userInteractionEnabled = YES;
         tempLabel.numberOfLines = 1;
         tempLabel.textColor = [UIColor colorWithHexString:@"55d5fa"];
