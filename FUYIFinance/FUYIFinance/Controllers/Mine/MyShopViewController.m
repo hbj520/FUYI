@@ -176,6 +176,18 @@
             cell.treasurebtn.hidden = NO;
             cell.youbibtn.hidden = NO;
             cell.goalbtn.hidden = NO;
+            //财富值
+            NSString * money = [[Config Instance] getMoney];
+            NSString * moneyvalue = [NSString stringWithFormat:@"财富:%@",money];
+            [cell.treasurebtn setTitle:moneyvalue forState:UIControlStateNormal];
+            //优币值
+            NSString * ucoin = [[Config Instance] getUcoin];
+            NSString * coinvalue = [NSString stringWithFormat:@"优币:%@",ucoin];
+            [cell.youbibtn setTitle:coinvalue forState:UIControlStateNormal];
+            //积分值
+            NSString * integral = [[Config Instance] getIntegral];
+            NSString * integralvalue = [NSString stringWithFormat:@"积分:%@",integral];
+            [cell.goalbtn setTitle:integralvalue forState:UIControlStateNormal];
             //跳转到财富充值界面
             cell.blocktreasure = ^(){
                 [self performSegueWithIdentifier:@"topupcountSegue" sender:nil];

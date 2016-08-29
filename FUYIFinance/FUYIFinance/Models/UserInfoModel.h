@@ -12,9 +12,14 @@
 @property (nonatomic,strong) NSString * username;
 @property (nonatomic,strong) NSString * imgthumb;
 @property (nonatomic,strong) NSString * token;
-
+@property (nonatomic,strong) NSString * money;
+@property (nonatomic,strong) NSString * ucoin;
+@property (nonatomic,strong) NSString * integral;
 - (id)initWithParams:(NSString *)userName
             imgthumb:(NSString *)imgthumb
-               token:(NSString *)token;
+               token:(NSString *)token
+               money:(NSString *)money
+               ucoin:(NSString *)ucoin
+            integral:(NSString *)integral;
 - (UserInfoModel *)buildWithDatas:(NSDictionary *)datas;
 @end

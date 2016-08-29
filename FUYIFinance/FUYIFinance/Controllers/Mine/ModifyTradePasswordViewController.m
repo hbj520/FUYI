@@ -34,7 +34,6 @@
     
     self.sendyzmbtn.layer.cornerRadius = 3;
     self.sendyzmbtn.layer.masksToBounds = YES;
-   
 }
 
 

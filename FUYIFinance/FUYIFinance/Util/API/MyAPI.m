@@ -190,7 +190,12 @@
         if([state isEqualToString:@"1"]){
             NSDictionary * data = responseObject[@"data"];
             UserInfoModel * userinfo = [[UserInfoModel alloc] buildWithDatas:data];
-            [[Config Instance] saveImgthumb:userinfo.imgthumb token:userinfo.token username:userinfo.username];
+            [[Config Instance] saveImgthumb:userinfo.imgthumb
+                                      token:userinfo.token
+                                   username:userinfo.username
+                                      Money:userinfo.money
+                                      Ucoin:userinfo.ucoin
+                                   Integral:userinfo.integral];
             NSString * isTeacher = data[@"isteacher"];
             if([isTeacher isEqualToString:@"1"]){
                 NSString * backimg = data[@"backimg"];

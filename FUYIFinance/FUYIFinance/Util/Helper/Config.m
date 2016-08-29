@@ -71,7 +71,12 @@ static Config * instance = nil;
     [settings synchronize];
 }
 
-- (void)saveImgthumb:(NSString *)imgthumb token:(NSString *)token username:(NSString *)username
+- (void)saveImgthumb:(NSString *)imgthumb
+               token:(NSString *)token
+            username:(NSString *)username
+               Money:(NSString *)money
+               Ucoin:(NSString *)ucoin
+            Integral:(NSString *)integral
 {
     NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
     [settings removeObjectForKey:@"icon"];
@@ -82,6 +87,15 @@ static Config * instance = nil;
     
     [settings removeObjectForKey:@"username"];
     [settings setObject:username forKey:@"username"];
+    
+    [settings removeObjectForKey:@"money"];
+    [settings setObject:money forKey:@"money"];
+    
+    [settings removeObjectForKey:@"ucoin"];
+    [settings setObject:ucoin forKey:@"ucoin"];
+    
+    [settings removeObjectForKey:@"integral"];
+    [settings setObject:integral forKey:@"integral"];
     
     [settings synchronize];
 
@@ -212,6 +226,24 @@ static Config * instance = nil;
 {
     NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
     return [settings stringForKey:@"icon"];
+}
+
+- (NSString *)getMoney
+{
+    NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
+    return [settings stringForKey:@"money"];
+}
+
+- (NSString *)getUcoin
+{
+    NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
+    return [settings stringForKey:@"ucoin"];
+}
+
+- (NSString *)getIntegral
+{
+    NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
+    return [settings stringForKey:@"integral"];
 }
 
 - (NSString*)getToken

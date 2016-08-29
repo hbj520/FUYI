@@ -27,9 +27,13 @@
              token:(NSString*)token
               icon:(NSString*)icon;
 
+
 - (void)saveImgthumb:(NSString *)imgthumb
                token:(NSString *)token
-            username:(NSString *)username;
+            username:(NSString *)username
+               Money:(NSString *)money
+               Ucoin:(NSString *)ucoin
+            Integral:(NSString *)integral;
 
 //保存是否是讲师
 - (void)saveIsteacher:(NSString *)teacher;
@@ -50,6 +54,9 @@
 - (NSString *)getToken;        //获取用户登录令牌
 - (NSString *)getPassword;     //获取用户密码
 - (NSString *)getIcon;          //获取图片
+- (NSString *)getMoney;        //获取财富
+- (NSString *)getUcoin;        //获取优币值
+- (NSString *)getIntegral;     //获取积分值
 - (NSString *)getBackImage;    //获取背景图片
 - (NSString *)getGesturePassword;//获取手势密码
 - (NSString *)getOrderNum; //获取订单号

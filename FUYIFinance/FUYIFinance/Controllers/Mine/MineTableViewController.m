@@ -83,6 +83,15 @@
         self.treasuebtn.hidden = NO;
         self.YouBiCount.hidden = NO;
         self.GoalCount.hidden = NO;
+        NSString * money = [[Config Instance] getMoney];
+        NSString *moneyvalue = [NSString stringWithFormat:@"财富:%@",money];
+        [self.treasuebtn setTitle:moneyvalue forState:UIControlStateNormal];
+        NSString * ucoin = [[Config Instance] getUcoin];
+        NSString * ucoinvalue = [NSString stringWithFormat:@"优币:%@",ucoin];
+        [self.YouBiCount setTitle:ucoinvalue forState:UIControlStateNormal];
+        NSString * integral = [[Config Instance] getIntegral];
+        NSString * integralvalue = [NSString stringWithFormat:@"积分:%@",integral];
+        [self.GoalCount setTitle:integralvalue forState:UIControlStateNormal];
            }else{
         self.headimage.image = [UIImage imageNamed:@"person_headicon"];
         self.goldTeacherImageView.hidden = YES;
