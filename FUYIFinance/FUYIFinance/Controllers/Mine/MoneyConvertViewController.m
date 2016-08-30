@@ -49,6 +49,14 @@
     [[MyAPI sharedAPI] convertUcoinWithUcoin:realucoin Result:^(BOOL sucess, NSString *msg) {
         if(sucess){
             [self showHint:@"充值成功"];
+            NSString * olducoin = [[Config Instance] getUcoin];
+            NSInteger olducoinvalue = olducoin.integerValue;
+            NSInteger newucoinvalue = olducoinvalue + realucoinvalue;
+            NSString * newucoin = [NSString stringWithFormat:@"%ld",newucoinvalue];
+            [[Config Instance] saveUcoin:newucoin];
+            NSDictionary * dict = [[NSDictionary alloc] init];
+            dict = @{@"ucoin":newucoin};
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"changeucoin" object:nil userInfo:dict];
             [self.navigationController popViewControllerAnimated:YES];
         }else{
             if([msg isEqualToString:@"-1"]){
@@ -65,8 +73,10 @@
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     self.label.hidden = NO;
-    
+    textField.placeholder = @"";
 }
+
+
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {

@@ -87,7 +87,9 @@
         NSString *moneyvalue = [NSString stringWithFormat:@"财富:%@",money];
         [self.treasuebtn setTitle:moneyvalue forState:UIControlStateNormal];
         NSString * ucoin = [[Config Instance] getUcoin];
-        NSString * ucoinvalue = [NSString stringWithFormat:@"优币:%@",ucoin];
+        NSInteger ucoinValue = ucoin.integerValue;
+        NSInteger newucoinvalue = ucoinValue/1000;
+        NSString * ucoinvalue = [NSString stringWithFormat:@"优币:%ld千",newucoinvalue];
         [self.YouBiCount setTitle:ucoinvalue forState:UIControlStateNormal];
         NSString * integral = [[Config Instance] getIntegral];
         NSString * integralvalue = [NSString stringWithFormat:@"积分:%@",integral];

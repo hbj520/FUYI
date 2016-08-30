@@ -10,6 +10,9 @@
 #import "Config.h"
 
 @interface MyMoneyViewController ()
+{
+    NSString * ucoinValue;
+}
 @property (weak, nonatomic) IBOutlet UILabel *YouBiCount;
 
 @end
@@ -29,13 +32,31 @@
     //self.YouBiCount.layer.masksToBounds = YES;
     self.YouBiCount.layer.borderWidth = 2;
     self.YouBiCount.layer.borderColor = [UIColor colorWithRed:222/255.0 green:94/255.0 blue:136/255.0 alpha:1].CGColor;
-    NSString * ucoin = [[Config Instance] getUcoin];
-    self.YouBiCount.text = ucoin;
-   
-   
-    
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateucoin:) name:@"changeucoin" object:nil];
+    if(ucoinValue){
+        NSInteger ucoin = ucoinValue.integerValue;
+        NSInteger newucoin = ucoin/1000;
+        NSString * ucoinstring = [NSString stringWithFormat:@"%ldk",newucoin];
+        self.YouBiCount.text = ucoinstring;
+    }else{
+        NSString * ucoin = [[Config Instance] getUcoin];
+        NSInteger uCoin = ucoin.integerValue;
+        NSInteger newucoin = uCoin/1000;
+        NSString * ucoinstring = [NSString stringWithFormat:@"%ldk",newucoin];
+        self.YouBiCount.text = ucoinstring;
+    }
+ 
+    if(self.YouBiCount.text.length>3){
+        self.YouBiCount.font = [UIFont systemFontOfSize:25];
+    }
     self.navigationController.navigationBarHidden = NO;
+}
+
+- (void)updateucoin:(NSNotification *)noti
+{
+    NSString * ucoinvalue = noti.userInfo[@"ucoin"];
+    NSLog(@"ucoinvalue = %@",ucoinvalue);
+    ucoinValue = ucoinvalue;
 }
 
 - (IBAction)ConvertYouBi:(id)sender {

@@ -101,6 +101,14 @@ static Config * instance = nil;
 
 }
 
+- (void)saveUcoin:(NSString *)ucoin
+{
+    NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
+    [settings removeObjectForKey:@"ucoin"];
+    [settings setObject:ucoin forKey:@"ucoin"];
+    [settings synchronize];
+}
+
 - (void)saveIsteacher:(NSString *)teacher
 {
     NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];

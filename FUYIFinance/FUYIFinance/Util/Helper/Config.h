@@ -35,6 +35,9 @@
                Ucoin:(NSString *)ucoin
             Integral:(NSString *)integral;
 
+//保存优币值
+- (void)saveUcoin:(NSString *)ucoin;
+
 //保存是否是讲师
 - (void)saveIsteacher:(NSString *)teacher;
 //保存用户名

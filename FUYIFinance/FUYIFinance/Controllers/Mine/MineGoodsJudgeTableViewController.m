@@ -45,11 +45,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     anostr = @"0";
-    starNum = @"0";
-    starnum1 = @"0";
-    starnum2 = @"0";
-    starnum3 = @"0";
-    starnum4 = @"0";
     [self.thumbImg sd_setImageWithURL:[NSURL URLWithString:self.image] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
     self.name.text = self.goodsname;
     self.teachername.text = [NSString stringWithFormat:@"讲师：%@",self.teachname];
@@ -190,22 +185,38 @@
 }
 
 - (IBAction)SureJudge:(id)sender {
+    [Tools hideKeyBoard];
     if(!KToken){
         [self logOut];
     }else{
         if(IsCommit){
             anostr = @"1";
         }
-        if (self.deleteblock) {
-            self.deleteblock(self.indexpath);
-        }
         if(self.textView.text.length == 0){
             [self showHint:@"评论内容不能为空"];
             return;
+        }else{
+        if(!starNum){
+            starNum = @"1";
+        }
+        if(!starnum1){
+            starnum1 = @"1";
+        }
+        if(!starnum2){
+            starnum2 = @"1";
+        }
+        if(!starnum3){
+            starnum3 = @"1";
+        }
+        if(!starnum4){
+            starnum4 = @"1";
         }
     [[MyAPI sharedAPI] GoodsJudgeWithParameters:starNum Manner_score:starnum1 Quality_score:starnum2 Rational_score:starnum3 Satisfy_score:starnum4 OrderNum:self.ordernum Anonymous:anostr Content:self.textView.text Goodstype:self.ustyle Goodsid:self.uid result:^(BOOL sucess, NSString *msg) {
         if (sucess) {
             [self showHint:@"评价成功"];
+            if (self.deleteblock) {
+                self.deleteblock(self.indexpath);
+            }
             [[NSNotificationCenter defaultCenter] postNotificationName:@"updatepage" object:nil];
             [self.navigationController popViewControllerAnimated:YES];
         }else{
@@ -216,6 +227,7 @@
     }];
     
 }
+    }
 }
 
 - (void)logOut
