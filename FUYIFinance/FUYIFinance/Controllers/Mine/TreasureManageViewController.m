@@ -197,6 +197,12 @@
         if(sucess){
             [self showHint:@"删除成功"];
             [self loadData];
+        }else{
+            if([msg isEqualToString:@"-1"]){
+                [self logOut];
+            }else{
+                [self showHint:msg];
+            }
         }
     } errorResult:^(NSError *enginerError) {
         

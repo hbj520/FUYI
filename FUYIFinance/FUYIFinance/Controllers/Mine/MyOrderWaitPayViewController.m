@@ -161,7 +161,11 @@
                     [self down];
                 }
             }else{
+                if([msg isEqualToString:@"-1"]){
+                    [self logOut];
+                }else{
                 [self showHint:msg];
+                }
                 [passwordView hidePasswordView];
             }
             [self loadData];
@@ -173,30 +177,6 @@
 }
 
 
-- (NSString *)finish:(NSString *)pwd
-{
-    NSString * SecurityString = [Tools loginPasswordSecurityLock:pwd];
-    NSString * ordernum = [[Config Instance] getOrderNum];
-    if(_ordernum.length&&KToken.length){
-    [[MyAPI sharedAPI] payOrderWithOrderNum:ordernum Excode:SecurityString Result:^(BOOL sucess, NSString *msg) {
-        if(sucess){
-            [self showHint:msg];
-                if(_dataSource.count){
-            [_dataSource removeObjectAtIndex:index];
-                    [self down];
-                    [self performSegueWithIdentifier:@"MyAllOrderSegue" sender:nil];
-            [_tableView reloadData];
-            }
-        }else{
-            [self showHint:msg];
-        }
-    } ErrorResult:^(NSError *enginerError) {
-        
-    }];
-    }
-    return pwd;
-
-}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -300,7 +280,11 @@
         [_dataSource removeObjectAtIndex:index-10];
         [_tableView reloadData];
     }else{
-        [self showHint:msg]; 
+        if([msg isEqualToString:@"-1"]){
+            [self logOut];
+        }else{
+        [self showHint:msg];
+        }
     }
     
 } errorResult:^(NSError *enginerError) {
