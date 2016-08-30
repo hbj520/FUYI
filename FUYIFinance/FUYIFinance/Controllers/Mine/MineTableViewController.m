@@ -15,17 +15,17 @@
 @property (weak, nonatomic) IBOutlet UIImageView *headimage;
 @property (weak, nonatomic) IBOutlet UILabel *teachername;
 @property (weak, nonatomic) IBOutlet UIButton *messagebtn;
-@property (weak, nonatomic) IBOutlet UIView *preparPay;   //待付款
+@property (weak, nonatomic) IBOutlet UIView *preparPay;         //待付款
 @property (weak, nonatomic) IBOutlet UIButton *accountbtn;
 
 @property (weak, nonatomic) IBOutlet UIImageView *goldTeacherImageView;
-@property (weak, nonatomic) IBOutlet UILabel *welcomeLabel;//欢迎label
-@property (weak, nonatomic) IBOutlet UIButton *loginBtn;//登录注册按钮
-- (IBAction)loginBtn:(id)sender;//登录注册按钮
-@property (weak, nonatomic) IBOutlet UIView *prepareForgood;   //待收货
+@property (weak, nonatomic) IBOutlet UILabel *welcomeLabel;     //欢迎label
+@property (weak, nonatomic) IBOutlet UIButton *loginBtn;        //登录注册按钮
+- (IBAction)loginBtn:(id)sender;                                //登录注册按钮
+@property (weak, nonatomic) IBOutlet UIView *prepareForgood;    //待收货
 @property (weak, nonatomic) IBOutlet UIView *prepareForjudge;   //待评价
-@property (weak, nonatomic) IBOutlet UIView *myOrder;    //我的订单
-@property (weak, nonatomic) IBOutlet UILabel *waitjudgecount;//待评价按钮上面的自定义badge标签
+@property (weak, nonatomic) IBOutlet UIView *myOrder;           //我的订单
+@property (weak, nonatomic) IBOutlet UILabel *waitjudgecount;   //待评价按钮上面的自定义badge标签
 @property (weak, nonatomic) IBOutlet UILabel *waitpaycountlabel;
 @property (weak, nonatomic) IBOutlet UILabel *teacherName;
 @property (weak, nonatomic) IBOutlet UIButton *treasuebtn;
@@ -134,6 +134,7 @@
     [self.myOrder addGestureRecognizer:tapMyorder];
     
 }
+
 - (IBAction)accountManage:(id)sender {
     if (!KToken) {
         [self LoginActCell];
@@ -151,7 +152,6 @@
         self.waitjudgecount.hidden = YES;
         
     }else{
-        //待评价按钮的自定义badge标签
         self.waitpaycountlabel.hidden = NO;
         self.waitjudgecount.hidden = NO;
         self.waitpaycountlabel.layer.cornerRadius = 6;
@@ -213,7 +213,6 @@
 //待付款
 - (void)prepareAct:(UIGestureRecognizer *)ges{
     if (!KToken) {
-//        [self LoginAct];
         [self LoginActCell];
     }else{
         if (KGesturePsassword) {
@@ -233,8 +232,7 @@
 //我是商家
 - (void)shopKeeperAct
 {
-   // [self performSegueWithIdentifier:@"treasureSegue" sender:nil];
-    if (!KToken) {
+      if (!KToken) {
         [self LoginAct];
     }else{
         if (KGesturePsassword) {
@@ -391,9 +389,11 @@
         }
         }
 }
+
 - (void)gestureAct{
     [[GestureHelper sharedGesture] showGestureUnlockViewFromNowVC:self.navigationController];
 }
+
 - (void)selectCellActWithIndexPath:(NSIndexPath *)indexPath{
     if(indexPath.section == 1){
         if(indexPath.row==0){

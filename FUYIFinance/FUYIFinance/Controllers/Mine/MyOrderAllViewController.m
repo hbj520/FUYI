@@ -221,7 +221,7 @@ UIAlertViewDelegate>
                     cell.shopname.text = model.shopname;
                 }
                 cell.titlename.text = model.name;
-                NSString * pricelabel = [NSString stringWithFormat:@"¥%@",model.price];
+                NSString * pricelabel = [NSString stringWithFormat:@"%@",model.price];
                 cell.price.text = pricelabel;
                 NSString * teacherlabel = [NSString stringWithFormat:@"讲师：%@",model.teacher];
                 cell.teachername.text = teacherlabel;
@@ -241,7 +241,7 @@ UIAlertViewDelegate>
                 cell.title.text = model.name;
                 NSString * teacherlabel = [NSString stringWithFormat:@"讲师：%@",model.teacher];
                 cell.teacherName.text = teacherlabel;
-                NSString * pricelabel = [NSString stringWithFormat:@"¥%@",model.price];
+                NSString * pricelabel = [NSString stringWithFormat:@"%@",model.price];
                 cell.price.text = pricelabel;
                 cell.totalPrice.attributedText = [[LabelHelper alloc] attributedStringWithString:pricelabel];
                 __weak MyOrderAllViewController * weakself = self;
@@ -268,7 +268,7 @@ UIAlertViewDelegate>
                     cell.shopname.text = model.shopname;
                 }
                 cell.titlename.text = model.name;
-                NSString * pricelabel = [NSString stringWithFormat:@"¥%@",model.price];
+                NSString * pricelabel = [NSString stringWithFormat:@"%@",model.price];
                 cell.price.text = pricelabel;
                 NSString * teacherlabel = [NSString stringWithFormat:@"讲师：%@",model.teacher];
                 cell.teachername.text = teacherlabel;
@@ -300,7 +300,7 @@ UIAlertViewDelegate>
                 cell.title.text = model.name;
                 NSString * teacherlabel = [NSString stringWithFormat:@"讲师：%@",model.teacher];
                 cell.teacherName.text = teacherlabel;
-                NSString * pricelabel = [NSString stringWithFormat:@"¥%@",model.price];
+                NSString * pricelabel = [NSString stringWithFormat:@"%@",model.price];
                 cell.price.text = pricelabel;
                 cell.totalPrice.attributedText = [[LabelHelper alloc] attributedStringWithString:pricelabel];
                 __weak MyOrderAllViewController * weakself = self;
@@ -338,7 +338,7 @@ UIAlertViewDelegate>
             cell.shopname.text = model.shopname;
             }
             cell.titlename.text = model.name;
-            NSString * pricelabel = [NSString stringWithFormat:@"¥%@",model.price];
+            NSString * pricelabel = [NSString stringWithFormat:@"%@",model.price];
             cell.price.text = pricelabel;
             NSString * teacherlabel = [NSString stringWithFormat:@"讲师：%@",model.teacher];
             cell.teachername.text = teacherlabel;
@@ -358,7 +358,7 @@ UIAlertViewDelegate>
             cell.title.text = model.name;
             NSString * teacherlabel = [NSString stringWithFormat:@"讲师：%@",model.teacher];
             cell.teacherName.text = teacherlabel;
-            NSString * pricelabel = [NSString stringWithFormat:@"¥%@",model.price];
+            NSString * pricelabel = [NSString stringWithFormat:@"%@",model.price];
             cell.price.text = pricelabel;
             cell.totalPrice.attributedText = [[LabelHelper alloc] attributedStringWithString:pricelabel];
             __weak MyOrderAllViewController * weakself = self;
@@ -396,7 +396,7 @@ UIAlertViewDelegate>
         cell.shopname.text = model.shopname;
         }
         cell.titlename.text = model.name;
-        NSString * pricelabel = [NSString stringWithFormat:@"¥%@",model.price];
+        NSString * pricelabel = [NSString stringWithFormat:@"%@",model.price];
         cell.price.text = pricelabel;
         NSString * teacherlabel = [NSString stringWithFormat:@"讲师：%@",model.teacher];
         cell.teachername.text = teacherlabel;
@@ -415,7 +415,7 @@ UIAlertViewDelegate>
         cell.title.text = model.name;
         NSString * teacherlabel = [NSString stringWithFormat:@"讲师：%@",model.teacher];
         cell.teacherName.text = teacherlabel;
-        NSString * pricelabel = [NSString stringWithFormat:@"¥%@",model.price];
+        NSString * pricelabel = [NSString stringWithFormat:@"%@",model.price];
         cell.price.text = pricelabel;
         cell.totalPrice.attributedText = [[LabelHelper alloc] attributedStringWithString:pricelabel];
         __weak MyOrderAllViewController * weakself = self;
@@ -440,20 +440,20 @@ UIAlertViewDelegate>
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(waitpayArray.count>0){
-        if(indexPath.section == 0){
-        AllOderModel * model = [[AllOderModel alloc] init];
-        model = waitpayArray[indexPath.row];
-        StoreDataModel * model1 = [[StoreDataModel alloc] init];
-        model1.videoName = model.name;
-        model1.videoImage = model.image;
-        model1.videoPrice = model.price;
-        UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"HomePage" bundle:nil];
-        ConfirmOrderViewController * VC = (ConfirmOrderViewController *)[storyboard instantiateViewControllerWithIdentifier:@"confirmstoryboardId"];
-            VC.model = model1;
-            [self.navigationController pushViewController:VC animated:YES];
-    }
-    }
+//    if(waitpayArray.count>0){
+//        if(indexPath.section == 0){
+//        AllOderModel * model = [[AllOderModel alloc] init];
+//        model = waitpayArray[indexPath.row];
+//        StoreDataModel * model1 = [[StoreDataModel alloc] init];
+//        model1.videoName = model.name;
+//        model1.videoImage = model.image;
+//        model1.videoPrice = model.price;
+//        UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"HomePage" bundle:nil];
+//        ConfirmOrderViewController * VC = (ConfirmOrderViewController *)[storyboard instantiateViewControllerWithIdentifier:@"confirmstoryboardId"];
+//            VC.model = model1;
+//            [self.navigationController pushViewController:VC animated:YES];
+//    }
+//    }
 }
 
 - (void)clickjudgeBtnWithIndexpath:(NSIndexPath*)indexpath
@@ -520,8 +520,8 @@ UIAlertViewDelegate>
     [UIView setAnimationDuration:1.0];
     AllOderModel * model = [[AllOderModel alloc] init];
     model = waitpayArray[sender.tag];
-    _payView.lastPriceLab.text = [NSString stringWithFormat:@"¥%@",model.price];
-    _payView.videoprice.text = [NSString stringWithFormat:@"¥%@",model.price];
+    _payView.lastPriceLab.text = [NSString stringWithFormat:@"%@",model.price];
+    _payView.videoprice.text = [NSString stringWithFormat:@"%@",model.price];
     [_payView.videoImg sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@"bigimage"]];
     _payView.titleLab.text = model.name;
     _payView.layer.cornerRadius = 3;
@@ -531,8 +531,8 @@ UIAlertViewDelegate>
     [[Config Instance] saveOrderNum:_ordernum];
     NSLog(@"ordernum%@",_ordernum);
     [_payView.payBtn addTarget:self action:@selector(payaction) forControlEvents:UIControlEventTouchUpInside];
-    _payView.frame = CGRectMake(0, ScreenHeight*0.35- 100, ScreenWidth, ScreenHeight * 0.65);
-    _shadowBtn.frame = CGRectMake(0, -ScreenHeight * 0.65- 100, ScreenWidth, ScreenHeight);
+    _payView.frame = CGRectMake(0, ScreenHeight*0.7- 100, ScreenWidth, ScreenHeight * 0.3);
+    _shadowBtn.frame = CGRectMake(0, -ScreenHeight * 0.3- 100, ScreenWidth, ScreenHeight);
     [UIView commitAnimations];
     
 

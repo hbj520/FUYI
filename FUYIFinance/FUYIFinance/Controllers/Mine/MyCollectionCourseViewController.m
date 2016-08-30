@@ -136,7 +136,7 @@
     cell.titlename.text = model.name;
     NSString * teachername = [NSString stringWithFormat:@"讲师:%@",model.teacher];
     cell.teachername.text = teachername;
-    NSString * pricelabel = [NSString stringWithFormat:@"¥ %@",model.price];
+    NSString * pricelabel = [NSString stringWithFormat:@"%@",model.price];
     NSString * price = [NSString stringWithFormat:@"%@",pricelabel];
     cell.pricelabel.text = price;
     return cell;

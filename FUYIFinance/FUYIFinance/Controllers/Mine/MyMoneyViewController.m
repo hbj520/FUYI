@@ -8,6 +8,7 @@
 
 #import "MyMoneyViewController.h"
 #import "Config.h"
+
 @interface MyMoneyViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *YouBiCount;
 
@@ -30,6 +31,8 @@
     self.YouBiCount.layer.borderColor = [UIColor colorWithRed:222/255.0 green:94/255.0 blue:136/255.0 alpha:1].CGColor;
     NSString * ucoin = [[Config Instance] getUcoin];
     self.YouBiCount.text = ucoin;
+   
+   
     
     
     self.navigationController.navigationBarHidden = NO;

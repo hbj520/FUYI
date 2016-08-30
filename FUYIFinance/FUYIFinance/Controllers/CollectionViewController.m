@@ -138,7 +138,7 @@ static NSString *collectionId = @"MyCollectionId";
     cell.titlename.text = model.name;
     cell.teachername.text = model.teacher;
     
-    cell.pricelabel.attributedText = [[LabelHelper alloc]attributedFontStringWithString:[NSString stringWithFormat:@"¥ %@",model.price] firstFont:13 secFont:17 thirdFont:14];
+    cell.pricelabel.attributedText = [[LabelHelper alloc]attributedFontStringWithString:[NSString stringWithFormat:@"%@",model.price] firstFont:13 secFont:17 thirdFont:14];
 
     return cell;
 }

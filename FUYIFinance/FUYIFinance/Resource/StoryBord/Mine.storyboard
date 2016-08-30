@@ -2791,20 +2791,20 @@
                                                                 <constraint firstAttribute="height" constant="18" id="FqV-Kh-tsK"/>
                                                             </constraints>
                                                         </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OTd-lR-Yli" customClass="starView">
-                                                            <rect key="frame" x="168" y="126" width="136" height="18"/>
-                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="136" id="6e6-S1-a11"/>
-                                                                <constraint firstAttribute="height" constant="18" id="9Rj-gF-Aal"/>
-                                                            </constraints>
-                                                        </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Cv-ec-F3a" customClass="starView">
                                                             <rect key="frame" x="168" y="74" width="136" height="18"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="18" id="87a-WV-5jb"/>
                                                                 <constraint firstAttribute="width" constant="136" id="kFc-LF-epK"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OTd-lR-Yli" customClass="starView">
+                                                            <rect key="frame" x="168" y="126" width="136" height="18"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="136" id="6e6-S1-a11"/>
+                                                                <constraint firstAttribute="height" constant="18" id="9Rj-gF-Aal"/>
                                                             </constraints>
                                                         </view>
                                                     </subviews>
@@ -4100,11 +4100,17 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="1财富可兑换1优币，点击输入" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oRr-e0-M8G">
-                                        <rect key="frame" x="88" y="115" width="199" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="1财富可兑换1000优币，点击输入" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oRr-e0-M8G">
+                                        <rect key="frame" x="88" y="115" width="224" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="千优币" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hao-NK-kC0">
+                                        <rect key="frame" x="261" y="121" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -4173,6 +4179,7 @@
                         <outlet property="accountname" destination="Qbp-ms-C3H" id="XnO-Xa-0YM"/>
                         <outlet property="convertBtn" destination="UZd-uf-kM1" id="4aJ-Qz-q88"/>
                         <outlet property="convertmoney" destination="oRr-e0-M8G" id="AcK-Fr-u3W"/>
+                        <outlet property="label" destination="Hao-NK-kC0" id="mab-Dt-R4n"/>
                         <outlet property="treasure" destination="A4R-Kb-Dqc" id="aVT-Tw-yYO"/>
                     </connections>
                 </viewController>
@@ -4293,6 +4300,8 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="accountname" destination="nNs-0S-MQF" id="v3p-lQ-kWE"/>
+                        <outlet property="money" destination="VYG-at-6NT" id="cLj-kb-AOI"/>
                         <outlet property="topupBtn" destination="mYz-Pj-WUZ" id="z2S-Sw-kRr"/>
                     </connections>
                 </viewController>

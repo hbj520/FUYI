@@ -7,12 +7,14 @@
 //
 
 #import "MoneyConvertViewController.h"
-
-@interface MoneyConvertViewController ()
+#import "UIViewController+HUD.h"
+#import "MyAPI.h"
+@interface MoneyConvertViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *accountname;
 @property (weak, nonatomic) IBOutlet UILabel *treasure;
 @property (weak, nonatomic) IBOutlet UITextField *convertmoney;
 @property (weak, nonatomic) IBOutlet UIButton *convertBtn;
+@property (weak, nonatomic) IBOutlet UILabel *label;
 
 @end
 
@@ -22,11 +24,47 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.convertBtn.layer.cornerRadius = 8;
+    self.convertmoney.delegate = self;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.label.hidden = YES;
+     NSString * account = [[Config Instance] getUserName];
+    self.accountname.text = account;
+    NSString * treasure = [[Config Instance] getMoney];
+    self.treasure.text = treasure;
+}
 
 - (IBAction)SureConvertMoney:(id)sender {
-    
+    [Tools hideKeyBoard];
+    if(self.convertmoney.text.length == 0){
+        [self showHint:@"请输入兑换优币值"];
+        return;
+    }
+    NSString * moneyvalue = self.convertmoney.text;
+    NSInteger realucoinvalue = moneyvalue.integerValue * 1000;
+    NSString * realucoin = [NSString stringWithFormat:@"%ld",realucoinvalue];
+    [[MyAPI sharedAPI] convertUcoinWithUcoin:realucoin Result:^(BOOL sucess, NSString *msg) {
+        if(sucess){
+            [self showHint:@"充值成功"];
+            [self.navigationController popViewControllerAnimated:YES];
+        }else{
+            if([msg isEqualToString:@"-1"]){
+                [self logOut];
+            }else{
+                [self showHint:msg];
+            }
+        }
+    } ErrorResult:^(NSError *enginerError) {
+        
+    }];
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    self.label.hidden = NO;
     
 }
 

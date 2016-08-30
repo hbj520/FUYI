@@ -123,8 +123,8 @@
     NSString * imgurl = [NSString stringWithFormat:@"http://60.173.235.34:9090/fuyi//%@",model.goodsimg];
     [cell.thumbImg sd_setImageWithURL:[NSURL URLWithString:imgurl] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
     cell.name.text = model.goodsname;
-    cell.price.text = [NSString stringWithFormat:@"¥%@",model.money];
-    NSMutableAttributedString * str = [[LabelHelper alloc] attributedStringWithString:[NSString stringWithFormat:@"¥%@",model.money]];
+    cell.price.text = [NSString stringWithFormat:@"%@",model.money];
+    NSMutableAttributedString * str = [[LabelHelper alloc] attributedStringWithString:[NSString stringWithFormat:@"%@",model.money]];
     cell.totalprice.attributedText = str;
     cell.dealtime.text = [NSString stringWithFormat:@"交易时间：%@",model.ctime];
     NSString * teacher = [[Config Instance] getUserName];

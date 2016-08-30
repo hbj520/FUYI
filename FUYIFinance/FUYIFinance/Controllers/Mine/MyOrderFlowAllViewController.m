@@ -126,10 +126,10 @@
     model = dataSource[indexPath.section];
     [cell.thumbImg sd_setImageWithURL:[NSURL URLWithString:model.goodsimg] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
     cell.name.text = model.goodsname;
-    cell.price.text = [NSString stringWithFormat:@"¥%@",model.money];
+    cell.price.text = [NSString stringWithFormat:@"%@",model.money];
     NSString * teacher = [[Config Instance] getUserName];
     cell.teahname.text = [NSString stringWithFormat:@"讲师：%@",teacher];
-    NSMutableAttributedString * str = [[LabelHelper alloc] attributedStringWithString:[NSString stringWithFormat:@"¥%@",model.money]];
+    NSMutableAttributedString * str = [[LabelHelper alloc] attributedStringWithString:[NSString stringWithFormat:@"%@",model.money]];
     cell.totalprice.attributedText = str;
     cell.dealtime.text = [NSString stringWithFormat:@"交易时间：%@",model.ctime];
     return cell;

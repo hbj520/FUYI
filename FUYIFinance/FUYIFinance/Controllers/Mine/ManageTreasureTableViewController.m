@@ -282,11 +282,25 @@
             [self.navigationController popViewControllerAnimated:YES];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"loadTreasureManageView" object:nil];
         }else{
+            if([msg isEqualToString:@"-1"]){
+                [self logOut];
+            }else{
             [self showHint:msg];
+            }
         }
     } errorResult:^(NSError *enginerError) {
         
     }];
+}
+
+- (void)logOut{
+    if (KToken) {
+        [[Config Instance] logout];
+    }
+    UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
+    UINavigationController *loginVC = [storybord instantiateViewControllerWithIdentifier:@"LoginStorybordId"];
+    loginVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self.navigationController presentModalViewController:loginVC animated:YES];
 }
 
 

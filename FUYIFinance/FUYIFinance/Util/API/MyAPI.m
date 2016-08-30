@@ -1081,7 +1081,11 @@
     if([status isEqualToString:@"1"]){
         result(YES,info);
     }else{
+        if([status isEqualToString:@"-1"]){
+            result(NO,status);
+        }else{
         result(NO,info);
+        }
     }
 } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
     errorResult(error);
@@ -1448,6 +1452,29 @@
         errorResult(error);
     }];
     
+}
+
+- (void)convertUcoinWithUcoin:(NSString *)ucoin
+                       Result:(StateBlock)result
+                  ErrorResult:(ErrorBlock)errorResult
+{
+    NSDictionary * parameters = @{@"token":KToken,
+                                  @"ucoin":ucoin};
+    [self.manager POST:@"ucoin_scale" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * status = responseObject[@"status"];
+        NSString * info = responseObject[@"info"];
+        if([status isEqualToString:@"1"]){
+            result(YES,info);
+        }else{
+            if([status isEqualToString:@"-1"]){
+                result(NO,status);
+            }else{
+                result(NO,info);
+            }
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        
+    }];
 }
 
 - (void)payVideoOrderWithOrderNum:(NSString *)ordernum Excode:(NSString *)excode Result:(StateBlock)result ErrorResult:(ErrorBlock)errorResult

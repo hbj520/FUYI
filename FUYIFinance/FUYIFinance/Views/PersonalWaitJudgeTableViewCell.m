@@ -29,7 +29,7 @@
 
 - (void)setModel:(MineWaitJudgeModel *)model
 {
-    NSString * pricelabel = [NSString stringWithFormat:@"¥%@",model.price];
+    NSString * pricelabel = [NSString stringWithFormat:@"%@",model.price];
     self.price.text = pricelabel;
     self.title.text = model.name;
     self.teacherName.text = model.teacher;

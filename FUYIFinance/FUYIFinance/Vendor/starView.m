@@ -25,7 +25,7 @@
     CGFloat width = frame.size.width/5;
       for(int i = 0;i<5;i++){
           UIImageView * emptyStar = [[UIImageView alloc] initWithFrame:CGRectMake(width * i, 0, width, frame.size.height)];
-          emptyStar.image = [UIImage imageNamed:@"unselect_star"];
+          emptyStar.image = [UIImage imageNamed:@"unselect_star3"];
 
        [self addSubview:emptyStar];
     }
@@ -33,10 +33,9 @@
     int cout = (int)levels;
     for(int i = 0;i<cout;i++){
         UIImageView * wholeStar = [[UIImageView alloc] initWithFrame:CGRectMake(width * i, 0, width, frame.size.height)];
-        wholeStar.image = [UIImage imageNamed:@"select_star"];
+        wholeStar.image = [UIImage imageNamed:@"select_star1"];
         [self addSubview:wholeStar];
     }
-
 }
 /*
 // Only override drawRect: if you perform custom drawing.

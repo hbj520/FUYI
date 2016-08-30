@@ -462,14 +462,14 @@
                     
                     [UIView beginAnimations:nil context:nil];
                     [UIView setAnimationDuration:1.0];
-                    _payView.frame = CGRectMake(0, ScreenHeight*0.35, ScreenWidth, ScreenHeight*0.65);
-                    _payView.lastPriceLab.text = [NSString stringWithFormat:@"¥%@",self.model.videoPrice];
-                    _payView.videoprice.text = [NSString stringWithFormat:@"¥%@",self.model.videoPrice];
+                    _payView.frame = CGRectMake(0, ScreenHeight*0.7, ScreenWidth, ScreenHeight*0.3);
+                    _payView.lastPriceLab.text = [NSString stringWithFormat:@"%@",self.model.videoPrice];
+                    _payView.videoprice.text = [NSString stringWithFormat:@"%@",self.model.videoPrice];
                     [_payView.videoImg sd_setImageWithURL:[NSURL URLWithString:self.model.videoImage] placeholderImage:[UIImage imageNamed:@"bigimage"]];
                     _payView.titleLab.text = self.model.videoName;
                     _payView.layer.cornerRadius = 3;
                     _payView.layer.masksToBounds = YES;
-                    _shadowBtn.frame = CGRectMake(0, -ScreenHeight*0.65, ScreenWidth, ScreenHeight);
+                    _shadowBtn.frame = CGRectMake(0, -ScreenHeight*0.3, ScreenWidth, ScreenHeight);
                     [UIView commitAnimations];
                 }else if([msg isEqualToString:@"0"]){
                   [self showHint:@"请不要重复购买!"];

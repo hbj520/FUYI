@@ -505,6 +505,17 @@ typedef void (^ErrorBlock) (NSError *enginerError);
                                  Result:(ArrayBlock)result
                               ErrorResult:(ErrorBlock)errorResult;
 
+/**
+ *  优币兑换
+ *
+ *  @param ucoin       优币值
+ *  @param result      返回结果
+ *  @param errorResult 错误信息
+ */
+- (void)convertUcoinWithUcoin:(NSString *)ucoin
+                       Result:(StateBlock)result
+                  ErrorResult:(ErrorBlock)errorResult;
+
 #pragma mark -讲师团队
 - (void)getTeacherTeamDataWithToken:(NSString*)token
                                page:(NSString*)page

@@ -168,9 +168,10 @@
     VC1.teachname = model.teacher;
     VC1.goodsprice = model.price;
     VC1.deleteblock = ^(NSIndexPath * indexpath){
-        NSInteger index = indexpath.section;
-        [dataSource removeObjectAtIndex:index];
-        [_tableView reloadData];
+//        NSInteger index = indexpath.section;
+//        [dataSource removeObjectAtIndex:index];
+//        [_tableView reloadData];
+        [self loadData];
     };
 
     [self.navigationController pushViewController:VC1 animated:YES];

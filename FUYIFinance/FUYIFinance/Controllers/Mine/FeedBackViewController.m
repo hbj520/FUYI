@@ -69,6 +69,8 @@
     [[MyAPI sharedAPI] FeedbackWithContent:self.textView.text Result:^(BOOL sucess, NSString *msg) {
         if(sucess){
             [self showHint:@"反馈成功"];
+            self.textView.text = @"";
+            [self.navigationController popViewControllerAnimated:YES];
         }else{
             [self showHint:msg];
         }

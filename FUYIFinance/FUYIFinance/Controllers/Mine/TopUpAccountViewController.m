@@ -10,6 +10,8 @@
 
 @interface TopUpAccountViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *topupBtn;
+@property (weak, nonatomic) IBOutlet UITextField *accountname;
+@property (weak, nonatomic) IBOutlet UITextField *money;
 
 @end
 
@@ -27,9 +29,11 @@
     self.navigationController.navigationBarHidden = NO;
 }
 
+//确认充值
 - (IBAction)sureTopUp:(id)sender {
     
 }
+
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {

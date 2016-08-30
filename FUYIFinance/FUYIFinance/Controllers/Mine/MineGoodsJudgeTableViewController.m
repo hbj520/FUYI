@@ -45,10 +45,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     anostr = @"0";
+    starNum = @"0";
+    starnum1 = @"0";
+    starnum2 = @"0";
+    starnum3 = @"0";
+    starnum4 = @"0";
     [self.thumbImg sd_setImageWithURL:[NSURL URLWithString:self.image] placeholderImage:[UIImage imageNamed:@"myorderthumbimage"]];
     self.name.text = self.goodsname;
     self.teachername.text = [NSString stringWithFormat:@"讲师：%@",self.teachname];
-    self.price.text = [NSString stringWithFormat:@"¥%@",self.goodsprice];
+    self.price.text = [NSString stringWithFormat:@"%@",self.goodsprice];
     self.textView.delegate = self;
 
     UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(renewStar:)];
@@ -194,12 +199,17 @@
         if (self.deleteblock) {
             self.deleteblock(self.indexpath);
         }
-
+        if(self.textView.text.length == 0){
+            [self showHint:@"评论内容不能为空"];
+            return;
+        }
     [[MyAPI sharedAPI] GoodsJudgeWithParameters:starNum Manner_score:starnum1 Quality_score:starnum2 Rational_score:starnum3 Satisfy_score:starnum4 OrderNum:self.ordernum Anonymous:anostr Content:self.textView.text Goodstype:self.ustyle Goodsid:self.uid result:^(BOOL sucess, NSString *msg) {
         if (sucess) {
             [self showHint:@"评价成功"];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"updatepage" object:nil];
             [self.navigationController popViewControllerAnimated:YES];
+        }else{
+            [self showHint:msg];
         }
     } errorResult:^(NSError *enginerError) {
         
