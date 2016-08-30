@@ -4105,8 +4105,12 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="千优币" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hao-NK-kC0">
-                                        <rect key="frame" x="261" y="121" width="42" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="K优币" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hao-NK-kC0">
+                                        <rect key="frame" x="203" y="121" width="100" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="c0h-oB-VW9"/>
+                                            <constraint firstAttribute="width" constant="100" id="vP3-ra-ZPD"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -4117,8 +4121,10 @@
                                     <constraint firstItem="sjY-m9-PJl" firstAttribute="top" secondItem="f2B-4b-rBe" secondAttribute="bottom" constant="50" id="4l7-y8-fb5"/>
                                     <constraint firstAttribute="trailing" secondItem="sjY-m9-PJl" secondAttribute="trailing" id="6jT-bq-MIU"/>
                                     <constraint firstItem="f2B-4b-rBe" firstAttribute="leading" secondItem="iOv-Om-KLV" secondAttribute="leading" constant="18" id="EIJ-Ko-DR4"/>
+                                    <constraint firstItem="Hao-NK-kC0" firstAttribute="top" secondItem="sjY-m9-PJl" secondAttribute="bottom" constant="19" id="O1a-Ea-91K"/>
                                     <constraint firstItem="f2B-4b-rBe" firstAttribute="top" secondItem="iOv-Om-KLV" secondAttribute="top" constant="50" id="XL0-cn-7bW"/>
                                     <constraint firstAttribute="trailing" secondItem="f2B-4b-rBe" secondAttribute="trailing" id="bSw-Rv-gLG"/>
+                                    <constraint firstAttribute="trailing" secondItem="Hao-NK-kC0" secondAttribute="trailing" constant="17" id="mI7-mO-sYC"/>
                                     <constraint firstAttribute="height" constant="155" id="mJ8-jM-0mg"/>
                                     <constraint firstItem="sjY-m9-PJl" firstAttribute="leading" secondItem="iOv-Om-KLV" secondAttribute="leading" constant="18" id="tGq-UU-uCE"/>
                                 </constraints>

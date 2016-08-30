@@ -25,6 +25,20 @@
     // Do any additional setup after loading the view.
     self.convertBtn.layer.cornerRadius = 8;
     self.convertmoney.delegate = self;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldChanged:) name:UITextFieldTextDidChangeNotification  object:self.convertmoney];
+    
+}
+
+- (void)textFieldChanged:(NSNotification *)noti
+{
+    UITextField * textfield = noti.object;
+    NSString * value = [NSString stringWithFormat:@"%@k优币",textfield.text];
+    self.label.text = value;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:self.convertmoney];
 }
 
 - (void)viewWillAppear:(BOOL)animated
