@@ -89,7 +89,7 @@
         NSString * ucoin = [[Config Instance] getUcoin];
         NSInteger ucoinValue = ucoin.integerValue;
         NSInteger newucoinvalue = ucoinValue/1000;
-        NSString * ucoinvalue = [NSString stringWithFormat:@"优币:%ld千",newucoinvalue];
+        NSString * ucoinvalue = [NSString stringWithFormat:@"优币:%ldk",newucoinvalue];
         [self.YouBiCount setTitle:ucoinvalue forState:UIControlStateNormal];
         NSString * integral = [[Config Instance] getIntegral];
         NSString * integralvalue = [NSString stringWithFormat:@"积分:%@",integral];
