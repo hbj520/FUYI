@@ -84,7 +84,7 @@
     if(scale<0.1){
         starnumber = 0;
     }else{
-    starnumber = scale * 5 + 1;
+    starnumber = scale * 5+1;
     }
     starNum = [NSString stringWithFormat:@"%d",starnumber];
     [self.starView1 configWithStarLevel:starnumber];
@@ -100,7 +100,7 @@
     if(scale<0.1){
         starnumber = 0;
     }else{
-    starnumber = scale * 5 + 1;
+    starnumber = scale * 5+1;
     }
     starnum1 = [NSString stringWithFormat:@"%d",starnumber];
     [self.starView2 configWithStarLevel:starnumber];
@@ -115,7 +115,7 @@
     if(scale<0.1){
         starnumber = 0;
     }else{
-    starnumber = scale * 5 + 1;
+    starnumber = scale * 5+1;
     }
     starnum2 = [NSString stringWithFormat:@"%d",starnumber];
     [self.starView3 configWithStarLevel:starnumber];
@@ -130,7 +130,7 @@
     if(scale<0.1){
         starnumber = 0;
     }else{
-    starnumber = scale * 5 + 1;
+    starnumber = scale * 5+1;
     }
     starnum3 = [NSString stringWithFormat:@"%d",starnumber];
     [self.starView4 configWithStarLevel:starnumber];
@@ -145,7 +145,7 @@
     if(scale<0.1){
         starnumber = 0;
     }else{
-    starnumber = scale * 5 + 1;
+    starnumber = scale * 5+1;
     }
     starnum4 = [NSString stringWithFormat:@"%d",starnumber];
     [self.starView5 configWithStarLevel:starnumber];
@@ -184,6 +184,7 @@
 
 }
 
+//确定评价
 - (IBAction)SureJudge:(id)sender {
     [Tools hideKeyBoard];
     if(!KToken){
@@ -196,22 +197,12 @@
             [self showHint:@"评论内容不能为空"];
             return;
         }else{
-        if(!starNum){
-            starNum = @"1";
-        }
-        if(!starnum1){
-            starnum1 = @"1";
-        }
-        if(!starnum2){
-            starnum2 = @"1";
-        }
-        if(!starnum3){
-            starnum3 = @"1";
-        }
-        if(!starnum4){
-            starnum4 = @"1";
-        }
-    [[MyAPI sharedAPI] GoodsJudgeWithParameters:starNum Manner_score:starnum1 Quality_score:starnum2 Rational_score:starnum3 Satisfy_score:starnum4 OrderNum:self.ordernum Anonymous:anostr Content:self.textView.text Goodstype:self.ustyle Goodsid:self.uid result:^(BOOL sucess, NSString *msg) {
+            BOOL ret = [self judgeIsAllChose];
+            if(!ret){
+                [self showHint:@"请选择评价星级"];
+                return;
+            }
+           [[MyAPI sharedAPI] GoodsJudgeWithParameters:starNum Manner_score:starnum1 Quality_score:starnum2 Rational_score:starnum3 Satisfy_score:starnum4 OrderNum:self.ordernum Anonymous:anostr Content:self.textView.text Goodstype:self.ustyle Goodsid:self.uid result:^(BOOL sucess, NSString *msg) {
         if (sucess) {
             [self showHint:@"评价成功"];
             if (self.deleteblock) {
@@ -230,8 +221,17 @@
     }
 }
 
+//判断评价星级是否全部评价
+- (BOOL)judgeIsAllChose
+{
+    if(starNum.integerValue >=1&&starnum1.integerValue>=1&&starnum2.integerValue>=1&&starnum3.integerValue>=1&&starnum4.integerValue>=1){
+        return YES;
+    }else{
+        return NO;
+    }
+}
 
-
+//超时登录处理
 - (void)logOut
 {
     if (KToken) {
