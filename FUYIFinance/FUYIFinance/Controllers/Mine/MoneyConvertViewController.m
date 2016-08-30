@@ -46,7 +46,7 @@
     NSString * moneyvalue = self.convertmoney.text;
     NSInteger realucoinvalue = moneyvalue.integerValue * 1000;
     NSString * realucoin = [NSString stringWithFormat:@"%ld",realucoinvalue];
-    [[MyAPI sharedAPI] convertUcoinWithUcoin:realucoin Result:^(BOOL sucess, NSString *msg) {
+    [[MyAPI sharedAPI] convertUcoinWithUcoin:moneyvalue Result:^(BOOL sucess, NSString *msg) {
         if(sucess){
             [self showHint:@"充值成功"];
             NSString * olducoin = [[Config Instance] getUcoin];

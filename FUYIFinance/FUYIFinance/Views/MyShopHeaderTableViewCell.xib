@@ -55,23 +55,11 @@
                                     <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y9m-on-vdQ">
-                                <rect key="frame" x="202" y="60" width="42" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="42" id="GAP-dz-GTj"/>
-                                    <constraint firstAttribute="height" constant="21" id="JJH-8K-M0v"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <state key="normal" title="优币:20"/>
-                                <connections>
-                                    <action selector="youbi:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="S6d-FM-JS9"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qFg-ha-em6">
-                                <rect key="frame" x="263" y="60" width="42" height="21"/>
+                                <rect key="frame" x="270" y="60" width="42" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="42" id="XJX-ca-r5H"/>
-                                    <constraint firstAttribute="height" constant="21" id="hIo-PE-fMS"/>
+                                    <constraint firstAttribute="height" constant="21" id="Fx9-77-ApL"/>
+                                    <constraint firstAttribute="width" constant="42" id="xtX-al-bVY"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <state key="normal" title="积分:20"/>
@@ -80,9 +68,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KNG-6u-nWS">
-                                <rect key="frame" x="139" y="60" width="48" height="21"/>
+                                <rect key="frame" x="133" y="60" width="57" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="Uc5-bj-1Mr"/>
+                                    <constraint firstAttribute="height" constant="21" id="XXj-4C-uaw"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <state key="normal" title="财富:20"/>
@@ -90,28 +78,40 @@
                                     <action selector="treasure:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="7iT-Jo-6F7"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y9m-on-vdQ">
+                                <rect key="frame" x="192" y="60" width="70" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="RqN-Sv-x5E"/>
+                                    <constraint firstAttribute="height" constant="21" id="Srb-Kc-rf4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <state key="normal" title="优币:20"/>
+                                <connections>
+                                    <action selector="youbi:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="S6d-FM-JS9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="qFg-ha-em6" firstAttribute="leading" secondItem="y9m-on-vdQ" secondAttribute="trailing" constant="19" id="6bM-vv-7g2"/>
                             <constraint firstAttribute="trailing" secondItem="2AY-FC-YjG" secondAttribute="trailing" id="Af7-l4-z8L"/>
                             <constraint firstItem="arh-S7-ZQd" firstAttribute="leading" secondItem="6Md-5x-VXf" secondAttribute="leading" constant="13" id="D1g-NC-Et2"/>
                             <constraint firstItem="2AY-FC-YjG" firstAttribute="leading" secondItem="6Md-5x-VXf" secondAttribute="leading" id="ELw-NF-z9g"/>
-                            <constraint firstItem="KNG-6u-nWS" firstAttribute="top" secondItem="Gkm-R6-m1B" secondAttribute="bottom" constant="5" id="KLy-ri-Ows"/>
                             <constraint firstItem="arh-S7-ZQd" firstAttribute="top" secondItem="6Md-5x-VXf" secondAttribute="top" constant="36" id="KRm-RF-xlc"/>
+                            <constraint firstItem="y9m-on-vdQ" firstAttribute="leading" secondItem="KNG-6u-nWS" secondAttribute="trailing" constant="2" id="KhU-Ch-aDq"/>
+                            <constraint firstItem="qFg-ha-em6" firstAttribute="top" secondItem="6Md-5x-VXf" secondAttribute="top" constant="60" id="O27-qf-OMn"/>
                             <constraint firstItem="e6X-oV-lpO" firstAttribute="top" secondItem="6Md-5x-VXf" secondAttribute="top" constant="39" id="POl-gQ-Q2c"/>
+                            <constraint firstItem="KNG-6u-nWS" firstAttribute="top" secondItem="Gkm-R6-m1B" secondAttribute="bottom" constant="5" id="TQX-rc-VoB"/>
+                            <constraint firstItem="qFg-ha-em6" firstAttribute="leading" secondItem="y9m-on-vdQ" secondAttribute="trailing" constant="8" id="Vro-E2-wUQ"/>
                             <constraint firstAttribute="height" constant="123" id="XGy-cK-U0c"/>
                             <constraint firstItem="Jlf-tL-Q1g" firstAttribute="top" secondItem="e6X-oV-lpO" secondAttribute="bottom" constant="1" id="bW4-Qq-xHV"/>
-                            <constraint firstAttribute="trailing" secondItem="qFg-ha-em6" secondAttribute="trailing" constant="15" id="cOM-6G-Bcf"/>
                             <constraint firstItem="Gkm-R6-m1B" firstAttribute="centerX" secondItem="6Md-5x-VXf" secondAttribute="centerX" id="dzF-GU-RsA"/>
                             <constraint firstItem="Gkm-R6-m1B" firstAttribute="top" secondItem="6Md-5x-VXf" secondAttribute="top" constant="25" id="fBX-2L-eXz"/>
-                            <constraint firstItem="y9m-on-vdQ" firstAttribute="leading" secondItem="KNG-6u-nWS" secondAttribute="trailing" constant="15" id="hDa-aG-i4p"/>
-                            <constraint firstItem="KNG-6u-nWS" firstAttribute="leading" secondItem="Jlf-tL-Q1g" secondAttribute="trailing" constant="14" id="hi4-Sf-hcd"/>
                             <constraint firstItem="e6X-oV-lpO" firstAttribute="leading" secondItem="arh-S7-ZQd" secondAttribute="trailing" constant="8" id="jJh-da-SWf"/>
                             <constraint firstAttribute="bottom" secondItem="2AY-FC-YjG" secondAttribute="bottom" id="knV-X1-4n5"/>
+                            <constraint firstAttribute="trailing" secondItem="qFg-ha-em6" secondAttribute="trailing" constant="8" id="qvo-6a-Oyy"/>
                             <constraint firstItem="2AY-FC-YjG" firstAttribute="top" secondItem="6Md-5x-VXf" secondAttribute="top" id="rWz-HF-EFh"/>
-                            <constraint firstItem="y9m-on-vdQ" firstAttribute="top" secondItem="6Md-5x-VXf" secondAttribute="top" constant="60" id="uOl-6i-Zq5"/>
-                            <constraint firstItem="qFg-ha-em6" firstAttribute="top" secondItem="6Md-5x-VXf" secondAttribute="top" constant="60" id="xfv-DH-gRs"/>
+                            <constraint firstItem="y9m-on-vdQ" firstAttribute="top" secondItem="Gkm-R6-m1B" secondAttribute="bottom" constant="5" id="vLZ-cL-u5T"/>
                             <constraint firstItem="Jlf-tL-Q1g" firstAttribute="leading" secondItem="arh-S7-ZQd" secondAttribute="trailing" constant="8" id="y3D-ie-m8j"/>
+                            <constraint firstItem="KNG-6u-nWS" firstAttribute="leading" secondItem="Jlf-tL-Q1g" secondAttribute="trailing" constant="8" id="z53-Rk-s24"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W0F-YM-RC6">

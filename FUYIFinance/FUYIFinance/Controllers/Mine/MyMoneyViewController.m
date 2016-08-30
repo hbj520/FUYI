@@ -64,6 +64,7 @@
 }
 
 - (IBAction)back:(id)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"updateucoin" object:nil];
     [self.navigationController popViewControllerAnimated:YES];
     self.navigationController.navigationBar.hidden = YES;
 }

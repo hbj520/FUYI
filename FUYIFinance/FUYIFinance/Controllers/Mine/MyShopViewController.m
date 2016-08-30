@@ -52,6 +52,7 @@
     //添加自定制导航栏按钮
     
     [self createUI];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadData) name:@"updateucoin" object:nil];
     self.navigationController.navigationBarHidden = NO;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh:) name:@"refreshView" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeStatus) name:@"changeState" object:nil];
@@ -182,7 +183,9 @@
             [cell.treasurebtn setTitle:moneyvalue forState:UIControlStateNormal];
             //优币值
             NSString * ucoin = [[Config Instance] getUcoin];
-            NSString * coinvalue = [NSString stringWithFormat:@"优币:%@",ucoin];
+            NSInteger ucoinvalue = ucoin.integerValue;
+            NSInteger newucoinvalue = ucoinvalue/1000;
+            NSString * coinvalue = [NSString stringWithFormat:@"优币:%ldk",newucoinvalue];
             [cell.youbibtn setTitle:coinvalue forState:UIControlStateNormal];
             //积分值
             NSString * integral = [[Config Instance] getIntegral];
@@ -517,6 +520,8 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"refreshView" object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"changeState" object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"updateImage" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"updateucoin" object:nil];
+
 }
 
 
