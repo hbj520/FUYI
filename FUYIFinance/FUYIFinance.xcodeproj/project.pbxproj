@@ -2109,7 +2109,7 @@
 				TargetAttributes = {
 					AB708F851D0543BE007D0B4D = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 3L5Q37H6H3;
+						DevelopmentTeam = MGR47JT33V;
 					};
 					AB708F9E1D0543BE007D0B4D = {
 						CreatedOnToolsVersion = 7.3;
@@ -2741,7 +2741,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.youyou.FUYIFinance;
+				PRODUCT_BUNDLE_IDENTIFIER = com.youyou.FUYI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -2768,7 +2768,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.youyou.FUYIFinance;
+				PRODUCT_BUNDLE_IDENTIFIER = com.youyou.FUYI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
