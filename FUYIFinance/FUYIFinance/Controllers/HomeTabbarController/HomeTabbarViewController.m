@@ -50,6 +50,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+  
     // Do any additional setup after loading the view.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(RecieveNoticeAct:) name:@"refreshView" object:nil];
     menusVCs = [NSMutableArray array];

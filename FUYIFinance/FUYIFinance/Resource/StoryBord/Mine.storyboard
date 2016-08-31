@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="QaL-7E-fUx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="QaL-7E-fUx">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
@@ -4112,7 +4112,7 @@
                                             <constraint firstAttribute="width" constant="100" id="vP3-ra-ZPD"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -4327,21 +4327,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的优币" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Et-JS-edu">
-                                <rect key="frame" x="13" y="139" width="56" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="56" id="7iJ-Ir-3sB"/>
-                                    <constraint firstAttribute="height" constant="21" id="Q8o-uX-dJK"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="我的优币" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Et-JS-edu">
+                                <rect key="frame" x="45" y="187" width="54" height="13"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1N-w7-LOb">
-                                <rect key="frame" x="84" y="144" width="153" height="153"/>
+                                <rect key="frame" x="85" y="187" width="150" height="150"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="153" id="SAE-Vo-zMm"/>
-                                    <constraint firstAttribute="width" constant="153" id="dpC-6V-6Eh"/>
+                                    <constraint firstAttribute="width" constant="150" id="Qig-fh-3TE"/>
+                                    <constraint firstAttribute="height" constant="150" id="usY-17-PzB"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="90"/>
                                 <color key="textColor" red="0.96078431372549022" green="0.0" blue="0.070588235294117646" alpha="1" colorSpace="calibratedRGB"/>
@@ -4391,19 +4387,17 @@
                             <constraint firstItem="i1h-3v-pef" firstAttribute="top" secondItem="oi9-XO-mU1" secondAttribute="bottom" constant="1" id="2sl-de-DMA"/>
                             <constraint firstItem="oi9-XO-mU1" firstAttribute="leading" secondItem="x2F-6F-ayP" secondAttribute="leading" constant="20" id="3K7-Bc-tFh"/>
                             <constraint firstAttribute="trailing" secondItem="kf8-yZ-ghT" secondAttribute="trailing" constant="20" id="4ZC-4A-Gj2"/>
-                            <constraint firstItem="a1N-w7-LOb" firstAttribute="centerX" secondItem="x2F-6F-ayP" secondAttribute="centerX" id="8eu-KO-C4K"/>
                             <constraint firstAttribute="bottom" secondItem="V3X-Cm-LVz" secondAttribute="bottom" id="GaY-ZG-G85"/>
                             <constraint firstItem="V3X-Cm-LVz" firstAttribute="top" secondItem="i1h-3v-pef" secondAttribute="bottom" constant="35" id="Haa-a4-k3a"/>
                             <constraint firstAttribute="trailing" secondItem="V3X-Cm-LVz" secondAttribute="trailing" id="LDO-lJ-Tzg"/>
                             <constraint firstAttribute="trailing" secondItem="oi9-XO-mU1" secondAttribute="trailing" constant="20" id="MWC-aw-hgf"/>
                             <constraint firstItem="oi9-XO-mU1" firstAttribute="top" secondItem="kf8-yZ-ghT" secondAttribute="bottom" constant="1" id="PVl-ee-5oV"/>
                             <constraint firstItem="V3X-Cm-LVz" firstAttribute="leading" secondItem="x2F-6F-ayP" secondAttribute="leading" id="SLp-su-qzt"/>
-                            <constraint firstItem="3Et-JS-edu" firstAttribute="top" secondItem="ShS-Sv-cjG" secondAttribute="bottom" constant="75" id="UW6-cM-sAN"/>
-                            <constraint firstItem="a1N-w7-LOb" firstAttribute="leading" secondItem="3Et-JS-edu" secondAttribute="trailing" constant="15" id="ePH-VT-yqk"/>
+                            <constraint firstItem="a1N-w7-LOb" firstAttribute="top" secondItem="ShS-Sv-cjG" secondAttribute="bottom" constant="123" id="WkO-EX-mve"/>
+                            <constraint firstItem="a1N-w7-LOb" firstAttribute="centerX" secondItem="x2F-6F-ayP" secondAttribute="centerX" id="gS4-Pb-NSx"/>
                             <constraint firstAttribute="trailing" secondItem="i1h-3v-pef" secondAttribute="trailing" constant="20" id="htO-05-KpK"/>
                             <constraint firstItem="kf8-yZ-ghT" firstAttribute="leading" secondItem="x2F-6F-ayP" secondAttribute="leading" constant="20" id="j9W-aP-QT3"/>
                             <constraint firstItem="i1h-3v-pef" firstAttribute="leading" secondItem="x2F-6F-ayP" secondAttribute="leading" constant="20" id="ucO-QV-YZ4"/>
-                            <constraint firstItem="a1N-w7-LOb" firstAttribute="top" secondItem="ShS-Sv-cjG" secondAttribute="bottom" constant="80" id="yFW-FG-MlJ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="我的优币" id="s4E-Id-PaR">
