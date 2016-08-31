@@ -36,6 +36,7 @@
     [self addRefresh];
 }
 
+
 - (void)addRefresh
 {
     __weak MyOrderFlowWaitPayViewController * weakself = self;
@@ -52,6 +53,7 @@
     
 }
 
+
 - (void)createUI
 {
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 100) style:UITableViewStylePlain];
@@ -63,6 +65,7 @@
     [self.view addSubview:_tableView];
 }
 
+//加载数据
 - (void)loadData
 {
     NSString * pageStr = [NSString stringWithFormat:@"%ld",page];
