@@ -55,6 +55,7 @@
 		AB4CEBB41D703B7100938DB9 /* FeedBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4CEBB31D703B7100938DB9 /* FeedBackViewController.m */; };
 		AB4EB7B51D584E7D00F6323E /* GestureUnlockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4EB7B41D584E7D00F6323E /* GestureUnlockViewController.m */; };
 		AB4EB7B81D585F1600F6323E /* GestureHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4EB7B71D585F1600F6323E /* GestureHelper.m */; };
+		AB67959C1D766705002D0198 /* song.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB67959B1D766705002D0198 /* song.ttf */; };
 		AB708F8B1D0543BE007D0B4D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AB708F8A1D0543BE007D0B4D /* main.m */; };
 		AB708F8E1D0543BE007D0B4D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AB708F8D1D0543BE007D0B4D /* AppDelegate.m */; };
 		AB708F911D0543BE007D0B4D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB708F901D0543BE007D0B4D /* ViewController.m */; };
@@ -444,6 +445,7 @@
 		AB4EB7B41D584E7D00F6323E /* GestureUnlockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureUnlockViewController.m; sourceTree = "<group>"; };
 		AB4EB7B61D585F1600F6323E /* GestureHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureHelper.h; sourceTree = "<group>"; };
 		AB4EB7B71D585F1600F6323E /* GestureHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureHelper.m; sourceTree = "<group>"; };
+		AB67959B1D766705002D0198 /* song.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = song.ttf; sourceTree = "<group>"; };
 		AB708F861D0543BE007D0B4D /* FUYIFinance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FUYIFinance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB708F8A1D0543BE007D0B4D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AB708F8C1D0543BE007D0B4D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = FUYIFinance/AppDelegate.h; sourceTree = SOURCE_ROOT; };
@@ -1079,6 +1081,14 @@
 			path = PageControl;
 			sourceTree = "<group>";
 		};
+		AB67959A1D7666C7002D0198 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				AB67959B1D766705002D0198 /* song.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		AB708F7D1D0543BE007D0B4D = {
 			isa = PBXGroup;
 			children = (
@@ -1391,6 +1401,7 @@
 		ABF5DE3F1D0FA4B1007CE1AB /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				AB67959A1D7666C7002D0198 /* Font */,
 				CC00226D1D589E6600132483 /* html */,
 				D141F7F11D542F6600392D00 /* IJKResource */,
 				CC6FD5E01D36046000DA60AB /* Plist */,
@@ -2147,6 +2158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB36CE381D1B818300D0E4C7 /* HomepageHeaderTableViewCell.xib in Resources */,
+				AB67959C1D766705002D0198 /* song.ttf in Resources */,
 				D141F82E1D542F6600392D00 /* player_lock_commt@2x.png in Resources */,
 				D141F8241D542F6600392D00 /* icmpv_more_light@2x.png in Resources */,
 				D141F83C1D542F6600392D00 /* player_window@2x.png in Resources */,

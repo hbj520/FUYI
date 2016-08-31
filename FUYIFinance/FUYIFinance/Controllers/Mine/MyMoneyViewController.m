@@ -12,6 +12,8 @@
 @interface MyMoneyViewController ()
 {
     NSString * ucoinValue;
+    NSInteger firstCout;
+    NSInteger secondCout;
 }
 @property (weak, nonatomic) IBOutlet UILabel *YouBiCount;
 
@@ -36,18 +38,19 @@
     if(ucoinValue){
         NSInteger ucoin = ucoinValue.integerValue;
         NSInteger newucoin = ucoin/1000;
-        NSString * ucoinstring = [NSString stringWithFormat:@"%ldk",newucoin];
+        NSString * ucoinstring = [NSString stringWithFormat:@"%ld",newucoin];
         self.YouBiCount.text = ucoinstring;
     }else{
         NSString * ucoin = [[Config Instance] getUcoin];
         NSInteger uCoin = ucoin.integerValue;
         NSInteger newucoin = uCoin/1000;
-        NSString * ucoinstring = [NSString stringWithFormat:@"%ldk",newucoin];
+        NSString * ucoinstring = [NSString stringWithFormat:@"%ld",newucoin];
         self.YouBiCount.text = ucoinstring;
     }
- 
     if(self.YouBiCount.text.length>3){
-        self.YouBiCount.font = [UIFont systemFontOfSize:25];
+        self.YouBiCount.font = [UIFont fontWithName:@"IowanOldStyle-Roman" size:25];
+    }else{
+        self.YouBiCount.font = [UIFont fontWithName:@"IowanOldStyle-Roman" size:60];
     }
     self.navigationController.navigationBarHidden = NO;
 }
