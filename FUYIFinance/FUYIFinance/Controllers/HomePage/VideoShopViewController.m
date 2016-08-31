@@ -243,7 +243,9 @@ DOPDropDownMenuDelegate>
                                             [storeArray addObjectsFromArray:arrays];
                                         }else{
                                             if([msg isEqualToString:@"没有视频啦"]){
+                                                if(_page == 1){
                                                 [storeArray removeAllObjects];
+                                                }
                                             }
                                             dispatch_async(dispatch_get_main_queue(), ^{
                                                 [self.tableView.mj_footer endRefreshingWithNoMoreData];

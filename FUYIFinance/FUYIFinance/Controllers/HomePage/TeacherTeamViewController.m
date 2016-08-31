@@ -106,7 +106,9 @@
                 [TeacherTeamArr addObjectsFromArray:arrays];
             }else{
                 if([msg isEqualToString:@"没有数据"]){
+                    if(_page == 1){
                     [TeacherTeamArr removeAllObjects];
+                    }
                 }
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self.tableView.mj_footer endRefreshingWithNoMoreData];
