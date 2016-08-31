@@ -23,6 +23,7 @@
 @interface TeacherTeamViewController ()<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate>
 {
     NSInteger _page;
+    NSString * _key;
     NSMutableArray *TeacherTeamArr;
     TeacherTeamModel *_saveModel;
     
@@ -36,6 +37,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    _key = @"";
     [self creatUI];
     _saveModel = [[TeacherTeamModel alloc]init];
     TeacherTeamArr = [[NSMutableArray alloc]init];
@@ -51,6 +53,15 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
 
+}
+
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [Tools hideKeyBoard];
+    _key = searchBar.text;
+    _page = 1;
+    [self loadDataWithToken:KToken page:_page];
 }
 
 #pragma mark - privateMethod
@@ -84,7 +95,7 @@
     NSString *nowPage = [NSString stringWithFormat:@"%ld",(long)_page];
     
     if (KToken) {
-        [[MyAPI sharedAPI] getTeacherTeamDataWithToken:KToken page:nowPage result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
+        [[MyAPI sharedAPI] getTeacherTeamDataWithToken:KToken Key:_key page:nowPage result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
             
             //       if ([msg isEqualToString:@"err token"]) {
             //           [self logOut];
@@ -240,6 +251,11 @@
     TeacherTeamModel *model = [TeacherTeamArr objectAtIndex:indexPath.row];
     
     [self performSegueWithIdentifier:@"TeacherPersonalSegue" sender:model];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [Tools hideKeyBoard];
 }
 
 - (void)didReceiveMemoryWarning {

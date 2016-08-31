@@ -7,6 +7,7 @@
 //
 
 #import "OrderInfoViewController.h"
+#import "UIViewController+HUD.h"
 #import "OrderNoticeTableViewCell.h"
 #import "OrderNoticeModel.h"
 #import "MyAPI.h"
@@ -42,8 +43,15 @@
     [[MyAPI sharedAPI] requestOrderNoticeWithResult:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
         if(success){
         [dataSource addObjectsFromArray:arrays];
-        }
         [self.tableView reloadData];
+        }else{
+            if([msg isEqualToString:@"-1"]){
+                [self logOut];
+            }else{
+                [self showHint:msg];
+            }
+        }
+      
     } ErrorResult:^(NSError *enginerError) {
         
     }];
