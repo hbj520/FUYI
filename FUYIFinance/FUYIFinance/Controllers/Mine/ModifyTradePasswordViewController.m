@@ -101,6 +101,7 @@
     [[MyAPI sharedAPI] ModifyTradePasswordWithExcode:SecurityOldTradeWord NewXcode:SecurityNewTradeWord ReNewXcode:SecurityCommitTradeWord Yzm:self.yzmword.text Result:^(BOOL sucess, NSString *msg) {
         if(sucess){
             [self showHint:@"修改成功"];
+            [self.navigationController popViewControllerAnimated:YES];
         }else{
             [self showHint:msg];
         }

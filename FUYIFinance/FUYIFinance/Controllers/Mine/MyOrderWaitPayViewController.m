@@ -217,17 +217,17 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MineWaitPayModel * model = [[MineWaitPayModel alloc] init];
-    model = _dataSource[indexPath.section];
-    StoreDataModel * model1 = [[StoreDataModel alloc] init];
-    model1.videoName = model.name;
-    model1.videoImage = model.image;
-    model1.videoPrice = model.price;
-    UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"HomePage" bundle:nil];
-    
-    ConfirmOrderViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"confirmstoryboardId"];
-    vc.model = model1;
-    [self.navigationController pushViewController:vc animated:YES];
+//    MineWaitPayModel * model = [[MineWaitPayModel alloc] init];
+//    model = _dataSource[indexPath.section];
+//    StoreDataModel * model1 = [[StoreDataModel alloc] init];
+//    model1.videoName = model.name;
+//    model1.videoImage = model.image;
+//    model1.videoPrice = model.price;
+//    UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"HomePage" bundle:nil];
+//    
+//    ConfirmOrderViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"confirmstoryboardId"];
+//    vc.model = model1;
+//    [self.navigationController pushViewController:vc animated:YES];
     
 }
 

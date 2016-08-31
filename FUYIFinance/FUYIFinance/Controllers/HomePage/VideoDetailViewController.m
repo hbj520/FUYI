@@ -355,7 +355,7 @@
     if (indexPath.section == 0 && indexPath.row == 0) {
         VideoDetailFirstTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"detailFirstReuseID" forIndexPath:indexPath];
         cell.videoTitleLab.text = _model.videoName;
-        cell.detailVideoPriceLab.attributedText = [[LabelHelper alloc]attributedFontStringWithString:[NSString stringWithFormat:@"¥ %@",_model.videoPrice] firstFont:17 secFont:24 thirdFont:19];
+        cell.detailVideoPriceLab.attributedText = [[LabelHelper alloc]attributedFontStringWithString:[NSString stringWithFormat:@"%@",_model.videoPrice] firstFont:17 secFont:24 thirdFont:19];
         
         cell.authorLab.text = [NSString stringWithFormat:@"讲师：%@",_model.teacherName];
         cell.saleCountsLab.text = [NSString stringWithFormat:@"月销%@笔",_model.sellNum];

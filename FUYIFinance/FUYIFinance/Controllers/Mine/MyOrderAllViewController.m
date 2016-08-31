@@ -454,7 +454,7 @@ UIAlertViewDelegate>
 //            [self.navigationController pushViewController:VC animated:YES];
 //    }
 //    }
-}
+           }
 
 - (void)clickjudgeBtnWithIndexpath:(NSIndexPath*)indexpath
 {
@@ -603,9 +603,9 @@ UIAlertViewDelegate>
         [[MyAPI sharedAPI] cancelOrderWithOrdernum:_ordernum result:^(BOOL sucess, NSString *msg) {
             if(sucess){
                 [self showHint:@"取消订单成功"];
-                //[waitpayArray removeObjectAtIndex:index-10];
+               
                 [self loadData];
-                // [_tableView reloadData];
+              
             }else{
                 if([msg isEqualToString:@"-1"]){
                     [self logOut];

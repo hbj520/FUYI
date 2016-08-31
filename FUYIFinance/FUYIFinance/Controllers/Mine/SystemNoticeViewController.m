@@ -7,6 +7,7 @@
 //
 
 #import "SystemNoticeViewController.h"
+#import "UIViewController+HUD.h"
 #import "NoticeListTableViewCell.h"
 #import "SystemNoticeModel.h"
 #import "MyAPI.h"
@@ -46,8 +47,15 @@
     [[MyAPI sharedAPI] requestSystemNoticeWithResult:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
         if(success){
             [dataSource addObjectsFromArray:arrays];
+             [self.tableView reloadData];
+        }else{
+            if([msg isEqualToString:@"-1"]){
+                [self logOut];
+            }else{
+                [self showHint:msg];
+            }
         }
-        [self.tableView reloadData];
+       
     } ErrorResult:^(NSError *enginerError) {
         
     }];

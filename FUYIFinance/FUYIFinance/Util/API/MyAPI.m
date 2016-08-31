@@ -666,11 +666,13 @@
 
 #pragma mark -讲师团队
 - (void)getTeacherTeamDataWithToken:(NSString*)token
-                               page:(NSString*)page
+                                Key:(NSString *)key
+                               page:(NSString*)page 
                              result:(ArrayBlock)result
                         errorResult:(ErrorBlock)errorResult{
     NSDictionary *parameters = @{
                                  @"token":KToken,
+                                 @"key":key,
                                  @"page":page
                                  };
     [self.manager POST:@"teacherlist" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
@@ -1243,12 +1245,13 @@
                                   @"image":imageData};
     [self.manager POST:@"nos_uploadimage" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         NSString * status = responseObject[@"status"];
+        
         if([status isEqualToString:@"1"]){
             NSDictionary * data = responseObject[@"data"];
             NSString * imageUrl = data[@"image"];
             result(YES,imageUrl);
         }else{
-            
+           
         }
         
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
@@ -1328,6 +1331,9 @@
             NSMutableArray * array = [[SystemNoticeModel alloc] buildWithData:data];
             result(YES,info,array);
         }else{
+            if([status isEqualToString:@"-1"]){
+                result(NO,status,nil);
+            }
             result(NO,info,nil);
         }
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
@@ -1346,6 +1352,12 @@
         if([status isEqualToString:@"1"]){
             NSMutableArray * array = [[OrderNoticeModel alloc] buildWithData:data];
             result(YES,info,array);
+        }else{
+            if([status isEqualToString:@"-1"]){
+                result(NO,status,nil);
+            }else{
+                result(NO,info,nil);
+            }
         }
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         

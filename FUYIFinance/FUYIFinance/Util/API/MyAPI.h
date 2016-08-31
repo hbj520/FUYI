@@ -518,6 +518,7 @@ typedef void (^ErrorBlock) (NSError *enginerError);
 
 #pragma mark -讲师团队
 - (void)getTeacherTeamDataWithToken:(NSString*)token
+                                Key:(NSString *)key
                                page:(NSString*)page
                              result:(ArrayBlock)result
                         errorResult:(ErrorBlock)errorResult;
