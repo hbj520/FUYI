@@ -96,10 +96,7 @@
     
     if (KToken) {
         [[MyAPI sharedAPI] getTeacherTeamDataWithToken:KToken Key:_key page:nowPage result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
-            
-            //       if ([msg isEqualToString:@"err token"]) {
-            //           [self logOut];
-            //       }
+         
             if (success) {
                 if(_page == 1){
                     if (TeacherTeamArr.count > 0) {
@@ -107,13 +104,16 @@
                     }
                 }
                 [TeacherTeamArr addObjectsFromArray:arrays];
-                [self.tableView reloadData];
             }else{
+                if([msg isEqualToString:@"没有数据"]){
+                    [TeacherTeamArr removeAllObjects];
+                }
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self.tableView.mj_footer endRefreshingWithNoMoreData];
                 });
                 _page--;
             }
+            [self.tableView reloadData];
             [self.tableView.mj_header endRefreshing];
             [self.tableView.mj_footer endRefreshing];
         } errorResult:^(NSError *enginerError) {

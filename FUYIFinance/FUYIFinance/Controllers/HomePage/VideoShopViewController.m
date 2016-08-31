@@ -157,7 +157,7 @@ DOPDropDownMenuDelegate>
     };
     //搜索
     navItem.searchResultBlock = ^(NSString *resutText){
-   
+        key = resutText;
         [self loadDataWithTypeSelectId:typeId
                          labelSelectId:labelId
                                   Sort:sortId
@@ -167,7 +167,7 @@ DOPDropDownMenuDelegate>
          [Tools hideKeyBoard];
     };
     navItem.searchBtnBlock = ^(NSString *resultTest){
-      
+        key = resultTest;
         [self loadDataWithTypeSelectId:typeId
                          labelSelectId:labelId
                                   Sort:sortId
@@ -194,10 +194,10 @@ DOPDropDownMenuDelegate>
 
 - (void)keyboardWillShow:(NSNotification *)aNotification{
     
-    _shadowBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight)];
-    _shadowBtn.backgroundColor = RGBACOLOR(0, 0, 0, 0.5);
-    [_shadowBtn addTarget:self action:@selector(down) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:_shadowBtn];
+//    _shadowBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight)];
+//    _shadowBtn.backgroundColor = RGBACOLOR(0, 0, 0, 0.5);
+//    [_shadowBtn addTarget:self action:@selector(down) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:_shadowBtn];
 }
 
 - (void)down{
@@ -237,9 +237,14 @@ DOPDropDownMenuDelegate>
                                    keyWord:keyWord
                                     result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
                                         if (success) {
-                                         
+                                            if(_page == 1){
+                                                [storeArray removeAllObjects];
+                                            }
                                             [storeArray addObjectsFromArray:arrays];
                                         }else{
+                                            if([msg isEqualToString:@"没有视频啦"]){
+                                                [storeArray removeAllObjects];
+                                            }
                                             dispatch_async(dispatch_get_main_queue(), ^{
                                                 [self.tableView.mj_footer endRefreshingWithNoMoreData];
                                             });
@@ -387,6 +392,11 @@ DOPDropDownMenuDelegate>
     StoreDataModel *model = [storeArray objectAtIndex:indexPath.row];
     
     [self performSegueWithIdentifier:@"videoDetailSegue" sender:model];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [Tools hideKeyBoard];
 }
 
 #pragma mark - Navigation
