@@ -35,6 +35,7 @@
     [self addRefresh];
 }
 
+//添加刷新
 - (void)addRefresh
 {
     __weak MyOrderFlowAllViewController * weakself = self;

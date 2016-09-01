@@ -16,6 +16,7 @@
     NSInteger secondCout;
 }
 @property (weak, nonatomic) IBOutlet UILabel *YouBiCount;
+@property (weak, nonatomic) IBOutlet UILabel *label;
 
 @end
 
@@ -48,8 +49,12 @@
     }
     if(self.YouBiCount.text.length>3){
         self.YouBiCount.font = [UIFont fontWithName:@"IowanOldStyle-Roman" size:25];
+        NSString * nowcount = [NSString stringWithFormat:@"%@k",self.YouBiCount.text];
+        self.YouBiCount.text = nowcount;
+        self.label.hidden = YES;
     }else{
         self.YouBiCount.font = [UIFont fontWithName:@"IowanOldStyle-Roman" size:60];
+        self.label.hidden = NO;
     }
     self.navigationController.navigationBarHidden = NO;
 }
