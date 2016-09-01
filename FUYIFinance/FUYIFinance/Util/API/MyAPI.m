@@ -1293,7 +1293,11 @@
         if([status isEqualToString:@"1"]){
             result(YES,info);
         }else{
+            if([status isEqualToString:@"-1"]){
+                result(NO,status);
+            }else{
             result(NO,info);
+            }
         }
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         errorResult(error);

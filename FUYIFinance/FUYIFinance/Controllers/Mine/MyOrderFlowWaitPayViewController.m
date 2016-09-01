@@ -36,7 +36,7 @@
     [self addRefresh];
 }
 
-
+//添加上下拉刷新
 - (void)addRefresh
 {
     __weak MyOrderFlowWaitPayViewController * weakself = self;

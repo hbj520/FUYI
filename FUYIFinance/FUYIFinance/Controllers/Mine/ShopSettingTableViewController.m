@@ -162,11 +162,29 @@
     [[MyAPI sharedAPI] modifyTeacherInfoWithName:self.shopname.text About:self.shopintroduce.text Result:^(BOOL sucess, NSString *msg) {
         if(sucess){
             [self showHint:@"修改成功"];
+            [self.navigationController popViewControllerAnimated:YES];
+        }else{
+            if([msg isEqualToString:@"-1"]){
+                [self logOut];
+            }else{
+                [self showHint:msg];
+            }
         }
     } ErrorResult:^(NSError *enginerError) {
         
     }];
 }
+
+- (void)logOut{
+    if (KToken) {
+        [[Config Instance] logout];
+    }
+    UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
+    UINavigationController *loginVC = [storybord instantiateViewControllerWithIdentifier:@"LoginStorybordId"];
+    loginVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self.navigationController presentModalViewController:loginVC animated:YES];
+}
+
 
 - (IBAction)back:(id)sender {
     self.navigationController.navigationBarHidden = YES;
