@@ -2120,7 +2120,7 @@
 				TargetAttributes = {
 					AB708F851D0543BE007D0B4D = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 3L5Q37H6H3;
+						DevelopmentTeam = MGR47JT33V;
 					};
 					AB708F9E1D0543BE007D0B4D = {
 						CreatedOnToolsVersion = 7.3;
@@ -2740,6 +2740,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -2767,6 +2768,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
