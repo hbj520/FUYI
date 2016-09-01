@@ -2957,7 +2957,7 @@
                                     <constraint firstAttribute="height" constant="30" id="6x0-KK-f9B"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l02-7P-NUC">
                                 <rect key="frame" x="7" y="348" width="306" height="1"/>
@@ -3159,7 +3159,7 @@
                                                         <constraint firstAttribute="width" constant="264" id="tqO-Na-Ygg"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ytn-Pe-moO">
                                                     <rect key="frame" x="20" y="206" width="163" height="30"/>
@@ -3168,7 +3168,7 @@
                                                         <constraint firstAttribute="height" constant="30" id="w8e-Ei-cvR"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="确定密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BOs-K4-uxb">
                                                     <rect key="frame" x="20" y="310" width="264" height="30"/>
@@ -3359,7 +3359,7 @@
                                     <constraint firstAttribute="width" constant="270" id="zEs-tX-d6t"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Z6-V9-1mE">
                                 <rect key="frame" x="20" y="269" width="165" height="30"/>
@@ -3368,7 +3368,7 @@
                                     <constraint firstAttribute="height" constant="30" id="TAf-LE-VuW"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Rx-0P-Fuz">
                                 <rect key="frame" x="230" y="271" width="75" height="30"/>

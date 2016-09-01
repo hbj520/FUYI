@@ -98,6 +98,7 @@
         if(sucess){
             [self showHint:@"验证码发送成功，请注意查看短信"];
         }else{
+            time = 0;
             [self showHint:@"验证码发送失败"];
         }
     } errorResult:^(NSError *enginerError) {
@@ -135,7 +136,6 @@
                                        result:^(BOOL sucess, NSString *msg) {
         if(sucess){
             [self showHint:@"注册成功，请登录"];
-            [self performSegueWithIdentifier:@"modifytradeSegue" sender:@"register"];
             [self.navigationController popViewControllerAnimated:YES];
             
         }else{
