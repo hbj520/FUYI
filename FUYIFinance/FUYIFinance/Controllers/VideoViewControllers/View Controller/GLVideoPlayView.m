@@ -59,7 +59,6 @@ typedef NS_ENUM(NSInteger, PanDirection){
     }
     return self;
 }
-
 - (void)tapSliderAction:(CGFloat)value
 {
     
