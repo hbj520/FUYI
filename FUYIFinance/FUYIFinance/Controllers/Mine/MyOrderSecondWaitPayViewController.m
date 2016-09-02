@@ -164,6 +164,7 @@ UIAlertViewDelegate>
                 [self showHint:msg];
                 }
                 [passwordView hidePasswordView];
+                [self down];
             }
             [self loadData];
         } ErrorResult:^(NSError *enginerError) {

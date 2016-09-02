@@ -20,7 +20,7 @@
                             <constraint firstAttribute="height" constant="1" id="WeK-mq-yON"/>
                         </constraints>
                     </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F2b-Qz-jVP">
+                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F2b-Qz-jVP">
                         <rect key="frame" x="0.0" y="124" width="320" height="1"/>
                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -34,7 +34,7 @@
                             <constraint firstAttribute="height" constant="1" id="L7V-fU-EUP"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="共一件商品" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U7k-Rr-Kpl">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="共一件商品" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U7k-Rr-Kpl">
                         <rect key="frame" x="109" y="133" width="90" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="LzZ-Vs-MIz"/>
@@ -44,7 +44,7 @@
                         <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥39.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cka-Wq-QFL">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="¥39.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cka-Wq-QFL">
                         <rect key="frame" x="252" y="134" width="62" height="21"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -65,12 +65,8 @@
                         <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="讲师：李天" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbC-XE-7pb">
-                        <rect key="frame" x="91" y="94" width="65" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="65" id="iJQ-tA-W0s"/>
-                            <constraint firstAttribute="height" constant="21" id="riu-Zw-Z8B"/>
-                        </constraints>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="讲师：李天" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbC-XE-7pb">
+                        <rect key="frame" x="91" y="94" width="174" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -149,7 +145,7 @@
                             <constraint firstAttribute="width" constant="10" id="SJX-gf-f4y"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="合计：" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HUB-9R-eOG">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="合计：" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HUB-9R-eOG">
                         <rect key="frame" x="214" y="135" width="37" height="18"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="37" id="Aox-Jc-lcR"/>
@@ -161,7 +157,6 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="F2b-Qz-jVP" firstAttribute="top" secondItem="dbC-XE-7pb" secondAttribute="bottom" constant="9" id="04J-6T-SGA"/>
                     <constraint firstItem="jsI-Qn-Lp5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="0UO-3S-bMB"/>
                     <constraint firstItem="5Qj-7Q-K6s" firstAttribute="top" secondItem="NHG-2N-0eC" secondAttribute="bottom" constant="8" id="4L6-fT-BRX"/>
                     <constraint firstItem="Syc-Jy-jqm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="8bC-Nh-kOZ"/>
@@ -178,7 +173,6 @@
                     <constraint firstItem="cka-Wq-QFL" firstAttribute="leading" secondItem="HUB-9R-eOG" secondAttribute="trailing" constant="1" id="OR7-Tu-2sb"/>
                     <constraint firstAttribute="trailing" secondItem="5Qj-7Q-K6s" secondAttribute="trailing" id="Pjg-1P-OIP"/>
                     <constraint firstItem="LuL-P4-xX8" firstAttribute="leading" secondItem="ScO-Zh-UnO" secondAttribute="trailing" constant="17" id="Pme-X0-G7v"/>
-                    <constraint firstItem="dbC-XE-7pb" firstAttribute="leading" secondItem="TJ4-rW-exj" secondAttribute="trailing" constant="13" id="QsN-Qf-JhR"/>
                     <constraint firstItem="onb-hw-LbY" firstAttribute="top" secondItem="5Qj-7Q-K6s" secondAttribute="bottom" constant="10" id="VNQ-SA-z8z"/>
                     <constraint firstItem="4I2-Zj-WBT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Zng-3U-U0l"/>
                     <constraint firstItem="cka-Wq-QFL" firstAttribute="top" secondItem="F2b-Qz-jVP" secondAttribute="bottom" constant="9" id="a2O-oH-dlc"/>
@@ -186,7 +180,6 @@
                     <constraint firstItem="jsI-Qn-Lp5" firstAttribute="leading" secondItem="xWA-04-AHn" secondAttribute="trailing" constant="82" id="aaY-bm-Xu5"/>
                     <constraint firstItem="onb-hw-LbY" firstAttribute="leading" secondItem="SJu-BE-Nn4" secondAttribute="trailing" constant="1" id="ebZ-JT-aea"/>
                     <constraint firstItem="U7k-Rr-Kpl" firstAttribute="top" secondItem="F2b-Qz-jVP" secondAttribute="bottom" constant="8" id="gAO-dd-2wi"/>
-                    <constraint firstItem="dbC-XE-7pb" firstAttribute="top" secondItem="SJu-BE-Nn4" secondAttribute="bottom" constant="8" id="h6j-Pk-SMp"/>
                     <constraint firstItem="SJu-BE-Nn4" firstAttribute="top" secondItem="5Qj-7Q-K6s" secondAttribute="bottom" constant="10" id="iA4-Vy-KMo"/>
                     <constraint firstItem="TJ4-rW-exj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="13" id="pru-J3-g4w"/>
                     <constraint firstAttribute="trailing" secondItem="Syc-Jy-jqm" secondAttribute="trailing" constant="11" id="r5B-8o-W7K"/>

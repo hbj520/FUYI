@@ -166,6 +166,7 @@
                 }else{
                 [self showHint:msg];
                 }
+                [self down];
                 [passwordView hidePasswordView];
             }
             [self loadData];

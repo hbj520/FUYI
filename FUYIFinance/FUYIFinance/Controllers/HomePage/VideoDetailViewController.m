@@ -110,6 +110,7 @@
             [self showHint:msg];
             }
             [passwordView hidePasswordView];
+            [self down];
         }
     } ErrorResult:^(NSError *enginerError) {
         

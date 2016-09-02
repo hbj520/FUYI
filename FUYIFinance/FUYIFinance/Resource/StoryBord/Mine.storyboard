@@ -3,6 +3,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -651,10 +652,10 @@
                         <segue destination="TZI-V7-Jqa" kind="push" identifier="noticeSegue" id="2JG-jj-fn7"/>
                         <segue destination="kl9-Ne-o1C" kind="push" identifier="modifyinfoSegue" id="wOj-XJ-nss"/>
                         <segue destination="JdM-1q-Gjh" kind="push" identifier="settingSegue" id="dqh-en-jn6"/>
-                        <segue destination="ot5-Xw-3l3" kind="push" identifier="moneySegue" id="dMU-6g-CnA"/>
                         <segue destination="Xyk-R8-uCE" kind="push" identifier="topupSegue" id="qmS-lo-gP3"/>
                         <segue destination="U1F-nE-KVM" kind="push" identifier="protectaccountSegue" id="Y9M-LI-9zs"/>
                         <segue destination="tgW-cG-Eeu" kind="push" identifier="feedbackSegue" id="M2V-nX-QBx"/>
+                        <segue destination="FEV-yJ-uxX" kind="push" identifier="moneySegue" id="nlD-hj-H53"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r1Q-BL-DkO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3977,10 +3978,10 @@
                         <segue destination="TZI-V7-Jqa" kind="push" identifier="teachermessageSegue" id="ASI-aE-fKP"/>
                         <segue destination="gTa-Uz-Ymz" kind="push" identifier="accountSegue" id="4Zb-ci-Vya"/>
                         <segue destination="Xyk-R8-uCE" kind="push" identifier="topupcountSegue" id="Pik-2Q-B1m"/>
-                        <segue destination="ot5-Xw-3l3" kind="push" identifier="buyyoubiSegue" id="F9A-1H-7UZ"/>
                         <segue destination="U1F-nE-KVM" kind="push" identifier="protectaccountSegue" id="e2l-01-w1k"/>
                         <segue destination="CAG-HE-Wog" kind="push" identifier="myorderSegue" id="FqM-dG-g9s"/>
                         <segue destination="tgW-cG-Eeu" kind="push" identifier="feedSegue" id="lAz-8Q-UZw"/>
+                        <segue destination="FEV-yJ-uxX" kind="push" identifier="buyyoubiSegue" id="32T-is-suz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D06-M0-lp3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -4343,19 +4344,10 @@
                                 <color key="textColor" red="0.96078431372549022" green="0.0" blue="0.070588235294117646" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注：钱币可以兑换优币，优币不可以兑换成钱币" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i1h-3v-pef">
-                                <rect key="frame" x="20" y="451" width="280" height="22"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="22" id="LR2-jA-86G"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" red="0.85098039219999999" green="0.019607843140000001" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="优币的购得方式是：充值财富兑换钱币" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oi9-XO-mU1">
                                 <rect key="frame" x="20" y="429" width="280" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="hhL-bh-eRd"/>
+                                    <constraint firstAttribute="height" constant="21" id="2FG-2d-nR6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -4364,7 +4356,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="优币可直接购买本系统中的视频资料" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kf8-yZ-ghT">
                                 <rect key="frame" x="20" y="407" width="280" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="m0A-kJ-TMV"/>
+                                    <constraint firstAttribute="height" constant="21" id="2RJ-fy-uID"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -4387,23 +4379,32 @@
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注：钱币可以兑换优币，优币不可以兑换成钱币" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i1h-3v-pef">
+                                <rect key="frame" x="20" y="451" width="280" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="ebv-mg-6Sx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.85098039219999999" green="0.019607843140000001" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="i1h-3v-pef" firstAttribute="top" secondItem="oi9-XO-mU1" secondAttribute="bottom" constant="1" id="2sl-de-DMA"/>
-                            <constraint firstItem="oi9-XO-mU1" firstAttribute="leading" secondItem="x2F-6F-ayP" secondAttribute="leading" constant="20" id="3K7-Bc-tFh"/>
-                            <constraint firstAttribute="trailing" secondItem="kf8-yZ-ghT" secondAttribute="trailing" constant="20" id="4ZC-4A-Gj2"/>
+                            <constraint firstItem="oi9-XO-mU1" firstAttribute="leading" secondItem="x2F-6F-ayP" secondAttribute="leading" constant="20" id="2Ct-gU-LRy"/>
+                            <constraint firstItem="oi9-XO-mU1" firstAttribute="top" secondItem="kf8-yZ-ghT" secondAttribute="bottom" constant="1" id="Aa5-Hm-Rm7"/>
                             <constraint firstAttribute="bottom" secondItem="V3X-Cm-LVz" secondAttribute="bottom" id="GaY-ZG-G85"/>
-                            <constraint firstItem="V3X-Cm-LVz" firstAttribute="top" secondItem="i1h-3v-pef" secondAttribute="bottom" constant="35" id="Haa-a4-k3a"/>
+                            <constraint firstAttribute="trailing" secondItem="kf8-yZ-ghT" secondAttribute="trailing" constant="20" id="Huf-3A-huT"/>
+                            <constraint firstAttribute="trailing" secondItem="oi9-XO-mU1" secondAttribute="trailing" constant="20" id="JGZ-ai-Gvl"/>
                             <constraint firstAttribute="trailing" secondItem="V3X-Cm-LVz" secondAttribute="trailing" id="LDO-lJ-Tzg"/>
-                            <constraint firstAttribute="trailing" secondItem="oi9-XO-mU1" secondAttribute="trailing" constant="20" id="MWC-aw-hgf"/>
-                            <constraint firstItem="oi9-XO-mU1" firstAttribute="top" secondItem="kf8-yZ-ghT" secondAttribute="bottom" constant="1" id="PVl-ee-5oV"/>
                             <constraint firstItem="V3X-Cm-LVz" firstAttribute="leading" secondItem="x2F-6F-ayP" secondAttribute="leading" id="SLp-su-qzt"/>
                             <constraint firstItem="a1N-w7-LOb" firstAttribute="top" secondItem="ShS-Sv-cjG" secondAttribute="bottom" constant="123" id="WkO-EX-mve"/>
                             <constraint firstItem="a1N-w7-LOb" firstAttribute="centerX" secondItem="x2F-6F-ayP" secondAttribute="centerX" id="gS4-Pb-NSx"/>
-                            <constraint firstAttribute="trailing" secondItem="i1h-3v-pef" secondAttribute="trailing" constant="20" id="htO-05-KpK"/>
-                            <constraint firstItem="kf8-yZ-ghT" firstAttribute="leading" secondItem="x2F-6F-ayP" secondAttribute="leading" constant="20" id="j9W-aP-QT3"/>
-                            <constraint firstItem="i1h-3v-pef" firstAttribute="leading" secondItem="x2F-6F-ayP" secondAttribute="leading" constant="20" id="ucO-QV-YZ4"/>
+                            <constraint firstAttribute="trailing" secondItem="i1h-3v-pef" secondAttribute="trailing" constant="20" id="kG4-rk-2Cr"/>
+                            <constraint firstItem="kf8-yZ-ghT" firstAttribute="top" secondItem="a1N-w7-LOb" secondAttribute="bottom" constant="70" id="ngL-Ag-nG4"/>
+                            <constraint firstItem="i1h-3v-pef" firstAttribute="top" secondItem="oi9-XO-mU1" secondAttribute="bottom" constant="1" id="pje-CL-h1j"/>
+                            <constraint firstItem="i1h-3v-pef" firstAttribute="leading" secondItem="x2F-6F-ayP" secondAttribute="leading" constant="20" id="vtO-7P-a0u"/>
+                            <constraint firstItem="kf8-yZ-ghT" firstAttribute="leading" secondItem="x2F-6F-ayP" secondAttribute="leading" constant="20" id="yAR-7S-Mft"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="我的优币" id="s4E-Id-PaR">
@@ -4423,7 +4424,143 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hhc-GP-TuL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-11347" y="-3675"/>
+            <point key="canvasLocation" x="-11270" y="-3673"/>
+        </scene>
+        <!--我的优币-->
+        <scene sceneID="ZOw-Ho-mz0">
+            <objects>
+                <tableViewController hidesBottomBarWhenPushed="YES" id="FEV-yJ-uxX" customClass="MineMyMoneyViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Rax-Qm-S6h">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection id="g3d-ax-auF">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="504" id="vbv-LS-IlD">
+                                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vbv-LS-IlD" id="pED-EG-dfS">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="503"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kkB-VM-FVc">
+                                                    <rect key="frame" x="85" y="106" width="150" height="150"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="150" id="0yJ-Ym-Rn9"/>
+                                                        <constraint firstAttribute="height" constant="150" id="PAk-h6-fUP"/>
+                                                        <constraint firstAttribute="width" secondItem="kkB-VM-FVc" secondAttribute="height" multiplier="1:1" id="QGa-Oq-7yv"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="90"/>
+                                                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="k" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="imP-HN-lwM">
+                                                    <rect key="frame" x="223" y="203" width="19" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iEf-Oh-rhP">
+                                                    <rect key="frame" x="0.0" y="443" width="320" height="60"/>
+                                                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="60" id="VRa-Up-sWR"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="bgm-ZC-zQg"/>
+                                                    </constraints>
+                                                    <state key="normal" title="兑换优币"/>
+                                                    <connections>
+                                                        <action selector="convertYoubi:" destination="FEV-yJ-uxX" eventType="touchUpInside" id="TOH-Kc-iFI"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="优币可直接购买本系统中的视频资料" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kSZ-8k-hh9">
+                                                    <rect key="frame" x="20" y="313" width="280" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="RDg-n6-IxH"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="优币的购买方式是：充值财富兑换钱币" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IaO-BV-1gO">
+                                                    <rect key="frame" x="28" y="335" width="264" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="96L-1Y-xsf"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注：钱币可以兑换优币，优币不可以兑换成钱币" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DfY-cj-tVy">
+                                                    <rect key="frame" x="28" y="357" width="264" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="THj-mH-ldg"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的优币" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FGh-8x-d6F">
+                                                    <rect key="frame" x="42" y="106" width="54" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="GJo-yR-Z01"/>
+                                                        <constraint firstAttribute="width" constant="54" id="U2H-ym-9Wg"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="FGh-8x-d6F" firstAttribute="leading" secondItem="pED-EG-dfS" secondAttribute="leading" constant="42" id="0Fd-sI-Gny"/>
+                                                <constraint firstAttribute="trailing" secondItem="kSZ-8k-hh9" secondAttribute="trailing" constant="20" id="51y-Ed-7jQ"/>
+                                                <constraint firstAttribute="bottom" secondItem="iEf-Oh-rhP" secondAttribute="bottom" id="9qC-Iz-BLT"/>
+                                                <constraint firstItem="kkB-VM-FVc" firstAttribute="top" secondItem="pED-EG-dfS" secondAttribute="top" constant="106" id="AxA-t5-Gex"/>
+                                                <constraint firstAttribute="trailing" secondItem="iEf-Oh-rhP" secondAttribute="trailing" id="CHR-Un-vAo"/>
+                                                <constraint firstItem="kSZ-8k-hh9" firstAttribute="leading" secondItem="pED-EG-dfS" secondAttribute="leading" constant="20" id="HZM-vJ-e7y"/>
+                                                <constraint firstItem="IaO-BV-1gO" firstAttribute="top" secondItem="kSZ-8k-hh9" secondAttribute="bottom" constant="1" id="IPe-gg-6c5"/>
+                                                <constraint firstItem="DfY-cj-tVy" firstAttribute="top" secondItem="IaO-BV-1gO" secondAttribute="bottom" constant="1" id="Ord-Wa-mRA"/>
+                                                <constraint firstItem="iEf-Oh-rhP" firstAttribute="leading" secondItem="pED-EG-dfS" secondAttribute="leading" id="Pnw-Y3-QgT"/>
+                                                <constraint firstItem="kkB-VM-FVc" firstAttribute="centerX" secondItem="pED-EG-dfS" secondAttribute="centerX" id="QFu-Kh-7U6"/>
+                                                <constraint firstItem="IaO-BV-1gO" firstAttribute="leading" secondItem="pED-EG-dfS" secondAttribute="leading" constant="28" id="Rjo-DO-eb5"/>
+                                                <constraint firstItem="iEf-Oh-rhP" firstAttribute="leading" secondItem="pED-EG-dfS" secondAttribute="leading" id="SUU-lp-Y4q"/>
+                                                <constraint firstAttribute="trailing" secondItem="iEf-Oh-rhP" secondAttribute="trailing" id="SuV-Zb-8AH"/>
+                                                <constraint firstAttribute="trailing" secondItem="IaO-BV-1gO" secondAttribute="trailing" constant="28" id="Vss-gT-KKv"/>
+                                                <constraint firstItem="DfY-cj-tVy" firstAttribute="leading" secondItem="pED-EG-dfS" secondAttribute="leading" constant="28" id="cbO-yA-Vbn"/>
+                                                <constraint firstAttribute="trailing" secondItem="DfY-cj-tVy" secondAttribute="trailing" constant="28" id="hKD-y4-4qX"/>
+                                                <constraint firstItem="iEf-Oh-rhP" firstAttribute="top" secondItem="DfY-cj-tVy" secondAttribute="bottom" constant="65" id="pG0-xx-rNQ"/>
+                                                <constraint firstItem="FGh-8x-d6F" firstAttribute="top" secondItem="pED-EG-dfS" secondAttribute="top" constant="106" id="ziE-FG-VQM"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="FEV-yJ-uxX" id="BFI-OV-iDV"/>
+                            <outlet property="delegate" destination="FEV-yJ-uxX" id="BE0-em-8LP"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="我的优币" id="f4Y-cg-BPl">
+                        <barButtonItem key="leftBarButtonItem" image="back" id="tF5-wa-nnh">
+                            <color key="tintColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="back:" destination="FEV-yJ-uxX" id="jU8-tg-1fA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="YouBiCount" destination="kkB-VM-FVc" id="qpX-4D-cIz"/>
+                        <outlet property="label" destination="imP-HN-lwM" id="eC4-fV-ea6"/>
+                        <outlet property="labelconstant" destination="ziE-FG-VQM" id="eiu-Jc-4V9"/>
+                        <outlet property="youbiconstant" destination="AxA-t5-Gex" id="ZkC-SI-wIX"/>
+                        <segue destination="O0F-Cv-Rsh" kind="push" identifier="convertSegue" id="jCG-Jp-eUy"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YR3-hw-Tss" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-10646" y="-3687"/>
         </scene>
         <!--我的评价-->
         <scene sceneID="Nml-H1-coV">
@@ -4751,11 +4888,12 @@
     <inferredMetricsTieBreakers>
         <segue reference="dqh-en-jn6"/>
         <segue reference="M2V-nX-QBx"/>
-        <segue reference="xFS-qr-VxC"/>
-        <segue reference="qmS-lo-gP3"/>
         <segue reference="wOj-XJ-nss"/>
-        <segue reference="dMU-6g-CnA"/>
-        <segue reference="2JG-jj-fn7"/>
         <segue reference="Y9M-LI-9zs"/>
+        <segue reference="nlD-hj-H53"/>
+        <segue reference="xFS-qr-VxC"/>
+        <segue reference="2JG-jj-fn7"/>
+        <segue reference="qmS-lo-gP3"/>
+        <segue reference="jCG-Jp-eUy"/>
     </inferredMetricsTieBreakers>
 </document>

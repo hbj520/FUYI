@@ -156,7 +156,10 @@
 {
     self.placelabel1.hidden = YES;
     self.placelabel2.hidden = YES;
-    NSInteger count = textView.text.length;
+    NSInteger count = 500 - textView.text.length;
+    if(count==0){
+        return;
+    }
     self.stringcountlabel.text = [NSString stringWithFormat:@"%ld",count];
 }
 

@@ -573,6 +573,7 @@ UIAlertViewDelegate>
             [self showHint:info];
             }
             [passwordView hidePasswordView];
+            [self down];
         }
 
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
