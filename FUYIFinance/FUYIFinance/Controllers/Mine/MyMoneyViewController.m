@@ -65,11 +65,11 @@
     NSLog(@"ucoinvalue = %@",ucoinvalue);
     ucoinValue = ucoinvalue;
 }
-
+// 点击事件，兑换优币
 - (IBAction)ConvertYouBi:(id)sender {
     [self performSegueWithIdentifier:@"convertSegue" sender:nil];
 }
-
+// 返回上一页
 - (IBAction)back:(id)sender {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"updateucoin" object:nil];
     [self.navigationController popViewControllerAnimated:YES];

@@ -4,7 +4,7 @@
 //
 //  Created by 张哲 on 16/9/1.
 //  Copyright © 2016年 youyou. All rights reserved.
-//
+//  此处多了一个“我的优币”场景， 删除。（lwd）
 
 #import "MineMyMoneyViewController.h"
 #import "Config.h"
@@ -15,14 +15,15 @@
     NSInteger firstCout;
     NSInteger secondCout;
 }
-@property (weak, nonatomic) IBOutlet UILabel *YouBiCount;
-@property (weak, nonatomic) IBOutlet UILabel *label;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *labelconstant;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *youbiconstant;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *kconstant;
-@property (weak, nonatomic) IBOutlet UILabel *kConstant;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *nextConstant;
+@property (weak, nonatomic) IBOutlet UILabel *YouBiCount;// 宽高150的lable.// 和下面的重复。（应该删去。）
+@property (weak, nonatomic) IBOutlet UILabel *label;//”k“标志
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *labelconstant;// 我的优币lable距离导航的约束。
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *youbiconstant;//youbiconstant 距离上面的约束属性。
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *kconstant;// 字母K  左边的约束。
 
+@property (weak, nonatomic) IBOutlet UILabel *kConstant;// 宽高150的lable(包含钱币数和字母k)
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *nextConstant;
+//字母k距离上边的约束属性。
 @end
 
 @implementation MineMyMoneyViewController
@@ -60,10 +61,15 @@
         self.YouBiCount.text = ucoinstring;
     }else{
         NSString * ucoin = [[Config Instance] getUcoin];
-        NSInteger uCoin = ucoin.integerValue;
+        
+       NSInteger uCoin = ucoin.integerValue;
+        //NSInteger uCoin = 13912000; // 测试数据。
         NSInteger newucoin = uCoin/1000;
+        
         NSString * ucoinstring = [NSString stringWithFormat:@"%ld",newucoin];
         self.YouBiCount.text = ucoinstring;
+        
+        
     }
     if(self.YouBiCount.text.length>3){
         self.YouBiCount.font = [UIFont fontWithName:@"IowanOldStyle-Roman" size:25];
@@ -71,6 +77,14 @@
         self.YouBiCount.text = nowcount;
         self.label.hidden = YES;
     }else{
+        if (self.YouBiCount.text.length <= 1) {
+            self.kconstant.constant = 200;
+        }else if (self.YouBiCount.text.length == 2){
+            self.kconstant.constant = 215;
+        }else if (self.YouBiCount.text.length == 3)
+        {
+            self.kconstant.constant = 228;
+        }
         self.YouBiCount.font = [UIFont fontWithName:@"IowanOldStyle-Roman" size:60];
         self.label.hidden = NO;
     }
