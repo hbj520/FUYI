@@ -684,10 +684,10 @@
         }
         
         if ([status isEqualToString:@"1"]) {
-            if ([responseObject[@"data"][@"teacherlist"]isEqual:[NSNull null]]) {
+            if ([responseObject[@"data"]isEqual:[NSNull null]]) {
                 return result(YES,info,nil);
            }else{
-                NSArray *newArray = responseObject[@"data"][@"teacherlist"];
+                NSArray *newArray = responseObject[@"data"];
                 
                 TeacherTeamModel *model = [[TeacherTeamModel alloc]init];
                 NSArray *techerTeamArray = [model buildWithData:newArray];
