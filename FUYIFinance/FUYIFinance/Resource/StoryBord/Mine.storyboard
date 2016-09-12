@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="QaL-7E-fUx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="QaL-7E-fUx">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
@@ -642,7 +642,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r1Q-BL-DkO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-12750" y="-508"/>
+            <point key="canvasLocation" x="-12674" y="-980"/>
         </scene>
         <!--修改密码-->
         <scene sceneID="gcV-qA-Yie">
@@ -3891,7 +3891,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JuH-bO-3WE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4602" y="198"/>
+            <point key="canvasLocation" x="-4818" y="572"/>
         </scene>
         <!--系统消息-->
         <scene sceneID="WUF-5K-P62">
@@ -3933,7 +3933,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gPI-6y-ktw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4602" y="-614"/>
+            <point key="canvasLocation" x="-4954" y="-500"/>
         </scene>
         <!--我的店铺-->
         <scene sceneID="5Hg-6R-Uqj">
@@ -3968,7 +3968,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D06-M0-lp3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-11328" y="-2036"/>
+            <point key="canvasLocation" x="-11660" y="-2454"/>
         </scene>
         <!--我的收藏-->
         <scene sceneID="hIN-97-uNa">
@@ -4174,7 +4174,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="35T-8U-7YI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-10136" y="-3699"/>
+            <point key="canvasLocation" x="-11088" y="-3322"/>
         </scene>
         <!--账户充值-->
         <scene sceneID="PND-LH-bMH">
@@ -4401,12 +4401,11 @@
                     <connections>
                         <outlet property="YouBiCount" destination="a1N-w7-LOb" id="yAk-aU-w5d"/>
                         <outlet property="label" destination="5gJ-IV-3Kd" id="UP2-Az-bIl"/>
-                        <segue destination="O0F-Cv-Rsh" kind="push" identifier="convertSegue" id="xT6-E5-kNz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hhc-GP-TuL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-11311" y="-3857"/>
+            <point key="canvasLocation" x="-11540" y="-4025"/>
         </scene>
         <!--我的优币-->
         <scene sceneID="ZOw-Ho-mz0">
@@ -4486,7 +4485,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="k" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="imP-HN-lwM">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="k" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="imP-HN-lwM" userLabel="kLabel">
                                                     <rect key="frame" x="207" y="200" width="19" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="2Yk-7I-LZY"/>
@@ -4541,6 +4540,7 @@
                     <connections>
                         <outlet property="YouBiCount" destination="kkB-VM-FVc" id="qpX-4D-cIz"/>
                         <outlet property="kConstant" destination="kkB-VM-FVc" id="miY-Cv-3VJ"/>
+                        <outlet property="kconstant" destination="79C-Yf-m0d" id="5SR-aF-p79"/>
                         <outlet property="label" destination="imP-HN-lwM" id="eC4-fV-ea6"/>
                         <outlet property="labelconstant" destination="ziE-FG-VQM" id="eiu-Jc-4V9"/>
                         <outlet property="nextConstant" destination="aMa-4Z-Fhb" id="On2-AN-WQx"/>
@@ -4550,7 +4550,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YR3-hw-Tss" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-10852" y="-3836"/>
+            <point key="canvasLocation" x="-11447" y="-3356"/>
         </scene>
         <!--我的评价-->
         <scene sceneID="Nml-H1-coV">
@@ -4876,16 +4876,13 @@
         <image name="rightArrow" width="25" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="xFS-qr-VxC"/>
+        <segue reference="dqh-en-jn6"/>
+        <segue reference="qmS-lo-gP3"/>
+        <segue reference="Y9M-LI-9zs"/>
         <segue reference="2JG-jj-fn7"/>
         <segue reference="nlD-hj-H53"/>
-        <segue reference="qmS-lo-gP3"/>
-        <segue reference="dqh-en-jn6"/>
-        <segue reference="xFS-qr-VxC"/>
         <segue reference="wOj-XJ-nss"/>
         <segue reference="M2V-nX-QBx"/>
-        <segue reference="nlD-hj-H53"/>
-        <segue reference="dqh-en-jn6"/>
-        <segue reference="Y9M-LI-9zs"/>
-        <segue reference="jCG-Jp-eUy"/>
     </inferredMetricsTieBreakers>
 </document>
