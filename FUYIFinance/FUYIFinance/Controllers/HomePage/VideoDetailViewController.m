@@ -440,6 +440,9 @@
      [self.navigationController popViewControllerAnimated:YES];
     self.navigationController.navigationBarHidden = NO;
     self.tabBarController.tabBar.hidden = NO;
+    [playerVC removeFromParentViewController];
+    [playerVC.playView removeFromSuperview];
+    
 }
 
 //立即下单

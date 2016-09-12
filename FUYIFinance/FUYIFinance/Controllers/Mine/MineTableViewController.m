@@ -86,11 +86,15 @@
         NSString * money = [[Config Instance] getMoney];
         NSString *moneyvalue = [NSString stringWithFormat:@"财富:%@",money];
         [self.treasuebtn setTitle:moneyvalue forState:UIControlStateNormal];
+        self.treasuebtn.titleLabel.textAlignment = NSTextAlignmentLeft;
+        self.treasuebtn.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
         NSString * ucoin = [[Config Instance] getUcoin];
         NSInteger ucoinValue = ucoin.integerValue;
         NSInteger newucoinvalue = ucoinValue/1000;
-        NSString * ucoinvalue = [NSString stringWithFormat:@"优币:%ldk",newucoinvalue];
+        NSString * ucoinvalue = [NSString stringWithFormat:@"优币:%dk",newucoinvalue];
         [self.YouBiCount setTitle:ucoinvalue forState:UIControlStateNormal];
+        self.YouBiCount.titleLabel.textAlignment = NSTextAlignmentLeft;
+         self.YouBiCount.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
         NSString * integral = [[Config Instance] getIntegral];
         NSString * integralvalue = [NSString stringWithFormat:@"积分:%@",integral];
         [self.GoalCount setTitle:integralvalue forState:UIControlStateNormal];
@@ -114,7 +118,7 @@
 }
 
 - (IBAction)topupAccount:(id)sender {
-    [self performSegueWithIdentifier:@"topupSegue" sender:nil];
+    //[self performSegueWithIdentifier:@"topupSegue" sender:nil];
 }
 
 
