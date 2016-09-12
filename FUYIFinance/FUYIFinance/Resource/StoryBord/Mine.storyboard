@@ -4424,7 +4424,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hhc-GP-TuL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-11280" y="-3687"/>
+            <point key="canvasLocation" x="-11311" y="-3857"/>
         </scene>
         <!--我的优币-->
         <scene sceneID="ZOw-Ho-mz0">
@@ -4473,7 +4473,7 @@
                                                         <constraint firstAttribute="height" constant="21" id="RDg-n6-IxH"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="优币的购买方式是：充值财富兑换钱币" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IaO-BV-1gO">
@@ -4482,7 +4482,7 @@
                                                         <constraint firstAttribute="height" constant="21" id="96L-1Y-xsf"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注：钱币可以兑换优币，优币不可以兑换成钱币" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DfY-cj-tVy">
@@ -4501,7 +4501,7 @@
                                                         <constraint firstAttribute="width" constant="54" id="U2H-ym-9Wg"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="k" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="imP-HN-lwM">
@@ -4568,7 +4568,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YR3-hw-Tss" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-10646" y="-3687"/>
+            <point key="canvasLocation" x="-10852" y="-3836"/>
         </scene>
         <!--我的评价-->
         <scene sceneID="Nml-H1-coV">
@@ -4894,14 +4894,14 @@
         <image name="rightArrow" width="25" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dqh-en-jn6"/>
-        <segue reference="wOj-XJ-nss"/>
-        <segue reference="qmS-lo-gP3"/>
         <segue reference="2JG-jj-fn7"/>
         <segue reference="nlD-hj-H53"/>
+        <segue reference="qmS-lo-gP3"/>
+        <segue reference="dqh-en-jn6"/>
+        <segue reference="xFS-qr-VxC"/>
+        <segue reference="wOj-XJ-nss"/>
         <segue reference="M2V-nX-QBx"/>
         <segue reference="Y9M-LI-9zs"/>
-        <segue reference="xFS-qr-VxC"/>
         <segue reference="jCG-Jp-eUy"/>
     </inferredMetricsTieBreakers>
 </document>
