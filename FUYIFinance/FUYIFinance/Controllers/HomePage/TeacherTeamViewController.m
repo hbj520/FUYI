@@ -207,7 +207,11 @@
             cell.focusNum.text = [NSString stringWithFormat:@"%ld",(long)x];
              [self showPopup:msg];
         }else{
+            if([msg isEqualToString:@"-1"]){
+                [self logOut];
+            }else{
              [self showPopup:msg];
+            }
         }
     } errorResult:^(NSError *enginerError) {
         
@@ -225,7 +229,11 @@
             
             [self showPopup:msg];
         }else{
+            if([msg isEqualToString:@"-1"]){
+                [self logOut];
+            }else{
             [self showPopup:msg];
+            }
         }
     } errorResult:^(NSError *enginerError) {
         

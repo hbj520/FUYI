@@ -19,6 +19,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *label;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *labelconstant;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *youbiconstant;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *kconstant;
+@property (weak, nonatomic) IBOutlet UILabel *kConstant;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *nextConstant;
 
 @end
 
@@ -44,6 +47,7 @@
     if(ScreenHeight == 480){
         self.labelconstant.constant = 50;
         self.youbiconstant.constant = 50;
+        self.nextConstant.constant = 130;
     }
     self.YouBiCount.layer.cornerRadius = 76.5;
     self.YouBiCount.layer.borderWidth = 2;

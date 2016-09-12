@@ -4406,7 +4406,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hhc-GP-TuL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-11270" y="-3673"/>
+            <point key="canvasLocation" x="-11280" y="-3687"/>
         </scene>
         <!--我的优币-->
         <scene sceneID="ZOw-Ho-mz0">
@@ -4434,12 +4434,6 @@
                                                         <constraint firstAttribute="width" secondItem="kkB-VM-FVc" secondAttribute="height" multiplier="1:1" id="QGa-Oq-7yv"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="90"/>
-                                                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="k" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="imP-HN-lwM">
-                                                    <rect key="frame" x="223" y="203" width="19" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -4492,10 +4486,21 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="k" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="imP-HN-lwM">
+                                                    <rect key="frame" x="207" y="200" width="19" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="2Yk-7I-LZY"/>
+                                                        <constraint firstAttribute="width" constant="19" id="7Ik-UL-Vq6"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="FGh-8x-d6F" firstAttribute="leading" secondItem="pED-EG-dfS" secondAttribute="leading" constant="42" id="0Fd-sI-Gny"/>
                                                 <constraint firstAttribute="trailing" secondItem="kSZ-8k-hh9" secondAttribute="trailing" constant="20" id="51y-Ed-7jQ"/>
+                                                <constraint firstItem="imP-HN-lwM" firstAttribute="leading" secondItem="pED-EG-dfS" secondAttribute="leading" constant="207" id="79C-Yf-m0d"/>
                                                 <constraint firstAttribute="bottom" secondItem="iEf-Oh-rhP" secondAttribute="bottom" id="9qC-Iz-BLT"/>
                                                 <constraint firstItem="kkB-VM-FVc" firstAttribute="top" secondItem="pED-EG-dfS" secondAttribute="top" constant="106" id="AxA-t5-Gex"/>
                                                 <constraint firstAttribute="trailing" secondItem="iEf-Oh-rhP" secondAttribute="trailing" id="CHR-Un-vAo"/>
@@ -4508,6 +4513,7 @@
                                                 <constraint firstItem="iEf-Oh-rhP" firstAttribute="leading" secondItem="pED-EG-dfS" secondAttribute="leading" id="SUU-lp-Y4q"/>
                                                 <constraint firstAttribute="trailing" secondItem="iEf-Oh-rhP" secondAttribute="trailing" id="SuV-Zb-8AH"/>
                                                 <constraint firstAttribute="trailing" secondItem="IaO-BV-1gO" secondAttribute="trailing" constant="28" id="Vss-gT-KKv"/>
+                                                <constraint firstItem="imP-HN-lwM" firstAttribute="top" secondItem="pED-EG-dfS" secondAttribute="top" constant="200" id="aMa-4Z-Fhb"/>
                                                 <constraint firstItem="DfY-cj-tVy" firstAttribute="leading" secondItem="pED-EG-dfS" secondAttribute="leading" constant="28" id="cbO-yA-Vbn"/>
                                                 <constraint firstAttribute="trailing" secondItem="DfY-cj-tVy" secondAttribute="trailing" constant="28" id="hKD-y4-4qX"/>
                                                 <constraint firstItem="iEf-Oh-rhP" firstAttribute="top" secondItem="DfY-cj-tVy" secondAttribute="bottom" constant="65" id="pG0-xx-rNQ"/>
@@ -4534,8 +4540,10 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="YouBiCount" destination="kkB-VM-FVc" id="qpX-4D-cIz"/>
+                        <outlet property="kConstant" destination="kkB-VM-FVc" id="miY-Cv-3VJ"/>
                         <outlet property="label" destination="imP-HN-lwM" id="eC4-fV-ea6"/>
                         <outlet property="labelconstant" destination="ziE-FG-VQM" id="eiu-Jc-4V9"/>
+                        <outlet property="nextConstant" destination="aMa-4Z-Fhb" id="On2-AN-WQx"/>
                         <outlet property="youbiconstant" destination="AxA-t5-Gex" id="ZkC-SI-wIX"/>
                         <segue destination="O0F-Cv-Rsh" kind="push" identifier="convertSegue" id="jCG-Jp-eUy"/>
                     </connections>
