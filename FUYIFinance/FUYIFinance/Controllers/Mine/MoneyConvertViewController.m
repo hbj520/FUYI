@@ -10,11 +10,12 @@
 #import "UIViewController+HUD.h"
 #import "MyAPI.h"
 @interface MoneyConvertViewController ()<UITextFieldDelegate>
+
 @property (weak, nonatomic) IBOutlet UILabel *accountname;
-@property (weak, nonatomic) IBOutlet UILabel *treasure;
-@property (weak, nonatomic) IBOutlet UITextField *convertmoney;
-@property (weak, nonatomic) IBOutlet UIButton *convertBtn;
-@property (weak, nonatomic) IBOutlet UILabel *label;
+@property (weak, nonatomic) IBOutlet UILabel *treasure;// 可用财富数
+@property (weak, nonatomic) IBOutlet UITextField *convertmoney;//兑换优币数
+@property (weak, nonatomic) IBOutlet UIButton *convertBtn;// 确定兑换按钮
+@property (weak, nonatomic) IBOutlet UILabel *label;//K优币
 
 @end
 
@@ -44,11 +45,11 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.label.hidden = YES;
      NSString * account = [[Config Instance] getUserName];
     self.accountname.text = account;
     NSString * treasure = [[Config Instance] getMoney];
     self.treasure.text = treasure;
+      self.label.hidden = YES;
 }
 
 - (IBAction)SureConvertMoney:(id)sender {
