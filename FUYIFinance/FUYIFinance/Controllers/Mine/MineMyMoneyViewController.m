@@ -4,71 +4,67 @@
 //
 //  Created by 张哲 on 16/9/1.
 //  Copyright © 2016年 youyou. All rights reserved.
-//  此处多了一个“我的优币”场景， 删除。（lwd）
+
 
 #import "MineMyMoneyViewController.h"
 #import "Config.h"
-
+#define MAS_SHORTHAND_GLOBALS  //  在Masonry之前,写出(去源码赋值) mas_equalTo ---> equalTo.
+#import <Masonry/Masonry.h>
 @interface MineMyMoneyViewController ()
 {
     NSString * ucoinValue;
     NSInteger firstCout;
     NSInteger secondCout;
 }
-@property (weak, nonatomic) IBOutlet UILabel *YouBiCount;// 宽高150的lable.// 和下面的重复。（应该删去。）
-@property (weak, nonatomic) IBOutlet UILabel *label;//”k“标志
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *labelconstant;// 我的优币lable距离导航的约束。
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *youbiconstant;//youbiconstant 距离上面的约束属性。
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *kconstant;// 字母K  左边的约束。
+@property (weak, nonatomic) IBOutlet UILabel *YouBiCount;// 宽高120的lable.
+@property (weak, nonatomic) IBOutlet UILabel *label;//”k“标志（21/40）
+@property (weak, nonatomic) IBOutlet UIView *centerView;
+//  视图
 
-@property (weak, nonatomic) IBOutlet UILabel *kConstant;// 宽高150的lable(包含钱币数和字母k)
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *nextConstant;
-//字母k距离上边的约束属性。
 @end
 
 @implementation MineMyMoneyViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+  
+     //self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+//     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.centerView.backgroundColor = [UIColor yellowColor];
+    
+    
+    
+//    if (self.YouBiCount.text.length == 1) {
+//                   [_label mas_makeConstraints:^(MASConstraintMaker *make) {
+//                        make.right.mas_equalTo(self.centerView.mas_right).mas_equalTo(150);
+//                   }];
+//        
+//               }
 }
-
-
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    
-    if(ScreenHeight == 480){
-        self.labelconstant.constant = 50;
-        self.youbiconstant.constant = 50;
-        self.nextConstant.constant = 130;
-    }
-    self.YouBiCount.layer.cornerRadius = 76.5;
-    self.YouBiCount.layer.borderWidth = 2;
-    self.YouBiCount.layer.borderColor = [UIColor colorWithRed:222/255.0 green:94/255.0 blue:136/255.0 alpha:1].CGColor;
+    self.centerView.layer.cornerRadius = 75;
+    self.centerView.layer.borderWidth = 3;
+    self.centerView.layer.borderColor = [UIColor colorWithRed:222/255.0 green:94/255.0 blue:136/255.0 alpha:1].CGColor;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateucoin:) name:@"changeucoin" object:nil];
     if(ucoinValue){
         NSInteger ucoin = ucoinValue.integerValue;
         NSInteger newucoin = ucoin/1000;
-        NSString * ucoinstring = [NSString stringWithFormat:@"%ld",newucoin];
+        NSString * ucoinstring = [NSString stringWithFormat:@"%d",newucoin];
         self.YouBiCount.text = ucoinstring;
     }else{
         NSString * ucoin = [[Config Instance] getUcoin];
         
        NSInteger uCoin = ucoin.integerValue;
-        //NSInteger uCoin = 13912000; // 测试数据。
+        //NSInteger uCoin = 123000; // 测试数据。
         NSInteger newucoin = uCoin/1000;
         
-        NSString * ucoinstring = [NSString stringWithFormat:@"%ld",newucoin];
+        NSString * ucoinstring = [NSString stringWithFormat:@"%d",newucoin];
         self.YouBiCount.text = ucoinstring;
-        
         
     }
     if(self.YouBiCount.text.length>3){
@@ -77,17 +73,11 @@
         self.YouBiCount.text = nowcount;
         self.label.hidden = YES;
     }else{
-        if (self.YouBiCount.text.length <= 1) {
-            self.kconstant.constant = 200;
-        }else if (self.YouBiCount.text.length == 2){
-            self.kconstant.constant = 215;
-        }else if (self.YouBiCount.text.length == 3)
-        {
-            self.kconstant.constant = 228;
-        }
-        self.YouBiCount.font = [UIFont fontWithName:@"IowanOldStyle-Roman" size:60];
+        
+                self.YouBiCount.font = [UIFont fontWithName:@"IowanOldStyle-Roman" size:60];
         self.label.hidden = NO;
     }
+    
 
      self.navigationController.navigationBarHidden = NO;
 }
@@ -115,18 +105,18 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
-    return 1;
-}
-
+//#pragma mark - Table view data source
+//
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//
+//    return 1;
+//}
+//
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//
+//    return 1;
+//}
+//
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return ScreenHeight - 64;
