@@ -2,7 +2,7 @@
 //  MineMyMoneyViewController.m
 //  FUYIFinance
 //
-//  Created by 张哲 on 16/9/1.
+//  Created by lwd on 16/9/1.
 //  Copyright © 2016年 youyou. All rights reserved.
 
 
@@ -33,15 +33,6 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
 //     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.centerView.backgroundColor = [UIColor yellowColor];
-    
-    
-    
-//    if (self.YouBiCount.text.length == 1) {
-//                   [_label mas_makeConstraints:^(MASConstraintMaker *make) {
-//                        make.right.mas_equalTo(self.centerView.mas_right).mas_equalTo(150);
-//                   }];
-//        
-//               }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -174,5 +165,6 @@
     // Pass the selected object to the new view controller.
 }
 */
+
 
 @end

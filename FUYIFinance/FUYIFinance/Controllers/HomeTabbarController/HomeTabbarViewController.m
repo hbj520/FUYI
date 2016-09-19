@@ -42,24 +42,31 @@
     }
    return _collectionSB;
 }
+/** 个人中心 */
 - (UIStoryboard *)mineSB{
     if (!_mineSB) {
         _mineSB = [UIStoryboard storyboardWithName:@"Mine" bundle:[NSBundle mainBundle]];
     }
    return _mineSB;
 }
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
   
     // Do any additional setup after loading the view.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(RecieveNoticeAct:) name:@"refreshView" object:nil];
     menusVCs = [NSMutableArray array];
-    self.tabBar.tintColor = [UIColor colorWith8BitRed:232 green:59 blue:62]
-    ;
+//    self.tabBar.tintColor = [UIColor colorWith8BitRed:232 green:59 blue:62 ];
+    self.tabBar.tintColor = [UIColor greenColor];// lwd
     NSString *path = [[NSBundle mainBundle] pathForResource:@"HomeTabbars" ofType:@"json"];
     NSData *data = [[NSData alloc] initWithContentsOfFile:path];
+    
     NSError *error;
     NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    
+    
+    
     NSArray *array = dict[@"tabBarMenus"];
     for (NSDictionary *dic in array) {
         UITabBarItem *tabbarItem = [[UITabBarItem alloc] init];
@@ -74,6 +81,7 @@
         if ([dic[@"title"] isEqualToString:@"个人中心"]) {
             UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
             NSString * IsTeacherOrNot = [[Config Instance] getisteacher];
+            
             if ([IsTeacherOrNot isEqualToString:@"1"] ) {
                 MyShopViewController *myshopVC = [storybord instantiateViewControllerWithIdentifier:@"teacherStorybordId"];
                 UINavigationController *nav = (UINavigationController *)vc;
@@ -113,13 +121,25 @@
 }
 
 #pragma mark - PrivateMethod
+//  登入方法。
 - (void)LoginAct{
+    // Mine.storyboard
     UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
     UINavigationController *loginVC = [storybord instantiateViewControllerWithIdentifier:@"LoginStorybordId"];
-    loginVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    [self.viewControllers[0] presentModalViewController:loginVC animated:YES];
+    //loginVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    
+    loginVC.modalTransitionStyle = 1;// 左右翻页效果。
+    
+    // Display another view controller as a modal child. Uses a vertical sheet transition if animated.This method has been replaced by presentViewController:animated:completion:
+    //[self.viewControllers[0] presentModalViewController:loginVC animated:YES];
+    
+    [self presentViewController:loginVC animated:YES completion:nil];//lwd
+    
 }
+
+
 - (void)RecieveNoticeAct:(NSNotification *)noti{
+    
     NSNumber *isTech = noti.userInfo[@"isTech"];
     self.isteacher = isTech.boolValue;
     UINavigationController *vc = (UINavigationController *)self.viewControllers[3];
@@ -137,6 +157,7 @@
             nav = navVc;
         }
 }
+
 - (void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"refreshView" object:nil];
 }

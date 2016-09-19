@@ -16,7 +16,7 @@
 @property (nonatomic,weak) UICollectionView *collectionView;
 
 /***/
-@property (nonatomic,weak) UIImageView *placehoder;
+@property (nonatomic,weak) UIImageView *placehoder;// 占位图
 
 @end
 
@@ -30,15 +30,16 @@ static NSString *ADID = @"adCell";
     if (self) {
         
         UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(12, 10, 64, 49)];
-        imgView.image = [UIImage imageNamed:@"fuyi_hot"];
+        imgView.image = [UIImage imageNamed:@"fuyi_hot"];//富谊头条
         [self addSubview:imgView];
-        UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(75, 5, 1, 58)];
+        UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(75, 5, 1, 58)];// 竖分割线
         lineView.backgroundColor = [UIColor groupTableViewBackgroundColor];
         [self addSubview:lineView];
-        //self.backgroundColor = [UIColor whiteColor];
+       self.backgroundColor = [UIColor whiteColor];
     }
     return self;
 }
+// 新闻
 - (NSArray *)newses
 {
     if (_newses == nil) {
@@ -46,11 +47,12 @@ static NSString *ADID = @"adCell";
     }
     return _newses;
 }
-- (void)layoutSubviews
+- (void)layoutSubviews // 头条右边的两个视图
 {
     [super layoutSubviews];
     // 创建滚动视图
     if (!self.timer.isValid) {
+        
         [self setupCollectionView];
         [self addTimer];
         [self.placehoder removeFromSuperview];
@@ -99,8 +101,8 @@ static NSString *ADID = @"adCell";
 - (void)removeTimer
 {
     // 停止定时器
-    [self.timer invalidate];
-    self.timer = nil;
+    [self.timer invalidate]; // 从运行循环中移除， 对运行循环的引用进行一次 release
+    self.timer = nil;// 将销毁定时器
 }
 
 - (NSIndexPath *)resetIndexPath

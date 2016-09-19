@@ -176,20 +176,22 @@ static NSString *investReuseId = @"investReuseId";
     };
     [self.view addSubview:navItem];
     [navItem mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(@0);
-        make.top.equalTo(@0);
-        make.right.equalTo(@0);
-        make.height.equalTo(@64);
+//        make.left.equalTo(@0);
+//        make.top.equalTo(@0);
+//        make.right.equalTo(@0);
+//        make.height.equalTo(@64);
+        make.left.top.right.mas_equalTo(0);
+       make.height.mas_equalTo(64);
         
     }];
 }
 #pragma mark - UITableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 3;
+    return 3;// 3个部分
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (section == 1) {
-        return 2;
+        return 2; // 只有此部分为2行
     }
     return 1;
 }
@@ -219,7 +221,7 @@ static NSString *investReuseId = @"investReuseId";
                 [self performSegueWithIdentifier:@"VideoStoreSegue" sender:nil];
             };
             headerCell.blogAreaBlock = ^{//博客专区
-                //跳转到博客专区
+                //跳转到博客专区--> 登入
                 [self performSegueWithIdentifier:@"blogSegue" sender:nil];
             };
             headerCell.financeBlock = ^{//金融学院
@@ -232,8 +234,9 @@ static NSString *investReuseId = @"investReuseId";
             if (newTableViewCell == nil) {
                 newTableViewCell = [[[NSBundle mainBundle] loadNibNamed:@"HomePageHotNewTableViewCell" owner:self options:nil] lastObject];
             }
-            [newTableViewCell configWithData:noticeData];
+            [newTableViewCell configWithData:noticeData];// 获取数据。
             newTableViewCell.block = ^(){
+            // 跳转至百度
             [self performSegueWithIdentifier:@"homepagedetailSegue" sender:@"http://www.baidu.com"];
             };
             return newTableViewCell;
@@ -269,7 +272,8 @@ static NSString *investReuseId = @"investReuseId";
         return _headerView;
     }else{
         UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, DEF_SCREEN_WIDTH, 10)];
-        bgView.backgroundColor = [UIColor colorWithWhite:0.95 alpha:1];
+        bgView.backgroundColor = [UIColor colorWithWhite:0.95 alpha:1];// 灰色
+      
         return bgView;
     }
 }
@@ -278,21 +282,21 @@ static NSString *investReuseId = @"investReuseId";
         if (navItem.hidden) {
             return ScreenHeight;
         }
-        return 170;
+        return 170; //  头部视图的高度170；
     }else if (section == 1){
-        return 0.1;
+        return 0.1; // 距离上面的图片0.01 高。
     }
-    return 10;
+    return 10; // 10高度的灰色。
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 1) {
         if (indexPath.row == 0) {
-            return 90;
+            return 90; //第一行为90。
         }else if (indexPath.row == 1){
-            return 68;
+            return 68; // 第二行为富谊头条的行高68。
         }
-    }else if (indexPath.section == 2){
-        return 205;
+    }else if (indexPath.section == 2){//??
+        return 205; //205
     }
     return 0.1;
 }

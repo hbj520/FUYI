@@ -4,7 +4,7 @@
 //
 //  Created by 张哲 on 16/7/8.
 //  Copyright © 2016年 youyou. All rights reserved.
-//
+//    配置  NSUserDefaults适合存储轻量级的本地数据，并且在不删除程序的情况下是永久保存的。
 
 #import "Config.h"
 
@@ -41,6 +41,7 @@ static Config * instance = nil;
  *  @param token    用户登录令牌
  *  @param icon     用户头像
  */
+//NSUserDefaults可以保存某些信息在本地,将信息写入到本地的一个plist文件
 - (void)saveUserid:(NSString *)userid userName:(NSString *)username userPhoneNum:(NSString *)PhoneNum token:(NSString *)token icon:(NSString *)icon
 {
     NSUserDefaults * settings = [NSUserDefaults standardUserDefaults]
@@ -60,7 +61,7 @@ static Config * instance = nil;
     [settings removeObjectForKey:@"icon"];
     [settings setObject:icon forKey:@"icon"];
     
-    [settings synchronize];
+    [settings synchronize];//这行代码一定要加，虽然有时候不加这一行代码也能保存成功，但是如果程序运行占用比较大的内存的时候不加这行代码，可能会造成无法写入plist文件中
 }
 
 - (void)saveUsername:(NSString *)username
@@ -142,7 +143,7 @@ static Config * instance = nil;
     NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
     [settings removeObjectForKey:@"backimage"];
     [settings setObject:backimage forKey:@"backimage"];
-    [settings synchronize];
+    [settings synchronize]; //这行代码一定要加，虽然有时候不加这一行代码也能保存成功，但是如果程序运行占用比较大的内存的时候不加这行代码，可能会造成无法写入plist文件中
 }
 /**
  *  保存密码
@@ -277,4 +278,13 @@ static Config * instance = nil;
     NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
     [settings removeObjectForKey:@"terminate"];
 }
+
+//NSUserDefaults *userDefatluts = [NSUserDefaults standardUserDefaults];
+//NSDictionary *dictionary = [userDefaults dictionaryRepresentation];
+//for(NSString* key in [dictionary allKeys]){
+//    [userDefaults removeObjectForKey:key];
+//    [userDefaults synchronize];
+//}
+
+
 @end
