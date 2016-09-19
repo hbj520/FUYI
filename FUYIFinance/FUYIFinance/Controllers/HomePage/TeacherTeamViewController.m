@@ -55,7 +55,7 @@
 
 }
 
-
+#pragma mark - SearchBarDelegate
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     [Tools hideKeyBoard];

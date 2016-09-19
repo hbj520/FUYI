@@ -286,7 +286,7 @@
 }
 - (void)addVideoViewToView:(UIImageView *)videoView{
     NSString * videoUrl = _model.videoUrl;
-    playerVC = [IJKMoviePlayerViewController InitVideoViewFromViewController:self withTitle:@"GLTest" URL:[NSURL URLWithString:@"http://krtv.qiniudn.com/150522nextapp"] isLiveVideo:YES isOnlineVideo:NO isFullScreen:NO completion:nil];
+    playerVC = [IJKMoviePlayerViewController InitVideoViewFromViewController:self withTitle:@"GLTest" URL:[NSURL URLWithString:@"http://devimages.apple.com/iphone/samples/bipbop/gear1/prog_index.m3u8"] isLiveVideo:YES isOnlineVideo:NO isFullScreen:NO completion:nil];
     __weak VideoDetailViewController *weakself = self;
     playerVC.fullScreenBlock = ^(BOOL isFullScreen){
         if (isFullScreen) {

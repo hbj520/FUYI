@@ -119,6 +119,12 @@ UIAlertViewDelegate>
 - (void)loadData
 {
     NSString * pagestr = [NSString stringWithFormat:@"%ld",page];
+    if (!KToken) {
+        [self logOut];
+        [_tableView.mj_header endRefreshing];
+        [_tableView.mj_footer endRefreshing];
+        return;
+    }
     [[MyAPI sharedAPI] requestAllOrderDataWithParameters:pagestr result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
         if(success){
             if(page == 1){
