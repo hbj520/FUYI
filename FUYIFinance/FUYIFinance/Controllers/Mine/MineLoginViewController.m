@@ -9,6 +9,7 @@
 #import "MineLoginViewController.h"
 #import "MineRegisterViewController.h"
 #import "MyShopViewController.h"
+#import "CHSocialService.h"
 
 #import "UIViewController+HUD.h"
 #import "MyAPI.h"
@@ -27,6 +28,9 @@
 - (IBAction)forgotPassword:(id)sender;
 
 - (IBAction)registerBtn:(id)sender;
+- (IBAction)qqLogin:(id)sender;
+- (IBAction)weiboLogin:(id)sender;
+- (IBAction)wechatLogin:(id)sender;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *toplayout;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *distancewithtoplayout;
@@ -147,6 +151,35 @@
 //注册账号
 - (IBAction)registerBtn:(id)sender {
     
+}
+
+- (IBAction)qqLogin:(id)sender {
+    NSLog(@"点击qq登录！！！");
+    [[CHSocialServiceCenter shareInstance]loginInAppliactionType:CHSocialQQ controller:self completion:^(CHSocialResponseData *response) {
+        
+        
+        
+    }];
+}
+
+- (IBAction)weiboLogin:(id)sender {
+    NSLog(@"点击weibo登录！！！");
+
+    [[CHSocialServiceCenter shareInstance]loginInAppliactionType:CHSocialSina controller:self completion:^(CHSocialResponseData *response) {
+        
+        
+        
+    }];
+}
+
+- (IBAction)wechatLogin:(id)sender {
+    NSLog(@"点击weixin登录！！！");
+
+    [[CHSocialServiceCenter shareInstance]loginInAppliactionType:CHSocialWeChat controller:self completion:^(CHSocialResponseData *response) {
+        
+        
+        
+    }];
 }
 
 @end

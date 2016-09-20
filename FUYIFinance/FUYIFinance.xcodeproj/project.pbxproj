@@ -55,6 +55,15 @@
 		AB4CEBB41D703B7100938DB9 /* FeedBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4CEBB31D703B7100938DB9 /* FeedBackViewController.m */; };
 		AB4EB7B51D584E7D00F6323E /* GestureUnlockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4EB7B41D584E7D00F6323E /* GestureUnlockViewController.m */; };
 		AB4EB7B81D585F1600F6323E /* GestureHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4EB7B71D585F1600F6323E /* GestureHelper.m */; };
+		AB55A9891D8FC43600533F92 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB55A9881D8FC43600533F92 /* Security.framework */; };
+		AB55A98B1D8FC44E00533F92 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AB55A98A1D8FC44E00533F92 /* libiconv.tbd */; };
+		AB55A98D1D8FC45A00533F92 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB55A98C1D8FC45A00533F92 /* SystemConfiguration.framework */; };
+		AB55A98F1D8FC49500533F92 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AB55A98E1D8FC49500533F92 /* libsqlite3.tbd */; };
+		AB55A9911D8FD04B00533F92 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB55A9901D8FD04B00533F92 /* CoreTelephony.framework */; };
+		AB55A9931D8FD05900533F92 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AB55A9921D8FD05900533F92 /* libstdc++.tbd */; };
+		AB55A99C1D8FD90A00533F92 /* CHSocialServiceCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = AB55A9961D8FD90A00533F92 /* CHSocialServiceCenter.m */; };
+		AB55A99D1D8FD90A00533F92 /* CHSocialHandlerData.m in Sources */ = {isa = PBXBuildFile; fileRef = AB55A9981D8FD90A00533F92 /* CHSocialHandlerData.m */; };
+		AB55A99E1D8FD90A00533F92 /* CHSocialResponseData.m in Sources */ = {isa = PBXBuildFile; fileRef = AB55A99A1D8FD90A00533F92 /* CHSocialResponseData.m */; };
 		AB67959C1D766705002D0198 /* song.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB67959B1D766705002D0198 /* song.ttf */; };
 		AB708F8B1D0543BE007D0B4D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AB708F8A1D0543BE007D0B4D /* main.m */; };
 		AB708F8E1D0543BE007D0B4D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AB708F8D1D0543BE007D0B4D /* AppDelegate.m */; };
@@ -447,6 +456,19 @@
 		AB4EB7B41D584E7D00F6323E /* GestureUnlockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureUnlockViewController.m; sourceTree = "<group>"; };
 		AB4EB7B61D585F1600F6323E /* GestureHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureHelper.h; sourceTree = "<group>"; };
 		AB4EB7B71D585F1600F6323E /* GestureHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureHelper.m; sourceTree = "<group>"; };
+		AB55A9881D8FC43600533F92 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		AB55A98A1D8FC44E00533F92 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		AB55A98C1D8FC45A00533F92 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		AB55A98E1D8FC49500533F92 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		AB55A9901D8FD04B00533F92 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		AB55A9921D8FD05900533F92 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		AB55A9941D8FD90A00533F92 /* CHSocialService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHSocialService.h; sourceTree = "<group>"; };
+		AB55A9951D8FD90A00533F92 /* CHSocialServiceCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHSocialServiceCenter.h; sourceTree = "<group>"; };
+		AB55A9961D8FD90A00533F92 /* CHSocialServiceCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHSocialServiceCenter.m; sourceTree = "<group>"; };
+		AB55A9971D8FD90A00533F92 /* CHSocialHandlerData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHSocialHandlerData.h; sourceTree = "<group>"; };
+		AB55A9981D8FD90A00533F92 /* CHSocialHandlerData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHSocialHandlerData.m; sourceTree = "<group>"; };
+		AB55A9991D8FD90A00533F92 /* CHSocialResponseData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHSocialResponseData.h; sourceTree = "<group>"; };
+		AB55A99A1D8FD90A00533F92 /* CHSocialResponseData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHSocialResponseData.m; sourceTree = "<group>"; };
 		AB67959B1D766705002D0198 /* song.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = song.ttf; sourceTree = "<group>"; };
 		AB708F861D0543BE007D0B4D /* FUYIFinance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FUYIFinance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB708F8A1D0543BE007D0B4D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -939,6 +961,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB55A9931D8FD05900533F92 /* libstdc++.tbd in Frameworks */,
+				AB55A9911D8FD04B00533F92 /* CoreTelephony.framework in Frameworks */,
+				AB55A98F1D8FC49500533F92 /* libsqlite3.tbd in Frameworks */,
+				AB0A59261D3F70CB0002D638 /* CoreGraphics.framework in Frameworks */,
+				AB55A98D1D8FC45A00533F92 /* SystemConfiguration.framework in Frameworks */,
+				AB55A98B1D8FC44E00533F92 /* libiconv.tbd in Frameworks */,
+				AB55A9891D8FC43600533F92 /* Security.framework in Frameworks */,
 				AB1765341D530F22001A84E8 /* IJKMediaFramework.framework in Frameworks */,
 				AB0A59361D3F711B0002D638 /* VideoToolbox.framework in Frameworks */,
 				AB0A59341D3F71120002D638 /* UIKit.framework in Frameworks */,
@@ -948,7 +977,6 @@
 				AB0A592C1D3F70E80002D638 /* MediaPlayer.framework in Frameworks */,
 				AB0A592A1D3F70E00002D638 /* CoreVideo.framework in Frameworks */,
 				AB0A59281D3F70D70002D638 /* CoreMedia.framework in Frameworks */,
-				AB0A59261D3F70CB0002D638 /* CoreGraphics.framework in Frameworks */,
 				AB0A59241D3F70C20002D638 /* AVFoundation.framework in Frameworks */,
 				AB0A59221D3F70B70002D638 /* AudioToolbox.framework in Frameworks */,
 				AB0A59201D3F70A80002D638 /* libbz2.tbd in Frameworks */,
@@ -989,6 +1017,12 @@
 		0785EFAD9D8BC2ECCBC0C903 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AB55A9921D8FD05900533F92 /* libstdc++.tbd */,
+				AB55A9901D8FD04B00533F92 /* CoreTelephony.framework */,
+				AB55A98E1D8FC49500533F92 /* libsqlite3.tbd */,
+				AB55A98C1D8FC45A00533F92 /* SystemConfiguration.framework */,
+				AB55A98A1D8FC44E00533F92 /* libiconv.tbd */,
+				AB55A9881D8FC43600533F92 /* Security.framework */,
 				AB1765331D530F22001A84E8 /* IJKMediaFramework.framework */,
 				AB0A59351D3F711B0002D638 /* VideoToolbox.framework */,
 				AB0A59331D3F71120002D638 /* UIKit.framework */,
@@ -1083,6 +1117,21 @@
 				AB36CE251D1B710400D0E4C7 /* TAPageControl.m */,
 			);
 			path = PageControl;
+			sourceTree = "<group>";
+		};
+		AB55A99B1D8FD90A00533F92 /* CHSocialService */ = {
+			isa = PBXGroup;
+			children = (
+				AB55A9941D8FD90A00533F92 /* CHSocialService.h */,
+				AB55A9951D8FD90A00533F92 /* CHSocialServiceCenter.h */,
+				AB55A9961D8FD90A00533F92 /* CHSocialServiceCenter.m */,
+				AB55A9971D8FD90A00533F92 /* CHSocialHandlerData.h */,
+				AB55A9981D8FD90A00533F92 /* CHSocialHandlerData.m */,
+				AB55A9991D8FD90A00533F92 /* CHSocialResponseData.h */,
+				AB55A99A1D8FD90A00533F92 /* CHSocialResponseData.m */,
+			);
+			name = CHSocialService;
+			path = "../../../../../../../Downloads/ThirdParty/CHSocialService-master/CHSocialService";
 			sourceTree = "<group>";
 		};
 		AB67959A1D7666C7002D0198 /* Font */ = {
@@ -1420,6 +1469,7 @@
 		ABF5DE401D0FA4B1007CE1AB /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				AB55A99B1D8FD90A00533F92 /* CHSocialService */,
 				CC4C1B0F1D7041DC00B343A2 /* PlaceHolderText */,
 				CC4F37331D2E07B500312F11 /* category */,
 				ABEACD641D2B87FF00574259 /* API */,
@@ -2463,6 +2513,7 @@
 				CC6FD60F1D362E0300DA60AB /* NSObject+MJClass.m in Sources */,
 				CC6FD60C1D362E0300DA60AB /* MJProperty.m in Sources */,
 				ABF9F1041D546C8B004E1523 /* MRGestureBgView.m in Sources */,
+				AB55A99D1D8FD90A00533F92 /* CHSocialHandlerData.m in Sources */,
 				CC4096B01D49A21000084D1A /* PersonalUserInfo.m in Sources */,
 				CCF829BE1D59EAB1001D473F /* ZCTradeView.m in Sources */,
 				CC72D0371D226AD000945BCF /* MyOrderAllViewController.m in Sources */,
@@ -2483,6 +2534,7 @@
 				CCFF47C71D6EE27F00737C2E /* ModifyTradePasswordViewController.m in Sources */,
 				ABF9F0F01D531F03004E1523 /* IJKHistoryItem.m in Sources */,
 				AB4CEBB11D702DC700938DB9 /* FileHelper.m in Sources */,
+				AB55A99C1D8FD90A00533F92 /* CHSocialServiceCenter.m in Sources */,
 				D1F130201D2B642A00EE1690 /* ConfirmOrderViewController.m in Sources */,
 				D1F1302A1D2B817200EE1690 /* VideoInfoTableViewCell.m in Sources */,
 				D1189C2C1D4F4694001209B9 /* CollectionViewController.m in Sources */,
@@ -2545,6 +2597,7 @@
 				CC42E26E1D24F0A90008A8D7 /* MyJudgeTableViewCell.m in Sources */,
 				CC6FD61F1D36409600DA60AB /* MyAddressChoiceTableViewCell.m in Sources */,
 				D1F130771D387BB700EE1690 /* TeacherPersonalViewController.m in Sources */,
+				AB55A99E1D8FD90A00533F92 /* CHSocialResponseData.m in Sources */,
 				D1F7C9841D3CD1FA00872EB6 /* TeacherTeamModel.m in Sources */,
 				CC6FD60B1D362E0300DA60AB /* MJFoundation.m in Sources */,
 				AB45FC441D409529008E6FBA /* Barcode.m in Sources */,
@@ -2756,11 +2809,98 @@
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/FUYIFinance/FUYI-Prefix.pch";
 				INFOPLIST_FILE = FUYIFinance/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"APOpenSdk\"",
+					"-l\"LWApiSDK\"",
+					"-l\"SocialAlipayShare\"",
+					"-l\"SocialFacebook\"",
+					"-l\"SocialInstagram\"",
+					"-l\"SocialLaiWang\"",
+					"-l\"SocialLine\"",
+					"-l\"SocialQQ\"",
+					"-l\"SocialSinaSSO\"",
+					"-l\"SocialTumblr\"",
+					"-l\"SocialTwitter\"",
+					"-l\"SocialWechat\"",
+					"-l\"SocialWhatsapp\"",
+					"-l\"UMSocial_Sdk_5.2.1\"",
+					"-l\"UMSocial_Sdk_Comment_5.2.1\"",
+					"-l\"WeChatSDK\"",
+					"-l\"WeiboSDK\"",
+					"-l\"iconv\"",
+					"-l\"sqlite3\"",
+					"-l\"stdc++\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AFNetworking\"",
+					"-framework",
+					"\"Accounts\"",
+					"-framework",
+					"\"CoreData\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"FBSDKCoreKit\"",
+					"-framework",
+					"\"FBSDKLoginKit\"",
+					"-framework",
+					"\"FBSDKShareKit\"",
+					"-framework",
+					"\"FMDB\"",
+					"-framework",
+					"\"Fabric\"",
+					"-framework",
+					"\"HMSegmentedControl_hons82\"",
+					"-framework",
+					"\"HexColors\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"JDStatusBarNotification\"",
+					"-framework",
+					"\"MBProgressHUD\"",
+					"-framework",
+					"\"MJRefresh\"",
+					"-framework",
+					"\"MSDynamicsDrawerViewController\"",
+					"-framework",
+					"\"Masonry\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"RATreeView\"",
+					"-framework",
+					"\"ReactiveCocoa\"",
+					"-framework",
+					"\"Result\"",
+					"-framework",
+					"\"SDWebImage\"",
+					"-framework",
+					"\"Social\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"TPKeyboardAvoiding\"",
+					"-framework",
+					"\"TSMessages\"",
+					"-framework",
+					"\"TTTAttributedLabel\"",
+					"-framework",
+					"\"TencentOpenAPI\"",
+					"-framework",
+					"\"TwitterCore\"",
+					"-framework",
+					"\"TwitterKit\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.youyou.FUYI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2784,11 +2924,98 @@
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/FUYIFinance/FUYI-Prefix.pch";
 				INFOPLIST_FILE = FUYIFinance/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"APOpenSdk\"",
+					"-l\"LWApiSDK\"",
+					"-l\"SocialAlipayShare\"",
+					"-l\"SocialFacebook\"",
+					"-l\"SocialInstagram\"",
+					"-l\"SocialLaiWang\"",
+					"-l\"SocialLine\"",
+					"-l\"SocialQQ\"",
+					"-l\"SocialSinaSSO\"",
+					"-l\"SocialTumblr\"",
+					"-l\"SocialTwitter\"",
+					"-l\"SocialWechat\"",
+					"-l\"SocialWhatsapp\"",
+					"-l\"UMSocial_Sdk_5.2.1\"",
+					"-l\"UMSocial_Sdk_Comment_5.2.1\"",
+					"-l\"WeChatSDK\"",
+					"-l\"WeiboSDK\"",
+					"-l\"iconv\"",
+					"-l\"sqlite3\"",
+					"-l\"stdc++\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AFNetworking\"",
+					"-framework",
+					"\"Accounts\"",
+					"-framework",
+					"\"CoreData\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"FBSDKCoreKit\"",
+					"-framework",
+					"\"FBSDKLoginKit\"",
+					"-framework",
+					"\"FBSDKShareKit\"",
+					"-framework",
+					"\"FMDB\"",
+					"-framework",
+					"\"Fabric\"",
+					"-framework",
+					"\"HMSegmentedControl_hons82\"",
+					"-framework",
+					"\"HexColors\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"JDStatusBarNotification\"",
+					"-framework",
+					"\"MBProgressHUD\"",
+					"-framework",
+					"\"MJRefresh\"",
+					"-framework",
+					"\"MSDynamicsDrawerViewController\"",
+					"-framework",
+					"\"Masonry\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"RATreeView\"",
+					"-framework",
+					"\"ReactiveCocoa\"",
+					"-framework",
+					"\"Result\"",
+					"-framework",
+					"\"SDWebImage\"",
+					"-framework",
+					"\"Social\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"TPKeyboardAvoiding\"",
+					"-framework",
+					"\"TSMessages\"",
+					"-framework",
+					"\"TTTAttributedLabel\"",
+					"-framework",
+					"\"TencentOpenAPI\"",
+					"-framework",
+					"\"TwitterCore\"",
+					"-framework",
+					"\"TwitterKit\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.youyou.FUYI;
 				PRODUCT_NAME = "$(TARGET_NAME)";

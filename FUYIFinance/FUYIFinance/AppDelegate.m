@@ -7,6 +7,9 @@
 //  富宜财经
 
 #import "AppDelegate.h"
+#import "CHSocialService.h"
+#import "UMSocialConfig.h"
+#import "UMSocialControllerService.h"
 
 @interface AppDelegate ()
 
@@ -22,6 +25,7 @@
     self.DataSource = @[@{@"thumbimage":@"",@"title":@"",@"teachername":@"",@"price":@"",@"totoalprice":@""},@{@"thumbimage":@"",@"title":@"",@"teachername":@"",@"price":@"",@"totoalprice":@""}];
     
     [self changeToMain];
+    [self configThirdLogin];
     return YES;
 }
 
@@ -67,16 +71,26 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+      [CHSocialServiceCenter  applicationDidBecomeActive];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {//结束进程
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     [[Config Instance] saveTeminate];
 }
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    return  [CHSocialServiceCenter handleOpenURL:url delegate:nil];
+}
 #pragma mark - PrivateMethod
 - (void)changeToMain{
     self.mStorybord = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     self.window.rootViewController = [self.mStorybord instantiateViewControllerWithIdentifier:@"HomeTabBarVC"];
 }
-
+- (void)configThirdLogin{
+    [CHSocialServiceCenter setUmengAppkey:@"57ce7020e0f55aa66a0030fc"];
+    [[CHSocialServiceCenter shareInstance] configurationAppKey:nil AppIdentifier:@"wx6d891debc336b24d" secret:@"b170f4c7718470926acb509fb62c3529" redirectURL:nil sourceURL:@"http://www.baidu.com" type:CHSocialWeChat];
+    [[CHSocialServiceCenter shareInstance] configurationAppKey:@"30d943072ae13df70819b342690c0c1f" AppIdentifier:@"101354010" secret:nil redirectURL:nil sourceURL:@"http://www.umeng.com/social" type:CHSocialQQ];
+    [[CHSocialServiceCenter shareInstance] configurationAppKey:@"2299401221" AppIdentifier:@"1148538350" secret:@"ef97652eabb6cb4767e7b8b93fcbc5c1" redirectURL:@"http://sns.whalecloud.com/sina2/callback" sourceURL:@"http://www.umeng.com/social" type:CHSocialSina];
+}
 @end

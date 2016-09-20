@@ -13,6 +13,8 @@ pod 'TTTAttributedLabel', '~> 1.13.4'
 pod 'JDStatusBarNotification'
 pod 'FMDB'
 pod 'TPKeyboardAvoiding', '~> 1.2.10'
+pod 'UMengSocialCOM', '~> 5.2.1'
+
 use_frameworks!
 
 # Pods for pack_ijkplayer

@@ -3015,17 +3015,21 @@
                                     <constraint firstAttribute="height" constant="171" id="Skf-eU-wpZ"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PSO-MB-9Jz">
-                                <rect key="frame" x="22" y="487" width="84" height="1"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PSO-MB-9Jz">
+                                <rect key="frame" x="20" y="487" width="84" height="1"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="84" id="5cS-im-ZEx"/>
                                     <constraint firstAttribute="height" constant="1" id="wlp-XL-K0P"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="akh-iA-EIv">
-                                <rect key="frame" x="214" y="487" width="84" height="1"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="akh-iA-EIv">
+                                <rect key="frame" x="216" y="487" width="84" height="1"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="1hU-lz-9VF"/>
+                                    <constraint firstAttribute="width" constant="84" id="fNl-F6-NHs"/>
+                                </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="其他登录方式" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3v1-aF-J0I">
                                 <rect key="frame" x="129" y="476" width="63" height="21"/>
@@ -3037,25 +3041,65 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZDh-KT-WFT">
+                                <rect key="frame" x="64" y="497" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="LbM-O7-HQ5"/>
+                                    <constraint firstAttribute="height" constant="50" id="eMS-GV-a6M"/>
+                                </constraints>
+                                <state key="normal" image="icon_share_qq"/>
+                                <connections>
+                                    <action selector="qqLogin:" destination="jQW-DR-hMJ" eventType="touchUpInside" id="00L-Vg-eff"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hhi-zN-zHo">
+                                <rect key="frame" x="206" y="497" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="7I0-S8-KKR"/>
+                                    <constraint firstAttribute="height" constant="50" id="mkw-ar-1X2"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="icon_share_wechat"/>
+                                <connections>
+                                    <action selector="wechatLogin:" destination="jQW-DR-hMJ" eventType="touchUpInside" id="M5c-4I-o3J"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cMx-bn-8qp">
+                                <rect key="frame" x="135" y="498" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="vZw-NF-zki"/>
+                                    <constraint firstAttribute="width" constant="50" id="yhb-XR-Az1"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="icon_share_webo"/>
+                                <connections>
+                                    <action selector="weiboLogin:" destination="jQW-DR-hMJ" eventType="touchUpInside" id="zes-dp-DiD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="tAi-d6-eYT" secondAttribute="trailing" constant="31" id="0Jk-0y-gbh"/>
-                            <constraint firstItem="PSO-MB-9Jz" firstAttribute="centerX" secondItem="Rcn-wH-9VJ" secondAttribute="trailing" multiplier="1:2" id="4eW-RL-RkY"/>
+                            <constraint firstItem="PSO-MB-9Jz" firstAttribute="centerX" secondItem="Rcn-wH-9VJ" secondAttribute="trailing" multiplier="1:2" constant="-98" id="4eW-RL-RkY"/>
                             <constraint firstItem="2Ky-Yv-oCB" firstAttribute="leading" secondItem="Rcn-wH-9VJ" secondAttribute="leading" id="7lZ-p2-f3S"/>
                             <constraint firstItem="3v1-aF-J0I" firstAttribute="centerX" secondItem="Rcn-wH-9VJ" secondAttribute="centerX" id="Cn8-H6-bAo"/>
+                            <constraint firstItem="cMx-bn-8qp" firstAttribute="top" secondItem="3v1-aF-J0I" secondAttribute="bottom" constant="1" id="Crh-y3-QR2"/>
+                            <constraint firstItem="akh-iA-EIv" firstAttribute="top" secondItem="w6Y-91-LVx" secondAttribute="bottom" constant="25" id="DQW-IP-Hut"/>
                             <constraint firstItem="bsi-Zj-Quw" firstAttribute="leading" secondItem="Rcn-wH-9VJ" secondAttribute="leading" constant="8" id="ETI-Un-LN5"/>
                             <constraint firstItem="pUF-mH-gsY" firstAttribute="top" secondItem="l02-7P-NUC" secondAttribute="bottom" constant="30" id="FdF-u9-ccw"/>
+                            <constraint firstItem="Hhi-zN-zHo" firstAttribute="top" secondItem="akh-iA-EIv" secondAttribute="bottom" constant="9" id="GPR-MD-Sr4"/>
                             <constraint firstItem="3v1-aF-J0I" firstAttribute="top" secondItem="pUF-mH-gsY" secondAttribute="bottom" constant="46" id="GkF-RG-Zn9"/>
                             <constraint firstAttribute="trailing" secondItem="MDm-uW-3OK" secondAttribute="trailing" constant="7" id="I1s-2X-gim"/>
+                            <constraint firstItem="akh-iA-EIv" firstAttribute="centerX" secondItem="Rcn-wH-9VJ" secondAttribute="centerX" constant="98" id="KLU-s3-j3q"/>
                             <constraint firstItem="2Ky-Yv-oCB" firstAttribute="top" secondItem="T8W-aF-0qs" secondAttribute="bottom" id="KW0-ib-RPb"/>
                             <constraint firstItem="MDm-uW-3OK" firstAttribute="leading" secondItem="Rcn-wH-9VJ" secondAttribute="leading" constant="7" id="M5T-hL-08q"/>
                             <constraint firstItem="tAi-d6-eYT" firstAttribute="top" secondItem="MDm-uW-3OK" secondAttribute="bottom" constant="13" id="M8F-Ac-i7R"/>
+                            <constraint firstItem="Hhi-zN-zHo" firstAttribute="centerX" secondItem="Rcn-wH-9VJ" secondAttribute="centerX" constant="71" id="Mgj-97-tFI"/>
                             <constraint firstItem="w6Y-91-LVx" firstAttribute="leading" secondItem="03d-lq-iWa" secondAttribute="trailing" constant="2" id="NIG-VF-Xmh"/>
                             <constraint firstAttribute="trailing" secondItem="pUF-mH-gsY" secondAttribute="trailing" constant="8" id="OTE-yp-6wp"/>
                             <constraint firstAttribute="trailing" secondItem="2Ky-Yv-oCB" secondAttribute="trailing" id="Pze-au-JdW"/>
                             <constraint firstItem="Cjl-mD-aRD" firstAttribute="leading" secondItem="8c9-aY-a0G" secondAttribute="trailing" constant="8" id="WWL-io-OqR"/>
                             <constraint firstItem="MDm-uW-3OK" firstAttribute="top" secondItem="2Ky-Yv-oCB" secondAttribute="bottom" constant="56" id="WWS-rx-E8F"/>
+                            <constraint firstItem="cMx-bn-8qp" firstAttribute="centerX" secondItem="Rcn-wH-9VJ" secondAttribute="centerX" id="XrL-I1-hdQ"/>
+                            <constraint firstItem="ZDh-KT-WFT" firstAttribute="centerX" secondItem="Rcn-wH-9VJ" secondAttribute="centerX" constant="-71" id="YRW-JS-XNN"/>
                             <constraint firstItem="w6Y-91-LVx" firstAttribute="top" secondItem="pUF-mH-gsY" secondAttribute="bottom" constant="11" id="Zd8-z8-9qz"/>
                             <constraint firstItem="l02-7P-NUC" firstAttribute="leading" secondItem="Rcn-wH-9VJ" secondAttribute="leading" constant="7" id="Zea-JX-NeN"/>
                             <constraint firstItem="pUF-mH-gsY" firstAttribute="leading" secondItem="Rcn-wH-9VJ" secondAttribute="leading" constant="8" id="dAF-dW-Gah"/>
@@ -3066,6 +3110,7 @@
                             <constraint firstItem="F0B-3T-FT1" firstAttribute="top" secondItem="MDm-uW-3OK" secondAttribute="bottom" constant="15" id="kW0-vd-WYb"/>
                             <constraint firstAttribute="trailing" secondItem="w6Y-91-LVx" secondAttribute="trailing" constant="7" id="kk0-CM-LeL"/>
                             <constraint firstItem="8c9-aY-a0G" firstAttribute="top" secondItem="2Ky-Yv-oCB" secondAttribute="bottom" constant="15" id="liN-cL-aon"/>
+                            <constraint firstItem="ZDh-KT-WFT" firstAttribute="top" secondItem="PSO-MB-9Jz" secondAttribute="bottom" constant="9" id="md6-f3-H0c"/>
                             <constraint firstItem="bsi-Zj-Quw" firstAttribute="top" secondItem="pUF-mH-gsY" secondAttribute="bottom" constant="9" id="nlN-22-xD8"/>
                             <constraint firstItem="PSO-MB-9Jz" firstAttribute="top" secondItem="bsi-Zj-Quw" secondAttribute="bottom" constant="27" id="p4W-v7-qFC"/>
                             <constraint firstItem="8c9-aY-a0G" firstAttribute="leading" secondItem="Rcn-wH-9VJ" secondAttribute="leading" constant="25" id="rEL-NQ-MnO"/>
@@ -4770,6 +4815,9 @@
         <image name="convert" width="33" height="36"/>
         <image name="edittext_bg_pressed" width="6" height="7"/>
         <image name="favorite" width="39" height="43"/>
+        <image name="icon_share_qq" width="50" height="50"/>
+        <image name="icon_share_webo" width="50" height="50"/>
+        <image name="icon_share_wechat" width="50" height="50"/>
         <image name="judged" width="44" height="40"/>
         <image name="loadheadImage" width="750" height="343"/>
         <image name="loadname" width="46" height="45"/>
