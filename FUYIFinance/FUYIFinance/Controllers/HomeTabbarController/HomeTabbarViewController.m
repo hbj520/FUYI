@@ -57,8 +57,8 @@
     // Do any additional setup after loading the view.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(RecieveNoticeAct:) name:@"refreshView" object:nil];
     menusVCs = [NSMutableArray array];
-//    self.tabBar.tintColor = [UIColor colorWith8BitRed:232 green:59 blue:62 ];
-    self.tabBar.tintColor = [UIColor greenColor];// lwd
+    self.tabBar.tintColor = [UIColor colorWith8BitRed:232 green:59 blue:62 ];
+    
     NSString *path = [[NSBundle mainBundle] pathForResource:@"HomeTabbars" ofType:@"json"];
     NSData *data = [[NSData alloc] initWithContentsOfFile:path];
     
