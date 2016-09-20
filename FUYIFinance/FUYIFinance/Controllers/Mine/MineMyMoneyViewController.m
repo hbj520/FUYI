@@ -32,7 +32,7 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
 //     self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.centerView.backgroundColor = [UIColor yellowColor];
+//    self.centerView.backgroundColor = [UIColor yellowColor]; // 金币的颜色。
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -45,16 +45,16 @@
     if(ucoinValue){
         NSInteger ucoin = ucoinValue.integerValue;
         NSInteger newucoin = ucoin/1000;
-        NSString * ucoinstring = [NSString stringWithFormat:@"%d",newucoin];
+        NSString * ucoinstring = [NSString stringWithFormat:@"%ld",(long)newucoin];
         self.YouBiCount.text = ucoinstring;
     }else{
         NSString * ucoin = [[Config Instance] getUcoin];
-        
+       
        NSInteger uCoin = ucoin.integerValue;
-        //NSInteger uCoin = 123000; // 测试数据。
+//        NSInteger uCoin = 123000; // 测试数据。
         NSInteger newucoin = uCoin/1000;
         
-        NSString * ucoinstring = [NSString stringWithFormat:@"%d",newucoin];
+        NSString * ucoinstring = [NSString stringWithFormat:@"%ld",(long)newucoin];
         self.YouBiCount.text = ucoinstring;
         
     }
