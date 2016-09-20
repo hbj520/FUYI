@@ -64,6 +64,7 @@
 		AB708F991D0543BE007D0B4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB708F971D0543BE007D0B4D /* LaunchScreen.storyboard */; };
 		AB708FA41D0543BE007D0B4D /* FUYIFinanceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB708FA31D0543BE007D0B4D /* FUYIFinanceTests.m */; };
 		AB708FAF1D0543BE007D0B4D /* FUYIFinanceUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB708FAE1D0543BE007D0B4D /* FUYIFinanceUITests.m */; };
+		ABA704F71D866FA7004D9339 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB708F9A1D0543BE007D0B4D /* Info.plist */; };
 		ABEACD431D2B7C0900574259 /* VideoShopTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ABEACD411D2B7C0900574259 /* VideoShopTableViewCell.m */; };
 		ABEACD441D2B7C0900574259 /* VideoShopTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABEACD421D2B7C0900574259 /* VideoShopTableViewCell.xib */; };
 		ABEACD5C1D2B87DE00574259 /* Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = ABEACD4B1D2B87DE00574259 /* Tools.m */; };
@@ -2232,6 +2233,7 @@
 				D141F8361D542F6600392D00 /* player_unlock@2x.png in Resources */,
 				D1C49B071D224DE8003C17DA /* ShopCarNavigationItem.xib in Resources */,
 				D1F130811D388AE300EE1690 /* TeacherPersonalInfoTableViewCell.xib in Resources */,
+				ABA704F71D866FA7004D9339 /* Info.plist in Resources */,
 				CC0022491D58876900132483 /* NoticeListTableViewCell.xib in Resources */,
 				D141F8301D542F6600392D00 /* player_pause_bottom_window@2x.png in Resources */,
 				CC00227E1D589EEA00132483 /* style.css in Resources */,
@@ -2748,7 +2750,7 @@
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/FUYIFinance/FUYI-Prefix.pch";
 				INFOPLIST_FILE = FUYIFinance/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2776,7 +2778,7 @@
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/FUYIFinance/FUYI-Prefix.pch";
 				INFOPLIST_FILE = FUYIFinance/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

@@ -154,7 +154,7 @@ static NSString *investReuseId = @"investReuseId";
 - (void)addPageControl{
 
    NSMutableArray *imageData = [NSMutableArray array];
-    if (bannerData.count > 0) {
+    if (bannerData.count > 0) {// 滚动视图
         for (HomepageBannerModel *model in bannerData) {
             [imageData addObject:model.bannerImgurl];
         }
