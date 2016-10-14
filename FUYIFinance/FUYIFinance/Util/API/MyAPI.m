@@ -670,7 +670,162 @@
     }];
     
 }
+#pragma mark - 第三方登录
 
+- (void)ThirdPlatformLoginWithParamters:(NSString *)type
+                            thirdOpenId:(NSString *)openId
+                                 result:(ModelBlock)result
+                            errorResult:(ErrorBlock)errorResult{
+    
+    NSDictionary *parameters = @{
+                                 @"type":type,
+                                 @"thirduid":openId
+                                 };
+    [self.manager POST:@"nos_third_party" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString *status = responseObject[@"status"];
+        NSString *info = responseObject[@"info"];
+        if ([status isEqualToString:@"1"]) {
+            NSDictionary * data = responseObject[@"data"];
+            UserInfoModel * userinfo = [[UserInfoModel alloc] buildWithDatas:data];
+            
+            [[Config Instance] saveImgthumb:userinfo.imgthumb
+                                      token:userinfo.token
+                                   username:userinfo.username
+                                      Money:userinfo.money
+                                      Ucoin:userinfo.ucoin
+                                   Integral:userinfo.integral];
+            NSString * isTeacher = data[@"isteacher"];
+            if([isTeacher isEqualToString:@"1"]){
+                NSString * backimg = data[@"backimg"];
+                [[Config Instance] saveBackImg:backimg];
+            }
+            [[Config Instance] saveIsteacher:isTeacher];
+            [[Config Instance] savePhoneNum:data[@"phone"]];
+            result(YES,info,nil);
+        }else{
+            result(NO,info,nil);
+        }
+        
+        
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        
+        errorResult(error);
+        
+    }];
+}
+- (void)ThirdPlatformVerifyWithParameters:(NSString *)phoneNum
+                                   result:(StateBlock)result
+                              errorResult:(ErrorBlock)errorResult{
+    NSDictionary *parameters = @{
+                                 @"phone":phoneNum
+                                 };
+    [self.manager POST:@"nos_third_sms" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString *status = responseObject[@"status"];
+        NSString *info = responseObject[@"info"];
+        if ([status isEqualToString:@"1"]) {
+            result(YES,info);
+        }else{
+            result(NO,info);
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+    }];
+    
+}
+- (void)ThirdPlatformRegisterWithParameters:(NSString *)phoneNum
+                                 verifyCode:(NSString *)verifyCode
+                                       type:(NSString *)type
+                                     openid:(NSString *)openid
+                                    iconUrl:(NSString *)iconUrl
+                                   nickName:(NSString *)nickName
+                                    resulet:(StateBlock)result
+                                errorResult:(ErrorBlock)errorResult{
+    NSDictionary *parameters = @{
+                                 @"phone":phoneNum,
+                                 @"yzm":verifyCode,
+                                 @"type":type,
+                                 @"thirduid":openid,
+                                 @"headthumburl":iconUrl,
+                                 @"nickname":nickName
+                                 };
+    [self.manager POST:@"nos_is_register" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString *status = responseObject[@"status"];
+        NSString *info = responseObject[@"info"];
+        if ([status isEqualToString:@"1"]) {//绑定成功
+            NSDictionary * data = responseObject[@"data"];
+            UserInfoModel * userinfo = [[UserInfoModel alloc] buildWithDatas:data];
+            
+            [[Config Instance] saveImgthumb:userinfo.imgthumb
+                                      token:userinfo.token
+                                   username:userinfo.username
+                                      Money:userinfo.money
+                                      Ucoin:userinfo.ucoin
+                                   Integral:userinfo.integral];
+            NSString * isTeacher = data[@"isteacher"];
+            if([isTeacher isEqualToString:@"1"]){
+                NSString * backimg = data[@"backimg"];
+                [[Config Instance] saveBackImg:backimg];
+            }
+            [[Config Instance] saveIsteacher:isTeacher];
+            [[Config Instance] savePhoneNum:data[@"phone"]];
+            result(YES,info);
+        }else{
+            result(NO,info);
+        }
+        
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+    }];
+}
+- (void)UnionPayTopupWithMoney:(NSString *)money
+                          type:(NSString *)type
+                        result:(StateBlock)result
+                   errorResult:(ErrorBlock)errorResult{
+    NSDictionary *parameters = @{
+                                 @"token":KToken,
+                                 @"money":money,
+                                 @"type":type
+                                 };
+    [self.manager POST:@"getTn" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString *status = responseObject[@"status"];
+        NSString *info = responseObject[@"info"];
+        if ([status isEqualToString:@"1"]) {
+            result(YES,responseObject[@"data"]);
+        }else{
+            result(NO,info);
+ 
+        }
+        
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        
+        errorResult(error);
+        
+    }];
+}
+#pragma mark - 验证银联
+- (void)getUPPayInfoWithToken:(NSString*)token
+                     signinfo:(NSString*)signinfo
+                       result:(StateBlock)result
+                  errorResult:(ErrorBlock)errorResult{
+    NSDictionary *parameters = @{
+                                 @"token":KToken,
+                                 @"signinfo":signinfo,
+                                 };
+    [self.manager POST:@"orderStatus" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString *status = responseObject[@"status"];
+        NSString *info = responseObject[@"info"];
+        if ([status isEqualToString:@"1"]) {
+            return result(YES,info);
+        }else{
+            return result(NO,info);
+        }
+        
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        
+        errorResult(error);
+    }];
+    
+}
 #pragma mark -讲师团队
 - (void)getTeacherTeamDataWithToken:(NSString*)token
                                 Key:(NSString *)key

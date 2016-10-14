@@ -14,6 +14,7 @@
 #import "UIViewController+HUD.h"
 #import "MyAPI.h"
 #import "Tools.h"
+#import "ThirdPlatformViewController.h"
 
 @interface MineLoginViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *numberInput;    //手机号码
@@ -124,6 +125,7 @@
         if(sucess){
             [self showHint:@"登陆成功!"];
             NSString * IsTeacherOrNot = [[Config Instance] getisteacher];
+            [[Config Instance] savePhoneNum:phoneNum];
             if([IsTeacherOrNot isEqualToString:@"1"]){
                 self.isTeacher = YES;
             }else{
@@ -156,7 +158,11 @@
 - (IBAction)qqLogin:(id)sender {
     NSLog(@"点击qq登录！！！");
     [[CHSocialServiceCenter shareInstance]loginInAppliactionType:CHSocialQQ controller:self completion:^(CHSocialResponseData *response) {
-        
+        if (response.openId) {
+            [self thirdLoginWithPlatform:@"1" openId:response.openId nickName:response.userName iconUrl:response.iconURL];
+            
+        }
+     
         
         
     }];
@@ -164,8 +170,11 @@
 
 - (IBAction)weiboLogin:(id)sender {
     NSLog(@"点击weibo登录！！！");
-
+ 
     [[CHSocialServiceCenter shareInstance]loginInAppliactionType:CHSocialSina controller:self completion:^(CHSocialResponseData *response) {
+        if (response.usid) {
+                [self thirdLoginWithPlatform:@"3" openId:response.usid nickName:response.userName iconUrl:response.iconURL];
+        }
         
         
         
@@ -176,10 +185,47 @@
     NSLog(@"点击weixin登录！！！");
 
     [[CHSocialServiceCenter shareInstance]loginInAppliactionType:CHSocialWeChat controller:self completion:^(CHSocialResponseData *response) {
+        if (response.openId) {
+            [self thirdLoginWithPlatform:@"2"
+                                  openId:response.openId
+                                nickName:response.userName
+                                 iconUrl:response.iconURL];
+            
+        }
+
+    }];
+}
+- (void)thirdLoginWithPlatform:(NSString *)platform
+                        openId:(NSString *)openId
+                      nickName:(NSString *)nickName
+                       iconUrl:(NSString *)iconUrl {
+    [[MyAPI sharedAPI] ThirdPlatformLoginWithParamters:platform
+                                           thirdOpenId:openId
+                                                result:^(BOOL success, NSString *msg, id object) {
         
+        if (success) {
+            //已经绑定的直接登录
+            [self showHint:@"登陆成功!"];
+            NSString * IsTeacherOrNot = [[Config Instance] getisteacher];
+            if([IsTeacherOrNot isEqualToString:@"1"]){
+                self.isTeacher = YES;
+            }else{
+                self.isTeacher = NO;
+            }
+            [self loginSucessAct];
+        }else{
+            //未绑定的进行账号绑定
+            [self performSegueWithIdentifier:@"thirdplatformSegue" sender:@[platform,openId,nickName,iconUrl]];
+        }
+    } errorResult:^(NSError *enginerError) {
         
         
     }];
 }
-
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"thirdplatformSegue"]) {
+        ThirdPlatformViewController *thirdPlatformVC = segue.destinationViewController;
+        thirdPlatformVC.thirdPlatformData = (NSArray *)sender;
+    }
+}
 @end

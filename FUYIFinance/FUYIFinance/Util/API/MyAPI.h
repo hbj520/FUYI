@@ -540,4 +540,66 @@ typedef void (^ErrorBlock) (NSError *enginerError);
                             teacherId:(NSString*)teacherId
                                result:(ModelBlock)result
                           errorResult:(ErrorBlock)errorResult;
+#pragma mark - 第三方登录
+/**
+ *
+ *
+ *  @param type        第三方平台
+ *  @param openId      第三方openid
+ *  @param result
+ *  @param errorResult
+ */
+- (void)ThirdPlatformLoginWithParamters:(NSString *)type
+                            thirdOpenId:(NSString *)openId
+                                 result:(ModelBlock)result
+                            errorResult:(ErrorBlock)errorResult;
+/**
+ *  第三方登录绑定发送短信验证码
+ *
+ *  @param phoneNum    注册的手机号码
+ *  @param result      正常返回结果
+ *  @param errorResult 返回出错
+ */
+- (void)ThirdPlatformVerifyWithParameters:(NSString *)phoneNum
+                        result:(StateBlock)result
+                   errorResult:(ErrorBlock)errorResult;
+/**
+ *  第三方登录绑定注册
+ *
+ *  @param phoneNum    手机号
+ *  @param verifyCode  验证码
+ *  @param type        平台类型
+ *  @param openid    第三方openid
+ *  @param iconUrl     头像url
+ *  @param nickName    昵称
+ *  @param result
+ *  @param errorResult
+ */
+- (void)ThirdPlatformRegisterWithParameters:(NSString *)phoneNum
+                                 verifyCode:(NSString *)verifyCode
+                                       type:(NSString *)type
+                                   openid:(NSString *)openid
+                                    iconUrl:(NSString *)iconUrl
+                                   nickName:(NSString *)nickName
+                                    resulet:(StateBlock)result
+                                errorResult:(ErrorBlock)errorResult;
+#pragma mark - 银联支付订单号
+/**
+ *  银联充值接口
+ *
+ *  @param money       充值金额
+ *  @param type        充值类型
+ *  @param result
+ *  @param errorResult
+ */
+- (void)UnionPayTopupWithMoney:(NSString *)money
+                          type:(NSString *)type
+                        result:(StateBlock)result
+                   errorResult:(ErrorBlock)errorResult;
+
+- (void)getUPPayInfoWithToken:(NSString*)token
+                     signinfo:(NSString*)signinfo
+                       result:(StateBlock)result
+                  errorResult:(ErrorBlock)errorResult;
+
 @end

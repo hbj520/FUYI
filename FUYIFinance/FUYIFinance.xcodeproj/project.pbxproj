@@ -73,6 +73,10 @@
 		AB708F991D0543BE007D0B4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB708F971D0543BE007D0B4D /* LaunchScreen.storyboard */; };
 		AB708FA41D0543BE007D0B4D /* FUYIFinanceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB708FA31D0543BE007D0B4D /* FUYIFinanceTests.m */; };
 		AB708FAF1D0543BE007D0B4D /* FUYIFinanceUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB708FAE1D0543BE007D0B4D /* FUYIFinanceUITests.m */; };
+		AB7AC5091D910107005AA275 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB7AC5081D910107005AA275 /* LocalAuthentication.framework */; };
+		AB7AC50B1D910193005AA275 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB7AC50A1D910193005AA275 /* CFNetwork.framework */; };
+		AB7AC5231D9110AA005AA275 /* libPaymentControl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB7AC5221D9110AA005AA275 /* libPaymentControl.a */; };
+		AB7AC52C1D91663F005AA275 /* ThirdPlatformViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7AC52B1D91663F005AA275 /* ThirdPlatformViewController.m */; };
 		ABA704F71D866FA7004D9339 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB708F9A1D0543BE007D0B4D /* Info.plist */; };
 		ABEACD431D2B7C0900574259 /* VideoShopTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ABEACD411D2B7C0900574259 /* VideoShopTableViewCell.m */; };
 		ABEACD441D2B7C0900574259 /* VideoShopTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABEACD421D2B7C0900574259 /* VideoShopTableViewCell.xib */; };
@@ -486,6 +490,12 @@
 		AB708FAA1D0543BE007D0B4D /* FUYIFinanceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FUYIFinanceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB708FAE1D0543BE007D0B4D /* FUYIFinanceUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FUYIFinanceUITests.m; sourceTree = "<group>"; };
 		AB708FB01D0543BE007D0B4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB7AC5081D910107005AA275 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		AB7AC50A1D910193005AA275 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		AB7AC5201D9110AA005AA275 /* UPPaymentControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPPaymentControl.h; sourceTree = "<group>"; };
+		AB7AC5221D9110AA005AA275 /* libPaymentControl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPaymentControl.a; sourceTree = "<group>"; };
+		AB7AC52A1D91663F005AA275 /* ThirdPlatformViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdPlatformViewController.h; sourceTree = "<group>"; };
+		AB7AC52B1D91663F005AA275 /* ThirdPlatformViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdPlatformViewController.m; sourceTree = "<group>"; };
 		ABEACD401D2B7C0900574259 /* VideoShopTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoShopTableViewCell.h; sourceTree = "<group>"; };
 		ABEACD411D2B7C0900574259 /* VideoShopTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoShopTableViewCell.m; sourceTree = "<group>"; };
 		ABEACD421D2B7C0900574259 /* VideoShopTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoShopTableViewCell.xib; sourceTree = "<group>"; };
@@ -961,11 +971,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB7AC50B1D910193005AA275 /* CFNetwork.framework in Frameworks */,
+				AB55A98D1D8FC45A00533F92 /* SystemConfiguration.framework in Frameworks */,
+				AB7AC5091D910107005AA275 /* LocalAuthentication.framework in Frameworks */,
 				AB55A9931D8FD05900533F92 /* libstdc++.tbd in Frameworks */,
 				AB55A9911D8FD04B00533F92 /* CoreTelephony.framework in Frameworks */,
 				AB55A98F1D8FC49500533F92 /* libsqlite3.tbd in Frameworks */,
 				AB0A59261D3F70CB0002D638 /* CoreGraphics.framework in Frameworks */,
-				AB55A98D1D8FC45A00533F92 /* SystemConfiguration.framework in Frameworks */,
 				AB55A98B1D8FC44E00533F92 /* libiconv.tbd in Frameworks */,
 				AB55A9891D8FC43600533F92 /* Security.framework in Frameworks */,
 				AB1765341D530F22001A84E8 /* IJKMediaFramework.framework in Frameworks */,
@@ -975,6 +987,7 @@
 				AB0A59301D3F71020002D638 /* OpenGLES.framework in Frameworks */,
 				AB0A592E1D3F70F20002D638 /* MobileCoreServices.framework in Frameworks */,
 				AB0A592C1D3F70E80002D638 /* MediaPlayer.framework in Frameworks */,
+				AB7AC5231D9110AA005AA275 /* libPaymentControl.a in Frameworks */,
 				AB0A592A1D3F70E00002D638 /* CoreVideo.framework in Frameworks */,
 				AB0A59281D3F70D70002D638 /* CoreMedia.framework in Frameworks */,
 				AB0A59241D3F70C20002D638 /* AVFoundation.framework in Frameworks */,
@@ -1017,6 +1030,8 @@
 		0785EFAD9D8BC2ECCBC0C903 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AB7AC50A1D910193005AA275 /* CFNetwork.framework */,
+				AB7AC5081D910107005AA275 /* LocalAuthentication.framework */,
 				AB55A9921D8FD05900533F92 /* libstdc++.tbd */,
 				AB55A9901D8FD04B00533F92 /* CoreTelephony.framework */,
 				AB55A98E1D8FC49500533F92 /* libsqlite3.tbd */,
@@ -1208,6 +1223,31 @@
 				AB708FB01D0543BE007D0B4D /* Info.plist */,
 			);
 			path = FUYIFinanceUITests;
+			sourceTree = "<group>";
+		};
+		AB7AC51E1D9110AA005AA275 /* paymentcontrol */ = {
+			isa = PBXGroup;
+			children = (
+				AB7AC51F1D9110AA005AA275 /* inc */,
+				AB7AC5211D9110AA005AA275 /* libs */,
+			);
+			path = paymentcontrol;
+			sourceTree = "<group>";
+		};
+		AB7AC51F1D9110AA005AA275 /* inc */ = {
+			isa = PBXGroup;
+			children = (
+				AB7AC5201D9110AA005AA275 /* UPPaymentControl.h */,
+			);
+			path = inc;
+			sourceTree = "<group>";
+		};
+		AB7AC5211D9110AA005AA275 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				AB7AC5221D9110AA005AA275 /* libPaymentControl.a */,
+			);
+			path = libs;
 			sourceTree = "<group>";
 		};
 		ABEACD491D2B87DE00574259 /* Helper */ = {
@@ -1403,6 +1443,8 @@
 				CC593CCC1D2A69500077B096 /* ShopNameViewController.m */,
 				CC4F37301D2DFEFF00312F11 /* MineLoginViewController.h */,
 				CC4F37311D2DFEFF00312F11 /* MineLoginViewController.m */,
+				AB7AC52A1D91663F005AA275 /* ThirdPlatformViewController.h */,
+				AB7AC52B1D91663F005AA275 /* ThirdPlatformViewController.m */,
 				CC4F37371D2E58BF00312F11 /* MineRegisterViewController.h */,
 				CC4F37381D2E58BF00312F11 /* MineRegisterViewController.m */,
 				CC6BD0781D2FA72900659C96 /* ReGetViewController.h */,
@@ -1469,6 +1511,7 @@
 		ABF5DE401D0FA4B1007CE1AB /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				AB7AC51E1D9110AA005AA275 /* paymentcontrol */,
 				AB55A99B1D8FD90A00533F92 /* CHSocialService */,
 				CC4C1B0F1D7041DC00B343A2 /* PlaceHolderText */,
 				CC4F37331D2E07B500312F11 /* category */,
@@ -2555,6 +2598,7 @@
 				AB36CDBA1D1283AD00D0E4C7 /* HomePageViewController.m in Sources */,
 				ABEACD5D1D2B87DE00574259 /* GTMBase64.m in Sources */,
 				D1F130131D2A4E5A00EE1690 /* VideoDetailThirdtTableViewCell.m in Sources */,
+				AB7AC52C1D91663F005AA275 /* ThirdPlatformViewController.m in Sources */,
 				AB36CE401D1BC9C100D0E4C7 /* InvestCollectionViewTableViewCell.m in Sources */,
 				CC4F37321D2DFEFF00312F11 /* MineLoginViewController.m in Sources */,
 				D1F1306A1D378D0A00EE1690 /* TeacherTeamViewController.m in Sources */,
@@ -2814,6 +2858,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/FUYIFinance/Util/paymentcontrol/libs",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -2929,6 +2974,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/FUYIFinance/Util/paymentcontrol/libs",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",

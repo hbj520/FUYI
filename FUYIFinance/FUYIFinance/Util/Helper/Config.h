@@ -49,6 +49,7 @@
 - (void)saveTeminate;//结束进程后保存
 - (void)saveOrderNum:(NSString *)ordernum;//保存订单号
 - (void)saveIsWifi:(NSString *)iswifi;
+- (void)savePhoneNum:(NSString *)phoneNum;
 - (NSString *)getTeminate;//
 - (NSString *)getUserId;       //获取用户id
 - (NSString *)getUserName;     //获取用户名

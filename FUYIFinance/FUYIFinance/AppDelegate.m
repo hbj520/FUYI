@@ -10,6 +10,10 @@
 #import "CHSocialService.h"
 #import "UMSocialConfig.h"
 #import "UMSocialControllerService.h"
+#import "UPPaymentControl.h"
+#import "UIViewController+HUD.h"
+
+
 
 @interface AppDelegate ()
 
@@ -78,10 +82,43 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     [[Config Instance] saveTeminate];
 }
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
-{
-    return  [CHSocialServiceCenter handleOpenURL:url delegate:nil];
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+    [[UPPaymentControl defaultControl] handlePaymentResult:url completeBlock:^(NSString *code, NSDictionary *data) {
+        
+        NSString *signData = data[@"data"];
+        NSLog(@"验证的数据%@",signData);
+        
+        if ([code isEqualToString:@"success"]) {
+            [[MyAPI sharedAPI] getUPPayInfoWithToken:KToken signinfo:signData result:^(BOOL sucess, NSString *msg) {
+                if (sucess) {
+                    [self.window.rootViewController showHint:@"充值成功"];
+                }else{
+                    [self.window.rootViewController showHint:@"充值失败"];
+                }
+            } errorResult:^(NSError *enginerError) {
+                [self.window.rootViewController showHint:@"充值出错"];
+            }];
+      
+        }else{
+          [self.window.rootViewController showHint:@"充值失败"];
+        }
+     
+    }];
+    // [CHSocialServiceCenter handleOpenURL:url delegate:nil]
+    return [CHSocialServiceCenter handleOpenURL:url delegate:nil];
 }
+//- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options{
+//    [[UPPaymentControl defaultControl] handlePaymentResult:url completeBlock:^(NSString *code, NSDictionary *data) {
+//        
+//        NSLog(@"签名数据%@",data);
+//        NSLog(@"状态吗%@",code);
+//        //发请求确认后台是否支付成功 来显示相应界面
+//        NSString *signData = data[@"data"];
+//        NSLog(@"验证的数据%@",signData);
+//        
+//    }];
+//    return YES;
+//}
 #pragma mark - PrivateMethod
 - (void)changeToMain{
     self.mStorybord = [UIStoryboard storyboardWithName:@"Main" bundle:nil];

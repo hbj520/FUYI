@@ -7,6 +7,7 @@
 //
 
 #import "TopUpAccountViewController.h"
+#import "UPPaymentControl.h"
 
 @interface TopUpAccountViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *topupBtn;
@@ -27,11 +28,24 @@
     [super viewWillAppear:animated];
     self.topupBtn.layer.cornerRadius = 7;
     self.navigationController.navigationBarHidden = NO;
+    self.accountname.text = [[Config Instance] getUserPhoneNum];
 }
 
 //确认充值
 - (IBAction)sureTopUp:(id)sender {
-    
+    [[MyAPI sharedAPI] UnionPayTopupWithMoney:self.money.text type:@"0" result:^(BOOL sucess, NSString *msg) {
+        if (sucess) {
+            NSString *tn = msg;
+            if (tn != nil && tn.length > 0)
+            {
+                [[UPPaymentControl defaultControl] startPay:tn fromScheme:@"UnionPay" mode:@"00" viewController:self];
+            }
+        }else{
+            
+        }
+    } errorResult:^(NSError *enginerError) {
+        
+    }];
 }
 
 

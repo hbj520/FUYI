@@ -184,6 +184,12 @@ static Config * instance = nil;
     [settings setObject:iswifi forKey:@"iswifi"];
     [settings synchronize];
 }
+- (void)savePhoneNum:(NSString *)phoneNum{
+    NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
+    [settings removeObjectForKey:@"phonenum"];
+    [settings setObject:phoneNum forKey:@"phonenum"];
+    [settings synchronize];
+}
 - (NSString *)getisteacher
 {
     NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
