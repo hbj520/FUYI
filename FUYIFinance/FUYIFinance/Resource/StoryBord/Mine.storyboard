@@ -2267,7 +2267,7 @@
         <scene sceneID="rCX-Q0-pr6">
             <objects>
                 <navigationController id="GDf-uH-E6H" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="FoN-Ul-6Ow">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FoN-Ul-6Ow">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2766,7 +2766,7 @@
         <scene sceneID="SXa-L7-BNk">
             <objects>
                 <navigationController storyboardIdentifier="LoginStorybordId" id="dZB-Wu-dmd" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="JHQ-Cd-8Xd">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JHQ-Cd-8Xd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
