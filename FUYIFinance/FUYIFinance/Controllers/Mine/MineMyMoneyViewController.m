@@ -2,7 +2,7 @@
 //  MineMyMoneyViewController.m
 //  FUYIFinance
 //
-//  Created by 张哲 on 16/9/1.
+//  Created by lwd on 16/9/1.
 //  Copyright © 2016年 youyou. All rights reserved.
 
 
@@ -32,16 +32,7 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
 //     self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.centerView.backgroundColor = [UIColor yellowColor];
-    
-    
-    
-//    if (self.YouBiCount.text.length == 1) {
-//                   [_label mas_makeConstraints:^(MASConstraintMaker *make) {
-//                        make.right.mas_equalTo(self.centerView.mas_right).mas_equalTo(150);
-//                   }];
-//        
-//               }
+//    self.centerView.backgroundColor = [UIColor yellowColor]; // 金币的颜色。
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -54,16 +45,16 @@
     if(ucoinValue){
         NSInteger ucoin = ucoinValue.integerValue;
         NSInteger newucoin = ucoin/1000;
-        NSString * ucoinstring = [NSString stringWithFormat:@"%d",newucoin];
+        NSString * ucoinstring = [NSString stringWithFormat:@"%ld",(long)newucoin];
         self.YouBiCount.text = ucoinstring;
     }else{
         NSString * ucoin = [[Config Instance] getUcoin];
-        
+       
        NSInteger uCoin = ucoin.integerValue;
-        //NSInteger uCoin = 123000; // 测试数据。
+//        NSInteger uCoin = 123000; // 测试数据。
         NSInteger newucoin = uCoin/1000;
         
-        NSString * ucoinstring = [NSString stringWithFormat:@"%d",newucoin];
+        NSString * ucoinstring = [NSString stringWithFormat:@"%ld",(long)newucoin];
         self.YouBiCount.text = ucoinstring;
         
     }
@@ -174,5 +165,6 @@
     // Pass the selected object to the new view controller.
 }
 */
+
 
 @end

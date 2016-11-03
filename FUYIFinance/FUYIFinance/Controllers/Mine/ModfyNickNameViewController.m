@@ -21,7 +21,7 @@
     self.nicknamefield.delegate = self;
     self.saveBtn.layer.cornerRadius = 6;
     self.saveBtn.layer.masksToBounds = YES;
-    // Do any additional setup after loading the view.
+    
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event

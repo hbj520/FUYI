@@ -4,7 +4,7 @@
 //
 //  Created by 张哲 on 16/7/7.
 //  Copyright © 2016年 youyou. All rights reserved.
-//
+//             登录控制器
 
 #import "MineLoginViewController.h"
 #import "MineRegisterViewController.h"
@@ -48,14 +48,16 @@
     self.numberInput.delegate = self;
     self.passwordInput.delegate = self;
     self.loginBtn.enabled = NO;
+    
    // self.myNav = [[UINavigationController alloc] init];
-    self.navigationController.navigationBarHidden = NO;
+    //self.navigationController.navigationBarHidden = NO; // 省去。
+    
     if(self.view.frame.size.height == 480){
         self.toplayout.constant = 30;
     }
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textfieldIsEditing:) name:UITextFieldTextDidChangeNotification object:nil];
 }
-
+//  适配4s
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     if(self.view.frame.size.height==480){
@@ -80,11 +82,11 @@
         self.loginBtn.enabled = NO;
     }
 }
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    [self.view endEditing:YES];
-}
+//   有什么作用？？
+//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+//{
+//    [self.view endEditing:YES];
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -105,15 +107,15 @@
     //@{@"isTech":[NSNumber numberWithBool:self.isTeacher]}
    // NSNotification * notification = [NSNotification notificationWithName:@"refreshView" object:nil];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshView" object:nil userInfo:@{@"isTech":[NSNumber numberWithBool:self.isTeacher],@"refresh":@"yes"}];
-   [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
     [self.tabBarController setSelectedIndex:3];
 }
+/** 点击按钮返回上一页，让当前控制器消失。 */
 - (IBAction)backBtn:(id)sender {
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 
 }
 //登录
-
 - (IBAction)loginBtn:(id)sender {
     NSString * phoneNum = self.numberInput.text;
     NSString * password = self.passwordInput.text;

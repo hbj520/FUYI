@@ -4,7 +4,7 @@
 //
 //  Created by apple on 16/3/16.
 //  Copyright © 2016年 hbjApple. All rights reserved.
-//
+//            全局宏定义
 
 #ifndef Marco_h
 #define Marco_h

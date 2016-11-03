@@ -4,7 +4,7 @@
 //
 //  Created by 张哲 on 16/7/8.
 //  Copyright © 2016年 youyou. All rights reserved.
-//
+//          通过NSUserDefaults去保存用户数据
 
 #import <Foundation/Foundation.h>
 
