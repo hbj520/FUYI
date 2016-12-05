@@ -30,7 +30,7 @@
 #define KUserPassword [[Config Instance] getPassword]
 #define KGesturePsassword [[Config Instance] getGesturePassword]
 
-#define BaseUrl @"http://60.173.235.34:9090/fuyi/app/"
+#define BaseUrl @"http://www.fuyi001.com:9999/index.php/app/"
 
 
 #define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
