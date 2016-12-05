@@ -104,6 +104,7 @@
 		ABF9F1031D546C8B004E1523 /* MRGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF9F0FE1D546C8B004E1523 /* MRGesture.m */; };
 		ABF9F1041D546C8B004E1523 /* MRGestureBgView.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF9F1001D546C8B004E1523 /* MRGestureBgView.m */; };
 		ABF9F1051D546C8B004E1523 /* MRGestureView.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF9F1021D546C8B004E1523 /* MRGestureView.m */; };
+		B83A0C07A1A89C022A15D4CE /* Pods_FUYIFinance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25F895D1F83DCF1FAF4DC5E /* Pods_FUYIFinance.framework */; };
 		CC0022411D5831DB00132483 /* AccountSaftyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0022401D5831DB00132483 /* AccountSaftyViewController.m */; };
 		CC0022441D58736900132483 /* TeacherShopInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0022431D58736900132483 /* TeacherShopInfoModel.m */; };
 		CC0022481D58876900132483 /* NoticeListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0022461D58876900132483 /* NoticeListTableViewCell.m */; };
@@ -375,6 +376,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		69643C036D62A8D9874B0FFC /* Pods-FUYIFinance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FUYIFinance.release.xcconfig"; path = "Pods/Target Support Files/Pods-FUYIFinance/Pods-FUYIFinance.release.xcconfig"; sourceTree = "<group>"; };
 		AB02D4AA1D2228F700AED400 /* ShopCarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopCarViewController.h; sourceTree = "<group>"; };
 		AB02D4AB1D2228F700AED400 /* ShopCarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopCarViewController.m; sourceTree = "<group>"; };
 		AB0A591D1D3F70970002D638 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -539,6 +541,7 @@
 		ABF9F1001D546C8B004E1523 /* MRGestureBgView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRGestureBgView.m; sourceTree = "<group>"; };
 		ABF9F1011D546C8B004E1523 /* MRGestureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRGestureView.h; sourceTree = "<group>"; };
 		ABF9F1021D546C8B004E1523 /* MRGestureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRGestureView.m; sourceTree = "<group>"; };
+		CB8CD542F501860A6991803C /* Pods-FUYIFinance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FUYIFinance.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FUYIFinance/Pods-FUYIFinance.debug.xcconfig"; sourceTree = "<group>"; };
 		CC00223F1D5831DB00132483 /* AccountSaftyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountSaftyViewController.h; sourceTree = "<group>"; };
 		CC0022401D5831DB00132483 /* AccountSaftyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountSaftyViewController.m; sourceTree = "<group>"; };
 		CC0022421D58736900132483 /* TeacherShopInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherShopInfoModel.h; sourceTree = "<group>"; };
@@ -953,6 +956,7 @@
 		D1F130851D38AD0000EE1690 /* FooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FooterView.xib; sourceTree = "<group>"; };
 		D1F7C9821D3CD1FA00872EB6 /* TeacherTeamModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherTeamModel.h; sourceTree = "<group>"; };
 		D1F7C9831D3CD1FA00872EB6 /* TeacherTeamModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherTeamModel.m; sourceTree = "<group>"; };
+		F25F895D1F83DCF1FAF4DC5E /* Pods_FUYIFinance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FUYIFinance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -983,6 +987,7 @@
 				AB0A59221D3F70B70002D638 /* AudioToolbox.framework in Frameworks */,
 				AB0A59201D3F70A80002D638 /* libbz2.tbd in Frameworks */,
 				AB0A591E1D3F70970002D638 /* libz.tbd in Frameworks */,
+				B83A0C07A1A89C022A15D4CE /* Pods_FUYIFinance.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1028,8 +1033,18 @@
 				AB0A59211D3F70B70002D638 /* AudioToolbox.framework */,
 				AB0A591F1D3F70A80002D638 /* libbz2.tbd */,
 				AB0A591D1D3F70970002D638 /* libz.tbd */,
+				F25F895D1F83DCF1FAF4DC5E /* Pods_FUYIFinance.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6F48411861F990B440A72C6E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CB8CD542F501860A6991803C /* Pods-FUYIFinance.debug.xcconfig */,
+				69643C036D62A8D9874B0FFC /* Pods-FUYIFinance.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		AB0A59371D3F77830002D638 /* VideoViewControllers */ = {
@@ -1139,6 +1154,7 @@
 				AB708FAD1D0543BE007D0B4D /* FUYIFinanceUITests */,
 				AB708F871D0543BE007D0B4D /* Products */,
 				0785EFAD9D8BC2ECCBC0C903 /* Frameworks */,
+				6F48411861F990B440A72C6E /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -2124,9 +2140,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AB708FB31D0543BE007D0B4D /* Build configuration list for PBXNativeTarget "FUYIFinance" */;
 			buildPhases = (
+				9001B9DE8C09454760A17866 /* [CP] Check Pods Manifest.lock */,
 				AB708F821D0543BE007D0B4D /* Sources */,
 				AB708F831D0543BE007D0B4D /* Frameworks */,
 				AB708F841D0543BE007D0B4D /* Resources */,
+				EAEA2B48B92F07A5534935F7 /* [CP] Embed Pods Frameworks */,
+				D9462BC799EB1AED78B4D43B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2346,6 +2365,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9001B9DE8C09454760A17866 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D9462BC799EB1AED78B4D43B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FUYIFinance/Pods-FUYIFinance-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EAEA2B48B92F07A5534935F7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FUYIFinance/Pods-FUYIFinance-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AB708F821D0543BE007D0B4D /* Sources */ = {
@@ -2710,6 +2777,7 @@
 		};
 		AB708FB41D0543BE007D0B4D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB8CD542F501860A6991803C /* Pods-FUYIFinance.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -2826,6 +2894,7 @@
 		};
 		AB708FB51D0543BE007D0B4D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69643C036D62A8D9874B0FFC /* Pods-FUYIFinance.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
