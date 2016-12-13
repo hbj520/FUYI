@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		AB02D4AC1D2228F800AED400 /* ShopCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB02D4AB1D2228F700AED400 /* ShopCarViewController.m */; };
+		AB0A44B71DFE7562000081BB /* CHSocialServiceCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0A44B21DFE7562000081BB /* CHSocialServiceCenter.m */; };
+		AB0A44B81DFE7562000081BB /* CHSocialHandlerData.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0A44B41DFE7562000081BB /* CHSocialHandlerData.m */; };
+		AB0A44B91DFE7562000081BB /* CHSocialResponseData.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0A44B61DFE7562000081BB /* CHSocialResponseData.m */; };
+		AB0A44BB1DFE7BE7000081BB /* Stock.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB0A44BA1DFE7BE7000081BB /* Stock.storyboard */; };
+		AB0A44BF1DFE8384000081BB /* StockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0A44BE1DFE8384000081BB /* StockViewController.m */; };
+		AB0A44C41DFE85DE000081BB /* StockTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0A44C21DFE85DE000081BB /* StockTableViewCell.m */; };
+		AB0A44C51DFE85DE000081BB /* StockTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB0A44C31DFE85DE000081BB /* StockTableViewCell.xib */; };
+		AB0A44C91DFE9590000081BB /* TeachStockAnalyzeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0A44C71DFE9590000081BB /* TeachStockAnalyzeTableViewCell.m */; };
+		AB0A44CA1DFE9590000081BB /* TeachStockAnalyzeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB0A44C81DFE9590000081BB /* TeachStockAnalyzeTableViewCell.xib */; };
+		AB0A44CD1DFE9831000081BB /* TeachStockListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0A44CC1DFE9831000081BB /* TeachStockListViewController.m */; };
 		AB0A591E1D3F70970002D638 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AB0A591D1D3F70970002D638 /* libz.tbd */; };
 		AB0A59201D3F70A80002D638 /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AB0A591F1D3F70A80002D638 /* libbz2.tbd */; };
 		AB0A59221D3F70B70002D638 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB0A59211D3F70B70002D638 /* AudioToolbox.framework */; };
@@ -61,9 +71,6 @@
 		AB55A98F1D8FC49500533F92 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AB55A98E1D8FC49500533F92 /* libsqlite3.tbd */; };
 		AB55A9911D8FD04B00533F92 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB55A9901D8FD04B00533F92 /* CoreTelephony.framework */; };
 		AB55A9931D8FD05900533F92 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AB55A9921D8FD05900533F92 /* libstdc++.tbd */; };
-		AB55A99C1D8FD90A00533F92 /* CHSocialServiceCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = AB55A9961D8FD90A00533F92 /* CHSocialServiceCenter.m */; };
-		AB55A99D1D8FD90A00533F92 /* CHSocialHandlerData.m in Sources */ = {isa = PBXBuildFile; fileRef = AB55A9981D8FD90A00533F92 /* CHSocialHandlerData.m */; };
-		AB55A99E1D8FD90A00533F92 /* CHSocialResponseData.m in Sources */ = {isa = PBXBuildFile; fileRef = AB55A99A1D8FD90A00533F92 /* CHSocialResponseData.m */; };
 		AB67959C1D766705002D0198 /* song.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB67959B1D766705002D0198 /* song.ttf */; };
 		AB708F8B1D0543BE007D0B4D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AB708F8A1D0543BE007D0B4D /* main.m */; };
 		AB708F8E1D0543BE007D0B4D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AB708F8D1D0543BE007D0B4D /* AppDelegate.m */; };
@@ -379,6 +386,24 @@
 		69643C036D62A8D9874B0FFC /* Pods-FUYIFinance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FUYIFinance.release.xcconfig"; path = "Pods/Target Support Files/Pods-FUYIFinance/Pods-FUYIFinance.release.xcconfig"; sourceTree = "<group>"; };
 		AB02D4AA1D2228F700AED400 /* ShopCarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopCarViewController.h; sourceTree = "<group>"; };
 		AB02D4AB1D2228F700AED400 /* ShopCarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopCarViewController.m; sourceTree = "<group>"; };
+		AB0A44B01DFE7562000081BB /* CHSocialService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHSocialService.h; sourceTree = "<group>"; };
+		AB0A44B11DFE7562000081BB /* CHSocialServiceCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHSocialServiceCenter.h; sourceTree = "<group>"; };
+		AB0A44B21DFE7562000081BB /* CHSocialServiceCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHSocialServiceCenter.m; sourceTree = "<group>"; };
+		AB0A44B31DFE7562000081BB /* CHSocialHandlerData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHSocialHandlerData.h; sourceTree = "<group>"; };
+		AB0A44B41DFE7562000081BB /* CHSocialHandlerData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHSocialHandlerData.m; sourceTree = "<group>"; };
+		AB0A44B51DFE7562000081BB /* CHSocialResponseData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHSocialResponseData.h; sourceTree = "<group>"; };
+		AB0A44B61DFE7562000081BB /* CHSocialResponseData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHSocialResponseData.m; sourceTree = "<group>"; };
+		AB0A44BA1DFE7BE7000081BB /* Stock.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Stock.storyboard; sourceTree = "<group>"; };
+		AB0A44BD1DFE8384000081BB /* StockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StockViewController.h; sourceTree = "<group>"; };
+		AB0A44BE1DFE8384000081BB /* StockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StockViewController.m; sourceTree = "<group>"; };
+		AB0A44C11DFE85DE000081BB /* StockTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StockTableViewCell.h; sourceTree = "<group>"; };
+		AB0A44C21DFE85DE000081BB /* StockTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StockTableViewCell.m; sourceTree = "<group>"; };
+		AB0A44C31DFE85DE000081BB /* StockTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StockTableViewCell.xib; sourceTree = "<group>"; };
+		AB0A44C61DFE9590000081BB /* TeachStockAnalyzeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeachStockAnalyzeTableViewCell.h; sourceTree = "<group>"; };
+		AB0A44C71DFE9590000081BB /* TeachStockAnalyzeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeachStockAnalyzeTableViewCell.m; sourceTree = "<group>"; };
+		AB0A44C81DFE9590000081BB /* TeachStockAnalyzeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeachStockAnalyzeTableViewCell.xib; sourceTree = "<group>"; };
+		AB0A44CB1DFE9831000081BB /* TeachStockListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeachStockListViewController.h; sourceTree = "<group>"; };
+		AB0A44CC1DFE9831000081BB /* TeachStockListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeachStockListViewController.m; sourceTree = "<group>"; };
 		AB0A591D1D3F70970002D638 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		AB0A591F1D3F70A80002D638 /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = usr/lib/libbz2.tbd; sourceTree = SDKROOT; };
 		AB0A59211D3F70B70002D638 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -463,13 +488,6 @@
 		AB55A98E1D8FC49500533F92 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		AB55A9901D8FD04B00533F92 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		AB55A9921D8FD05900533F92 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
-		AB55A9941D8FD90A00533F92 /* CHSocialService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHSocialService.h; sourceTree = "<group>"; };
-		AB55A9951D8FD90A00533F92 /* CHSocialServiceCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHSocialServiceCenter.h; sourceTree = "<group>"; };
-		AB55A9961D8FD90A00533F92 /* CHSocialServiceCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHSocialServiceCenter.m; sourceTree = "<group>"; };
-		AB55A9971D8FD90A00533F92 /* CHSocialHandlerData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHSocialHandlerData.h; sourceTree = "<group>"; };
-		AB55A9981D8FD90A00533F92 /* CHSocialHandlerData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHSocialHandlerData.m; sourceTree = "<group>"; };
-		AB55A9991D8FD90A00533F92 /* CHSocialResponseData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHSocialResponseData.h; sourceTree = "<group>"; };
-		AB55A99A1D8FD90A00533F92 /* CHSocialResponseData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHSocialResponseData.m; sourceTree = "<group>"; };
 		AB67959B1D766705002D0198 /* song.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = song.ttf; sourceTree = "<group>"; };
 		AB708F861D0543BE007D0B4D /* FUYIFinance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FUYIFinance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB708F8A1D0543BE007D0B4D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -1047,6 +1065,44 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		AB0A44AF1DFE7527000081BB /* CHSocialService */ = {
+			isa = PBXGroup;
+			children = (
+				AB0A44B01DFE7562000081BB /* CHSocialService.h */,
+				AB0A44B11DFE7562000081BB /* CHSocialServiceCenter.h */,
+				AB0A44B21DFE7562000081BB /* CHSocialServiceCenter.m */,
+				AB0A44B31DFE7562000081BB /* CHSocialHandlerData.h */,
+				AB0A44B41DFE7562000081BB /* CHSocialHandlerData.m */,
+				AB0A44B51DFE7562000081BB /* CHSocialResponseData.h */,
+				AB0A44B61DFE7562000081BB /* CHSocialResponseData.m */,
+			);
+			path = CHSocialService;
+			sourceTree = "<group>";
+		};
+		AB0A44BC1DFE836C000081BB /* Stock */ = {
+			isa = PBXGroup;
+			children = (
+				AB0A44BD1DFE8384000081BB /* StockViewController.h */,
+				AB0A44BE1DFE8384000081BB /* StockViewController.m */,
+				AB0A44CB1DFE9831000081BB /* TeachStockListViewController.h */,
+				AB0A44CC1DFE9831000081BB /* TeachStockListViewController.m */,
+			);
+			path = Stock;
+			sourceTree = "<group>";
+		};
+		AB0A44C01DFE85A8000081BB /* Stock */ = {
+			isa = PBXGroup;
+			children = (
+				AB0A44C11DFE85DE000081BB /* StockTableViewCell.h */,
+				AB0A44C21DFE85DE000081BB /* StockTableViewCell.m */,
+				AB0A44C31DFE85DE000081BB /* StockTableViewCell.xib */,
+				AB0A44C61DFE9590000081BB /* TeachStockAnalyzeTableViewCell.h */,
+				AB0A44C71DFE9590000081BB /* TeachStockAnalyzeTableViewCell.m */,
+				AB0A44C81DFE9590000081BB /* TeachStockAnalyzeTableViewCell.xib */,
+			);
+			name = Stock;
+			sourceTree = "<group>";
+		};
 		AB0A59371D3F77830002D638 /* VideoViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -1121,21 +1177,6 @@
 				AB36CE251D1B710400D0E4C7 /* TAPageControl.m */,
 			);
 			path = PageControl;
-			sourceTree = "<group>";
-		};
-		AB55A99B1D8FD90A00533F92 /* CHSocialService */ = {
-			isa = PBXGroup;
-			children = (
-				AB55A9941D8FD90A00533F92 /* CHSocialService.h */,
-				AB55A9951D8FD90A00533F92 /* CHSocialServiceCenter.h */,
-				AB55A9961D8FD90A00533F92 /* CHSocialServiceCenter.m */,
-				AB55A9971D8FD90A00533F92 /* CHSocialHandlerData.h */,
-				AB55A9981D8FD90A00533F92 /* CHSocialHandlerData.m */,
-				AB55A9991D8FD90A00533F92 /* CHSocialResponseData.h */,
-				AB55A99A1D8FD90A00533F92 /* CHSocialResponseData.m */,
-			);
-			name = CHSocialService;
-			path = "../../../../../../../Downloads/ThirdParty/CHSocialService-master/CHSocialService";
 			sourceTree = "<group>";
 		};
 		AB67959A1D7666C7002D0198 /* Font */ = {
@@ -1329,6 +1370,7 @@
 		ABF5DE341D0FA4B1007CE1AB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				AB0A44BC1DFE836C000081BB /* Stock */,
 				CC4A68D21D5D9B9A006CA317 /* BlogViewController */,
 				D1189C291D4F465D001209B9 /* CollectionViewController */,
 				ABFF9B1D1D4880BE0023FF39 /* CustomerServiceControllers */,
@@ -1498,8 +1540,8 @@
 		ABF5DE401D0FA4B1007CE1AB /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				AB0A44AF1DFE7527000081BB /* CHSocialService */,
 				AB7AC51E1D9110AA005AA275 /* paymentcontrol */,
-				AB55A99B1D8FD90A00533F92 /* CHSocialService */,
 				CC4C1B0F1D7041DC00B343A2 /* PlaceHolderText */,
 				CC4F37331D2E07B500312F11 /* category */,
 				ABEACD641D2B87FF00574259 /* API */,
@@ -1531,6 +1573,7 @@
 		ABF5DE421D0FA4B1007CE1AB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AB0A44C01DFE85A8000081BB /* Stock */,
 				D114DC4D1D24EE4A0001CE21 /* Models */,
 				CC72D0281D22636100945BCF /* Mine */,
 				ABF5DE431D0FA4B1007CE1AB /* CustomerService */,
@@ -1652,6 +1695,7 @@
 				AB708F971D0543BE007D0B4D /* LaunchScreen.storyboard */,
 				D1189C251D4F40EE001209B9 /* Collection.storyboard */,
 				D1189C271D4F411B001209B9 /* Blog.storyboard */,
+				AB0A44BA1DFE7BE7000081BB /* Stock.storyboard */,
 			);
 			path = StoryBord;
 			sourceTree = "<group>";
@@ -2291,6 +2335,7 @@
 				D141F82F1D542F6600392D00 /* player_panel_setup@2x.png in Resources */,
 				D141F8331D542F6600392D00 /* player_play_c@2x.png in Resources */,
 				D15BA38E1D237E3300904DEF /* HeaderView.xib in Resources */,
+				AB0A44BB1DFE7BE7000081BB /* Stock.storyboard in Resources */,
 				CC593CBC1D29FCC30077B096 /* FourBtnTableViewCell.xib in Resources */,
 				D141F8371D542F6600392D00 /* player_window_iphone@2x.png in Resources */,
 				D1F1306F1D3790A700EE1690 /* TeacherTeamNavigationItem.xib in Resources */,
@@ -2312,6 +2357,7 @@
 				AB36CE3D1D1B88A600D0E4C7 /* HomePageHotNewTableViewCell.xib in Resources */,
 				D1189C261D4F40EE001209B9 /* Collection.storyboard in Resources */,
 				D1F130251D2B80DB00EE1690 /* ConInfoTableViewCell.xib in Resources */,
+				AB0A44CA1DFE9590000081BB /* TeachStockAnalyzeTableViewCell.xib in Resources */,
 				D141F8361D542F6600392D00 /* player_unlock@2x.png in Resources */,
 				D1C49B071D224DE8003C17DA /* ShopCarNavigationItem.xib in Resources */,
 				D1F130811D388AE300EE1690 /* TeacherPersonalInfoTableViewCell.xib in Resources */,
@@ -2347,6 +2393,7 @@
 				D141F8261D542F6600392D00 /* icmpv_play_light@2x.png in Resources */,
 				CCF829B81D59EAB1001D473F /* trade.bundle in Resources */,
 				CC6FD6251D36423800DA60AB /* MyAddressTextTableViewCell.xib in Resources */,
+				AB0A44C51DFE85DE000081BB /* StockTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2476,6 +2523,7 @@
 				CC6FD60E1D362E0300DA60AB /* MJPropertyType.m in Sources */,
 				AB36CE331D1B710400D0E4C7 /* UIView+SDExtension.m in Sources */,
 				ABF9F0F51D53215E004E1523 /* CLAdCollectionCell.m in Sources */,
+				AB0A44CD1DFE9831000081BB /* TeachStockListViewController.m in Sources */,
 				AB4EB7B51D584E7D00F6323E /* GestureUnlockViewController.m in Sources */,
 				CCE906551D5B4EF600674E2B /* YSLScrollMenuView.m in Sources */,
 				CC26F0DA1D261CAB003964A1 /* ProductJudgeViewController.m in Sources */,
@@ -2494,12 +2542,13 @@
 				CC6FD60F1D362E0300DA60AB /* NSObject+MJClass.m in Sources */,
 				CC6FD60C1D362E0300DA60AB /* MJProperty.m in Sources */,
 				ABF9F1041D546C8B004E1523 /* MRGestureBgView.m in Sources */,
-				AB55A99D1D8FD90A00533F92 /* CHSocialHandlerData.m in Sources */,
 				CC4096B01D49A21000084D1A /* PersonalUserInfo.m in Sources */,
+				AB0A44B81DFE7562000081BB /* CHSocialHandlerData.m in Sources */,
 				CCF829BE1D59EAB1001D473F /* ZCTradeView.m in Sources */,
 				CC72D0371D226AD000945BCF /* MyOrderAllViewController.m in Sources */,
 				CCF829BD1D59EAB1001D473F /* ZCTradeKeyboard.m in Sources */,
 				CC72D03D1D226AF700945BCF /* MyOrderWaitGoodViewController.m in Sources */,
+				AB0A44BF1DFE8384000081BB /* StockViewController.m in Sources */,
 				CC6FD6101D362E0300DA60AB /* NSObject+MJCoding.m in Sources */,
 				D1F130801D388AE300EE1690 /* TeacherPersonalInfoTableViewCell.m in Sources */,
 				CC95F1A71D338C28009F559D /* ChangeHeadView.m in Sources */,
@@ -2510,13 +2559,14 @@
 				CC2AA7EC1D6BFD65004EA0BA /* MoneyConvertViewController.m in Sources */,
 				CC42E26A1D24F0800008A8D7 /* MyJudgeViewController.m in Sources */,
 				CCF829B91D59EAB1001D473F /* UIAlertView+Quick.m in Sources */,
+				AB0A44C41DFE85DE000081BB /* StockTableViewCell.m in Sources */,
 				CC593CAD1D29EFF30077B096 /* MyShopViewController.m in Sources */,
 				CC0022821D58AE3E00132483 /* SystemNoticeModel.m in Sources */,
 				CCFF47C71D6EE27F00737C2E /* ModifyTradePasswordViewController.m in Sources */,
 				ABF9F0F01D531F03004E1523 /* IJKHistoryItem.m in Sources */,
 				AB4CEBB11D702DC700938DB9 /* FileHelper.m in Sources */,
-				AB55A99C1D8FD90A00533F92 /* CHSocialServiceCenter.m in Sources */,
 				D1F130201D2B642A00EE1690 /* ConfirmOrderViewController.m in Sources */,
+				AB0A44B71DFE7562000081BB /* CHSocialServiceCenter.m in Sources */,
 				D1F1302A1D2B817200EE1690 /* VideoInfoTableViewCell.m in Sources */,
 				D1189C2C1D4F4694001209B9 /* CollectionViewController.m in Sources */,
 				D15BA3941D23906600904DEF /* CustomBtn.m in Sources */,
@@ -2537,6 +2587,7 @@
 				ABEACD5D1D2B87DE00574259 /* GTMBase64.m in Sources */,
 				D1F130131D2A4E5A00EE1690 /* VideoDetailThirdtTableViewCell.m in Sources */,
 				AB7AC52C1D91663F005AA275 /* ThirdPlatformViewController.m in Sources */,
+				AB0A44C91DFE9590000081BB /* TeachStockAnalyzeTableViewCell.m in Sources */,
 				AB36CE401D1BC9C100D0E4C7 /* InvestCollectionViewTableViewCell.m in Sources */,
 				CC4F37321D2DFEFF00312F11 /* MineLoginViewController.m in Sources */,
 				D1F1306A1D378D0A00EE1690 /* TeacherTeamViewController.m in Sources */,
@@ -2579,7 +2630,7 @@
 				CC42E26E1D24F0A90008A8D7 /* MyJudgeTableViewCell.m in Sources */,
 				CC6FD61F1D36409600DA60AB /* MyAddressChoiceTableViewCell.m in Sources */,
 				D1F130771D387BB700EE1690 /* TeacherPersonalViewController.m in Sources */,
-				AB55A99E1D8FD90A00533F92 /* CHSocialResponseData.m in Sources */,
+				AB0A44B91DFE7562000081BB /* CHSocialResponseData.m in Sources */,
 				D1F7C9841D3CD1FA00872EB6 /* TeacherTeamModel.m in Sources */,
 				CC6FD60B1D362E0300DA60AB /* MJFoundation.m in Sources */,
 				AB45FC441D409529008E6FBA /* Barcode.m in Sources */,

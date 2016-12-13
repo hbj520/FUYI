@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1Er-mr-jBb">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="zxM-3k-P4Q">
+            <objects>
+                <navigationController id="1Er-mr-jBb" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="TZ5-dc-3t8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="278-kB-01H" kind="relationship" relationship="rootViewController" id="R5h-RM-JdT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3oe-LH-0WC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2145" y="215"/>
+        </scene>
+        <!--李老师-->
+        <scene sceneID="i5B-Ao-5BT">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="qH3-K5-CCW" customClass="TeachStockListViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WxJ-Kf-ydc"/>
+                        <viewControllerLayoutGuide type="bottom" id="XFS-Ku-mYM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="56K-iH-64r">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HJn-ob-JS0">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="HJn-ob-JS0" secondAttribute="trailing" id="2eT-1y-Ssg"/>
+                            <constraint firstItem="HJn-ob-JS0" firstAttribute="top" secondItem="WxJ-Kf-ydc" secondAttribute="bottom" id="QIX-Qq-2Qe"/>
+                            <constraint firstItem="HJn-ob-JS0" firstAttribute="leading" secondItem="56K-iH-64r" secondAttribute="leading" id="SXI-uC-Wvg"/>
+                            <constraint firstItem="XFS-Ku-mYM" firstAttribute="top" secondItem="HJn-ob-JS0" secondAttribute="bottom" id="xir-7y-Ah7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="李老师" id="fHm-P5-aSS"/>
+                    <connections>
+                        <outlet property="tableView" destination="HJn-ob-JS0" id="kF4-dB-JKv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n3G-7d-RYy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-492" y="214.54272863568218"/>
+        </scene>
+        <!--股票推荐-->
+        <scene sceneID="gb1-Re-93c">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="278-kB-01H" customClass="StockViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OYW-1M-q0z"/>
+                        <viewControllerLayoutGuide type="bottom" id="keb-O7-EwW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="X1e-wm-bfM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yEy-W4-pnm">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <sections/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="yEy-W4-pnm" secondAttribute="trailing" id="9OC-gV-SnP"/>
+                            <constraint firstItem="yEy-W4-pnm" firstAttribute="leading" secondItem="X1e-wm-bfM" secondAttribute="leading" id="Usj-AZ-FjM"/>
+                            <constraint firstItem="yEy-W4-pnm" firstAttribute="top" secondItem="OYW-1M-q0z" secondAttribute="bottom" id="tXV-r2-umw"/>
+                            <constraint firstItem="keb-O7-EwW" firstAttribute="top" secondItem="yEy-W4-pnm" secondAttribute="bottom" id="uKX-q8-VM5"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="股票推荐" id="W0y-9g-z6r"/>
+                    <connections>
+                        <outlet property="tableView" destination="yEy-W4-pnm" id="Gr3-Oc-GrI"/>
+                        <segue destination="qH3-K5-CCW" kind="push" identifier="teachStockSegueId" id="kSD-ow-wUt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eVZ-kc-naC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1279" y="215"/>
+        </scene>
+    </scenes>
+</document>

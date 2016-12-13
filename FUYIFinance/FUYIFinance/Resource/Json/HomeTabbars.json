@@ -24,6 +24,12 @@
      "select_image":"personaltab",
      "title":"个人中心",
      "storybordId":"mineSB"
+     },
+     {
+     "image":"stocktab",
+     "select_image":"stocktab",
+     "title":"股票",
+     "storybordId":"stockSB"
      }
      ],
 }

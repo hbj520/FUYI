@@ -20,6 +20,7 @@
 @property (nonatomic,strong) UIStoryboard *blogSB;
 @property (nonatomic,strong) UIStoryboard *collectionSB;
 @property (nonatomic,strong) UIStoryboard *mineSB;
+@property (nonatomic,strong) UIStoryboard *stockSB;
 @property (nonatomic,assign) BOOL isteacher;
 @end
 
@@ -49,7 +50,12 @@
     }
    return _mineSB;
 }
-
+- (UIStoryboard *)stockSB{
+    if (!_stockSB) {
+        _stockSB = [UIStoryboard storyboardWithName:@"Stock" bundle:[NSBundle mainBundle]];
+    }
+    return _stockSB;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
