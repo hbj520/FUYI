@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 #define teachStockReuseId @"teachStockReuseId"
 @interface TeachStockAnalyzeTableViewCell : UITableViewCell
-
+- (void)configWith;
 @end

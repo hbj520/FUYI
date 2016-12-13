@@ -28,7 +28,7 @@
         <!--李老师-->
         <scene sceneID="i5B-Ao-5BT">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="qH3-K5-CCW" customClass="TeachStockListViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="qH3-K5-CCW" customClass="TeachStockListViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WxJ-Kf-ydc"/>
                         <viewControllerLayoutGuide type="bottom" id="XFS-Ku-mYM"/>

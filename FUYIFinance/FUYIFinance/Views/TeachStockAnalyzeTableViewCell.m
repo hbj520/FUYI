@@ -8,8 +8,11 @@
 
 #import "TeachStockAnalyzeTableViewCell.h"
 #import <Masonry/Masonry.h>
+#import "RateView.h"
 @interface TeachStockAnalyzeTableViewCell ()
 @property (weak, nonatomic) IBOutlet UIView *tableViewCellContenView;
+@property (weak, nonatomic) IBOutlet UIView *cellBgView;
+@property (weak, nonatomic) IBOutlet RateView *rateView;
 
 @end
 @implementation TeachStockAnalyzeTableViewCell
@@ -17,8 +20,8 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    self.tableViewCellContenView.layer.masksToBounds = YES;
-    [self addMasonary];
+    self.cellBgView.layer.masksToBounds = YES;
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -26,13 +29,7 @@
 
     // Configure the view for the selected state
 }
-- (void)addMasonary{
-    [self addSubview:self.tableViewCellContenView];
-    [self.tableViewCellContenView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(@5);
-        make.left.equalTo(@5);
-        make.bottom.equalTo(@5);
-        make.right.equalTo(@5);
-    }];
+- (void)configWith{
+    [self.rateView configWithSupportCount:36 unSupportCount:96];
 }
 @end

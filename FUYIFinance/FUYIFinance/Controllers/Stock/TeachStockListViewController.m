@@ -32,6 +32,7 @@ UITableViewDelegate>
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"TeachStockAnalyzeTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:teachStockReuseId];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 #pragma mark -UITableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -42,6 +43,7 @@ UITableViewDelegate>
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     TeachStockAnalyzeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:teachStockReuseId forIndexPath:indexPath];
+    [cell configWith];
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

@@ -31,6 +31,7 @@
 		AB0A59321D3F710B0002D638 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB0A59311D3F710B0002D638 /* QuartzCore.framework */; };
 		AB0A59341D3F71120002D638 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB0A59331D3F71120002D638 /* UIKit.framework */; };
 		AB0A59361D3F711B0002D638 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB0A59351D3F711B0002D638 /* VideoToolbox.framework */; };
+		AB1050411DFF9D38001E0C69 /* RateView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB1050401DFF9D38001E0C69 /* RateView.m */; };
 		AB1764DC1D520B7F001A84E8 /* IJKMoviePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB1764D21D520B7F001A84E8 /* IJKMoviePlayerViewController.m */; };
 		AB1764DD1D520B7F001A84E8 /* IJKMoviePlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB1764D31D520B7F001A84E8 /* IJKMoviePlayerViewController.xib */; };
 		AB1764DE1D520B7F001A84E8 /* GLPlaceholderView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB1764D51D520B7F001A84E8 /* GLPlaceholderView.m */; };
@@ -417,6 +418,8 @@
 		AB0A59311D3F710B0002D638 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		AB0A59331D3F71120002D638 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AB0A59351D3F711B0002D638 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		AB10503F1DFF9D38001E0C69 /* RateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RateView.h; sourceTree = "<group>"; };
+		AB1050401DFF9D38001E0C69 /* RateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RateView.m; sourceTree = "<group>"; };
 		AB1764D11D520B7F001A84E8 /* IJKMoviePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IJKMoviePlayerViewController.h; sourceTree = "<group>"; };
 		AB1764D21D520B7F001A84E8 /* IJKMoviePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IJKMoviePlayerViewController.m; sourceTree = "<group>"; };
 		AB1764D31D520B7F001A84E8 /* IJKMoviePlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IJKMoviePlayerViewController.xib; sourceTree = "<group>"; };
@@ -1099,6 +1102,8 @@
 				AB0A44C61DFE9590000081BB /* TeachStockAnalyzeTableViewCell.h */,
 				AB0A44C71DFE9590000081BB /* TeachStockAnalyzeTableViewCell.m */,
 				AB0A44C81DFE9590000081BB /* TeachStockAnalyzeTableViewCell.xib */,
+				AB10503F1DFF9D38001E0C69 /* RateView.h */,
+				AB1050401DFF9D38001E0C69 /* RateView.m */,
 			);
 			name = Stock;
 			sourceTree = "<group>";
@@ -2538,6 +2543,7 @@
 				CC0022521D588F0100132483 /* OrderNoticeTableViewCell.m in Sources */,
 				CC20B4C61D6D938600E42303 /* ProtectAccountViewController.m in Sources */,
 				CC72D02C1D2263CF00945BCF /* PersonalWaitPayTableViewCell.m in Sources */,
+				AB1050411DFF9D38001E0C69 /* RateView.m in Sources */,
 				D1F12FFA1D2A04CE00EE1690 /* VideoStoreTableViewCell.m in Sources */,
 				CC6FD60F1D362E0300DA60AB /* NSObject+MJClass.m in Sources */,
 				CC6FD60C1D362E0300DA60AB /* MJProperty.m in Sources */,
