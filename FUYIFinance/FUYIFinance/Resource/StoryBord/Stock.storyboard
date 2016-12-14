@@ -50,7 +50,14 @@
                             <constraint firstItem="XFS-Ku-mYM" firstAttribute="top" secondItem="HJn-ob-JS0" secondAttribute="bottom" id="xir-7y-Ah7"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="李老师" id="fHm-P5-aSS"/>
+                    <navigationItem key="navigationItem" title="李老师" id="fHm-P5-aSS">
+                        <barButtonItem key="leftBarButtonItem" image="back" id="Ud6-PG-DtH">
+                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="backBtn:" destination="qH3-K5-CCW" id="WKx-yQ-84E"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="HJn-ob-JS0" id="kF4-dB-JKv"/>
                     </connections>
@@ -96,4 +103,7 @@
             <point key="canvasLocation" x="-1279" y="215"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="back" width="12" height="17"/>
+    </resources>
 </document>

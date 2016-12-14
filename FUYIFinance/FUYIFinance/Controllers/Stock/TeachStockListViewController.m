@@ -12,6 +12,7 @@
 <UITableViewDataSource,
 UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+- (IBAction)backBtn:(id)sender;
 
 @end
 
@@ -50,7 +51,7 @@ UITableViewDelegate>
     return 120.;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 5.;
+    return 0.1;
     
 }
 /*
@@ -63,4 +64,7 @@ UITableViewDelegate>
 }
 */
 
+- (IBAction)backBtn:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end

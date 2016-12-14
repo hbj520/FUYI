@@ -80,17 +80,17 @@ typedef NS_ENUM(NSInteger,CircleSideType) {
 - (void)roundSide:(CircleSideType)sideType WithView:(UIView *)view{
     UIBezierPath *maskPath;
     if (sideType == leftSide) {
-        maskPath = [UIBezierPath bezierPathWithRoundedRect:view.bounds byRoundingCorners:(UIRectCornerTopLeft|UIRectCornerBottomLeft)   cornerRadii:CGSizeMake(4.5f, 4.5f)];
+        maskPath = [UIBezierPath bezierPathWithRoundedRect:view.bounds byRoundingCorners:(UIRectCornerTopLeft|UIRectCornerBottomLeft)   cornerRadii:CGSizeMake(2.f, 2.f)];
     }else if (sideType == rightSide){
-        maskPath = [UIBezierPath bezierPathWithRoundedRect:view.bounds byRoundingCorners:(UIRectCornerTopRight|UIRectCornerBottomRight)   cornerRadii:CGSizeMake(4.5f, 4.5f)];
+        maskPath = [UIBezierPath bezierPathWithRoundedRect:view.bounds byRoundingCorners:(UIRectCornerTopRight|UIRectCornerBottomRight)   cornerRadii:CGSizeMake(2.f, 2.f)];
     }else if (sideType == topSide){
         maskPath = [UIBezierPath bezierPathWithRoundedRect:view.bounds
                                          byRoundingCorners:(UIRectCornerTopLeft|UIRectCornerTopRight)
-                                               cornerRadii:CGSizeMake(4.5f, 4.5f)];
+                                               cornerRadii:CGSizeMake(2.f, 2.f)];
     }else{
         maskPath = [UIBezierPath bezierPathWithRoundedRect:view.bounds
                                          byRoundingCorners:(UIRectCornerBottomLeft|UIRectCornerBottomRight)
-                                               cornerRadii:CGSizeMake(4.5f, 4.5f)];
+                                               cornerRadii:CGSizeMake(2.f, 2.f)];
     }
     
    // CGContextSetFillColorWithColor(context, [UIColor whiteColor].CGColor);
