@@ -22,10 +22,10 @@
     for (NSInteger i = 0; i < data.count; i++) {
         UIImageView *imageView = [[UIImageView alloc] init];
         if (i == 0) {
-            imageView.frame = CGRectMake(0, 0, 140, 205);
+            imageView.frame = CGRectMake(0, 0, 140/375.*ScreenWidth, 205/375.*ScreenWidth);
             imageView.image = [UIImage imageNamed:data[i]];
             UIView *lineView = [[UIView alloc] init];
-            lineView.frame = CGRectMake(139, 0, 1, 205);
+            lineView.frame = CGRectMake(140/375.*ScreenWidth-1, 0, 1, 205/375.*ScreenWidth);
             lineView.backgroundColor = [UIColor groupTableViewBackgroundColor];
             [self addSubview:imageView];
             [self addSubview:lineView];
@@ -33,7 +33,7 @@
             NSInteger list = (i - 1)/2;//列
             NSInteger line = (i - 1)%2;//行
             //HomePageInvestModel *model = [data objectAtIndex:i];
-            imageView.frame = CGRectMake((list)*117 + 140, line*102, 117, 102);
+            imageView.frame = CGRectMake((list*117)/375.*ScreenWidth + 140/375.*ScreenWidth, line*102/375.*ScreenWidth, 117/375.*ScreenWidth, 102/375.*ScreenWidth);
             imageView.image = [UIImage imageNamed:data[i]];
             [self addSubview:imageView];
         }
@@ -47,19 +47,19 @@
 }
 - (void)addLines{
     UIView *lineView1 = [[UIView alloc] init];
-    lineView1.frame = CGRectMake(0, 205, 375, 1);
+    lineView1.frame = CGRectMake(0, 205/375.*ScreenWidth, ScreenWidth, 1);
     lineView1.backgroundColor = [UIColor groupTableViewBackgroundColor];
     [self addSubview:lineView1];
     UIView *lineView2 = [[UIView alloc] init];
-    lineView2.frame = CGRectMake(140, 102, 235, 1);
+    lineView2.frame = CGRectMake(140/375.*ScreenWidth, 102/375.*ScreenWidth, 235/375.*ScreenWidth, 1);
     lineView2.backgroundColor = [UIColor groupTableViewBackgroundColor];
     [self addSubview:lineView2];
     UIView *lineView3 = [[UIView alloc] init];
-    lineView3.frame = CGRectMake(257, 0, 1, 205);
+    lineView3.frame = CGRectMake(257/375.*ScreenWidth, 0, 1, 205/375.*ScreenWidth);
     lineView3.backgroundColor = [UIColor groupTableViewBackgroundColor];
     [self addSubview:lineView3];
     UIView *lineView4 = [[UIView alloc] init];
-    lineView4.frame = CGRectMake(375, 0, 1, 205);
+    lineView4.frame = CGRectMake(ScreenWidth, 0, 1, 205/375.*ScreenWidth);
     lineView4.backgroundColor = [UIColor groupTableViewBackgroundColor];
     [self addSubview:lineView4];
 }

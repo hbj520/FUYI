@@ -1677,5 +1677,22 @@
     
 
 }
+#pragma mark - 股票投资
+- (void)getStockInvestRecommentListWithPage:(NSString *)page
+                                     Result:(ArrayBlock)result
+                                  errorResult:(ErrorBlock)errorResult{
+       AFHTTPRequestOperationManager *Manager = [[AFHTTPRequestOperationManager alloc]initWithBaseURL:[NSURL URLWithString:@"http://192.168.1.227:9090/"]];
+        Manager.requestSerializer.timeoutInterval = 20;
+        Manager.responseSerializer.acceptableContentTypes =  [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html",@"application/x-www-form-urlencoded", nil];
+    Manager.requestSerializer = [AFHTTPRequestSerializer serializer];
 
+    [Manager POST:@"app/getStockRecommendationList" parameters:@{
+                                                                                                                                                    @"token":@"1111",
+                                                                                                                                                    @"page":page,
+                                                                                                                                                    @"offset":@"10"} success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+                                                                                                                                                    
+                                                                                                                                                    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+                                                                                                                                                        
+                                                                                                                                                    }];
+}
 @end

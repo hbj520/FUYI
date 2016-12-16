@@ -20,6 +20,7 @@ UITableViewDataSource>
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self loadData];
     [self configTableView];
     // Do any additional setup after loading the view.
 }
@@ -29,6 +30,13 @@ UITableViewDataSource>
     // Dispose of any resources that can be recreated.
 }
 #pragma mark - PrivateMethod
+- (void)loadData{
+    [[MyAPI sharedAPI] getStockInvestRecommentListWithPage:@"1" Result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
+        
+    } errorResult:^(NSError *enginerError) {
+        
+    }];
+}
 - (void)configTableView{
     self.tableView.delegate = self;
     self.tableView.dataSource = self;

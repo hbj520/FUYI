@@ -592,6 +592,7 @@ typedef void (^ErrorBlock) (NSError *enginerError);
  *  @param result
  *  @param errorResult
  */
+
 - (void)UnionPayTopupWithMoney:(NSString *)money
                           type:(NSString *)type
                         result:(StateBlock)result
@@ -601,5 +602,11 @@ typedef void (^ErrorBlock) (NSError *enginerError);
                      signinfo:(NSString*)signinfo
                        result:(StateBlock)result
                   errorResult:(ErrorBlock)errorResult;
+
+
+#pragma mark - 股票投资
+- (void)getStockInvestRecommentListWithPage:(NSString *)page
+                                     Result:(ArrayBlock)result
+                                  errorResult:(ErrorBlock)errorResult;
 
 @end

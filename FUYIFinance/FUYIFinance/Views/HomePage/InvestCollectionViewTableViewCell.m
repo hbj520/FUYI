@@ -31,10 +31,10 @@
     if (inverstScrollView) {
         [inverstScrollView removeFromSuperview];
     }
-    inverstScrollView = [[InversetScrollView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 206)];
+    inverstScrollView = [[InversetScrollView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 206/375.*ScreenWidth)];
     [inverstScrollView setUIWithData:modelArray];
     NSInteger count = modelArray.count/5 + 1;
-    inverstScrollView.contentSize = CGSizeMake(count*ScreenWidth, 206);
+    inverstScrollView.contentSize = CGSizeMake(count*ScreenWidth, 206/375.*ScreenWidth);
 
     [self addSubview:inverstScrollView];
     inverstScrollView.tapBlock = ^(NSInteger index){
