@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -2601,7 +2600,7 @@
         <scene sceneID="HyN-N4-Rez">
             <objects>
                 <navigationController id="5eP-9a-6Uo" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lpQ-mD-dgA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="lpQ-mD-dgA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2913,7 +2912,7 @@
         <scene sceneID="SXa-L7-BNk">
             <objects>
                 <navigationController storyboardIdentifier="LoginStorybordId" id="dZB-Wu-dmd" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="JHQ-Cd-8Xd">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JHQ-Cd-8Xd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

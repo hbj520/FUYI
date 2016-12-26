@@ -41,6 +41,8 @@
 #import "TeacherShopInfoModel.h"
 #import "SystemNoticeModel.h"
 #import "OrderNoticeModel.h"
+
+#import "StockRecommendListModel.h"
 @interface MyAPI ()
 @property (nonatomic, strong) AFHTTPRequestOperationManager *manager;
 
@@ -1685,14 +1687,25 @@
         Manager.requestSerializer.timeoutInterval = 20;
         Manager.responseSerializer.acceptableContentTypes =  [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html",@"application/x-www-form-urlencoded", nil];
     Manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    NSDictionary *parame = @{
+                             @"token":@"1111",
+                             @"page":page,
+                             @"offset":@"10"};
 
-    [Manager POST:@"app/getStockRecommendationList" parameters:@{
-                                                                                                                                                    @"token":@"1111",
-                                                                                                                                                    @"page":page,
-                                                                                                                                                    @"offset":@"10"} success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-                                                                                                                                                    
-                                                                                                                                                    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
-                                                                                                                                                        
-                                                                                                                                                    }];
+    [Manager POST:@"app/getStockRecommendationList" parameters:parame success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+                NSString *status = responseObject[@"status"];
+                NSString *info = responseObject[@"info"];
+                if ([status isEqualToString:@"1"]) {
+                            NSDictionary *data = responseObject[@"data"];
+                            NSArray *list = data[@"stockRecommendationList"];
+                    NSArray *modelAarray = [[StockRecommendListModel alloc] buildWithData:list];
+                    result(YES,@"请求成功",modelAarray);
+                    
+                }else{
+                    result(NO,@"请求失败",nil);
+                }
+            } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+                    errorResult(error);
+                }];
 }
 @end

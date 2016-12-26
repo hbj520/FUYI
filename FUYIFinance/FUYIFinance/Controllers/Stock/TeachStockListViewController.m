@@ -12,6 +12,7 @@
 <UITableViewDataSource,
 UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UITableView *lastTimeTableView;
 - (IBAction)backBtn:(id)sender;
 
 @end
@@ -22,6 +23,7 @@ UITableViewDelegate>
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self configTableView];
+    [self loadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,11 +31,19 @@ UITableViewDelegate>
     // Dispose of any resources that can be recreated.
 }
 #pragma mark -PrivateMethod
+- (void)loadData{
+    
+}
 - (void)configTableView{
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"TeachStockAnalyzeTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:teachStockReuseId];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.lastTimeTableView.delegate = self;
+    self.lastTimeTableView.dataSource = self;
+    [self.lastTimeTableView registerNib:[UINib nibWithNibName:@"TeachStockAnalyzeTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:teachStockReuseId];
+    self.lastTimeTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
 }
 #pragma mark -UITableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -53,6 +63,9 @@ UITableViewDelegate>
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 0.1;
     
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self performSegueWithIdentifier:@"stockDetailSegueId" sender:nil];
 }
 /*
 #pragma mark - Navigation

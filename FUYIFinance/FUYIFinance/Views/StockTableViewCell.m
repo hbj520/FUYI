@@ -7,7 +7,10 @@
 //
 
 #import "StockTableViewCell.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 #import "starView.h"
+#import "ArticleListModel.h"
+
 @interface StockTableViewCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 @property (weak, nonatomic) IBOutlet UILabel *techNameLabel;
@@ -25,7 +28,17 @@
     self.iconImageView.layer.masksToBounds = YES;
     [self.starView configWithStarLevel:3];
 }
-
+- (void)configWithData:(StockRecommendListModel *)model{
+    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:model.imgthumb] placeholderImage:[UIImage imageNamed:@"videothumbimage"]];
+    [self.starView configWithStarLevel:4];
+    self.techNameLabel.text = model.name;
+    ArticleListModel *firstModel = model.articleList[0];
+    self.firstHotLabel.text = [NSString stringWithFormat:@"%@【%@】%@",firstModel.createtime,firstModel.stock_name,firstModel.analysis_title];
+    ArticleListModel *secondModel = model.articleList[1];
+    self.secondHotLabel.text = [NSString stringWithFormat:@"%@【%@】%@",secondModel.createtime,secondModel.stock_name,secondModel.analysis_title];
+     ArticleListModel *thirdModel = model.articleList[2];
+    self.thirdHotLabel.text = [NSString stringWithFormat:@"%@【%@】%@",thirdModel.createtime,thirdModel.stock_name,thirdModel.analysis_title];
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

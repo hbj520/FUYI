@@ -608,5 +608,7 @@ typedef void (^ErrorBlock) (NSError *enginerError);
 - (void)getStockInvestRecommentListWithPage:(NSString *)page
                                      Result:(ArrayBlock)result
                                   errorResult:(ErrorBlock)errorResult;
+#pragma mark -股票投资list页面
+- (void)getStockTeacherAnlyzeListWithPage;
 
 @end

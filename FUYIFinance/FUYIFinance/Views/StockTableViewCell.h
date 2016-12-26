@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #define stockReuseId @"stockCellReuseId"
+#import "StockRecommendListModel.h"
 @interface StockTableViewCell : UITableViewCell
-
+- (void)configWithData:(StockRecommendListModel *)model;
 @end

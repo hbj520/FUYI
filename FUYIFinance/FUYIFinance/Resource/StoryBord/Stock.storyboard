@@ -4,8 +4,8 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,7 +13,7 @@
         <scene sceneID="zxM-3k-P4Q">
             <objects>
                 <navigationController id="1Er-mr-jBb" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="TZ5-dc-3t8">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TZ5-dc-3t8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -37,17 +37,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="10I-2B-1u0">
+                                <rect key="frame" x="1" y="388" width="374" height="2"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="以往股票推荐" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pj2-LE-hV0">
+                                <rect key="frame" x="0.0" y="369" width="375" height="13"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AeK-U1-efb">
+                                <rect key="frame" x="0.0" y="390" width="375" height="277"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HJn-ob-JS0">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="304"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="HJn-ob-JS0" secondAttribute="trailing" id="2eT-1y-Ssg"/>
-                            <constraint firstItem="HJn-ob-JS0" firstAttribute="top" secondItem="WxJ-Kf-ydc" secondAttribute="bottom" id="QIX-Qq-2Qe"/>
-                            <constraint firstItem="HJn-ob-JS0" firstAttribute="leading" secondItem="56K-iH-64r" secondAttribute="leading" id="SXI-uC-Wvg"/>
-                            <constraint firstItem="XFS-Ku-mYM" firstAttribute="top" secondItem="HJn-ob-JS0" secondAttribute="bottom" id="xir-7y-Ah7"/>
+                            <constraint firstItem="HJn-ob-JS0" firstAttribute="leading" secondItem="56K-iH-64r" secondAttribute="leading" id="0jM-rV-Kwa"/>
+                            <constraint firstAttribute="trailing" secondItem="10I-2B-1u0" secondAttribute="trailing" id="2rS-vr-DZC"/>
+                            <constraint firstItem="Pj2-LE-hV0" firstAttribute="leading" secondItem="56K-iH-64r" secondAttribute="leading" id="4A4-IR-YAz"/>
+                            <constraint firstAttribute="trailing" secondItem="AeK-U1-efb" secondAttribute="trailing" id="6gC-7b-ah9"/>
+                            <constraint firstItem="HJn-ob-JS0" firstAttribute="top" secondItem="WxJ-Kf-ydc" secondAttribute="bottom" id="6hm-oo-roC"/>
+                            <constraint firstItem="Pj2-LE-hV0" firstAttribute="height" secondItem="56K-iH-64r" secondAttribute="height" multiplier="13:667" id="9sw-ey-07X"/>
+                            <constraint firstAttribute="trailing" secondItem="HJn-ob-JS0" secondAttribute="trailing" id="B54-yZ-hpI"/>
+                            <constraint firstItem="AeK-U1-efb" firstAttribute="top" secondItem="10I-2B-1u0" secondAttribute="bottom" id="MsB-XW-lD3"/>
+                            <constraint firstItem="10I-2B-1u0" firstAttribute="height" secondItem="56K-iH-64r" secondAttribute="height" multiplier="2:667" id="NNC-mf-zFW"/>
+                            <constraint firstItem="Pj2-LE-hV0" firstAttribute="top" secondItem="HJn-ob-JS0" secondAttribute="bottom" constant="1" id="Pad-e7-q2X"/>
+                            <constraint firstItem="AeK-U1-efb" firstAttribute="leading" secondItem="56K-iH-64r" secondAttribute="leading" id="RyQ-sH-c8D"/>
+                            <constraint firstItem="AeK-U1-efb" firstAttribute="height" secondItem="56K-iH-64r" secondAttribute="height" multiplier="227:667" constant="50" id="c7w-UM-Kku"/>
+                            <constraint firstItem="HJn-ob-JS0" firstAttribute="height" secondItem="56K-iH-64r" secondAttribute="height" multiplier="304:667" id="hJQ-pM-Rlf"/>
+                            <constraint firstItem="XFS-Ku-mYM" firstAttribute="top" secondItem="AeK-U1-efb" secondAttribute="bottom" id="mdu-S2-eNl"/>
+                            <constraint firstAttribute="trailing" secondItem="Pj2-LE-hV0" secondAttribute="trailing" id="nwM-34-ip7"/>
+                            <constraint firstItem="AeK-U1-efb" firstAttribute="top" secondItem="10I-2B-1u0" secondAttribute="bottom" id="oFF-Gi-Ayn"/>
+                            <constraint firstItem="10I-2B-1u0" firstAttribute="leading" secondItem="56K-iH-64r" secondAttribute="leading" id="z8H-jD-z3V"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="李老师" id="fHm-P5-aSS">
@@ -59,12 +87,60 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="lastTimeTableView" destination="AeK-U1-efb" id="vTw-Zh-8u4"/>
                         <outlet property="tableView" destination="HJn-ob-JS0" id="kF4-dB-JKv"/>
+                        <segue destination="LeG-ve-s3r" kind="push" identifier="stockDetailSegueId" id="bKb-R3-czM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n3G-7d-RYy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-492" y="214.54272863568218"/>
+        </scene>
+        <!--分析详情-->
+        <scene sceneID="qkR-PF-jhC">
+            <objects>
+                <viewController id="LeG-ve-s3r" customClass="StockDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9nD-nQ-uEV"/>
+                        <viewControllerLayoutGuide type="bottom" id="heA-rV-vkG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="h1D-iv-jbO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VGc-dR-sve">
+                                <rect key="frame" x="-156" y="64" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SZo-sv-xsk">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="SZo-sv-xsk" firstAttribute="leading" secondItem="h1D-iv-jbO" secondAttribute="leading" id="8rJ-Yu-xbt"/>
+                            <constraint firstItem="heA-rV-vkG" firstAttribute="top" secondItem="SZo-sv-xsk" secondAttribute="bottom" id="POM-9Z-3FH"/>
+                            <constraint firstAttribute="trailing" secondItem="SZo-sv-xsk" secondAttribute="trailing" id="jSf-yM-iDh"/>
+                            <constraint firstItem="SZo-sv-xsk" firstAttribute="top" secondItem="9nD-nQ-uEV" secondAttribute="bottom" id="qL7-HE-bfg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="分析详情" id="kfv-rb-cEo">
+                        <barButtonItem key="leftBarButtonItem" image="back" id="oam-cb-CCZ">
+                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="backBtn:" destination="LeG-ve-s3r" id="Mgo-Oc-8AR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="stockAnnalyzeWebView" destination="SZo-sv-xsk" id="ikB-zm-kgV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oXo-t8-0kD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="264.80000000000001" y="214.54272863568218"/>
         </scene>
         <!--股票推荐-->
         <scene sceneID="gb1-Re-93c">

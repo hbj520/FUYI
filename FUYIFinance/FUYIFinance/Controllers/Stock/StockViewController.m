@@ -8,10 +8,13 @@
 
 #import "StockViewController.h"
 #import "StockTableViewCell.h"
-
+#import "StockRecommendListModel.h"
 @interface StockViewController ()
 <UITableViewDelegate,
 UITableViewDataSource>
+{
+    NSMutableArray *dataSource;
+}
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
@@ -24,7 +27,10 @@ UITableViewDataSource>
     [self configTableView];
     // Do any additional setup after loading the view.
 }
-
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+   // [self loadData];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -32,7 +38,10 @@ UITableViewDataSource>
 #pragma mark - PrivateMethod
 - (void)loadData{
     [[MyAPI sharedAPI] getStockInvestRecommentListWithPage:@"1" Result:^(BOOL success, NSString *msg, NSMutableArray *arrays) {
-        
+        if (success) {
+            dataSource = [NSMutableArray arrayWithArray:arrays];
+            [self.tableView reloadData];
+        }
     } errorResult:^(NSError *enginerError) {
         
     }];
@@ -44,10 +53,13 @@ UITableViewDataSource>
 }
 #pragma mark -UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return dataSource.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     StockTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:stockReuseId forIndexPath:indexPath];
+    StockRecommendListModel *model = [dataSource objectAtIndex:indexPath.row];
+    [cell configWithData:model];
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
