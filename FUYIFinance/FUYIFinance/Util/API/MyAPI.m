@@ -1708,4 +1708,24 @@
                     errorResult(error);
                 }];
 }
+#pragma mark -股票投资支持或者反对
+- (void)supportOrAgainstStockRecommendSupport:(NSString *)support
+                                 stock_rec_id:(NSString *)stock_rec_id
+                                       result:(StateBlock)result
+                                  errorResult:(ErrorBlock)errorResult{
+    AFHTTPRequestOperationManager *Manager = [[AFHTTPRequestOperationManager alloc]initWithBaseURL:[NSURL URLWithString:@"http://192.168.1.227:9090/"]];
+    Manager.requestSerializer.timeoutInterval = 20;
+    Manager.responseSerializer.acceptableContentTypes =  [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html",@"application/x-www-form-urlencoded", nil];
+    Manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    NSDictionary *parame = @{
+                             @"token":@"1111",
+                             @"support":support,
+                             @"stock_rec_id":stock_rec_id
+                             };
+    [Manager POST:@"app/supporOrAgainstStockRecommend" parameters:parame success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        
+    }];
+}
 @end

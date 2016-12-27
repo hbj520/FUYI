@@ -610,5 +610,10 @@ typedef void (^ErrorBlock) (NSError *enginerError);
                                   errorResult:(ErrorBlock)errorResult;
 #pragma mark -股票投资list页面
 - (void)getStockTeacherAnlyzeListWithPage;
+#pragma mark -股票投资支持或者反对
+- (void)supportOrAgainstStockRecommendSupport:(NSString *)support
+                                 stock_rec_id:(NSString *)stock_rec_id
+                                       result:(StateBlock)result
+                                  errorResult:(ErrorBlock)errorResult;
 
 @end
