@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    NSURLRequest * request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://192.168.1.227:9090/app/toStockAnal&token=1111%@",@"1111"]]];
+    NSURLRequest * request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://192.168.1.227:9090/app/toStockAnal&token=%@",KToken]]];
 //    self.stockAnnalyzeWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight-64)];
    // [self.view addSubview:_webView];
     [ self.stockAnnalyzeWebView loadRequest:request];
