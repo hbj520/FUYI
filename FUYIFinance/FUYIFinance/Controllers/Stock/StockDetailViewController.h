@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface StockDetailViewController : BaseViewController
-
+@property (nonatomic,copy) NSString *stockId;
 @end

@@ -9,6 +9,7 @@
 #import "TeachStockListViewController.h"
 #import "TeachStockAnalyzeTableViewCell.h"
 #import "StockRecommendListDetailModel.h"
+#import "StockDetailViewController.h"
 @interface TeachStockListViewController ()
 <UITableViewDataSource,
 UITableViewDelegate>
@@ -127,7 +128,15 @@ UITableViewDelegate>
     
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self performSegueWithIdentifier:@"stockDetailSegueId" sender:nil];
+    StockRecommendListDetailModel *model;
+    if (tableView == self.tableView) {
+        model = [todayDataSource objectAtIndex:indexPath.row ];
+        
+    }else if (tableView == self.lastTimeTableView){
+        model = [historyDataSource objectAtIndex:indexPath.row ];
+        
+    }
+    [self performSegueWithIdentifier:@"stockDetailSegueId" sender:model.stockId];
 }
 /*
 #pragma mark - Navigation
@@ -139,7 +148,13 @@ UITableViewDelegate>
 }
 */
 
+
 - (IBAction)backBtn:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+#pragma mark - PrepareSegueDelegate
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    StockDetailViewController *stockDetailVC = segue.destinationViewController;
+    stockDetailVC.stockId = sender;
 }
 @end
