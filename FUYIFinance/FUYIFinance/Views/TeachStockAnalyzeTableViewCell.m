@@ -37,8 +37,12 @@
 
     // Configure the view for the selected state
 }
-- (void)configWith{
-    [self.rateView configWithSupportCount:36 unSupportCount:96];
+- (void)configWithData:(StockRecommendListDetailModel *)model{
+    [self.rateView configWithSupportCount:model.supportCount.integerValue unSupportCount:model.opposeCount.integerValue];
+    self.timeLabel.text = model.createtime;
+    self.companyStockTitleLabel.text = model.analysis_title;
+    self.supportCountLabel.text = [NSString stringWithFormat:@"支持(%@)",model.supportCount];
+    self.unSupportCountLabel.text = [NSString stringWithFormat:@"不支持(%@)",model.opposeCount];
 }
 - (IBAction)supportBtn:(UIButton *)sender {
     sender.selected = !sender.selected;
@@ -48,8 +52,12 @@
         self.unSupportBtn.selected = NO;
 
     }else{
+        
         [sender setImage:[UIImage imageNamed:@"zan"] forState:UIControlStateNormal];
  
+    }
+    if (self.clickZanBlock) {
+        self.clickZanBlock(sender.selected);
     }
 }
 
@@ -64,6 +72,9 @@
     }else{
         [sender setImage:[UIImage imageNamed:@"zan_down"] forState:UIControlStateNormal];
 
+    }
+    if (self.clickAgainstBlock) {
+        self.clickAgainstBlock(sender.selected);
     }
 }
 @end

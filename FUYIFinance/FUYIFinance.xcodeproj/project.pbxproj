@@ -111,6 +111,7 @@
 		AB708F991D0543BE007D0B4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB708F971D0543BE007D0B4D /* LaunchScreen.storyboard */; };
 		AB708FA41D0543BE007D0B4D /* FUYIFinanceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB708FA31D0543BE007D0B4D /* FUYIFinanceTests.m */; };
 		AB708FAF1D0543BE007D0B4D /* FUYIFinanceUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB708FAE1D0543BE007D0B4D /* FUYIFinanceUITests.m */; };
+		AB7749D51E1BA35300C493F0 /* StockRecommendListDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7749D41E1BA35300C493F0 /* StockRecommendListDetailModel.m */; };
 		AB7AC5091D910107005AA275 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB7AC5081D910107005AA275 /* LocalAuthentication.framework */; };
 		AB7AC50B1D910193005AA275 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB7AC50A1D910193005AA275 /* CFNetwork.framework */; };
 		AB7AC5231D9110AA005AA275 /* libPaymentControl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB7AC5221D9110AA005AA275 /* libPaymentControl.a */; };
@@ -571,6 +572,8 @@
 		AB708FAA1D0543BE007D0B4D /* FUYIFinanceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FUYIFinanceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB708FAE1D0543BE007D0B4D /* FUYIFinanceUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FUYIFinanceUITests.m; sourceTree = "<group>"; };
 		AB708FB01D0543BE007D0B4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB7749D31E1BA35300C493F0 /* StockRecommendListDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StockRecommendListDetailModel.h; sourceTree = "<group>"; };
+		AB7749D41E1BA35300C493F0 /* StockRecommendListDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StockRecommendListDetailModel.m; sourceTree = "<group>"; };
 		AB7AC5081D910107005AA275 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		AB7AC50A1D910193005AA275 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		AB7AC5201D9110AA005AA275 /* UPPaymentControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPPaymentControl.h; sourceTree = "<group>"; };
@@ -1278,6 +1281,8 @@
 		AB59BB821E077E6D004A208E /* Stock */ = {
 			isa = PBXGroup;
 			children = (
+				AB7749D31E1BA35300C493F0 /* StockRecommendListDetailModel.h */,
+				AB7749D41E1BA35300C493F0 /* StockRecommendListDetailModel.m */,
 				AB59BB831E077E7E004A208E /* StockRecommendListModel.h */,
 				AB59BB841E077E7E004A208E /* StockRecommendListModel.m */,
 				AB50D4651E08D3C600B427E6 /* ArticleListModel.h */,
@@ -2601,6 +2606,7 @@
 				AB36CE3C1D1B88A600D0E4C7 /* HomePageHotNewTableViewCell.m in Sources */,
 				CCE906541D5B4EF600674E2B /* YSLContainerViewController.m in Sources */,
 				AB36CDBA1D1283AD00D0E4C7 /* HomePageViewController.m in Sources */,
+				AB7749D51E1BA35300C493F0 /* StockRecommendListDetailModel.m in Sources */,
 				AB59BBC91E077EB4004A208E /* MineWaitPayModel.m in Sources */,
 				ABEACD5D1D2B87DE00574259 /* GTMBase64.m in Sources */,
 				D1F130131D2A4E5A00EE1690 /* VideoDetailThirdtTableViewCell.m in Sources */,

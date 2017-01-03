@@ -9,6 +9,7 @@
 #import "StockViewController.h"
 #import "StockTableViewCell.h"
 #import "StockRecommendListModel.h"
+#import "TeachStockListViewController.h"
 @interface StockViewController ()
 <UITableViewDelegate,
 UITableViewDataSource>
@@ -23,13 +24,13 @@ UITableViewDataSource>
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self loadData];
+    //[self loadData];
     [self configTableView];
     // Do any additional setup after loading the view.
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-   // [self loadData];
+    [self loadData];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -66,7 +67,8 @@ UITableViewDataSource>
     return 125.;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self performSegueWithIdentifier:@"teachStockSegueId" sender:nil];
+    StockRecommendListModel *model = [dataSource objectAtIndex:indexPath.row];
+    [self performSegueWithIdentifier:@"teachStockSegueId" sender:@[model.teacherId,model.name]];
 }
 /*
 #pragma mark - Navigation
@@ -77,5 +79,12 @@ UITableViewDataSource>
     // Pass the selected object to the new view controller.
 }
 */
+#pragma mark -PrepareSegueDelegate
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    TeachStockListViewController *teachVC = segue.destinationViewController;
+    NSArray *array = sender;
+    teachVC.teachId = array[0];
+    teachVC.teachName = array[1];
+}
 
 @end

@@ -43,6 +43,7 @@
 #import "OrderNoticeModel.h"
 
 #import "StockRecommendListModel.h"
+#import "StockRecommendListDetailModel.h"
 @interface MyAPI ()
 @property (nonatomic, strong) AFHTTPRequestOperationManager *manager;
 
@@ -1683,16 +1684,16 @@
 - (void)getStockInvestRecommentListWithPage:(NSString *)page
                                      Result:(ArrayBlock)result
                                   errorResult:(ErrorBlock)errorResult{
-       AFHTTPRequestOperationManager *Manager = [[AFHTTPRequestOperationManager alloc]initWithBaseURL:[NSURL URLWithString:@"http://192.168.1.227:9090/"]];
-        Manager.requestSerializer.timeoutInterval = 20;
-        Manager.responseSerializer.acceptableContentTypes =  [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html",@"application/x-www-form-urlencoded", nil];
-    Manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+//       AFHTTPRequestOperationManager *Manager = [[AFHTTPRequestOperationManager alloc]initWithBaseURL:[NSURL URLWithString:@"http://192.168.1.227:9090/"]];
+//        Manager.requestSerializer.timeoutInterval = 20;
+//        Manager.responseSerializer.acceptableContentTypes =  [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html",@"application/x-www-form-urlencoded", nil];
+//    Manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     NSDictionary *parame = @{
-                             @"token":@"1111",
+                             @"token":KToken,
                              @"page":page,
                              @"offset":@"10"};
 
-    [Manager POST:@"app/getStockRecommendationList" parameters:parame success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+    [self.manager POST:@"getStockRecommendationList" parameters:parame success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
                 NSString *status = responseObject[@"status"];
                 NSString *info = responseObject[@"info"];
                 if ([status isEqualToString:@"1"]) {
@@ -1708,21 +1709,47 @@
                     errorResult(error);
                 }];
 }
+#pragma mark -股票投资list页面
+- (void)getStockTeacherAnlyzeListWithTeachId:(NSString *)teachId
+                                   teachName:(NSString *)teachName
+                                      result:(ArrayBlock)result
+                                 errorResult:(ErrorBlock)errorRsult{
+    NSDictionary *parame = @{
+                             @"token":KToken,
+                             @"teacherId":teachId,
+                             @"name":teachName};
+    [self.manager POST:@"getStockRecommendationByLecturer" parameters:parame success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * status = responseObject[@"status"];
+        NSString * info = responseObject[@"info"];
+        if([status isEqualToString:@"1"]){
+            NSArray *modelArray = [[StockRecommendListDetailModel alloc] buildWithData:responseObject[@"data"]];
+            result(YES,info,modelArray);
+        }else{
+            if([status isEqualToString:@"-1"]){
+                result(NO,status,nil);
+            }else{
+                result(NO,info,nil);
+            }
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorRsult(error);
+    }];
+}
 #pragma mark -股票投资支持或者反对
 - (void)supportOrAgainstStockRecommendSupport:(NSString *)support
                                  stock_rec_id:(NSString *)stock_rec_id
                                        result:(StateBlock)result
                                   errorResult:(ErrorBlock)errorResult{
-    AFHTTPRequestOperationManager *Manager = [[AFHTTPRequestOperationManager alloc]initWithBaseURL:[NSURL URLWithString:@"http://192.168.1.227:9090/"]];
-    Manager.requestSerializer.timeoutInterval = 20;
-    Manager.responseSerializer.acceptableContentTypes =  [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html",@"application/x-www-form-urlencoded", nil];
-    Manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+//    AFHTTPRequestOperationManager *Manager = [[AFHTTPRequestOperationManager alloc]initWithBaseURL:[NSURL URLWithString:@"http://192.168.1.227:9090/"]];
+//    Manager.requestSerializer.timeoutInterval = 20;
+//    Manager.responseSerializer.acceptableContentTypes =  [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html",@"application/x-www-form-urlencoded", nil];
+//    Manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     NSDictionary *parame = @{
-                             @"token":@"1111",
-                             @"support":support,
+                             @"token":KToken,
+                             @"is_support":support,
                              @"stock_rec_id":stock_rec_id
                              };
-    [Manager POST:@"app/supporOrAgainstStockRecommend" parameters:parame success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+    [self.manager POST:@"supporOrAgainstStockRecommend" parameters:parame success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         

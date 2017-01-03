@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "StockRecommendListDetailModel.h"
 #define teachStockReuseId @"teachStockReuseId"
+typedef void (^ClickZanBlock)(BOOL);
 @interface TeachStockAnalyzeTableViewCell : UITableViewCell
-- (void)configWith;
+@property (nonatomic,copy) ClickZanBlock clickZanBlock;
+@property (nonatomic,copy) ClickZanBlock clickAgainstBlock;
+- (void)configWithData:(StockRecommendListDetailModel *)model;
 @end

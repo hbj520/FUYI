@@ -9,5 +9,6 @@
 #import "BaseViewController.h"
 
 @interface TeachStockListViewController : BaseViewController
-
+@property (nonatomic,copy) NSString *teachId;
+@property (nonatomic,copy) NSString *teachName;
 @end
