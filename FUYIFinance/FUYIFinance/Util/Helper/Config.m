@@ -264,6 +264,9 @@ static Config * instance = nil;
 - (NSString*)getToken
 {
     NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
+    if (![settings stringForKey:@"token"]) {
+       return  @"";
+    }
     return [settings stringForKey:@"token"];
 }
 - (NSString *)getUserPhoneNum

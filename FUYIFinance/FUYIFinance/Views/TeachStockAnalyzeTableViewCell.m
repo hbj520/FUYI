@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *unSupportBtn;
 @property (weak, nonatomic) IBOutlet UILabel *supportCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *unSupportCountLabel;
+@property (strong,nonatomic) StockRecommendListDetailModel *mModel;
 - (IBAction)supportBtn:(UIButton *)sender;
 - (IBAction)unSupportBtn:(UIButton *)sender;
 
@@ -38,6 +39,7 @@
     // Configure the view for the selected state
 }
 - (void)configWithData:(StockRecommendListDetailModel *)model{
+    self.mModel = model;
     [self.rateView configWithSupportCount:model.supportCount.integerValue unSupportCount:model.opposeCount.integerValue];
     self.timeLabel.text = model.createtime;
     self.companyStockTitleLabel.text = model.analysis_title;
@@ -50,11 +52,16 @@
         [sender setImage:[UIImage imageNamed:@"zan_on"] forState:UIControlStateNormal];
         [self.unSupportBtn setImage:[UIImage imageNamed:@"zan_down"] forState:UIControlStateNormal];
         self.unSupportBtn.selected = NO;
+//        NSInteger cout = _mModel.supportCount.integerValue;
+//        cout++;
+//        _mModel.supportCount = [NSString stringWithFormat:@"%ld",cout];
 
     }else{
         
         [sender setImage:[UIImage imageNamed:@"zan"] forState:UIControlStateNormal];
- 
+//        NSInteger cout = _mModel.supportCount.integerValue;
+//        cout--;
+//        _mModel.supportCount = [NSString stringWithFormat:@"%ld",cout];
     }
     if (self.clickZanBlock) {
         self.clickZanBlock(sender.selected);

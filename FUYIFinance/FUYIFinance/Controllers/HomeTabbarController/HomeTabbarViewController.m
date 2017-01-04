@@ -148,7 +148,7 @@
     
     NSNumber *isTech = noti.userInfo[@"isTech"];
     self.isteacher = isTech.boolValue;
-    UINavigationController *vc = (UINavigationController *)self.viewControllers[3];
+    UINavigationController *vc = (UINavigationController *)self.viewControllers[4];
     [vc.viewControllers[0] removeFromParentViewController];
         UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
         if (self.isteacher) {

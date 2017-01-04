@@ -108,7 +108,7 @@
    // NSNotification * notification = [NSNotification notificationWithName:@"refreshView" object:nil];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshView" object:nil userInfo:@{@"isTech":[NSNumber numberWithBool:self.isTeacher],@"refresh":@"yes"}];
     [self dismissViewControllerAnimated:YES completion:nil];
-    [self.tabBarController setSelectedIndex:3];
+    [self.tabBarController setSelectedIndex:4];
 }
 /** 点击按钮返回上一页，让当前控制器消失。 */
 - (IBAction)backBtn:(id)sender {
