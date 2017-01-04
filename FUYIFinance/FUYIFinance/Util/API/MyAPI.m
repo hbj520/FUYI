@@ -1703,7 +1703,11 @@
                     result(YES,@"请求成功",modelAarray);
                     
                 }else{
-                    result(NO,@"请求失败",nil);
+                    if([status isEqualToString:@"-1"]){
+                        result(NO,status,nil);
+                    }else{
+                        result(NO,info,nil);
+                    }
                 }
             } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
                     errorResult(error);
@@ -1750,9 +1754,20 @@
                              @"stock_rec_id":stock_rec_id
                              };
     [self.manager POST:@"supporOrAgainstStockRecommend" parameters:parame success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-        
+        NSString * status = responseObject[@"status"];
+        NSString * info = responseObject[@"info"];
+        if([status isEqualToString:@"1"]){
+            NSArray *modelArray = [[StockRecommendListDetailModel alloc] buildWithData:responseObject[@"data"]];
+            result(YES,info);
+        }else{
+            if([status isEqualToString:@"-1"]){
+                result(NO,status);
+            }else{
+                result(NO,info);
+            }
+        }
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
-        
+        errorResult(error);
     }];
 }
 @end

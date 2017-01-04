@@ -44,6 +44,10 @@ UITableViewDelegate>
             historyDataSource = [NSMutableArray arrayWithArray:arrays[1]];
             [self.tableView reloadData];
             [self.lastTimeTableView reloadData];
+        }else{
+            if ([msg isEqualToString:@"-1"]) {
+                [self logOut];
+            }
         }
     } errorResult:^(NSError *enginerError) {
         
