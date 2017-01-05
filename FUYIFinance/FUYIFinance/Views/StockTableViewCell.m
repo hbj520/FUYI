@@ -43,8 +43,6 @@
         self.thirdHotLabel.text = [NSString stringWithFormat:@"%@【%@】%@",thirdModel.createtime,thirdModel.stock_name,thirdModel.analysis_title];
     }
 
-
-
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

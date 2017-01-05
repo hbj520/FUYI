@@ -1770,4 +1770,34 @@
         errorResult(error);
     }];
 }
+#pragma mark -发表股票
+- (void)publishStockWithStockCode:(NSString *)stockCode
+                        stockName:(NSString *)stockName
+                    analysisTitle:(NSString *)analysisTitle
+                  analysisContent:(NSString *)analysisContent
+                           result:(StateBlock)result
+                      errorResult:(ErrorBlock)errorResult{
+    NSDictionary *parame = @{
+                             @"token":KToken,
+                             @"stock_code":stockCode,
+                             @"stock_name":stockName,
+                             @"analysis_title":analysisTitle,
+                             @"analysis_content":analysisContent
+                             };
+    [self.manager POST:@"publishStockRec" parameters:parame success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSString * status = responseObject[@"status"];
+        NSString * info = responseObject[@"info"];
+        if([status isEqualToString:@"1"]){
+            result(YES,info);
+        }else{
+            if([status isEqualToString:@"-1"]){
+                result(NO,status);
+            }else{
+                result(NO,info);
+            }
+        }
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        errorResult(error);
+    }];
+}
 @end

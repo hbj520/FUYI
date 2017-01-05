@@ -7,7 +7,7 @@
 //
 
 #import "PublishStockViewController.h"
-
+#import "UIViewController+HUD.h"
 @interface PublishStockViewController ()<UITextInput>
 - (IBAction)backBtn:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *stockCodeTextfield;
@@ -24,8 +24,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textViewChanged:) name:UITextViewTextDidBeginEditingNotification  object:self.stockContentTextView];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textViewEndChanged:) name:UITextViewTextDidEndEditingNotification  object:self.stockContentTextView];
     // Do any additional setup after loading the view.
-    self.stockContentTextView.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,15 +48,29 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 - (IBAction)confirmStockBtn:(id)sender {
-    
+    if (self.stockNameTextField.text.length > 0 && self.stockCodeTextfield.text.length > 0 && self.stockAnalyzeTileTextField.text.length > 0 && self.stockContentTextView.text.length > 0) {
+        [[MyAPI sharedAPI] publishStockWithStockCode:self.stockCodeTextfield.text
+                                           stockName:self.stockNameTextField.text
+                                       analysisTitle:self.stockAnalyzeTileTextField.text
+                                     analysisContent:self.stockContentTextView.text
+                                              result:^(BOOL sucess, NSString *msg) {
+                                                  [self showHint:@"提交成功"];
+                                                  [self.navigationController popViewControllerAnimated:YES];
+                                              } errorResult:^(NSError *enginerError) {
+                                                  [self showHint:@"提交出错"];
+                                              }];
+    }else{
+    [self showHint:@"请填写完整股票内容..."];
+    }
+
 }
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [Tools hideKeyBoard];
 }
-#pragma mark -UITextViewDelegate
-
-- (void)insertText:(NSString *)text{
-    
-    
+- (void)textViewChanged:(UITextView *)textView{
+    self.topLayoutConstraint.constant = - 100;
+}
+- (void)textViewEndChanged:(UITextView *)textView{
+    self.topLayoutConstraint.constant =  25;
 }
 @end

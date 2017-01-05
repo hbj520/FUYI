@@ -618,5 +618,12 @@ typedef void (^ErrorBlock) (NSError *enginerError);
                                  stock_rec_id:(NSString *)stock_rec_id
                                        result:(StateBlock)result
                                   errorResult:(ErrorBlock)errorResult;
+#pragma mark -发表股票
+- (void)publishStockWithStockCode:(NSString *)stockCode
+                        stockName:(NSString *)stockName
+                    analysisTitle:(NSString *)analysisTitle
+                  analysisContent:(NSString *)analysisContent
+                           result:(StateBlock)result
+                      errorResult:(ErrorBlock)errorResult;
 
 @end
