@@ -14,7 +14,7 @@
         <scene sceneID="zxM-3k-P4Q">
             <objects>
                 <navigationController id="1Er-mr-jBb" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TZ5-dc-3t8">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="TZ5-dc-3t8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -278,7 +278,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="股票推荐" id="W0y-9g-z6r">
-                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="MQj-s0-PlM">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="compose" id="MQj-s0-PlM">
                             <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="publishStockBtn:" destination="278-kB-01H" id="SDL-BN-ZCD"/>
@@ -286,6 +286,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="publishBtn" destination="MQj-s0-PlM" id="njw-kq-upo"/>
                         <outlet property="tableView" destination="yEy-W4-pnm" id="Gr3-Oc-GrI"/>
                         <segue destination="qH3-K5-CCW" kind="push" identifier="teachStockSegueId" id="kSD-ow-wUt"/>
                         <segue destination="ENz-I6-G2R" kind="push" identifier="stockRecommendSegueId" id="We1-yi-tzg"/>

@@ -17,6 +17,7 @@ UITableViewDataSource>
     NSMutableArray *dataSource;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *publishBtn;
 
 @end
 
@@ -30,6 +31,10 @@ UITableViewDataSource>
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    NSString * IsTeacherOrNot = [[Config Instance] getisteacher];
+    if([IsTeacherOrNot isEqualToString:@"1"]){
+        self.publishBtn.enabled = YES;
+    }
     [self loadData];
 }
 - (void)didReceiveMemoryWarning {
