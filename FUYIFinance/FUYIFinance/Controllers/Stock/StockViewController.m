@@ -85,10 +85,16 @@ UITableViewDataSource>
 */
 #pragma mark -PrepareSegueDelegate
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    TeachStockListViewController *teachVC = segue.destinationViewController;
-    NSArray *array = sender;
-    teachVC.teachId = array[0];
-    teachVC.teachName = array[1];
+    if ([segue.identifier isEqualToString:@"teachStockSegueId"]) {
+        TeachStockListViewController *teachVC = segue.destinationViewController;
+        NSArray *array = sender;
+        teachVC.teachId = array[0];
+        teachVC.teachName = array[1];
+    }
+
+}
+- (IBAction)publishStockBtn:(id)sender {
+    [self performSegueWithIdentifier:@"stockRecommendSegueId" sender:nil];
 }
 
 @end

@@ -62,6 +62,7 @@
 		AB36CE4A1D1CE72400D0E4C7 /* ThreeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB36CE461D1CE72400D0E4C7 /* ThreeCollectionViewCell.xib */; };
 		AB36CE4B1D1CE72400D0E4C7 /* ThreeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36CE481D1CE72400D0E4C7 /* ThreeTableViewCell.m */; };
 		AB45FC441D409529008E6FBA /* Barcode.m in Sources */ = {isa = PBXBuildFile; fileRef = AB45FC401D409529008E6FBA /* Barcode.m */; };
+		AB4AC88F1E1E3AF300DD1B25 /* PublishStockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4AC88E1E1E3AF300DD1B25 /* PublishStockViewController.m */; };
 		AB4CEBB11D702DC700938DB9 /* FileHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4CEBB01D702DC700938DB9 /* FileHelper.m */; };
 		AB4CEBB41D703B7100938DB9 /* FeedBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4CEBB31D703B7100938DB9 /* FeedBackViewController.m */; };
 		AB4EB7B51D584E7D00F6323E /* GestureUnlockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4EB7B41D584E7D00F6323E /* GestureUnlockViewController.m */; };
@@ -481,6 +482,8 @@
 		AB45FC3F1D409529008E6FBA /* Barcode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Barcode.h; sourceTree = "<group>"; };
 		AB45FC401D409529008E6FBA /* Barcode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Barcode.m; sourceTree = "<group>"; };
 		AB45FC411D409529008E6FBA /* IJKCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IJKCommon.h; sourceTree = "<group>"; };
+		AB4AC88D1E1E3AF300DD1B25 /* PublishStockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishStockViewController.h; sourceTree = "<group>"; };
+		AB4AC88E1E1E3AF300DD1B25 /* PublishStockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishStockViewController.m; sourceTree = "<group>"; };
 		AB4CEBAF1D702DC700938DB9 /* FileHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHelper.h; sourceTree = "<group>"; };
 		AB4CEBB01D702DC700938DB9 /* FileHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileHelper.m; sourceTree = "<group>"; };
 		AB4CEBB21D703B7100938DB9 /* FeedBackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedBackViewController.h; sourceTree = "<group>"; };
@@ -1103,6 +1106,8 @@
 				AB0A44CC1DFE9831000081BB /* TeachStockListViewController.m */,
 				ABDF15B41E0390F10063AAFF /* StockDetailViewController.h */,
 				ABDF15B51E0390F10063AAFF /* StockDetailViewController.m */,
+				AB4AC88D1E1E3AF300DD1B25 /* PublishStockViewController.h */,
+				AB4AC88E1E1E3AF300DD1B25 /* PublishStockViewController.m */,
 			);
 			path = Stock;
 			sourceTree = "<group>";
@@ -2264,7 +2269,7 @@
 					AB708F851D0543BE007D0B4D = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = MGR47JT33V;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 					AB708F9E1D0543BE007D0B4D = {
 						CreatedOnToolsVersion = 7.3;
@@ -2506,6 +2511,7 @@
 				CC6FD6121D362E0300DA60AB /* NSObject+MJProperty.m in Sources */,
 				CC2AA7F51D6C59B9004EA0BA /* MineGoodsJudgeTableViewController.m in Sources */,
 				AB59BBD41E077EB4004A208E /* TeacherShopModel.m in Sources */,
+				AB4AC88F1E1E3AF300DD1B25 /* PublishStockViewController.m in Sources */,
 				CC2AA7E91D6BDE8B004EA0BA /* MyOrderFlowWaitPayViewController.m in Sources */,
 				AB59BBCC1E077EB4004A208E /* PersonalUserInfo.m in Sources */,
 				CCBE26461D5C81EB00D9EBDD /* SCPopView.m in Sources */,
@@ -2854,8 +2860,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = MGR47JT33V;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2865,7 +2871,7 @@
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/FUYIFinance/FUYI-Prefix.pch";
 				INFOPLIST_FILE = FUYIFinance/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2961,8 +2967,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.youyou.FUYI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "50c013c3-8d54-423f-ac81-f0d9d497c4c2";
-				PROVISIONING_PROFILE_SPECIFIER = "XC iOS Ad Hoc: com.youyou.FUYI";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -2972,8 +2978,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = MGR47JT33V;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2983,7 +2989,7 @@
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/FUYIFinance/FUYI-Prefix.pch";
 				INFOPLIST_FILE = FUYIFinance/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3079,8 +3085,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.youyou.FUYI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "779b26a1-786a-4680-a454-5caae5cceaf0";
-				PROVISIONING_PROFILE_SPECIFIER = "XC iOS Ad Hoc: com.youyou.FUYI";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

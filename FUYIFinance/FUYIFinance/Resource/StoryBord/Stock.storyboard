@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,7 +14,7 @@
         <scene sceneID="zxM-3k-P4Q">
             <objects>
                 <navigationController id="1Er-mr-jBb" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TZ5-dc-3t8">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="TZ5-dc-3t8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -94,7 +95,115 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n3G-7d-RYy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-492" y="214.54272863568218"/>
+            <point key="canvasLocation" x="-505" y="-38"/>
+        </scene>
+        <!--股票-->
+        <scene sceneID="wCB-Ra-Owc">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="ENz-I6-G2R" customClass="PublishStockViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="g3d-x9-86e"/>
+                        <viewControllerLayoutGuide type="bottom" id="o96-qZ-n5e"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nMN-Hf-U6W">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入股票代码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PYV-xi-y7J">
+                                <rect key="frame" x="16" y="89" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="DGC-AU-3vV"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入股票名称" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iIf-z8-c3E">
+                                <rect key="frame" x="16" y="144" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="aI9-u6-qSq"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入股票分析标题" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nVP-Yf-tuD">
+                                <rect key="frame" x="16" y="199" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="p3v-Kv-D9r"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="请输入股票内容......" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XGo-he-2Wq">
+                                <rect key="frame" x="16" y="254" width="343" height="129"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="129" id="7yF-uG-oYc"/>
+                                </constraints>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sz8-43-EAp">
+                                <rect key="frame" x="82" y="449" width="210" height="35"/>
+                                <color key="backgroundColor" red="0.94117647059999998" green="0.2666666667" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="rzf-UM-Pdg"/>
+                                </constraints>
+                                <state key="normal" title="提交">
+                                    <color key="titleColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="confirmStockBtn:" destination="ENz-I6-G2R" eventType="touchUpInside" id="xbs-b8-dym"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="sz8-43-EAp" secondAttribute="trailing" constant="83" id="21d-De-cfG"/>
+                            <constraint firstAttribute="trailing" secondItem="XGo-he-2Wq" secondAttribute="trailing" constant="16" id="67A-qL-I24"/>
+                            <constraint firstItem="sz8-43-EAp" firstAttribute="centerX" secondItem="nMN-Hf-U6W" secondAttribute="centerX" id="7Sw-vf-gsd"/>
+                            <constraint firstAttribute="trailing" secondItem="iIf-z8-c3E" secondAttribute="trailing" constant="16" id="BDZ-FJ-OWm"/>
+                            <constraint firstItem="PYV-xi-y7J" firstAttribute="leading" secondItem="nMN-Hf-U6W" secondAttribute="leading" constant="16" id="CDL-uA-JcY"/>
+                            <constraint firstItem="PYV-xi-y7J" firstAttribute="centerX" secondItem="nMN-Hf-U6W" secondAttribute="centerX" id="J8x-HX-n4b"/>
+                            <constraint firstItem="nVP-Yf-tuD" firstAttribute="top" secondItem="iIf-z8-c3E" secondAttribute="bottom" constant="25" id="KBM-so-vsp"/>
+                            <constraint firstItem="iIf-z8-c3E" firstAttribute="centerX" secondItem="nMN-Hf-U6W" secondAttribute="centerX" id="L9B-H1-kFz"/>
+                            <constraint firstItem="XGo-he-2Wq" firstAttribute="leading" secondItem="nMN-Hf-U6W" secondAttribute="leading" constant="16" id="PMD-8T-LDb"/>
+                            <constraint firstItem="sz8-43-EAp" firstAttribute="leading" secondItem="nMN-Hf-U6W" secondAttribute="leading" constant="82" id="PV6-gS-755"/>
+                            <constraint firstAttribute="trailing" secondItem="PYV-xi-y7J" secondAttribute="trailing" constant="16" id="VBh-CJ-gdj"/>
+                            <constraint firstItem="iIf-z8-c3E" firstAttribute="leading" secondItem="nMN-Hf-U6W" secondAttribute="leading" constant="16" id="WL4-GP-BYE"/>
+                            <constraint firstItem="XGo-he-2Wq" firstAttribute="centerX" secondItem="nMN-Hf-U6W" secondAttribute="centerX" id="Zi4-H6-G1B"/>
+                            <constraint firstItem="nVP-Yf-tuD" firstAttribute="leading" secondItem="nMN-Hf-U6W" secondAttribute="leading" constant="16" id="cNQ-IC-j2s"/>
+                            <constraint firstItem="PYV-xi-y7J" firstAttribute="top" secondItem="g3d-x9-86e" secondAttribute="bottom" constant="25" id="eGw-fm-kSY"/>
+                            <constraint firstAttribute="trailing" secondItem="nVP-Yf-tuD" secondAttribute="trailing" constant="16" id="fqf-fe-Gat"/>
+                            <constraint firstItem="nVP-Yf-tuD" firstAttribute="centerX" secondItem="nMN-Hf-U6W" secondAttribute="centerX" id="icP-5D-7pu"/>
+                            <constraint firstItem="sz8-43-EAp" firstAttribute="top" secondItem="XGo-he-2Wq" secondAttribute="bottom" constant="66" id="nnK-QJ-djS"/>
+                            <constraint firstItem="XGo-he-2Wq" firstAttribute="top" secondItem="nVP-Yf-tuD" secondAttribute="bottom" constant="25" id="syM-Ce-yKN"/>
+                            <constraint firstItem="iIf-z8-c3E" firstAttribute="top" secondItem="PYV-xi-y7J" secondAttribute="bottom" constant="25" id="tzL-qu-zmr"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="股票" id="bJZ-sP-jhP">
+                        <barButtonItem key="leftBarButtonItem" image="back" id="hhk-Wu-8Yu">
+                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="backBtn:" destination="ENz-I6-G2R" id="ckZ-KU-5Nd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="confirmStockBtn" destination="sz8-43-EAp" id="JjT-Sx-tUJ"/>
+                        <outlet property="stockAnalyzeTileTextField" destination="nVP-Yf-tuD" id="XZt-5S-lTO"/>
+                        <outlet property="stockCodeTextfield" destination="PYV-xi-y7J" id="IZE-Mr-wdm"/>
+                        <outlet property="stockContentTextView" destination="XGo-he-2Wq" id="kJY-cC-nZ1"/>
+                        <outlet property="stockNameTextField" destination="iIf-z8-c3E" id="qVW-Cz-jqR"/>
+                        <outlet property="topLayoutConstraint" destination="eGw-fm-kSY" id="JfY-5Y-HMl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cxj-Ss-UzN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-506.39999999999998" y="662.51874062968523"/>
         </scene>
         <!--分析详情-->
         <scene sceneID="qkR-PF-jhC">
@@ -140,7 +249,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oXo-t8-0kD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="264.80000000000001" y="214.54272863568218"/>
+            <point key="canvasLocation" x="214" y="-38"/>
         </scene>
         <!--股票推荐-->
         <scene sceneID="gb1-Re-93c">
@@ -168,10 +277,18 @@
                             <constraint firstItem="keb-O7-EwW" firstAttribute="top" secondItem="yEy-W4-pnm" secondAttribute="bottom" id="uKX-q8-VM5"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="股票推荐" id="W0y-9g-z6r"/>
+                    <navigationItem key="navigationItem" title="股票推荐" id="W0y-9g-z6r">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="MQj-s0-PlM">
+                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="publishStockBtn:" destination="278-kB-01H" id="SDL-BN-ZCD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="yEy-W4-pnm" id="Gr3-Oc-GrI"/>
                         <segue destination="qH3-K5-CCW" kind="push" identifier="teachStockSegueId" id="kSD-ow-wUt"/>
+                        <segue destination="ENz-I6-G2R" kind="push" identifier="stockRecommendSegueId" id="We1-yi-tzg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eVZ-kc-naC" userLabel="First Responder" sceneMemberID="firstResponder"/>
