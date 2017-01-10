@@ -99,7 +99,7 @@
             [self showHint:@"验证码发送成功，请注意查看短信"];
         }else{
             time = 0;
-            [self showHint:@"验证码发送失败"];
+            [self showHint:msg];
         }
     } errorResult:^(NSError *enginerError) {
         [self showHint:@"验证码发送出错"];

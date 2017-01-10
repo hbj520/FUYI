@@ -106,7 +106,7 @@ UITableViewDelegate>
 
     };
     cell.clickAgainstBlock=^(BOOL isSelect){
-        NSInteger unsuppportCount =   model.supportCount.integerValue;
+        NSInteger unsuppportCount =   model.opposeCount.integerValue;
         if (isSelect) {
             unsuppportCount++;
 

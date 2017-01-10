@@ -2967,8 +2967,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.youyou.FUYI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d3b1d6c0-4da6-4633-b74a-62aeab53db59";
-				PROVISIONING_PROFILE_SPECIFIER = "XC iOS Ad Hoc: com.youyou.FUYI";
+				PROVISIONING_PROFILE = "0be590c2-4f2c-4246-8103-e56d8cb311c7";
+				PROVISIONING_PROFILE_SPECIFIER = FuyiProductionProfile;
 			};
 			name = Debug;
 		};
@@ -3085,8 +3085,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.youyou.FUYI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d3b1d6c0-4da6-4633-b74a-62aeab53db59";
-				PROVISIONING_PROFILE_SPECIFIER = "XC iOS Ad Hoc: com.youyou.FUYI";
+				PROVISIONING_PROFILE = "0be590c2-4f2c-4246-8103-e56d8cb311c7";
+				PROVISIONING_PROFILE_SPECIFIER = FuyiProductionProfile;
 			};
 			name = Release;
 		};

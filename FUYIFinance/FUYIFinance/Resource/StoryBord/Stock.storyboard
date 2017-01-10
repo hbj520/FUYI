@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1Er-mr-jBb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1Er-mr-jBb">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -38,15 +38,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="10I-2B-1u0">
-                                <rect key="frame" x="1" y="388" width="374" height="2"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="10I-2B-1u0">
+                                <rect key="frame" x="0.0" y="388" width="375" height="2"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="以往股票推荐" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pj2-LE-hV0">
-                                <rect key="frame" x="0.0" y="369" width="375" height="13"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="       以往股票推荐" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pj2-LE-hV0">
+                                <rect key="frame" x="0.0" y="368" width="375" height="25"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AeK-U1-efb">
@@ -57,6 +57,10 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="304"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="recommendstock" translatesAutoresizingMaskIntoConstraints="NO" id="GOQ-mO-mIj">
+                                <rect key="frame" x="6" y="373" width="15" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -65,11 +69,11 @@
                             <constraint firstItem="Pj2-LE-hV0" firstAttribute="leading" secondItem="56K-iH-64r" secondAttribute="leading" id="4A4-IR-YAz"/>
                             <constraint firstAttribute="trailing" secondItem="AeK-U1-efb" secondAttribute="trailing" id="6gC-7b-ah9"/>
                             <constraint firstItem="HJn-ob-JS0" firstAttribute="top" secondItem="WxJ-Kf-ydc" secondAttribute="bottom" id="6hm-oo-roC"/>
-                            <constraint firstItem="Pj2-LE-hV0" firstAttribute="height" secondItem="56K-iH-64r" secondAttribute="height" multiplier="13:667" id="9sw-ey-07X"/>
+                            <constraint firstItem="Pj2-LE-hV0" firstAttribute="height" secondItem="56K-iH-64r" secondAttribute="height" multiplier="25:667" id="9sw-ey-07X"/>
                             <constraint firstAttribute="trailing" secondItem="HJn-ob-JS0" secondAttribute="trailing" id="B54-yZ-hpI"/>
                             <constraint firstItem="AeK-U1-efb" firstAttribute="top" secondItem="10I-2B-1u0" secondAttribute="bottom" id="MsB-XW-lD3"/>
                             <constraint firstItem="10I-2B-1u0" firstAttribute="height" secondItem="56K-iH-64r" secondAttribute="height" multiplier="2:667" id="NNC-mf-zFW"/>
-                            <constraint firstItem="Pj2-LE-hV0" firstAttribute="top" secondItem="HJn-ob-JS0" secondAttribute="bottom" constant="1" id="Pad-e7-q2X"/>
+                            <constraint firstItem="Pj2-LE-hV0" firstAttribute="top" secondItem="HJn-ob-JS0" secondAttribute="bottom" id="Pad-e7-q2X"/>
                             <constraint firstItem="AeK-U1-efb" firstAttribute="leading" secondItem="56K-iH-64r" secondAttribute="leading" id="RyQ-sH-c8D"/>
                             <constraint firstItem="AeK-U1-efb" firstAttribute="height" secondItem="56K-iH-64r" secondAttribute="height" multiplier="227:667" constant="50" id="c7w-UM-Kku"/>
                             <constraint firstItem="HJn-ob-JS0" firstAttribute="height" secondItem="56K-iH-64r" secondAttribute="height" multiplier="304:667" id="hJQ-pM-Rlf"/>
@@ -95,7 +99,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n3G-7d-RYy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-505" y="-38"/>
+            <point key="canvasLocation" x="-506.39999999999998" y="-38.23088455772114"/>
         </scene>
         <!--股票-->
         <scene sceneID="wCB-Ra-Owc">
@@ -222,18 +226,13 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SZo-sv-xsk">
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SZo-sv-xsk">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="SZo-sv-xsk" firstAttribute="leading" secondItem="h1D-iv-jbO" secondAttribute="leading" id="8rJ-Yu-xbt"/>
-                            <constraint firstItem="heA-rV-vkG" firstAttribute="top" secondItem="SZo-sv-xsk" secondAttribute="bottom" id="POM-9Z-3FH"/>
-                            <constraint firstAttribute="trailing" secondItem="SZo-sv-xsk" secondAttribute="trailing" id="jSf-yM-iDh"/>
-                            <constraint firstItem="SZo-sv-xsk" firstAttribute="top" secondItem="9nD-nQ-uEV" secondAttribute="bottom" id="qL7-HE-bfg"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="分析详情" id="kfv-rb-cEo">
                         <barButtonItem key="leftBarButtonItem" image="back" id="oam-cb-CCZ">
@@ -299,5 +298,6 @@
     </scenes>
     <resources>
         <image name="back" width="12" height="17"/>
+        <image name="recommendstock" width="15" height="15"/>
     </resources>
 </document>
