@@ -27,6 +27,9 @@
 - (IBAction)loginBtn:(id)sender;
 
 - (IBAction)forgotPassword:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *qqLogin;
+@property (weak, nonatomic) IBOutlet UIButton *weiboLogin;
+@property (weak, nonatomic) IBOutlet UIButton *wechatLogin;
 
 - (IBAction)registerBtn:(id)sender;
 - (IBAction)qqLogin:(id)sender;
@@ -35,6 +38,7 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *toplayout;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *distancewithtoplayout;
+@property (weak, nonatomic) IBOutlet UILabel *otherWayLoginLabel;
 @property (nonatomic,strong) UINavigationController *myNav;
 @property (assign,nonatomic) BOOL isTeacher;
 
@@ -56,6 +60,10 @@
         self.toplayout.constant = 30;
     }
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textfieldIsEditing:) name:UITextFieldTextDidChangeNotification object:nil];
+}
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self verifyThirdPlatform];
 }
 //  适配4s
 - (void)textFieldDidBeginEditing:(UITextField *)textField
@@ -103,6 +111,24 @@
 }
 */
 #pragma mark-PrivateMethod
+- (void)verifyThirdPlatform{
+    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"mqq://"]])
+    {
+        self.qqLogin.hidden = NO;
+       // NSLog(@"install--");
+    }
+    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"sinaweibo://"]])
+    {
+        self.weiboLogin.hidden = NO;
+       // NSLog(@"install--");
+    }
+    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"weixin://"]])
+    {
+        self.wechatLogin.hidden = NO;
+      //  NSLog(@"install--");
+    }
+    
+}
 - (void)loginSucessAct{
     //@{@"isTech":[NSNumber numberWithBool:self.isTeacher]}
    // NSNotification * notification = [NSNotification notificationWithName:@"refreshView" object:nil];
