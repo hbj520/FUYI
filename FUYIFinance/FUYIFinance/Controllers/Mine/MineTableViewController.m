@@ -98,6 +98,10 @@
         NSString * integral = [[Config Instance] getIntegral];
         NSString * integralvalue = [NSString stringWithFormat:@"积分:%@",integral];
         [self.GoalCount setTitle:integralvalue forState:UIControlStateNormal];
+        if (KIsTestCount) {
+            self.treasuebtn.hidden = YES;
+            self.YouBiCount.hidden = YES;
+        }
            }else{
         self.headimage.image = [UIImage imageNamed:@"person_headicon"];
         self.goldTeacherImageView.hidden = YES;

@@ -127,7 +127,9 @@
         self.wechatLogin.hidden = NO;
       //  NSLog(@"install--");
     }
-    
+    if (self.wechatLogin.hidden && self.weiboLogin.hidden && self.qqLogin.hidden) {
+        self.otherWayLoginLabel.hidden = YES;
+    }
 }
 - (void)loginSucessAct{
     //@{@"isTech":[NSNumber numberWithBool:self.isTeacher]}

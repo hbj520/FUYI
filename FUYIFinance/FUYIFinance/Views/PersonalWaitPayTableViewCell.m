@@ -20,6 +20,10 @@
     self.cancelBtn.layer.borderWidth =  0.5;
     self.cancelBtn.layer.cornerRadius = 3;
     self.sureBtn.layer.cornerRadius = 3;
+    if (KIsTestCount) {
+        self.treasureLabel.hidden = YES;
+        self.sureBtn.hidden = YES;
+    }
     
 }
 

@@ -64,7 +64,9 @@
     [self creatUI];
       _cnt = 0;
    
-    
+    if (KIsTestCount) {
+        self.buyNowBtn.hidden = YES;
+    }
     
     //[self judgeCollectSelected];//判断第一次进来的收藏按钮状态
 }

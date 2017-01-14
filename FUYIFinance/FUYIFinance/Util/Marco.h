@@ -29,6 +29,7 @@
 #define KUserId [[Config Instance] getUserid]
 #define KUserPassword [[Config Instance] getPassword]
 #define KGesturePsassword [[Config Instance] getGesturePassword]
+#define KIsTestCount     [[[Config Instance] getUserPhoneNum] isEqualToString:@"18918918911"]
 
 #define BaseUrl @"http://www.fuyi001.com:9999/index.php/app/"
 
