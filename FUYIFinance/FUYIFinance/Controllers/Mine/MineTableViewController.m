@@ -72,7 +72,7 @@
 //创建界面
 
 - (void)CreateUI{
-    if (KToken) {
+    if (KToken.length > 0) {
         self.teacherName.text = [[Config Instance] getUserName];
         self.headimage.hidden = NO;
         self.goldTeacherImageView.hidden = NO;
@@ -146,7 +146,7 @@
 }
 
 - (IBAction)accountManage:(id)sender {
-    if (!KToken) {
+    if (!KToken.length > 0) {
         [self LoginActCell];
     }else{
         [self performSegueWithIdentifier:@"protectaccountSegue" sender:nil];
@@ -157,7 +157,7 @@
 //显示未操作数
 - (void)addBadgeLabel
 {
-    if(!KToken){
+    if(KToken.length == 0){
         self.waitpaycountlabel.hidden = YES;
         self.waitjudgecount.hidden = YES;
         
@@ -187,7 +187,7 @@
 }
 
 - (IBAction)setting:(id)sender {
-    if (!KToken) {
+    if (KToken == 0) {
         [self LoginActCell];
     }else{
         if (KGesturePsassword) {
@@ -204,7 +204,7 @@
 }
 
 - (IBAction)message:(id)sender {
-    if(!KToken){
+    if(KToken.length == 0){
         [self LoginActCell];
     }else{
         if (KGesturePsassword) {
@@ -222,7 +222,7 @@
 
 //待付款
 - (void)prepareAct:(UIGestureRecognizer *)ges{
-    if (!KToken) {
+    if (KToken.length == 0) {
         [self LoginActCell];
     }else{
         if (KGesturePsassword) {
@@ -242,7 +242,7 @@
 //我是商家
 - (void)shopKeeperAct
 {
-      if (!KToken) {
+      if (KToken.length == 0) {
         [self LoginAct];
     }else{
         if (KGesturePsassword) {
@@ -261,7 +261,7 @@
 //我的评价
 - (void)judgeAct
 {
-    if (!KToken) {
+    if (KToken.length == 0) {
         [self LoginAct];
     }else{
         if (KGesturePsassword) {
@@ -280,7 +280,7 @@
 //收藏的宝贝
 - (void)favoriteCollectionAct
 {
-    if (!KToken) {
+    if (KToken.length == 0) {
         [self LoginAct];
     }else{
         if (KGesturePsassword) {
@@ -299,7 +299,7 @@
 //待收货
 - (void)PrePareforgoodAct
 {
-    if(!KToken){
+    if(KToken.length == 0){
         [self LoginActCell];
     }else{
         if(KGesturePsassword){
@@ -317,7 +317,7 @@
 //待评价
 - (void)prepareForjudgeAct
 {
-    if (!KToken) {
+    if (KToken.length == 0) {
        [self LoginActCell];
     }else{
         if (KGesturePsassword) {
@@ -336,7 +336,7 @@
 //我的订单
 - (void)MyorderAct
 {
-    if (!KToken) {
+    if (KToken.length == 0) {
         [self LoginActCell];
     }else{
         if (KGesturePsassword) {
@@ -385,7 +385,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 
-    if (!KToken) {
+    if (KToken.length == 0) {
         [self LoginActCell];
     }else{
         if (KGesturePsassword) {

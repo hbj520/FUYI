@@ -114,7 +114,7 @@
 - (void)verifyThirdPlatform{
     if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"mqq://"]])
     {
-        self.qqLogin.hidden = NO;
+     //   self.qqLogin.hidden = NO;
        // NSLog(@"install--");
     }
     if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"sinaweibo://"]])
